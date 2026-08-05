@@ -3,31 +3,24 @@
 import { useEffect, useRef, useState } from 'react';
 import { hasPhoto, WeaponPhoto } from '@/components/weapon-photo';
 import type { Attachment, Weapon } from '@/data/types';
-import {
-  anchorsForWeapon,
-  attachmentImagePath,
-  weaponImagePath,
-  partWidth,
-  SLOT_MOUNT,
-  PART_REGISTRATION,
-} from './manifest';
+import { weaponImagePath } from './manifest';
 
 /**
  * Preview da arma, em imagens.
  *
  * Ordem das fontes:
  *
- * 1. `public/armas/<id>.png` — arte própria. Só ela permite compor as peças por
- *    cima, porque a imagem é da arma nua e os pontos de ancoragem valem para
- *    ela. É o único caminho em que o preview reage aos acessórios.
- * 2. Foto do jogo, de fonte externa. Mostra a arma inteira e já montada de
- *    fábrica, então não recebe camadas: encaixar um acessório não muda a imagem.
+ * 1. `public/armas/<id>.png` — arte própria, se alguém tiver colocado uma.
+ * 2. Foto do jogo, de fonte externa (ver `weapon-images.ts`).
  * 3. Nenhuma das duas — aparece um marcador com o nome da arma.
+ *
+ * Qualquer uma delas mostra a arma inteira e já montada de fábrica, então o
+ * quadro não muda quando um acessório é encaixado: quem responde à montagem é
+ * o ícone de cada peça no painel de slots, e os números e gráficos ao lado.
  */
 
 interface Props {
   weapon: Weapon;
-  attachments: Attachment[];
   withLabel?: boolean;
   className?: string;
 }
@@ -35,16 +28,14 @@ interface Props {
 /** Proporção do quadro, igual à esperada das imagens. */
 const ASPECT_RATIO = '8 / 3';
 
-export function WeaponPreview({ weapon, attachments, withLabel = false, className }: Props) {
+export function WeaponPreview({ weapon, withLabel = false, className }: Props) {
   const [noOwnImage, setNoOwnImage] = useState(false);
   const [photoFailed, setPhotoFailed] = useState(false);
-  const [brokenParts, setBrokenParts] = useState<Set<string>>(new Set());
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     setNoOwnImage(false);
     setPhotoFailed(false);
-    setBrokenParts(new Set());
   }, [weapon.id]);
 
   /*
@@ -70,59 +61,15 @@ export function WeaponPreview({ weapon, attachments, withLabel = false, classNam
     return <Placeholder weapon={weapon} className={className} />;
   }
 
-  const anchors = anchorsForWeapon(weapon);
-
   return (
     <div className={className} style={{ position: 'relative', aspectRatio: ASPECT_RATIO }}>
       <img
         ref={imgRef}
         src={weaponImagePath(weapon.id)}
-        alt={`${weapon.name} sem acessórios`}
+        alt={weapon.name}
         onError={() => setNoOwnImage(true)}
         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain' }}
       />
-
-      {attachments.map((attachment) => {
-        if (!attachment.part) return null;
-        if (brokenParts.has(attachment.id)) return null;
-
-        const mount = SLOT_MOUNT[attachment.slot];
-        if (!mount) return null;
-
-        const anchor = anchors[mount];
-        const registration = PART_REGISTRATION[mount];
-        const width = partWidth(attachment.part);
-
-        return (
-          // O deslocamento de ancoragem fica no wrapper; a animação de encaixe
-          // fica na imagem, senão uma sobrescreveria o `transform` da outra.
-          <span
-            key={attachment.id}
-            style={{
-              position: 'absolute',
-              left: `${anchor.x * 100}%`,
-              top: `${anchor.y * 100}%`,
-              width: `${width * 100}%`,
-              transform: `translate(${-registration.x * 100}%, ${-registration.y * 100}%)`,
-              lineHeight: 0,
-            }}
-          >
-            <img
-              src={attachmentImagePath(attachment.id, weapon.category, attachment.originalName)}
-              alt={attachment.name}
-              className="peca-encaixe"
-              onError={() =>
-                setBrokenParts((current) => {
-                  const next = new Set(current);
-                  next.add(attachment.id);
-                  return next;
-                })
-              }
-              style={{ width: '100%', display: 'block' }}
-            />
-          </span>
-        );
-      })}
 
       {withLabel && <Label weapon={weapon} />}
     </div>

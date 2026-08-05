@@ -1,38 +1,23 @@
-# Imagens do preview
+# Imagens e ícones
 
-O preview da arma é montado **em camadas**: uma imagem da arma sem acessórios e
-uma imagem por peça, sobrepostas em tempo real sobre pontos de ancoragem.
+Duas coisas diferentes aparecem na tela, e elas seguem caminhos separados:
 
-Isso existe por um motivo aritmético, não por preguiça. Contando o catálogo real
-de acessórios compatíveis, com o slot vazio como opção:
-
-| | |
-| --- | --- |
-| Combinações só da AK4D | **336.798.000** |
-| Total somando as 63 armas de fogo | **21.218.274.000 imagens** |
-| Espaço a 300 KB por PNG | **6.365 TB** |
-| Tempo gerando 10 por segundo | **67 anos** |
-
-Em camadas, o total cai para **108 arquivos** e qualquer uma daquelas 21 bilhões
-de combinações continua aparecendo montada.
-
-**O preview depende inteiramente destes arquivos.** Não existe mais desenho
-vetorial de reserva: sem a arte própria, o preview mostra a foto do jogo — que é
-da arma já montada de fábrica e, por isso, não reage aos acessórios. É colocando
-os PNGs aqui que o preview volta a responder à montagem.
-
-Não é preciso mexer em código ao adicionar imagens: basta soltar o PNG na pasta.
+| O quê | Como é desenhado | Onde mora |
+| --- | --- | --- |
+| A arma, no quadro de preview | fotografia | `public/armas/` ou fonte externa |
+| Acessórios e gadgets | ícone vetorial | `src/components/icons/` |
 
 ---
 
-## O que gerar
+## A arma
 
-```
-public/armas/<id-da-arma>.png          63 arquivos
-public/acessorios/<id-do-acessorio>.png 45 arquivos
-```
+O preview procura, nesta ordem:
 
-Para ver a lista completa de ids e o que já está pronto:
+1. `public/armas/<id-da-arma>.png` — arte própria, se alguém colocar uma;
+2. a foto do jogo, hospedada fora do projeto (`src/data/weapon-images.ts`);
+3. um marcador com o nome da arma, quando nenhuma das duas carrega.
+
+Para ver quais ids ainda não têm arte própria:
 
 ```bash
 node scripts/imagens.mjs          # o que falta
@@ -40,135 +25,55 @@ node scripts/imagens.mjs --todas  # tudo, com a situação de cada um
 node scripts/imagens.mjs --md     # tabela em Markdown
 ```
 
-Armas de corpo a corpo não entram: elas não usam o compositor.
+Não é preciso mexer em código para adicionar uma: basta soltar o PNG na pasta com
+o id da arma como nome.
 
----
-
-## Especificação dos arquivos
-
-### Comum a todos
+### Especificação
 
 | Item | Valor |
 | --- | --- |
-| Formato | PNG-24 com canal alfa (fundo **transparente**, não preto) |
-| Cor | sRGB |
-| Peso | idealmente abaixo de 300 KB por arquivo |
+| Formato | PNG-24, sRGB |
+| Peso | idealmente abaixo de 300 KB |
+| Proporção | 8:3 (o quadro do preview) |
 | Orientação | arma apontando para a **direita**, coronha à esquerda |
-| Vista | lateral, perfeitamente de perfil, sem perspectiva |
+| Vista | lateral, de perfil |
 
-Perspectiva é o ponto mais importante: se a arma base estiver levemente girada e
-as peças não, o encaixe fica visivelmente torto. Renderize tudo com a **mesma
-câmera ortográfica**.
+### Fontes externas
 
-### Imagem da arma
+`weapon-images.ts` guarda, por arma, até duas URLs: a arte de catálogo da
+Battlefield Wiki (`<ARMA>_BF6.png` — a arma no cenário de inspeção do jogo) e um
+render de reserva. Nada é copiado para o repositório; as imagens são carregadas
+direto da origem, o que tem duas consequências:
 
-- **2400 × 900 px**, proporção 8:3 (o preview usa exatamente essa proporção)
-- A arma ocupa a largura toda, com uma folga de ~4% em cada lado
-- **Sem** mira, sem boca de fogo, sem empunhadura inferior, sem laser: só o
-  corpo, o cano de fábrica, a coronha de fábrica e o carregador de fábrica
-- Centralizada verticalmente pelo eixo do cano
-
-### Imagem do acessório
-
-- Só a peça, recortada justa, sem sombra projetada no fundo
-- Altura livre; a **largura** é o que importa, porque a peça é escalada em
-  proporção à largura da arma (ver tabela abaixo)
-- Renderize na mesma escala física da arma: uma luneta de 6× deve ser desenhada
-  no tamanho que ela teria montada em cima de um fuzil de 2400 px
-
-**Ponto de encaixe** — a parte da imagem que encosta na arma:
-
-| Slot | Encaixa pela | Enquadre a peça de modo que… |
-| --- | --- | --- |
-| Mira, Acessório Óptico | base, centro | a sapata fique rente à borda inferior |
-| Cano, Boca | esquerda, meio | a rosca fique rente à borda esquerda |
-| Acoplamento Inferior | topo, centro | a garra fique rente à borda superior |
-| Carregador | topo, centro | o lábio fique rente à borda superior |
-| Ergonomia (coronha) | direita, meio | o tubo fique rente à borda direita |
-| Acessórios laterais | esquerda, meio | a garra fique rente à borda esquerda |
-
-### Munição: duas versões por cartucho
-
-O formato do estojo muda com a arma. Fuzil, carabina, LMG e rifle de precisão
-usam cartucho **garrafa** — corpo largo, ombro, pescoço fino e o projétil na
-ponta. Pistola e submetralhadora (9 mm, .45) usam estojo **reto**: o projétil
-assenta direto sobre um corpo de largura constante, e o conjunto é bem mais
-curto.
-
-Por isso cada munição de cartucho tem duas imagens:
-
-```
-public/acessorios/municao-fmj.png            garrafa — fuzis, carabinas, LMGs, DMRs, snipers
-public/acessorios/municao-fmj--pistola.png   reto    — pistolas e submetralhadoras
-```
-
-O sufixo `--pistola` é escolhido sozinho, a partir da categoria da arma
-(`attachmentImagePath` em `src/components/weapon-preview/manifest.ts`). Sem o
-arquivo, a versão garrafa é usada nas duas.
-
-As sete munições de cartucho têm as duas versões: Encamisada, Núcleo de
-Tungstênio, Estojo Polimérico, Grau Competição, Frangível, Ponta Oca e Ponta
-Sintética. Chumbo Grosso, Flechette e Balote são de escopeta e têm desenho
-próprio.
-
-### Proporção de cada peça
-
-A largura da peça é uma fração da largura da imagem da arma, definida em
-`src/components/weapon-preview/manifest.ts` (`PART_WIDTH`). Os valores
-atuais, em fração:
-
-| Peça | Fração | Peça | Fração |
-| --- | --- | --- | --- |
-| Supressor | 0,13 | Luneta média | 0,16 |
-| Freio | 0,055 | Luneta longa | 0,23 |
-| Compensador | 0,065 | Ampliador | 0,06 |
-| Quebra-chamas | 0,07 | Empunhadura vertical | 0,03 |
-| Cano curto | 0,08 | Empunhadura angular | 0,045 |
-| Cano longo | 0,21 | Apoio de mão | 0,025 |
-| Cano pesado | 0,18 | Bipé | 0,10 |
-| Ponto vermelho | 0,065 | Carregador | 0,045 |
-| Holográfica | 0,09 | Tambor | 0,10 |
-| Ferro | 0,03 | Laser | 0,05 |
-| Coronha leve | 0,11 | Lanterna | 0,065 |
-| Coronha pesada | 0,13 | | |
-
-Se uma peça sair grande ou pequena demais, ajuste o número nessa tabela em vez
-de reexportar a imagem.
+- é material da EA/DICE servido por terceiros, e pode sair do ar sem aviso;
+- a foto mostra a arma **montada de fábrica**, então ela não muda quando um
+  acessório é encaixado.
 
 ---
 
-## Ajuste fino do encaixe
+## Acessórios e gadgets
 
-As âncoras de cada arma são derivadas do arquétipo dela e valem para a maioria
-dos casos. Quando uma imagem específica precisar de correção — o trilho está mais
-alto, o poço do carregador mais à frente — preencha `WEAPON_ANCHOR_OVERRIDES` no
-`manifest.ts`:
+Não são imagens — são ícones desenhados em SVG, com traço em `currentColor`, de
+modo que acompanham o tema e o estado do bloco (aceso quando há peça, apagado
+quando o slot está vazio).
 
-```ts
-export const WEAPON_ANCHOR_OVERRIDES: Record<string, Partial<ImageAnchors>> = {
-  ak4d: {
-    rail: { x: 0.36, y: 0.42 },       // fração da largura e da altura da imagem
-    magazine: { x: 0.48, y: 0.66 },
-  },
-};
-```
+| Arquivo | Cobre |
+| --- | --- |
+| `src/components/icons/attachment-icon.tsx` | os 317 acessórios |
+| `src/components/icons/gadget-icon.tsx` | os 43 gadgets, equipamentos e arremessáveis |
 
-Os valores são frações, então continuam corretos se você trocar a resolução das
-imagens depois.
+A diferença entre os dois é proposital. Gadget é item único, então cada um tem o
+seu desenho. Acessório se agrupa por **família**: o que o jogador precisa
+reconhecer é que aquilo é um supressor, uma luneta longa, um tambor — e não qual
+dos 152 canos é. `desenhoPara()` escolhe o glifo pelo slot e por palavras-chave
+do nome original, incluindo a ampliação da mira (pontual, prismático, luneta
+média, luneta longa) e o comprimento e o perfil do cano.
 
----
+Para acrescentar um desenho, basta adicionar o `case` correspondente — nenhum
+arquivo novo, nenhum asset.
 
-## Sobre direitos autorais
+### Conferência
 
-O modo **Foto do jogo** carrega capturas do Battlefield 6 hospedadas em sites de
-terceiros (IMFDB e battlefieldmeta.gg), exatamente como o protótipo
-`bf6-arsenal.html` faz. Nada é copiado para cá, mas vale saber o que isso
-implica:
-
-- é material da EA/DICE hospedado por terceiros, e servir a partir da origem
-  depende de esses sites permitirem;
-- pode parar de funcionar sem aviso, e aí o preview cai sozinho no esquema.
-
-Para uma versão pública sem essa dependência, o caminho é `public/armas/`: arte
-própria, licenciada ou modelos low-poly com direito de uso, que têm prioridade
-sobre a fonte externa.
+`/icones` é uma folha de contato com todos os desenhos lado a lado, fora do menu.
+É onde se percebe que duas famílias ficaram parecidas demais ou que um traço
+some no tamanho real.

@@ -151,7 +151,7 @@ export function SlotsPanel({
                 className="flex h-14 w-full items-center justify-center"
                 style={{ background: 'var(--superficie-alta)' }}
               >
-                <AttachmentThumb attachment={current} slot={slot} size={52} category={weapon.category} />
+                <AttachmentThumb attachment={current} slot={slot} size={52} />
               </span>
 
               <span
@@ -288,7 +288,7 @@ function AttachmentOption({
         className="flex h-12 w-12 shrink-0 items-center justify-center"
         style={{ background: 'var(--superficie-alta)' }}
       >
-        <AttachmentThumb attachment={attachment} slot={slot} size={40} category={category} />
+        <AttachmentThumb attachment={attachment} slot={slot} size={40} />
       </span>
 
       <span className="min-w-0 flex-1">

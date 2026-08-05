@@ -42,37 +42,28 @@ de WebView, e pode ser instalada na tela inicial como aplicativo (PWA).
   equivalente da mesma categoria, para não ficarem sem opção.
 - Trocar de arma descarta sozinho o que não faz sentido na nova.
 
-### Preview que responde
+### Preview e ícones
 
-O desenho da arma é montado **em camadas**, não escolhido de uma pasta de imagens
-prontas. Encaixar um supressor faz o cano crescer, um cano longo estica a arma e
-empurra a boca de fogo, uma luneta troca a peça sobre o trilho, um tambor engorda
-o poço do carregador — com uma animação curta de encaixe a cada mudança.
+O quadro de preview mostra a arma como ela aparece no Battlefield 6. As fontes,
+em ordem:
 
-A razão é aritmética: uma imagem por combinação seria impossível. Só a AK4D tem
-**336.798.000** combinações de acessórios e as 63 armas de fogo somam
-**21.218.274.000** — 6.365 TB de PNG, 67 anos de geração a 10 por segundo. Em
-camadas bastam 108 arquivos, e toda combinação continua aparecendo montada.
-
-O preview é sempre imagem, nunca desenho vetorial. As fontes, em ordem:
-
-1. **`public/armas/<id>.png`** — arte própria. É a única que aceita as camadas de
-   acessório por cima, porque a imagem é da arma nua e os pontos de ancoragem
-   valem para ela. É o único caminho em que o preview reage à montagem.
-2. **Foto do jogo** — a arma como aparece no Battlefield 6, carregada de fonte
-   externa (as mesmas URLs do protótipo `bf6-arsenal.html`). Mostra a arma
-   inteira e já montada de fábrica, então **não recebe camadas**: encaixar um
-   acessório não muda a imagem.
+1. **`public/armas/<id>.png`** — arte própria, se alguém colocar uma;
+2. **Foto do jogo** — carregada de fonte externa: a arte de catálogo da
+   Battlefield Wiki e, como reserva, um render de terceiros;
 3. **Marcador** com o nome da arma, quando não há nem uma nem outra.
 
 Hoje 62 das 68 armas têm foto; as 6 restantes (corpo a corpo e Interdictor)
-mostram o marcador. Enquanto `public/armas/` estiver vazia, o preview não
-responde aos acessórios — quem responde são as estatísticas e os gráficos.
-Preencher essa pasta, seguindo `IMAGENS.md`, é o que devolve o preview dinâmico.
+mostram o marcador.
 
-Nos blocos de slot, cada peça montada aparece pela sua imagem em
-`public/acessorios/<id>.png`; sem ela, o bloco mostra a sigla do slot em âmbar
-quando há peça encaixada e em cinza quando está vazio.
+Todas essas fontes mostram a arma **montada de fábrica**, então o quadro não muda
+quando um acessório entra. Quem responde à montagem é o resto da tela: os
+números, os gráficos e o **ícone de cada peça** no bloco do slot, que aparece
+com uma animação curta de encaixe a cada troca.
+
+O ícone é um desenho vetorial em `currentColor` — aceso quando há peça, apagado
+quando o slot está vazio. Ele diz o que está encaixado: supressor, luneta longa,
+tambor, cano pesado. Os gadgets têm um ícone próprio cada um. `IMAGENS.md`
+detalha como os desenhos são escolhidos, e `/icones` os mostra todos lado a lado.
 
 ### Números
 
@@ -250,8 +241,8 @@ src/
 │   ├── loadout.ts          o loadout e a limpeza de incompatíveis
 │   └── share.ts            codificação do link
 ├── componentes/
-│   ├── weapon-preview/     compositor por camadas (imagens)
-│   ├── weapon-svg/         silhuetas e peças vetoriais
+│   ├── weapon-preview/     quadro da arma
+│   ├── icons/              ícones de acessório e de gadget
 │   ├── charts.tsx          dano e queda
 │   ├── stats-panel.tsx     estatísticas com comparação
 │   ├── slots-panel.tsx     montagem e orçamento
@@ -267,12 +258,17 @@ src/
 
 ## Como estender
 
-**Nova arma:** acrescente a entrada em `src/dados/armas.ts`. Os slots vêm da
-categoria e a silhueta vem do arquétipo — não é preciso mexer em mais nada.
-Marque `temporada` e `procedencia`.
+**Nova arma:** acrescente a entrada em `src/data/weapons.ts`. Os slots vêm da
+categoria — não é preciso mexer em mais nada. Marque `season` e `provenance`, e
+aponte a foto em `src/data/weapon-images.ts`.
 
-**Novo acessório:** acrescente em `src/dados/acessorios.ts` com o slot, o custo em
-pontos, os modificadores e a compatibilidade. Se tiver `peca`, aparece no preview.
+**Novo acessório:** acrescente em `src/data/attachments.ts` com o slot, o custo em
+pontos, os modificadores e a compatibilidade. O ícone sai do slot e do nome
+original; se a peça for de uma família nova, acrescente o `case` em
+`src/components/icons/attachment-icon.tsx`.
+
+**Novo gadget:** acrescente em `src/data/gadgets.ts` e desenhe o glifo em
+`src/components/icons/gadget-icon.tsx`, com o id do gadget como chave.
 
 **Nova temporada:** as armas novas entram com o campo `temporada`, que já é usado
 como filtro e aparece no cartão de cada arma.

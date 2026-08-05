@@ -1,9 +1,10 @@
 /**
  * Fotos das armas no jogo, servidas de fontes externas.
  *
- * As URLs vêm do protótipo `bf6-arsenal.html`: capturas do Battlefield 6
- * publicadas no IMFDB e, como reserva, os renders do battlefieldmeta.gg. Nada é
- * copiado para o projeto — as imagens são carregadas direto da origem.
+ * As URLs vêm de três origens, nesta ordem de preferência: a arte de catálogo da
+ * Battlefield Wiki (`<ARMA>_BF6.png` — a arma de lado, no cenário de inspeção do
+ * jogo), capturas publicadas no IMFDB, e os renders do battlefieldmeta.gg como
+ * reserva. Nada é copiado para o projeto — as imagens vêm direto da origem.
  *
  * Duas consequências que valem registrar:
  *
@@ -24,6 +25,9 @@ export interface WeaponImageSources {
   render?: string;
 }
 
+/** CDN da Battlefield Wiki. O caminho de duas pastas é o hash do nome do arquivo. */
+const WIKI = 'https://static.wikia.nocookie.net/battlefield/images';
+
 export const WEAPON_IMAGES: Record<string, WeaponImageSources> = {
   ak4d: { photo: 'https://www.imfdb.org/images/thumb/4/4e/BF6_AK4D_PTR.jpg/600px-BF6_AK4D_PTR.jpg', render: 'https://img.battlefieldmeta.gg/ak4d_version5/gunMiniDisplay' },
   'tr-7': { photo: 'https://www.imfdb.org/images/thumb/4/40/BF6_Tavor7.jpg/600px-BF6_Tavor7.jpg', render: 'https://img.battlefieldmeta.gg/tr-7_version2/gunMiniDisplay' },
@@ -31,7 +35,7 @@ export const WEAPON_IMAGES: Record<string, WeaponImageSources> = {
   b36a4: { photo: 'https://www.imfdb.org/images/thumb/c/cb/BF6_G36_A4.jpg/600px-BF6_G36_A4.jpg', render: 'https://img.battlefieldmeta.gg/b36a4_version1/gunMiniDisplay' },
   l85a3: { photo: 'https://www.imfdb.org/images/thumb/3/31/BF6_L85A3.jpg/600px-BF6_L85A3.jpg', render: 'https://img.battlefieldmeta.gg/l85a3_version2/gunMiniDisplay' },
   m433: { photo: 'https://www.imfdb.org/images/thumb/1/19/BF6_HK433_%280%29.jpg/600px-BF6_HK433_%280%29.jpg', render: 'https://img.battlefieldmeta.gg/m433_version2/gunMiniDisplay' },
-  'kord-6p67': { photo: 'https://www.imfdb.org/images/thumb/c/c3/BF6_6P67_(1).jpg/600px-BF6_6P67_(1).jpg', render: 'https://img.battlefieldmeta.gg/kord-6p67_version2/gunMiniDisplay' },
+  'kord-6p67': { photo: `${WIKI}/4/40/KORD_6P67_BF6.png/revision/latest/scale-to-width-down/800`, render: 'https://img.battlefieldmeta.gg/kord-6p67_version2/gunMiniDisplay' },
   'nvo-228e': { photo: 'https://www.imfdb.org/images/thumb/d/db/BF6_NVO_customize.jpg/600px-BF6_NVO_customize.jpg', render: 'https://img.battlefieldmeta.gg/nvo-228e_version2/gunMiniDisplay' },
   ef88: { photo: 'https://www.imfdb.org/images/thumb/2/2a/BF6_EF88.jpg/600px-BF6_EF88.jpg', render: 'https://img.battlefieldmeta.gg/ef88/gunMiniDisplay' },
   'vcr-2': { photo: 'https://www.imfdb.org/images/thumb/4/41/BF6_VHS-2_%280%29.jpg/600px-BF6_VHS-2_%280%29.jpg', render: 'https://img.battlefieldmeta.gg/vcr-2/gunMiniDisplay' },
@@ -41,9 +45,9 @@ export const WEAPON_IMAGES: Record<string, WeaponImageSources> = {
   'm417-a2': { photo: 'https://www.imfdb.org/images/thumb/4/4e/BF6_LABSAUG09_HK417A2.jpg/600px-BF6_LABSAUG09_HK417A2.jpg', render: 'https://img.battlefieldmeta.gg/m417-a2_version1/gunMiniDisplay' },
   'grt-bc': { photo: 'https://www.imfdb.org/images/thumb/9/92/BF6_GrotB10_%280%29.jpg/600px-BF6_GrotB10_%280%29.jpg', render: 'https://img.battlefieldmeta.gg/grt-bc_version2/gunMiniDisplay' },
   'qbz-192': { photo: 'https://www.imfdb.org/images/thumb/a/a2/BF6_QBZ192.jpg/600px-BF6_QBZ192.jpg', render: 'https://img.battlefieldmeta.gg/qbz-192_version2/gunMiniDisplay' },
-  'sg-553r': { photo: 'https://www.imfdb.org/images/thumb/5/51/BF6_SG_553_R_%281%29.jpg/600px-BF6_SG_553_R_%281%29.jpg', render: 'https://img.battlefieldmeta.gg/sg-553r_version2/gunMiniDisplay' },
+  'sg-553r': { photo: `${WIKI}/e/ea/SG_553R_BF6.png/revision/latest/scale-to-width-down/800`, render: 'https://img.battlefieldmeta.gg/sg-553r_version2/gunMiniDisplay' },
   'sor-300sc': { photo: 'https://www.imfdb.org/images/thumb/c/c2/BF6_SCARSC.jpg/600px-BF6_SCARSC.jpg', render: 'https://img.battlefieldmeta.gg/sor-300sc_version1/gunMiniDisplay' },
-  m277: { photo: 'https://www.imfdb.org/images/thumb/1/10/BF6_M4_11.5in.jpg/600px-BF6_M4_11.5in.jpg', render: 'https://img.battlefieldmeta.gg/m277_version2/gunMiniDisplay' },
+  m277: { photo: `${WIKI}/b/b1/M277_BF6.png/revision/latest/scale-to-width-down/800`, render: 'https://img.battlefieldmeta.gg/m277_version2/gunMiniDisplay' },
   'brod-3': { render: 'https://img.battlefieldmeta.gg/brod-3/gunMiniDisplay' },
   'scw-10': { photo: 'https://www.imfdb.org/images/thumb/d/dd/BF6_APC10.jpg/600px-BF6_APC10.jpg', render: 'https://img.battlefieldmeta.gg/scw-10_version2/gunMiniDisplay' },
   kv9: { photo: 'https://www.imfdb.org/images/thumb/4/40/BF6_Vector.jpg/600px-BF6_Vector.jpg', render: 'https://img.battlefieldmeta.gg/kv9_version2/gunMiniDisplay' },
@@ -53,7 +57,7 @@ export const WEAPON_IMAGES: Record<string, WeaponImageSources> = {
   sl9: { photo: 'https://www.imfdb.org/images/thumb/f/f7/BF6_SL9.jpg/600px-BF6_SL9.jpg', render: 'https://img.battlefieldmeta.gg/sl9_version2/gunMiniDisplay' },
   'umg-40': { photo: 'https://www.imfdb.org/images/thumb/b/bf/BF6_UMP40.jpg/600px-BF6_UMP40.jpg', render: 'https://img.battlefieldmeta.gg/umg-40_version2/gunMiniDisplay' },
   'usg-90': { photo: 'https://www.imfdb.org/images/thumb/9/91/BF6_P90.jpg/600px-BF6_P90.jpg', render: 'https://img.battlefieldmeta.gg/usg-90_version2/gunMiniDisplay' },
-  cz3a1: { photo: 'https://www.imfdb.org/images/thumb/e/e3/Evo_3_A1.jpg/400px-Evo_3_A1.jpg', render: 'https://img.battlefieldmeta.gg/cz3a1/gunMiniDisplay' },
+  cz3a1: { photo: `${WIKI}/2/2e/CZ3A1_Factory_BF6.png/revision/latest/scale-to-width-down/800`, render: 'https://img.battlefieldmeta.gg/cz3a1/gunMiniDisplay' },
   'pp-19': { photo: 'https://www.imfdb.org/images/thumb/9/95/BF6_PP-19_(0).jpg/600px-BF6_PP-19_(0).jpg', render: 'https://img.battlefieldmeta.gg/pp-19/gunMiniDisplay' },
   'drs-iar': { photo: 'https://www.imfdb.org/images/thumb/9/9f/BF6_M27_custom.jpg/600px-BF6_M27_custom.jpg', render: 'https://img.battlefieldmeta.gg/drs-iar_version2/gunMiniDisplay' },
   'kts100-mk8': { photo: 'https://www.imfdb.org/images/thumb/b/bc/BF6_Ultimax_%281%29.jpg/600px-BF6_Ultimax_%281%29.jpg', render: 'https://img.battlefieldmeta.gg/kts100-mk8_version1/gunMiniDisplay' },
@@ -71,7 +75,7 @@ export const WEAPON_IMAGES: Record<string, WeaponImageSources> = {
   'svk-86': { photo: 'https://www.imfdb.org/images/thumb/6/63/BF6_SVCh_(0).jpg/600px-BF6_SVCh_(0).jpg', render: 'https://img.battlefieldmeta.gg/svk-86_version2/gunMiniDisplay' },
   vssm: { photo: 'https://www.imfdb.org/images/thumb/b/b2/BF6_VSSM.jpg/600px-BF6_VSSM.jpg', render: 'https://img.battlefieldmeta.gg/vssm/gunMiniDisplay' },
   'grt-cps': { photo: 'https://www.imfdb.org/images/thumb/d/d1/BF6_Grot_C20PC_%280%29.jpg/600px-BF6_Grot_C20PC_%280%29.jpg', render: 'https://img.battlefieldmeta.gg/grt-cps/gunMiniDisplay' },
-  'm2010-esr': { photo: 'https://www.imfdb.org/images/thumb/e/ee/XM2010.jpg/450px-XM2010.jpg', render: 'https://img.battlefieldmeta.gg/m2010-esr_version2/gunMiniDisplay' },
+  'm2010-esr': { photo: `${WIKI}/a/a9/M2010_ESR_BF6.png/revision/latest/scale-to-width-down/800`, render: 'https://img.battlefieldmeta.gg/m2010-esr_version2/gunMiniDisplay' },
   'sv-98': { photo: 'https://www.imfdb.org/images/thumb/1/1a/BF6_SV-98M_(0).jpg/600px-BF6_SV-98M_(0).jpg', render: 'https://img.battlefieldmeta.gg/sv-98_version2/gunMiniDisplay' },
   psr: { photo: 'https://www.imfdb.org/images/thumb/4/4e/BF6_MRAD.jpg/600px-BF6_MRAD.jpg', render: 'https://img.battlefieldmeta.gg/psr_version2/gunMiniDisplay' },
   'mini-scout': { photo: 'https://www.imfdb.org/images/thumb/1/18/BF6_QMini.jpg/600px-BF6_QMini.jpg', render: 'https://img.battlefieldmeta.gg/mini-scout_version1/gunMiniDisplay' },

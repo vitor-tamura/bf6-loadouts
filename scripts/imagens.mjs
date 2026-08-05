@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 /**
- * Lista as imagens esperadas pelo preview e mostra quais ainda faltam.
+ * Lista as artes de arma esperadas pelo preview e mostra quais ainda faltam.
+ *
+ * Acessórios não entram: eles são ícones em `src/components/icons/`, não PNGs.
  *
  *   node scripts/imagens.mjs           → resumo do que falta
  *   node scripts/imagens.mjs --todas   → lista completa, inclusive as prontas
@@ -39,12 +41,7 @@ const armas = extrair('src/data/weapons.ts', false).filter(
   // Corpo a corpo não usa o compositor de camadas.
   (a) => !['kbr-mark-ii', 'bighorn-hk-16', 'marreta-14lb', 'nomad-cx-12', 'ripper-14'].includes(a.id),
 );
-const acessorios = extrair('src/data/attachments.ts', true);
-
-const grupos = [
-  { titulo: 'Armas', pasta: 'public/armas', itens: armas },
-  { titulo: 'Acessórios', pasta: 'public/acessorios', itens: acessorios },
-];
+const grupos = [{ titulo: 'Armas', pasta: 'public/armas', itens: armas }];
 
 const todas = process.argv.includes('--todas');
 const markdown = process.argv.includes('--md');

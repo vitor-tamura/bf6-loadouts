@@ -81,7 +81,7 @@ export default function BuilderPage() {
                 altura e empurraria todo o resto para fora da tela. */}
             <WeaponPreview
               weapon={weapon}
-              attachments={attachments}
+             
               withLabel
               className="mx-auto w-full max-w-[560px] lg:max-w-[760px]"
             />

@@ -269,7 +269,7 @@ function WeaponCard({ weapon, stats }: { weapon: Weapon; stats: ReturnType<typeo
         )}
       </div>
 
-      <WeaponPreview weapon={weapon} attachments={[]} className="my-1 w-full" />
+      <WeaponPreview weapon={weapon} className="my-1 w-full" />
 
       <p className="mb-1.5 line-clamp-2 text-[11px] leading-snug" style={{ color: 'var(--texto-suave)' }}>
         {weapon.summary}

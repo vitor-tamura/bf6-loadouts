@@ -2,6 +2,7 @@
 
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import { CLASSES } from '@/data/classes';
+import { GadgetIcon } from '@/components/icons/gadget-icon';
 import { throwables, gadgetsForClass } from '@/data/gadgets';
 import type { Gadget, ClassId } from '@/data/types';
 
@@ -102,14 +103,22 @@ function EquipmentList({
                 type="button"
                 onClick={() => onSelect(item.id)}
                 aria-pressed={active}
-                className="chanfro-sm toque w-full px-2.5 py-1.5 text-left transition-colors"
+                className="chanfro-sm toque flex w-full items-start gap-2.5 px-2.5 py-1.5 text-left transition-colors"
                 style={{
                   background: active ? 'color-mix(in oklab, var(--destaque) 18%, transparent)' : 'transparent',
                 }}
               >
-                <span className="block text-sm font-medium">{item.name}</span>
-                <span className="block text-[11px] leading-snug" style={{ color: 'var(--texto-fraco)' }}>
-                  {item.description}
+                <span
+                  className="mt-0.5"
+                  style={{ color: active ? 'var(--destaque)' : 'var(--texto-fraco)', lineHeight: 0 }}
+                >
+                  <GadgetIcon gadget={item} size={28} />
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-sm font-medium">{item.name}</span>
+                  <span className="block text-[11px] leading-snug" style={{ color: 'var(--texto-fraco)' }}>
+                    {item.description}
+                  </span>
                 </span>
               </button>
             </li>

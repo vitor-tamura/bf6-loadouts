@@ -226,10 +226,10 @@
   }
 }
 
+/* Ícone da peça que acabou de entrar no slot. */
 .peca-encaixe {
   animation: encaixar 260ms var(--ease-encaixe) both;
-  transform-box: fill-box;
-  transform-origin: center;
+  display: inline-block;
 }
 
 @media (prefers-reduced-motion: reduce) {
