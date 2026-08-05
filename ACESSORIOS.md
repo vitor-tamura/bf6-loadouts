@@ -352,7 +352,7 @@ Gerado por `node scripts/acessorios.mjs`.
 | Ponta Oca | Hollow Point | 20 | 47 armas | Melhora o dano em acerto na cabeça. |
 | Flechette | Flechette | 30 | 18.5KS-K, DB-12, M1014, M87A1 | Dardos: alcance maior, dano menor. |
 | Ponta Sintética | Synthetic Tip | 30 | 17 armas | Trajetória mais reta e alcance maior. |
-| Balote | Slugs | 40 | 18.5KS-K, DB-12, M1014, M87A1 | Projétil único: alcance muito maior. |
+| Balote | Slugs | 40 | 18.5KS-K, DB-12, M1014, M87A1 | Projétil único: alcance muito maior, sem espalhamento. |
 
 ## Ergonomia
 

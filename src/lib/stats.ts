@@ -89,6 +89,8 @@ export function calculateStats(weapon: Weapon, attachments: Attachment[]): Effec
 
   // Um carregador nomeado ("de 30") define a capacidade; sem ele, valem os mods.
   const namedMagazine = attachments.find((a) => a.magazineSize)?.magazineSize;
+  // Balote troca a nuvem de chumbo por um projétil único.
+  const pellets = attachments.find((a) => a.pelletsOverride)?.pelletsOverride ?? weapon.pellets;
   const magazine = Math.max(
     1,
     Math.round(namedMagazine ?? stat('magazine', weapon.magazine)),
@@ -97,7 +99,7 @@ export function calculateStats(weapon: Weapon, attachments: Attachment[]): Effec
 
   return {
     damage,
-    pellets: weapon.pellets,
+    pellets,
     rpm: Math.round(stat('rpm', weapon.rpm)),
     velocity: stat('velocity', weapon.velocity),
     drag: weapon.drag,

@@ -167,6 +167,12 @@ export interface Attachment {
    * de multiplicá-lo.
    */
   magazineSize?: number;
+  /**
+   * Número de projéteis por disparo, quando a peça o redefine. É o caso do
+   * balote: ele troca a nuvem de chumbo por um projétil único, então não dá
+   * para tratá-lo como multiplicador de dano sobre as pelotas.
+   */
+  pelletsOverride?: number;
   compat: Compatibility;
   /** Peça correspondente no desenho da arma. */
   part?: AttachmentPart;
