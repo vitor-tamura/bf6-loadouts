@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { attachmentImagePath } from '@/components/weapon-preview/manifest';
-import type { Attachment, SlotId } from '@/data/types';
+import type { Attachment, SlotId, WeaponCategory } from '@/data/types';
 
 /**
  * Miniatura da peça encaixada no slot.
@@ -30,11 +30,14 @@ export function AttachmentThumb({
   attachment,
   slot,
   size = 56,
+  category,
 }: {
   /** Sem acessório, mostra o marcador de slot vazio. */
   attachment: Attachment | null;
   slot: SlotId;
   size?: number;
+  /** Categoria da arma: define a variante do cartucho de munição. */
+  category?: WeaponCategory;
 }) {
   const [noImage, setNoImage] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -52,7 +55,7 @@ export function AttachmentThumb({
     return (
       <img
         ref={imgRef}
-        src={attachmentImagePath(attachment.id)}
+        src={attachmentImagePath(attachment.id, category)}
         alt=""
         onError={() => setNoImage(true)}
         style={{ width: size, height: size, objectFit: 'contain' }}

@@ -1,4 +1,4 @@
-import type { Weapon, SlotId, AttachmentPart } from '@/data/types';
+import type { Weapon, SlotId, AttachmentPart, WeaponCategory } from '@/data/types';
 
 /**
  * Composição do preview a partir de imagens.
@@ -142,6 +142,35 @@ export function weaponImagePath(id: string): string {
   return `/armas/${id}.png`;
 }
 
-export function attachmentImagePath(id: string): string {
-  return `/acessorios/${id}.png`;
+/**
+ * Categorias que disparam cartucho de estojo reto — 9 mm e .45 — em vez do
+ * cartucho garrafa dos fuzis.
+ */
+const CATEGORIAS_ESTOJO_RETO: WeaponCategory[] = ['pistola', 'smg'];
+
+/**
+ * Munições que existem nas duas versões. Escopeta fica de fora: o cartucho dela
+ * já é reto e tem desenho próprio.
+ */
+const MUNICOES_COM_VARIANTE = new Set([
+  'municao-fmj',
+  'municao-tungsten-core',
+  'municao-polymer-case',
+  'municao-match-grade',
+  'municao-frangible',
+  'municao-hollow-point',
+  'municao-synthetic-tip',
+]);
+
+/**
+ * Caminho da imagem da peça.
+ *
+ * Quando a arma é pistola ou submetralhadora, a munição usa a variante de estojo
+ * reto: o mesmo cartucho desenhado sem o gargalo, mais curto e com o projétil
+ * assentado direto sobre o corpo.
+ */
+export function attachmentImagePath(id: string, category?: WeaponCategory): string {
+  const reto = category && CATEGORIAS_ESTOJO_RETO.includes(category);
+  const sufixo = reto && MUNICOES_COM_VARIANTE.has(id) ? '--pistola' : '';
+  return `/acessorios/${id}${sufixo}.png`;
 }

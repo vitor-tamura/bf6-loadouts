@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { attachmentsForWeapon } from '@/data/attachments';
 import { POINT_BUDGET, SLOTS_BY_ID } from '@/data/classes';
-import type { Attachment, Weapon, StatKey, SlotId } from '@/data/types';
+import type { Attachment, Weapon, StatKey, SlotId, WeaponCategory } from '@/data/types';
 import { LOWER_IS_BETTER, type Budget } from '@/lib/stats';
 import { AttachmentThumb } from './attachment-thumb';
 
@@ -151,7 +151,7 @@ export function SlotsPanel({
                 className="flex h-14 w-full items-center justify-center"
                 style={{ background: 'var(--superficie-alta)' }}
               >
-                <AttachmentThumb attachment={current} slot={slot} size={52} />
+                <AttachmentThumb attachment={current} slot={slot} size={52} category={weapon.category} />
               </span>
 
               <span
@@ -202,6 +202,7 @@ export function SlotsPanel({
                           <AttachmentOption
                             attachment={option}
                             slot={slot}
+                            category={weapon.category}
                             active={option.id === atualId}
                             fits={fits}
                             onSelect={() => onSelect(slot, option.id)}
@@ -256,12 +257,14 @@ function EmptyOption({
 function AttachmentOption({
   attachment,
   slot,
+  category,
   active,
   fits,
   onSelect,
 }: {
   attachment: Attachment;
   slot: SlotId;
+  category: WeaponCategory;
   active: boolean;
   fits: boolean;
   onSelect: () => void;
@@ -285,7 +288,7 @@ function AttachmentOption({
         className="flex h-12 w-12 shrink-0 items-center justify-center"
         style={{ background: 'var(--superficie-alta)' }}
       >
-        <AttachmentThumb attachment={attachment} slot={slot} size={40} />
+        <AttachmentThumb attachment={attachment} slot={slot} size={40} category={category} />
       </span>
 
       <span className="min-w-0 flex-1">

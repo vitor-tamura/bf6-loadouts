@@ -87,6 +87,30 @@ câmera ortográfica**.
 | Ergonomia (coronha) | direita, meio | o tubo fique rente à borda direita |
 | Acessórios laterais | esquerda, meio | a garra fique rente à borda esquerda |
 
+### Munição: duas versões por cartucho
+
+O formato do estojo muda com a arma. Fuzil, carabina, LMG e rifle de precisão
+usam cartucho **garrafa** — corpo largo, ombro, pescoço fino e o projétil na
+ponta. Pistola e submetralhadora (9 mm, .45) usam estojo **reto**: o projétil
+assenta direto sobre um corpo de largura constante, e o conjunto é bem mais
+curto.
+
+Por isso cada munição de cartucho tem duas imagens:
+
+```
+public/acessorios/municao-fmj.png            garrafa — fuzis, carabinas, LMGs, DMRs, snipers
+public/acessorios/municao-fmj--pistola.png   reto    — pistolas e submetralhadoras
+```
+
+O sufixo `--pistola` é escolhido sozinho, a partir da categoria da arma
+(`attachmentImagePath` em `src/components/weapon-preview/manifest.ts`). Sem o
+arquivo, a versão garrafa é usada nas duas.
+
+As sete munições de cartucho têm as duas versões: Encamisada, Núcleo de
+Tungstênio, Estojo Polimérico, Grau Competição, Frangível, Ponta Oca e Ponta
+Sintética. Chumbo Grosso, Flechette e Balote são de escopeta e têm desenho
+próprio.
+
 ### Proporção de cada peça
 
 A largura da peça é uma fração da largura da imagem da arma, definida em
