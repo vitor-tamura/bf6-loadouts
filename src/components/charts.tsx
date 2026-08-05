@@ -39,9 +39,19 @@ function scaleY(value: number, max: number): number {
   return AREA.y + AREA.height - (value / Math.max(max, 1e-6)) * AREA.height;
 }
 
+/**
+ * Coordenadas com duas casas decimais.
+ *
+ * A precisão extra não muda nada na tela — o SVG tem 640 unidades de largura — e
+ * o arredondamento evita divergência de última casa entre o HTML pré-renderizado
+ * e o que o navegador recalcula, que o React acusaria como erro de hidratação.
+ */
 function linePath(points: CurvePoint[], maxX: number, maxY: number): string {
   return points
-    .map((p, i) => `${i === 0 ? 'M' : 'L'} ${scaleX(p.distance, maxX)} ${scaleY(p.value, maxY)}`)
+    .map(
+      (p, i) =>
+        `${i === 0 ? 'M' : 'L'} ${scaleX(p.distance, maxX).toFixed(2)} ${scaleY(p.value, maxY).toFixed(2)}`,
+    )
     .join(' ');
 }
 
