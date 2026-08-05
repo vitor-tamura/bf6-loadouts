@@ -3,11 +3,23 @@
 O preview da arma é montado **em camadas**: uma imagem da arma sem acessórios e
 uma imagem por peça, sobrepostas em tempo real sobre pontos de ancoragem.
 
-Isso existe por um motivo prático. Uma imagem por combinação seria impossível:
-só a AK4D tem 8 miras × 7 bocas × 6 canos × 5 acoplamentos × 5 carregadores ×
-8 munições × 5 ergonomias × 4 ópticos × 4 acessórios laterais × 4 acessórios
-laterais ≈ **10,7 milhões de imagens** — e são 63 armas. Em camadas, o total cai
-para **108 arquivos** e qualquer combinação continua aparecendo montada.
+Isso existe por um motivo aritmético, não por preguiça. Contando o catálogo real
+de acessórios compatíveis, com o slot vazio como opção:
+
+| | |
+| --- | --- |
+| Combinações só da AK4D | **336.798.000** |
+| Total somando as 63 armas de fogo | **21.218.274.000 imagens** |
+| Espaço a 300 KB por PNG | **6.365 TB** |
+| Tempo gerando 10 por segundo | **67 anos** |
+
+Em camadas, o total cai para **108 arquivos** e qualquer uma daquelas 21 bilhões
+de combinações continua aparecendo montada.
+
+E quando você quiser o PNG de uma combinação específica, o montador tem o botão
+**Baixar PNG desta montagem**: a imagem é gerada na hora, no navegador, a partir
+do desenho já composto. Uma combinação, um arquivo, sob demanda — em vez de 21
+bilhões guardados.
 
 Enquanto um arquivo não existir, o preview cai sozinho no desenho vetorial. Não
 é preciso mexer em código ao adicionar imagens: basta soltar o PNG na pasta.
@@ -79,7 +91,7 @@ câmera ortográfica**.
 ### Proporção de cada peça
 
 A largura da peça é uma fração da largura da imagem da arma, definida em
-`src/componentes/preview-arma/manifesto.ts` (`LARGURA_DA_PECA`). Os valores
+`src/components/weapon-preview/manifest.ts` (`PART_WIDTH`). Os valores
 atuais, em fração:
 
 | Peça | Fração | Peça | Fração |
@@ -106,14 +118,14 @@ de reexportar a imagem.
 
 As âncoras de cada arma são derivadas do arquétipo dela e valem para a maioria
 dos casos. Quando uma imagem específica precisar de correção — o trilho está mais
-alto, o poço do carregador mais à frente — preencha `AJUSTES_POR_ARMA` no
-`manifesto.ts`:
+alto, o poço do carregador mais à frente — preencha `WEAPON_ANCHOR_OVERRIDES` no
+`manifest.ts`:
 
 ```ts
-export const AJUSTES_POR_ARMA: Record<string, Partial<AncorasImagem>> = {
-  'ak4d': {
-    trilho: { x: 0.36, y: 0.42 },      // fração da largura e da altura da imagem
-    carregador: { x: 0.48, y: 0.66 },
+export const WEAPON_ANCHOR_OVERRIDES: Record<string, Partial<ImageAnchors>> = {
+  ak4d: {
+    rail: { x: 0.36, y: 0.42 },       // fração da largura e da altura da imagem
+    magazine: { x: 0.48, y: 0.66 },
   },
 };
 ```
@@ -125,6 +137,15 @@ imagens depois.
 
 ## Sobre direitos autorais
 
-Não use capturas de tela nem arte extraída do Battlefield 6: são material
-protegido da EA/DICE e a aplicação é pública. Renders próprios, arte licenciada
-ou modelos low-poly que você tenha direito de usar resolvem sem risco.
+O modo **Foto do jogo** carrega capturas do Battlefield 6 hospedadas em sites de
+terceiros (IMFDB e battlefieldmeta.gg), exatamente como o protótipo
+`bf6-arsenal.html` faz. Nada é copiado para cá, mas vale saber o que isso
+implica:
+
+- é material da EA/DICE hospedado por terceiros, e servir a partir da origem
+  depende de esses sites permitirem;
+- pode parar de funcionar sem aviso, e aí o preview cai sozinho no esquema.
+
+Para uma versão pública sem essa dependência, o caminho é `public/armas/`: arte
+própria, licenciada ou modelos low-poly com direito de uso, que têm prioridade
+sobre a fonte externa.

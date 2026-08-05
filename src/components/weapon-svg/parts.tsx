@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import type { AttachmentPart } from '@/data/types';
-import { Block, COLOR, pts, Rail, Crease } from './palette';
+import { Block, COLOR, Crease, MlokSlots, pts, Rail, VentHoles } from './palette';
 
 /**
  * Peças que se encaixam na silhueta da arma.
@@ -25,10 +25,13 @@ export const BARREL_LENGTH: Partial<Record<AttachmentPart, number>> = {
 function Suppressor() {
   return (
     <g>
-      <Block x={0} y={-9} width={54} height={18} color={COLOR.metal} light={COLOR.metalLuz} shadow={COLOR.metalSombra} bevelRight={4} />
-      {[10, 20, 30, 40].map((x) => (
+      {/* Colar de rosca, corpo e as câmaras internas. */}
+      <Block x={-4} y={-7} width={8} height={14} color={COLOR.aco} light={COLOR.acoLuz} shadow={COLOR.acoSombra} />
+      <Block x={4} y={-9} width={50} height={18} color={COLOR.metal} light={COLOR.metalLuz} shadow={COLOR.metalSombra} bevelRight={4} />
+      {[10, 17, 24, 31, 38, 45].map((x) => (
         <Crease key={x} x={x} y={-9} width={2} height={18} />
       ))}
+      <rect x={6} y={-6} width={46} height={2} fill={COLOR.metalLuz} opacity={0.5} />
       <rect x={50} y={-4} width={5} height={8} fill={COLOR.vinco} />
     </g>
   );
@@ -148,12 +151,22 @@ function HoloSight() {
 function MidScope() {
   return (
     <g>
+      {/* Base, anéis de montagem, tubo, torres de ajuste e as duas lentes. */}
       <Block x={-22} y={-9} width={44} height={8} color={COLOR.polimero} light={COLOR.polimeroLuz} shadow={COLOR.polimeroSombra} />
+      <rect x={-18} y={-16} width={7} height={8} fill={COLOR.metalSombra} />
+      <rect x={11} y={-16} width={7} height={8} fill={COLOR.metalSombra} />
       <Block x={-24} y={-24} width={48} height={15} color={COLOR.metal} light={COLOR.metalLuz} shadow={COLOR.metalSombra} bevelLeft={4} bevelRight={4} />
       <rect x={-30} y={-25} width={9} height={17} fill={COLOR.metalSombra} />
+      <rect x={-29} y={-23} width={7} height={13} fill={COLOR.lente} opacity={0.4} />
       <rect x={21} y={-26} width={11} height={19} fill={COLOR.metalSombra} />
       <rect x={22} y={-24} width={8} height={15} fill={COLOR.lente} opacity={0.75} />
       <rect x={22} y={-24} width={8} height={4} fill={COLOR.lenteBrilho} opacity={0.5} />
+      {/* Torre de elevação e anel de ampliação. */}
+      <rect x={-6} y={-30} width={11} height={7} fill={COLOR.metal} />
+      <rect x={-4} y={-32} width={7} height={3} fill={COLOR.metalLuz} />
+      {[14, 17].map((x) => (
+        <Crease key={x} x={x} y={-24} width={2} height={15} />
+      ))}
     </g>
   );
 }
@@ -189,8 +202,9 @@ function Magnifier() {
 function VerticalGrip() {
   return (
     <g>
-      <Block x={-5} y={0} width={11} height={26} color={COLOR.polimero} light={COLOR.polimeroLuz} shadow={COLOR.polimeroSombra} bevelLeft={2} bevelRight={4} />
-      {[7, 13, 19].map((y) => (
+      <Block x={-8} y={-2} width={17} height={5} color={COLOR.metal} light={COLOR.metalLuz} shadow={COLOR.metalSombra} />
+      <Block x={-5} y={2} width={11} height={26} color={COLOR.polimero} light={COLOR.polimeroLuz} shadow={COLOR.polimeroSombra} bevelLeft={2} bevelRight={4} />
+      {[7, 11, 15, 19, 23].map((y) => (
         <Crease key={y} x={-5} y={y} width={11} />
       ))}
     </g>
@@ -261,6 +275,8 @@ function DrumMagazine() {
       <path d="M -19 30 A 19 19 0 0 1 0 11 L 0 30 Z" fill={COLOR.polimeroLuz} />
       <path d="M 0 49 A 19 19 0 0 0 19 30 L 0 30 Z" fill={COLOR.polimeroSombra} />
       <circle cx={0} cy={30} r={6} fill={COLOR.metalSombra} />
+      <circle cx={0} cy={30} r={13} fill="none" stroke={COLOR.vinco} strokeWidth={1.4} opacity={0.6} />
+      <rect x={-3} y={14} width={6} height={7} rx={2} fill={COLOR.vinco} opacity={0.7} />
     </g>
   );
 }

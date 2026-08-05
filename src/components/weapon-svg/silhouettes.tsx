@@ -1,6 +1,24 @@
 import type { ReactNode } from 'react';
 import type { WeaponArchetype } from '@/data/types';
-import { Block, COLOR, pts, Point, Rail, Crease } from './palette';
+import {
+  Block,
+  Bolts,
+  ChargingHandle,
+  COLOR,
+  Crease,
+  EjectionPort,
+  FireSelector,
+  FoldingSight,
+  GripTexture,
+  MlokSlots,
+  PanelLines,
+  Pins,
+  Plate,
+  pts,
+  Point,
+  Rail,
+  VentHoles,
+} from './palette';
 
 /**
  * Silhuetas base, uma por família de arma. Todas desenhadas no mesmo espaço
@@ -76,26 +94,46 @@ function natoRifle(): Silhouette {
   return {
     body: (
       <g>
-        <Block x={92} y={100} width={160} height={40} bevelLeft={5} />
-        <Rail x={112} y={96} width={132} teeth={11} />
+        {/* Tubo da coronha, atrás do receiver. */}
+        <Block x={92} y={108} width={34} height={20} color={COLOR.metal} light={COLOR.metalLuz} shadow={COLOR.metalSombra} />
+        <Crease x={104} y={108} width={2} height={20} />
+
+        {/* Receiver inferior e superior. */}
+        <Block x={124} y={100} width={128} height={40} bevelLeft={4} />
+        <Plate x={140} y={98} width={104} height={16} fill={COLOR.polimeroLuz} bevel={3} />
+        <Rail x={126} y={94} width={122} teeth={11} />
+        <EjectionPort x={196} y={106} width={30} height={12} />
+        <ChargingHandle x={128} y={100} length={20} />
+        <FireSelector x={214} y={132} />
+        <Pins x={150} y={132} gap={78} />
+        <Bolts x={134} y={116} count={3} gap={10} />
+        <PanelLines x={132} y={122} width={112} lines={2} gap={7} />
+
+        {/* Guarda-mão com rasgos M-LOK. */}
         <Block x={250} y={104} width={72} height={30} color={COLOR.polimeroLuz} light={COLOR.metalLuz} shadow={COLOR.polimero} bevelRight={4} />
-        {[262, 276, 290, 304].map((x) => (
-          <Crease key={x} x={x} y={110} width={4} height={18} />
-        ))}
+        <MlokSlots x={256} y={112} width={60} slots={4} />
+        <MlokSlots x={256} y={122} width={60} slots={4} />
         <Rail x={256} y={134} width={60} teeth={5} />
+        <Crease x={250} y={104} width={2} height={30} />
+
+        {/* Bloco de gás e mira dobrável. */}
+        <Block x={306} y={100} width={14} height={16} color={COLOR.aco} light={COLOR.acoLuz} shadow={COLOR.acoSombra} />
+        <FoldingSight x={313} y={100} />
+
         <PistolGrip x={206} y={140} />
+        <GripTexture x={198} y={150} width={16} height={18} rows={3} />
         <TriggerGuard x={228} y={140} />
         <Block x={236} y={136} width={24} height={10} color={COLOR.polimeroSombra} />
       </g>
     ),
     anchors: {
-      rail: { x: 178, y: 96 },
-      opticExtra: { x: 128, y: 96 },
-      barrelBase: { x: 322, y: 119 },
+      rail: { x: 186, y: 94 },
+      opticExtra: { x: 140, y: 94 },
+      barrelBase: { x: 320, y: 119 },
       underbarrel: { x: 288, y: 138 },
       magazine: { x: 248, y: 143 },
       side: { x: 262, y: 122 },
-      stock: { x: 94, y: 120 },
+      stock: { x: 94, y: 118 },
     },
     accepts: ALL_MOUNTS,
   };
@@ -105,18 +143,41 @@ function easternRifle(): Silhouette {
   return {
     body: (
       <g>
-        {/* Receiver mais alto e a alça de ferro característica da família AK. */}
-        <Block x={96} y={98} width={150} height={44} bevelLeft={6} />
+        {/* Coronha de polímero, mais alta que a do padrão OTAN. */}
+        <polygon points={pts(96, 104, 128, 100, 128, 138, 96, 142)} fill={COLOR.polimero} />
+        <polygon points={pts(96, 104, 128, 100, 128, 108, 96, 112)} fill={COLOR.polimeroLuz} />
+        <polygon points={pts(102, 126, 124, 123, 124, 132, 102, 135)} fill={COLOR.vinco} opacity={0.4} />
+
+        {/* Receiver e a tampa superior nervurada — assinatura da família AK. */}
+        <Block x={126} y={98} width={122} height={44} bevelLeft={4} />
         <polygon points={pts(150, 98, 246, 98, 240, 88, 158, 88)} fill={COLOR.polimeroLuz} />
-        <Rail x={120} y={94} width={112} teeth={9} />
+        {[166, 178, 190, 202, 214, 226].map((x) => (
+          <Crease key={x} x={x} y={89} width={3} height={9} />
+        ))}
+        <Rail x={152} y={86} width={86} teeth={7} />
+        <EjectionPort x={196} y={104} width={30} height={13} />
+        <ChargingHandle x={228} y={102} length={16} />
+        {/* Alavanca de segurança externa, no lado direito. */}
+        <polygon points={pts(238, 108, 250, 106, 250, 116, 238, 122)} fill={COLOR.metalSombra} />
+        <Pins x={144} y={132} gap={72} />
+        <Bolts x={136} y={116} count={3} gap={11} />
+        <PanelLines x={134} y={124} width={106} lines={2} gap={7} />
+
+        {/* Guarda-mão de polímero com furos de refrigeração. */}
         <Block x={244} y={104} width={66} height={32} color={COLOR.polimero} light={COLOR.polimeroLuz} shadow={COLOR.polimeroSombra} bevelRight={6} />
         <polygon points={pts(246, 104, 300, 104, 296, 96, 250, 96)} fill={COLOR.polimeroLuz} />
+        <VentHoles x={256} y={118} count={6} radius={2.4} />
         <Rail x={250} y={136} width={54} teeth={5} />
+
         <PistolGrip x={202} y={142} tilt={-12} />
+        <GripTexture x={194} y={152} width={16} height={18} rows={3} />
         <TriggerGuard x={224} y={142} />
         <Block x={232} y={138} width={22} height={10} color={COLOR.polimeroSombra} />
-        {/* Bloco de gás inclinado, assinatura visual do AK. */}
+
+        {/* Bloco de gás inclinado e tomada de gás. */}
         <polygon points={pts(310, 106, 330, 100, 334, 112, 312, 116)} fill={COLOR.metal} />
+        <polygon points={pts(313, 103, 326, 99, 327, 104, 314, 108)} fill={COLOR.metalLuz} />
+        <FoldingSight x={322} y={100} />
       </g>
     ),
     anchors: {
@@ -136,13 +197,27 @@ function bullpup(): Silhouette {
   return {
     body: (
       <g>
-        {/* No bullpup o carregador fica atrás da empunhadura. */}
+        {/* No bullpup o mecanismo fica atrás da empunhadura, junto ao ombro. */}
         <Block x={86} y={98} width={196} height={46} bevelLeft={10} bevelRight={2} />
         <polygon points={pts(86, 118, 96, 98, 96, 144, 86, 138)} fill={COLOR.polimeroSombra} />
+        <Plate x={104} y={102} width={70} height={18} fill={COLOR.polimeroLuz} bevel={3} />
         <Rail x={110} y={94} width={150} teeth={12} />
+        <EjectionPort x={150} y={106} width={26} height={12} />
+        <ChargingHandle x={228} y={100} length={18} />
+        <FireSelector x={244} y={134} />
+        <Pins x={120} y={134} gap={60} />
+        <Bolts x={196} y={124} count={4} gap={13} />
+        <PanelLines x={104} y={126} width={168} lines={2} gap={7} />
+        {/* Apoio de bochecha moldado na carcaça. */}
+        <polygon points={pts(112, 98, 176, 98, 172, 92, 118, 92)} fill={COLOR.polimeroLuz} />
+
         <Block x={280} y={106} width={58} height={28} color={COLOR.polimeroLuz} light={COLOR.metalLuz} shadow={COLOR.polimero} bevelRight={4} />
+        <MlokSlots x={286} y={112} width={46} slots={3} />
+        <MlokSlots x={286} y={122} width={46} slots={3} />
         <Rail x={286} y={134} width={46} teeth={4} />
+
         <PistolGrip x={252} y={142} tilt={-6} />
+        <GripTexture x={244} y={152} width={16} height={18} rows={3} />
         <TriggerGuard x={272} y={142} width={30} />
         <Block x={190} y={140} width={26} height={10} color={COLOR.polimeroSombra} />
       </g>
@@ -164,13 +239,25 @@ function shortCarbine(): Silhouette {
   return {
     body: (
       <g>
-        <Block x={118} y={102} width={140} height={38} bevelLeft={5} />
-        <Rail x={136} y={98} width={116} teeth={10} />
+        {/* Coronha telescópica sobre o tubo. */}
+        <Block x={118} y={110} width={30} height={18} color={COLOR.metal} light={COLOR.metalLuz} shadow={COLOR.metalSombra} />
+        <Crease x={130} y={110} width={2} height={18} />
+
+        <Block x={146} y={102} width={112} height={38} bevelLeft={4} />
+        <Plate x={160} y={100} width={88} height={14} fill={COLOR.polimeroLuz} bevel={3} />
+        <Rail x={148} y={96} width={106} teeth={9} />
+        <EjectionPort x={204} y={108} width={28} height={11} />
+        <ChargingHandle x={150} y={102} length={18} />
+        <FireSelector x={218} y={132} />
+        <Pins x={168} y={132} gap={66} />
+        <Bolts x={158} y={118} count={3} gap={10} />
+        <PanelLines x={156} y={124} width={94} lines={2} gap={6} />
+
         <Block x={256} y={106} width={54} height={28} color={COLOR.polimeroLuz} light={COLOR.metalLuz} shadow={COLOR.polimero} bevelRight={4} />
-        {[266, 280, 294].map((x) => (
-          <Crease key={x} x={x} y={112} width={4} height={16} />
-        ))}
+        <MlokSlots x={262} y={112} width={44} slots={3} />
+        <MlokSlots x={262} y={121} width={44} slots={3} />
         <Rail x={260} y={134} width={44} teeth={4} />
+        <FoldingSight x={303} y={104} />
         <PistolGrip x={208} y={140} />
         <TriggerGuard x={230} y={140} />
         <Block x={238} y={136} width={22} height={10} color={COLOR.polimeroSombra} />
@@ -193,9 +280,22 @@ function compactSmg(): Silhouette {
   return {
     body: (
       <g>
-        <Block x={140} y={104} width={122} height={36} bevelLeft={4} />
-        <Rail x={156} y={100} width={100} teeth={8} />
+        {/* Coronha retrátil de haste. */}
+        <rect x={140} y={112} width={26} height={6} fill={COLOR.metal} />
+        <rect x={138} y={106} width={8} height={20} rx={2} fill={COLOR.polimero} />
+
+        <Block x={164} y={104} width={98} height={36} bevelLeft={4} />
+        <Plate x={176} y={102} width={76} height={13} fill={COLOR.polimeroLuz} bevel={3} />
+        <Rail x={166} y={98} width={92} teeth={8} />
+        <EjectionPort x={210} y={109} width={24} height={10} />
+        <ChargingHandle x={168} y={104} length={16} />
+        <FireSelector x={224} y={132} />
+        <Pins x={182} y={132} gap={56} />
+        <Bolts x={174} y={118} count={3} gap={10} />
+        <PanelLines x={172} y={124} width={80} lines={2} gap={6} />
+
         <Block x={260} y={108} width={42} height={24} color={COLOR.polimeroLuz} light={COLOR.metalLuz} shadow={COLOR.polimero} bevelRight={3} />
+        <MlokSlots x={264} y={113} width={34} slots={2} />
         <Rail x={264} y={132} width={34} teeth={3} />
         <PistolGrip x={216} y={140} />
         <TriggerGuard x={236} y={140} width={28} />
@@ -224,8 +324,17 @@ function personalDefenseWeapon(): Silhouette {
         <polygon points={pts(146, 100, 288, 100, 292, 108, 148, 108)} fill={COLOR.polimeroLuz} />
         <polygon points={pts(154, 132, 296, 132, 296, 138, 154, 138)} fill={COLOR.polimeroSombra} />
         <Rail x={162} y={96} width={112} teeth={9} />
+        {/* Carregador embutido por cima, marca do PDW. */}
+        <rect x={196} y={102} width={62} height={7} rx={2} fill={COLOR.polimeroSombra} opacity={0.7} />
+        {[202, 214, 226, 238, 250].map((x) => (
+          <Crease key={x} x={x} y={110} width={3} height={9} />
+        ))}
+        <EjectionPort x={264} y={112} width={20} height={9} />
+        <FireSelector x={216} y={130} />
         <Block x={286} y={110} width={30} height={20} color={COLOR.metal} light={COLOR.metalLuz} shadow={COLOR.metalSombra} bevelRight={3} />
+        <VentHoles x={290} y={120} count={3} radius={1.8} />
         <PistolGrip x={210} y={138} tilt={-4} />
+        <GripTexture x={202} y={148} width={16} height={16} rows={3} />
         <TriggerGuard x={228} y={138} width={26} />
       </g>
     ),
@@ -246,20 +355,41 @@ function beltFedLmg(): Silhouette {
   return {
     body: (
       <g>
-        <Block x={80} y={96} width={176} height={44} bevelLeft={6} />
-        <Rail x={104} y={92} width={140} teeth={12} />
-        {/* Caixa de munição sob o receiver. */}
+        {/* Coronha esqueletada, com apoio de ombro largo. */}
+        <polygon points={pts(80, 100, 116, 96, 116, 140, 80, 144)} fill={COLOR.polimero} />
+        <polygon points={pts(80, 100, 116, 96, 116, 104, 80, 108)} fill={COLOR.polimeroLuz} />
+        <polygon points={pts(88, 112, 110, 109, 110, 126, 88, 129)} fill={COLOR.vinco} opacity={0.45} />
+
+        <Block x={114} y={96} width={142} height={44} bevelLeft={4} />
+        <Plate x={130} y={94} width={112} height={16} fill={COLOR.polimeroLuz} bevel={3} />
+        <Rail x={116} y={90} width={132} teeth={11} />
+        <EjectionPort x={196} y={102} width={34} height={14} />
+        <ChargingHandle x={120} y={100} length={22} />
+        <Pins x={140} y={130} gap={84} />
+        <Bolts x={128} y={116} count={4} gap={12} />
+        <PanelLines x={126} y={122} width={122} lines={3} gap={6} />
+
+        {/* Caixa de munição sob o receiver, com a tira de cartuchos. */}
         <Block x={190} y={140} width={72} height={44} color={COLOR.polimero} light={COLOR.polimeroLuz} shadow={COLOR.polimeroSombra} bevelLeft={5} bevelRight={5} />
         <Crease x={196} y={152} width={60} height={3} />
-        <Block x={254} y={102} width={78} height={32} color={COLOR.polimeroLuz} light={COLOR.metalLuz} shadow={COLOR.polimero} bevelRight={4} />
-        {[264, 280, 296, 312].map((x) => (
-          <Crease key={x} x={x} y={108} width={5} height={20} />
+        <Crease x={196} y={166} width={60} height={3} />
+        {[198, 210, 222, 234, 246].map((x) => (
+          <rect key={x} x={x} y={136} width={7} height={6} fill={COLOR.acoLuz} opacity={0.75} />
         ))}
+
+        <Block x={254} y={102} width={78} height={32} color={COLOR.polimeroLuz} light={COLOR.metalLuz} shadow={COLOR.polimero} bevelRight={4} />
+        <VentHoles x={264} y={118} count={7} radius={2.6} />
         <Rail x={258} y={134} width={68} teeth={6} />
+
         <PistolGrip x={178} y={140} />
+        <GripTexture x={170} y={150} width={16} height={18} rows={3} />
         <TriggerGuard x={198} y={140} width={26} />
+
         {/* Alça de transporte, típica das metralhadoras. */}
-        <polygon points={pts(150, 92, 208, 92, 208, 86, 150, 86)} fill={COLOR.metal} />
+        <polygon points={pts(150, 88, 208, 88, 208, 82, 150, 82)} fill={COLOR.metal} />
+        <polygon points={pts(150, 82, 208, 82, 208, 84, 150, 84)} fill={COLOR.metalLuz} />
+        <rect x={148} y={84} width={5} height={8} fill={COLOR.metalSombra} />
+        <rect x={205} y={84} width={5} height={8} fill={COLOR.metalSombra} />
       </g>
     ),
     anchors: {
@@ -279,13 +409,22 @@ function lightLmg(): Silhouette {
   return {
     body: (
       <g>
-        <Block x={92} y={100} width={162} height={40} bevelLeft={5} />
-        <Rail x={114} y={96} width={132} teeth={11} />
+        <Block x={92} y={108} width={32} height={20} color={COLOR.metal} light={COLOR.metalLuz} shadow={COLOR.metalSombra} />
+        <Block x={122} y={100} width={132} height={40} bevelLeft={4} />
+        <Plate x={138} y={98} width={106} height={15} fill={COLOR.polimeroLuz} bevel={3} />
+        <Rail x={124} y={94} width={124} teeth={11} />
+        <EjectionPort x={198} y={106} width={32} height={13} />
+        <ChargingHandle x={128} y={100} length={20} />
+        <FireSelector x={216} y={132} />
+        <Pins x={148} y={132} gap={78} />
+        <Bolts x={136} y={116} count={3} gap={11} />
+        <PanelLines x={134} y={123} width={112} lines={2} gap={7} />
+
         <Block x={252} y={104} width={80} height={30} color={COLOR.polimeroLuz} light={COLOR.metalLuz} shadow={COLOR.polimero} bevelRight={4} />
-        {[262, 278, 294, 310].map((x) => (
-          <Crease key={x} x={x} y={110} width={4} height={18} />
-        ))}
+        <MlokSlots x={258} y={111} width={68} slots={4} />
+        <VentHoles x={262} y={124} count={6} radius={2.2} />
         <Rail x={258} y={134} width={68} teeth={6} />
+        <FoldingSight x={324} y={102} />
         <PistolGrip x={206} y={140} />
         <TriggerGuard x={228} y={140} />
         <Block x={236} y={136} width={26} height={10} color={COLOR.polimeroSombra} />
@@ -308,12 +447,24 @@ function dmr(): Silhouette {
   return {
     body: (
       <g>
-        <Block x={84} y={100} width={172} height={40} bevelLeft={6} />
-        <Rail x={106} y={96} width={144} teeth={12} />
+        {/* Coronha com apoio de bochecha regulável. */}
+        <polygon points={pts(84, 104, 122, 100, 122, 140, 84, 144)} fill={COLOR.polimero} />
+        <polygon points={pts(84, 104, 122, 100, 122, 108, 84, 112)} fill={COLOR.polimeroLuz} />
+        <rect x={92} y={94} width={30} height={8} rx={2} fill={COLOR.polimeroLuz} />
+
+        <Block x={120} y={100} width={136} height={40} bevelLeft={4} />
+        <Plate x={136} y={98} width={110} height={15} fill={COLOR.polimeroLuz} bevel={3} />
+        <Rail x={122} y={94} width={128} teeth={11} />
+        <EjectionPort x={200} y={106} width={32} height={13} />
+        <ChargingHandle x={126} y={100} length={20} />
+        <FireSelector x={218} y={132} />
+        <Pins x={146} y={132} gap={80} />
+        <Bolts x={134} y={117} count={3} gap={11} />
+        <PanelLines x={132} y={124} width={116} lines={2} gap={7} />
+
         <Block x={254} y={106} width={86} height={28} color={COLOR.polimeroLuz} light={COLOR.metalLuz} shadow={COLOR.polimero} bevelRight={5} />
-        {[266, 284, 302, 320].map((x) => (
-          <Crease key={x} x={x} y={112} width={4} height={16} />
-        ))}
+        <MlokSlots x={260} y={112} width={72} slots={4} />
+        <MlokSlots x={260} y={121} width={72} slots={4} />
         <Rail x={260} y={134} width={72} teeth={6} />
         <PistolGrip x={204} y={140} />
         <TriggerGuard x={226} y={140} />
@@ -342,11 +493,23 @@ function boltActionSniper(): Silhouette {
         <polygon points={pts(70, 104, 210, 100, 210, 110, 74, 114)} fill={COLOR.polimeroLuz} />
         <polygon points={pts(96, 140, 210, 138, 210, 146, 96, 150)} fill={COLOR.polimeroSombra} />
         <Block x={206} y={98} width={70} height={40} color={COLOR.metal} light={COLOR.metalLuz} shadow={COLOR.metalSombra} />
+        <Plate x={214} y={96} width={54} height={12} fill={COLOR.acoLuz} bevel={2} />
         <Rail x={140} y={94} width={128} teeth={11} />
-        {/* Ferrolho e manete. */}
+
+        {/* Ferrolho, manete e janela de ejeção. */}
         <rect x={244} y={106} width={30} height={12} fill={COLOR.acoLuz} />
+        <rect x={246} y={108} width={26} height={3} fill={COLOR.metalSombra} opacity={0.6} />
         <polygon points={pts(268, 112, 288, 122, 292, 132, 274, 124)} fill={COLOR.aco} />
+        <circle cx={290} cy={128} r={4.5} fill={COLOR.acoLuz} />
+        <EjectionPort x={222} y={104} width={20} height={10} />
+        <Pins x={216} y={130} gap={44} />
+        <Bolts x={212} y={118} count={3} gap={13} />
+        <PanelLines x={122} y={122} width={80} lines={2} gap={7} />
+
+        {/* Chassi do guarda-mão, com rasgos de montagem. */}
         <Block x={274} y={106} width={62} height={26} color={COLOR.polimeroLuz} light={COLOR.metalLuz} shadow={COLOR.polimero} bevelRight={4} />
+        <MlokSlots x={280} y={112} width={50} slots={3} />
+        <MlokSlots x={280} y={121} width={50} slots={3} />
         <Rail x={280} y={132} width={50} teeth={4} />
         <PistolGrip x={206} y={140} tilt={-2} />
         <TriggerGuard x={226} y={140} width={28} />
@@ -370,14 +533,28 @@ function shotgun(): Silhouette {
   return {
     body: (
       <g>
-        <Block x={110} y={104} width={140} height={36} bevelLeft={5} />
-        <Rail x={130} y={100} width={112} teeth={9} />
+        {/* Coronha de escopeta, com queda acentuada. */}
+        <polygon points={pts(110, 108, 146, 104, 146, 140, 110, 148)} fill={COLOR.polimero} />
+        <polygon points={pts(110, 108, 146, 104, 146, 112, 110, 116)} fill={COLOR.polimeroLuz} />
+
+        <Block x={144} y={104} width={106} height={36} bevelLeft={4} />
+        <Plate x={158} y={102} width={82} height={13} fill={COLOR.polimeroLuz} bevel={3} />
+        <Rail x={146} y={98} width={100} teeth={8} />
+        <EjectionPort x={196} y={110} width={26} height={11} />
+        <Pins x={166} y={132} gap={62} />
+        <Bolts x={156} y={118} count={3} gap={11} />
+        <PanelLines x={154} y={124} width={86} lines={2} gap={6} />
+
         {/* Tubo de cartuchos sob o cano — a marca da escopeta. */}
         <Block x={248} y={122} width={92} height={16} color={COLOR.metal} light={COLOR.metalLuz} shadow={COLOR.metalSombra} bevelRight={4} />
-        <Block x={248} y={104} width={70} height={20} color={COLOR.polimeroLuz} light={COLOR.metalLuz} shadow={COLOR.polimero} />
-        {[258, 272, 286, 300].map((x) => (
-          <Crease key={x} x={x} y={108} width={4} height={12} />
+        {[254, 268, 282, 296, 310, 324].map((x) => (
+          <Crease key={x} x={x} y={122} width={2} height={16} />
         ))}
+        <Block x={248} y={104} width={70} height={20} color={COLOR.polimeroLuz} light={COLOR.metalLuz} shadow={COLOR.polimero} />
+        <MlokSlots x={254} y={110} width={58} slots={3} />
+        {/* Bomba de acionamento. */}
+        <Block x={266} y={118} width={40} height={12} color={COLOR.polimero} light={COLOR.polimeroLuz} shadow={COLOR.polimeroSombra} bevelLeft={3} bevelRight={3} />
+        <GripTexture x={270} y={120} width={32} height={8} rows={2} />
         <PistolGrip x={200} y={140} />
         <TriggerGuard x={220} y={140} width={30} />
       </g>
@@ -399,11 +576,16 @@ function pistol(): Silhouette {
   return {
     body: (
       <g>
+        {/* Ferrolho com estrias de manejo e janela de ejeção. */}
         <Block x={200} y={104} width={116} height={26} color={COLOR.metal} light={COLOR.metalLuz} shadow={COLOR.metalSombra} bevelRight={4} />
-        {[214, 224, 234].map((x) => (
-          <Crease key={x} x={x} y={110} width={4} height={14} />
+        {[206, 212, 218, 224, 230].map((x) => (
+          <Crease key={x} x={x} y={108} width={3} height={18} />
         ))}
+        <EjectionPort x={254} y={106} width={22} height={9} />
+        <FoldingSight x={210} y={104} />
+        <rect x={306} y={106} width={4} height={5} fill={COLOR.metalSombra} />
         <Block x={204} y={128} width={72} height={14} color={COLOR.polimero} light={COLOR.polimeroLuz} shadow={COLOR.polimeroSombra} />
+        <circle cx={218} cy={135} r={2.6} fill={COLOR.metalSombra} />
         <PistolGrip x={222} y={140} tilt={-14} />
         <TriggerGuard x={240} y={140} width={26} />
         <Rail x={276} y={130} width={34} teeth={3} />

@@ -43,19 +43,28 @@ empurra a boca de fogo, uma luneta troca a peça sobre o trilho, um tambor engor
 o poço do carregador — com uma animação curta de encaixe a cada mudança.
 
 A razão é aritmética: uma imagem por combinação seria impossível. Só a AK4D tem
-cerca de **10,7 milhões de combinações** de acessórios, e são 63 armas. Em
-camadas, bastam 108 arquivos para cobrir tudo.
+**336.798.000** combinações de acessórios e as 63 armas de fogo somam
+**21.218.274.000** — 6.365 TB de PNG, 67 anos de geração a 10 por segundo. Em
+camadas bastam 108 arquivos, e toda combinação continua aparecendo montada.
 
-O preview aceita duas fontes, nesta ordem:
+O preview tem dois modos:
 
-1. **Imagens** em `public/armas/` e `public/acessorios/` — ver `IMAGENS.md` para
-   a especificação e `node scripts/imagens.mjs` para saber o que falta.
-2. **Desenho vetorial próprio**, usado sempre que a imagem não existir. São 15
-   silhuetas low-poly, uma por família de arma, com pontos de ancoragem para
-   cada peça.
+- **Esquema** — desenho vetorial próprio, montado em camadas. É o único que
+  reage aos acessórios, e por isso é o padrão no montador. São 15 silhuetas, uma
+  por família de arma, com janela de ejeção, seletor de tiro, rasgos M-LOK,
+  parafusos e mira dobrável; uma arma montada chega a ~120 formas.
+- **Foto do jogo** — a arma como ela aparece no Battlefield 6, carregada de
+  fonte externa (as mesmas URLs do protótipo `bf6-arsenal.html`). Mostra a arma
+  inteira e montada, então não recebe camadas. É o padrão no catálogo e na
+  comparação, onde a pergunta é "que arma é essa?".
 
-Não há queda de funcionamento entre as duas: a aplicação funciona hoje, sem
-nenhuma imagem, e vai ganhando as fotos conforme forem entrando.
+Uma imagem própria em `public/armas/<id>.png` tem prioridade sobre as duas — ver
+`IMAGENS.md`.
+
+**Baixar PNG da montagem.** O montador exporta a combinação atual como PNG,
+gerado na hora pelo navegador a partir do desenho composto. É o que resolve, na
+prática, o desejo de "ter a imagem desta combinação" sem precisar guardar 21
+bilhões de arquivos.
 
 ### Números
 
