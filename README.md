@@ -12,6 +12,7 @@ Funciona no navegador do celular (Android e iPhone), dentro de WebView, e pode
 ser instalado na tela inicial.
 
 - **O que o projeto faz e por quê:** [`CARACTERISTICAS.md`](./CARACTERISTICAS.md)
+- **Relação de todas as armas:** [`ARMAS.md`](./ARMAS.md)
 - **Relação de todos os acessórios:** [`ACESSORIOS.md`](./ACESSORIOS.md)
 - **Como produzir as imagens das armas:** [`IMAGENS.md`](./IMAGENS.md)
 
@@ -32,6 +33,7 @@ npm run dev      # http://localhost:3000
 | `npm run typecheck` | checagem de tipos |
 | `node scripts/imagens.mjs` | mostra quais imagens de arma e acessório ainda faltam |
 | `node scripts/acessorios.mjs` | regenera `ACESSORIOS.md` a partir do dataset |
+| `node scripts/armas.mjs` | regenera `ARMAS.md` a partir do dataset |
 
 ## Publicando
 
