@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState, type ReactNode } from 'react';
+import { BUILD_DATE } from '@/data/build';
+import { seasonLabel, seasonOn } from '@/data/season';
 
 /**
  * Cabeçalho comum às telas.
@@ -17,6 +19,30 @@ const SECTIONS = [
   { href: '/armas/', name: 'Todas as Armas' },
   { href: '/comparar/', name: 'Comparar' },
 ];
+
+/**
+ * Etiqueta da temporada no ar — some sozinha quando a temporada encerra, junto
+ * com o tema dela. Ver `src/data/season.ts`.
+ */
+function SeasonBadge() {
+  const date = new Date(BUILD_DATE);
+  const season = seasonOn(date);
+  if (!season) return null;
+
+  return (
+    <span
+      className="chanfro-sm hidden shrink-0 px-2 py-1 text-[10px] font-semibold tracking-[0.14em] uppercase sm:inline-block"
+      title={`Temporada ${season.number}: ${season.name} — ${season.summary}`}
+      style={{
+        color: 'var(--color-ciano-400)',
+        border: '1px solid color-mix(in oklab, var(--color-ciano-500) 45%, transparent)',
+        background: 'color-mix(in oklab, var(--color-ciano-500) 10%, transparent)',
+      }}
+    >
+      {seasonLabel(date)}
+    </span>
+  );
+}
 
 function useTheme() {
   const [light, setLight] = useState(false);
@@ -52,6 +78,8 @@ export function AppHeader({ subtitle, actions }: { subtitle?: string; actions?: 
               </p>
             )}
           </Link>
+
+          <SeasonBadge />
 
           <nav aria-label="Seções" className="flex gap-1">
             {SECTIONS.map((section) => {

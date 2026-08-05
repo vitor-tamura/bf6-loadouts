@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Barlow, Barlow_Condensed } from 'next/font/google';
+import { BUILD_DATE } from '@/data/build';
+import { seasonTheme } from '@/data/season';
 import './globals.css';
 
 const barlow = Barlow({
@@ -49,8 +51,20 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  /*
+   * O tema da temporada é decidido no build, não no navegador: a página é
+   * estática, e resolver isso na hidratação faria a interface piscar do tema
+   * padrão para o sazonal. Encerrada a temporada, o atributo simplesmente não
+   * sai mais daqui e o site volta ao tema permanente no deploy seguinte.
+   */
+  const temporada = seasonTheme(new Date(BUILD_DATE));
+
   return (
-    <html lang="pt-BR" className={`${barlow.variable} ${barlowCondensed.variable}`}>
+    <html
+      lang="pt-BR"
+      data-temporada={temporada}
+      className={`${barlow.variable} ${barlowCondensed.variable}`}
+    >
       <body className="min-h-dvh antialiased">{children}</body>
     </html>
   );

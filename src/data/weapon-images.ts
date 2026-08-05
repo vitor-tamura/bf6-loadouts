@@ -1,21 +1,20 @@
 /**
  * Fotos das armas no jogo, servidas de fontes externas.
  *
- * As URLs vêm de três origens, nesta ordem de preferência: a arte de catálogo da
+ * Este arquivo é a **origem** das fotos, não o que a aplicação serve. As imagens
+ * são baixadas daqui uma vez, por `scripts/baixar_imagens.py`, e passam a morar
+ * em `public/armas/<id>.webp` — é de lá que o preview lê. Assim a aplicação não
+ * depende de site de terceiros continuar no ar nem de o CDN permitir hotlink.
+ *
+ * As URLs seguem três origens, da preferida à reserva: a arte de catálogo da
  * Battlefield Wiki (`<ARMA>_BF6.png` — a arma de lado, no cenário de inspeção do
- * jogo), capturas publicadas no IMFDB, e os renders do battlefieldmeta.gg como
- * reserva. Nada é copiado para o projeto — as imagens vêm direto da origem.
+ * jogo), capturas publicadas no IMFDB, e os renders do battlefieldmeta.gg.
  *
- * Duas consequências que valem registrar:
+ * Uma arma sem arquivo local ainda carrega pela URL, então o mapa continua
+ * valendo como reserva para conteúdo novo que chegue antes do download.
  *
- * 1. São imagens de terceiros e material da EA/DICE. Servir a partir da origem
- *    depende de o site permitir, e pode parar de funcionar sem aviso.
- * 2. A foto mostra a arma inteira, montada. Não dá para encaixar peças sobre
- *    ela — quem responde à montagem é o esquema vetorial. Por isso o preview
- *    tem os dois modos.
- *
- * Se uma imagem própria existir em `public/armas/<id>.png`, ela tem prioridade
- * sobre tudo isto.
+ * A foto mostra a arma inteira e montada de fábrica: ela não muda quando um
+ * acessório é encaixado. Quem responde à montagem é o ícone do slot.
  */
 
 export interface WeaponImageSources {
@@ -48,7 +47,7 @@ export const WEAPON_IMAGES: Record<string, WeaponImageSources> = {
   'sg-553r': { photo: `${WIKI}/e/ea/SG_553R_BF6.png/revision/latest/scale-to-width-down/800`, render: 'https://img.battlefieldmeta.gg/sg-553r_version2/gunMiniDisplay' },
   'sor-300sc': { photo: 'https://www.imfdb.org/images/thumb/c/c2/BF6_SCARSC.jpg/600px-BF6_SCARSC.jpg', render: 'https://img.battlefieldmeta.gg/sor-300sc_version1/gunMiniDisplay' },
   m277: { photo: `${WIKI}/b/b1/M277_BF6.png/revision/latest/scale-to-width-down/800`, render: 'https://img.battlefieldmeta.gg/m277_version2/gunMiniDisplay' },
-  'brod-3': { render: 'https://img.battlefieldmeta.gg/brod-3/gunMiniDisplay' },
+  'brod-3': { photo: 'https://www.imfdb.org/images/thumb/0/02/BF6_BROD3_1.jpg/600px-BF6_BROD3_1.jpg' },
   'scw-10': { photo: 'https://www.imfdb.org/images/thumb/d/dd/BF6_APC10.jpg/600px-BF6_APC10.jpg', render: 'https://img.battlefieldmeta.gg/scw-10_version2/gunMiniDisplay' },
   kv9: { photo: 'https://www.imfdb.org/images/thumb/4/40/BF6_Vector.jpg/600px-BF6_Vector.jpg', render: 'https://img.battlefieldmeta.gg/kv9_version2/gunMiniDisplay' },
   pw7a2: { photo: 'https://www.imfdb.org/images/thumb/e/eb/BF6_LABSAUG08_MP7A2.jpg/600px-BF6_LABSAUG08_MP7A2.jpg', render: 'https://img.battlefieldmeta.gg/pw7a2_version2/gunMiniDisplay' },
@@ -68,7 +67,7 @@ export const WEAPON_IMAGES: Record<string, WeaponImageSources> = {
   m60: { photo: 'https://www.imfdb.org/images/thumb/3/3d/BF6_M60E6_(0).jpg/600px-BF6_M60E6_(0).jpg', render: 'https://img.battlefieldmeta.gg/m60_version2/gunMiniDisplay' },
   m240l: { photo: 'https://www.imfdb.org/images/thumb/8/82/BF6_M240L_%280%29.jpg/600px-BF6_M240L_%280%29.jpg', render: 'https://img.battlefieldmeta.gg/m240l_version2/gunMiniDisplay' },
   'm121-a2': { photo: 'https://www.imfdb.org/images/thumb/c/c5/BF6_MG5_A2_%280%29.jpg/600px-BF6_MG5_A2_%280%29.jpg', render: 'https://img.battlefieldmeta.gg/m121-a2/gunMiniDisplay' },
-  'rpk-74m': { render: 'https://img.battlefieldmeta.gg/rpk-74m/gunMiniDisplay' },
+  'rpk-74m': { photo: 'https://www.imfdb.org/images/thumb/c/c7/BF6_RPK-74_%280%29.jpg/600px-BF6_RPK-74_%280%29.jpg', render: 'https://img.battlefieldmeta.gg/rpk-74m/gunMiniDisplay' },
   lmr27: { photo: 'https://www.imfdb.org/images/thumb/f/f6/BF6_LMR-27_%280%29.jpg/600px-BF6_LMR-27_%280%29.jpg', render: 'https://img.battlefieldmeta.gg/lmr27_version2/gunMiniDisplay' },
   'm39-emr': { photo: 'https://www.imfdb.org/images/thumb/3/3b/BF6_Mk14_%281%29.jpg/600px-BF6_Mk14_%281%29.jpg', render: 'https://img.battlefieldmeta.gg/m39-emr_version1/gunMiniDisplay' },
   svdm: { photo: 'https://www.imfdb.org/images/thumb/9/98/BF6_SVDM.jpg/600px-BF6_SVDM.jpg', render: 'https://img.battlefieldmeta.gg/svdm_version2/gunMiniDisplay' },

@@ -53,14 +53,14 @@ for (const grupo of grupos) {
   const linhas = [];
   for (const item of grupo.itens) {
     total++;
-    const caminho = join(raiz, grupo.pasta, `${item.id}.png`);
+    const caminho = join(raiz, grupo.pasta, `${item.id}.webp`);
     const existe = existsSync(caminho);
     if (!existe) faltando++;
     if (existe && !todas) continue;
     linhas.push(
       markdown
-        ? `| \`${item.id}.png\` | ${item.nome} | ${existe ? 'pronta' : 'falta'} |`
-        : `  ${existe ? '✓' : '·'} ${grupo.pasta}/${item.id}.png   ${item.nome}`,
+        ? `| \`${item.id}.webp\` | ${item.nome} | ${existe ? 'pronta' : 'falta'} |`
+        : `  ${existe ? '✓' : '·'} ${grupo.pasta}/${item.id}.webp   ${item.nome}`,
     );
   }
 

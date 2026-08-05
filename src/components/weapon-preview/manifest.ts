@@ -7,7 +7,12 @@
  * manifesto sobrou só a resolução do caminho da arte da arma.
  */
 
-/** Arte própria da arma, quando existir em `public/armas/`. */
+/**
+ * Foto da arma servida pelo próprio projeto.
+ *
+ * WebP porque a mesma foto em PNG ocupa perto de dez vezes mais; os arquivos
+ * são gerados por `scripts/baixar_imagens.py`.
+ */
 export function weaponImagePath(id: string): string {
-  return `/armas/${id}.png`;
+  return `/armas/${id}.webp`;
 }

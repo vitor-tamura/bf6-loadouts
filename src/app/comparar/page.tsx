@@ -366,7 +366,7 @@ export default function ComparePage() {
         <section className="cartao chanfro">
           <div className="flex flex-wrap items-center justify-between gap-2 p-3">
             <h2 className="rotulo">Arsenal · {grid.length} armas</h2>
-            <div className="rolagem-oculta flex gap-1.5 overflow-x-auto">
+            <div className="rolagem-x flex gap-1.5">
               <FilterChip active={categoryFilter === 'todas'} onClick={() => setCategoryFilter('todas')}>
                 Todas
               </FilterChip>

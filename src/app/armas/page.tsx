@@ -131,7 +131,7 @@ export default function WeaponsPage() {
             </label>
           </div>
 
-          <div className="rolagem-oculta -mx-1 mt-2 flex gap-1.5 overflow-x-auto px-1 pb-1">
+          <div className="rolagem-x -mx-1 mt-2 flex gap-1.5 px-1 pb-1">
             <Chip active={category === 'todas'} onClick={() => setCategory('todas')}>
               Todas as categorias
             </Chip>
@@ -142,7 +142,7 @@ export default function WeaponsPage() {
             ))}
           </div>
 
-          <div className="rolagem-oculta -mx-1 mt-1.5 flex gap-1.5 overflow-x-auto px-1 pb-1">
+          <div className="rolagem-x -mx-1 mt-1.5 flex gap-1.5 px-1 pb-1">
             <Chip active={playerClass === 'todas'} onClick={() => setPlayerClass('todas')}>
               Todas as classes
             </Chip>

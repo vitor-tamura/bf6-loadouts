@@ -2,9 +2,14 @@
 
 /* ------------------------------------------------------------------ *
  * Tema — HUD militar do Battlefield 6.
+ *
  * Base carvão esverdeado, destaque âmbar (interface do jogo) e ciano
  * para informação secundária. O tema claro existe para uso sob sol
  * forte no celular, mas o escuro é o padrão.
+ *
+ * Este é o tema **permanente**. As temporadas vestem o site por cima
+ * dele, em blocos `[data-temporada='...']` mais abaixo, e saem sozinhas
+ * quando a temporada encerra — ver `src/data/season.ts`.
  * ------------------------------------------------------------------ */
 @theme {
   --color-base-950: #080a08;
@@ -49,6 +54,10 @@
   --destaque-claro: var(--color-ambar-400);
   --grade: color-mix(in oklab, var(--color-base-600) 45%, transparent);
 
+  /* Trocados pelo tema da temporada; fora dela, o fundo padrão. */
+  --trama: var(--color-base-600);
+  --mare: transparent;
+
   color-scheme: dark;
 }
 
@@ -68,6 +77,55 @@
   color-scheme: light;
 }
 
+/* ------------------------------------------------------------------ *
+ * Temporada 4 — Naval Warfare (21/07/2026 a 19/10/2026)
+ *
+ * Guerra naval no Pacífico: o carvão puxa para o azul de casco de navio
+ * e o ciano de radar ganha presença. O âmbar continua sendo a cor de
+ * ação, como na interface do jogo — trocar isso também seria trocar o
+ * significado de "melhorou" nas barras e nos gráficos.
+ *
+ * O atributo sai do `<html>` sozinho quando a temporada encerra, e a
+ * interface volta ao tema acima. Nada aqui precisa ser removido.
+ * ------------------------------------------------------------------ */
+:root[data-temporada='naval'] {
+  --base-950: #05080b;
+  --base-900: #090e13;
+  --base-850: #0d141a;
+  --base-800: #111a22;
+  --base-700: #1b2833;
+  --base-600: #283a49;
+  --base-400: #5c7a8f;
+  --base-300: #8aa5b8;
+  --base-100: #dfeaf0;
+
+  --fundo: var(--base-950);
+  --superficie: var(--base-900);
+  --superficie-alta: var(--base-850);
+  --borda: var(--base-700);
+  --borda-suave: var(--base-800);
+  --texto: var(--base-100);
+  --texto-suave: var(--base-300);
+  --texto-fraco: var(--base-400);
+  --grade: color-mix(in oklab, var(--base-600) 45%, transparent);
+  /* A trama do fundo acompanha, senão sobra um verde fora de lugar. */
+  --trama: var(--base-600);
+  --mare: var(--color-ciano-500);
+}
+
+:root[data-temporada='naval'][data-tema='claro'] {
+  --fundo: #eef3f6;
+  --superficie: #ffffff;
+  --superficie-alta: #e2eaef;
+  --borda: #c4d2da;
+  --borda-suave: #d8e2e8;
+  --texto: #0b1319;
+  --texto-suave: #3d5567;
+  --texto-fraco: #5c7a8f;
+  --grade: #c4d2da;
+  --trama: #5c7a8f;
+}
+
 @layer base {
   * {
     border-color: var(--borda);
@@ -82,15 +140,27 @@
     background-color: var(--fundo);
     color: var(--texto);
     font-family: var(--font-sans);
-    /* Trama diagonal discreta, evocando a textura de HUD tático. */
+    /*
+     * Trama diagonal discreta, evocando a textura de HUD tático, mais uma
+     * camada de temporada: `--mare` é transparente fora dela, então as duas
+     * primeiras faixas somem sozinhas e sobra só a trama.
+     */
     background-image:
+      linear-gradient(180deg, color-mix(in oklab, var(--mare) 7%, transparent), transparent 360px),
+      repeating-linear-gradient(
+        180deg,
+        transparent,
+        transparent 58px,
+        color-mix(in oklab, var(--mare) 4%, transparent) 58px,
+        color-mix(in oklab, var(--mare) 4%, transparent) 60px
+      ),
       linear-gradient(180deg, color-mix(in oklab, var(--destaque) 4%, transparent), transparent 320px),
       repeating-linear-gradient(
         135deg,
         transparent,
         transparent 6px,
-        color-mix(in oklab, var(--color-base-600) 6%, transparent) 6px,
-        color-mix(in oklab, var(--color-base-600) 6%, transparent) 7px
+        color-mix(in oklab, var(--trama) 7%, transparent) 6px,
+        color-mix(in oklab, var(--trama) 7%, transparent) 7px
       );
     background-attachment: fixed;
     overscroll-behavior-y: none;
@@ -201,11 +271,35 @@
     clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
   }
 
-  .rolagem-oculta {
-    scrollbar-width: none;
+  /*
+   * Faixa que rola de lado — filtros, categorias, arsenal.
+   *
+   * A barra fica visível de propósito: sem ela a faixa parece conteúdo cortado
+   * na borda do cartão, e ninguém descobre que há mais opções à direita. É uma
+   * barra fina, na cor da borda, que acende no âmbar do tema quando o ponteiro
+   * passa por cima.
+   */
+  .rolagem-x {
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--borda) transparent;
+    scroll-padding-inline: 0.25rem;
   }
-  .rolagem-oculta::-webkit-scrollbar {
-    display: none;
+  .rolagem-x::-webkit-scrollbar {
+    height: 5px;
+  }
+  .rolagem-x::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .rolagem-x::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background: var(--borda);
+  }
+  .rolagem-x:hover {
+    scrollbar-color: var(--destaque) transparent;
+  }
+  .rolagem-x:hover::-webkit-scrollbar-thumb {
+    background: var(--destaque);
   }
 
   .toque {
