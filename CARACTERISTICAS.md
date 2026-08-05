@@ -47,24 +47,25 @@ A razão é aritmética: uma imagem por combinação seria impossível. Só a AK
 **21.218.274.000** — 6.365 TB de PNG, 67 anos de geração a 10 por segundo. Em
 camadas bastam 108 arquivos, e toda combinação continua aparecendo montada.
 
-O preview tem dois modos:
+O preview é sempre imagem, nunca desenho vetorial. As fontes, em ordem:
 
-- **Esquema** — desenho vetorial próprio, montado em camadas. É o único que
-  reage aos acessórios, e por isso é o padrão no montador. São 15 silhuetas, uma
-  por família de arma, com janela de ejeção, seletor de tiro, rasgos M-LOK,
-  parafusos e mira dobrável; uma arma montada chega a ~120 formas.
-- **Foto do jogo** — a arma como ela aparece no Battlefield 6, carregada de
-  fonte externa (as mesmas URLs do protótipo `bf6-arsenal.html`). Mostra a arma
-  inteira e montada, então não recebe camadas. É o padrão no catálogo e na
-  comparação, onde a pergunta é "que arma é essa?".
+1. **`public/armas/<id>.png`** — arte própria. É a única que aceita as camadas de
+   acessório por cima, porque a imagem é da arma nua e os pontos de ancoragem
+   valem para ela. É o único caminho em que o preview reage à montagem.
+2. **Foto do jogo** — a arma como aparece no Battlefield 6, carregada de fonte
+   externa (as mesmas URLs do protótipo `bf6-arsenal.html`). Mostra a arma
+   inteira e já montada de fábrica, então **não recebe camadas**: encaixar um
+   acessório não muda a imagem.
+3. **Marcador** com o nome da arma, quando não há nem uma nem outra.
 
-Uma imagem própria em `public/armas/<id>.png` tem prioridade sobre as duas — ver
-`IMAGENS.md`.
+Hoje 62 das 68 armas têm foto; as 6 restantes (corpo a corpo e Interdictor)
+mostram o marcador. Enquanto `public/armas/` estiver vazia, o preview não
+responde aos acessórios — quem responde são as estatísticas e os gráficos.
+Preencher essa pasta, seguindo `IMAGENS.md`, é o que devolve o preview dinâmico.
 
-**Baixar PNG da montagem.** O montador exporta a combinação atual como PNG,
-gerado na hora pelo navegador a partir do desenho composto. É o que resolve, na
-prática, o desejo de "ter a imagem desta combinação" sem precisar guardar 21
-bilhões de arquivos.
+Nos blocos de slot, cada peça montada aparece pela sua imagem em
+`public/acessorios/<id>.png`; sem ela, o bloco mostra a sigla do slot em âmbar
+quando há peça encaixada e em cinza quando está vazio.
 
 ### Números
 

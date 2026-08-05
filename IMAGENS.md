@@ -16,13 +16,12 @@ de acessórios compatíveis, com o slot vazio como opção:
 Em camadas, o total cai para **108 arquivos** e qualquer uma daquelas 21 bilhões
 de combinações continua aparecendo montada.
 
-E quando você quiser o PNG de uma combinação específica, o montador tem o botão
-**Baixar PNG desta montagem**: a imagem é gerada na hora, no navegador, a partir
-do desenho já composto. Uma combinação, um arquivo, sob demanda — em vez de 21
-bilhões guardados.
+**O preview depende inteiramente destes arquivos.** Não existe mais desenho
+vetorial de reserva: sem a arte própria, o preview mostra a foto do jogo — que é
+da arma já montada de fábrica e, por isso, não reage aos acessórios. É colocando
+os PNGs aqui que o preview volta a responder à montagem.
 
-Enquanto um arquivo não existir, o preview cai sozinho no desenho vetorial. Não
-é preciso mexer em código ao adicionar imagens: basta soltar o PNG na pasta.
+Não é preciso mexer em código ao adicionar imagens: basta soltar o PNG na pasta.
 
 ---
 

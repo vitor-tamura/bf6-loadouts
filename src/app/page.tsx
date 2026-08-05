@@ -1,21 +1,19 @@
 'use client';
 
-import { useMemo, useRef, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { AppHeader } from '@/components/header';
 import { ShareButton } from '@/components/share-button';
 import { DamageChart, DropChart } from '@/components/charts';
 import { EquipmentPanel, ClassSelector } from '@/components/class-panel';
 import { SlotsPanel, BudgetBar } from '@/components/slots-panel';
 import { StatsPanel } from '@/components/stats-panel';
-import { WeaponPreview, type PreviewMode } from '@/components/weapon-preview';
-import { hasPhoto } from '@/components/weapon-photo';
+import { WeaponPreview } from '@/components/weapon-preview';
 import { WeaponSelector } from '@/components/weapon-selector';
 import { WEAPONS_BY_ID, PRIMARY_CATEGORIES } from '@/data/weapons';
 import { analysisDistance } from '@/lib/ballistics';
 import { loadoutAttachments } from '@/lib/loadout';
 import { calculateBudget, calculateStats, baseStats, hasApproximateValue } from '@/lib/stats';
 import { useLoadout, useUrlSync } from '@/state/loadout';
-import { buildFilename, exportSvgAsPng } from '@/lib/export-png';
 
 /**
  * Montador de loadout.
@@ -50,30 +48,7 @@ export default function BuilderPage() {
   const clearAttachments = useLoadout((s) => s.clearAttachments);
 
   const [tab, setTab] = useState<Tab>('arma');
-  const [previewMode, setPreviewMode] = useState<PreviewMode>('esquema');
-  const [exporting, setExporting] = useState(false);
-  const previewRef = useRef<HTMLDivElement>(null);
 
-  /**
-   * Baixa a combinação montada como PNG.
-   *
-   * Guardar uma imagem por combinação seria impossível — só a AK4D tem
-   * 336.798.000 delas —, então a imagem é gerada na hora, a partir do desenho
-   * que já está na tela.
-   */
-  async function baixarPng() {
-    const svg = previewRef.current?.querySelector('svg');
-    if (!svg || !weapon) return;
-    setExporting(true);
-    try {
-      await exportSvgAsPng(svg as SVGSVGElement, {
-        filename: buildFilename(weapon.name, attachments.map((a) => a.name)),
-        background: getComputedStyle(document.body).backgroundColor,
-      });
-    } finally {
-      setExporting(false);
-    }
-  }
   const [choosingSidearm, setEscolhendoSecundaria] = useState(false);
 
   const weapon = loadout.weapon ? (WEAPONS_BY_ID.get(loadout.weapon) ?? null) : null;
@@ -104,60 +79,13 @@ export default function BuilderPage() {
             {/* Largura limitada: com a proporção 8:3 do quadro, deixar o preview
                 ocupar 1600 px transformaria a arma em um painel de 600 px de
                 altura e empurraria todo o resto para fora da tela. */}
-            <div ref={previewRef}>
-              <WeaponPreview
-                weapon={weapon}
-                attachments={attachments}
-                withLabel
-                mode={previewMode}
-                className="mx-auto w-full max-w-[560px] lg:max-w-[760px]"
-              />
-            </div>
+            <WeaponPreview
+              weapon={weapon}
+              attachments={attachments}
+              withLabel
+              className="mx-auto w-full max-w-[560px] lg:max-w-[760px]"
+            />
 
-            {/* A foto mostra a arma como ela é no jogo; o esquema é o único que
-                reage aos acessórios. Cada um responde a uma pergunta diferente. */}
-            {hasPhoto(weapon) && (
-              <div className="mt-1 flex justify-center gap-1">
-                {(['esquema', 'foto'] as PreviewMode[]).map((option) => {
-                  const active = previewMode === option;
-                  return (
-                    <button
-                      key={option}
-                      type="button"
-                      onClick={() => setPreviewMode(option)}
-                      aria-pressed={active}
-                      className="chanfro-sm px-3 py-1 text-[11px] font-semibold"
-                      style={{
-                        background: active ? 'color-mix(in oklab, var(--destaque) 20%, transparent)' : 'transparent',
-                        color: active ? 'var(--destaque)' : 'var(--texto-fraco)',
-                      }}
-                      title={
-                        option === 'esquema'
-                          ? 'Desenho que muda conforme os acessórios'
-                          : 'Foto da arma no jogo, sem os seus acessórios'
-                      }
-                    >
-                      {option === 'esquema' ? 'Esquema' : 'Foto do jogo'}
-                    </button>
-                  );
-                })}
-              </div>
-            )}
-
-            {previewMode === 'esquema' && (
-              <div className="mt-1 flex justify-center">
-                <button
-                  type="button"
-                  onClick={baixarPng}
-                  disabled={exporting}
-                  className="chanfro-sm px-3 py-1 text-[11px] font-semibold disabled:opacity-50"
-                  style={{ border: '1px solid var(--borda)', color: 'var(--texto-suave)' }}
-                  title="Gera o PNG desta combinação na hora, no seu navegador"
-                >
-                  {exporting ? 'Gerando…' : 'Baixar PNG desta montagem'}
-                </button>
-              </div>
-            )}
           </div>
         )}
 

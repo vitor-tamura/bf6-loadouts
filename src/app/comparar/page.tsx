@@ -554,7 +554,7 @@ function DuelCard({ weapon, color, side }: { weapon: Weapon; color: string; side
           {SHORT_CATEGORY_NAMES[weapon.category]}
         </span>
       </div>
-      <WeaponPreview weapon={weapon} attachments={[]} mode="foto" className="mx-auto w-full max-w-[420px]" />
+      <WeaponPreview weapon={weapon} attachments={[]} className="mx-auto w-full max-w-[420px]" />
     </div>
   );
 }
