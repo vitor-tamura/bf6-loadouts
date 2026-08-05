@@ -20,7 +20,7 @@ function extrair(arquivo, comPeca) {
   const texto = readFileSync(join(raiz, arquivo), 'utf8');
   const itens = [];
   // Cada entrada começa com `id: '...'` e traz `nome: '...'` logo em seguida.
-  const regex = /id:\s*'([^']+)',\s*\n\s*nome:\s*'([^']+)'/g;
+  const regex = /id:\s*'([^']+)',\s*\n\s*name:\s*'([^']+)'/g;
   let m;
   while ((m = regex.exec(texto))) {
     const [, id, nome] = m;
@@ -28,18 +28,18 @@ function extrair(arquivo, comPeca) {
       // Só acessórios com peça desenhável aparecem no preview.
       const trecho = texto.slice(m.index, m.index + 1400);
       const fim = trecho.indexOf("\n  },");
-      if (!/peca:\s*'/.test(trecho.slice(0, fim < 0 ? trecho.length : fim))) continue;
+      if (!/part:\s*'/.test(trecho.slice(0, fim < 0 ? trecho.length : fim))) continue;
     }
     itens.push({ id, nome });
   }
   return itens;
 }
 
-const armas = extrair('src/dados/armas.ts', false).filter(
+const armas = extrair('src/data/weapons.ts', false).filter(
   // Corpo a corpo não usa o compositor de camadas.
   (a) => !['kbr-mark-ii', 'bighorn-hk-16', 'marreta-14lb', 'nomad-cx-12', 'ripper-14'].includes(a.id),
 );
-const acessorios = extrair('src/dados/acessorios.ts', true);
+const acessorios = extrair('src/data/attachments.ts', true);
 
 const grupos = [
   { titulo: 'Armas', pasta: 'public/armas', itens: armas },
