@@ -1,0 +1,242 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------ *
+ * Tema — HUD militar do Battlefield 6.
+ * Base carvão esverdeado, destaque âmbar (interface do jogo) e ciano
+ * para informação secundária. O tema claro existe para uso sob sol
+ * forte no celular, mas o escuro é o padrão.
+ * ------------------------------------------------------------------ */
+@theme {
+  --color-base-950: #080a08;
+  --color-base-900: #0d100c;
+  --color-base-850: #12160f;
+  --color-base-800: #181d15;
+  --color-base-700: #232a1e;
+  --color-base-600: #333c2b;
+  --color-base-500: #4b563f;
+  --color-base-400: #6d7a5e;
+  --color-base-300: #97a288;
+  --color-base-200: #c3cbb4;
+  --color-base-100: #e4e8dc;
+
+  --color-ambar-400: #ffb545;
+  --color-ambar-500: #ff8a00;
+  --color-ambar-600: #d96f00;
+
+  --color-ciano-400: #5fe3f0;
+  --color-ciano-500: #22c3d6;
+
+  --color-positivo: #7ddc4c;
+  --color-negativo: #ff5c47;
+
+  --font-display: 'Barlow Condensed', 'Oswald', 'Arial Narrow', sans-serif;
+  --font-sans: 'Barlow', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+
+  --ease-encaixe: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  --fundo: var(--color-base-950);
+  --superficie: var(--color-base-900);
+  --superficie-alta: var(--color-base-850);
+  --borda: var(--color-base-700);
+  --borda-suave: var(--color-base-800);
+  --texto: var(--color-base-100);
+  --texto-suave: var(--color-base-300);
+  --texto-fraco: var(--color-base-400);
+  --destaque: var(--color-ambar-500);
+  --destaque-claro: var(--color-ambar-400);
+  --grade: color-mix(in oklab, var(--color-base-600) 45%, transparent);
+
+  color-scheme: dark;
+}
+
+:root[data-tema='claro'] {
+  --fundo: #f4f5ef;
+  --superficie: #ffffff;
+  --superficie-alta: #eceee4;
+  --borda: #d2d6c6;
+  --borda-suave: #e2e5d8;
+  --texto: #14180f;
+  --texto-suave: #4b563f;
+  --texto-fraco: #6d7a5e;
+  --destaque: #c96a00;
+  --destaque-claro: #a35600;
+  --grade: #d2d6c6;
+
+  color-scheme: light;
+}
+
+@layer base {
+  * {
+    border-color: var(--borda);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--fundo);
+    color: var(--texto);
+    font-family: var(--font-sans);
+    /* Trama diagonal discreta, evocando a textura de HUD tático. */
+    background-image:
+      linear-gradient(180deg, color-mix(in oklab, var(--destaque) 4%, transparent), transparent 320px),
+      repeating-linear-gradient(
+        135deg,
+        transparent,
+        transparent 6px,
+        color-mix(in oklab, var(--color-base-600) 6%, transparent) 6px,
+        color-mix(in oklab, var(--color-base-600) 6%, transparent) 7px
+      );
+    background-attachment: fixed;
+    overscroll-behavior-y: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: 0.01em;
+  }
+
+  /* Rolagem discreta, para não competir com o conteúdo. */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--borda);
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-base-600);
+    background-clip: content-box;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--destaque);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Tudo que é clicável se comporta como clicável. Os botões carregam estilos
+     bem variados (fundo âmbar, transparente, cartão), então o realce de hover é
+     um clareamento — funciona sobre qualquer um deles sem repetir regra. */
+  button,
+  [role='button'],
+  a,
+  label:has(input[type='checkbox']),
+  summary {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [aria-disabled='true'] {
+    cursor: not-allowed;
+  }
+
+  button,
+  a {
+    transition:
+      filter 140ms ease,
+      background-color 140ms ease,
+      color 140ms ease,
+      border-color 140ms ease;
+  }
+
+  @media (hover: hover) {
+    button:not(:disabled):hover,
+    a:hover,
+    label:has(input[type='checkbox']):hover {
+      filter: brightness(1.22);
+    }
+  }
+
+  button:not(:disabled):active {
+    filter: brightness(0.94);
+  }
+}
+
+@layer utilities {
+  /* Respeita o entalhe do iPhone e a barra de gestos do Android. */
+  .pt-seguro {
+    padding-top: max(0.75rem, env(safe-area-inset-top));
+  }
+  .pb-seguro {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+  .pb-seguro-nav {
+    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
+  }
+
+  .rotulo {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.6875rem;
+    color: var(--texto-fraco);
+  }
+
+  .cartao {
+    background-color: var(--superficie);
+    border: 1px solid var(--borda-suave);
+  }
+
+  /* Canto chanfrado — assinatura visual da interface. */
+  .chanfro {
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  }
+
+  .chanfro-sm {
+    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+  }
+
+  .rolagem-oculta {
+    scrollbar-width: none;
+  }
+  .rolagem-oculta::-webkit-scrollbar {
+    display: none;
+  }
+
+  .toque {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Encaixe de peça no preview da arma: a peça assenta vindo de cima. */
+@keyframes encaixar {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.peca-encaixe {
+  animation: encaixar 260ms var(--ease-encaixe) both;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

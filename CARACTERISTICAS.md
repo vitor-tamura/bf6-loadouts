@@ -1,0 +1,252 @@
+# Arsenal BF6 — características do projeto
+
+Montador de loadouts de Battlefield 6 em português do Brasil. O jogador escolhe a
+classe e a arma, encaixa os acessórios dentro do orçamento de 100 pontos, vê as
+estatísticas se recalcularem a cada peça e compartilha a build por um link.
+
+Aplicação web mobile-first: roda em navegador de celular Android e iPhone, dentro
+de WebView, e pode ser instalada na tela inicial como aplicativo (PWA).
+
+---
+
+## O que existe
+
+### Arsenal
+
+- **63 armas de fogo + 5 de corpo a corpo**, com os nomes que aparecem no jogo,
+  divididas em fuzis de assalto, carabinas, submetralhadoras, metralhadoras,
+  rifles de precisão semiautomáticos, rifles de precisão, escopetas, pistolas e
+  corpo a corpo. Cobre o conteúdo de lançamento e das Temporadas 1 a 4.
+- **65 acessórios** distribuídos em dez slots, com o nome em português do jogo e o
+  nome original em inglês ao lado.
+- **30 gadgets** separados por classe e **7 arremessáveis** comuns a todas.
+- **4 classes** — Assalto, Suporte, Engenheiro e Reconhecimento — com o traço
+  passivo e a categoria de arma que recebe o bônus.
+
+### Montagem
+
+- Os dez slots da localização brasileira: Mira, Boca, Cano, Acoplamento Inferior,
+  Carregador, Munição, Ergonomia, Acessório Óptico, Acessório Esquerdo e
+  Acessório Direito.
+- **Orçamento de 100 pontos**, como no jogo. Peça que não cabe continua visível,
+  porém desabilitada, com o motivo escrito — esconder a opção deixaria o jogador
+  sem entender por que ela sumiu.
+- Compatibilidade real: cada acessório declara em quais categorias e armas
+  encaixa, e o que não serve nunca aparece.
+- Trocar de arma descarta sozinho o que não faz sentido na nova.
+
+### Preview que responde
+
+O desenho da arma é montado **em camadas**, não escolhido de uma pasta de imagens
+prontas. Encaixar um supressor faz o cano crescer, um cano longo estica a arma e
+empurra a boca de fogo, uma luneta troca a peça sobre o trilho, um tambor engorda
+o poço do carregador — com uma animação curta de encaixe a cada mudança.
+
+A razão é aritmética: uma imagem por combinação seria impossível. Só a AK4D tem
+cerca de **10,7 milhões de combinações** de acessórios, e são 63 armas. Em
+camadas, bastam 108 arquivos para cobrir tudo.
+
+O preview aceita duas fontes, nesta ordem:
+
+1. **Imagens** em `public/armas/` e `public/acessorios/` — ver `IMAGENS.md` para
+   a especificação e `node scripts/imagens.mjs` para saber o que falta.
+2. **Desenho vetorial próprio**, usado sempre que a imagem não existir. São 15
+   silhuetas low-poly, uma por família de arma, com pontos de ancoragem para
+   cada peça.
+
+Não há queda de funcionamento entre as duas: a aplicação funciona hoje, sem
+nenhuma imagem, e vai ganhando as fotos conforme forem entrando.
+
+### Números
+
+Tudo recalculado a cada acessório, sempre ao lado do valor de fábrica, com seta
+verde ou vermelha conforme a mudança favoreça ou não o jogador:
+
+- Tempo para matar, tiros para matar, tiros na cabeça, alcance efetivo e dano por
+  segundo;
+- Precisão, controle, mobilidade e tiro de quadril, em barras de 0 a 100, com a
+  marca de onde estava o valor original;
+- Dano de perto, cadência, velocidade da bala, capacidade do carregador, recarga
+  tática e com a arma vazia, tempo de mira, troca de arma e recuo vertical e
+  horizontal;
+- A escada de dano completa, faixa por faixa, com quantos tiros são necessários
+  em cada uma.
+
+### Gráficos
+
+Dois gráficos que redesenham a cada peça encaixada, com a curva de fábrica
+tracejada por baixo para comparação:
+
+- **Dano por distância**, em degraus, com o número de tiros necessários marcado em
+  cada patamar. Munição e cano deslocam os degraus.
+- **Queda da bala**, em centímetros, calculada a partir da velocidade efetiva do
+  projétil. Trocar o cano ou usar munição subsônica muda a curva na hora.
+
+Ambos respondem ao toque e ao cursor: uma linha-guia mostra o dano, os tiros, o
+tempo para matar e o quanto mirar acima naquela distância exata.
+
+### Compartilhamento
+
+O loadout inteiro é codificado dentro da própria URL. Não há servidor nem banco:
+o link não expira, funciona com o site hospedado em qualquer lugar e nada do que
+o jogador monta sai do dispositivo dele. A janela de compartilhamento traz o link
+para copiar, o compartilhamento nativo do celular e um **QR code**, para o caso
+mais comum — montar no computador e conferir no celular.
+
+O formato do link é versionado (`1~arma~acessórios~classe~…`), então mudanças
+futuras no dataset não quebram links antigos. A leitura é tolerante: um acessório
+que não existe mais é ignorado em vez de derrubar a página.
+
+---
+
+## Fórmulas
+
+### Dano e tempo para matar
+
+O jogo trata a queda de dano em degraus: cada degrau vale da sua distância até o
+próximo. Com 100 de vida:
+
+```
+tiros = teto(100 / (dano × projéteis × multiplicador de cabeça))
+tempo = (tiros − 1) × 60000 / cadência
+```
+
+O primeiro tiro sai no instante zero, então só contam os intervalos entre
+disparos — por isso um rifle de precisão que mata com um tiro tem tempo zero.
+
+### Queda da bala
+
+Trajetória com arrasto proporcional à velocidade, que tem solução fechada e roda
+barato o suficiente para redesenhar a cada acessório:
+
+```
+t = (e^(k·d) − 1) / (k · v₀)       k = 0,0006 × coeficiente de arrasto
+queda = ½ · 9,81 · t²
+```
+
+O coeficiente de arrasto varia por calibre: projétil de rifle de precisão corta o
+ar melhor que munição pistola subsônica.
+
+### Aplicação dos acessórios
+
+Ordem fixa, para que o resultado nunca dependa da ordem em que o jogador montou:
+
+1. somam-se todos os valores aditivos;
+2. multiplicam-se todos os multiplicadores;
+3. o resultado é limitado ao intervalo válido da estatística.
+
+Em recuo, tempo de mira, troca e recarga, **menor é melhor** — por isso uma
+melhoria aparece como multiplicador abaixo de 1.
+
+---
+
+## Procedência dos números
+
+Cada arma e cada acessório carrega um campo `procedencia`:
+
+- **`jogo`** — valor levantado do jogo ou de medições publicadas pela comunidade.
+- **`curado`** — valor calibrado por analogia, quando não havia medição publicada.
+
+Tudo marcado como `curado` aparece na interface com o sinal **≈** e, quando o
+loadout usa alguma dessas peças, um aviso explica em texto o que isso significa.
+
+O que sustenta cada tipo de número:
+
+| Dado | Origem |
+| --- | --- |
+| Nomes das armas, categorias e temporadas | Wiki Battlefield (Fandom), template oficial de armas do BF6 |
+| Cadência, velocidade de projétil, carregador, recarga, tempo de mira | Levantamentos da comunidade sobre o jogo |
+| Escadas de dano | Reconstruídas a partir dos tiros para matar por distância. O Battlefield 6 usa degraus que são 100 dividido por um número inteiro, o que permite recuperar o valor exato |
+| Nomes dos acessórios em português | Localização brasileira do jogo, conferida em guias em português |
+| Efeito dos acessórios | Calibrado a partir das descrições exibidas no jogo e de guias da comunidade — o jogo não expõe os multiplicadores |
+
+Onde faltou fonte, o critério foi coerência interna: uma arma sem medição recebe
+o perfil de outra de mesmo calibre e cadência, para que a comparação entre builds
+continue válida mesmo que o número absoluto não seja exato.
+
+---
+
+## Decisões de projeto
+
+**Sem backend e sem banco.** O loadout cabe na URL, então não há o que guardar. O
+site é exportado como HTML estático e roda em qualquer hospedagem, inclusive
+offline depois da primeira visita.
+
+**A URL é a única memória.** Não há `localStorage`: seria uma segunda fonte de
+verdade para o mesmo dado, com risco de divergir do link compartilhado.
+Recarregar a página não perde o trabalho porque o endereço já descreve a build.
+
+**Gráficos escritos à mão.** São dois gráficos pequenos que precisam responder a
+cada acessório e funcionar nos dois temas. Uma biblioteca traria muito mais peso
+e menos controle do que as poucas contas de escala necessárias.
+
+**Nada de menu escondido.** No computador, escolher a arma, montar e ler o
+resultado acontecem em três colunas visíveis ao mesmo tempo. No celular, cada aba
+pede uma decisão de cada vez, com o preview fixo no topo — sempre visível, porque
+é ele que responde à pergunta "o que esse acessório fez com a minha arma?".
+
+**Tudo em português.** Nomes de acessórios, slots e estatísticas seguem a
+localização brasileira do jogo. O nome em inglês acompanha cada peça, porque boa
+parte da comunidade joga com o cliente em inglês e busca por ele.
+
+---
+
+## Estrutura
+
+```
+src/
+├── app/                    página do montador, tema, manifesto do PWA
+├── dados/
+│   ├── tipos.ts            modelo de dados
+│   ├── armas.ts            68 armas
+│   ├── acessorios.ts       65 acessórios e as regras de compatibilidade
+│   ├── gadgets.ts          gadgets e arremessáveis por classe
+│   └── classes.ts          classes, slots e orçamento
+├── lib/
+│   ├── stats.ts            aplicação dos acessórios e orçamento
+│   ├── balistica.ts        dano, tempo para matar e queda da bala
+│   ├── loadout.ts          o loadout e a limpeza de incompatíveis
+│   └── compartilhar.ts     codificação do link
+├── componentes/
+│   ├── preview-arma/       compositor por camadas (imagens)
+│   ├── arma-svg/           silhuetas e peças vetoriais
+│   ├── graficos.tsx        dano e queda
+│   ├── painel-stats.tsx    estatísticas com comparação
+│   ├── painel-slots.tsx    montagem e orçamento
+│   ├── painel-classe.tsx   classe, gadgets e arremessável
+│   ├── seletor-arma.tsx    busca e catálogo
+│   └── compartilhar.tsx    link e QR code
+└── estado/loadout.ts       estado e sincronia com a URL
+```
+
+---
+
+## Como estender
+
+**Nova arma:** acrescente a entrada em `src/dados/armas.ts`. Os slots vêm da
+categoria e a silhueta vem do arquétipo — não é preciso mexer em mais nada.
+Marque `temporada` e `procedencia`.
+
+**Novo acessório:** acrescente em `src/dados/acessorios.ts` com o slot, o custo em
+pontos, os modificadores e a compatibilidade. Se tiver `peca`, aparece no preview.
+
+**Nova temporada:** as armas novas entram com o campo `temporada`, que já é usado
+como filtro e aparece no cartão de cada arma.
+
+Os testes cobrem a integridade do dataset: id repetido, degraus de dano fora de
+ordem, slot sem nenhuma opção compatível e arma que não consegue ser montada
+dentro dos 100 pontos quebram a suíte antes de chegar à interface.
+
+```bash
+npm test          # 47 testes de dataset, cálculo, balística e link
+npm run typecheck
+npm run build
+```
+
+---
+
+## Aviso
+
+Projeto de fã, sem vínculo com a Electronic Arts ou a DICE. Battlefield é marca
+registrada da Electronic Arts. Nenhum recurso do jogo é distribuído aqui: todo o
+material visual é autoral.
