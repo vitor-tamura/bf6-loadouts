@@ -17,9 +17,11 @@ de WebView, e pode ser instalada na tela inicial como aplicativo (PWA).
   divididas em fuzis de assalto, carabinas, submetralhadoras, metralhadoras,
   rifles de precisão semiautomáticos, rifles de precisão, escopetas, pistolas e
   corpo a corpo. Cobre o conteúdo de lançamento e das Temporadas 1 a 4.
-- **65 acessórios** distribuídos em dez slots, com o nome em português do jogo e o
-  nome original em inglês ao lado.
-- **30 gadgets** separados por classe e **7 arremessáveis** comuns a todas.
+- **317 acessórios** distribuídos em dez slots, com o nome em português e o
+  original em inglês ao lado. A compatibilidade é **peça por arma**, não por
+  categoria: cada cano aparece só na arma a que pertence.
+- **33 gadgets** com a designação do jogo (Tarantula ALX, M320A1 HE, Powerpulse)
+  e **10 arremessáveis** — três universais e sete exclusivos de classe.
 - **4 classes** — Assalto, Suporte, Engenheiro e Reconhecimento — com o traço
   passivo e a categoria de arma que recebe o bônus.
 
@@ -31,8 +33,13 @@ de WebView, e pode ser instalada na tela inicial como aplicativo (PWA).
 - **Orçamento de 100 pontos**, como no jogo. Peça que não cabe continua visível,
   porém desabilitada, com o motivo escrito — esconder a opção deixaria o jogador
   sem entender por que ela sumiu.
-- Compatibilidade real: cada acessório declara em quais categorias e armas
-  encaixa, e o que não serve nunca aparece.
+- Compatibilidade real, vinda de duas fontes que se completam: a lista exata de
+  armas por peça (bf6loadouts) e as regras por categoria da planilha — é assim
+  que uma SMG deixa de aceitar supressor longo e uma pistola deixa de aceitar
+  empunhadura inferior.
+- Onze armas ainda não têm peças listadas na fonte (as seis mais recentes e
+  cinco que o catálogo deixou em branco). Elas herdam a montagem de uma arma
+  equivalente da mesma categoria, para não ficarem sem opção.
 - Trocar de arma descarta sozinho o que não faz sentido na nova.
 
 ### Preview que responde
@@ -176,11 +183,12 @@ O que sustenta cada tipo de número:
 
 | Dado | Origem |
 | --- | --- |
-| Nomes das armas, categorias e temporadas | Wiki Battlefield (Fandom), template oficial de armas do BF6 |
-| Cadência, velocidade de projétil, carregador, recarga, tempo de mira | Levantamentos da comunidade sobre o jogo |
-| Escadas de dano | Reconstruídas a partir dos tiros para matar por distância. O Battlefield 6 usa degraus que são 100 dividido por um número inteiro, o que permite recuperar o valor exato |
-| Nomes dos acessórios em português | Localização brasileira do jogo, conferida em guias em português |
-| Efeito dos acessórios | Calibrado a partir das descrições exibidas no jogo e de guias da comunidade — o jogo não expõe os multiplicadores |
+| Nomes das armas, categorias e temporadas | Wiki Battlefield (Fandom) e planilha do usuário |
+| Dano por faixa de distância e velocidade do projétil | Planilha do usuário, com a queda descrita como rampa (dano máximo até onde ela começa, decaindo até onde termina) e convertida em quatro degraus |
+| Nome, slot, custo em pontos e compatibilidade dos acessórios | Catálogo do bf6loadouts.com, que deriva dos dados do jogo |
+| Restrições por categoria de arma | Planilha `attachments-compatibility.xlsx`, aplicada como filtro sobre a lista acima |
+| Nomes e funções dos gadgets e arremessáveis | Planilha do usuário, com as designações do jogo |
+| Efeito numérico dos acessórios | Derivado do que o nome da peça informa — comprimento do cano, capacidade do carregador, ampliação da mira, potência do laser — e da descrição de efeito da planilha. Nenhuma fonte publica os multiplicadores, então continuam marcados como aproximados |
 
 Onde faltou fonte, o critério foi coerência interna: uma arma sem medição recebe
 o perfil de outra de mesmo calibre e cadência, para que a comparação entre builds

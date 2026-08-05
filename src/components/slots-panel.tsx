@@ -33,6 +33,7 @@ const STAT_LABEL: Record<StatKey, string> = {
   hipfire: 'tiro de quadril',
   verticalRecoil: 'recuo vertical',
   horizontalRecoil: 'recuo horizontal',
+  headshot: 'dano na cabeça',
 };
 
 /** Transforma os modificadores em frases curtas e legíveis. */

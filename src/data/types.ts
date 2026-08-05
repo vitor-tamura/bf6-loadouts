@@ -136,17 +136,18 @@ export type StatKey =
   | 'mobility'
   | 'hipfire'
   | 'verticalRecoil'
-  | 'horizontalRecoil';
+  | 'horizontalRecoil'
+  | 'headshot';
 
 export type StatMods = Partial<Record<StatKey, Modifier>>;
 
 export interface Compatibility {
   categories?: WeaponCategory[];
-  arquetipos?: WeaponArchetype[];
+  archetypes?: WeaponArchetype[];
   /** Libera apenas para estas armas, ignorando categoria e arquétipo. */
-  armas?: string[];
+  weapons?: string[];
   /** Remove estas armas da compatibilidade. */
-  exceto?: string[];
+  except?: string[];
 }
 
 export interface Attachment {
@@ -160,6 +161,12 @@ export interface Attachment {
   cost: number;
   description: string;
   mods: StatMods;
+  /**
+   * Capacidade absoluta do carregador, quando a peça é um carregador. Vem do
+   * próprio nome ("Carregador de 30"), então substitui o valor da arma em vez
+   * de multiplicá-lo.
+   */
+  magazineSize?: number;
   compat: Compatibility;
   /** Peça correspondente no desenho da arma. */
   part?: AttachmentPart;
@@ -200,7 +207,8 @@ export interface Gadget {
   name: string;
   originalName: string;
   playerClass: ClassId | 'todas';
-  tipo: 'gadget' | 'granada' | 'equipamento';
+  /** `equipment` é o dispositivo de assinatura, fixo na classe. */
+  kind: 'gadget' | 'throwable' | 'equipment';
   description: string;
   provenance: Provenance;
 }

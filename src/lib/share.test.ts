@@ -8,16 +8,16 @@ const completo: Loadout = {
   playerClass: 'assalto',
   weapon: 'ak4d',
   attachments: {
-    mira: 'mira-osa7-100',
-    boca: 'boca-freio-compensado',
-    cano: 'cano-estendido-8',
-    acoplamento: 'acopl-vertical-classica',
-    municao: 'mun-encamisada',
+    mira: 'mira-iron-sights',
+    boca: 'boca-compensated-brake',
+    cano: 'cano-600mm-dmr',
+    acoplamento: 'acoplamento-classic-vertical',
+    municao: 'municao-fmj',
   },
   sidearm: 'm44',
-  gadget1: 'farol-reaparecimento',
-  gadget2: 'escada-assalto',
-  throwable: 'granada-fragmentacao',
+  gadget1: 'qlink-6',
+  gadget2: 'tarantula-alx',
+  throwable: 'm67-frag',
 };
 
 describe('ida e volta do link', () => {
@@ -70,7 +70,7 @@ describe('leitura tolerante', () => {
     const invalido: Loadout = {
       ...EMPTY_LOADOUT,
       weapon: 'kv9',
-      attachments: { ergonomia: 'ergo-ferrolho-leve' },
+      attachments: { ergonomia: 'ergonomia-dlc-bolt' },
     };
     const voltou = decodeLoadout(encodeLoadout(invalido))!;
     expect(voltou.attachments.ergonomia).toBeUndefined();
@@ -81,7 +81,7 @@ describe('leitura tolerante', () => {
       ...EMPTY_LOADOUT,
       playerClass: 'suporte',
       weapon: 'm250',
-      gadget1: 'drone-reconhecimento',
+      gadget1: 'xfgm-6d',
     };
     expect(decodeLoadout(encodeLoadout(invalido))!.gadget1).toBeNull();
   });
@@ -91,9 +91,9 @@ describe('leitura tolerante', () => {
       ...EMPTY_LOADOUT,
       playerClass: 'reconhecimento',
       weapon: 'sv-98',
-      throwable: 'granada-fumaca',
+      throwable: 'm67-frag',
     };
-    expect(decodeLoadout(encodeLoadout(loadout))!.throwable).toBe('granada-fumaca');
+    expect(decodeLoadout(encodeLoadout(loadout))!.throwable).toBe('m67-frag');
   });
 });
 

@@ -87,7 +87,12 @@ export function calculateStats(weapon: Weapon, attachments: Attachment[]): Effec
     distance: step.distance === 0 ? 0 : applyMods(step.distance, rangeMods, false),
   }));
 
-  const magazine = Math.max(1, Math.round(stat('magazine', weapon.magazine)));
+  // Um carregador nomeado ("de 30") define a capacidade; sem ele, valem os mods.
+  const namedMagazine = attachments.find((a) => a.magazineSize)?.magazineSize;
+  const magazine = Math.max(
+    1,
+    Math.round(namedMagazine ?? stat('magazine', weapon.magazine)),
+  );
   const reload = stat('reload', weapon.reload);
 
   return {
@@ -96,7 +101,7 @@ export function calculateStats(weapon: Weapon, attachments: Attachment[]): Effec
     rpm: Math.round(stat('rpm', weapon.rpm)),
     velocity: stat('velocity', weapon.velocity),
     drag: weapon.drag,
-    headshot: weapon.headshot,
+    headshot: stat('headshot', weapon.headshot),
     magazine,
     reload,
     // A recarga com a arma vazia acompanha proporcionalmente a recarga tática.

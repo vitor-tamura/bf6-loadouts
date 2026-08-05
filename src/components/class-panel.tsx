@@ -174,7 +174,7 @@ export function EquipmentPanel({
       />
       <EquipmentList
         title="Arremessável"
-        items={throwables()}
+        items={throwables(playerClass)}
         selected={throwable}
         onSelect={onSetThrowable}
       />
