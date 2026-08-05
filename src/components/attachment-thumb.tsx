@@ -55,7 +55,7 @@ export function AttachmentThumb({
     return (
       <img
         ref={imgRef}
-        src={attachmentImagePath(attachment.id, category)}
+        src={attachmentImagePath(attachment.id, category, attachment.originalName)}
         alt=""
         onError={() => setNoImage(true)}
         style={{ width: size, height: size, objectFit: 'contain' }}

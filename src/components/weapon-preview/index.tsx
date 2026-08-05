@@ -108,7 +108,7 @@ export function WeaponPreview({ weapon, attachments, withLabel = false, classNam
             }}
           >
             <img
-              src={attachmentImagePath(attachment.id)}
+              src={attachmentImagePath(attachment.id, weapon.category, attachment.originalName)}
               alt={attachment.name}
               className="peca-encaixe"
               onError={() =>

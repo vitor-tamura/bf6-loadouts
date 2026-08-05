@@ -163,13 +163,52 @@ const MUNICOES_COM_VARIANTE = new Set([
 ]);
 
 /**
+ * Famílias de cano com arte própria.
+ *
+ * O dataset tem 152 canos porque cada arma traz os seus, mas o desenho se
+ * repete por família: um `10" Factory` e um `13" Factory` são o mesmo cano em
+ * comprimentos diferentes. Uma arte por família cobre todos eles.
+ */
+const FAMILIAS_DE_CANO = [
+  'commando',
+  'prototype',
+  'cryogenic',
+  'pencil',
+  'carbon',
+  'custom',
+  'fluted',
+  'heavy',
+  'rifle',
+  'standard',
+  'factory',
+  'spr',
+  'dmr',
+];
+
+/** Descobre a família pelo nome original da peça ("13\" Fluted" -> fluted). */
+function familiaDoCano(originalName: string): string | null {
+  const nome = originalName.toLowerCase();
+  return FAMILIAS_DE_CANO.find((familia) => nome.includes(familia)) ?? null;
+}
+
+/**
  * Caminho da imagem da peça.
  *
  * Quando a arma é pistola ou submetralhadora, a munição usa a variante de estojo
  * reto: o mesmo cartucho desenhado sem o gargalo, mais curto e com o projétil
  * assentado direto sobre o corpo.
  */
-export function attachmentImagePath(id: string, category?: WeaponCategory): string {
+export function attachmentImagePath(
+  id: string,
+  category?: WeaponCategory,
+  originalName?: string,
+): string {
+  // Cano: a arte é por família, não por peça.
+  if (id.startsWith('cano-') && originalName) {
+    const familia = familiaDoCano(originalName);
+    if (familia) return `/acessorios/cano-familia-${familia}.png`;
+  }
+
   const reto = category && CATEGORIAS_ESTOJO_RETO.includes(category);
   const sufixo = reto && MUNICOES_COM_VARIANTE.has(id) ? '--pistola' : '';
   return `/acessorios/${id}${sufixo}.png`;
