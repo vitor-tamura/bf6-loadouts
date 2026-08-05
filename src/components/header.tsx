@@ -12,24 +12,25 @@ import { useEffect, useState, type ReactNode } from 'react';
  * problema do site que serviu de referência.
  */
 
-const SECOES = [
-  { href: '/', nome: 'Montar' },
-  { href: '/comparar/', nome: 'Comparar' },
+const SECTIONS = [
+  { href: '/', name: 'Montar' },
+  { href: '/armas/', name: 'Todas as Armas' },
+  { href: '/comparar/', name: 'Comparar' },
 ];
 
-function useTema() {
-  const [claro, setClaro] = useState(false);
+function useTheme() {
+  const [light, setLight] = useState(false);
 
   useEffect(() => {
-    document.documentElement.dataset.tema = claro ? 'claro' : 'escuro';
-  }, [claro]);
+    document.documentElement.dataset.tema = light ? 'claro' : 'escuro';
+  }, [light]);
 
-  return { claro, alternar: () => setClaro((v) => !v) };
+  return { light, toggle: () => setLight((v) => !v) };
 }
 
-export function Cabecalho({ subtitulo, acoes }: { subtitulo?: string; acoes?: ReactNode }) {
-  const caminho = usePathname();
-  const tema = useTema();
+export function AppHeader({ subtitle, actions }: { subtitle?: string; actions?: ReactNode }) {
+  const pathname = usePathname();
+  const theme = useTheme();
 
   return (
     <header
@@ -45,28 +46,28 @@ export function Cabecalho({ subtitulo, acoes }: { subtitulo?: string; acoes?: Re
             <h1 className="font-display truncate text-lg leading-tight font-bold tracking-wide">
               ARSENAL <span style={{ color: 'var(--destaque)' }}>BF6</span>
             </h1>
-            {subtitulo && (
+            {subtitle && (
               <p className="truncate text-[11px]" style={{ color: 'var(--texto-fraco)' }}>
-                {subtitulo}
+                {subtitle}
               </p>
             )}
           </Link>
 
           <nav aria-label="Seções" className="flex gap-1">
-            {SECOES.map((secao) => {
-              const ativa = caminho === secao.href || caminho === secao.href.replace(/\/$/, '');
+            {SECTIONS.map((section) => {
+              const active = pathname === section.href || pathname === section.href.replace(/\/$/, '');
               return (
                 <Link
-                  key={secao.href}
-                  href={secao.href}
-                  aria-current={ativa ? 'page' : undefined}
+                  key={section.href}
+                  href={section.href}
+                  aria-current={active ? 'page' : undefined}
                   className="chanfro-sm px-3 py-1.5 text-sm font-semibold transition-colors"
                   style={{
-                    background: ativa ? 'color-mix(in oklab, var(--destaque) 18%, transparent)' : 'transparent',
-                    color: ativa ? 'var(--destaque)' : 'var(--texto-fraco)',
+                    background: active ? 'color-mix(in oklab, var(--destaque) 18%, transparent)' : 'transparent',
+                    color: active ? 'var(--destaque)' : 'var(--texto-fraco)',
                   }}
                 >
-                  {secao.nome}
+                  {section.name}
                 </Link>
               );
             })}
@@ -76,14 +77,14 @@ export function Cabecalho({ subtitulo, acoes }: { subtitulo?: string; acoes?: Re
         <div className="flex shrink-0 items-center gap-2">
           <button
             type="button"
-            onClick={tema.alternar}
+            onClick={theme.toggle}
             className="toque px-2 text-base"
-            aria-label={tema.claro ? 'Usar tema escuro' : 'Usar tema claro'}
+            aria-label={theme.light ? 'Usar tema escuro' : 'Usar tema claro'}
             style={{ color: 'var(--texto-fraco)' }}
           >
-            {tema.claro ? '☾' : '☀'}
+            {theme.light ? '☾' : '☀'}
           </button>
-          {acoes}
+          {actions}
         </div>
       </div>
     </header>

@@ -1,5 +1,5 @@
-import type { Arma, IdSlot, PecaAcessorio } from '@/dados/tipos';
-import { ALTURA_SVG, LARGURA_SVG, silhuetaDe } from '@/componentes/arma-svg/silhuetas';
+import type { Weapon, SlotId, AttachmentPart } from '@/data/types';
+import { SVG_HEIGHT, SVG_WIDTH, silhouetteFor } from '@/components/weapon-svg/silhouettes';
 
 /**
  * Composição do preview a partir de imagens.
@@ -16,35 +16,35 @@ import { ALTURA_SVG, LARGURA_SVG, silhuetaDe } from '@/componentes/arma-svg/silh
  * vetorial — a aplicação nunca fica sem preview.
  */
 
-export interface AncoraNormalizada {
+export interface NormalizedAnchor {
   /** Posição horizontal, de 0 (borda esquerda) a 1 (borda direita) da imagem base. */
   x: number;
   /** Posição vertical, de 0 (topo) a 1 (base) da imagem base. */
   y: number;
 }
 
-export type AncorasImagem = Record<PontoMontagem, AncoraNormalizada>;
+export type ImageAnchors = Record<MountPoint, NormalizedAnchor>;
 
-export type PontoMontagem =
-  | 'trilho'
-  | 'opticoExtra'
-  | 'canoBase'
-  | 'inferior'
-  | 'carregador'
-  | 'lateral'
-  | 'coronha';
+export type MountPoint =
+  | 'rail'
+  | 'opticExtra'
+  | 'barrelBase'
+  | 'underbarrel'
+  | 'magazine'
+  | 'side'
+  | 'stock';
 
 /** Em qual ponto de montagem cada slot encaixa. */
-export const MONTAGEM_DO_SLOT: Partial<Record<IdSlot, PontoMontagem>> = {
-  mira: 'trilho',
-  opticoExtra: 'opticoExtra',
-  cano: 'canoBase',
-  boca: 'canoBase',
-  acoplamento: 'inferior',
-  carregador: 'carregador',
-  ergonomia: 'coronha',
-  lateralEsquerda: 'lateral',
-  lateralDireita: 'lateral',
+export const SLOT_MOUNT: Partial<Record<SlotId, MountPoint>> = {
+  mira: 'rail',
+  opticoExtra: 'opticExtra',
+  cano: 'barrelBase',
+  boca: 'barrelBase',
+  acoplamento: 'underbarrel',
+  carregador: 'magazine',
+  ergonomia: 'stock',
+  lateralEsquerda: 'side',
+  lateralDireita: 'side',
 };
 
 /**
@@ -52,21 +52,21 @@ export const MONTAGEM_DO_SLOT: Partial<Record<IdSlot, PontoMontagem>> = {
  * imagem. Uma mira encaixa pela base, um cano pela ponta esquerda, uma coronha
  * pela direita.
  */
-export const REGISTRO_DA_PECA: Record<PontoMontagem, AncoraNormalizada> = {
-  trilho: { x: 0.5, y: 1 },
-  opticoExtra: { x: 0.5, y: 1 },
-  canoBase: { x: 0, y: 0.5 },
-  inferior: { x: 0.5, y: 0 },
-  carregador: { x: 0.5, y: 0 },
-  lateral: { x: 0, y: 0.5 },
-  coronha: { x: 1, y: 0.5 },
+export const PART_REGISTRATION: Record<MountPoint, NormalizedAnchor> = {
+  rail: { x: 0.5, y: 1 },
+  opticExtra: { x: 0.5, y: 1 },
+  barrelBase: { x: 0, y: 0.5 },
+  underbarrel: { x: 0.5, y: 0 },
+  magazine: { x: 0.5, y: 0 },
+  side: { x: 0, y: 0.5 },
+  stock: { x: 1, y: 0.5 },
 };
 
 /**
  * Largura de cada peça, em fração da largura da imagem da arma. Mantém a
  * proporção entre peça e arma independentemente do tamanho do PNG entregue.
  */
-export const LARGURA_DA_PECA: Partial<Record<PecaAcessorio, number>> = {
+export const PART_WIDTH: Partial<Record<AttachmentPart, number>> = {
   supressor: 0.13,
   freio: 0.055,
   compensador: 0.065,
@@ -93,10 +93,10 @@ export const LARGURA_DA_PECA: Partial<Record<PecaAcessorio, number>> = {
   'coronha-pesada': 0.13,
 };
 
-const LARGURA_PADRAO_PECA = 0.07;
+const DEFAULT_PART_WIDTH = 0.07;
 
-export function larguraDaPeca(peca: PecaAcessorio): number {
-  return LARGURA_DA_PECA[peca] ?? LARGURA_PADRAO_PECA;
+export function partWidth(part: AttachmentPart): number {
+  return PART_WIDTH[part] ?? DEFAULT_PART_WIDTH;
 }
 
 /**
@@ -104,37 +104,37 @@ export function larguraDaPeca(peca: PecaAcessorio): number {
  * Preencha aqui quando uma imagem específica precisar de correção — os valores
  * são frações da imagem, então continuam válidos em qualquer resolução.
  */
-export const AJUSTES_POR_ARMA: Record<string, Partial<AncorasImagem>> = {};
+export const WEAPON_ANCHOR_OVERRIDES: Record<string, Partial<ImageAnchors>> = {};
 
 /**
  * Âncoras padrão de uma arma, derivadas da silhueta vetorial do seu arquétipo e
  * convertidas para fração. Servem de ponto de partida coerente para as imagens;
  * o ajuste fino, quando necessário, vai em `AJUSTES_POR_ARMA`.
  */
-export function ancorasDaArma(arma: Arma): AncorasImagem {
-  const { ancoras } = silhuetaDe(arma.arquetipo);
-  const norm = (p: { x: number; y: number }): AncoraNormalizada => ({
-    x: p.x / LARGURA_SVG,
-    y: p.y / ALTURA_SVG,
+export function anchorsForWeapon(weapon: Weapon): ImageAnchors {
+  const { anchors } = silhouetteFor(weapon.archetype);
+  const toFraction = (p: { x: number; y: number }): NormalizedAnchor => ({
+    x: p.x / SVG_WIDTH,
+    y: p.y / SVG_HEIGHT,
   });
 
-  const base: AncorasImagem = {
-    trilho: norm(ancoras.trilho),
-    opticoExtra: norm(ancoras.opticoExtra),
-    canoBase: norm(ancoras.canoBase),
-    inferior: norm(ancoras.inferior),
-    carregador: norm(ancoras.carregador),
-    lateral: norm(ancoras.lateral),
-    coronha: norm(ancoras.coronha),
+  const base: ImageAnchors = {
+    rail: toFraction(anchors.rail),
+    opticExtra: toFraction(anchors.opticExtra),
+    barrelBase: toFraction(anchors.barrelBase),
+    underbarrel: toFraction(anchors.underbarrel),
+    magazine: toFraction(anchors.magazine),
+    side: toFraction(anchors.side),
+    stock: toFraction(anchors.stock),
   };
 
-  return { ...base, ...AJUSTES_POR_ARMA[arma.id] };
+  return { ...base, ...WEAPON_ANCHOR_OVERRIDES[weapon.id] };
 }
 
-export function caminhoImagemArma(id: string): string {
+export function weaponImagePath(id: string): string {
   return `/armas/${id}.png`;
 }
 
-export function caminhoImagemAcessorio(id: string): string {
+export function attachmentImagePath(id: string): string {
   return `/acessorios/${id}.png`;
 }

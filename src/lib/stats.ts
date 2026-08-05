@@ -1,6 +1,6 @@
-import { ACESSORIOS_POR_ID } from '@/dados/acessorios';
-import { ORCAMENTO_PONTOS } from '@/dados/classes';
-import type { Acessorio, Arma, ChaveStat, DegrauDano, Modificador } from '@/dados/tipos';
+import { ATTACHMENTS_BY_ID } from '@/data/attachments';
+import { POINT_BUDGET } from '@/data/classes';
+import type { Attachment, Weapon, StatKey, DamageStep, Modifier } from '@/data/types';
 
 /**
  * Combina uma arma com os acessórios escolhidos e devolve as estatísticas
@@ -13,124 +13,124 @@ import type { Acessorio, Arma, ChaveStat, DegrauDano, Modificador } from '@/dado
  *   3. o resultado é limitado ao intervalo válido da estatística.
  */
 
-export interface StatsEfetivos {
-  dano: DegrauDano[];
-  projeteis: number;
+export interface EffectiveStats {
+  damage: DamageStep[];
+  pellets: number;
   rpm: number;
-  velocidade: number;
-  arrasto: number;
+  velocity: number;
+  drag: number;
   headshot: number;
-  carregador: number;
-  recarga: number;
-  recargaVazia: number;
+  magazine: number;
+  reload: number;
+  emptyReload: number;
   adsMs: number;
-  trocaMs: number;
-  precisao: number;
-  controle: number;
-  mobilidade: number;
+  swapMs: number;
+  accuracy: number;
+  control: number;
+  mobility: number;
   hipfire: number;
-  recuoV: number;
-  recuoH: number;
+  verticalRecoil: number;
+  horizontalRecoil: number;
 }
 
 /** Estatísticas com barra de 0 a 100 na interface. */
-const ESTATISTICAS_LIMITADAS: ChaveStat[] = ['precisao', 'controle', 'mobilidade', 'hipfire'];
+const CLAMPED_STATS: StatKey[] = ['accuracy', 'control', 'mobility', 'hipfire'];
 
 /** Estatísticas em que um valor MENOR é melhor para o jogador. */
-export const MENOR_EH_MELHOR: Set<keyof StatsEfetivos> = new Set([
+export const LOWER_IS_BETTER: Set<keyof EffectiveStats> = new Set([
   'adsMs',
-  'trocaMs',
-  'recarga',
-  'recargaVazia',
-  'recuoV',
-  'recuoH',
+  'swapMs',
+  'reload',
+  'emptyReload',
+  'verticalRecoil',
+  'horizontalRecoil',
 ]);
 
-function aplicar(base: number, mods: Modificador[], limitar: boolean): number {
-  let valor = base;
-  for (const m of mods) if (m.add !== undefined) valor += m.add;
-  for (const m of mods) if (m.mult !== undefined) valor *= m.mult;
-  if (limitar) return Math.max(0, Math.min(100, valor));
-  return Math.max(0, valor);
+function applyMods(base: number, mods: Modifier[], clamp: boolean): number {
+  let value = base;
+  for (const m of mods) if (m.add !== undefined) value += m.add;
+  for (const m of mods) if (m.mult !== undefined) value *= m.mult;
+  if (clamp) return Math.max(0, Math.min(100, value));
+  return Math.max(0, value);
 }
 
-function modsDaChave(acessorios: Acessorio[], chave: ChaveStat): Modificador[] {
-  const lista: Modificador[] = [];
-  for (const a of acessorios) {
-    const m = a.mods[chave];
-    if (m) lista.push(m);
+function modsForKey(attachments: Attachment[], statKey: StatKey): Modifier[] {
+  const list: Modifier[] = [];
+  for (const a of attachments) {
+    const m = a.mods[statKey];
+    if (m) list.push(m);
   }
-  return lista;
+  return list;
 }
 
 /** Resolve ids de acessório em objetos, descartando silenciosamente os que não existem. */
-export function resolverAcessorios(ids: (string | undefined | null)[]): Acessorio[] {
-  const lista: Acessorio[] = [];
+export function resolveAttachments(ids: (string | undefined | null)[]): Attachment[] {
+  const list: Attachment[] = [];
   for (const id of ids) {
     if (!id) continue;
-    const a = ACESSORIOS_POR_ID.get(id);
-    if (a) lista.push(a);
+    const a = ATTACHMENTS_BY_ID.get(id);
+    if (a) list.push(a);
   }
-  return lista;
+  return list;
 }
 
-export function calcularStats(arma: Arma, acessorios: Acessorio[]): StatsEfetivos {
-  const num = (chave: ChaveStat, base: number) =>
-    aplicar(base, modsDaChave(acessorios, chave), ESTATISTICAS_LIMITADAS.includes(chave));
+export function calculateStats(weapon: Weapon, attachments: Attachment[]): EffectiveStats {
+  const stat = (statKey: StatKey, base: number) =>
+    applyMods(base, modsForKey(attachments, statKey), CLAMPED_STATS.includes(statKey));
 
-  const multDano = modsDaChave(acessorios, 'dano');
-  const multAlcance = modsDaChave(acessorios, 'alcance');
+  const damageMods = modsForKey(attachments, 'damage');
+  const rangeMods = modsForKey(attachments, 'range');
 
-  const dano: DegrauDano[] = arma.dano.map((degrau) => ({
-    dano: aplicar(degrau.dano, multDano, false),
+  const damage: DamageStep[] = weapon.damage.map((step) => ({
+    damage: applyMods(step.damage, damageMods, false),
     // O primeiro degrau começa sempre no cano da arma; mexer nele não faria sentido.
-    distancia: degrau.distancia === 0 ? 0 : aplicar(degrau.distancia, multAlcance, false),
+    distance: step.distance === 0 ? 0 : applyMods(step.distance, rangeMods, false),
   }));
 
-  const carregador = Math.max(1, Math.round(num('carregador', arma.carregador)));
-  const recarga = num('recarga', arma.recarga);
+  const magazine = Math.max(1, Math.round(stat('magazine', weapon.magazine)));
+  const reload = stat('reload', weapon.reload);
 
   return {
-    dano,
-    projeteis: arma.projeteis,
-    rpm: Math.round(num('rpm', arma.rpm)),
-    velocidade: num('velocidade', arma.velocidade),
-    arrasto: arma.arrasto,
-    headshot: arma.headshot,
-    carregador,
-    recarga,
+    damage,
+    pellets: weapon.pellets,
+    rpm: Math.round(stat('rpm', weapon.rpm)),
+    velocity: stat('velocity', weapon.velocity),
+    drag: weapon.drag,
+    headshot: weapon.headshot,
+    magazine,
+    reload,
     // A recarga com a arma vazia acompanha proporcionalmente a recarga tática.
-    recargaVazia: arma.recarga > 0 ? (recarga / arma.recarga) * arma.recargaVazia : 0,
-    adsMs: num('adsMs', arma.adsMs),
-    trocaMs: num('trocaMs', arma.trocaMs),
-    precisao: num('precisao', arma.precisao),
-    controle: num('controle', arma.controle),
-    mobilidade: num('mobilidade', arma.mobilidade),
-    hipfire: num('hipfire', arma.hipfire),
-    recuoV: num('recuoV', arma.recuoV),
-    recuoH: num('recuoH', arma.recuoH),
+    emptyReload: weapon.reload > 0 ? (reload / weapon.reload) * weapon.emptyReload : 0,
+    adsMs: stat('adsMs', weapon.adsMs),
+    swapMs: stat('swapMs', weapon.swapMs),
+    accuracy: stat('accuracy', weapon.accuracy),
+    control: stat('control', weapon.control),
+    mobility: stat('mobility', weapon.mobility),
+    hipfire: stat('hipfire', weapon.hipfire),
+    verticalRecoil: stat('verticalRecoil', weapon.verticalRecoil),
+    horizontalRecoil: stat('horizontalRecoil', weapon.horizontalRecoil),
   };
 }
 
 /** Estatísticas da arma sem nenhum acessório — a referência para os deltas. */
-export function statsBase(arma: Arma): StatsEfetivos {
-  return calcularStats(arma, []);
+export function baseStats(weapon: Weapon): EffectiveStats {
+  return calculateStats(weapon, []);
 }
 
-export interface Orcamento {
-  gasto: number;
+export interface Budget {
+  spent: number;
   total: number;
-  restante: number;
-  estourado: boolean;
+  remaining: number;
+  overBudget: boolean;
 }
 
-export function calcularOrcamento(acessorios: Acessorio[]): Orcamento {
-  const gasto = acessorios.reduce((soma, a) => soma + a.custo, 0);
+export function calculateBudget(attachments: Attachment[]): Budget {
+  const spent = attachments.reduce((soma, a) => soma + a.cost, 0);
   return {
-    gasto,
-    total: ORCAMENTO_PONTOS,
-    restante: ORCAMENTO_PONTOS - gasto,
-    estourado: gasto > ORCAMENTO_PONTOS,
+    spent,
+    total: POINT_BUDGET,
+    remaining: POINT_BUDGET - spent,
+    overBudget: spent > POINT_BUDGET,
   };
 }
 
@@ -138,46 +138,46 @@ export function calcularOrcamento(acessorios: Acessorio[]): Orcamento {
  * Um acessório só pode ser encaixado se couber no que sobrou do orçamento —
  * descontando o que já ocupa o mesmo slot, que será substituído.
  */
-export function cabeNoOrcamento(
-  candidato: Acessorio,
-  acessoriosAtuais: Acessorio[],
+export function fitsBudget(
+  candidate: Attachment,
+  currentAttachments: Attachment[],
 ): boolean {
-  const substituido = acessoriosAtuais.find((a) => a.slot === candidato.slot);
-  const gasto = acessoriosAtuais.reduce((soma, a) => soma + a.custo, 0);
-  const novoGasto = gasto - (substituido?.custo ?? 0) + candidato.custo;
-  return novoGasto <= ORCAMENTO_PONTOS;
+  const replaced = currentAttachments.find((a) => a.slot === candidate.slot);
+  const spent = currentAttachments.reduce((soma, a) => soma + a.cost, 0);
+  const newSpend = spent - (replaced?.cost ?? 0) + candidate.cost;
+  return newSpend <= POINT_BUDGET;
 }
 
 export interface Delta {
   base: number;
-  efetivo: number;
-  diferenca: number;
+  effective: number;
+  difference: number;
   /** Percentual de variação, útil para colorir a barra. */
-  percentual: number;
+  percent: number;
   /** `true` quando a mudança favorece o jogador. */
-  melhora: boolean;
-  mudou: boolean;
+  improves: boolean;
+  changed: boolean;
 }
 
-export function compararStat(
-  chave: keyof StatsEfetivos,
+export function compareStat(
+  statKey: keyof EffectiveStats,
   base: number,
-  efetivo: number,
+  effective: number,
 ): Delta {
-  const diferenca = efetivo - base;
-  const mudou = Math.abs(diferenca) > 1e-6;
-  const menorMelhor = MENOR_EH_MELHOR.has(chave);
+  const difference = effective - base;
+  const changed = Math.abs(difference) > 1e-6;
+  const lowerIsBetter = LOWER_IS_BETTER.has(statKey);
   return {
     base,
-    efetivo,
-    diferenca,
-    percentual: base === 0 ? 0 : (diferenca / base) * 100,
-    melhora: menorMelhor ? diferenca < 0 : diferenca > 0,
-    mudou,
+    effective,
+    difference,
+    percent: base === 0 ? 0 : (difference / base) * 100,
+    improves: lowerIsBetter ? difference < 0 : difference > 0,
+    changed,
   };
 }
 
 /** Se algum número exibido veio de curadoria, a interface avisa. */
-export function temValorAproximado(arma: Arma, acessorios: Acessorio[]): boolean {
-  return arma.procedencia === 'curado' || acessorios.some((a) => a.procedencia === 'curado');
+export function hasApproximateValue(weapon: Weapon, attachments: Attachment[]): boolean {
+  return weapon.provenance === 'curado' || attachments.some((a) => a.provenance === 'curado');
 }

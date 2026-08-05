@@ -5,6 +5,9 @@ classe e a arma, encaixe os acessórios dentro dos 100 pontos, veja as
 estatísticas e os gráficos de dano e queda de bala se recalcularem a cada peça, e
 compartilhe a build por um link.
 
+Três telas: **Montar**, **Todas as Armas** (catálogo com filtros e ordenação) e
+**Comparar** (até quatro armas lado a lado).
+
 Funciona no navegador do celular (Android e iPhone), dentro de WebView, e pode
 ser instalado na tela inicial.
 
@@ -44,6 +47,8 @@ npx serve out    # conferência local do build
 Next.js 16 (App Router, exportação estática) · TypeScript · Tailwind CSS 4 ·
 Zustand · Vitest. Gráficos e desenhos das armas são SVG próprio, sem bibliotecas
 de visualização.
+
+O código usa nomes em inglês; a interface e o dataset, português.
 
 ---
 

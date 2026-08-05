@@ -1,42 +1,42 @@
-import { ACESSORIOS_POR_ID, ehCompativel } from '@/dados/acessorios';
-import { ARMAS_POR_ID } from '@/dados/armas';
-import { GADGETS_POR_ID } from '@/dados/gadgets';
-import type { Acessorio, Arma, IdClasse, IdSlot } from '@/dados/tipos';
+import { ATTACHMENTS_BY_ID, isCompatible } from '@/data/attachments';
+import { WEAPONS_BY_ID } from '@/data/weapons';
+import { GADGETS_BY_ID } from '@/data/gadgets';
+import type { Attachment, Weapon, ClassId, SlotId } from '@/data/types';
 
 export interface Loadout {
-  classe: IdClasse;
+  playerClass: ClassId;
   /** Arma principal — pode ser de qualquer categoria. */
-  arma: string | null;
+  weapon: string | null;
   /** Um acessório por slot. */
-  acessorios: Partial<Record<IdSlot, string>>;
+  attachments: Partial<Record<SlotId, string>>;
   /** Secundária: pistola ou corpo a corpo. */
-  secundaria: string | null;
+  sidearm: string | null;
   gadget1: string | null;
   gadget2: string | null;
-  granada: string | null;
+  throwable: string | null;
 }
 
-export const LOADOUT_VAZIO: Loadout = {
-  classe: 'assalto',
-  arma: null,
-  acessorios: {},
-  secundaria: null,
+export const EMPTY_LOADOUT: Loadout = {
+  playerClass: 'assalto',
+  weapon: null,
+  attachments: {},
+  sidearm: null,
   gadget1: null,
   gadget2: null,
-  granada: null,
+  throwable: null,
 };
 
 /** Lista de acessórios do loadout, na ordem dos slots da arma. */
-export function acessoriosDoLoadout(loadout: Loadout, arma: Arma | null): Acessorio[] {
-  if (!arma) return [];
-  const lista: Acessorio[] = [];
-  for (const slot of arma.slots) {
-    const id = loadout.acessorios[slot];
+export function loadoutAttachments(loadout: Loadout, weapon: Weapon | null): Attachment[] {
+  if (!weapon) return [];
+  const list: Attachment[] = [];
+  for (const slot of weapon.slots) {
+    const id = loadout.attachments[slot];
     if (!id) continue;
-    const acessorio = ACESSORIOS_POR_ID.get(id);
-    if (acessorio && ehCompativel(acessorio, arma)) lista.push(acessorio);
+    const attachment = ATTACHMENTS_BY_ID.get(id);
+    if (attachment && isCompatible(attachment, weapon)) list.push(attachment);
   }
-  return lista;
+  return list;
 }
 
 /**
@@ -44,37 +44,37 @@ export function acessoriosDoLoadout(loadout: Loadout, arma: Arma | null): Acesso
  * slots que ela não possui ou incompatíveis com a categoria. Usado ao trocar de
  * arma e ao abrir um link compartilhado.
  */
-export function limparIncompativeis(loadout: Loadout): Loadout {
-  const arma = loadout.arma ? ARMAS_POR_ID.get(loadout.arma) : null;
-  if (!arma) return { ...loadout, acessorios: {} };
+export function stripIncompatible(loadout: Loadout): Loadout {
+  const weapon = loadout.weapon ? WEAPONS_BY_ID.get(loadout.weapon) : null;
+  if (!weapon) return { ...loadout, attachments: {} };
 
-  const acessorios: Partial<Record<IdSlot, string>> = {};
-  for (const slot of arma.slots) {
-    const id = loadout.acessorios[slot];
+  const attachments: Partial<Record<SlotId, string>> = {};
+  for (const slot of weapon.slots) {
+    const id = loadout.attachments[slot];
     if (!id) continue;
-    const acessorio = ACESSORIOS_POR_ID.get(id);
-    if (acessorio && acessorio.slot === slot && ehCompativel(acessorio, arma)) {
-      acessorios[slot] = id;
+    const attachment = ATTACHMENTS_BY_ID.get(id);
+    if (attachment && attachment.slot === slot && isCompatible(attachment, weapon)) {
+      attachments[slot] = id;
     }
   }
 
-  const gadgetValido = (id: string | null) => {
+  const keepValidGadget = (id: string | null) => {
     if (!id) return null;
-    const g = GADGETS_POR_ID.get(id);
+    const g = GADGETS_BY_ID.get(id);
     if (!g) return null;
-    return g.classe === loadout.classe || g.classe === 'todas' ? id : null;
+    return g.playerClass === loadout.playerClass || g.playerClass === 'todas' ? id : null;
   };
 
   return {
     ...loadout,
-    acessorios,
-    gadget1: gadgetValido(loadout.gadget1),
-    gadget2: gadgetValido(loadout.gadget2),
+    attachments,
+    gadget1: keepValidGadget(loadout.gadget1),
+    gadget2: keepValidGadget(loadout.gadget2),
   };
 }
 
 /** Nome curto do loadout, usado em título de página e no compartilhamento. */
-export function nomeDoLoadout(loadout: Loadout): string {
-  const arma = loadout.arma ? ARMAS_POR_ID.get(loadout.arma) : null;
-  return arma ? arma.nome : 'Novo loadout';
+export function loadoutName(loadout: Loadout): string {
+  const weapon = loadout.weapon ? WEAPONS_BY_ID.get(loadout.weapon) : null;
+  return weapon ? weapon.name : 'Novo loadout';
 }

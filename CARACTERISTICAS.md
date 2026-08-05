@@ -85,6 +85,18 @@ tracejada por baixo para comparação:
 Ambos respondem ao toque e ao cursor: uma linha-guia mostra o dano, os tiros, o
 tempo para matar e o quanto mirar acima naquela distância exata.
 
+### Três telas
+
+- **Montar** — escolher a arma, encaixar acessórios e ler o resultado.
+- **Todas as Armas** — o catálogo inteiro em grade, com desenho, resumo e os
+  quatro números que decidem a escolha (dano, cadência, tempo para matar e
+  tiros). Filtra por categoria e por classe, busca por nome e ordena por dano,
+  cadência, tempo para matar ou velocidade. Clicar em uma arma abre o montador
+  já com ela equipada.
+- **Comparar** — até quatro armas de fábrica lado a lado, com a tabela
+  destacando o melhor valor de cada linha e as curvas de dano e de queda
+  sobrepostas no mesmo par de eixos.
+
 ### Compartilhamento
 
 O loadout inteiro é codificado dentro da própria URL. Não há servidor nem banco:
@@ -185,9 +197,17 @@ resultado acontecem em três colunas visíveis ao mesmo tempo. No celular, cada 
 pede uma decisão de cada vez, com o preview fixo no topo — sempre visível, porque
 é ele que responde à pergunta "o que esse acessório fez com a minha arma?".
 
-**Tudo em português.** Nomes de acessórios, slots e estatísticas seguem a
-localização brasileira do jogo. O nome em inglês acompanha cada peça, porque boa
-parte da comunidade joga com o cliente em inglês e busca por ele.
+**Tudo em português para quem usa, inglês para quem programa.** Nomes de
+acessórios, slots e estatísticas na interface seguem a localização brasileira do
+jogo, com o nome em inglês ao lado — boa parte da comunidade joga com o cliente
+em inglês e busca por ele. Já no código, identificadores, arquivos e tipos são
+todos em inglês. Os ids do dataset (`mira`, `ak4d`, `cano-longo`) são a exceção:
+viajam dentro do link compartilhável, então renomeá-los quebraria links.
+
+**Cada slot mostra a peça encaixada.** Os dez slots aparecem como blocos com
+miniatura, e não como uma lista de texto: dá para reconhecer a montagem inteira
+de relance, e as opções dentro de cada slot também vêm com miniatura, custo e
+efeito.
 
 ---
 
@@ -195,28 +215,34 @@ parte da comunidade joga com o cliente em inglês e busca por ele.
 
 ```
 src/
-├── app/                    página do montador, tema, manifesto do PWA
-├── dados/
-│   ├── tipos.ts            modelo de dados
-│   ├── armas.ts            68 armas
-│   ├── acessorios.ts       65 acessórios e as regras de compatibilidade
+├── app/
+│   ├── page.tsx            montador
+│   ├── armas/              catálogo completo
+│   ├── comparar/           comparação entre armas
+│   └── manifest.ts         PWA
+├── data/
+│   ├── types.ts            modelo de dados
+│   ├── weapons.ts          68 armas
+│   ├── attachments.ts      65 acessórios e as regras de compatibilidade
 │   ├── gadgets.ts          gadgets e arremessáveis por classe
 │   └── classes.ts          classes, slots e orçamento
 ├── lib/
 │   ├── stats.ts            aplicação dos acessórios e orçamento
-│   ├── balistica.ts        dano, tempo para matar e queda da bala
+│   ├── ballistics.ts       dano, tempo para matar e queda da bala
 │   ├── loadout.ts          o loadout e a limpeza de incompatíveis
-│   └── compartilhar.ts     codificação do link
+│   └── share.ts            codificação do link
 ├── componentes/
-│   ├── preview-arma/       compositor por camadas (imagens)
-│   ├── arma-svg/           silhuetas e peças vetoriais
-│   ├── graficos.tsx        dano e queda
-│   ├── painel-stats.tsx    estatísticas com comparação
-│   ├── painel-slots.tsx    montagem e orçamento
-│   ├── painel-classe.tsx   classe, gadgets e arremessável
-│   ├── seletor-arma.tsx    busca e catálogo
-│   └── compartilhar.tsx    link e QR code
-└── estado/loadout.ts       estado e sincronia com a URL
+│   ├── weapon-preview/     compositor por camadas (imagens)
+│   ├── weapon-svg/         silhuetas e peças vetoriais
+│   ├── charts.tsx          dano e queda
+│   ├── stats-panel.tsx     estatísticas com comparação
+│   ├── slots-panel.tsx     montagem e orçamento
+│   ├── class-panel.tsx     classe, gadgets e arremessável
+│   ├── weapon-selector.tsx busca e catálogo
+│   ├── attachment-thumb.tsx miniatura de cada peça
+│   ├── header.tsx          cabeçalho e menu
+│   └── share-button.tsx    link e QR code
+└── state/loadout.ts        estado e sincronia com a URL
 ```
 
 ---

@@ -1,191 +1,184 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { Cabecalho } from '@/componentes/cabecalho';
-import { CORES_SERIE, GraficoComparacao, type Serie } from '@/componentes/graficos';
-import { PreviewArma } from '@/componentes/preview-arma';
-import { SeletorArma } from '@/componentes/seletor-arma';
-import { ARMAS_POR_ID, CATEGORIAS_PRIMARIAS } from '@/dados/armas';
-import { NOMES_CATEGORIA_CURTO } from '@/dados/classes';
-import type { Arma } from '@/dados/tipos';
+import { AppHeader } from '@/components/header';
+import { ComparisonChart, SERIES_COLORS, type Series } from '@/components/charts';
+import { WeaponPreview } from '@/components/weapon-preview';
+import { WeaponSelector } from '@/components/weapon-selector';
+import { PRIMARY_CATEGORIES, WEAPONS_BY_ID } from '@/data/weapons';
+import { SHORT_CATEGORY_NAMES } from '@/data/classes';
+import type { Weapon } from '@/data/types';
 import {
-  alcanceEfetivo,
-  danoPorDisparo,
-  danoPorSegundo,
-  distanciaDeAnalise,
-  tempoParaEliminar,
-  tirosParaEliminar,
-} from '@/lib/balistica';
-import { statsBase, type StatsEfetivos } from '@/lib/stats';
+  analysisDistance,
+  damagePerSecond,
+  damagePerShot,
+  effectiveRange,
+  shotsToKill,
+  timeToKill,
+} from '@/lib/ballistics';
+import { baseStats, type EffectiveStats } from '@/lib/stats';
 
 /**
  * Comparação entre armas.
  *
  * Compara as armas de fábrica, sem acessórios: é assim que a decisão "qual arma
  * eu levo?" acontece, antes de gastar pontos. Cada linha da tabela destaca o
- * melhor valor, e as curvas ficam sobrepostas no mesmo par de eixos, que é o que
+ * melhor valor e as curvas ficam sobrepostas no mesmo par de eixos, que é o que
  * torna a diferença entre duas armas realmente visível.
  */
 
-const MAX_ARMAS = 4;
+const MAX_WEAPONS = 4;
 
-interface Linha {
-  rotulo: string;
-  valor: (s: StatsEfetivos, a: Arma) => number;
-  formatar: (v: number) => string;
+interface ComparisonRow {
+  label: string;
+  value: (stats: EffectiveStats, weapon: Weapon) => number;
+  format: (value: number) => string;
   /** `true` quando um número menor é melhor. */
-  menorMelhor?: boolean;
-  /** Linhas sem melhor/pior, apenas informativas. */
-  neutra?: boolean;
+  lowerIsBetter?: boolean;
+  /** Linhas sem melhor nem pior, apenas informativas. */
+  neutral?: boolean;
 }
 
-const LINHAS: Linha[] = [
+const ROWS: ComparisonRow[] = [
+  { label: 'Dano de perto', value: (s) => damagePerShot(s, 0), format: (v) => v.toFixed(1) },
   {
-    rotulo: 'Dano de perto',
-    valor: (s) => danoPorDisparo(s, 0),
-    formatar: (v) => v.toFixed(1),
+    label: 'Tiros para matar',
+    value: (s) => shotsToKill(s, 0),
+    format: (v) => String(v),
+    lowerIsBetter: true,
   },
   {
-    rotulo: 'Tiros para matar',
-    valor: (s) => tirosParaEliminar(s, 0),
-    formatar: (v) => String(v),
-    menorMelhor: true,
+    label: 'Tempo para matar',
+    value: (s) => timeToKill(s, 0),
+    format: (v) => (Number.isFinite(v) ? `${Math.round(v)} ms` : '—'),
+    lowerIsBetter: true,
   },
   {
-    rotulo: 'Tempo para matar',
-    valor: (s) => tempoParaEliminar(s, 0),
-    formatar: (v) => (Number.isFinite(v) ? `${Math.round(v)} ms` : '—'),
-    menorMelhor: true,
+    label: 'Tiros para matar a 50 m',
+    value: (s) => shotsToKill(s, 50),
+    format: (v) => (Number.isFinite(v) ? String(v) : '—'),
+    lowerIsBetter: true,
   },
   {
-    rotulo: 'Tiros para matar a 50 m',
-    valor: (s) => tirosParaEliminar(s, 50),
-    formatar: (v) => (Number.isFinite(v) ? String(v) : '—'),
-    menorMelhor: true,
+    label: 'Alcance efetivo',
+    value: (s) => effectiveRange(s),
+    format: (v) => (v > 0 ? `${Math.round(v)} m` : 'constante'),
+  },
+  { label: 'Cadência', value: (s) => s.rpm, format: (v) => `${Math.round(v)} RPM` },
+  { label: 'Dano por segundo', value: (s) => damagePerSecond(s), format: (v) => String(Math.round(v)) },
+  { label: 'Velocidade da bala', value: (s) => s.velocity, format: (v) => `${Math.round(v)} m/s` },
+  { label: 'Carregador', value: (s) => s.magazine, format: (v) => `${v} tiros` },
+  {
+    label: 'Recarga',
+    value: (s) => s.reload,
+    format: (v) => `${v.toFixed(2)} s`,
+    lowerIsBetter: true,
   },
   {
-    rotulo: 'Alcance efetivo',
-    valor: (s) => alcanceEfetivo(s),
-    formatar: (v) => (v > 0 ? `${Math.round(v)} m` : 'constante'),
+    label: 'Tempo de mira',
+    value: (s) => s.adsMs,
+    format: (v) => `${Math.round(v)} ms`,
+    lowerIsBetter: true,
   },
-  { rotulo: 'Cadência', valor: (s) => s.rpm, formatar: (v) => `${Math.round(v)} RPM` },
+  { label: 'Precisão', value: (s) => s.accuracy, format: (v) => String(Math.round(v)) },
+  { label: 'Controle', value: (s) => s.control, format: (v) => String(Math.round(v)) },
+  { label: 'Mobilidade', value: (s) => s.mobility, format: (v) => String(Math.round(v)) },
   {
-    rotulo: 'Dano por segundo',
-    valor: (s) => danoPorSegundo(s),
-    formatar: (v) => String(Math.round(v)),
-  },
-  {
-    rotulo: 'Velocidade da bala',
-    valor: (s) => s.velocidade,
-    formatar: (v) => `${Math.round(v)} m/s`,
-  },
-  { rotulo: 'Carregador', valor: (s) => s.carregador, formatar: (v) => `${v} tiros` },
-  {
-    rotulo: 'Recarga',
-    valor: (s) => s.recarga,
-    formatar: (v) => `${v.toFixed(2)} s`,
-    menorMelhor: true,
+    label: 'Recuo vertical',
+    value: (s) => s.verticalRecoil,
+    format: (v) => v.toFixed(2),
+    lowerIsBetter: true,
   },
   {
-    rotulo: 'Tempo de mira',
-    valor: (s) => s.adsMs,
-    formatar: (v) => `${Math.round(v)} ms`,
-    menorMelhor: true,
-  },
-  { rotulo: 'Precisão', valor: (s) => s.precisao, formatar: (v) => String(Math.round(v)) },
-  { rotulo: 'Controle', valor: (s) => s.controle, formatar: (v) => String(Math.round(v)) },
-  { rotulo: 'Mobilidade', valor: (s) => s.mobilidade, formatar: (v) => String(Math.round(v)) },
-  {
-    rotulo: 'Recuo vertical',
-    valor: (s) => s.recuoV,
-    formatar: (v) => v.toFixed(2),
-    menorMelhor: true,
-  },
-  {
-    rotulo: 'Multiplicador na cabeça',
-    valor: (s) => s.headshot,
-    formatar: (v) => `×${v}`,
-    neutra: true,
+    label: 'Multiplicador na cabeça',
+    value: (s) => s.headshot,
+    format: (v) => `×${v}`,
+    neutral: true,
   },
 ];
 
-export default function Comparar() {
+export default function ComparePage() {
   const [ids, setIds] = useState<string[]>(['ak4d', 'm4a1']);
-  const [escolhendo, setEscolhendo] = useState(false);
+  const [choosing, setChoosing] = useState(false);
 
-  const selecionadas = useMemo(
+  const selected = useMemo(
     () =>
       ids
-        .map((id) => ARMAS_POR_ID.get(id))
-        .filter((a): a is Arma => Boolean(a))
-        .map((arma, i) => ({ arma, stats: statsBase(arma), cor: CORES_SERIE[i % CORES_SERIE.length] })),
+        .map((id) => WEAPONS_BY_ID.get(id))
+        .filter((w): w is Weapon => Boolean(w))
+        .map((weapon, i) => ({
+          weapon,
+          stats: baseStats(weapon),
+          color: SERIES_COLORS[i % SERIES_COLORS.length],
+        })),
     [ids],
   );
 
-  const distancia = useMemo(
-    () => Math.max(100, ...selecionadas.map((s) => distanciaDeAnalise(s.stats))),
-    [selecionadas],
+  const maxDistance = useMemo(
+    () => Math.max(100, ...selected.map((s) => analysisDistance(s.stats))),
+    [selected],
   );
 
-  const series: Serie[] = selecionadas.map((s) => ({
-    nome: s.arma.nome,
-    cor: s.cor,
+  const series: Series[] = selected.map((s) => ({
+    name: s.weapon.name,
+    color: s.color,
     stats: s.stats,
   }));
 
-  const temTiro = selecionadas.some((s) => s.arma.categoria !== 'corpo-a-corpo');
+  const hasFirearm = selected.some((s) => s.weapon.category !== 'corpo-a-corpo');
 
-  function adicionar(id: string) {
-    setIds((atual) => (atual.includes(id) || atual.length >= MAX_ARMAS ? atual : [...atual, id]));
-    setEscolhendo(false);
+  function addWeapon(id: string) {
+    setIds((current) =>
+      current.includes(id) || current.length >= MAX_WEAPONS ? current : [...current, id],
+    );
+    setChoosing(false);
   }
 
-  function remover(id: string) {
-    setIds((atual) => atual.filter((x) => x !== id));
+  function removeWeapon(id: string) {
+    setIds((current) => current.filter((x) => x !== id));
   }
 
   return (
     <div className="min-h-dvh">
-      <Cabecalho subtitulo="Comparar armas" />
+      <AppHeader subtitle="Comparar armas" />
 
       <main className="mx-auto max-w-[1600px] px-3 py-3">
         <p className="mb-3 text-sm" style={{ color: 'var(--texto-suave)' }}>
-          Compare até {MAX_ARMAS} armas de fábrica, sem acessórios — a decisão de qual arma levar vem
-          antes de gastar pontos.
+          Compare até {MAX_WEAPONS} armas de fábrica, sem acessórios — a decisão de qual arma levar
+          vem antes de gastar pontos.
         </p>
 
-        {/* Armas escolhidas */}
         <div className="mb-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-          {selecionadas.map(({ arma, cor }) => (
-            <div key={arma.id} className="cartao chanfro p-2" style={{ borderColor: cor }}>
+          {selected.map(({ weapon, color }) => (
+            <div key={weapon.id} className="cartao chanfro p-2" style={{ borderColor: color }}>
               <div className="mb-1 flex items-start justify-between gap-2">
                 <div className="min-w-0">
-                  <p className="font-display truncate text-base font-semibold" style={{ color: cor }}>
-                    {arma.nome}
+                  <p className="font-display truncate text-base font-semibold" style={{ color }}>
+                    {weapon.name}
                   </p>
                   <p className="text-[11px]" style={{ color: 'var(--texto-fraco)' }}>
-                    {NOMES_CATEGORIA_CURTO[arma.categoria]}
-                    {arma.temporada > 0 && ` · Temporada ${arma.temporada}`}
+                    {SHORT_CATEGORY_NAMES[weapon.category]}
+                    {weapon.season > 0 && ` · Temporada ${weapon.season}`}
                   </p>
                 </div>
                 <button
                   type="button"
-                  onClick={() => remover(arma.id)}
+                  onClick={() => removeWeapon(weapon.id)}
                   className="toque shrink-0 px-1 text-sm"
-                  aria-label={`Remover ${arma.nome} da comparação`}
+                  aria-label={`Remover ${weapon.name} da comparação`}
                   style={{ color: 'var(--texto-fraco)' }}
                 >
                   ✕
                 </button>
               </div>
-              <PreviewArma arma={arma} acessorios={[]} className="w-full" />
+              <WeaponPreview weapon={weapon} attachments={[]} className="w-full" />
             </div>
           ))}
 
-          {ids.length < MAX_ARMAS && (
+          {ids.length < MAX_WEAPONS && (
             <button
               type="button"
-              onClick={() => setEscolhendo(true)}
+              onClick={() => setChoosing(true)}
               className="cartao chanfro toque flex min-h-[120px] items-center justify-center p-4 text-sm"
               style={{ borderStyle: 'dashed', color: 'var(--texto-fraco)' }}
             >
@@ -194,16 +187,17 @@ export default function Comparar() {
           )}
         </div>
 
-        {selecionadas.length === 0 ? (
+        {selected.length === 0 ? (
           <p className="cartao chanfro p-6 text-center text-sm" style={{ color: 'var(--texto-fraco)' }}>
             Adicione ao menos uma arma para comparar.
           </p>
         ) : (
           <>
-            {/* Tabela comparativa */}
             <div className="cartao chanfro mb-3 overflow-x-auto">
               <table className="w-full min-w-[520px] border-collapse text-sm">
-                <caption className="sr-only">Comparação de estatísticas entre as armas escolhidas</caption>
+                <caption className="sr-only">
+                  Comparação de estatísticas entre as armas escolhidas
+                </caption>
                 <thead>
                   <tr>
                     <th
@@ -213,49 +207,53 @@ export default function Comparar() {
                     >
                       Estatística
                     </th>
-                    {selecionadas.map(({ arma, cor }) => (
+                    {selected.map(({ weapon, color }) => (
                       <th
-                        key={arma.id}
+                        key={weapon.id}
                         scope="col"
                         className="font-display px-3 py-2 text-right text-sm font-semibold"
-                        style={{ color: cor }}
+                        style={{ color }}
                       >
-                        {arma.nome}
+                        {weapon.name}
                       </th>
                     ))}
                   </tr>
                 </thead>
                 <tbody>
-                  {LINHAS.map((linha) => {
-                    const valores = selecionadas.map(({ arma, stats }) => linha.valor(stats, arma));
-                    const finitos = valores.filter((v) => Number.isFinite(v));
-                    const melhor = linha.neutra
+                  {ROWS.map((row) => {
+                    const values = selected.map(({ weapon, stats }) => row.value(stats, weapon));
+                    const finite = values.filter((v) => Number.isFinite(v));
+                    const best = row.neutral
                       ? null
-                      : linha.menorMelhor
-                        ? Math.min(...finitos)
-                        : Math.max(...finitos);
+                      : row.lowerIsBetter
+                        ? Math.min(...finite)
+                        : Math.max(...finite);
 
                     return (
-                      <tr key={linha.rotulo} className="border-t" style={{ borderColor: 'var(--borda-suave)' }}>
+                      <tr
+                        key={row.label}
+                        className="border-t"
+                        style={{ borderColor: 'var(--borda-suave)' }}
+                      >
                         <th
                           scope="row"
                           className="sticky left-0 px-3 py-1.5 text-left font-normal"
                           style={{ background: 'var(--superficie)', color: 'var(--texto-suave)' }}
                         >
-                          {linha.rotulo}
+                          {row.label}
                         </th>
-                        {valores.map((valor, i) => {
-                          const destaque = melhor !== null && valor === melhor && finitos.length > 1;
+                        {values.map((value, i) => {
+                          const highlighted = best !== null && value === best && finite.length > 1;
                           return (
                             <td
-                              key={selecionadas[i].arma.id}
+                              key={selected[i].weapon.id}
                               className="px-3 py-1.5 text-right font-mono"
                               style={{
-                                color: destaque ? 'var(--color-positivo)' : 'var(--texto)',
-                                fontWeight: destaque ? 600 : 400,
+                                color: highlighted ? 'var(--color-positivo)' : 'var(--texto)',
+                                fontWeight: highlighted ? 600 : 400,
                               }}
                             >
-                              {linha.formatar(valor)}
+                              {row.format(value)}
                             </td>
                           );
                         })}
@@ -266,19 +264,19 @@ export default function Comparar() {
               </table>
             </div>
 
-            {temTiro && (
+            {hasFirearm && (
               <div className="grid gap-3 lg:grid-cols-2">
-                <GraficoComparacao
-                  titulo="Dano por distância"
+                <ComparisonChart
+                  title="Dano por distância"
                   series={series}
-                  distanciaMax={distancia}
-                  tipo="dano"
+                  maxDistance={maxDistance}
+                  kind="damage"
                 />
-                <GraficoComparacao
-                  titulo="Queda da bala"
+                <ComparisonChart
+                  title="Queda da bala"
                   series={series}
-                  distanciaMax={distancia}
-                  tipo="queda"
+                  maxDistance={maxDistance}
+                  kind="drop"
                 />
               </div>
             )}
@@ -290,11 +288,11 @@ export default function Comparar() {
         </p>
       </main>
 
-      {escolhendo && (
+      {choosing && (
         <div
           className="fixed inset-0 z-50 flex items-end justify-center sm:items-center"
           style={{ background: 'rgb(0 0 0 / 0.6)' }}
-          onClick={() => setEscolhendo(false)}
+          onClick={() => setChoosing(false)}
           role="presentation"
         >
           <div
@@ -308,7 +306,7 @@ export default function Comparar() {
               <h2 className="font-display text-lg font-semibold">Adicionar arma</h2>
               <button
                 type="button"
-                onClick={() => setEscolhendo(false)}
+                onClick={() => setChoosing(false)}
                 className="toque px-2 text-lg"
                 aria-label="Fechar"
                 style={{ color: 'var(--texto-fraco)' }}
@@ -316,11 +314,11 @@ export default function Comparar() {
                 ✕
               </button>
             </div>
-            <SeletorArma
-              titulo="Escolha a arma"
-              selecionada={null}
-              categorias={CATEGORIAS_PRIMARIAS}
-              aoEscolher={adicionar}
+            <WeaponSelector
+              title="Escolha a arma"
+              selected={null}
+              categories={PRIMARY_CATEGORIES}
+              onSelect={addWeapon}
             />
           </div>
         </div>
