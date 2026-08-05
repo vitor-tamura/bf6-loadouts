@@ -7,7 +7,8 @@ import { DamageChart, DropChart } from '@/components/charts';
 import { EquipmentPanel, ClassSelector } from '@/components/class-panel';
 import { SlotsPanel, BudgetBar } from '@/components/slots-panel';
 import { StatsPanel } from '@/components/stats-panel';
-import { WeaponPreview } from '@/components/weapon-preview';
+import { WeaponPreview, type PreviewMode } from '@/components/weapon-preview';
+import { hasPhoto } from '@/components/weapon-photo';
 import { WeaponSelector } from '@/components/weapon-selector';
 import { WEAPONS_BY_ID, PRIMARY_CATEGORIES } from '@/data/weapons';
 import { analysisDistance } from '@/lib/ballistics';
@@ -48,6 +49,7 @@ export default function BuilderPage() {
   const clearAttachments = useLoadout((s) => s.clearAttachments);
 
   const [tab, setTab] = useState<Tab>('arma');
+  const [previewMode, setPreviewMode] = useState<PreviewMode>('esquema');
   const [choosingSidearm, setEscolhendoSecundaria] = useState(false);
 
   const weapon = loadout.weapon ? (WEAPONS_BY_ID.get(loadout.weapon) ?? null) : null;
@@ -82,8 +84,39 @@ export default function BuilderPage() {
               weapon={weapon}
               attachments={attachments}
               withLabel
+              mode={previewMode}
               className="mx-auto w-full max-w-[560px] lg:max-w-[760px]"
             />
+
+            {/* A foto mostra a arma como ela é no jogo; o esquema é o único que
+                reage aos acessórios. Cada um responde a uma pergunta diferente. */}
+            {hasPhoto(weapon) && (
+              <div className="mt-1 flex justify-center gap-1">
+                {(['esquema', 'foto'] as PreviewMode[]).map((option) => {
+                  const active = previewMode === option;
+                  return (
+                    <button
+                      key={option}
+                      type="button"
+                      onClick={() => setPreviewMode(option)}
+                      aria-pressed={active}
+                      className="chanfro-sm px-3 py-1 text-[11px] font-semibold"
+                      style={{
+                        background: active ? 'color-mix(in oklab, var(--destaque) 20%, transparent)' : 'transparent',
+                        color: active ? 'var(--destaque)' : 'var(--texto-fraco)',
+                      }}
+                      title={
+                        option === 'esquema'
+                          ? 'Desenho que muda conforme os acessórios'
+                          : 'Foto da arma no jogo, sem os seus acessórios'
+                      }
+                    >
+                      {option === 'esquema' ? 'Esquema' : 'Foto do jogo'}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
           </div>
         )}
 
