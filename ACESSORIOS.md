@@ -1,6 +1,6 @@
 # Acessórios
 
-Relação completa das **332 peças** do montador, na ordem em que os slots
+Relação completa das **324 peças** do montador, na ordem em que os slots
 aparecem na interface.
 
 Nome, slot, custo em pontos e compatibilidade vêm do catálogo do bf6loadouts.com,
@@ -17,13 +17,13 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | [Mira](#mira) | Sight | 42 |
 | [Boca](#boca) | Muzzle | 13 |
 | [Cano](#cano) | Barrel | 163 |
-| [Acoplamento Inferior](#acoplamento-inferior) | Underbarrel | 23 |
+| [Acoplamento Inferior](#acoplamento-inferior) | Underbarrel | 21 |
 | [Carregador](#carregador) | Magazine | 51 |
 | [Munição](#municao) | Ammunition | 10 |
 | [Ergonomia](#ergonomia) | Ergonomics | 6 |
 | [Acessório Óptico](#acessorio-optico) | Optic Accessory | 8 |
-| [Acessório Superior](#acessorio-superior) | Top Accessory | 6 |
-| [Acessório Direito](#acessorio-direito) | Right Accessory | 10 |
+| [Acessório Superior](#acessorio-superior) | Top Accessory | 1 |
+| [Acessório Direito](#acessorio-direito) | Right Accessory | 9 |
 
 ## Mira
 
@@ -266,7 +266,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 
 ## Acoplamento Inferior
 
-*Underbarrel* — 23 peças.
+*Underbarrel* — 21 peças.
 
 | Peça | Original | Pts | Armas | Efeito |
 | --- | --- | ---: | --- | --- |
@@ -277,8 +277,6 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | Angular Ajustável | Adjustable Angled | 15 | 23 weapons | Acelera a subida à mira e segura o desvio lateral. |
 | Angular de Fábrica | Factory Angled | 15 | LMR27, SL9, VSSM | Acelera a subida à mira e segura o desvio lateral. |
 | Apoio de Mão Fino | Slim Handstop | 15 | 6 weapons | Melhora o tiro sem visada e o deslocamento. |
-| Combo Laser/Lanterna Verde | Laser Light Combo Green | 20 | ES 5.7, M45A1, P18 | Laser e lanterna no mesmo corpo: aperta o tiro sem visada e ilumina o vão. |
-| Combo Laser/Lanterna Vermelho | Laser Light Combo Red | 20 | ES 5.7, M45A1, P18 | Laser e lanterna no mesmo corpo: aperta o tiro sem visada e ilumina o vão. |
 | Curta Dobrável | Folding Stubby | 20 | 48 weapons | Recuperação de mira mais rápida entre disparos. |
 | Empunhadura com Bipé PTT | PTT Grip Pod | 20 | 33 weapons | Empunhadura e bipé na mesma peça. |
 | Vertical de Liga | Alloy Vertical | 20 | 44 weapons | O maior controle de recuo vertical. |
@@ -399,30 +397,24 @@ Gerado por `node scripts/attachments-doc.mjs`.
 
 ## Acessório Superior
 
-*Top Accessory* — 6 peças.
+*Top Accessory* — 1 peças.
 
 | Peça | Original | Pts | Armas | Efeito |
 | --- | --- | ---: | --- | --- |
-| Laser Verde de 5 MW | 5 MW Green | 10 | 17 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
-| Laser Vermelho de 5 MW | 5 MW Red | 10 | 17 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
-| Laser Violeta de 50 MW | 50 MW Violet | 10 | VCR-2 | Aperta o cone do tiro sem visada; o feixe é visível. |
-| Laser Azul de 50 MW | 50 MW Blue | 20 | 17 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
-| Laser Verde de 50 MW | 50 MW Green | 20 | 17 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
-| Laser Azul de 120 MW | 120 MW Blue | 30 | 17 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
+| Lanterna Tática | Flashlight | 10 | 48 weapons | Lanterna do trilho esquerdo: ilumina o vão e abre o cone de perto. |
 
 ## Acessório Direito
 
-*Right Accessory* — 10 peças.
+*Right Accessory* — 9 peças.
 
 | Peça | Original | Pts | Armas | Efeito |
 | --- | --- | ---: | --- | --- |
-| Combo Laser/Lanterna Vermelho | Laser/Light Combo Red | 10 | GRT-BC, KTS100 MK8, SL9 | Laser e lanterna na mesma peça. |
-| Lanterna Tática | Flashlight | 10 | 48 weapons | Ofusca quem está à frente em ambiente fechado. |
-| Laser Verde de 5 MW | 5 MW Green | 10 | 17 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
-| Laser Vermelho de 5 MW | 5 MW Red | 10 | 17 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
-| Laser Violeta de 50 MW | 50 MW Violet | 10 | CZ3A1, DB-12 | Aperta o cone do tiro sem visada; o feixe é visível. |
+| Combo Laser/Lanterna Vermelho | Laser/Light Combo Red | 10 | 6 weapons | Laser e lanterna na mesma peça. |
+| Laser Verde de 5 MW | 5 MW Green | 10 | 34 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
+| Laser Vermelho de 5 MW | 5 MW Red | 10 | 34 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
+| Laser Violeta de 50 MW | 50 MW Violet | 10 | CZ3A1, DB-12, VCR-2 | Aperta o cone do tiro sem visada; o feixe é visível. |
 | Telêmetro | Range Finder | 15 | 10 weapons | Mostra a distância exata até o alvo. |
-| Combo Laser/Lanterna Verde | Laser/Light Combo Green | 20 | GRT-BC, KORD 6P67, KTS100 MK8, SL9 | Laser e lanterna na mesma peça. |
-| Laser Azul de 50 MW | 50 MW Blue | 20 | 17 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
-| Laser Verde de 50 MW | 50 MW Green | 20 | 17 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
-| Laser Azul de 120 MW | 120 MW Blue | 30 | 17 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
+| Combo Laser/Lanterna Verde | Laser/Light Combo Green | 20 | 7 weapons | Laser e lanterna na mesma peça. |
+| Laser Azul de 50 MW | 50 MW Blue | 20 | 34 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
+| Laser Verde de 50 MW | 50 MW Green | 20 | 34 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
+| Laser Azul de 120 MW | 120 MW Blue | 30 | 34 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |

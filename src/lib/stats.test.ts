@@ -3,6 +3,7 @@ import { ATTACHMENTS, ATTACHMENTS_BY_ID, attachmentsForWeapon, isCompatible } fr
 import { WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
 import { defaultAmmo, defaultSight, stripIncompatible, EMPTY_LOADOUT } from './loadout';
 import { budgetFor, POINT_BUDGET } from '@/data/classes';
+import type { SlotId } from '@/data/types';
 import {
   fitsBudget,
   calculateBudget,
@@ -45,16 +46,36 @@ describe('integridade do dataset', () => {
     }
   });
 
-  it('permite montar a arma inteira, com as peças baratas, dentro do orçamento dela', () => {
-    // Pistola tem metade dos pontos, então este teste é mais apertado nela — e é
-    // exatamente onde um acessório caro demais passaria despercebido.
+  it('mantém a montagem essencial dentro do orçamento', () => {
+    /*
+     * Encher os dez slots nem sempre cabe nos cem pontos, e isso é do jogo: a
+     * M2010 gasta trinta só no ferrolho, e escolher o que fica de fora é parte
+     * de montar a arma. O que precisa caber é o essencial — o que a arma leva
+     * para o combate em qualquer build.
+     *
+     * Pistola tem metade dos pontos, então o teste é mais apertado nela, que é
+     * onde um acessório caro demais passaria despercebido.
+     */
+    const ESSENCIAIS: SlotId[] = ['sight', 'muzzle', 'barrel', 'magazine', 'ammo'];
+
     for (const weapon of WEAPONS) {
       if (weapon.category === 'melee') continue;
-      const cheapest = [...attachmentsForWeapon(weapon).values()].map((list) =>
-        list.reduce((smallest, a) => (a.cost < smallest.cost ? a : smallest)),
-      );
-      const total = cheapest.reduce((sum, a) => sum + a.cost, 0);
+      const bySlot = attachmentsForWeapon(weapon);
+      const total = ESSENCIAIS.reduce((sum, slot) => {
+        const list = bySlot.get(slot);
+        return list ? sum + Math.min(...list.map((a) => a.cost)) : sum;
+      }, 0);
       expect(total, weapon.name).toBeLessThanOrEqual(budgetFor(weapon.category));
+    }
+  });
+
+  it('não tem peça que sozinha estoure o orçamento da arma', () => {
+    for (const weapon of WEAPONS) {
+      if (weapon.category === 'melee') continue;
+      for (const [slot, list] of attachmentsForWeapon(weapon)) {
+        const maisBarata = Math.min(...list.map((a) => a.cost));
+        expect(maisBarata, `${weapon.name} · ${slot}`).toBeLessThanOrEqual(budgetFor(weapon.category));
+      }
     }
   });
 
