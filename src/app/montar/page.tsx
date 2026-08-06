@@ -40,17 +40,28 @@ const TABS: { id: Tab; name: string }[] = [
 /**
  * A leitura do loadout na URL passa por `useSearchParams`, e o Next exige
  * fronteira de Suspense para isso em página exportada estaticamente.
+ *
+ * A fronteira embrulha só a sincronia, não a tela: envolvendo a página inteira,
+ * o pré-render inteiro caía fora e o HTML publicado do montador virava um
+ * esqueleto vazio de doze mil bytes.
  */
+function UrlSync() {
+  useUrlSync();
+  return null;
+}
+
 export default function BuilderRoute() {
   return (
-    <Suspense fallback={<div className="min-h-dvh" />}>
+    <>
+      <Suspense fallback={null}>
+        <UrlSync />
+      </Suspense>
       <BuilderPage />
-    </Suspense>
+    </>
   );
 }
 
 function BuilderPage() {
-  useUrlSync();
 
   const loadout = useLoadout((s) => s.loadout);
   const compareWithBase = useLoadout((s) => s.compareWithBase);
