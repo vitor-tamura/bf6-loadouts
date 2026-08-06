@@ -60,13 +60,19 @@ export default function BuilderPage() {
   const attachments = useMemo(() => loadoutAttachments(loadout.attachments, weapon), [loadout, weapon]);
 
   // A secundária gasta do próprio orçamento, como no jogo.
+  const sidearmAttachments = useMemo(
+    () => loadoutAttachments(loadout.sidearmAttachments, sidearm),
+    [loadout.sidearmAttachments, sidearm],
+  );
+  const sidearmStats = useMemo(
+    () => (sidearm ? calculateStats(sidearm, sidearmAttachments) : null),
+    [sidearm, sidearmAttachments],
+  );
+  const sidearmBase = useMemo(() => (sidearm ? baseStats(sidearm) : null), [sidearm]);
   const sidearmBudget = useMemo(
     () =>
-      calculateBudget(
-        loadoutAttachments(loadout.sidearmAttachments, sidearm),
-        sidearm ? budgetFor(sidearm.category) : POINT_BUDGET,
-      ),
-    [loadout.sidearmAttachments, sidearm],
+      calculateBudget(sidearmAttachments, sidearm ? budgetFor(sidearm.category) : POINT_BUDGET),
+    [sidearmAttachments, sidearm],
   );
   const stats = useMemo(() => (weapon ? calculateStats(weapon, attachments) : null), [weapon, attachments]);
   const base = useMemo(() => (weapon ? baseStats(weapon) : null), [weapon]);
@@ -161,7 +167,6 @@ export default function BuilderPage() {
                   sidearm={sidearm}
                   chosen={loadout.sidearmAttachments}
                   budget={sidearmBudget}
-                  showBase={compareWithBase}
                   onOpenPicker={() => setChoosingSidearm(true)}
                   onSelectAttachment={setSidearmAttachment}
                   onClear={clearSidearmAttachments}
@@ -191,6 +196,43 @@ export default function BuilderPage() {
                   </div>
                   <StatsPanel weapon={weapon} stats={stats} base={base} showBase={compareWithBase} />
                 </div>
+
+                {/*
+                  A secundária entra logo abaixo, na mesma coluna: números moram
+                  aqui, e comparar as duas armas exige que estejam à mesma
+                  distância do olho.
+                */}
+                {sidearm && sidearmStats && sidearmBase && (
+                  <div className="card bevel p-3">
+                    <div className="mb-3 flex items-center justify-between gap-2">
+                      <h2 className="label">
+                        Secundária ·{' '}
+                        <span style={{ color: 'var(--text-soft)' }}>{sidearm.name}</span>
+                      </h2>
+                      {/* O mesmo interruptor do bloco de cima: as duas armas
+                          respondem juntas, porque a comparação com a de fábrica
+                          é um modo de leitura, não uma opção por arma. */}
+                      <label
+                        className="flex cursor-pointer items-center gap-1.5 text-[11px]"
+                        style={{ color: 'var(--text-dim)' }}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={compareWithBase}
+                          onChange={toggleBaseComparison}
+                          className="accent-[var(--accent)]"
+                        />
+                        comparar com a de fábrica
+                      </label>
+                    </div>
+                    <StatsPanel
+                      weapon={sidearm}
+                      stats={sidearmStats}
+                      base={sidearmBase}
+                      showBase={compareWithBase}
+                    />
+                  </div>
+                )}
 
                 {approximate && <ApproximateNotice />}
               </div>
@@ -342,7 +384,6 @@ function SidearmSection({
   sidearm,
   chosen,
   budget,
-  showBase,
   onOpenPicker,
   onSelectAttachment,
   onClear,
@@ -350,18 +391,10 @@ function SidearmSection({
   sidearm: Weapon | null;
   chosen: Partial<Record<SlotId, string>>;
   budget: Budget;
-  showBase: boolean;
   onOpenPicker: () => void;
   onSelectAttachment: (slot: SlotId, id: string | null) => void;
   onClear: () => void;
 }) {
-  const attachments = useMemo(() => loadoutAttachments(chosen, sidearm), [chosen, sidearm]);
-  const stats = useMemo(
-    () => (sidearm ? calculateStats(sidearm, attachments) : null),
-    [sidearm, attachments],
-  );
-  const base = useMemo(() => (sidearm ? baseStats(sidearm) : null), [sidearm]);
-
   return (
     <section className="space-y-3">
       <div className="card bevel p-3">
@@ -420,32 +453,13 @@ function SidearmSection({
         )}
       </div>
 
-      {/*
-        Montagem e números lado a lado, na mesma proporção da arma principal —
-        a coluna de números tem a mesma largura lá e aqui, senão as caixas de
-        destaque quebram de um jeito na primária e de outro na secundária.
-      */}
       {sidearm && (
-        <div className="grid gap-3 [&>*]:min-w-0 xl:grid-cols-[minmax(0,1fr)_minmax(340px,420px)]">
-          <SlotsPanel
-            weapon={sidearm}
-            chosen={chosen}
-            onSelect={onSelectAttachment}
-            currentSpend={budget.spent}
-          />
-
-          {stats && base && (
-            <div className="card bevel h-fit p-3">
-              <div className="mb-3 flex items-center justify-between gap-2">
-                <h3 className="label">Estatísticas</h3>
-                <span className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
-                  {sidearm.name}
-                </span>
-              </div>
-              <StatsPanel weapon={sidearm} stats={stats} base={base} showBase={showBase} />
-            </div>
-          )}
-        </div>
+        <SlotsPanel
+          weapon={sidearm}
+          chosen={chosen}
+          onSelect={onSelectAttachment}
+          currentSpend={budget.spent}
+        />
       )}
     </section>
   );
