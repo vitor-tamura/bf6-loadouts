@@ -118,6 +118,26 @@ function BuilderPage() {
   const distance = useMemo(() => (stats ? analysisDistance(stats) : 100), [stats]);
   const approximate = weapon ? hasApproximateValue(weapon, attachments) : false;
 
+  /*
+   * O lança-granadas é montado em duas partes.
+   *
+   * O M320A1 é gadget, mas só acopla se a arma tiver o Suporte Inferior — e o
+   * suporte, sozinho, não dispara nada. Quem monta metade fica com um slot
+   * gasto sem efeito, e o jogo não avisa em lugar nenhum.
+   */
+  const launcherAviso = useMemo(() => {
+    const temSuporte = loadout.attachments.underbarrel === 'underbarrel-underslung-mount';
+    const gadgetLancador = [loadout.gadget1, loadout.gadget2].some((g) => g?.startsWith('m320a1-'));
+
+    if (temSuporte && !gadgetLancador) {
+      return 'O Suporte Inferior só serve de berço para o M320A1 — escolha um deles nos gadgets, ou o slot fica gasto à toa.';
+    }
+    if (gadgetLancador && !temSuporte) {
+      return 'O M320A1 precisa do Suporte Inferior no acoplamento inferior da arma para acoplar.';
+    }
+    return null;
+  }, [loadout.attachments.underbarrel, loadout.gadget1, loadout.gadget2]);
+
   // Ao escolher a arma no celular, a próxima decisão é montar.
   function chooseWeapon(id: string) {
     setWeapon(id);
@@ -214,6 +234,19 @@ function BuilderPage() {
                       Limpar
                     </button>
                   </div>
+
+                  {launcherAviso && (
+                    <p
+                      className="bevel-sm mt-2 px-2 py-1.5 text-[11px] leading-snug"
+                      style={{
+                        color: 'var(--accent)',
+                        background: 'color-mix(in oklab, var(--accent) 10%, transparent)',
+                        border: '1px solid color-mix(in oklab, var(--accent) 40%, transparent)',
+                      }}
+                    >
+                      {launcherAviso}
+                    </p>
+                  )}
                 </div>
 
                 <SlotsPanel

@@ -254,7 +254,7 @@ export const ATTACHMENTS: Attachment[] = [
     originalName: 'Underslung Mount',
     slot: 'underbarrel',
     cost: 10,
-    description: 'Suporte inferior para acoplar outra peça.',
+    description: 'Berço do lança-granadas: sem ele, o M320A1 não acopla na arma.',
     mods: {  },
     compat: { weapons: ['b36a4', 'brod-3', 'ef88', 'l85a3', 'm16a4', 'm277', 'm417-a2', 'm433', 'm4a1', 'sor-300sc', 'sor-556-mk2'] },
     provenance: 'game',

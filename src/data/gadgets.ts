@@ -46,7 +46,7 @@ export const GADGETS: Gadget[] = [
     originalName: 'High Explosive Launcher',
     playerClass: 'assault',
     kind: 'gadget',
-    description: 'Lança-granadas explosivo: elimina infantaria agrupada e derruba cobertura leve.',
+    description: 'Lança-granadas explosivo, acoplado sob o cano: exige o Suporte Inferior na arma.',
     provenance: 'game',
   },
   {
@@ -55,7 +55,7 @@ export const GADGETS: Gadget[] = [
     originalName: 'Thermobaric Grenade Launcher',
     playerClass: 'assault',
     kind: 'gadget',
-    description: 'Projétil termobárico que cria uma zona de fogo persistente — feito para limpar sala.',
+    description: 'Termobárico sob o cano: cria zona de fogo persistente. Exige o Suporte Inferior.',
     provenance: 'game',
   },
   {
@@ -231,7 +231,7 @@ export const GADGETS: Gadget[] = [
     originalName: 'Smoke Grenade Launcher',
     playerClass: 'support',
     kind: 'gadget',
-    description: 'Cortina de fumaça densa a distância, para cobrir a travessia do esquadrão.',
+    description: 'Fumaça densa a distância, sob o cano: exige o Suporte Inferior na arma.',
     provenance: 'game',
   },
   {
