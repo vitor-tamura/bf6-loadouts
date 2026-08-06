@@ -78,10 +78,12 @@ export const useLoadout = create<LoadoutState>((set) => ({
 
   toggleBaseComparison: () => set((s) => ({ compareWithBase: !s.compareWithBase })),
 
-  clearAttachments: () => set((s) => ({ loadout: { ...s.loadout, attachments: {} } })),
+  // Limpar devolve a arma de fábrica — e de fábrica ela vem com munição.
+  clearAttachments: () =>
+    set((s) => ({ loadout: stripIncompatible({ ...s.loadout, attachments: {} }) })),
 
   clearSidearmAttachments: () =>
-    set((s) => ({ loadout: { ...s.loadout, sidearmAttachments: {} } })),
+    set((s) => ({ loadout: stripIncompatible({ ...s.loadout, sidearmAttachments: {} }) })),
 
   loadLoadout: (loadout) => set({ loadout: stripIncompatible(loadout) }),
 

@@ -35,6 +35,19 @@ export const EMPTY_LOADOUT: Loadout = {
   throwable: null,
 };
 
+/**
+ * Munição que já vem na arma.
+ *
+ * O slot de munição nunca fica vazio no jogo: quem não escolhe nada está com a
+ * de série — encamisada nas armas de projétil único, chumbo grosso nas
+ * escopetas. Ela não custa pontos e não altera número nenhum, porque as
+ * estatísticas da arma já foram medidas com ela.
+ */
+export function defaultAmmo(weapon: Weapon): string | null {
+  if (!weapon.slots.includes('ammo')) return null;
+  return weapon.category === 'shotgun' ? 'ammo-buckshot' : 'ammo-fmj';
+}
+
 /** Lista de acessórios escolhidos, na ordem dos slots da arma. */
 export function loadoutAttachments(
   chosen: Partial<Record<SlotId, string>>,
@@ -94,6 +107,12 @@ function keepValidAttachments(
       kept[slot] = id;
     }
   }
+
+  // Trocar de arma, abrir um link antigo ou limpar a montagem não deixa a arma
+  // sem munição: ela volta para a de série.
+  const ammo = defaultAmmo(weapon);
+  if (ammo && !kept.ammo) kept.ammo = ammo;
+
   return kept;
 }
 

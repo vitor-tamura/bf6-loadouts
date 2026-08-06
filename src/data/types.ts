@@ -127,6 +127,7 @@ export type StatKey =
   | 'range'
   | 'rpm'
   | 'velocity'
+  | 'drag'
   | 'magazine'
   | 'reload'
   | 'adsMs'
@@ -173,6 +174,12 @@ export interface Attachment {
    * para tratá-lo como multiplicador de dano sobre as pelotas.
    */
   pelletsOverride?: number;
+  /**
+   * Multiplicador de dano na cabeça, quando a munição o fixa. Ponta oca e ponta
+   * sintética valem 1,50x e 1,75x em qualquer arma — é um valor absoluto, não
+   * um ganho sobre o multiplicador de origem.
+   */
+  headshotOverride?: number;
   compat: Compatibility;
   /** Ampliação, para miras. */
   magnification?: number;

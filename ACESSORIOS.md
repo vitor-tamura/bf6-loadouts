@@ -343,16 +343,16 @@ Gerado por `node scripts/attachments-doc.mjs`.
 
 | Peça | Original | Pts | Armas | Efeito |
 | --- | --- | ---: | --- | --- |
-| Encamisada | FMJ | 5 | quase showAll (59) | Sustenta o dano à distância. |
-| Núcleo de Tungstênio | Tungsten Core | 5 | 52 weapons | Perfura material fino. |
-| Chumbo Grosso | Buckshot | 10 | 18.5KS-K, DB-12, M1014, M87A1 | Chumbo tradicional de escopeta. |
-| Estojo Polimérico | Polymer Case | 10 | 27 weapons | Cartucho leve: acelera mira e deslocamento. |
-| Grau Competição | Match Grade | 10 | 9 weapons | Cartucho de precisão, agrupamento fechado. |
-| Frangível | Frangible | 20 | 40 weapons | Atrasa a regeneração de vida do alvo. |
-| Ponta Oca | Hollow Point | 20 | 47 weapons | Melhora o dano em acerto na cabeça. |
-| Flechette | Flechette | 30 | 18.5KS-K, DB-12, M1014, M87A1 | Dardos: alcance maior, dano menor. |
-| Ponta Sintética | Synthetic Tip | 30 | 17 weapons | Trajetória mais reta e alcance maior. |
-| Balote | Slugs | 40 | 18.5KS-K, DB-12, M1014, M87A1 | Projétil único: alcance muito maior, sem espalhamento. |
+| Padrão | FMJ | 5 |  | Munição de série: vem montada e já está embutida nos números da arma. |
+| Penetração | Tungsten Core | 5 |  | Núcleo de tungstênio: atravessa material fino em troca de recuo. |
+| Chumbo Grosso | Buckshot | 10 | 18.5KS-K, DB-12, M1014, M87A1 | Padrão das escopetas: nuvem de bagos com espalhamento próprio. |
+| Leve | Polymer Case | 10 |  | Cartucho de polímero: acelera a mira e o deslocamento. |
+| Longo Alcance | Match Grade | 10 |  | Munição de precisão: agrupamento fechado a distância. |
+| Frágil | Frangible | 20 |  | Atrasa a regeneração de vida do alvo. |
+| Ponta Oca | Hollow Point | 20 |  | Mais dano em acerto na cabeça; alcance menor. |
+| Flechette | Flechette | 30 | 18.5KS-K, DB-12, M1014, M87A1 | Dardos: ferem através de cobertura e atrasam a regeneração do alvo. |
+| Ponta Sintética | Synthetic Tip | 30 | 17 weapons | Trajetória mais reta e mais dano em acerto na cabeça. |
+| Projétil Único | Slugs | 40 | 18.5KS-K, DB-12, M1014, M87A1 | Um projétil só: alcance e dano na cabeça bem maiores, sem espalhamento. |
 
 ## Ergonomia
 

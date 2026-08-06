@@ -91,6 +91,8 @@ export function calculateStats(weapon: Weapon, attachments: Attachment[]): Effec
   const namedMagazine = attachments.find((a) => a.magazineSize)?.magazineSize;
   // Balote troca a nuvem de chumbo por um projétil único.
   const pellets = attachments.find((a) => a.pelletsOverride)?.pelletsOverride ?? weapon.pellets;
+  // Munição que fixa o dano na cabeça manda no multiplicador da arma.
+  const namedHeadshot = attachments.find((a) => a.headshotOverride)?.headshotOverride;
   const magazine = Math.max(
     1,
     Math.round(namedMagazine ?? stat('magazine', weapon.magazine)),
@@ -102,8 +104,8 @@ export function calculateStats(weapon: Weapon, attachments: Attachment[]): Effec
     pellets,
     rpm: Math.round(stat('rpm', weapon.rpm)),
     velocity: stat('velocity', weapon.velocity),
-    drag: weapon.drag,
-    headshot: stat('headshot', weapon.headshot),
+    drag: stat('drag', weapon.drag),
+    headshot: namedHeadshot ?? stat('headshot', weapon.headshot),
     magazine,
     reload,
     // A recarga com a arma vazia acompanha proporcionalmente a recarga tática.
