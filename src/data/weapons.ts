@@ -1369,7 +1369,7 @@ const DMRS: WeaponEntry[] = [
     name: 'SVDM',
     category: 'dmr',
     archetype: 'dmr',
-    summary: 'Dragunov moderno: alcance longo, recuo alto e recuperação lenta entre tiros.',
+    summary: 'Dragunov moderno: alcance longo, recuo alto e recuperação lenta entre disparos.',
     damage: [
       [33.4, 0],
       [30, 50],

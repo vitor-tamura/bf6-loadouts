@@ -264,20 +264,20 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | Angular Ajustável | Adjustable Angled | 15 | 23 weapons | Acelera a subida à mira e segura o desvio lateral. |
 | Angular de Fábrica | Factory Angled | 15 | LMR27, SL9, VSSM | Acelera a subida à mira e segura o desvio lateral. |
 | Apoio de Mão Fino | Slim Handstop | 15 | 6 weapons | Melhora o tiro sem visada e o deslocamento. |
-| Curta Dobrável | Folding Stubby | 20 | 48 weapons | Recuperação de mira mais rápida entre tiros. |
+| Curta Dobrável | Folding Stubby | 20 | 48 weapons | Recuperação de mira mais rápida entre disparos. |
 | Empunhadura com Bipé PTT | PTT Grip Pod | 20 | 33 weapons | Empunhadura e bipé na mesma peça. |
 | Vertical de Liga | Alloy Vertical | 20 | 44 weapons | O maior controle de recuo vertical. |
 | Vertical Estriada | Ribbed Vertical | 20 | 43 weapons | O maior controle de recuo vertical. |
 | Angular Completa | Full Angled | 25 | 40 weapons | Acelera a subida à mira e segura o desvio lateral. |
 | Angular Fina | Slim Angled | 25 | 44 weapons | Acelera a subida à mira e segura o desvio lateral. |
 | Vertical 6H64 | 6H64 Vertical | 25 | 43 weapons | O maior controle de recuo vertical. |
-| Curta Estriada | Ribbed Stubby | 30 | 48 weapons | Recuperação de mira mais rápida entre tiros. |
-| Curta Inclinada | Canted Stubby | 30 | 48 weapons | Recuperação de mira mais rápida entre tiros. |
+| Curta Estriada | Ribbed Stubby | 30 | 48 weapons | Recuperação de mira mais rápida entre disparos. |
+| Curta Inclinada | Canted Stubby | 30 | 48 weapons | Recuperação de mira mais rápida entre disparos. |
 | Empunhadura com Bipé | Classic Grip Pod | 30 | 39 weapons | Empunhadura e bipé na mesma peça. |
 | Empunhadura com Bipé QD | QD Grip Pod | 30 | 39 weapons | Empunhadura e bipé na mesma peça. |
-| Curta Texturizada | Stippled Stubby | 35 | 48 weapons | Recuperação de mira mais rápida entre tiros. |
+| Curta Texturizada | Stippled Stubby | 35 | 48 weapons | Recuperação de mira mais rápida entre disparos. |
 | Vertical Clássica | Classic Vertical | 35 | 44 weapons | O maior controle de recuo vertical. |
-| Curta de Perfil Baixo | Low-Profile Stubby | 45 | 54 weapons | Recuperação de mira mais rápida entre tiros. |
+| Curta de Perfil Baixo | Low-Profile Stubby | 45 | 54 weapons | Recuperação de mira mais rápida entre disparos. |
 
 ## Carregador
 

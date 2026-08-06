@@ -305,7 +305,7 @@ export function StatsPanel({
           <DerivedStat
             label="Dano por segundo"
             value={Math.round(dps).toString()}
-            detail={`${(shotInterval(stats) || 0).toFixed(0)} ms entre tiros`}
+            detail={`${(shotInterval(stats) || 0).toFixed(0)} ms entre disparos`}
             raw={dps}
             rawBase={baseDps}
             showBase={showBase}
