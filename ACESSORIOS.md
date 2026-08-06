@@ -178,9 +178,9 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | 6" Leve | 6" Fluted | 10 | SGX | Cano aliviado por estrias: manejo mais leve. |
 | 600mm Estendido pesado (Cut) | 600mm Cut | 10 | AK4D | Cano longo: acelera a bala e estica o alcance. |
 | 600mm Estendido pesado (DMR) | 600mm DMR | 10 | AK4D | Cano longo: acelera a bala e estica o alcance. |
-| 612mm Estendido pesado | 612mm VMW | 10 | M123K | Aperta o cone do tiro de quadril; o feixe é visível. |
+| 612mm Estendido pesado | 612mm VMW | 10 | M123K | Aperta o cone do tiro sem visada; o feixe é visível. |
 | 650mm Estendido pesado | 650mm Factory | 10 | SV-98 | Cano longo: acelera a bala e estica o alcance. |
-| 660mm Estendido pesado | 660mm VMW | 10 | M121 A2 | Aperta o cone do tiro de quadril; o feixe é visível. |
+| 660mm Estendido pesado | 660mm VMW | 10 | M121 A2 | Aperta o cone do tiro sem visada; o feixe é visível. |
 | 7,7" Curto | 7.7" Factory | 10 | CZ3A1 | Cano curto: mira e movimento mais rápidos. |
 | 8" Curto | 8" Extended | 10 | SGX | Cano curto: mira e movimento mais rápidos. |
 | 9" Curto | 9" Factory | 10 | SL9 | Cano curto: mira e movimento mais rápidos. |
@@ -257,13 +257,13 @@ Gerado por `node scripts/attachments-doc.mjs`.
 
 | Peça | Original | Pts | Armas | Efeito |
 | --- | --- | ---: | --- | --- |
-| Apoio de Mão Compacto | Compact Handstop | 10 | 9 weapons | Apoio curto: melhora o tiro de quadril sem pesar. |
+| Apoio de Mão Compacto | Compact Handstop | 10 | 9 weapons | Apoio curto: melhora o tiro sem visada sem pesar. |
 | Bipé | Bipod | 10 | 38 weapons | Apoiado, praticamente zera o recuo. |
 | Suporte Inferior | Underslung Mount | 10 | 11 weapons | Suporte inferior para acoplar outra peça. |
 | Vertical Dobrável | Folding Vertical | 10 | 44 weapons | O maior controle de recuo vertical. |
 | Angular Ajustável | Adjustable Angled | 15 | 23 weapons | Acelera a subida à mira e segura o desvio lateral. |
 | Angular de Fábrica | Factory Angled | 15 | LMR27, SL9, VSSM | Acelera a subida à mira e segura o desvio lateral. |
-| Apoio de Mão Fino | Slim Handstop | 15 | 6 weapons | Melhora o tiro de quadril e o deslocamento. |
+| Apoio de Mão Fino | Slim Handstop | 15 | 6 weapons | Melhora o tiro sem visada e o deslocamento. |
 | Curta Dobrável | Folding Stubby | 20 | 48 weapons | Recuperação de mira mais rápida entre tiros. |
 | Empunhadura com Bipé PTT | PTT Grip Pod | 20 | 33 weapons | Empunhadura e bipé na mesma peça. |
 | Vertical de Liga | Alloy Vertical | 20 | 44 weapons | O maior controle de recuo vertical. |
@@ -388,12 +388,12 @@ Gerado por `node scripts/attachments-doc.mjs`.
 
 | Peça | Original | Pts | Armas | Efeito |
 | --- | --- | ---: | --- | --- |
-| Laser Verde de 5 MW | 5 MW Green | 10 | 17 weapons | Aperta o cone do tiro de quadril; o feixe é visível. |
-| Laser Vermelho de 5 MW | 5 MW Red | 10 | 17 weapons | Aperta o cone do tiro de quadril; o feixe é visível. |
-| Laser Violeta de 50 MW | 50 MW Violet | 10 | VCR-2 | Aperta o cone do tiro de quadril; o feixe é visível. |
-| Laser Azul de 50 MW | 50 MW Blue | 20 | 17 weapons | Aperta o cone do tiro de quadril; o feixe é visível. |
-| Laser Verde de 50 MW | 50 MW Green | 20 | 17 weapons | Aperta o cone do tiro de quadril; o feixe é visível. |
-| Laser Azul de 120 MW | 120 MW Blue | 30 | 17 weapons | Aperta o cone do tiro de quadril; o feixe é visível. |
+| Laser Verde de 5 MW | 5 MW Green | 10 | 17 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
+| Laser Vermelho de 5 MW | 5 MW Red | 10 | 17 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
+| Laser Violeta de 50 MW | 50 MW Violet | 10 | VCR-2 | Aperta o cone do tiro sem visada; o feixe é visível. |
+| Laser Azul de 50 MW | 50 MW Blue | 20 | 17 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
+| Laser Verde de 50 MW | 50 MW Green | 20 | 17 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
+| Laser Azul de 120 MW | 120 MW Blue | 30 | 17 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
 
 ## Acessório Direito
 
@@ -403,11 +403,11 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | --- | --- | ---: | --- | --- |
 | Combo Laser/Lanterna Vermelho | Laser/Light Combo Red | 10 | GRT-BC, KTS100 MK8, SL9 | Laser e lanterna na mesma peça. |
 | Lanterna Tática | Flashlight | 10 | 48 weapons | Ofusca quem está à frente em ambiente fechado. |
-| Laser Verde de 5 MW | 5 MW Green | 10 | 17 weapons | Aperta o cone do tiro de quadril; o feixe é visível. |
-| Laser Vermelho de 5 MW | 5 MW Red | 10 | 17 weapons | Aperta o cone do tiro de quadril; o feixe é visível. |
-| Laser Violeta de 50 MW | 50 MW Violet | 10 | CZ3A1, DB-12 | Aperta o cone do tiro de quadril; o feixe é visível. |
+| Laser Verde de 5 MW | 5 MW Green | 10 | 17 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
+| Laser Vermelho de 5 MW | 5 MW Red | 10 | 17 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
+| Laser Violeta de 50 MW | 50 MW Violet | 10 | CZ3A1, DB-12 | Aperta o cone do tiro sem visada; o feixe é visível. |
 | Telêmetro | Range Finder | 15 | 10 weapons | Mostra a distância exata até o alvo. |
 | Combo Laser/Lanterna Verde | Laser/Light Combo Green | 20 | GRT-BC, KORD 6P67, KTS100 MK8, SL9 | Laser e lanterna na mesma peça. |
-| Laser Azul de 50 MW | 50 MW Blue | 20 | 17 weapons | Aperta o cone do tiro de quadril; o feixe é visível. |
-| Laser Verde de 50 MW | 50 MW Green | 20 | 17 weapons | Aperta o cone do tiro de quadril; o feixe é visível. |
-| Laser Azul de 120 MW | 120 MW Blue | 30 | 17 weapons | Aperta o cone do tiro de quadril; o feixe é visível. |
+| Laser Azul de 50 MW | 50 MW Blue | 20 | 17 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
+| Laser Verde de 50 MW | 50 MW Green | 20 | 17 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |
+| Laser Azul de 120 MW | 120 MW Blue | 30 | 17 weapons | Aperta o cone do tiro sem visada; o feixe é visível. |

@@ -322,7 +322,7 @@ export function StatsPanel({
           {!compact && (
             <>
               <StatBar label="Mobilidade" statKey="mobility" value={stats.mobility} base={base.mobility} showBase={showBase} />
-              <StatBar label="Tiro de quadril" statKey="hipfire" value={stats.hipfire} base={base.hipfire} showBase={showBase} />
+              <StatBar label="Tiro sem visada" statKey="hipfire" value={stats.hipfire} base={base.hipfire} showBase={showBase} />
             </>
           )}
         </div>

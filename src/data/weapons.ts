@@ -974,7 +974,7 @@ const SMGS: WeaponEntry[] = [
     name: 'PP-19',
     category: 'smg',
     archetype: 'smg-compact',
-    summary: 'Carregador helicoidal da Temporada 3: 53 tiros e tiro de quadril confiável.',
+    summary: 'Carregador helicoidal da Temporada 3: 53 tiros e tiro sem visada confiável.',
     damage: [
       [24, 0],
       [20.7, 8],

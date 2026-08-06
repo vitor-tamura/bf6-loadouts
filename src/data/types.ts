@@ -5,7 +5,7 @@
  * - Distâncias em metros, tempos em milissegundos (salvo `recarga`, em segundos).
  * - `dano` é uma escada de degraus: cada degrau vale a partir da sua distância
  *   até o degrau seguinte. É assim que o jogo trata a queda de dano.
- * - Estatísticas de 0 a 100 (precisão, controle, mobilidade, tiro de quadril)
+ * - Estatísticas de 0 a 100 (precisão, controle, mobilidade, tiro sem visada)
  *   espelham as barras exibidas no menu do jogo.
  */
 
