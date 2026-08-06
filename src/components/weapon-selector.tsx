@@ -99,51 +99,80 @@ export function useWeaponFilter(categories: WeaponCategory[] = CATEGORY_ORDER): 
   };
 }
 
-/** Busca e chips de categoria. Ocupa a largura que o pai der. */
+/**
+ * Busca e chips de categoria.
+ *
+ * `layout` decide o arranjo porque o mesmo controle serve a dois espaços muito
+ * diferentes: a faixa larga do montador, onde título, busca e chips cabem lado
+ * a lado, e o modal da secundária, com pouco mais de quatrocentos pixels — ali
+ * a mesma linha espreme os chips numa coluna cortada.
+ */
 export function WeaponFilters({
   filter,
   title = 'Arma principal',
+  layout = 'linha',
 }: {
   filter: WeaponFilterState;
   title?: string;
+  layout?: 'linha' | 'empilhado';
 }) {
+  const empilhado = layout === 'empilhado';
+
+  const chips = (
+    <>
+      <FilterChip
+        active={filter.category === 'all'}
+        onClick={() => filter.setCategory('all')}
+        count={filter.counts.get('all') ?? 0}
+      >
+        Todas
+      </FilterChip>
+      {filter.categories.map((c) => (
+        <FilterChip
+          key={c}
+          active={filter.category === c}
+          onClick={() => filter.setCategory(c)}
+          count={filter.counts.get(c) ?? 0}
+        >
+          {SHORT_CATEGORY_NAMES[c]}
+        </FilterChip>
+      ))}
+    </>
+  );
+
+  const busca = (
+    <label className={empilhado ? 'block' : 'min-w-[180px] flex-1 lg:max-w-[280px]'}>
+      <span className="sr-only">Buscar arma</span>
+      <input
+        type="search"
+        value={filter.search}
+        onChange={(e) => filter.setSearch(e.target.value)}
+        placeholder="Buscar arma…"
+        className="bevel-sm touch w-full px-3 py-2 text-sm outline-none"
+        style={{ background: 'var(--surface-raised)', border: '1px solid var(--border)' }}
+      />
+    </label>
+  );
+
+  if (empilhado) {
+    return (
+      <section>
+        <h2 className="label mb-2">{title}</h2>
+        {busca}
+        <div className="scroll-x -mx-1 mt-2 flex gap-1.5 px-1 pb-1">{chips}</div>
+      </section>
+    );
+  }
+
   return (
     <section>
       {/* Em tela larga a busca fica ao lado dos chips; no celular, uma linha
           para cada, porque lado a lado sobraria meia dúzia de caracteres. */}
       <div className="flex flex-wrap items-center gap-2">
         <h2 className="label shrink-0">{title}</h2>
-
-        <label className="min-w-[180px] flex-1 lg:max-w-[280px]">
-          <span className="sr-only">Buscar arma</span>
-          <input
-            type="search"
-            value={filter.search}
-            onChange={(e) => filter.setSearch(e.target.value)}
-            placeholder="Buscar arma…"
-            className="bevel-sm touch w-full px-3 py-2 text-sm outline-none"
-            style={{ background: 'var(--surface-raised)', border: '1px solid var(--border)' }}
-          />
-        </label>
-
+        {busca}
         <div className="scroll-x -mx-1 flex w-full gap-1.5 px-1 pb-1 lg:w-auto lg:flex-1 lg:flex-wrap lg:overflow-visible lg:pb-0">
-          <FilterChip
-            active={filter.category === 'all'}
-            onClick={() => filter.setCategory('all')}
-            count={filter.counts.get('all') ?? 0}
-          >
-            Todas
-          </FilterChip>
-          {filter.categories.map((c) => (
-            <FilterChip
-              key={c}
-              active={filter.category === c}
-              onClick={() => filter.setCategory(c)}
-              count={filter.counts.get(c) ?? 0}
-            >
-              {SHORT_CATEGORY_NAMES[c]}
-            </FilterChip>
-          ))}
+          {chips}
         </div>
       </div>
     </section>
@@ -208,7 +237,7 @@ export function WeaponSelector({
 
   return (
     <section>
-      <WeaponFilters filter={filter} title={title} />
+      <WeaponFilters filter={filter} title={title} layout="empilhado" />
       <div className="mt-3">
         <WeaponList filter={filter} selected={selected} onSelect={onSelect} />
       </div>
