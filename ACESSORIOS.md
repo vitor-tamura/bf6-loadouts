@@ -1,6 +1,6 @@
 # Acessórios
 
-Relação completa das **331 peças** do montador, na ordem em que os slots
+Relação completa das **332 peças** do montador, na ordem em que os slots
 aparecem na interface.
 
 Nome, slot, custo em pontos e compatibilidade vêm do catálogo do bf6loadouts.com,
@@ -14,7 +14,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 
 | Slot | Original | Peças |
 | --- | --- | ---: |
-| [Mira](#mira) | Sight | 41 |
+| [Mira](#mira) | Sight | 42 |
 | [Boca](#boca) | Muzzle | 13 |
 | [Cano](#cano) | Barrel | 163 |
 | [Acoplamento Inferior](#acoplamento-inferior) | Underbarrel | 23 |
@@ -27,7 +27,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 
 ## Mira
 
-*Sight* — 41 peças.
+*Sight* — 42 peças.
 
 | Peça | Original | Pts | Armas | Efeito |
 | --- | --- | ---: | --- | --- |
@@ -62,6 +62,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | SU-123 1.50x | SU-123 1.50x | 10 | 45 weapons | Mira com ampliação de 1.5×. |
 | TODO: traduzir | R-VPS 10.00x | 10 | 8 weapons | TODO: descrever em português. |
 | SU-230 LPVO | SU-230 LPVO | 20 | 6 weapons | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
+| 1P86 LPVO | 1P86 LPVO | 25 | 12 weapons | Ampliação comutável na mão: 1,50x de perto, 4,50x de longe. |
 | 1P88 Variável | 1P88 Variable | 25 | 12 weapons | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
 | DVO LPVO | DVO LPVO | 25 | 32 weapons | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
 | Grim 1.50x | Grim 1.50x | 25 | 46 weapons | Mira com ampliação de 1.5×. |
@@ -228,7 +229,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | 600mm Estriado | 600mm Fluted | 15 | AK4D | Cano aliviado por estrias: manejo mais leve. |
 | 620mm Estendido | 620mm Classic | 15 | SVDM | Cano longo: acelera a bala e estica o alcance. |
 | 730mm Estendido | 730mm 3LR | 15 | SV-98 | Cano longo: acelera a bala e estica o alcance. |
-| Estendido | Extended Barrel | 15 | SCW-10 | Cano da arma. |
+| Estendido | Extended Barrel | 15 | 18.5KS-K, DB-12, M1014, M87A1 | Extensão de quatro polegadas: acelera a bala e pesa na mira. |
 | TODO: traduzir | 305mm Custom | 15 | UMG-40 | TODO: descrever em português. |
 | TODO: traduzir | 330mm MK3 | 15 | KTS100 MK8 | TODO: descrever em português. |
 | TODO: traduzir | 8.37" Long | 15 | M44 | TODO: descrever em português. |

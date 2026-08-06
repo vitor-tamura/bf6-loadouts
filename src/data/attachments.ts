@@ -2058,10 +2058,12 @@ export const ATTACHMENTS: Attachment[] = [
     originalName: 'Extended Barrel',
     slot: 'barrel',
     cost: 15,
-    description: 'Cano da arma.',
-    mods: {  },
-    compat: { weapons: ['scw-10'] },
-    provenance: 'game',
+    description: 'Extensão de quatro polegadas: acelera a bala e pesa na mira.',
+    mods: { velocity: { mult: 1.12 }, range: { mult: 1.08 }, adsMs: { mult: 1.06 }, mobility: { add: -4 } },
+    // Peça da Temporada 4, entregue às escopetas — a atualização 1.4.1.0 lista
+    // M87A1, M1014, 18.5KS-K e DB-12.
+    compat: { weapons: ['18-5ks-k', 'db-12', 'm1014', 'm87a1'] },
+    provenance: 'curated',
   },
   {
     id: 'barrel-iar-heavy',
@@ -2935,6 +2937,20 @@ export const ATTACHMENTS: Attachment[] = [
     mods: { adsMs: { mult: 1.03 }, accuracy: { add: 4 }, mobility: { add: -1 } },
     compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm'] },
     provenance: 'game',
+  },
+  {
+    id: 'sight-1p86-lpvo',
+    name: '1P86 LPVO',
+    originalName: '1P86 LPVO',
+    slot: 'sight',
+    cost: 25,
+    description: 'Ampliação comutável na mão: 1,50x de perto, 4,50x de longe.',
+    magnification: 4.5,
+    mods: { adsMs: { mult: 1.16 }, accuracy: { add: 19 }, mobility: { add: -4 } },
+    // A fonte pública ainda não trouxe a peça; a compatibilidade acompanha a
+    // outra LPVO até o catálogo publicar a lista dela.
+    compat: { weapons: ['grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
+    provenance: 'curated',
   },
   {
     id: 'sight-1p88-variable',
