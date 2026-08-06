@@ -5,8 +5,9 @@ classe e a arma, encaixe os acessórios dentro dos 100 pontos, veja as
 estatísticas e os gráficos de dano e queda de bala se recalcularem a cada peça, e
 compartilhe a build por um link.
 
-Três telas: **Montar**, **Todas as Armas** (catálogo com filtros e ordenação) e
-**Comparar** (até quatro armas lado a lado).
+Quatro telas: **Todas as Armas** (catálogo com filtros e ordenação), **Montar**,
+**Comparar** (até quatro armas lado a lado) e **Meta** (o que a comunidade
+aponta como forte na temporada, com fonte e data).
 
 Funciona no navegador do celular (Android e iPhone), dentro de WebView, e pode
 ser instalado na tela inicial.
@@ -91,14 +92,20 @@ nenhuma.
 	ownership por [`.github/CODEOWNERS`](./.github/CODEOWNERS).
 - **Rede de segurança validada:** suíte de testes cobrindo dataset, cálculos,
 	balística, share link e regras de temporada integrada ao fluxo de PR.
+- **M-01 · Pendências de tradução fechadas:** as peças que a sincronização
+	entrega com `TODO` passam a receber nome, descrição e efeito calibrado pela
+	escala do próprio dataset, marcados como `curated`.
+- **Tela de meta da temporada:** [`src/data/meta.ts`](./src/data/meta.ts) guarda
+	a leitura de guias públicos, com fonte e data por indicação — não há API
+	pública de uso real no BF6, e a tela diz isso ao leitor.
 
 ### Próximas implementações
 
-- **M-01 · Fechar pendências de tradução e descrição de peças**
-	Objetivo: eliminar entradas `TODO: traduzir` e `TODO: descrever em português`
-	no dataset de acessórios.
-	Entrega esperada: experiência 100% em português no montador e no catálogo,
-	sem placeholders visíveis.
+- **M-06 · Manter o meta em dia**
+	Objetivo: revisar [`src/data/meta.ts`](./src/data/meta.ts) a cada patch de
+	balanceamento, trocando indicações que envelheceram e citando a fonte nova.
+	Entrega esperada: tela de meta sempre com data recente e sem arma que saiu
+	das listas da comunidade.
 - **M-02 · Completar mídia do arsenal**
 	Objetivo: fechar as fotos faltantes de armas (especialmente corpo a corpo e
 	Interdictor) e manter cobertura contínua para novos itens de temporada.
