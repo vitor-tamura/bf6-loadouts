@@ -8,6 +8,7 @@ import { EquipmentPanel, ClassSelector } from '@/components/class-panel';
 import { SlotsPanel, BudgetBar } from '@/components/slots-panel';
 import { StatsPanel } from '@/components/stats-panel';
 import { WeaponPreview } from '@/components/weapon-preview';
+import { DockablePanel, type PanelMode } from '@/components/dockable-panel';
 import { SiteFooter } from '@/components/site-footer';
 import { WeaponFilters, WeaponList, WeaponSelector, useWeaponFilter } from '@/components/weapon-selector';
 import { WEAPONS_BY_ID, PRIMARY_CATEGORIES } from '@/data/weapons';
@@ -71,6 +72,12 @@ function BuilderPage() {
   // A busca da arma principal mora aqui porque os controles e a lista ficam em
   // blocos diferentes da página.
   const weaponFilter = useWeaponFilter(PRIMARY_CATEGORIES);
+
+  const [statsCompactas, setStatsCompactas] = useState(false);
+  const [painelLista, setPainelLista] = useState<PanelMode>('fixo');
+  const listaOcupaColuna = painelLista === 'fixo';
+  // Quem ocupa a largura toda precisa saber quantas colunas existem agora.
+  const larguraTotal = listaOcupaColuna ? 'lg:col-span-3' : 'lg:col-span-2';
 
   const weapon = loadout.weapon ? (WEAPONS_BY_ID.get(loadout.weapon) ?? null) : null;
   const sidearm = loadout.sidearm ? (WEAPONS_BY_ID.get(loadout.sidearm) ?? null) : null;
@@ -145,18 +152,36 @@ function BuilderPage() {
         {/* `min-w-0` nos filhos: sem isso, itens de grid usam a largura mínima do
             conteúdo e uma lista larga estica a página inteira, criando rolagem
             horizontal no celular. */}
-        <div className="grid gap-3 [&>*]:min-w-0 lg:grid-cols-[minmax(230px,270px)_minmax(0,1fr)_minmax(340px,420px)]">
+        <div
+          className={`grid gap-3 [&>*]:min-w-0 ${
+            // Lista solta ou encolhida devolve a coluna para o resto da tela.
+            listaOcupaColuna
+              ? 'lg:grid-cols-[minmax(230px,270px)_minmax(0,1fr)_minmax(340px,420px)]'
+              : 'lg:grid-cols-[minmax(0,1fr)_minmax(340px,420px)]'
+          }`}
+        >
           {/* Coluna 1 — escolha da arma */}
-          <div className={tab === 'arma' ? 'block' : 'hidden lg:block'}>
-            {/* No computador a lista rola dentro da própria coluna: com 63 armas,
+          <div
+            className={`${tab === 'arma' ? 'block' : 'hidden lg:block'} ${
+              // Solta, a lista vira painel flutuante e sai da grade; encolhida,
+              // vira uma faixa no topo em vez de segurar uma coluna inteira.
+              painelLista === 'solto' ? 'lg:contents' : ''
+            } ${painelLista === 'encolhido' ? 'lg:col-span-2' : ''}`}
+          >
+            {/* No computador a lista rola dentro do próprio bloco: com 63 armas,
                 deixá-la esticar faria a página inteira crescer sem necessidade. */}
-            <div className="card bevel overflow-x-hidden p-3 lg:max-h-[calc(100dvh-140px)] lg:overflow-y-auto">
+            <DockablePanel
+              title="Arma principal"
+              mode={painelLista}
+              onModeChange={setPainelLista}
+              className={painelLista === 'solto' ? '' : 'lg:max-h-[calc(100dvh-140px)]'}
+            >
               <WeaponList
                 filter={weaponFilter}
                 selected={loadout.weapon}
                 onSelect={chooseWeapon}
               />
-            </div>
+            </DockablePanel>
           </div>
 
           {/* Coluna 2 — montagem */}
@@ -213,17 +238,41 @@ function BuilderPage() {
                 <div className="card bevel p-3">
                   <div className="mb-3 flex items-center justify-between gap-2">
                     <h2 className="label">Estatísticas</h2>
-                    <label className="flex cursor-pointer items-center gap-1.5 text-[11px]" style={{ color: 'var(--text-dim)' }}>
-                      <input
-                        type="checkbox"
-                        checked={compareWithBase}
-                        onChange={toggleBaseComparison}
-                        className="accent-[var(--accent)]"
-                      />
-                      comparar com a de fábrica
-                    </label>
+                    <div className="flex items-center gap-2">
+                      <label className="flex cursor-pointer items-center gap-1.5 text-[11px]" style={{ color: 'var(--text-dim)' }}>
+                        <input
+                          type="checkbox"
+                          checked={compareWithBase}
+                          onChange={toggleBaseComparison}
+                          className="accent-[var(--accent)]"
+                        />
+                        comparar com a de fábrica
+                      </label>
+                      {/*
+                        Aberto, o painel prioriza a leitura: número grande, uma
+                        linha por medida. Compacto, ele encolhe para caber junto
+                        dos gráficos e da secundária sem rolagem.
+                      */}
+                      <button
+                        type="button"
+                        onClick={() => setStatsCompactas((v) => !v)}
+                        title={statsCompactas ? 'Abrir as estatísticas' : 'Compactar as estatísticas'}
+                        aria-label={statsCompactas ? 'Abrir as estatísticas' : 'Compactar as estatísticas'}
+                        aria-pressed={statsCompactas}
+                        className="touch shrink-0 px-1.5 text-xs leading-none"
+                        style={{ color: statsCompactas ? 'var(--accent)' : 'var(--text-dim)' }}
+                      >
+                        {statsCompactas ? '▢' : '—'}
+                      </button>
+                    </div>
                   </div>
-                  <StatsPanel weapon={weapon} stats={stats} base={base} showBase={compareWithBase} />
+                  <StatsPanel
+                    weapon={weapon}
+                    stats={stats}
+                    base={base}
+                    showBase={compareWithBase}
+                    compact={statsCompactas}
+                  />
                 </div>
 
                 {/*
@@ -275,7 +324,7 @@ function BuilderPage() {
               legível; no celular seguem dentro da aba Números. */}
           {weapon && stats && base && weapon.category !== 'melee' && (
             <div
-              className={`${tab === 'numeros' ? 'grid' : 'hidden lg:grid'} gap-3 lg:col-span-3 lg:grid-cols-2`}
+              className={`${tab === 'numeros' ? 'grid' : 'hidden lg:grid'} gap-3 ${larguraTotal} lg:grid-cols-2`}
             >
               <DamageChart
                 stats={stats}
@@ -293,7 +342,7 @@ function BuilderPage() {
           )}
 
           {/* Classe e equipamento: coluna própria no celular, rodapé no desktop */}
-          <div className={`${tab === 'classe' ? 'block' : 'hidden lg:block'} lg:col-span-3`}>
+          <div className={`${tab === 'classe' ? 'block' : 'hidden lg:block'} ${larguraTotal}`}>
             <div className="card bevel grid gap-4 p-3 lg:grid-cols-[minmax(0,320px)_minmax(0,1fr)]">
               <ClassSelector current={loadout.playerClass} onSelect={setPlayerClass} />
               <EquipmentPanel

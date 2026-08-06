@@ -237,9 +237,11 @@ describe('munição', () => {
     expect(calculateStats(WEAPONS_BY_ID.get('b36a4')!, [sintetica]).headshot).toBe(1.75);
   });
 
-  it('reduz o arrasto do projétil com a munição de longo alcance', () => {
+  it('dobra o arrasto do projétil com a munição de longo alcance', () => {
+    // O patch 1.3.3.0 subiu o arrasto de todas as armas em 40% e o da Match
+    // Grade em 100%: a peça fecha o agrupamento e cobra na queda da bala.
     const sniper = WEAPONS_BY_ID.get('sv-98')!;
     const longoAlcance = ATTACHMENTS_BY_ID.get('ammo-match-grade')!;
-    expect(calculateStats(sniper, [longoAlcance]).drag).toBeLessThan(baseStats(sniper).drag);
+    expect(calculateStats(sniper, [longoAlcance]).drag).toBeGreaterThan(baseStats(sniper).drag);
   });
 });

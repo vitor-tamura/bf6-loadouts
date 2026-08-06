@@ -99,51 +99,80 @@ export function useWeaponFilter(categories: WeaponCategory[] = CATEGORY_ORDER): 
   };
 }
 
-/** Busca e chips de categoria. Ocupa a largura que o pai der. */
+/**
+ * Busca e chips de categoria.
+ *
+ * `layout` decide o arranjo porque o mesmo controle serve a dois espaços muito
+ * diferentes: a faixa larga do montador, onde título, busca e chips cabem lado
+ * a lado, e o modal da secundária, com pouco mais de quatrocentos pixels — ali
+ * a mesma linha espreme os chips numa coluna cortada.
+ */
 export function WeaponFilters({
   filter,
   title = 'Arma principal',
+  layout = 'linha',
 }: {
   filter: WeaponFilterState;
   title?: string;
+  layout?: 'linha' | 'empilhado';
 }) {
+  const empilhado = layout === 'empilhado';
+
+  const chips = (
+    <>
+      <FilterChip
+        active={filter.category === 'all'}
+        onClick={() => filter.setCategory('all')}
+        count={filter.counts.get('all') ?? 0}
+      >
+        Todas
+      </FilterChip>
+      {filter.categories.map((c) => (
+        <FilterChip
+          key={c}
+          active={filter.category === c}
+          onClick={() => filter.setCategory(c)}
+          count={filter.counts.get(c) ?? 0}
+        >
+          {SHORT_CATEGORY_NAMES[c]}
+        </FilterChip>
+      ))}
+    </>
+  );
+
+  const busca = (
+    <label className={empilhado ? 'block' : 'min-w-[180px] flex-1 lg:max-w-[280px]'}>
+      <span className="sr-only">Buscar arma</span>
+      <input
+        type="search"
+        value={filter.search}
+        onChange={(e) => filter.setSearch(e.target.value)}
+        placeholder="Buscar arma…"
+        className="bevel-sm touch w-full px-3 py-2 text-sm outline-none"
+        style={{ background: 'var(--surface-raised)', border: '1px solid var(--border)' }}
+      />
+    </label>
+  );
+
+  if (empilhado) {
+    return (
+      <section>
+        <h2 className="label mb-2">{title}</h2>
+        {busca}
+        <div className="scroll-x -mx-1 mt-2 flex gap-1.5 px-1 pb-1">{chips}</div>
+      </section>
+    );
+  }
+
   return (
     <section>
       {/* Em tela larga a busca fica ao lado dos chips; no celular, uma linha
           para cada, porque lado a lado sobraria meia dúzia de caracteres. */}
       <div className="flex flex-wrap items-center gap-2">
         <h2 className="label shrink-0">{title}</h2>
-
-        <label className="min-w-[180px] flex-1 lg:max-w-[280px]">
-          <span className="sr-only">Buscar arma</span>
-          <input
-            type="search"
-            value={filter.search}
-            onChange={(e) => filter.setSearch(e.target.value)}
-            placeholder="Buscar arma…"
-            className="bevel-sm touch w-full px-3 py-2 text-sm outline-none"
-            style={{ background: 'var(--surface-raised)', border: '1px solid var(--border)' }}
-          />
-        </label>
-
+        {busca}
         <div className="scroll-x -mx-1 flex w-full gap-1.5 px-1 pb-1 lg:w-auto lg:flex-1 lg:flex-wrap lg:overflow-visible lg:pb-0">
-          <FilterChip
-            active={filter.category === 'all'}
-            onClick={() => filter.setCategory('all')}
-            count={filter.counts.get('all') ?? 0}
-          >
-            Todas
-          </FilterChip>
-          {filter.categories.map((c) => (
-            <FilterChip
-              key={c}
-              active={filter.category === c}
-              onClick={() => filter.setCategory(c)}
-              count={filter.counts.get(c) ?? 0}
-            >
-              {SHORT_CATEGORY_NAMES[c]}
-            </FilterChip>
-          ))}
+          {chips}
         </div>
       </div>
     </section>
@@ -160,8 +189,12 @@ export function WeaponList({
   selected: string | null;
   onSelect: (id: string) => void;
 }) {
+  const equipada = selected ? WEAPONS.find((w) => w.id === selected) : null;
+
   return (
     <div className="space-y-4">
+      {equipada && <EquippedWeapon weapon={equipada} />}
+
       {[...filter.byCategory.entries()].map(([category, weaponList]) => (
         <div key={category}>
           <h3 className="label mb-1.5">{CATEGORY_NAMES[category]}</h3>
@@ -204,7 +237,7 @@ export function WeaponSelector({
 
   return (
     <section>
-      <WeaponFilters filter={filter} title={title} />
+      <WeaponFilters filter={filter} title={title} layout="empilhado" />
       <div className="mt-3">
         <WeaponList filter={filter} selected={selected} onSelect={onSelect} />
       </div>
@@ -247,6 +280,47 @@ function FilterChip({
   );
 }
 
+/**
+ * A arma equipada, em bloco próprio no alto da lista.
+ *
+ * Rolando sessenta e três armas, a escolhida some da vista — e ela é o assunto
+ * de tudo que está à direita na tela. Aqui ela fica presa no topo, com a foto
+ * grande e os números que identificam a arma, para o jogador nunca precisar
+ * procurar o que está montando.
+ */
+function EquippedWeapon({ weapon }: { weapon: Weapon }) {
+  const playerClass = CLASSES.find((c) => c.id === weapon.signatureClass);
+
+  return (
+    <div
+      className="bevel-sm sticky top-0 z-10 p-2.5"
+      style={{
+        background: 'color-mix(in oklab, var(--accent) 14%, var(--surface))',
+        border: '1px solid var(--accent)',
+        boxShadow: '0 8px 20px color-mix(in oklab, var(--accent) 18%, transparent)',
+      }}
+    >
+      <div className="flex items-center justify-between gap-2">
+        <span className="label" style={{ color: 'var(--accent)' }}>
+          Montando agora
+        </span>
+        <SeasonTag season={weapon.season} size="sm" />
+      </div>
+
+      <WeaponThumb weapon={weapon} className="my-1 h-16 w-full object-contain" />
+
+      <p className="font-display truncate text-lg leading-tight font-bold tracking-wide">
+        {weapon.name}
+      </p>
+      <p className="flex flex-wrap items-center gap-x-2 text-[11px]" style={{ color: 'var(--text-dim)' }}>
+        {playerClass && <span style={{ color: playerClass.color }}>{playerClass.name}</span>}
+        <span>{CATEGORY_NAMES[weapon.category]}</span>
+        {weapon.category !== 'melee' && <span className="font-mono">{weapon.rpm} RPM</span>}
+      </p>
+    </div>
+  );
+}
+
 function WeaponCard({
   weapon,
   selected,
@@ -263,16 +337,32 @@ function WeaponCard({
       type="button"
       onClick={onSelect}
       aria-pressed={selected}
-      className="tile bevel-sm touch flex w-full items-center gap-2.5 px-2.5 py-2 text-left"
+      className="tile bevel-sm touch relative flex w-full items-center gap-2.5 py-2 pr-2.5 pl-3 text-left"
       style={
         {
+          /*
+           * A arma equipada não pode ser só "mais um item com a borda de outra
+           * cor": numa lista de sessenta e três, o olho volta a ela o tempo
+           * todo. Fundo mais forte, faixa na lateral e brilho em volta marcam
+           * qual arma está na mão sem precisar procurar.
+           */
           '--tile-bg': selected
-            ? 'color-mix(in oklab, var(--accent) 16%, var(--surface))'
+            ? 'color-mix(in oklab, var(--accent) 26%, var(--surface))'
             : 'var(--surface)',
           border: `1px solid ${selected ? 'var(--accent)' : 'var(--border-soft)'}`,
+          boxShadow: selected
+            ? '0 0 0 1px var(--accent), 0 6px 18px color-mix(in oklab, var(--accent) 22%, transparent)'
+            : undefined,
         } as CSSProperties
       }
     >
+      {selected && (
+        <span
+          aria-hidden
+          className="absolute inset-y-0 left-0 w-1"
+          style={{ background: 'var(--accent)' }}
+        />
+      )}
       {/*
         A foto vale mais que o nome aqui: quem procura a secundária costuma
         reconhecer a pistola de vista antes de lembrar da sigla. Corpo a corpo
@@ -282,7 +372,10 @@ function WeaponCard({
 
       <span className="min-w-0 flex-1">
         <span className="flex items-baseline justify-between gap-2">
-          <span className="font-display truncate text-base font-semibold tracking-wide">
+          <span
+            className="font-display truncate text-base font-semibold tracking-wide"
+            style={selected ? { color: 'var(--accent)' } : undefined}
+          >
             {weapon.name}
           </span>
           <span className="font-mono text-[11px] whitespace-nowrap" style={{ color: 'var(--text-dim)' }}>
@@ -293,6 +386,11 @@ function WeaponCard({
           className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[11px]"
           style={{ color: 'var(--text-dim)' }}
         >
+          {selected && (
+            <span className="label" style={{ color: 'var(--accent)' }}>
+              equipada
+            </span>
+          )}
           {playerClass && <span style={{ color: playerClass.color }}>{playerClass.name}</span>}
           <SeasonTag season={weapon.season} size="sm" />
           {weapon.provenance === 'curated' && <span title="Valores aproximados">≈</span>}
@@ -309,7 +407,7 @@ function WeaponCard({
  * uma arma nova ainda sem arte —, o espaço não é reservado: uma moldura vazia
  * repetida em toda a lista pesa mais do que ajuda.
  */
-function WeaponThumb({ weapon }: { weapon: Weapon }) {
+function WeaponThumb({ weapon, className = 'h-9 w-16' }: { weapon: Weapon; className?: string }) {
   const [broken, setBroken] = useState(false);
   const ref = useRef<HTMLImageElement>(null);
 
@@ -332,7 +430,7 @@ function WeaponThumb({ weapon }: { weapon: Weapon }) {
       aria-hidden
       loading="lazy"
       onError={() => setBroken(true)}
-      className="h-9 w-16 shrink-0 object-contain"
+      className={`shrink-0 object-contain ${className}`}
     />
   );
 }
