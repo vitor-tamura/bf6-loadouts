@@ -56,6 +56,11 @@ export const FONTES: FonteMeta[] = [
     url: 'https://nerdschalk.com/battlefield-6-season-4-meta-weapons-tier-list-and-best-loadouts/',
     data: '2026-07-22',
   },
+  {
+    nome: 'DTGRE — tier list das armas novas da Temporada 4',
+    url: 'https://www.dtgre.com/2026/07/battlefield-6-season-4-best-weapons-tier-list-ef88-brod-3-vssm.html',
+    data: '2026-07-22',
+  },
 ];
 
 /** Quando esta lista foi revisada por aqui. */
@@ -68,18 +73,19 @@ export const TEMPORADA_DO_META = 4;
  * As mais citadas, sem separar por categoria.
  *
  * A ordem segue quantas fontes citam a arma e quão alto ela aparece em cada
- * uma. Duas fontes elegeram a M16A4 e a M4A1; a EF88 lidera uma delas.
+ * uma: a EF88 abre a lista porque duas fontes a põem em primeiro, e a M16A4
+ * vem logo atrás por ser primeira em uma e segunda em outra.
  */
 export const DESTAQUES: IndicacaoMeta[] = [
   {
-    weapon: 'm16a4',
-    porque: 'Recuo controlado, bala rápida e dano estável em qualquer distância — o pacote mais completo da temporada.',
-    fontes: [1, 2],
+    weapon: 'ef88',
+    porque: 'A novidade que encara as veteranas: recuo previsível, alcance médio-longo confiável e a curva de aprendizado mais curta da temporada.',
+    fontes: [1, 3],
   },
   {
-    weapon: 'ef88',
-    porque: 'A novidade da temporada que encara as veteranas: recuo previsível e alcance médio-longo confiável.',
-    fontes: [1],
+    weapon: 'm16a4',
+    porque: 'Recuo controlado, bala rápida e dano estável em qualquer distância — o pacote mais completo entre as veteranas.',
+    fontes: [1, 2],
   },
   {
     weapon: 'm4a1',
@@ -124,7 +130,10 @@ export const POR_CATEGORIA: DestaqueCategoria[] = [
   {
     category: 'carbine',
     melhor: { weapon: 'sg-553r', porque: 'A carabina mais sólida da temporada na leitura da fonte.', fontes: [0] },
-    mencoes: [{ weapon: 'm4a1', porque: 'Mais fácil de dominar, e a preferida de quem joga na investida.', fontes: [0, 1, 2] }],
+    mencoes: [
+      { weapon: 'm4a1', porque: 'Mais fácil de dominar, e a preferida de quem joga na investida.', fontes: [0, 1, 2] },
+      { weapon: 'brod-3', porque: 'A carabina nova, agressiva: para quem troca alcance por mobilidade.', fontes: [3] },
+    ],
   },
   {
     category: 'smg',
@@ -145,7 +154,9 @@ export const POR_CATEGORIA: DestaqueCategoria[] = [
   {
     category: 'dmr',
     melhor: { weapon: 'svdm', porque: 'Cadência consistente, o que mais importa no semiautomático.', fontes: [0] },
-    mencoes: [{ weapon: 'vssm', porque: 'A novidade da temporada, com supressor integrado.', fontes: [0] }],
+    mencoes: [
+      { weapon: 'vssm', porque: 'A novidade da temporada: supressor integrado e automático, para quem joga escondido.', fontes: [0, 3] },
+    ],
   },
   {
     category: 'sniper',
