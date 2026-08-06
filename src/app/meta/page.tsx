@@ -126,11 +126,10 @@ export default function MetaPage() {
             ))}
           </ul>
           <p className="mt-2 max-w-[80ch] text-[11px] leading-relaxed" style={{ color: 'var(--text-dim)' }}>
-            As publicações brasileiras vêm primeiro, mas as duas que ranqueiam armas são de outubro
-            de 2025 — do lançamento, quatro temporadas atrás. Elas entram para mostrar o que já era
-            forte lá atrás e continua sendo; quem decide a posição de hoje são as leituras feitas
-            depois do patch da Temporada 4. Escopetas e pistolas não aparecem porque nenhuma das
-            fontes as ranqueia: preferimos o vazio a uma posição inventada.
+            Só entram leituras publicadas depois do patch da temporada — guia de lançamento
+            descreve um jogo que já mudou de balanceamento quatro vezes. Escopetas e pistolas não
+            aparecem porque nenhuma das fontes as ranqueia: preferimos o vazio a uma posição
+            inventada.
           </p>
         </section>
 
