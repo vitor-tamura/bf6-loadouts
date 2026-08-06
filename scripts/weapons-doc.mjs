@@ -20,7 +20,7 @@ const CATEGORIES = [
   ['carbine', 'Carabinas', 'Carbines', '—'],
   ['smg', 'Submetralhadoras', 'SMGs', 'Engenheiro'],
   ['lmg', 'Metralhadoras', 'LMGs', 'Suporte'],
-  ['dmr', 'Rifles de Precisão Semiautomáticos', 'DMRs', 'Reconhecimento'],
+  ['dmr', 'Rifles de Precisão Semiautomáticos', 'DMRs', '—'],
   ['sniper', 'Rifles de Precisão', 'Sniper Rifles', 'Reconhecimento'],
   ['shotgun', 'Escopetas', 'Shotguns', '—'],
   ['pistol', 'Pistolas', 'Sidearms', '—'],
