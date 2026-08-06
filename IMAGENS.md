@@ -74,13 +74,6 @@ quando o slot está vazio).
 | `src/components/icons/attachment-icon.tsx` | os 317 acessórios |
 | `src/components/icons/gadget-icon.tsx` | os 43 gadgets, equipamentos e arremessáveis |
 
-As miras são a exceção dentro dos acessórios: em vez de contorno, elas têm
-volume — face de cima preenchida e lente cheia —, e são oito silhuetas mapeadas
-peça a peça em `SIGHT_SHAPE`, não escolhidas pela ampliação. O formato não segue
-o aumento: a SF-G2 é 5× e é uma caixa holográfica, a CCO é 2× e é um tubo. É a
-mira que o jogador escolhe primeiro e reconhece de longe, e o contorno sozinho
-achatava a diferença entre um ponto vermelho e uma luneta de 8×.
-
 A diferença entre os dois é proposital. Gadget é item único, então cada um tem o
 seu desenho. Acessório se agrupa por **família**: o que o jogador precisa
 reconhecer é que aquilo é um supressor, uma luneta longa, um tambor — e não qual

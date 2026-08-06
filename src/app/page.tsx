@@ -377,11 +377,9 @@ function ApproximateNotice() {
 /**
  * Seção da arma secundária.
  *
- * Mesma estrutura da principal — escolher a arma, ver o orçamento, montar —,
- * só que apertada: a pistola divide a coluna com o fuzil, e dar a ela o mesmo
- * peso visual empurraria a arma que decide a partida para fora da tela. Tudo
- * cabe em uma faixa: foto pequena, nome, medidor e o botão de limpar na mesma
- * linha.
+ * Mesma estrutura da principal — escolher a arma, ver o orçamento, montar —
+ * porque é o mesmo trabalho. O que muda é que ela começa fechada quando não há
+ * secundária escolhida: sem arma, os dez slots vazios seriam ruído.
  */
 function SidearmSection({
   sidearm,
@@ -398,57 +396,70 @@ function SidearmSection({
   onSelectAttachment: (slot: SlotId, id: string | null) => void;
   onClear: () => void;
 }) {
+  /*
+   * Tudo aqui é uma versão reduzida do que a arma principal tem: a foto menor,
+   * o resumo em uma linha, o medidor dividindo a linha com o "Limpar". A
+   * secundária decide menos partidas que a principal, e a tela precisa dizer
+   * isso antes de o jogador ler qualquer número.
+   */
   return (
     <section className="space-y-2">
       <div className="card bevel p-2.5">
+        <div className="mb-2 flex items-center justify-between gap-2">
+          <h2 className="label">Arma secundária</h2>
+          <button
+            type="button"
+            onClick={onOpenPicker}
+            className="px-1 text-xs underline"
+            style={{ color: 'var(--text-dim)' }}
+          >
+            {sidearm ? 'Trocar' : 'Escolher'}
+          </button>
+        </div>
+
         {sidearm ? (
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+          <>
             <button
               type="button"
               onClick={onOpenPicker}
-              className="tile bevel-sm flex shrink-0 items-center gap-2 py-1 pr-2.5 pl-1 text-left"
+              className="tile bevel-sm flex w-full items-center gap-2 p-1.5 text-left"
               style={{ border: '1px solid var(--border-soft)' }}
-              title="Trocar de secundária"
             >
-              <WeaponPreview weapon={sidearm} className="w-16 shrink-0" />
-              <span>
-                <span className="label block leading-none">Secundária</span>
+              <WeaponPreview weapon={sidearm} className="w-20 shrink-0" />
+              <span className="min-w-0">
                 <span className="font-display block text-sm leading-tight font-semibold tracking-wide">
                   {sidearm.name}
+                </span>
+                <span
+                  className="line-clamp-1 block text-[11px]"
+                  style={{ color: 'var(--text-dim)' }}
+                >
+                  {sidearm.summary}
                 </span>
               </span>
             </button>
 
             {sidearm.slots.length > 0 && (
-              <div className="min-w-[200px] flex-1">
-                <BudgetBar budget={budget} />
+              <div className="mt-2 flex items-end gap-3">
+                <div className="min-w-0 flex-1">
+                  <BudgetBar budget={budget} />
+                </div>
+                <button
+                  type="button"
+                  onClick={onClear}
+                  className="shrink-0 px-1 pb-1 text-xs underline"
+                  style={{ color: 'var(--text-dim)' }}
+                >
+                  Limpar
+                </button>
               </div>
             )}
-
-            <button
-              type="button"
-              onClick={onClear}
-              className="shrink-0 px-1.5 text-xs underline"
-              style={{ color: 'var(--text-dim)' }}
-            >
-              Limpar
-            </button>
-          </div>
+          </>
         ) : (
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <p className="text-[12px]" style={{ color: 'var(--text-dim)' }}>
-              <span className="label">Arma secundária</span> — nenhuma escolhida. Pistolas também
-              aceitam acessórios, com seis blocos de pontos.
-            </p>
-            <button
-              type="button"
-              onClick={onOpenPicker}
-              className="touch shrink-0 px-2 text-xs underline"
-              style={{ color: 'var(--text-dim)' }}
-            >
-              Escolher
-            </button>
-          </div>
+          <p className="text-[11px] leading-snug" style={{ color: 'var(--text-dim)' }}>
+            Nenhuma secundária escolhida. Pistolas também aceitam acessórios, com seis blocos de
+            pontos em vez dos dez da arma principal.
+          </p>
         )}
       </div>
 

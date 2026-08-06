@@ -120,6 +120,7 @@ function StatNumber({
   unit,
   decimals = 0,
   showBase,
+  compact = false,
 }: {
   label: string;
   statKey: keyof EffectiveStats;
@@ -128,13 +129,17 @@ function StatNumber({
   unit?: string;
   decimals?: number;
   showBase: boolean;
+  compact?: boolean;
 }) {
   const delta = compareStat(statKey, base, value);
   const shows = showBase && delta.changed;
 
   return (
-    <div className="flex items-baseline justify-between gap-2 border-b py-1.5" style={{ borderColor: 'var(--border-soft)' }}>
-      <span className="text-sm" style={{ color: 'var(--text-soft)' }}>
+    <div
+      className={`flex items-baseline justify-between gap-2 border-b ${compact ? 'py-1' : 'py-1.5'}`}
+      style={{ borderColor: 'var(--border-soft)' }}
+    >
+      <span className={compact ? 'text-[12px]' : 'text-sm'} style={{ color: 'var(--text-soft)' }}>
         {label}
       </span>
       <span className="flex items-baseline gap-1.5">
@@ -150,7 +155,7 @@ function StatNumber({
             {delta.percent.toFixed(0)}%)
           </span>
         )}
-        <span className="font-mono text-sm">
+        <span className={`font-mono ${compact ? 'text-[12px]' : 'text-sm'}`}>
           {value.toFixed(decimals)}
           {unit && <span style={{ color: 'var(--text-dim)' }}> {unit}</span>}
         </span>
@@ -174,6 +179,7 @@ function DerivedStat({
   suffix = '',
   decimals = 0,
   showBase,
+  compact = false,
 }: {
   label: string;
   value: string;
@@ -185,6 +191,7 @@ function DerivedStat({
   suffix?: string;
   decimals?: number;
   showBase: boolean;
+  compact?: boolean;
 }) {
   const comparable =
     showBase &&
@@ -199,9 +206,9 @@ function DerivedStat({
   const percent = comparable && rawBase !== 0 ? (difference / rawBase) * 100 : 0;
 
   return (
-    <div className="card bevel-sm px-3 py-2">
+    <div className={`card bevel-sm ${compact ? 'px-2 py-1.5' : 'px-3 py-2'}`}>
       <p className="label">{label}</p>
-      <p className="font-mono text-lg leading-tight">{value}</p>
+      <p className={`font-mono leading-tight ${compact ? 'text-base' : 'text-lg'}`}>{value}</p>
       {comparable && (
         <p
           className="font-mono text-[11px] whitespace-nowrap"
@@ -215,7 +222,7 @@ function DerivedStat({
           {rawBase !== 0 && ` (${percent > 0 ? '+' : ''}${percent.toFixed(0)}%)`}
         </p>
       )}
-      {detail && (
+      {detail && !compact && (
         <p className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
           {detail}
         </p>
@@ -259,7 +266,7 @@ export function StatsPanel({
   const baseDps = damagePerSecond(base);
 
   return (
-    <div className="space-y-4">
+    <div className={compact ? 'space-y-2.5' : 'space-y-4'}>
       {!isMelee && (
         <div className={`grid grid-cols-2 gap-2 ${compact ? '' : 'sm:grid-cols-4'}`}>
           <DerivedStat
@@ -271,6 +278,7 @@ export function StatsPanel({
             lowerIsBetter
             suffix=" ms"
             showBase={showBase}
+            compact={compact}
           />
           <DerivedStat
             label="Na cabeça"
@@ -281,6 +289,7 @@ export function StatsPanel({
             lowerIsBetter
             suffix=" tiros"
             showBase={showBase}
+            compact={compact}
           />
           {!compact && (
             <>
@@ -328,8 +337,17 @@ export function StatsPanel({
                 base={damagePerShot(base, 0)}
                 decimals={1}
                 showBase={showBase}
+                compact={compact}
               />
-              <StatNumber label="Cadência" statKey="rpm" value={stats.rpm} base={base.rpm} unit="RPM" showBase={showBase} />
+              <StatNumber
+                label="Cadência"
+                statKey="rpm"
+                value={stats.rpm}
+                base={base.rpm}
+                unit="RPM"
+                showBase={showBase}
+                compact={compact}
+              />
               {!compact && (
                 <StatNumber
                 label="Velocidade da bala"
@@ -338,6 +356,7 @@ export function StatsPanel({
                 base={base.velocity}
                 unit="m/s"
                 showBase={showBase}
+                compact={compact}
               />
               )}
               <StatNumber
@@ -347,6 +366,7 @@ export function StatsPanel({
                 base={base.magazine}
                 unit="tiros"
                 showBase={showBase}
+                compact={compact}
               />
               <StatNumber
                 label="Recarga"
@@ -356,6 +376,7 @@ export function StatsPanel({
                 unit="s"
                 decimals={2}
                 showBase={showBase}
+                compact={compact}
               />
               {!compact && (
                 <StatNumber
@@ -366,6 +387,7 @@ export function StatsPanel({
                 unit="s"
                 decimals={2}
                 showBase={showBase}
+                compact={compact}
               />
               )}
               <StatNumber
@@ -375,6 +397,7 @@ export function StatsPanel({
                 base={base.adsMs}
                 unit="ms"
                 showBase={showBase}
+                compact={compact}
               />
             </>
           )}
@@ -395,6 +418,7 @@ export function StatsPanel({
                 base={base.verticalRecoil}
                 decimals={2}
                 showBase={showBase}
+                compact={compact}
               />
               <StatNumber
                 label="Recuo horizontal"
@@ -403,6 +427,7 @@ export function StatsPanel({
                 base={base.horizontalRecoil}
                 decimals={2}
                 showBase={showBase}
+                compact={compact}
               />
             </>
           )}

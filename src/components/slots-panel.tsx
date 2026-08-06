@@ -174,7 +174,7 @@ export function SlotsPanel({
   chosen: Partial<Record<SlotId, string>>;
   onSelect: (slot: SlotId, id: string | null) => void;
   currentSpend: number;
-  /** Blocos menores e mais por linha, para a arma secundária. */
+  /** Blocos menores, para a arma secundária. */
   compact?: boolean;
 }) {
   const [open, setOpen] = useState<SlotId | null>(null);
@@ -254,19 +254,14 @@ export function SlotsPanel({
               </span>
 
               <span
-                className={`line-clamp-2 w-full leading-tight ${compact ? 'text-[10px]' : 'text-[12px]'}`}
+                className={`w-full leading-tight ${compact ? 'line-clamp-1 text-[10px]' : 'line-clamp-2 text-[12px]'}`}
                 style={{ color: current ? 'var(--text)' : 'var(--text-dim)' }}
               >
                 {current ? current.name : 'Vazio'}
               </span>
 
-              {/* Na versão apertada, o custo só aparece quando há peça: uma
-                  coluna de travessões não informa nada e ocupa uma linha. */}
-              {(!compact || current) && (
-                <span
-                  className={`font-mono ${compact ? 'text-[10px]' : 'text-[11px]'}`}
-                  style={{ color: 'var(--text-dim)' }}
-                >
+              {!compact && (
+                <span className="font-mono text-[11px]" style={{ color: 'var(--text-dim)' }}>
                   {current ? `${current.cost} pts` : '—'}
                 </span>
               )}
