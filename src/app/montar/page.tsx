@@ -73,6 +73,7 @@ function BuilderPage() {
   // blocos diferentes da página.
   const weaponFilter = useWeaponFilter(PRIMARY_CATEGORIES);
 
+  const [statsCompactas, setStatsCompactas] = useState(false);
   const [painelLista, setPainelLista] = useState<PanelMode>('fixo');
   const listaOcupaColuna = painelLista === 'fixo';
   // Quem ocupa a largura toda precisa saber quantas colunas existem agora.
@@ -237,17 +238,41 @@ function BuilderPage() {
                 <div className="card bevel p-3">
                   <div className="mb-3 flex items-center justify-between gap-2">
                     <h2 className="label">Estatísticas</h2>
-                    <label className="flex cursor-pointer items-center gap-1.5 text-[11px]" style={{ color: 'var(--text-dim)' }}>
-                      <input
-                        type="checkbox"
-                        checked={compareWithBase}
-                        onChange={toggleBaseComparison}
-                        className="accent-[var(--accent)]"
-                      />
-                      comparar com a de fábrica
-                    </label>
+                    <div className="flex items-center gap-2">
+                      <label className="flex cursor-pointer items-center gap-1.5 text-[11px]" style={{ color: 'var(--text-dim)' }}>
+                        <input
+                          type="checkbox"
+                          checked={compareWithBase}
+                          onChange={toggleBaseComparison}
+                          className="accent-[var(--accent)]"
+                        />
+                        comparar com a de fábrica
+                      </label>
+                      {/*
+                        Aberto, o painel prioriza a leitura: número grande, uma
+                        linha por medida. Compacto, ele encolhe para caber junto
+                        dos gráficos e da secundária sem rolagem.
+                      */}
+                      <button
+                        type="button"
+                        onClick={() => setStatsCompactas((v) => !v)}
+                        title={statsCompactas ? 'Abrir as estatísticas' : 'Compactar as estatísticas'}
+                        aria-label={statsCompactas ? 'Abrir as estatísticas' : 'Compactar as estatísticas'}
+                        aria-pressed={statsCompactas}
+                        className="touch shrink-0 px-1.5 text-xs leading-none"
+                        style={{ color: statsCompactas ? 'var(--accent)' : 'var(--text-dim)' }}
+                      >
+                        {statsCompactas ? '▢' : '—'}
+                      </button>
+                    </div>
                   </div>
-                  <StatsPanel weapon={weapon} stats={stats} base={base} showBase={compareWithBase} />
+                  <StatsPanel
+                    weapon={weapon}
+                    stats={stats}
+                    base={base}
+                    showBase={compareWithBase}
+                    compact={statsCompactas}
+                  />
                 </div>
 
                 {/*

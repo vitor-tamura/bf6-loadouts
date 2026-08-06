@@ -206,9 +206,14 @@ function DerivedStat({
   const percent = comparable && rawBase !== 0 ? (difference / rawBase) * 100 : 0;
 
   return (
-    <div className={`card bevel-sm ${compact ? 'px-2 py-1.5' : 'px-3 py-2'}`}>
+    <div className={`card bevel-sm ${compact ? 'px-2 py-1.5' : 'px-3 py-2.5'}`}>
       <p className="label">{label}</p>
-      <p className={`font-mono leading-tight ${compact ? 'text-base' : 'text-lg'}`}>{value}</p>
+      <p
+        className={`font-mono leading-tight ${compact ? 'text-base' : 'text-2xl font-semibold'}`}
+        style={compact ? undefined : { color: 'var(--text)' }}
+      >
+        {value}
+      </p>
       {comparable && (
         <p
           className="font-mono text-[11px] whitespace-nowrap"
