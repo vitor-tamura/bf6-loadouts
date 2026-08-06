@@ -10,9 +10,10 @@ import { StatsPanel } from '@/components/stats-panel';
 import { WeaponPreview } from '@/components/weapon-preview';
 import { WeaponSelector } from '@/components/weapon-selector';
 import { WEAPONS_BY_ID, PRIMARY_CATEGORIES } from '@/data/weapons';
+import type { SlotId, Weapon } from '@/data/types';
 import { analysisDistance } from '@/lib/ballistics';
 import { loadoutAttachments } from '@/lib/loadout';
-import { calculateBudget, calculateStats, baseStats, hasApproximateValue } from '@/lib/stats';
+import { calculateBudget, calculateStats, baseStats, hasApproximateValue, type Budget } from '@/lib/stats';
 import { useLoadout, useUrlSync } from '@/state/loadout';
 
 /**
@@ -42,6 +43,7 @@ export default function BuilderPage() {
   const setAttachment = useLoadout((s) => s.setAttachment);
   const setPlayerClass = useLoadout((s) => s.setPlayerClass);
   const setSidearm = useLoadout((s) => s.setSidearm);
+  const setSidearmAttachment = useLoadout((s) => s.setSidearmAttachment);
   const setGadget = useLoadout((s) => s.setGadget);
   const setThrowable = useLoadout((s) => s.setThrowable);
   const toggleBaseComparison = useLoadout((s) => s.toggleBaseComparison);
@@ -52,7 +54,14 @@ export default function BuilderPage() {
   const [choosingSidearm, setChoosingSidearm] = useState(false);
 
   const weapon = loadout.weapon ? (WEAPONS_BY_ID.get(loadout.weapon) ?? null) : null;
-  const attachments = useMemo(() => loadoutAttachments(loadout, weapon), [loadout, weapon]);
+  const sidearm = loadout.sidearm ? (WEAPONS_BY_ID.get(loadout.sidearm) ?? null) : null;
+  const attachments = useMemo(() => loadoutAttachments(loadout.attachments, weapon), [loadout, weapon]);
+
+  // A secundária gasta do próprio orçamento, como no jogo.
+  const sidearmBudget = useMemo(
+    () => calculateBudget(loadoutAttachments(loadout.sidearmAttachments, sidearm)),
+    [loadout.sidearmAttachments, sidearm],
+  );
   const stats = useMemo(() => (weapon ? calculateStats(weapon, attachments) : null), [weapon, attachments]);
   const base = useMemo(() => (weapon ? baseStats(weapon) : null), [weapon]);
   const budget = useMemo(() => calculateBudget(attachments), [attachments]);
@@ -133,6 +142,19 @@ export default function BuilderPage() {
                   onSelect={setAttachment}
                   currentSpend={budget.spent}
                 />
+
+                {/*
+                  A secundária tem seção própria porque ela é uma arma inteira:
+                  aceita acessórios e tem os seus próprios cem pontos. Escondê-la
+                  atrás de um botão dava a entender que só se escolhia o modelo.
+                */}
+                <SidearmSection
+                  sidearm={sidearm}
+                  chosen={loadout.sidearmAttachments}
+                  budget={sidearmBudget}
+                  onOpenPicker={() => setChoosingSidearm(true)}
+                  onSelectAttachment={setSidearmAttachment}
+                />
               </div>
             ) : (
               <EmptyState />
@@ -196,10 +218,8 @@ export default function BuilderPage() {
                 gadget1={loadout.gadget1}
                 gadget2={loadout.gadget2}
                 throwable={loadout.throwable}
-                sidearm={loadout.sidearm}
                 onSetGadget={setGadget}
                 onSetThrowable={setThrowable}
-                onOpenSidearm={() => setChoosingSidearm(true)}
               />
             </div>
           </div>
@@ -297,5 +317,81 @@ function ApproximateNotice() {
       descrições de efeito no jogo e de medições da comunidade — servem para comparar builds, não como
       medida oficial.
     </p>
+  );
+}
+
+/**
+ * Seção da arma secundária.
+ *
+ * Mesma estrutura da principal — escolher a arma, ver o orçamento, montar —
+ * porque é o mesmo trabalho. O que muda é que ela começa fechada quando não há
+ * secundária escolhida: sem arma, os dez slots vazios seriam ruído.
+ */
+function SidearmSection({
+  sidearm,
+  chosen,
+  budget,
+  onOpenPicker,
+  onSelectAttachment,
+}: {
+  sidearm: Weapon | null;
+  chosen: Partial<Record<SlotId, string>>;
+  budget: Budget;
+  onOpenPicker: () => void;
+  onSelectAttachment: (slot: SlotId, id: string | null) => void;
+}) {
+  return (
+    <section className="space-y-3">
+      <div className="card bevel p-3">
+        <div className="mb-2 flex items-center justify-between gap-2">
+          <h2 className="label">Arma secundária</h2>
+          <button
+            type="button"
+            onClick={onOpenPicker}
+            className="touch px-2 text-xs underline"
+            style={{ color: 'var(--text-dim)' }}
+          >
+            {sidearm ? 'Trocar' : 'Escolher'}
+          </button>
+        </div>
+
+        {sidearm ? (
+          <>
+            <button
+              type="button"
+              onClick={onOpenPicker}
+              className="tile bevel-sm flex w-full items-center gap-3 p-2 text-left"
+              style={{ border: '1px solid var(--border-soft)' }}
+            >
+              <WeaponPreview weapon={sidearm} className="w-28 shrink-0" />
+              <span className="min-w-0">
+                <span className="font-display block text-base font-semibold tracking-wide">
+                  {sidearm.name}
+                </span>
+                <span className="block text-[11px]" style={{ color: 'var(--text-dim)' }}>
+                  {sidearm.summary}
+                </span>
+              </span>
+            </button>
+
+            {sidearm.slots.length > 0 && <div className="mt-3">{<BudgetBar budget={budget} />}</div>}
+          </>
+        ) : (
+          <p className="text-[12px]" style={{ color: 'var(--text-dim)' }}>
+            Nenhuma secundária escolhida. Pistolas também aceitam acessórios e têm o próprio
+            orçamento de 100 pontos.
+          </p>
+        )}
+      </div>
+
+      {sidearm && (
+        <SlotsPanel
+          weapon={sidearm}
+          chosen={chosen}
+          onSelect={onSelectAttachment}
+          currentSpend={budget.spent}
+        />
+      )}
+    </section>
   );
 }

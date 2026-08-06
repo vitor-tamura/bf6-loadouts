@@ -57,6 +57,10 @@
   --accent-light: var(--color-amber-400);
   --grid: color-mix(in oklab, var(--color-base-600) 45%, transparent);
 
+  /* Fundo do cartão: translúcido, e a cor exata para onde o hover caminha. */
+  --surface-veil: color-mix(in oklab, var(--color-base-900) 82%, transparent);
+  --surface-hover: color-mix(in oklab, var(--color-base-850) 92%, transparent);
+
   /* Trocados pelo tema da temporada; fora dela, o fundo padrão. */
   --weave: var(--color-base-600);
   --tide: transparent;
@@ -76,6 +80,8 @@
   --accent: #c96a00;
   --accent-light: #a35600;
   --grid: #d2d6c6;
+  --surface-veil: rgb(255 255 255 / 0.78);
+  --surface-hover: rgb(255 255 255 / 0.95);
 
   color-scheme: light;
 }
@@ -114,6 +120,8 @@
   /* A trama do fundo acompanha, senão sobra um verde fora de lugar. */
   --weave: var(--base-600);
   --tide: var(--color-cyan-500);
+  --surface-veil: color-mix(in oklab, var(--base-900) 82%, transparent);
+  --surface-hover: color-mix(in oklab, var(--base-850) 92%, transparent);
 }
 
 :root[data-season='naval'][data-theme='light'] {
@@ -127,6 +135,8 @@
   --text-dim: #5c7a8f;
   --grid: #c4d2da;
   --weave: #5c7a8f;
+  --surface-veil: rgb(255 255 255 / 0.78);
+  --surface-hover: rgb(255 255 255 / 0.95);
 }
 
 @layer base {
@@ -280,9 +290,61 @@
     color: var(--text-dim);
   }
 
+  /*
+   * Cartão.
+   *
+   * O fundo é levemente translúcido e desfocado — a trama do fundo da página
+   * atravessa de leve, o que dá profundidade sem precisar de sombra. Por cima
+   * vem um degradê da esquerda para a direita, que corre no sentido da leitura
+   * e evita o bloco chapado.
+   *
+   * A cor do hover é declarada, e não obtida por filtro: filtro sobre um fundo
+   * translúcido dá um resultado difícil de prever, e a cor durante a transição
+   * não terminava exatamente onde deveria.
+   */
   .card {
-    background-color: var(--surface);
+    background-color: var(--surface-veil);
+    background-image: linear-gradient(
+      100deg,
+      color-mix(in oklab, var(--text) 5%, transparent),
+      transparent 55%
+    );
+    backdrop-filter: blur(6px);
     border: 1px solid var(--border-soft);
+  }
+
+  /*
+   * Cartão de escolha — peça, arma, opção de lista.
+   *
+   * A cor base entra por `--tile-bg` no estilo inline, porque ela depende do
+   * estado (escolhido ou não) e isso é do componente. O hover fica aqui, com a
+   * cor final declarada: assim a transição termina exatamente onde o CSS diz,
+   * em vez de num resultado de filtro.
+   */
+  .tile {
+    background-color: var(--tile-bg, var(--surface-raised));
+    background-image: linear-gradient(
+      100deg,
+      color-mix(in oklab, var(--text) 5%, transparent),
+      transparent 55%
+    );
+  }
+
+  @media (hover: hover) {
+    .card:hover,
+    .tile:not([aria-pressed='true']):not(:disabled):hover {
+      background-color: var(--surface-hover);
+      filter: none;
+    }
+
+    /*
+     * O painel aberto não é alvo de clique — é a superfície onde se escolhe.
+     * Deixá-lo reagir ao ponteiro faria a área inteira acender toda vez que o
+     * cursor cruzasse para chegar num cartão de peça.
+     */
+    .disclosure .card:hover {
+      background-color: var(--surface-veil);
+    }
   }
 
   /* Canto chanfrado — assinatura visual da interface. */
@@ -493,40 +555,9 @@ header {
   transition: transform 220ms var(--ease-snap);
 }
 
-/*
- * A mancha que segue o ponteiro.
- *
- * Um halo claro e macio na posição do cursor, que reduz o contraste local em
- * vez de aumentá-lo: o chip sob o dedo parece recuar um pouco, como vidro
- * embaçado. As coordenadas chegam em `--px` e `--py` (ver `pointer-glow.ts`);
- * sem elas, o halo fica no centro, que é o palpite certo para o teclado.
- */
-.chip::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  opacity: 0;
-  background: radial-gradient(
-    5rem circle at var(--px, 50%) var(--py, 50%),
-    color-mix(in oklab, var(--text) 20%, transparent),
-    transparent 65%
-  );
-  transition: opacity 240ms var(--ease-out);
-}
-
 @media (hover: hover) {
   .chip:not([aria-pressed='true']):hover::before {
     transform: scaleX(1);
-  }
-
-  .chip:hover::after {
-    opacity: 1;
-  }
-
-  /* O clareamento geral sai de cena: com o halo, os dois somados estouram. */
-  .chip:hover {
-    filter: none;
   }
 }
 

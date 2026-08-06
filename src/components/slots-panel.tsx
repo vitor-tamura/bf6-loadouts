@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useLayoutEffect, useRef, useState, type RefObject } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type RefObject } from 'react';
 import { attachmentsForWeapon } from '@/data/attachments';
 import { POINT_BUDGET, SLOTS_BY_ID } from '@/data/classes';
 import type { Attachment, Weapon, StatKey, SlotId, WeaponCategory } from '@/data/types';
@@ -216,7 +216,7 @@ export function SlotsPanel({
               type="button"
               onClick={() => setOpen(expanded ? null : slot)}
               aria-expanded={expanded}
-              className="card bevel-sm flex flex-col items-center gap-1 p-2 text-center"
+      className="card bevel-sm flex flex-col items-center gap-1 p-2 text-center"
               style={{
                 borderColor: expanded
                   ? 'var(--accent)'
@@ -413,12 +413,16 @@ function OptionTile({
       disabled={disabled}
       aria-pressed={active}
       title={attachment ? `${attachment.name} · ${attachment.cost} pts` : 'Sem acessório'}
-      className="bevel-sm flex aspect-square w-full flex-col items-center justify-between p-1.5 text-center"
-      style={{
-        background: active ? 'color-mix(in oklab, var(--accent) 16%, var(--surface))' : 'var(--surface-raised)',
-        border: `1px solid ${active ? 'var(--accent)' : 'var(--border-soft)'}`,
-        opacity: disabled ? 0.4 : 1,
-      }}
+      className="tile bevel-sm flex aspect-square w-full flex-col items-center justify-between p-1.5 text-center"
+      style={
+        {
+          '--tile-bg': active
+            ? 'color-mix(in oklab, var(--accent) 16%, var(--surface))'
+            : 'var(--surface-raised)',
+          border: `1px solid ${active ? 'var(--accent)' : 'var(--border-soft)'}`,
+          opacity: disabled ? 0.4 : 1,
+        } as CSSProperties
+      }
     >
       <span
         className="w-full text-left font-mono text-[10px] leading-none"

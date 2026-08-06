@@ -15,6 +15,7 @@ const full: Loadout = {
     ammo: 'ammo-fmj',
   },
   sidearm: 'm44',
+  sidearmAttachments: { sight: 'sight-iron-sights' },
   gadget1: 'qlink-6',
   gadget2: 'tarantula-alx',
   throwable: 'm67-frag',
@@ -103,5 +104,23 @@ describe('URL de compartilhamento', () => {
     expect(url.startsWith('https://exemplo.com/?l=')).toBe(true);
     const code = new URL(url).searchParams.get('l')!;
     expect(decodeLoadout(code)).toEqual(full);
+  });
+});
+
+describe('acessórios da secundária', () => {
+  it('viajam no link junto com os da principal', () => {
+    const restored = decodeLoadout(encodeLoadout(full));
+    expect(restored?.sidearmAttachments).toEqual(full.sidearmAttachments);
+  });
+
+  it('são descartados quando a secundária não os aceita', () => {
+    const wrong = { ...full, sidearm: 'kbr-mark-ii', sidearmAttachments: { sight: 'sight-iron-sights' } };
+    expect(decodeLoadout(encodeLoadout(wrong))?.sidearmAttachments).toEqual({});
+  });
+
+  it('link antigo, sem o campo, abre com a secundária limpa', () => {
+    // O campo é o último do formato, então versões anteriores continuam válidas.
+    const semCampo = encodeLoadout({ ...full, sidearmAttachments: {} });
+    expect(decodeLoadout(semCampo)?.sidearmAttachments).toEqual({});
   });
 });

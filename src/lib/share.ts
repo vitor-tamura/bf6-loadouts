@@ -1,6 +1,6 @@
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import { CLASSES } from '@/data/classes';
-import type { ClassId, SlotId } from '@/data/types';
+import type { ClassId, SlotId, Weapon } from '@/data/types';
 import { EMPTY_LOADOUT, stripIncompatible, type Loadout } from './loadout';
 
 /**
@@ -67,17 +67,37 @@ function fromBase64Url(code: string): string {
   return new TextDecoder().decode(bytes);
 }
 
-export function encodeLoadout(loadout: Loadout): string {
-  const weapon = WEAPONS_BY_ID.get(loadout.weapon ?? '');
-  const slotOrder = weapon?.slots ?? [];
-
-  const attachments = slotOrder
+/** `si:abc,mz:def` — os acessórios de uma arma, na ordem dos slots dela. */
+function encodeAttachments(
+  chosen: Partial<Record<SlotId, string>>,
+  weapon: Weapon | undefined,
+): string {
+  return (weapon?.slots ?? [])
     .map((slot) => {
-      const id = loadout.attachments[slot];
+      const id = chosen[slot];
       return id ? `${SLOT_CODE[slot]}${PAIR_SEP}${id}` : null;
     })
     .filter(Boolean)
     .join(LIST_SEP);
+}
+
+function decodeAttachments(text: string): Partial<Record<SlotId, string>> {
+  const chosen: Partial<Record<SlotId, string>> = {};
+  for (const pair of text.split(LIST_SEP)) {
+    if (!pair) continue;
+    const splitAt = pair.indexOf(PAIR_SEP);
+    if (splitAt < 0) continue;
+    const slot = SLOT_BY_CODE.get(pair.slice(0, splitAt));
+    const id = pair.slice(splitAt + 1);
+    if (slot && id) chosen[slot] = id;
+  }
+  return chosen;
+}
+
+export function encodeLoadout(loadout: Loadout): string {
+  const weapon = WEAPONS_BY_ID.get(loadout.weapon ?? '');
+  const sidearm = WEAPONS_BY_ID.get(loadout.sidearm ?? '');
+  const attachments = encodeAttachments(loadout.attachments, weapon);
 
   const gadgets = [loadout.gadget1 ?? '', loadout.gadget2 ?? ''].join(GADGET_SEP);
 
@@ -89,6 +109,9 @@ export function encodeLoadout(loadout: Loadout): string {
     loadout.sidearm ?? '',
     gadgets === GADGET_SEP ? '' : gadgets,
     loadout.throwable ?? '',
+    // Último campo, e por isso o formato antigo continua sendo lido: um link
+    // sem ele simplesmente chega com a secundária sem acessórios.
+    encodeAttachments(loadout.sidearmAttachments, sidearm),
   ];
 
   // Campos vazios no fim não precisam viajar.
@@ -110,18 +133,16 @@ export function decodeLoadout(code: string): Loadout | null {
   const fields = text.split(FIELD_SEP);
   if (fields[0] !== VERSION) return null;
 
-  const [, weaponId = '', attachmentsText = '', classText = '', sidearm = '', gadgetsText = '', throwable = ''] =
-    fields;
-
-  const attachments: Partial<Record<SlotId, string>> = {};
-  for (const pair of attachmentsText.split(LIST_SEP)) {
-    if (!pair) continue;
-    const splitAt = pair.indexOf(PAIR_SEP);
-    if (splitAt < 0) continue;
-    const slot = SLOT_BY_CODE.get(pair.slice(0, splitAt));
-    const id = pair.slice(splitAt + 1);
-    if (slot && id) attachments[slot] = id;
-  }
+  const [
+    ,
+    weaponId = '',
+    attachmentsText = '',
+    classText = '',
+    sidearm = '',
+    gadgetsText = '',
+    throwable = '',
+    sidearmAttachmentsText = '',
+  ] = fields;
 
   const [gadget1 = '', gadget2 = ''] = gadgetsText.split(GADGET_SEP);
 
@@ -129,8 +150,9 @@ export function decodeLoadout(code: string): Loadout | null {
     ...EMPTY_LOADOUT,
     playerClass: CLASS_IDS.has(classText) ? (classText as ClassId) : EMPTY_LOADOUT.playerClass,
     weapon: WEAPONS_BY_ID.has(weaponId) ? weaponId : null,
-    attachments,
+    attachments: decodeAttachments(attachmentsText),
     sidearm: WEAPONS_BY_ID.has(sidearm) ? sidearm : null,
+    sidearmAttachments: decodeAttachments(sidearmAttachmentsText),
     gadget1: gadget1 || null,
     gadget2: gadget2 || null,
     throwable: throwable || null,

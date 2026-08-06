@@ -16,6 +16,7 @@ interface LoadoutState {
   setWeapon: (id: string | null) => void;
   setAttachment: (slot: SlotId, id: string | null) => void;
   setSidearm: (id: string | null) => void;
+  setSidearmAttachment: (slot: SlotId, id: string | null) => void;
   setGadget: (trackPointer: 1 | 2, id: string | null) => void;
   setThrowable: (id: string | null) => void;
   toggleBaseComparison: () => void;
@@ -50,7 +51,18 @@ export const useLoadout = create<LoadoutState>((set) => ({
       return { loadout: { ...s.loadout, attachments } };
     }),
 
-  setSidearm: (id) => set((s) => ({ loadout: { ...s.loadout, sidearm: id } })),
+  // Trocar de secundária limpa o que estava nela: os acessórios de uma pistola
+  // não valem para outra, e mantê-los só produziria slots fantasma.
+  setSidearm: (id) =>
+    set((s) => ({ loadout: { ...s.loadout, sidearm: id, sidearmAttachments: {} } })),
+
+  setSidearmAttachment: (slot, id) =>
+    set((s) => {
+      const sidearmAttachments = { ...s.loadout.sidearmAttachments };
+      if (id) sidearmAttachments[slot] = id;
+      else delete sidearmAttachments[slot];
+      return { loadout: { ...s.loadout, sidearmAttachments } };
+    }),
 
   setGadget: (trackPointer, id) =>
     set((s) => {

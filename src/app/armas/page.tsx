@@ -11,7 +11,6 @@ import { damagePerShot, shotsToKill, timeToKill } from '@/lib/ballistics';
 import { encodeLoadout } from '@/lib/share';
 import { EMPTY_LOADOUT } from '@/lib/loadout';
 import { baseStats } from '@/lib/stats';
-import { pointerGlow } from '@/components/pointer-glow';
 
 /**
  * Catálogo completo.
@@ -208,7 +207,6 @@ function Chip({
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      {...pointerGlow()}
       className="chip bevel-sm shrink-0 px-3 py-2 text-xs whitespace-nowrap"
       style={{
         background: active ? tint : 'var(--surface-raised)',

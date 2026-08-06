@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from 'react';
 import { AppHeader } from '@/components/header';
-import { pointerGlow } from '@/components/pointer-glow';
 import { ComparisonChart, type Series } from '@/components/charts';
 import { WeaponPreview } from '@/components/weapon-preview';
 import { CATEGORY_NAMES, SHORT_CATEGORY_NAMES } from '@/data/classes';
@@ -646,7 +645,6 @@ function FilterChip({
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      {...pointerGlow()}
       className="chip bevel-sm shrink-0 px-3 py-1.5 text-xs whitespace-nowrap"
       style={{
         background: active ? 'var(--accent)' : 'var(--surface-raised)',

@@ -1,6 +1,5 @@
 'use client';
 
-import { WEAPONS_BY_ID } from '@/data/weapons';
 import { CLASSES } from '@/data/classes';
 import { GadgetIcon } from '@/components/icons/gadget-icon';
 import { throwables, gadgetsForClass } from '@/data/gadgets';
@@ -134,41 +133,20 @@ export function EquipmentPanel({
   gadget1,
   gadget2,
   throwable,
-  sidearm,
   onSetGadget,
   onSetThrowable,
-  onOpenSidearm,
 }: {
   playerClass: ClassId;
   gadget1: string | null;
   gadget2: string | null;
   throwable: string | null;
-  sidearm: string | null;
   onSetGadget: (trackPointer: 1 | 2, id: string | null) => void;
   onSetThrowable: (id: string | null) => void;
-  onOpenSidearm: () => void;
 }) {
   const gadgets = gadgetsForClass(playerClass);
-  const weapon = sidearm ? WEAPONS_BY_ID.get(sidearm) : null;
 
   return (
-    <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-      <div>
-        <h3 className="label mb-1.5">Arma secundária</h3>
-        <button
-          type="button"
-          onClick={onOpenSidearm}
-          className="card bevel-sm touch flex w-full items-center justify-between px-3 py-2 text-left"
-        >
-          <span className="text-sm" style={{ color: weapon ? 'var(--text)' : 'var(--text-dim)' }}>
-            {weapon ? weapon.name : 'Escolher secundária'}
-          </span>
-          <span aria-hidden style={{ color: 'var(--text-dim)' }}>
-            ›
-          </span>
-        </button>
-      </div>
-
+    <div className="grid gap-4 sm:grid-cols-3">
       <EquipmentList
         title="Gadget 1"
         items={gadgets}

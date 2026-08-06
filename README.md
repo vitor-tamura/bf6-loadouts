@@ -30,7 +30,7 @@ npm run dev      # http://localhost:3000
 | --- | --- |
 | `npm run dev` | servidor de desenvolvimento |
 | `npm run build` | gera o site estático em `out/` |
-| `npm test` | 53 testes de dataset, cálculo, balística, link e temporada |
+| `npm test` | 56 testes de dataset, cálculo, balística, link e temporada |
 | `npm run typecheck` | checagem de tipos |
 | `npm run sync` | compara o dataset com o catálogo público — só relata |
 | `npm run sync:apply` | grava o que dá para gravar, preservando a curadoria |
