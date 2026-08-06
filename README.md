@@ -75,6 +75,50 @@ novo no `package.json`, o Actions cria a tag `vX.Y.Z` e publica a release com os
 commits desde a anterior; promoção que não mexe na versão não gera release
 nenhuma.
 
+## Milestones (GitHub)
+
+### Concluídas
+
+- **Base do produto publicada:** montador, catálogo e comparação funcionando em
+	produção na Vercel.
+- **Sincronização automática de dados:** workflow
+	[`.github/workflows/sync-data.yml`](./.github/workflows/sync-data.yml) executa
+	semanalmente, detecta diferenças no catálogo e abre Pull Request automático.
+- **Fluxo de release automatizado:** workflow
+	[`.github/workflows/release.yml`](./.github/workflows/release.yml) cria tag e
+	release quando há mudança de versão no `package.json`.
+- **Governança de branch principal:** `main` protegida com revisão obrigatória e
+	ownership por [`.github/CODEOWNERS`](./.github/CODEOWNERS).
+- **Rede de segurança validada:** suíte de testes cobrindo dataset, cálculos,
+	balística, share link e regras de temporada integrada ao fluxo de PR.
+
+### Próximas implementações
+
+- **M-01 · Fechar pendências de tradução e descrição de peças**
+	Objetivo: eliminar entradas `TODO: traduzir` e `TODO: descrever em português`
+	no dataset de acessórios.
+	Entrega esperada: experiência 100% em português no montador e no catálogo,
+	sem placeholders visíveis.
+- **M-02 · Completar mídia do arsenal**
+	Objetivo: fechar as fotos faltantes de armas (especialmente corpo a corpo e
+	Interdictor) e manter cobertura contínua para novos itens de temporada.
+	Entrega esperada: preview visual completo, sem fallback para marcador textual.
+- **M-03 · Reduzir heranças temporárias de compatibilidade**
+	Objetivo: substituir slots herdados em armas recém-chegadas por listas nativas
+	de compatibilidade assim que a fonte publicar os dados completos.
+	Entrega esperada: maior fidelidade entre montagem no site e comportamento real
+	do Gunsmith para 100% do arsenal.
+- **M-04 · Expandir curadoria de efeitos numéricos**
+	Objetivo: migrar gradualmente peças com efeito aproximado para valores
+	validados (`provenance: game`) com critérios rastreáveis.
+	Entrega esperada: redução do uso de aproximação em TTK, recuo, manejo e
+	balística, melhorando a confiança dos comparativos.
+- **M-05 · Observabilidade de atualização de conteúdo**
+	Objetivo: enriquecer o PR automático de sync com resumo estruturado (itens
+	novos, conflitos de curadoria e riscos de regressão).
+	Entrega esperada: revisão mais rápida das mudanças de temporada e menor tempo
+	entre patch do jogo e publicação no site.
+
 ## Stack
 
 Next.js 16 (App Router, exportação estática) · TypeScript · Tailwind CSS 4 ·

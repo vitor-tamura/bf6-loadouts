@@ -49,6 +49,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | OSA-7 1.00x | OSA-7 1.00x | 10 | 51 weapons | Ponto vermelho para aquisição rápida. |
 | PVQ-31 4.00x | PVQ-31 4.00x | 10 | 42 weapons | Mira com ampliação de 4.0×. |
 | R-MR 1.00x | R-MR 1.00x | 10 | quase showAll (56) | Ponto vermelho para aquisição rápida. |
+| R-VPS 10.00x | R-VPS 10.00x | 10 | 8 weapons | A maior ampliação do arsenal: para tiro além do alcance da luneta comum. |
 | R4T 2.00x | R4T 2.00x | 10 | 36 weapons | Mira com ampliação de 2.0×. |
 | RMR 1.00x | RMR 1.00x | 10 | SGX | Ponto vermelho para aquisição rápida. |
 | RO-M 1.75x | RO-M 1.75x | 10 | 36 weapons | Mira com ampliação de 1.75×. |
@@ -60,7 +61,6 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | SSDS 6.00x | SSDS 6.00x | 10 | 12 weapons | Mira com ampliação de 6.0×. |
 | ST Prism 5.00x | ST Prism 5.00x | 10 | 12 weapons | Mira com ampliação de 5.0×. |
 | SU-123 1.50x | SU-123 1.50x | 10 | 45 weapons | Mira com ampliação de 1.5×. |
-| TODO: traduzir | R-VPS 10.00x | 10 | 8 weapons | TODO: descrever em português. |
 | SU-230 LPVO | SU-230 LPVO | 20 | 6 weapons | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
 | 1P86 LPVO | 1P86 LPVO | 25 | 12 weapons | Ampliação comutável na mão: 1,50x de perto, 4,50x de longe. |
 | 1P88 Variável | 1P88 Variable | 25 | 12 weapons | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
@@ -100,7 +100,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 
 | Peça | Original | Pts | Armas | Efeito |
 | --- | --- | ---: | --- | --- |
-| 22" Estendido | 22" Factory | 5 | M39 EMR | Cano longo: acelera a bala e estica o alcance. |
+| 22" Padrão | 22" Factory | 5 | M39 EMR | Cano longo: acelera a bala e estica o alcance. |
 | 10,5" Padrão | 10.5" Factory | 10 | QBZ-192 | Cano curto: mira e movimento mais rápidos. |
 | 10" Padrão (Full) | 10" Full | 10 | GRT-BC | Cano curto: mira e movimento mais rápidos. |
 | 11" Pesado | 11" Heavy | 10 | SL9 | Massa extra na frente: agrupa melhor em fogo contínuo. |
@@ -119,7 +119,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | 17" Padrão (Fábrica) | 17" Factory | 10 | M/60, TR-7 | Cano longo: acelera a bala e estica o alcance. |
 | 18,5" Padrão | 18.5" Factory | 10 | M1014 | Cano longo: acelera a bala e estica o alcance. |
 | 18,9" Padrão | 18.9" Factory | 10 | DB-12 | Cano longo: acelera a bala e estica o alcance. |
-| 18" Básico | 18" EBR | 10 | M39 EMR | Cano longo: acelera a bala e estica o alcance. |
+| 18" Curto | 18" EBR | 10 | M39 EMR | Cano longo: acelera a bala e estica o alcance. |
 | 18" Curto (Govt.) | 18" Govt. | 10 | M16A4 | Cano longo: acelera a bala e estica o alcance. |
 | 18" Curto (SPR) | 18" SPR | 10 | M16A4 | Cano longo: acelera a bala e estica o alcance. |
 | 18" Estendido | 18" US | 10 | VCR-2 | Cano longo: acelera a bala e estica o alcance. |
@@ -147,12 +147,14 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | 27" Padrão (Fábrica) | 27" Factory | 10 | L115 | Cano longo: acelera a bala e estica o alcance. |
 | 27" Padrão (Full) | 27" Full | 10 | L115 | Cano longo: acelera a bala e estica o alcance. |
 | 3,9" Padrão | 3.9" Factory | 10 | P18, vz. 61 | Cano curto: mira e movimento mais rápidos. |
+| 305mm Estendido (Custom-H) | 305mm Custom-H | 10 | UMG-40 | Cano longo: acelera a bala e estica o alcance. |
 | 314mm Padrão (Fábrica) | 314mm Factory | 10 | AK-205 | Cano de comprimento intermediário. |
 | 314mm Padrão (Prototype) | 314mm Prototype | 10 | AK-205 | Cano de comprimento intermediário. |
 | 32" Estendido | 32" Custom | 10 | L115 | Cano longo: acelera a bala e estica o alcance. |
 | 394mm Padrão | 394mm SB | 10 | L110 | Cano longo: acelera a bala e estica o alcance. |
 | 4,5" Curto | 4.5" Compact | 10 | SGX | Compensador: segura o desvio do tiro. |
 | 406mm Padrão | 406mm Standard | 10 | M250 | Cano longo: acelera a bala e estica o alcance. |
+| 407mm Estendido | 407mm CIV-S | 10 | USG-90 | Cano longo: acelera a bala e estica o alcance. |
 | 409mm Padrão (Fábrica) | 409mm Factory | 10 | NVO-228E | Cano longo: acelera a bala e estica o alcance. |
 | 415mm Padrão (Fábrica) | 415mm Factory | 10 | KORD 6P67 | Cano longo: acelera a bala e estica o alcance. |
 | 415mm Padrão (Prototype) | 415mm Prototype | 10 | KORD 6P67 | Cano longo: acelera a bala e estica o alcance. |
@@ -187,10 +189,8 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | 8" Estendido | 8" Extended | 10 | SGX | Cano curto: mira e movimento mais rápidos. |
 | 9" Padrão | 9" Factory | 10 | SL9 | Cano curto: mira e movimento mais rápidos. |
 | 9" Pesado | 9" Heavy | 10 | SL9 | Massa extra na frente: agrupa melhor em fogo contínuo. |
-| Padrão (Cryogenic) | Cryogenic | 10 | M16A4 | Cano da arma. |
+| Padrão | Cryogenic | 10 | M16A4 | Cano da arma. |
 | Pesado | IAR Heavy | 10 | SOR-556 Mk2 | Massa extra na frente: agrupa melhor em fogo contínuo. |
-| TODO: traduzir | 305mm Custom-H | 10 | UMG-40 | TODO: descrever em português. |
-| TODO: traduzir | 407mm CIV-S | 10 | USG-90 | TODO: descrever em português. |
 | 11,5" Curto | 11.5" Commando | 15 | BROD 3, M4A1, SOR-300SC | Cano de comprimento intermediário. |
 | 11" Estendido | 11" Extended | 15 | SL9 | Cano curto: mira e movimento mais rápidos. |
 | 12" Curto | 12" Assaulter | 15 | M417 A2 | Cano de comprimento intermediário. |
@@ -198,6 +198,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | 14,5" Estendido | 14.5" Carbine | 15 | 5 weapons | Cano longo: acelera a bala e estica o alcance. |
 | 14,5" Padrão | 14.5" Factory | 15 | SOR-556 Mk2 | Cano longo: acelera a bala e estica o alcance. |
 | 14,5" Padrão | 14.5" Standard | 15 | M433 | Cano longo: acelera a bala e estica o alcance. |
+| 16,2" Estendido | 16.2" Cut | 15 | CZ3A1 | Cano longo: acelera a bala e estica o alcance. |
 | 16" Curto | 16" Short | 15 | M39 EMR | Cano longo: acelera a bala e estica o alcance. |
 | 16" Estendido (Rifle) | 16" Rifle | 15 | GRT-CPS, M277 | Cano longo: acelera a bala e estica o alcance. |
 | 16" Padrão | 16" Factory | 15 | VCR-2 | Cano longo: acelera a bala e estica o alcance. |
@@ -211,6 +212,8 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | 26" Estendido | 26" Carbon | 15 | M2010 ESR, Mini Scout | Cano longo: acelera a bala e estica o alcance. |
 | 27" Estendido | 27" MK22 | 15 | Interdictor, PSR | Cano longo: acelera a bala e estica o alcance. |
 | 303mm Estendido | 303mm LB | 15 | SG 553R | Cano de comprimento intermediário. |
+| 305mm Estendido (Custom) | 305mm Custom | 15 | UMG-40 | Cano longo: acelera a bala e estica o alcance. |
+| 330mm Curto | 330mm MK3 | 15 | KTS100 MK8 | Cano curto: mira e movimento mais rápidos. |
 | 370mm Curto | 370mm Compact | 15 | M123K | Compensador: segura o desvio do tiro. |
 | 391mm Curto | 391mm CQB | 15 | B36A4, EF88, L85A3 | Cano longo: acelera a bala e estica o alcance. |
 | 409mm Curto | 409mm US | 15 | AK4D | Cano longo: acelera a bala e estica o alcance. |
@@ -220,6 +223,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | 457mm Curto | 457mm Urban | 15 | SVK-8.6 | Cano longo: acelera a bala e estica o alcance. |
 | 458mm Estendido | 458mm Custom | 15 | NVO-228E | Cano longo: acelera a bala e estica o alcance. |
 | 460mm Padrão | 460mm Factory | 15 | M121 A2 | Cano longo: acelera a bala e estica o alcance. |
+| 5,12" Curto | 5.12" Compact | 15 | M44 | Cano curto: mira e movimento mais rápidos. |
 | 510mm Estriado | 510mm Fluted | 15 | B36A4, EF88, L85A3 | Cano aliviado por estrias: manejo mais leve. |
 | 514mm Curto | 514mm Carbine | 15 | SV-98 | Cano longo: acelera a bala e estica o alcance. |
 | 550mm Padrão | 550mm Factory | 15 | SVDM | Cano longo: acelera a bala e estica o alcance. |
@@ -229,14 +233,11 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | 600mm Estriado | 600mm Fluted | 15 | AK4D | Cano aliviado por estrias: manejo mais leve. |
 | 620mm Estendido | 620mm Classic | 15 | SVDM | Cano longo: acelera a bala e estica o alcance. |
 | 730mm Estendido | 730mm 3LR | 15 | SV-98 | Cano longo: acelera a bala e estica o alcance. |
+| 8,37" Estendido | 8.37" Long | 15 | M44 | Cano longo: acelera a bala e estica o alcance. |
 | Estendido | Extended Barrel | 15 | 18.5KS-K, DB-12, M1014, M87A1 | Extensão de quatro polegadas: acelera a bala e pesa na mira. |
-| TODO: traduzir | 305mm Custom | 15 | UMG-40 | TODO: descrever em português. |
-| TODO: traduzir | 330mm MK3 | 15 | KTS100 MK8 | TODO: descrever em português. |
-| TODO: traduzir | 8.37" Long | 15 | M44 | TODO: descrever em português. |
-| TODO: traduzir | 5.12" Compact | 15 | M44 | TODO: descrever em português. |
-| TODO: traduzir | 16.2" Cut | 15 | CZ3A1 | TODO: descrever em português. |
 | 10" Padrão (Fábrica) | 10" Factory | 20 | GRT-BC | Cano curto: mira e movimento mais rápidos. |
 | 12,5" Estriado | 12.5" Fluted | 20 | BROD 3, M4A1, SOR-300SC | Cano aliviado por estrias: manejo mais leve. |
+| 122mm Fino | 122mm Pencil | 20 | ES 5.7 | Cano fino: sobe à mira mais rápido. |
 | 13" Estriado | 13" Fluted | 20 | M277 | Cano aliviado por estrias: manejo mais leve. |
 | 16,5" Estriado | 16.5" Fluted | 20 | DRS-IAR, M433 | Cano aliviado por estrias: manejo mais leve. |
 | 17" Estriado | 17" Fluted | 20 | M/60 | Cano aliviado por estrias: manejo mais leve. |
@@ -247,21 +248,20 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | 24" Estriado | 24" Fluted | 20 | M2010 ESR, Mini Scout | Cano aliviado por estrias: manejo mais leve. |
 | 240mm Estriado | 240mm Fluted | 20 | SG 553R | Cano aliviado por estrias: manejo mais leve. |
 | 264mm Estriado | 264mm Fluted | 20 | PP-19, USG-90 | Cano aliviado por estrias: manejo mais leve. |
+| 3,9" Fino | 3.9" Pencil | 20 | P18 | Cano fino: sobe à mira mais rápido. |
 | 314mm Estriado | 314mm Fluted | 20 | AK-205 | Cano aliviado por estrias: manejo mais leve. |
+| 349mm Estriado | 349mm Fluted | 20 | L110 | Cano aliviado por estrias: manejo mais leve. |
 | 409mm Estriado | 409mm Fluted | 20 | NVO-228E | Cano aliviado por estrias: manejo mais leve. |
 | 415mm Estriado | 415mm Fluted | 20 | KORD 6P67 | Cano aliviado por estrias: manejo mais leve. |
 | 432mm Estriado | 432mm Fluted | 20 | TR-7 | Cano aliviado por estrias: manejo mais leve. |
 | 480mm Estriado | 480mm Fluted | 20 | B36A4, EF88, L85A3 | Cano aliviado por estrias: manejo mais leve. |
 | 5,5" Estriado | 5.5" Fluted | 20 | KV9 | Cano aliviado por estrias: manejo mais leve. |
+| 5" Fino | 5" Pencil | 20 | M45A1 | Cano fino: sobe à mira mais rápido. |
 | 565mm Estriado | 565mm Fluted | 20 | SVDM | Cano aliviado por estrias: manejo mais leve. |
 | 6,8" Estriado | 6.8" Fluted | 20 | SCW-10 | Cano aliviado por estrias: manejo mais leve. |
 | 650mm Estriado | 650mm Fluted | 20 | SV-98 | Cano aliviado por estrias: manejo mais leve. |
 | 7,7" Fino | 7.7" Pencil | 20 | CZ3A1 | Cano fino: sobe à mira mais rápido. |
 | 9" Estriado | 9" Fluted | 20 | SL9 | Cano aliviado por estrias: manejo mais leve. |
-| TODO: traduzir | 349mm Fluted | 20 | L110 | TODO: descrever em português. |
-| TODO: traduzir | 3.9" Pencil | 20 | P18 | TODO: descrever em português. |
-| TODO: traduzir | 122mm Pencil | 20 | ES 5.7 | TODO: descrever em português. |
-| TODO: traduzir | 5" Pencil | 20 | M45A1 | TODO: descrever em português. |
 | 16" Estriado | 16" Fluted | 25 | GRT-CPS | Cano aliviado por estrias: manejo mais leve. |
 
 ## Acoplamento Inferior
@@ -277,10 +277,10 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | Angular Ajustável | Adjustable Angled | 15 | 23 weapons | Acelera a subida à mira e segura o desvio lateral. |
 | Angular de Fábrica | Factory Angled | 15 | LMR27, SL9, VSSM | Acelera a subida à mira e segura o desvio lateral. |
 | Apoio de Mão Fino | Slim Handstop | 15 | 6 weapons | Melhora o tiro sem visada e o deslocamento. |
+| Combo Laser/Lanterna Verde | Laser Light Combo Green | 20 | ES 5.7, M45A1, P18 | Laser e lanterna no mesmo corpo: aperta o tiro sem visada e ilumina o vão. |
+| Combo Laser/Lanterna Vermelho | Laser Light Combo Red | 20 | ES 5.7, M45A1, P18 | Laser e lanterna no mesmo corpo: aperta o tiro sem visada e ilumina o vão. |
 | Curta Dobrável | Folding Stubby | 20 | 48 weapons | Recuperação de mira mais rápida entre disparos. |
 | Empunhadura com Bipé PTT | PTT Grip Pod | 20 | 33 weapons | Empunhadura e bipé na mesma peça. |
-| TODO: traduzir | Laser Light Combo Red | 20 | ES 5.7, M45A1, P18 | TODO: descrever em português. |
-| TODO: traduzir | Laser Light Combo Green | 20 | ES 5.7, M45A1, P18 | TODO: descrever em português. |
 | Vertical de Liga | Alloy Vertical | 20 | 44 weapons | O maior controle de recuo vertical. |
 | Vertical Estriada | Ribbed Vertical | 20 | 43 weapons | O maior controle de recuo vertical. |
 | Angular Completa | Full Angled | 25 | 40 weapons | Acelera a subida à mira e segura o desvio lateral. |
