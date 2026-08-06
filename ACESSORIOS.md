@@ -78,19 +78,19 @@ Gerado por `node scripts/attachments-doc.mjs`.
 
 | Peça | Original | Pts | Armas | Efeito |
 | --- | --- | ---: | --- | --- |
-| Freio de Porta Única | Single-Port Brake | 5 | 41 weapons | Freio de boca: derruba o salto do cano. |
-| Freio Inclinado | Slant Brake | 5 | RPK-74M, RPKM | Freio de boca: derruba o salto do cano. |
-| Protetor de Rosca | Thread Protector | 5 | SV-98 | Protege a rosca, sem efeito de tiro. |
-| Compensador Linear | Linear Comp | 10 | 46 weapons | Compensador: segura o desvio do tiro. |
-| Freio de Porta Dupla | Double-Port Brake | 10 | 50 weapons | Freio de boca: derruba o salto do cano. |
-| Freio de Porta Tripla | Triple-Port Brake | 10 | SVK-8.6 | Freio de boca: derruba o salto do cano. |
-| Quebra-Chamas | Flash Hider | 10 | quase showAll (58) | Apaga o clarão do disparo. |
-| Compensador com Quebra-Chamas | Flash Comp | 20 | 5 weapons | Compensador: segura o desvio do tiro. |
-| Freio Compensado | Compensated Brake | 20 | 51 weapons | Freio de boca: derruba o salto do cano. |
-| Supressor Padrão | Standard Suppressor | 20 | quase showAll (57) | Oculta os disparos do minimapa inimigo. |
-| Supressor Longo | Long Suppressor | 25 | 41 weapons | Oculta os disparos do minimapa inimigo. |
-| Supressor Aliviado | Lightened Suppressor | 30 | 45 weapons | Oculta os disparos do minimapa inimigo. |
-| Supressor CQB | CQB Suppressor | 30 | 35 weapons | Oculta os disparos do minimapa inimigo. |
+| Freio de Porta Única | Single-Port Brake | 5 | 41 weapons | Freio de boca: derruba o salto do cano e esconde a marcação do disparo. |
+| Freio Inclinado | Slant Brake | 5 | RPK-74M, RPKM | Boca cortada em diagonal: segura o salto e esconde a marcação. |
+| Protetor de Rosca | Thread Protector | 5 | SV-98 | Protege a rosca. Não muda tiro nenhum — nem esconde a marcação. |
+| Compensador Linear | Linear Comp | 10 | 46 weapons | Joga o gás para a frente: segura o desvio e esconde a marcação. |
+| Freio de Porta Dupla | Double-Port Brake | 10 | 50 weapons | Duas portas: mais controle ainda, e esconde a marcação do disparo. |
+| Freio de Porta Tripla | Triple-Port Brake | 10 | SVK-8.6 | Três portas: o freio mais firme, ao custo do tiro sem visada. |
+| Quebra-Chamas | Flash Hider | 10 | quase showAll (58) | Apaga o clarão do disparo e esconde a marcação de quem atira. |
+| Compensador com Quebra-Chamas | Flash Comp | 20 | 5 weapons | Segura o desvio lateral, apaga o clarão e esconde a marcação. |
+| Freio Compensado | Compensated Brake | 20 | 51 weapons | Freio com fendas em cima: derruba o salto e esconde a marcação. |
+| Supressor Padrão | Standard Suppressor | 20 | quase showAll (57) | Abafa o disparo e apaga a marcação, de perto e de longe. Piora o tiro sem visada. |
+| Supressor Longo | Long Suppressor | 25 | 41 weapons | O mais silencioso: recuo mais firme, em troca de mira lenta e mais oscilação. |
+| Supressor Aliviado | Lightened Suppressor | 30 | 45 weapons | Silêncio com o recuo mais firme dos supressores; o preço é o tiro sem visada. |
+| Supressor CQB | CQB Suppressor | 30 | 35 weapons | Silêncio sem penalidade de manejo — e sem ganho de recuo em troca. |
 
 ## Cano
 
