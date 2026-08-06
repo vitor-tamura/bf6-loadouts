@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { create } from 'zustand';
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import type { ClassId, SlotId } from '@/data/types';
@@ -98,20 +99,40 @@ export const useLoadout = create<LoadoutState>((set) => ({
  * seria uma segunda fonte de verdade para o mesmo dado.
  */
 export function useUrlSync() {
+  const params = useSearchParams();
+  const code = params.get(LOADOUT_PARAM);
   const loadout = useLoadout((s) => s.loadout);
   const loadLoadout = useLoadout((s) => s.loadLoadout);
 
+  /*
+   * O último código que já entrou no montador.
+   *
+   * O loadout é um store global e sobrevive à navegação: quem sai do montador,
+   * escolhe outra arma no catálogo e volta chega aqui com a montagem anterior
+   * ainda na memória. Sem esta marca, o efeito de escrita gravava essa montagem
+   * velha por cima do código recém-clicado e a arma nova nunca aparecia.
+   */
+  const applied = useRef<string | null>(null);
+
   useEffect(() => {
-    const code = new URLSearchParams(window.location.search).get(LOADOUT_PARAM);
-    if (!code) return;
+    if (!code || code === applied.current) return;
     const restored = decodeLoadout(code);
-    if (restored) loadLoadout(restored);
-  }, [loadLoadout]);
+    if (!restored) return;
+    applied.current = code;
+    loadLoadout(restored);
+  }, [code, loadLoadout]);
 
   useEffect(() => {
     if (!loadout.weapon) return;
+    // Código da URL ainda por absorver: quem manda é ele, não o que está montado.
+    if (code && code !== applied.current) return;
+
+    const next = encodeLoadout(loadout);
+    if (next === code) return;
+    applied.current = next;
+
     const url = new URL(window.location.href);
-    url.searchParams.set(LOADOUT_PARAM, encodeLoadout(loadout));
+    url.searchParams.set(LOADOUT_PARAM, next);
     window.history.replaceState(null, '', url);
-  }, [loadout]);
+  }, [loadout, code]);
 }

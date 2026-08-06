@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { Suspense, useMemo, useState } from 'react';
 import { AppHeader } from '@/components/header';
 import { ShareButton } from '@/components/share-button';
 import { DamageChart, DropChart } from '@/components/charts';
@@ -36,7 +36,19 @@ const TABS: { id: Tab; name: string }[] = [
   { id: 'numeros', name: 'Números' },
 ];
 
-export default function BuilderPage() {
+/**
+ * A leitura do loadout na URL passa por `useSearchParams`, e o Next exige
+ * fronteira de Suspense para isso em página exportada estaticamente.
+ */
+export default function BuilderRoute() {
+  return (
+    <Suspense fallback={<div className="min-h-dvh" />}>
+      <BuilderPage />
+    </Suspense>
+  );
+}
+
+function BuilderPage() {
   useUrlSync();
 
   const loadout = useLoadout((s) => s.loadout);
