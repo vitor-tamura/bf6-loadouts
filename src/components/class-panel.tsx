@@ -35,7 +35,7 @@ export function ClassSelector({
               type="button"
               onClick={() => onSelect(c.id)}
               aria-pressed={active}
-              className="bevel-sm touch px-2 py-2 text-center transition-colors"
+              className="bevel-sm touch px-2 py-2 text-center"
               style={{
                 background: active ? `color-mix(in oklab, ${c.color} 20%, var(--surface))` : 'var(--surface)',
                 border: `1px solid ${active ? c.color : 'var(--border-soft)'}`,
@@ -103,7 +103,7 @@ function EquipmentList({
                 type="button"
                 onClick={() => onSelect(item.id)}
                 aria-pressed={active}
-                className="bevel-sm touch flex w-full items-start gap-2.5 px-2.5 py-1.5 text-left transition-colors"
+                className="bevel-sm touch flex w-full items-start gap-2.5 px-2.5 py-1.5 text-left"
                 style={{
                   background: active ? 'color-mix(in oklab, var(--accent) 18%, transparent)' : 'transparent',
                 }}

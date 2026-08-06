@@ -218,15 +218,26 @@
     cursor: not-allowed;
   }
 
+  /*
+   * Uma transição só, para tudo que muda em um botão.
+   *
+   * Cuidado ao mexer: a classe `transition-colors` do Tailwind redefine
+   * `transition-property` e derruba o que não estiver na lista dela. Foi assim
+   * que o clareamento do hover ficou instantâneo enquanto a cor de fundo
+   * transicionava — as duas coisas precisam sair daqui, e nenhum componente
+   * deve declarar a sua própria.
+   */
   button,
-  a {
+  a,
+  summary,
+  label:has(input[type='checkbox']) {
     transition:
-      filter 160ms var(--ease-out),
-      background-color 160ms var(--ease-out),
-      color 160ms var(--ease-out),
-      border-color 160ms var(--ease-out),
-      box-shadow 160ms var(--ease-out),
-      transform 160ms var(--ease-snap);
+      filter 220ms var(--ease-out),
+      background-color 220ms var(--ease-out),
+      color 220ms var(--ease-out),
+      border-color 220ms var(--ease-out),
+      box-shadow 220ms var(--ease-out),
+      opacity 220ms var(--ease-out);
   }
 
   @media (hover: hover) {
@@ -375,6 +386,147 @@
   .disclosure[data-open='true'] {
     grid-template-rows: 0fr;
     opacity: 0;
+  }
+}
+
+/*
+ * Modal abrindo.
+ *
+ * O fundo escurece e o painel entra: subindo, em telas onde ele nasce colado no
+ * rodapé, e crescendo de leve nas maiores. Como a montagem é condicional no
+ * React, `@starting-style` dá o estado anterior — sem ele o painel apareceria
+ * pronto e a animação não teria de onde partir.
+ */
+.modal-backdrop {
+  background: rgb(0 0 0 / 0.6);
+  animation: fade-in 200ms var(--ease-out) both;
+}
+
+.modal-panel {
+  animation: modal-in 280ms var(--ease-snap) both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+}
+
+/*
+ * Troca de tela.
+ *
+ * O cruzamento padrão do navegador é bom, mas curto demais para a densidade
+ * desta interface: a tela toda troca de conteúdo e o olho precisa de um
+ * instante para reancorar. O que entra sobe alguns pixels — o suficiente para
+ * dar direção ao movimento sem virar deslizamento de carrossel.
+ */
+::view-transition-old(root) {
+  animation: 160ms var(--ease-out) both fade-out;
+}
+
+::view-transition-new(root) {
+  animation: 260ms var(--ease-snap) 60ms both screen-in;
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes screen-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* O cabeçalho permanece entre as telas: deixá-lo cruzar junto o faria piscar. */
+header {
+  view-transition-name: app-header;
+}
+
+::view-transition-group(app-header),
+::view-transition-old(app-header),
+::view-transition-new(app-header) {
+  animation: none;
+}
+
+/*
+ * Marca do medidor de pontos.
+ *
+ * Inclinada, como a do Gunsmith. A inclinação vem de `clip-path` e não de
+ * `transform: skew`, para que o preenchimento interno seja cortado junto e não
+ * escape pelo canto.
+ */
+.tick {
+  clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
+}
+
+/*
+ * Chip de filtro.
+ *
+ * O preenchimento cresce da esquerda, em vez de o chip pular ou mudar de
+ * tamanho: a faixa de filtros é uma fileira apertada, e qualquer variação de
+ * caixa empurraria os vizinhos e mexeria na rolagem horizontal.
+ */
+.chip {
+  position: relative;
+  isolation: isolate;
+}
+
+.chip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: color-mix(in oklab, var(--accent) 16%, transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms var(--ease-snap);
+}
+
+/*
+ * A mancha que segue o ponteiro.
+ *
+ * Um halo claro e macio na posição do cursor, que reduz o contraste local em
+ * vez de aumentá-lo: o chip sob o dedo parece recuar um pouco, como vidro
+ * embaçado. As coordenadas chegam em `--px` e `--py` (ver `pointer-glow.ts`);
+ * sem elas, o halo fica no centro, que é o palpite certo para o teclado.
+ */
+.chip::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
+  background: radial-gradient(
+    5rem circle at var(--px, 50%) var(--py, 50%),
+    color-mix(in oklab, var(--text) 20%, transparent),
+    transparent 65%
+  );
+  transition: opacity 240ms var(--ease-out);
+}
+
+@media (hover: hover) {
+  .chip:not([aria-pressed='true']):hover::before {
+    transform: scaleX(1);
+  }
+
+  .chip:hover::after {
+    opacity: 1;
+  }
+
+  /* O clareamento geral sai de cena: com o halo, os dois somados estouram. */
+  .chip:hover {
+    filter: none;
   }
 }
 

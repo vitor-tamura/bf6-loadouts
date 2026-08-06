@@ -240,13 +240,12 @@ export default function BuilderPage() {
 
       {choosingSidearm && (
         <div
-          className="fixed inset-0 z-50 flex items-end justify-center sm:items-center"
-          style={{ background: 'rgb(0 0 0 / 0.6)' }}
+          className="modal-backdrop fixed inset-0 z-50 flex items-end justify-center sm:items-center"
           onClick={() => setChoosingSidearm(false)}
           role="presentation"
         >
           <div
-            className="card bevel pb-safe max-h-[80dvh] w-full max-w-md overflow-y-auto p-4"
+            className="modal-panel card bevel pb-safe max-h-[80dvh] w-full max-w-md overflow-y-auto p-4"
             onClick={(e) => e.stopPropagation()}
             role="dialog"
             aria-modal="true"

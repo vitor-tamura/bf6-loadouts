@@ -11,6 +11,7 @@ import { damagePerShot, shotsToKill, timeToKill } from '@/lib/ballistics';
 import { encodeLoadout } from '@/lib/share';
 import { EMPTY_LOADOUT } from '@/lib/loadout';
 import { baseStats } from '@/lib/stats';
+import { pointerGlow } from '@/components/pointer-glow';
 
 /**
  * Catálogo completo.
@@ -207,7 +208,8 @@ function Chip({
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className="bevel-sm shrink-0 px-3 py-2 text-xs whitespace-nowrap"
+      {...pointerGlow()}
+      className="chip bevel-sm shrink-0 px-3 py-2 text-xs whitespace-nowrap"
       style={{
         background: active ? tint : 'var(--surface-raised)',
         color: active ? '#14170f' : 'var(--text-soft)',
@@ -243,7 +245,7 @@ function WeaponCard({ weapon, stats }: { weapon: Weapon; stats: ReturnType<typeo
   return (
     <Link
       href={href}
-      className="card bevel block h-full p-2 transition-colors"
+      className="card bevel block h-full p-2"
       style={{ borderColor: 'var(--border-soft)' }}
     >
       <div className="flex items-start justify-between gap-2">

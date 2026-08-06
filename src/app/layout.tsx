@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Barlow, Barlow_Condensed } from 'next/font/google';
 import { BUILD_DATE } from '@/data/build';
 import { seasonTheme } from '@/data/season';
+import { TransitionWatcher } from '@/components/view-transition';
 import './globals.css';
 
 const barlow = Barlow({
@@ -65,7 +66,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       data-season={season}
       className={`${barlow.variable} ${barlowCondensed.variable}`}
     >
-      <body className="min-h-dvh antialiased">{children}</body>
+      <body className="min-h-dvh antialiased">
+        <TransitionWatcher />
+        {children}
+      </body>
     </html>
   );
 }

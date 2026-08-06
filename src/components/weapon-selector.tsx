@@ -5,6 +5,7 @@ import { WEAPONS, CATEGORY_ORDER } from '@/data/weapons';
 import { CLASSES, CATEGORY_NAMES, SHORT_CATEGORY_NAMES } from '@/data/classes';
 import type { Weapon, WeaponCategory } from '@/data/types';
 import { weaponImagePath } from './weapon-preview/manifest';
+import { pointerGlow } from '@/components/pointer-glow';
 
 /**
  * Escolha da arma.
@@ -135,7 +136,8 @@ function FilterChip({
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className="bevel-sm shrink-0 px-3 py-2 text-xs whitespace-nowrap transition-colors"
+      {...pointerGlow()}
+      className="chip bevel-sm shrink-0 px-3 py-2 text-xs whitespace-nowrap"
       style={{
         background: active ? 'var(--accent)' : 'var(--surface-raised)',
         color: active ? '#14170f' : 'var(--text-soft)',
@@ -164,7 +166,7 @@ function WeaponCard({
       type="button"
       onClick={onSelect}
       aria-pressed={selected}
-      className="bevel-sm touch flex w-full items-center gap-3 px-3 py-2 text-left transition-colors"
+      className="bevel-sm touch flex w-full items-center gap-3 px-3 py-2 text-left"
       style={{
         background: selected ? 'color-mix(in oklab, var(--accent) 16%, var(--surface))' : 'var(--surface)',
         border: `1px solid ${selected ? 'var(--accent)' : 'var(--border-soft)'}`,

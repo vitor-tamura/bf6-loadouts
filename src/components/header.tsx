@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { TransitionLink } from '@/components/view-transition';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { BUILD_DATE } from '@/data/build';
@@ -101,18 +102,18 @@ export function AppHeader({ subtitle, actions }: { subtitle?: string; actions?: 
             {SECTIONS.map((section) => {
               const active = pathname === section.href || pathname === section.href.replace(/\/$/, '');
               return (
-                <Link
+                <TransitionLink
                   key={section.href}
                   href={section.href}
                   aria-current={active ? 'page' : undefined}
-                  className="bevel-sm px-3 py-1.5 text-sm font-semibold transition-colors"
+                  className="bevel-sm px-3 py-1.5 text-sm font-semibold"
                   style={{
                     background: active ? 'color-mix(in oklab, var(--accent) 18%, transparent)' : 'transparent',
                     color: active ? 'var(--accent)' : 'var(--text-dim)',
                   }}
                 >
                   {section.name}
-                </Link>
+                </TransitionLink>
               );
             })}
           </nav>
