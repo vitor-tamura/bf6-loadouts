@@ -44,9 +44,16 @@ Pull Request quando o jogo muda alguma coisa — ver [`ATUALIZAR.md`](./ATUALIZA
 
 ## Publicando
 
+No ar em **https://bf6-loadouts.vercel.app**.
+
+A Vercel publica a partir do GitHub, sem passo manual: push na `main` atualiza a
+produção, e `dev` e cada Pull Request ganham uma URL de preview própria — é lá
+que a mudança se confere antes de virar o site que todo mundo vê.
+
 O build gera HTML estático em `out/`, sem backend nem banco — o loadout inteiro
 viaja dentro da URL. Serve em qualquer hospedagem estática (Vercel, Netlify,
-GitHub Pages, S3, nginx).
+GitHub Pages, S3, nginx), mas o domínio precisa ser a raiz: o link compartilhado
+é montado com `window.location.origin`, que descarta subcaminho.
 
 ```bash
 npm run build
