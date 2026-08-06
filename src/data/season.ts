@@ -59,6 +59,35 @@ export const SEASONS: Season[] = [
   },
 ];
 
+/**
+ * Cor de cada temporada, para etiquetar o que entrou no jogo com ela.
+ *
+ * Vale para toda arma e todo item marcado com `season`, inclusive os das
+ * temporadas que já saíram do ar — por isso a tabela é separada de [SEASONS],
+ * que só guarda as temporadas com tema próprio e data de validade.
+ *
+ * A cor da 4 é a mesma maré do tema naval; as demais seguem o clima de cada
+ * temporada. Trocar aqui muda a etiqueta em todas as telas.
+ */
+export const SEASON_TAGS: Record<number, { name?: string; color: string }> = {
+  1: { color: '#d98d3a' },
+  2: { color: '#86b7e0' },
+  3: { color: '#7fbf5f' },
+  4: { name: 'Naval Warfare', color: '#4fc3d9' },
+};
+
+/** Como etiquetar um número de temporada; `null` para conteúdo de lançamento. */
+export function seasonTag(season: number): { label: string; title: string; color: string } | null {
+  if (!season) return null;
+  const tag = SEASON_TAGS[season];
+  return {
+    label: `T${season}`,
+    title: tag?.name ? `Temporada ${season}: ${tag.name}` : `Temporada ${season}`,
+    // Temporada nova que ainda não ganhou cor entra no destaque do tema.
+    color: tag?.color ?? 'var(--accent)',
+  };
+}
+
 /** A temporada no ar em uma data, ou `null` fora de qualquer janela. */
 export function seasonOn(date: Date): Season | null {
   const day = date.toISOString().slice(0, 10);

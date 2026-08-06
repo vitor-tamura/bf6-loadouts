@@ -98,158 +98,158 @@ Gerado por `node scripts/attachments-doc.mjs`.
 
 | Peça | Original | Pts | Armas | Efeito |
 | --- | --- | ---: | --- | --- |
-| 10,5" Curto | 10.5" Factory | 10 | QBZ-192 | Cano curto: mira e movimento mais rápidos. |
-| 10" Curto (Completo) | 10" Full | 10 | GRT-BC | Cano curto: mira e movimento mais rápidos. |
+| 10,5" Padrão | 10.5" Factory | 10 | QBZ-192 | Cano curto: mira e movimento mais rápidos. |
+| 10" Padrão (Full) | 10" Full | 10 | GRT-BC | Cano curto: mira e movimento mais rápidos. |
 | 11" Pesado | 11" Heavy | 10 | SL9 | Massa extra na frente: agrupa melhor em fogo contínuo. |
-| 12,5" Médio | 12.5" Mid | 10 | BROD 3, M4A1, SOR-300SC | Cano de comprimento intermediário. |
-| 122mm Curto | 122mm Factory | 10 | ES 5.7 | Cano curto: mira e movimento mais rápidos. |
-| 13" Médio | 13" Commando | 10 | M417 A2 | Cano de comprimento intermediário. |
-| 13" Médio (Fábrica) | 13" Factory | 10 | M277 | Cano de comprimento intermediário. |
-| 13" Médio (Prototype) | 13" Prototype | 10 | M277 | Cano de comprimento intermediário. |
+| 12,5" Padrão | 12.5" Mid | 10 | BROD 3, M4A1, SOR-300SC | Cano de comprimento intermediário. |
+| 122mm Padrão | 122mm Factory | 10 | ES 5.7 | Cano curto: mira e movimento mais rápidos. |
+| 13" Padrão | 13" Commando | 10 | M417 A2 | Cano de comprimento intermediário. |
+| 13" Padrão (Fábrica) | 13" Factory | 10 | M277 | Cano de comprimento intermediário. |
+| 13" Padrão (Prototype) | 13" Prototype | 10 | M277 | Cano de comprimento intermediário. |
 | 14,5" Estendido | 14.5" Common | 10 | QBZ-192 | Cano longo: acelera a bala e estica o alcance. |
 | 16,5" Estendido | 16.5" Rifle | 10 | M417 A2, M433 | Cano longo: acelera a bala e estica o alcance. |
-| 16,5" Estendido (Basic) | 16.5" Basic | 10 | DRS-IAR | Cano longo: acelera a bala e estica o alcance. |
-| 16,5" Estendido (LSW) | 16.5" LSW | 10 | DRS-IAR | Cano longo: acelera a bala e estica o alcance. |
-| 16" Estendido | 16" Dissipator | 10 | M16A4 | Cano longo: acelera a bala e estica o alcance. |
+| 16,5" Padrão (Basic) | 16.5" Basic | 10 | DRS-IAR | Cano longo: acelera a bala e estica o alcance. |
+| 16,5" Padrão (LSW) | 16.5" LSW | 10 | DRS-IAR | Cano longo: acelera a bala e estica o alcance. |
+| 16" Curto | 16" Dissipator | 10 | M16A4 | Cano longo: acelera a bala e estica o alcance. |
 | 16" Estendido | 16" US | 10 | SOR-556 Mk2 | Cano longo: acelera a bala e estica o alcance. |
 | 16" Estendido (Custom) | 16" Custom | 10 | M277 | Cano longo: acelera a bala e estica o alcance. |
-| 17" Estendido (Fábrica) | 17" Factory | 10 | M/60, TR-7 | Cano longo: acelera a bala e estica o alcance. |
-| 18,5" Estendido | 18.5" Factory | 10 | M1014 | Cano longo: acelera a bala e estica o alcance. |
-| 18,9" Estendido pesado | 18.9" Factory | 10 | DB-12 | Cano longo: acelera a bala e estica o alcance. |
-| 18" Estendido | 18" EBR | 10 | M39 EMR | Cano longo: acelera a bala e estica o alcance. |
+| 17" Padrão (Fábrica) | 17" Factory | 10 | M/60, TR-7 | Cano longo: acelera a bala e estica o alcance. |
+| 18,5" Padrão | 18.5" Factory | 10 | M1014 | Cano longo: acelera a bala e estica o alcance. |
+| 18,9" Padrão | 18.9" Factory | 10 | DB-12 | Cano longo: acelera a bala e estica o alcance. |
+| 18" Curto | 18" EBR | 10 | M39 EMR | Cano longo: acelera a bala e estica o alcance. |
+| 18" Curto (Govt.) | 18" Govt. | 10 | M16A4 | Cano longo: acelera a bala e estica o alcance. |
+| 18" Curto (SPR) | 18" SPR | 10 | M16A4 | Cano longo: acelera a bala e estica o alcance. |
 | 18" Estendido | 18" US | 10 | VCR-2 | Cano longo: acelera a bala e estica o alcance. |
 | 18" Estendido (Custom) | 18" Custom | 10 | SOR-556 Mk2 | Cano longo: acelera a bala e estica o alcance. |
-| 18" Estendido (Govt.) | 18" Govt. | 10 | M16A4 | Cano longo: acelera a bala e estica o alcance. |
-| 18" Estendido (SPR) | 18" SPR | 10 | M16A4 | Cano longo: acelera a bala e estica o alcance. |
-| 18" Estendido fino | 18" Pencil | 10 | M16A4 | Cano fino: sobe à mira mais rápido. |
-| 180mm Curto (Padrão) | 180mm Standard | 10 | PW7A2 | Cano curto: mira e movimento mais rápidos. |
-| 180mm Curto (Prototype) | 180mm Prototype | 10 | PW7A2 | Cano curto: mira e movimento mais rápidos. |
-| 20" Estendido pesado | 20" Custom Covert | 10 | L115 | Cano longo: acelera a bala e estica o alcance. |
-| 20" Estendido pesado (Fábrica) | 20" Factory | 10 | GRT-CPS, M16A4, M87A1 | Cano longo: acelera a bala e estica o alcance. |
-| 20" Estendido pesado (HBAR) | 20" HBAR | 10 | M16A4 | Cano longo: acelera a bala e estica o alcance. |
-| 20" Estendido pesado (Lima) | 20" Lima | 10 | M240L | Cano longo: acelera a bala e estica o alcance. |
-| 20" Estendido pesado (SDM-R) | 20" SDM-R | 10 | DRS-IAR | Cano longo: acelera a bala e estica o alcance. |
-| 200mm Curto (Custom-H) | 200mm Custom-H | 10 | UMG-40 | Cano curto: mira e movimento mais rápidos. |
-| 200mm Curto (Fábrica) | 200mm Factory | 10 | UMG-40 | Cano curto: mira e movimento mais rápidos. |
-| 21,5" Estendido pesado | 21.5" Factory | 10 | LMR27, VSSM | Cano longo: acelera a bala e estica o alcance. |
-| 22" Estendido pesado | 22" E3 Long | 10 | M/60 | Cano longo: acelera a bala e estica o alcance. |
-| 22" Estendido pesado | 22" Factory | 10 | M39 EMR | Cano longo: acelera a bala e estica o alcance. |
-| 225mm Curto | 225mm Factory | 10 | PW5A3 | Cano curto: mira e movimento mais rápidos. |
-| 24" Estendido pesado | 24" Bravo | 10 | M240L | Cano longo: acelera a bala e estica o alcance. |
-| 24" Estendido pesado | 24" Full | 10 | M2010 ESR, Mini Scout | Cano longo: acelera a bala e estica o alcance. |
-| 240mm Curto | 240mm SB | 10 | SG 553R | Cano curto: mira e movimento mais rápidos. |
-| 245mm Curto | 245mm Custom | 10 | PW5A3 | Cano curto: mira e movimento mais rápidos. |
-| 246mm Curto | 246mm Factory | 10 | PP-19, USG-90 | Cano curto: mira e movimento mais rápidos. |
-| 26" Estendido pesado | 26" Factory | 10 | Interdictor, PSR | Cano longo: acelera a bala e estica o alcance. |
-| 264mm Curto | 264mm Prototype | 10 | PP-19, USG-90 | Cano curto: mira e movimento mais rápidos. |
-| 27" Estendido pesado (Completo) | 27" Full | 10 | L115 | Cano longo: acelera a bala e estica o alcance. |
-| 27" Estendido pesado (Fábrica) | 27" Factory | 10 | L115 | Cano longo: acelera a bala e estica o alcance. |
-| 3,9" Curto | 3.9" Factory | 10 | P18, vz. 61 | Cano curto: mira e movimento mais rápidos. |
-| 314mm Médio (Fábrica) | 314mm Factory | 10 | AK-205 | Cano de comprimento intermediário. |
-| 314mm Médio (Prototype) | 314mm Prototype | 10 | AK-205 | Cano de comprimento intermediário. |
-| 32" Estendido pesado | 32" Custom | 10 | L115 | Cano longo: acelera a bala e estica o alcance. |
-| 394mm Estendido | 394mm SB | 10 | L110 | Cano longo: acelera a bala e estica o alcance. |
+| 18" Fino | 18" Pencil | 10 | M16A4 | Cano fino: sobe à mira mais rápido. |
+| 180mm Padrão (Prototype) | 180mm Prototype | 10 | PW7A2 | Cano curto: mira e movimento mais rápidos. |
+| 180mm Padrão (Standard) | 180mm Standard | 10 | PW7A2 | Cano curto: mira e movimento mais rápidos. |
+| 20" Curto | 20" Custom Covert | 10 | L115 | Cano longo: acelera a bala e estica o alcance. |
+| 20" Estendido (SDM-R) | 20" SDM-R | 10 | DRS-IAR | Cano longo: acelera a bala e estica o alcance. |
+| 20" Padrão (Fábrica) | 20" Factory | 10 | GRT-CPS, M16A4, M87A1 | Cano longo: acelera a bala e estica o alcance. |
+| 20" Padrão (HBAR) | 20" HBAR | 10 | M16A4 | Cano longo: acelera a bala e estica o alcance. |
+| 20" Padrão (Lima) | 20" Lima | 10 | M240L | Cano longo: acelera a bala e estica o alcance. |
+| 200mm Padrão (Custom-H) | 200mm Custom-H | 10 | UMG-40 | Cano curto: mira e movimento mais rápidos. |
+| 200mm Padrão (Fábrica) | 200mm Factory | 10 | UMG-40 | Cano curto: mira e movimento mais rápidos. |
+| 21,5" Padrão | 21.5" Factory | 10 | LMR27, VSSM | Cano longo: acelera a bala e estica o alcance. |
+| 22" Estendido | 22" E3 Long | 10 | M/60 | Cano longo: acelera a bala e estica o alcance. |
+| 22" Padrão | 22" Factory | 10 | M39 EMR | Cano longo: acelera a bala e estica o alcance. |
+| 225mm Padrão | 225mm Factory | 10 | PW5A3 | Cano curto: mira e movimento mais rápidos. |
+| 24" Estendido | 24" Bravo | 10 | M240L | Cano longo: acelera a bala e estica o alcance. |
+| 24" Padrão | 24" Full | 10 | M2010 ESR, Mini Scout | Cano longo: acelera a bala e estica o alcance. |
+| 240mm Padrão | 240mm SB | 10 | SG 553R | Cano curto: mira e movimento mais rápidos. |
+| 245mm Estendido | 245mm Custom | 10 | PW5A3 | Cano curto: mira e movimento mais rápidos. |
+| 246mm Padrão | 246mm Factory | 10 | PP-19, USG-90 | Cano curto: mira e movimento mais rápidos. |
+| 26" Padrão | 26" Factory | 10 | Interdictor, PSR | Cano longo: acelera a bala e estica o alcance. |
+| 264mm Estendido | 264mm Prototype | 10 | PP-19, USG-90 | Cano curto: mira e movimento mais rápidos. |
+| 27" Padrão (Fábrica) | 27" Factory | 10 | L115 | Cano longo: acelera a bala e estica o alcance. |
+| 27" Padrão (Full) | 27" Full | 10 | L115 | Cano longo: acelera a bala e estica o alcance. |
+| 3,9" Padrão | 3.9" Factory | 10 | P18, vz. 61 | Cano curto: mira e movimento mais rápidos. |
+| 314mm Padrão (Fábrica) | 314mm Factory | 10 | AK-205 | Cano de comprimento intermediário. |
+| 314mm Padrão (Prototype) | 314mm Prototype | 10 | AK-205 | Cano de comprimento intermediário. |
+| 32" Estendido | 32" Custom | 10 | L115 | Cano longo: acelera a bala e estica o alcance. |
+| 394mm Padrão | 394mm SB | 10 | L110 | Cano longo: acelera a bala e estica o alcance. |
 | 4,5" Curto | 4.5" Compact | 10 | SGX | Compensador: segura o desvio do tiro. |
-| 406mm Estendido | 406mm Standard | 10 | M250 | Cano longo: acelera a bala e estica o alcance. |
-| 409mm Estendido (Fábrica) | 409mm Factory | 10 | NVO-228E | Cano longo: acelera a bala e estica o alcance. |
-| 415mm Estendido (Fábrica) | 415mm Factory | 10 | KORD 6P67 | Cano longo: acelera a bala e estica o alcance. |
-| 415mm Estendido (Prototype) | 415mm Prototype | 10 | KORD 6P67 | Cano longo: acelera a bala e estica o alcance. |
-| 430mm Estendido (Cut) | 430mm Cut | 10 | 18.5KS-K | Cano longo: acelera a bala e estica o alcance. |
-| 450mm Estendido | 450mm Factory | 10 | AK4D | Cano longo: acelera a bala e estica o alcance. |
-| 450mm Estendido | 450mm Standard | 10 | M123K | Cano longo: acelera a bala e estica o alcance. |
-| 457mm Estendido | 457mm MK9 | 10 | KTS100 MK8 | Cano longo: acelera a bala e estica o alcance. |
+| 406mm Padrão | 406mm Standard | 10 | M250 | Cano longo: acelera a bala e estica o alcance. |
+| 409mm Padrão (Fábrica) | 409mm Factory | 10 | NVO-228E | Cano longo: acelera a bala e estica o alcance. |
+| 415mm Padrão (Fábrica) | 415mm Factory | 10 | KORD 6P67 | Cano longo: acelera a bala e estica o alcance. |
+| 415mm Padrão (Prototype) | 415mm Prototype | 10 | KORD 6P67 | Cano longo: acelera a bala e estica o alcance. |
+| 430mm Padrão (Cut) | 430mm Cut | 10 | 18.5KS-K | Cano longo: acelera a bala e estica o alcance. |
+| 450mm Padrão | 450mm Factory | 10 | AK4D | Cano longo: acelera a bala e estica o alcance. |
+| 450mm Padrão | 450mm Standard | 10 | M123K | Cano longo: acelera a bala e estica o alcance. |
+| 457mm Padrão | 457mm MK9 | 10 | KTS100 MK8 | Cano longo: acelera a bala e estica o alcance. |
 | 465mm Estendido | 465mm LB | 10 | L110 | Cano longo: acelera a bala e estica o alcance. |
-| 480mm Estendido pesado (Fábrica) | 480mm Factory | 10 | B36A4, EF88, L85A3 | Cano longo: acelera a bala e estica o alcance. |
-| 480mm Estendido pesado (MG) | 480mm MG | 10 | B36A4, EF88, L85A3 | Cano longo: acelera a bala e estica o alcance. |
-| 5,5" Curto | 5.5" Factory | 10 | KV9 | Cano curto: mira e movimento mais rápidos. |
-| 5" Curto | 5" Factory | 10 | GGH-22, M357 Trait, M45A1 | Cano curto: mira e movimento mais rápidos. |
-| 508mm Estendido pesado | 508mm MK8 | 10 | KTS100 MK8 | Cano longo: acelera a bala e estica o alcance. |
-| 510mm Estendido pesado | 510mm DMR | 10 | B36A4, EF88, L85A3 | Cano longo: acelera a bala e estica o alcance. |
-| 521mm Estendido pesado (Boar-F) | 521mm Boar-F | 10 | RPK-74M, RPKM | Cano longo: acelera a bala e estica o alcance. |
-| 521mm Estendido pesado (Boar) | 521mm Boar | 10 | RPK-74M, RPKM | Cano longo: acelera a bala e estica o alcance. |
-| 550mm Estendido pesado | 550mm Infantry | 10 | M121 A2 | Cano longo: acelera a bala e estica o alcance. |
-| 556mm Estendido pesado | 556mm Para | 10 | SVDM | Cano longo: acelera a bala e estica o alcance. |
-| 556mm Estendido pesado | 556mm Prototype | 10 | M250 | Cano longo: acelera a bala e estica o alcance. |
-| 560mm Estendido pesado (Cut) | 560mm Cut | 10 | SVK-8.6 | Cano longo: acelera a bala e estica o alcance. |
-| 590mm Estendido pesado | 590mm Factory | 10 | RPK-74M, RPKM | Cano longo: acelera a bala e estica o alcance. |
-| 6,75" Curto | 6.75" Factory | 10 | M44 | Cano curto: mira e movimento mais rápidos. |
-| 6,8" Curto | 6.8" Factory | 10 | SCW-10 | Cano curto: mira e movimento mais rápidos. |
-| 6" Curto | 6" Standard | 10 | SGX | Cano curto: mira e movimento mais rápidos. |
-| 6" Leve | 6" Fluted | 10 | SGX | Cano aliviado por estrias: manejo mais leve. |
-| 600mm Estendido pesado (Cut) | 600mm Cut | 10 | AK4D | Cano longo: acelera a bala e estica o alcance. |
-| 600mm Estendido pesado (DMR) | 600mm DMR | 10 | AK4D | Cano longo: acelera a bala e estica o alcance. |
-| 612mm Estendido pesado | 612mm VMW | 10 | M123K | Aperta o cone do tiro sem visada; o feixe é visível. |
-| 650mm Estendido pesado | 650mm Factory | 10 | SV-98 | Cano longo: acelera a bala e estica o alcance. |
-| 660mm Estendido pesado | 660mm VMW | 10 | M121 A2 | Aperta o cone do tiro sem visada; o feixe é visível. |
-| 7,7" Curto | 7.7" Factory | 10 | CZ3A1 | Cano curto: mira e movimento mais rápidos. |
-| 8" Curto | 8" Extended | 10 | SGX | Cano curto: mira e movimento mais rápidos. |
-| 9" Curto | 9" Factory | 10 | SL9 | Cano curto: mira e movimento mais rápidos. |
+| 480mm Padrão (Fábrica) | 480mm Factory | 10 | B36A4, EF88, L85A3 | Cano longo: acelera a bala e estica o alcance. |
+| 480mm Padrão (MG) | 480mm MG | 10 | B36A4, EF88, L85A3 | Cano longo: acelera a bala e estica o alcance. |
+| 5,5" Padrão | 5.5" Factory | 10 | KV9 | Cano curto: mira e movimento mais rápidos. |
+| 5" Padrão | 5" Factory | 10 | GGH-22, M357 Trait, M45A1 | Cano curto: mira e movimento mais rápidos. |
+| 508mm Estendido | 508mm MK8 | 10 | KTS100 MK8 | Cano longo: acelera a bala e estica o alcance. |
+| 510mm Estendido | 510mm DMR | 10 | B36A4, EF88, L85A3 | Cano longo: acelera a bala e estica o alcance. |
+| 521mm Curto (Boar-F) | 521mm Boar-F | 10 | RPK-74M, RPKM | Cano longo: acelera a bala e estica o alcance. |
+| 521mm Curto (Boar) | 521mm Boar | 10 | RPK-74M, RPKM | Cano longo: acelera a bala e estica o alcance. |
+| 550mm Estendido | 550mm Infantry | 10 | M121 A2 | Cano longo: acelera a bala e estica o alcance. |
+| 556mm Estendido | 556mm Para | 10 | SVDM | Cano longo: acelera a bala e estica o alcance. |
+| 556mm Estendido | 556mm Prototype | 10 | M250 | Cano longo: acelera a bala e estica o alcance. |
+| 560mm Padrão (Cut) | 560mm Cut | 10 | SVK-8.6 | Cano longo: acelera a bala e estica o alcance. |
+| 590mm Padrão | 590mm Factory | 10 | RPK-74M, RPKM | Cano longo: acelera a bala e estica o alcance. |
+| 6,75" Padrão | 6.75" Factory | 10 | M44 | Cano curto: mira e movimento mais rápidos. |
+| 6,8" Padrão | 6.8" Factory | 10 | SCW-10 | Cano curto: mira e movimento mais rápidos. |
+| 6" Estriado | 6" Fluted | 10 | SGX | Cano aliviado por estrias: manejo mais leve. |
+| 6" Padrão | 6" Standard | 10 | SGX | Cano curto: mira e movimento mais rápidos. |
+| 600mm Estendido (Cut) | 600mm Cut | 10 | AK4D | Cano longo: acelera a bala e estica o alcance. |
+| 600mm Estendido (DMR) | 600mm DMR | 10 | AK4D | Cano longo: acelera a bala e estica o alcance. |
+| 612mm Estendido | 612mm VMW | 10 | M123K | Aperta o cone do tiro sem visada; o feixe é visível. |
+| 650mm Padrão | 650mm Factory | 10 | SV-98 | Cano longo: acelera a bala e estica o alcance. |
+| 660mm Estendido | 660mm VMW | 10 | M121 A2 | Aperta o cone do tiro sem visada; o feixe é visível. |
+| 7,7" Padrão | 7.7" Factory | 10 | CZ3A1 | Cano curto: mira e movimento mais rápidos. |
+| 8" Estendido | 8" Extended | 10 | SGX | Cano curto: mira e movimento mais rápidos. |
+| 9" Padrão | 9" Factory | 10 | SL9 | Cano curto: mira e movimento mais rápidos. |
 | 9" Pesado | 9" Heavy | 10 | SL9 | Massa extra na frente: agrupa melhor em fogo contínuo. |
 | Padrão (Cryogenic) | Cryogenic | 10 | M16A4 | Cano da arma. |
 | Pesado | IAR Heavy | 10 | SOR-556 Mk2 | Massa extra na frente: agrupa melhor em fogo contínuo. |
 | 11,5" Curto | 11.5" Commando | 15 | BROD 3, M4A1, SOR-300SC | Cano de comprimento intermediário. |
-| 11" Curto | 11" Extended | 15 | SL9 | Cano curto: mira e movimento mais rápidos. |
-| 12" Médio | 12" Assaulter | 15 | M417 A2 | Cano de comprimento intermediário. |
+| 11" Estendido | 11" Extended | 15 | SL9 | Cano curto: mira e movimento mais rápidos. |
+| 12" Curto | 12" Assaulter | 15 | M417 A2 | Cano de comprimento intermediário. |
 | 14,5" Estendido | 14.5" Alt | 15 | GRT-BC | Cano longo: acelera a bala e estica o alcance. |
 | 14,5" Estendido | 14.5" Carbine | 15 | 5 weapons | Cano longo: acelera a bala e estica o alcance. |
-| 14,5" Estendido | 14.5" Factory | 15 | SOR-556 Mk2 | Cano longo: acelera a bala e estica o alcance. |
-| 14,5" Estendido | 14.5" Standard | 15 | M433 | Cano longo: acelera a bala e estica o alcance. |
-| 16" Estendido | 16" Factory | 15 | VCR-2 | Cano longo: acelera a bala e estica o alcance. |
-| 16" Estendido | 16" Short | 15 | M39 EMR | Cano longo: acelera a bala e estica o alcance. |
+| 14,5" Padrão | 14.5" Factory | 15 | SOR-556 Mk2 | Cano longo: acelera a bala e estica o alcance. |
+| 14,5" Padrão | 14.5" Standard | 15 | M433 | Cano longo: acelera a bala e estica o alcance. |
+| 16" Curto | 16" Short | 15 | M39 EMR | Cano longo: acelera a bala e estica o alcance. |
 | 16" Estendido (Rifle) | 16" Rifle | 15 | GRT-CPS, M277 | Cano longo: acelera a bala e estica o alcance. |
-| 17" Estendido (Cut) | 17" Cut | 15 | TR-7 | Cano longo: acelera a bala e estica o alcance. |
-| 18,9" Estendido pesado | 18.9" Prototype | 15 | M433 | Cano longo: acelera a bala e estica o alcance. |
+| 16" Padrão | 16" Factory | 15 | VCR-2 | Cano longo: acelera a bala e estica o alcance. |
+| 17" Padrão (Cut) | 17" Cut | 15 | TR-7 | Cano longo: acelera a bala e estica o alcance. |
+| 18,9" Estendido | 18.9" Prototype | 15 | M433 | Cano longo: acelera a bala e estica o alcance. |
 | 18" Estendido (US-LB) | 18" US-LB | 15 | SOR-556 Mk2 | Cano longo: acelera a bala e estica o alcance. |
-| 20" Estendido pesado | 20" Long | 15 | TR-7 | Cano longo: acelera a bala e estica o alcance. |
-| 20" Estendido pesado | 20" Marksman | 15 | VCR-2 | Cano longo: acelera a bala e estica o alcance. |
-| 20" Estendido pesado (LE) | 20" LE | 15 | DRS-IAR | Cano longo: acelera a bala e estica o alcance. |
-| 24" Estendido pesado | 24" Extended | 15 | LMR27, VSSM | Cano longo: acelera a bala e estica o alcance. |
-| 26" Estendido pesado | 26" Carbon | 15 | M2010 ESR, Mini Scout | Cano longo: acelera a bala e estica o alcance. |
-| 27" Estendido pesado | 27" MK22 | 15 | Interdictor, PSR | Cano longo: acelera a bala e estica o alcance. |
-| 303mm Médio | 303mm LB | 15 | SG 553R | Cano de comprimento intermediário. |
-| 370mm Estendido | 370mm Compact | 15 | M123K | Compensador: segura o desvio do tiro. |
-| 391mm Estendido | 391mm CQB | 15 | B36A4, EF88, L85A3 | Cano longo: acelera a bala e estica o alcance. |
-| 409mm Estendido | 409mm US | 15 | AK4D | Cano longo: acelera a bala e estica o alcance. |
-| 409mm Estendido (Cut) | 409mm Cut | 15 | NVO-228E | Cano longo: acelera a bala e estica o alcance. |
-| 419mm Estendido | 419mm Boar-F | 15 | RPK-74M, RPKM | Cano longo: acelera a bala e estica o alcance. |
-| 430mm Estendido (Fábrica) | 430mm Factory | 15 | 18.5KS-K | Cano longo: acelera a bala e estica o alcance. |
-| 457mm Estendido | 457mm Urban | 15 | SVK-8.6 | Cano longo: acelera a bala e estica o alcance. |
+| 20" Estendido | 20" Long | 15 | TR-7 | Cano longo: acelera a bala e estica o alcance. |
+| 20" Estendido | 20" Marksman | 15 | VCR-2 | Cano longo: acelera a bala e estica o alcance. |
+| 20" Estendido (LE) | 20" LE | 15 | DRS-IAR | Cano longo: acelera a bala e estica o alcance. |
+| 24" Estendido | 24" Extended | 15 | LMR27, VSSM | Cano longo: acelera a bala e estica o alcance. |
+| 26" Estendido | 26" Carbon | 15 | M2010 ESR, Mini Scout | Cano longo: acelera a bala e estica o alcance. |
+| 27" Estendido | 27" MK22 | 15 | Interdictor, PSR | Cano longo: acelera a bala e estica o alcance. |
+| 303mm Estendido | 303mm LB | 15 | SG 553R | Cano de comprimento intermediário. |
+| 370mm Curto | 370mm Compact | 15 | M123K | Compensador: segura o desvio do tiro. |
+| 391mm Curto | 391mm CQB | 15 | B36A4, EF88, L85A3 | Cano longo: acelera a bala e estica o alcance. |
+| 409mm Curto | 409mm US | 15 | AK4D | Cano longo: acelera a bala e estica o alcance. |
+| 409mm Padrão (Cut) | 409mm Cut | 15 | NVO-228E | Cano longo: acelera a bala e estica o alcance. |
+| 419mm Curto | 419mm Boar-F | 15 | RPK-74M, RPKM | Cano longo: acelera a bala e estica o alcance. |
+| 430mm Padrão (Fábrica) | 430mm Factory | 15 | 18.5KS-K | Cano longo: acelera a bala e estica o alcance. |
+| 457mm Curto | 457mm Urban | 15 | SVK-8.6 | Cano longo: acelera a bala e estica o alcance. |
 | 458mm Estendido | 458mm Custom | 15 | NVO-228E | Cano longo: acelera a bala e estica o alcance. |
-| 460mm Estendido | 460mm Factory | 15 | M121 A2 | Cano longo: acelera a bala e estica o alcance. |
-| 510mm Estendido leve | 510mm Fluted | 15 | B36A4, EF88, L85A3 | Cano aliviado por estrias: manejo mais leve. |
-| 514mm Estendido pesado | 514mm Carbine | 15 | SV-98 | Cano longo: acelera a bala e estica o alcance. |
-| 550mm Estendido pesado | 550mm Factory | 15 | SVDM | Cano longo: acelera a bala e estica o alcance. |
-| 560mm Estendido pesado (Fábrica) | 560mm Factory | 15 | SVK-8.6 | Cano longo: acelera a bala e estica o alcance. |
-| 6,5" Curto | 6.5" Extended | 15 | KV9 | Cano curto: mira e movimento mais rápidos. |
-| 600mm Estendido leve | 600mm Fluted | 15 | AK4D | Cano aliviado por estrias: manejo mais leve. |
-| 600mm Estendido pesado | 600mm Tabuk | 15 | RPK-74M, RPKM | Cano longo: acelera a bala e estica o alcance. |
-| 620mm Estendido pesado | 620mm Classic | 15 | SVDM | Cano longo: acelera a bala e estica o alcance. |
-| 730mm Estendido pesado | 730mm 3LR | 15 | SV-98 | Cano longo: acelera a bala e estica o alcance. |
+| 460mm Padrão | 460mm Factory | 15 | M121 A2 | Cano longo: acelera a bala e estica o alcance. |
+| 510mm Estriado | 510mm Fluted | 15 | B36A4, EF88, L85A3 | Cano aliviado por estrias: manejo mais leve. |
+| 514mm Curto | 514mm Carbine | 15 | SV-98 | Cano longo: acelera a bala e estica o alcance. |
+| 550mm Padrão | 550mm Factory | 15 | SVDM | Cano longo: acelera a bala e estica o alcance. |
+| 560mm Padrão (Fábrica) | 560mm Factory | 15 | SVK-8.6 | Cano longo: acelera a bala e estica o alcance. |
+| 6,5" Estendido | 6.5" Extended | 15 | KV9 | Cano curto: mira e movimento mais rápidos. |
+| 600mm Estendido | 600mm Tabuk | 15 | RPK-74M, RPKM | Cano longo: acelera a bala e estica o alcance. |
+| 600mm Estriado | 600mm Fluted | 15 | AK4D | Cano aliviado por estrias: manejo mais leve. |
+| 620mm Estendido | 620mm Classic | 15 | SVDM | Cano longo: acelera a bala e estica o alcance. |
+| 730mm Estendido | 730mm 3LR | 15 | SV-98 | Cano longo: acelera a bala e estica o alcance. |
 | Estendido | Extended Barrel | 15 | SCW-10 | Cano da arma. |
-| 10" Curto (Fábrica) | 10" Factory | 20 | GRT-BC | Cano curto: mira e movimento mais rápidos. |
-| 12,5" Leve | 12.5" Fluted | 20 | BROD 3, M4A1, SOR-300SC | Cano aliviado por estrias: manejo mais leve. |
-| 13" Leve | 13" Fluted | 20 | M277 | Cano aliviado por estrias: manejo mais leve. |
-| 16,5" Estendido leve | 16.5" Fluted | 20 | DRS-IAR, M433 | Cano aliviado por estrias: manejo mais leve. |
-| 17" Estendido leve | 17" Fluted | 20 | M/60 | Cano aliviado por estrias: manejo mais leve. |
-| 18" Estendido leve | 18" Fluted | 20 | VCR-2 | Cano aliviado por estrias: manejo mais leve. |
-| 20" Estendido pesado (OH) | 20" OH | 20 | M240L | Cano longo: acelera a bala e estica o alcance. |
-| 200mm Curto (Custom) | 200mm Custom | 20 | UMG-40 | Cano curto: mira e movimento mais rápidos. |
-| 21,5" Estendido leve | 21.5" Fluted | 20 | LMR27, VSSM | Cano aliviado por estrias: manejo mais leve. |
-| 24" Estendido leve | 24" Fluted | 20 | M2010 ESR, Mini Scout | Cano aliviado por estrias: manejo mais leve. |
-| 240mm Leve | 240mm Fluted | 20 | SG 553R | Cano aliviado por estrias: manejo mais leve. |
-| 264mm Leve | 264mm Fluted | 20 | PP-19, USG-90 | Cano aliviado por estrias: manejo mais leve. |
-| 314mm Leve | 314mm Fluted | 20 | AK-205 | Cano aliviado por estrias: manejo mais leve. |
-| 409mm Estendido leve | 409mm Fluted | 20 | NVO-228E | Cano aliviado por estrias: manejo mais leve. |
-| 415mm Estendido leve | 415mm Fluted | 20 | KORD 6P67 | Cano aliviado por estrias: manejo mais leve. |
-| 432mm Estendido leve | 432mm Fluted | 20 | TR-7 | Cano aliviado por estrias: manejo mais leve. |
-| 480mm Estendido leve | 480mm Fluted | 20 | B36A4, EF88, L85A3 | Cano aliviado por estrias: manejo mais leve. |
-| 5,5" Leve | 5.5" Fluted | 20 | KV9 | Cano aliviado por estrias: manejo mais leve. |
-| 565mm Estendido leve | 565mm Fluted | 20 | SVDM | Cano aliviado por estrias: manejo mais leve. |
-| 6,8" Leve | 6.8" Fluted | 20 | SCW-10 | Cano aliviado por estrias: manejo mais leve. |
-| 650mm Estendido leve | 650mm Fluted | 20 | SV-98 | Cano aliviado por estrias: manejo mais leve. |
+| 10" Padrão (Fábrica) | 10" Factory | 20 | GRT-BC | Cano curto: mira e movimento mais rápidos. |
+| 12,5" Estriado | 12.5" Fluted | 20 | BROD 3, M4A1, SOR-300SC | Cano aliviado por estrias: manejo mais leve. |
+| 13" Estriado | 13" Fluted | 20 | M277 | Cano aliviado por estrias: manejo mais leve. |
+| 16,5" Estriado | 16.5" Fluted | 20 | DRS-IAR, M433 | Cano aliviado por estrias: manejo mais leve. |
+| 17" Estriado | 17" Fluted | 20 | M/60 | Cano aliviado por estrias: manejo mais leve. |
+| 18" Estriado | 18" Fluted | 20 | VCR-2 | Cano aliviado por estrias: manejo mais leve. |
+| 20" Padrão (OH) | 20" OH | 20 | M240L | Cano longo: acelera a bala e estica o alcance. |
+| 200mm Padrão (Custom) | 200mm Custom | 20 | UMG-40 | Cano curto: mira e movimento mais rápidos. |
+| 21,5" Estriado | 21.5" Fluted | 20 | LMR27, VSSM | Cano aliviado por estrias: manejo mais leve. |
+| 24" Estriado | 24" Fluted | 20 | M2010 ESR, Mini Scout | Cano aliviado por estrias: manejo mais leve. |
+| 240mm Estriado | 240mm Fluted | 20 | SG 553R | Cano aliviado por estrias: manejo mais leve. |
+| 264mm Estriado | 264mm Fluted | 20 | PP-19, USG-90 | Cano aliviado por estrias: manejo mais leve. |
+| 314mm Estriado | 314mm Fluted | 20 | AK-205 | Cano aliviado por estrias: manejo mais leve. |
+| 409mm Estriado | 409mm Fluted | 20 | NVO-228E | Cano aliviado por estrias: manejo mais leve. |
+| 415mm Estriado | 415mm Fluted | 20 | KORD 6P67 | Cano aliviado por estrias: manejo mais leve. |
+| 432mm Estriado | 432mm Fluted | 20 | TR-7 | Cano aliviado por estrias: manejo mais leve. |
+| 480mm Estriado | 480mm Fluted | 20 | B36A4, EF88, L85A3 | Cano aliviado por estrias: manejo mais leve. |
+| 5,5" Estriado | 5.5" Fluted | 20 | KV9 | Cano aliviado por estrias: manejo mais leve. |
+| 565mm Estriado | 565mm Fluted | 20 | SVDM | Cano aliviado por estrias: manejo mais leve. |
+| 6,8" Estriado | 6.8" Fluted | 20 | SCW-10 | Cano aliviado por estrias: manejo mais leve. |
+| 650mm Estriado | 650mm Fluted | 20 | SV-98 | Cano aliviado por estrias: manejo mais leve. |
 | 7,7" Fino | 7.7" Pencil | 20 | CZ3A1 | Cano fino: sobe à mira mais rápido. |
-| 9" Leve | 9" Fluted | 20 | SL9 | Cano aliviado por estrias: manejo mais leve. |
-| 16" Estendido leve | 16" Fluted | 25 | GRT-CPS | Cano aliviado por estrias: manejo mais leve. |
+| 9" Estriado | 9" Fluted | 20 | SL9 | Cano aliviado por estrias: manejo mais leve. |
+| 16" Estriado | 16" Fluted | 25 | GRT-CPS | Cano aliviado por estrias: manejo mais leve. |
 
 ## Acoplamento Inferior
 
@@ -343,16 +343,16 @@ Gerado por `node scripts/attachments-doc.mjs`.
 
 | Peça | Original | Pts | Armas | Efeito |
 | --- | --- | ---: | --- | --- |
-| Encamisada | FMJ | 5 | quase showAll (59) | Sustenta o dano à distância. |
-| Núcleo de Tungstênio | Tungsten Core | 5 | 52 weapons | Perfura material fino. |
-| Chumbo Grosso | Buckshot | 10 | 18.5KS-K, DB-12, M1014, M87A1 | Chumbo tradicional de escopeta. |
-| Estojo Polimérico | Polymer Case | 10 | 27 weapons | Cartucho leve: acelera mira e deslocamento. |
-| Grau Competição | Match Grade | 10 | 9 weapons | Cartucho de precisão, agrupamento fechado. |
-| Frangível | Frangible | 20 | 40 weapons | Atrasa a regeneração de vida do alvo. |
-| Ponta Oca | Hollow Point | 20 | 47 weapons | Melhora o dano em acerto na cabeça. |
-| Flechette | Flechette | 30 | 18.5KS-K, DB-12, M1014, M87A1 | Dardos: alcance maior, dano menor. |
-| Ponta Sintética | Synthetic Tip | 30 | 17 weapons | Trajetória mais reta e alcance maior. |
-| Balote | Slugs | 40 | 18.5KS-K, DB-12, M1014, M87A1 | Projétil único: alcance muito maior, sem espalhamento. |
+| Padrão | FMJ | 5 |  | Munição de série: vem montada e já está embutida nos números da arma. |
+| Penetração | Tungsten Core | 5 |  | Núcleo de tungstênio: atravessa material fino em troca de recuo. |
+| Chumbo Grosso | Buckshot | 10 | 18.5KS-K, DB-12, M1014, M87A1 | Padrão das escopetas: nuvem de bagos com espalhamento próprio. |
+| Leve | Polymer Case | 10 |  | Cartucho de polímero: acelera a mira e o deslocamento. |
+| Longo Alcance | Match Grade | 10 |  | Munição de precisão: agrupamento fechado a distância. |
+| Frágil | Frangible | 20 |  | Atrasa a regeneração de vida do alvo. |
+| Ponta Oca | Hollow Point | 20 |  | Mais dano em acerto na cabeça; alcance menor. |
+| Flechette | Flechette | 30 | 18.5KS-K, DB-12, M1014, M87A1 | Dardos: ferem através de cobertura e atrasam a regeneração do alvo. |
+| Ponta Sintética | Synthetic Tip | 30 | 17 weapons | Trajetória mais reta e mais dano em acerto na cabeça. |
+| Projétil Único | Slugs | 40 | 18.5KS-K, DB-12, M1014, M87A1 | Um projétil só: alcance e dano na cabeça bem maiores, sem espalhamento. |
 
 ## Ergonomia
 

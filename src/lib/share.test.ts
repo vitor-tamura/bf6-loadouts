@@ -15,7 +15,7 @@ const full: Loadout = {
     ammo: 'ammo-fmj',
   },
   sidearm: 'm44',
-  sidearmAttachments: { sight: 'sight-iron-sights' },
+  sidearmAttachments: { sight: 'sight-iron-sights', ammo: 'ammo-fmj' },
   gadget1: 'qlink-6',
   gadget2: 'tarantula-alx',
   throwable: 'm67-frag',
@@ -26,9 +26,12 @@ describe('ida e volta do link', () => {
     expect(decodeLoadout(encodeLoadout(full))).toEqual(full);
   });
 
-  it('reproduz um loadout só com a arma', () => {
+  it('reproduz um loadout só com a arma, já com a munição de série', () => {
     const simple: Loadout = { ...EMPTY_LOADOUT, weapon: 'kv9' };
-    expect(decodeLoadout(encodeLoadout(simple))).toEqual(simple);
+    expect(decodeLoadout(encodeLoadout(simple))).toEqual({
+      ...simple,
+      attachments: { ammo: 'ammo-fmj' },
+    });
   });
 
   it('funciona para toda arma com todos os slots preenchidos', () => {
@@ -101,7 +104,7 @@ describe('leitura tolerante', () => {
 describe('URL de compartilhamento', () => {
   it('monta a URL do loadout sobre a origem informada', () => {
     const url = loadoutUrl(full, 'https://exemplo.com');
-    expect(url.startsWith('https://exemplo.com/?l=')).toBe(true);
+    expect(url.startsWith('https://exemplo.com/montar/?l=')).toBe(true);
     const code = new URL(url).searchParams.get('l')!;
     expect(decodeLoadout(code)).toEqual(full);
   });
@@ -110,7 +113,10 @@ describe('URL de compartilhamento', () => {
 describe('acessórios da secundária', () => {
   it('viajam no link junto com os da principal', () => {
     const restored = decodeLoadout(encodeLoadout(full));
-    expect(restored?.sidearmAttachments).toEqual(full.sidearmAttachments);
+    expect(restored?.sidearmAttachments).toEqual({
+      ...full.sidearmAttachments,
+      ammo: 'ammo-fmj',
+    });
   });
 
   it('são descartados quando a secundária não os aceita', () => {
@@ -121,6 +127,6 @@ describe('acessórios da secundária', () => {
   it('link antigo, sem o campo, abre com a secundária limpa', () => {
     // O campo é o último do formato, então versões anteriores continuam válidas.
     const semCampo = encodeLoadout({ ...full, sidearmAttachments: {} });
-    expect(decodeLoadout(semCampo)?.sidearmAttachments).toEqual({});
+    expect(decodeLoadout(semCampo)?.sidearmAttachments).toEqual({ ammo: 'ammo-fmj' });
   });
 });

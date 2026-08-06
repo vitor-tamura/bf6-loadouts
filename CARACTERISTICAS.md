@@ -226,8 +226,9 @@ efeito.
 ```
 src/
 ├── app/
-│   ├── page.tsx            montador
-│   ├── armas/              catálogo completo
+│   ├── page.tsx            catálogo completo (tela inicial)
+│   ├── montar/             montador
+│   ├── armas/              redireciona para a raiz (rota antiga do catálogo)
 │   ├── comparar/           comparação entre armas
 │   └── manifest.ts         PWA
 ├── data/

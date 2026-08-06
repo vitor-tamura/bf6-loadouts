@@ -404,7 +404,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-10-factory',
-    name: '10" Curto (Fábrica)',
+    name: '10" Padrão (Fábrica)',
     originalName: '10" Factory',
     slot: 'barrel',
     cost: 20,
@@ -415,7 +415,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-10-full',
-    name: '10" Curto (Completo)',
+    name: '10" Padrão (Full)',
     originalName: '10" Full',
     slot: 'barrel',
     cost: 10,
@@ -426,7 +426,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-10-5-factory',
-    name: '10,5" Curto',
+    name: '10,5" Padrão',
     originalName: '10.5" Factory',
     slot: 'barrel',
     cost: 10,
@@ -437,7 +437,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-11-extended',
-    name: '11" Curto',
+    name: '11" Estendido',
     originalName: '11" Extended',
     slot: 'barrel',
     cost: 15,
@@ -470,7 +470,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-12-assaulter',
-    name: '12" Médio',
+    name: '12" Curto',
     originalName: '12" Assaulter',
     slot: 'barrel',
     cost: 15,
@@ -481,7 +481,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-12-5-fluted',
-    name: '12,5" Leve',
+    name: '12,5" Estriado',
     originalName: '12.5" Fluted',
     slot: 'barrel',
     cost: 20,
@@ -492,7 +492,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-12-5-mid',
-    name: '12,5" Médio',
+    name: '12,5" Padrão',
     originalName: '12.5" Mid',
     slot: 'barrel',
     cost: 10,
@@ -503,7 +503,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-122mm-factory',
-    name: '122mm Curto',
+    name: '122mm Padrão',
     originalName: '122mm Factory',
     slot: 'barrel',
     cost: 10,
@@ -514,7 +514,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-13-commando',
-    name: '13" Médio',
+    name: '13" Padrão',
     originalName: '13" Commando',
     slot: 'barrel',
     cost: 10,
@@ -525,7 +525,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-13-factory',
-    name: '13" Médio (Fábrica)',
+    name: '13" Padrão (Fábrica)',
     originalName: '13" Factory',
     slot: 'barrel',
     cost: 10,
@@ -536,7 +536,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-13-fluted',
-    name: '13" Leve',
+    name: '13" Estriado',
     originalName: '13" Fluted',
     slot: 'barrel',
     cost: 20,
@@ -547,7 +547,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-13-prototype',
-    name: '13" Médio (Prototype)',
+    name: '13" Padrão (Prototype)',
     originalName: '13" Prototype',
     slot: 'barrel',
     cost: 10,
@@ -591,7 +591,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-14-5-factory',
-    name: '14,5" Estendido',
+    name: '14,5" Padrão',
     originalName: '14.5" Factory',
     slot: 'barrel',
     cost: 15,
@@ -602,7 +602,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-14-5-standard',
-    name: '14,5" Estendido',
+    name: '14,5" Padrão',
     originalName: '14.5" Standard',
     slot: 'barrel',
     cost: 15,
@@ -624,7 +624,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-16-dissipator',
-    name: '16" Estendido',
+    name: '16" Curto',
     originalName: '16" Dissipator',
     slot: 'barrel',
     cost: 10,
@@ -635,7 +635,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-16-factory',
-    name: '16" Estendido',
+    name: '16" Padrão',
     originalName: '16" Factory',
     slot: 'barrel',
     cost: 15,
@@ -646,7 +646,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-16-fluted',
-    name: '16" Estendido leve',
+    name: '16" Estriado',
     originalName: '16" Fluted',
     slot: 'barrel',
     cost: 25,
@@ -668,7 +668,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-16-short',
-    name: '16" Estendido',
+    name: '16" Curto',
     originalName: '16" Short',
     slot: 'barrel',
     cost: 15,
@@ -690,7 +690,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-16-5-basic',
-    name: '16,5" Estendido (Basic)',
+    name: '16,5" Padrão (Basic)',
     originalName: '16.5" Basic',
     slot: 'barrel',
     cost: 10,
@@ -701,7 +701,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-16-5-fluted',
-    name: '16,5" Estendido leve',
+    name: '16,5" Estriado',
     originalName: '16.5" Fluted',
     slot: 'barrel',
     cost: 20,
@@ -712,7 +712,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-16-5-lsw',
-    name: '16,5" Estendido (LSW)',
+    name: '16,5" Padrão (LSW)',
     originalName: '16.5" LSW',
     slot: 'barrel',
     cost: 10,
@@ -734,7 +734,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-17-cut',
-    name: '17" Estendido (Cut)',
+    name: '17" Padrão (Cut)',
     originalName: '17" Cut',
     slot: 'barrel',
     cost: 15,
@@ -745,7 +745,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-17-factory',
-    name: '17" Estendido (Fábrica)',
+    name: '17" Padrão (Fábrica)',
     originalName: '17" Factory',
     slot: 'barrel',
     cost: 10,
@@ -756,7 +756,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-17-fluted',
-    name: '17" Estendido leve',
+    name: '17" Estriado',
     originalName: '17" Fluted',
     slot: 'barrel',
     cost: 20,
@@ -778,7 +778,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-18-ebr',
-    name: '18" Estendido',
+    name: '18" Curto',
     originalName: '18" EBR',
     slot: 'barrel',
     cost: 10,
@@ -789,7 +789,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-18-fluted',
-    name: '18" Estendido leve',
+    name: '18" Estriado',
     originalName: '18" Fluted',
     slot: 'barrel',
     cost: 20,
@@ -800,7 +800,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-18-govt',
-    name: '18" Estendido (Govt.)',
+    name: '18" Curto (Govt.)',
     originalName: '18" Govt.',
     slot: 'barrel',
     cost: 10,
@@ -811,7 +811,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-18-pencil',
-    name: '18" Estendido fino',
+    name: '18" Fino',
     originalName: '18" Pencil',
     slot: 'barrel',
     cost: 10,
@@ -822,7 +822,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-18-spr',
-    name: '18" Estendido (SPR)',
+    name: '18" Curto (SPR)',
     originalName: '18" SPR',
     slot: 'barrel',
     cost: 10,
@@ -855,7 +855,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-18-5-factory',
-    name: '18,5" Estendido',
+    name: '18,5" Padrão',
     originalName: '18.5" Factory',
     slot: 'barrel',
     cost: 10,
@@ -866,7 +866,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-18-9-factory',
-    name: '18,9" Estendido pesado',
+    name: '18,9" Padrão',
     originalName: '18.9" Factory',
     slot: 'barrel',
     cost: 10,
@@ -877,7 +877,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-18-9-prototype',
-    name: '18,9" Estendido pesado',
+    name: '18,9" Estendido',
     originalName: '18.9" Prototype',
     slot: 'barrel',
     cost: 15,
@@ -888,7 +888,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-180mm-prototype',
-    name: '180mm Curto (Prototype)',
+    name: '180mm Padrão (Prototype)',
     originalName: '180mm Prototype',
     slot: 'barrel',
     cost: 10,
@@ -899,7 +899,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-180mm-standard',
-    name: '180mm Curto (Padrão)',
+    name: '180mm Padrão (Standard)',
     originalName: '180mm Standard',
     slot: 'barrel',
     cost: 10,
@@ -910,7 +910,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-20-custom-covert',
-    name: '20" Estendido pesado',
+    name: '20" Curto',
     originalName: '20" Custom Covert',
     slot: 'barrel',
     cost: 10,
@@ -921,7 +921,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-20-factory',
-    name: '20" Estendido pesado (Fábrica)',
+    name: '20" Padrão (Fábrica)',
     originalName: '20" Factory',
     slot: 'barrel',
     cost: 10,
@@ -932,7 +932,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-20-hbar',
-    name: '20" Estendido pesado (HBAR)',
+    name: '20" Padrão (HBAR)',
     originalName: '20" HBAR',
     slot: 'barrel',
     cost: 10,
@@ -943,7 +943,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-20-le',
-    name: '20" Estendido pesado (LE)',
+    name: '20" Estendido (LE)',
     originalName: '20" LE',
     slot: 'barrel',
     cost: 15,
@@ -954,7 +954,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-20-lima',
-    name: '20" Estendido pesado (Lima)',
+    name: '20" Padrão (Lima)',
     originalName: '20" Lima',
     slot: 'barrel',
     cost: 10,
@@ -965,7 +965,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-20-long',
-    name: '20" Estendido pesado',
+    name: '20" Estendido',
     originalName: '20" Long',
     slot: 'barrel',
     cost: 15,
@@ -976,7 +976,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-20-marksman',
-    name: '20" Estendido pesado',
+    name: '20" Estendido',
     originalName: '20" Marksman',
     slot: 'barrel',
     cost: 15,
@@ -987,7 +987,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-20-oh',
-    name: '20" Estendido pesado (OH)',
+    name: '20" Padrão (OH)',
     originalName: '20" OH',
     slot: 'barrel',
     cost: 20,
@@ -998,7 +998,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-20-sdm-r',
-    name: '20" Estendido pesado (SDM-R)',
+    name: '20" Estendido (SDM-R)',
     originalName: '20" SDM-R',
     slot: 'barrel',
     cost: 10,
@@ -1009,7 +1009,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-200mm-custom',
-    name: '200mm Curto (Custom)',
+    name: '200mm Padrão (Custom)',
     originalName: '200mm Custom',
     slot: 'barrel',
     cost: 20,
@@ -1020,7 +1020,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-200mm-custom-h',
-    name: '200mm Curto (Custom-H)',
+    name: '200mm Padrão (Custom-H)',
     originalName: '200mm Custom-H',
     slot: 'barrel',
     cost: 10,
@@ -1031,7 +1031,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-200mm-factory',
-    name: '200mm Curto (Fábrica)',
+    name: '200mm Padrão (Fábrica)',
     originalName: '200mm Factory',
     slot: 'barrel',
     cost: 10,
@@ -1042,7 +1042,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-21-5-factory',
-    name: '21,5" Estendido pesado',
+    name: '21,5" Padrão',
     originalName: '21.5" Factory',
     slot: 'barrel',
     cost: 10,
@@ -1053,7 +1053,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-21-5-fluted',
-    name: '21,5" Estendido leve',
+    name: '21,5" Estriado',
     originalName: '21.5" Fluted',
     slot: 'barrel',
     cost: 20,
@@ -1064,7 +1064,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-22-e3-long',
-    name: '22" Estendido pesado',
+    name: '22" Estendido',
     originalName: '22" E3 Long',
     slot: 'barrel',
     cost: 10,
@@ -1075,7 +1075,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-22-factory',
-    name: '22" Estendido pesado',
+    name: '22" Padrão',
     originalName: '22" Factory',
     slot: 'barrel',
     cost: 10,
@@ -1086,7 +1086,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-225mm-factory',
-    name: '225mm Curto',
+    name: '225mm Padrão',
     originalName: '225mm Factory',
     slot: 'barrel',
     cost: 10,
@@ -1097,7 +1097,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-24-bravo',
-    name: '24" Estendido pesado',
+    name: '24" Estendido',
     originalName: '24" Bravo',
     slot: 'barrel',
     cost: 10,
@@ -1108,7 +1108,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-24-extended',
-    name: '24" Estendido pesado',
+    name: '24" Estendido',
     originalName: '24" Extended',
     slot: 'barrel',
     cost: 15,
@@ -1119,7 +1119,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-24-fluted',
-    name: '24" Estendido leve',
+    name: '24" Estriado',
     originalName: '24" Fluted',
     slot: 'barrel',
     cost: 20,
@@ -1130,7 +1130,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-24-full',
-    name: '24" Estendido pesado',
+    name: '24" Padrão',
     originalName: '24" Full',
     slot: 'barrel',
     cost: 10,
@@ -1141,7 +1141,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-240mm-fluted',
-    name: '240mm Leve',
+    name: '240mm Estriado',
     originalName: '240mm Fluted',
     slot: 'barrel',
     cost: 20,
@@ -1152,7 +1152,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-240mm-sb',
-    name: '240mm Curto',
+    name: '240mm Padrão',
     originalName: '240mm SB',
     slot: 'barrel',
     cost: 10,
@@ -1163,7 +1163,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-245mm-custom',
-    name: '245mm Curto',
+    name: '245mm Estendido',
     originalName: '245mm Custom',
     slot: 'barrel',
     cost: 10,
@@ -1174,7 +1174,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-246mm-factory',
-    name: '246mm Curto',
+    name: '246mm Padrão',
     originalName: '246mm Factory',
     slot: 'barrel',
     cost: 10,
@@ -1185,7 +1185,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-26-carbon',
-    name: '26" Estendido pesado',
+    name: '26" Estendido',
     originalName: '26" Carbon',
     slot: 'barrel',
     cost: 15,
@@ -1196,7 +1196,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-26-factory',
-    name: '26" Estendido pesado',
+    name: '26" Padrão',
     originalName: '26" Factory',
     slot: 'barrel',
     cost: 10,
@@ -1207,7 +1207,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-264mm-fluted',
-    name: '264mm Leve',
+    name: '264mm Estriado',
     originalName: '264mm Fluted',
     slot: 'barrel',
     cost: 20,
@@ -1218,7 +1218,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-264mm-prototype',
-    name: '264mm Curto',
+    name: '264mm Estendido',
     originalName: '264mm Prototype',
     slot: 'barrel',
     cost: 10,
@@ -1229,7 +1229,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-27-factory',
-    name: '27" Estendido pesado (Fábrica)',
+    name: '27" Padrão (Fábrica)',
     originalName: '27" Factory',
     slot: 'barrel',
     cost: 10,
@@ -1240,7 +1240,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-27-full',
-    name: '27" Estendido pesado (Completo)',
+    name: '27" Padrão (Full)',
     originalName: '27" Full',
     slot: 'barrel',
     cost: 10,
@@ -1251,7 +1251,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-27-mk22',
-    name: '27" Estendido pesado',
+    name: '27" Estendido',
     originalName: '27" MK22',
     slot: 'barrel',
     cost: 15,
@@ -1262,7 +1262,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-3-9-factory',
-    name: '3,9" Curto',
+    name: '3,9" Padrão',
     originalName: '3.9" Factory',
     slot: 'barrel',
     cost: 10,
@@ -1273,7 +1273,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-303mm-lb',
-    name: '303mm Médio',
+    name: '303mm Estendido',
     originalName: '303mm LB',
     slot: 'barrel',
     cost: 15,
@@ -1284,7 +1284,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-314mm-factory',
-    name: '314mm Médio (Fábrica)',
+    name: '314mm Padrão (Fábrica)',
     originalName: '314mm Factory',
     slot: 'barrel',
     cost: 10,
@@ -1295,7 +1295,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-314mm-fluted',
-    name: '314mm Leve',
+    name: '314mm Estriado',
     originalName: '314mm Fluted',
     slot: 'barrel',
     cost: 20,
@@ -1306,7 +1306,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-314mm-prototype',
-    name: '314mm Médio (Prototype)',
+    name: '314mm Padrão (Prototype)',
     originalName: '314mm Prototype',
     slot: 'barrel',
     cost: 10,
@@ -1317,7 +1317,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-32-custom',
-    name: '32" Estendido pesado',
+    name: '32" Estendido',
     originalName: '32" Custom',
     slot: 'barrel',
     cost: 10,
@@ -1328,7 +1328,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-370mm-compact',
-    name: '370mm Estendido',
+    name: '370mm Curto',
     originalName: '370mm Compact',
     slot: 'barrel',
     cost: 15,
@@ -1339,7 +1339,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-391mm-cqb',
-    name: '391mm Estendido',
+    name: '391mm Curto',
     originalName: '391mm CQB',
     slot: 'barrel',
     cost: 15,
@@ -1350,7 +1350,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-394mm-sb',
-    name: '394mm Estendido',
+    name: '394mm Padrão',
     originalName: '394mm SB',
     slot: 'barrel',
     cost: 10,
@@ -1372,7 +1372,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-406mm-standard',
-    name: '406mm Estendido',
+    name: '406mm Padrão',
     originalName: '406mm Standard',
     slot: 'barrel',
     cost: 10,
@@ -1383,7 +1383,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-409mm-cut',
-    name: '409mm Estendido (Cut)',
+    name: '409mm Padrão (Cut)',
     originalName: '409mm Cut',
     slot: 'barrel',
     cost: 15,
@@ -1394,7 +1394,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-409mm-factory',
-    name: '409mm Estendido (Fábrica)',
+    name: '409mm Padrão (Fábrica)',
     originalName: '409mm Factory',
     slot: 'barrel',
     cost: 10,
@@ -1405,7 +1405,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-409mm-fluted',
-    name: '409mm Estendido leve',
+    name: '409mm Estriado',
     originalName: '409mm Fluted',
     slot: 'barrel',
     cost: 20,
@@ -1416,7 +1416,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-409mm-us',
-    name: '409mm Estendido',
+    name: '409mm Curto',
     originalName: '409mm US',
     slot: 'barrel',
     cost: 15,
@@ -1427,7 +1427,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-415mm-factory',
-    name: '415mm Estendido (Fábrica)',
+    name: '415mm Padrão (Fábrica)',
     originalName: '415mm Factory',
     slot: 'barrel',
     cost: 10,
@@ -1438,7 +1438,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-415mm-fluted',
-    name: '415mm Estendido leve',
+    name: '415mm Estriado',
     originalName: '415mm Fluted',
     slot: 'barrel',
     cost: 20,
@@ -1449,7 +1449,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-415mm-prototype',
-    name: '415mm Estendido (Prototype)',
+    name: '415mm Padrão (Prototype)',
     originalName: '415mm Prototype',
     slot: 'barrel',
     cost: 10,
@@ -1460,7 +1460,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-419mm-boar-f',
-    name: '419mm Estendido',
+    name: '419mm Curto',
     originalName: '419mm Boar-F',
     slot: 'barrel',
     cost: 15,
@@ -1471,7 +1471,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-430mm-cut',
-    name: '430mm Estendido (Cut)',
+    name: '430mm Padrão (Cut)',
     originalName: '430mm Cut',
     slot: 'barrel',
     cost: 10,
@@ -1482,7 +1482,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-430mm-factory',
-    name: '430mm Estendido (Fábrica)',
+    name: '430mm Padrão (Fábrica)',
     originalName: '430mm Factory',
     slot: 'barrel',
     cost: 15,
@@ -1493,7 +1493,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-432mm-fluted',
-    name: '432mm Estendido leve',
+    name: '432mm Estriado',
     originalName: '432mm Fluted',
     slot: 'barrel',
     cost: 20,
@@ -1504,7 +1504,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-450mm-factory',
-    name: '450mm Estendido',
+    name: '450mm Padrão',
     originalName: '450mm Factory',
     slot: 'barrel',
     cost: 10,
@@ -1515,7 +1515,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-450mm-standard',
-    name: '450mm Estendido',
+    name: '450mm Padrão',
     originalName: '450mm Standard',
     slot: 'barrel',
     cost: 10,
@@ -1526,7 +1526,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-457mm-mk9',
-    name: '457mm Estendido',
+    name: '457mm Padrão',
     originalName: '457mm MK9',
     slot: 'barrel',
     cost: 10,
@@ -1537,7 +1537,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-457mm-urban',
-    name: '457mm Estendido',
+    name: '457mm Curto',
     originalName: '457mm Urban',
     slot: 'barrel',
     cost: 15,
@@ -1559,7 +1559,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-460mm-factory',
-    name: '460mm Estendido',
+    name: '460mm Padrão',
     originalName: '460mm Factory',
     slot: 'barrel',
     cost: 15,
@@ -1581,7 +1581,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-480mm-factory',
-    name: '480mm Estendido pesado (Fábrica)',
+    name: '480mm Padrão (Fábrica)',
     originalName: '480mm Factory',
     slot: 'barrel',
     cost: 10,
@@ -1592,7 +1592,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-480mm-fluted',
-    name: '480mm Estendido leve',
+    name: '480mm Estriado',
     originalName: '480mm Fluted',
     slot: 'barrel',
     cost: 20,
@@ -1603,7 +1603,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-480mm-mg',
-    name: '480mm Estendido pesado (MG)',
+    name: '480mm Padrão (MG)',
     originalName: '480mm MG',
     slot: 'barrel',
     cost: 10,
@@ -1614,7 +1614,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-5-factory',
-    name: '5" Curto',
+    name: '5" Padrão',
     originalName: '5" Factory',
     slot: 'barrel',
     cost: 10,
@@ -1625,7 +1625,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-5-5-factory',
-    name: '5,5" Curto',
+    name: '5,5" Padrão',
     originalName: '5.5" Factory',
     slot: 'barrel',
     cost: 10,
@@ -1636,7 +1636,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-5-5-fluted',
-    name: '5,5" Leve',
+    name: '5,5" Estriado',
     originalName: '5.5" Fluted',
     slot: 'barrel',
     cost: 20,
@@ -1647,7 +1647,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-508mm-mk8',
-    name: '508mm Estendido pesado',
+    name: '508mm Estendido',
     originalName: '508mm MK8',
     slot: 'barrel',
     cost: 10,
@@ -1658,7 +1658,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-510mm-dmr',
-    name: '510mm Estendido pesado',
+    name: '510mm Estendido',
     originalName: '510mm DMR',
     slot: 'barrel',
     cost: 10,
@@ -1669,7 +1669,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-510mm-fluted',
-    name: '510mm Estendido leve',
+    name: '510mm Estriado',
     originalName: '510mm Fluted',
     slot: 'barrel',
     cost: 15,
@@ -1680,7 +1680,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-514mm-carbine',
-    name: '514mm Estendido pesado',
+    name: '514mm Curto',
     originalName: '514mm Carbine',
     slot: 'barrel',
     cost: 15,
@@ -1691,7 +1691,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-521mm-boar',
-    name: '521mm Estendido pesado (Boar)',
+    name: '521mm Curto (Boar)',
     originalName: '521mm Boar',
     slot: 'barrel',
     cost: 10,
@@ -1702,7 +1702,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-521mm-boar-f',
-    name: '521mm Estendido pesado (Boar-F)',
+    name: '521mm Curto (Boar-F)',
     originalName: '521mm Boar-F',
     slot: 'barrel',
     cost: 10,
@@ -1713,7 +1713,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-550mm-factory',
-    name: '550mm Estendido pesado',
+    name: '550mm Padrão',
     originalName: '550mm Factory',
     slot: 'barrel',
     cost: 15,
@@ -1724,7 +1724,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-550mm-infantry',
-    name: '550mm Estendido pesado',
+    name: '550mm Estendido',
     originalName: '550mm Infantry',
     slot: 'barrel',
     cost: 10,
@@ -1735,7 +1735,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-556mm-para',
-    name: '556mm Estendido pesado',
+    name: '556mm Estendido',
     originalName: '556mm Para',
     slot: 'barrel',
     cost: 10,
@@ -1746,7 +1746,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-556mm-prototype',
-    name: '556mm Estendido pesado',
+    name: '556mm Estendido',
     originalName: '556mm Prototype',
     slot: 'barrel',
     cost: 10,
@@ -1757,7 +1757,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-560mm-cut',
-    name: '560mm Estendido pesado (Cut)',
+    name: '560mm Padrão (Cut)',
     originalName: '560mm Cut',
     slot: 'barrel',
     cost: 10,
@@ -1768,7 +1768,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-560mm-factory',
-    name: '560mm Estendido pesado (Fábrica)',
+    name: '560mm Padrão (Fábrica)',
     originalName: '560mm Factory',
     slot: 'barrel',
     cost: 15,
@@ -1779,7 +1779,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-565mm-fluted',
-    name: '565mm Estendido leve',
+    name: '565mm Estriado',
     originalName: '565mm Fluted',
     slot: 'barrel',
     cost: 20,
@@ -1790,7 +1790,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-590mm-factory',
-    name: '590mm Estendido pesado',
+    name: '590mm Padrão',
     originalName: '590mm Factory',
     slot: 'barrel',
     cost: 10,
@@ -1801,7 +1801,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-6-fluted',
-    name: '6" Leve',
+    name: '6" Estriado',
     originalName: '6" Fluted',
     slot: 'barrel',
     cost: 10,
@@ -1812,7 +1812,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-6-standard',
-    name: '6" Curto',
+    name: '6" Padrão',
     originalName: '6" Standard',
     slot: 'barrel',
     cost: 10,
@@ -1823,7 +1823,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-6-5-extended',
-    name: '6,5" Curto',
+    name: '6,5" Estendido',
     originalName: '6.5" Extended',
     slot: 'barrel',
     cost: 15,
@@ -1834,7 +1834,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-6-75-factory',
-    name: '6,75" Curto',
+    name: '6,75" Padrão',
     originalName: '6.75" Factory',
     slot: 'barrel',
     cost: 10,
@@ -1845,7 +1845,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-6-8-factory',
-    name: '6,8" Curto',
+    name: '6,8" Padrão',
     originalName: '6.8" Factory',
     slot: 'barrel',
     cost: 10,
@@ -1856,7 +1856,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-6-8-fluted',
-    name: '6,8" Leve',
+    name: '6,8" Estriado',
     originalName: '6.8" Fluted',
     slot: 'barrel',
     cost: 20,
@@ -1867,7 +1867,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-600mm-cut',
-    name: '600mm Estendido pesado (Cut)',
+    name: '600mm Estendido (Cut)',
     originalName: '600mm Cut',
     slot: 'barrel',
     cost: 10,
@@ -1878,7 +1878,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-600mm-dmr',
-    name: '600mm Estendido pesado (DMR)',
+    name: '600mm Estendido (DMR)',
     originalName: '600mm DMR',
     slot: 'barrel',
     cost: 10,
@@ -1889,7 +1889,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-600mm-fluted',
-    name: '600mm Estendido leve',
+    name: '600mm Estriado',
     originalName: '600mm Fluted',
     slot: 'barrel',
     cost: 15,
@@ -1900,7 +1900,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-600mm-tabuk',
-    name: '600mm Estendido pesado',
+    name: '600mm Estendido',
     originalName: '600mm Tabuk',
     slot: 'barrel',
     cost: 15,
@@ -1911,7 +1911,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-612mm-vmw',
-    name: '612mm Estendido pesado',
+    name: '612mm Estendido',
     originalName: '612mm VMW',
     slot: 'barrel',
     cost: 10,
@@ -1922,7 +1922,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-620mm-classic',
-    name: '620mm Estendido pesado',
+    name: '620mm Estendido',
     originalName: '620mm Classic',
     slot: 'barrel',
     cost: 15,
@@ -1933,7 +1933,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-650mm-factory',
-    name: '650mm Estendido pesado',
+    name: '650mm Padrão',
     originalName: '650mm Factory',
     slot: 'barrel',
     cost: 10,
@@ -1944,7 +1944,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-650mm-fluted',
-    name: '650mm Estendido leve',
+    name: '650mm Estriado',
     originalName: '650mm Fluted',
     slot: 'barrel',
     cost: 20,
@@ -1955,7 +1955,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-660mm-vmw',
-    name: '660mm Estendido pesado',
+    name: '660mm Estendido',
     originalName: '660mm VMW',
     slot: 'barrel',
     cost: 10,
@@ -1966,7 +1966,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-7-7-factory',
-    name: '7,7" Curto',
+    name: '7,7" Padrão',
     originalName: '7.7" Factory',
     slot: 'barrel',
     cost: 10,
@@ -1988,7 +1988,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-730mm-3lr',
-    name: '730mm Estendido pesado',
+    name: '730mm Estendido',
     originalName: '730mm 3LR',
     slot: 'barrel',
     cost: 15,
@@ -1999,7 +1999,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-8-extended',
-    name: '8" Curto',
+    name: '8" Estendido',
     originalName: '8" Extended',
     slot: 'barrel',
     cost: 10,
@@ -2010,7 +2010,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-9-factory',
-    name: '9" Curto',
+    name: '9" Padrão',
     originalName: '9" Factory',
     slot: 'barrel',
     cost: 10,
@@ -2021,7 +2021,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'barrel-9-fluted',
-    name: '9" Leve',
+    name: '9" Estriado',
     originalName: '9" Fluted',
     slot: 'barrel',
     cost: 20,
@@ -3402,20 +3402,20 @@ export const ATTACHMENTS: Attachment[] = [
     originalName: 'Buckshot',
     slot: 'ammo',
     cost: 10,
-    description: 'Chumbo tradicional de escopeta.',
+    description: 'Padrão das escopetas: nuvem de bagos com espalhamento próprio.',
     mods: {  },
     compat: { weapons: ['18-5ks-k', 'db-12', 'm1014', 'm87a1'] },
     provenance: 'game',
   },
   {
     id: 'ammo-fmj',
-    name: 'Encamisada',
+    name: 'Padrão',
     originalName: 'FMJ',
     slot: 'ammo',
     cost: 5,
-    description: 'Sustenta o dano à distância.',
-    mods: { range: { mult: 1.15 }, velocity: { mult: 1.05 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm44', 'm45a1', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    description: 'Munição de série: vem montada e já está embutida nos números da arma.',
+    mods: {},
+    compat: { categories: ['ar', 'carbine', 'smg', 'lmg', 'dmr', 'sniper', 'pistol'] },
     provenance: 'game',
   },
   {
@@ -3424,20 +3424,20 @@ export const ATTACHMENTS: Attachment[] = [
     originalName: 'Flechette',
     slot: 'ammo',
     cost: 30,
-    description: 'Dardos: alcance maior, dano menor.',
+    description: 'Dardos: ferem através de cobertura e atrasam a regeneração do alvo.',
     mods: { range: { mult: 1.3 }, damage: { mult: 0.8 } },
     compat: { weapons: ['18-5ks-k', 'db-12', 'm1014', 'm87a1'] },
     provenance: 'game',
   },
   {
     id: 'ammo-frangible',
-    name: 'Frangível',
+    name: 'Frágil',
     originalName: 'Frangible',
     slot: 'ammo',
     cost: 20,
     description: 'Atrasa a regeneração de vida do alvo.',
     mods: { damage: { mult: 1.05 }, range: { mult: 0.85 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'grt-bc', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm417-a2', 'm433', 'm4a1', 'm60', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'tr-7', 'umg-40', 'usg-90', 'vcr-2'] },
+    compat: { categories: ['ar', 'carbine', 'smg', 'lmg', 'dmr', 'sniper', 'pistol'] },
     provenance: 'game',
   },
   {
@@ -3446,40 +3446,41 @@ export const ATTACHMENTS: Attachment[] = [
     originalName: 'Hollow Point',
     slot: 'ammo',
     cost: 20,
-    description: 'Melhora o dano em acerto na cabeça.',
-    mods: { headshot: { mult: 1.15 }, range: { mult: 0.88 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm357-trait', 'm417-a2', 'm433', 'm44', 'm45a1', 'm4a1', 'm60', 'nvo-228e', 'p18', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vz-61'] },
+    description: 'Mais dano em acerto na cabeça; alcance menor.',
+    mods: { range: { mult: 0.88 } },
+    headshotOverride: 1.5,
+    compat: { categories: ['ar', 'carbine', 'smg', 'lmg', 'dmr', 'pistol'] },
     provenance: 'game',
   },
   {
     id: 'ammo-match-grade',
-    name: 'Grau Competição',
+    name: 'Longo Alcance',
     originalName: 'Match Grade',
     slot: 'ammo',
     cost: 10,
-    description: 'Cartucho de precisão, agrupamento fechado.',
-    mods: { accuracy: { add: 8 }, verticalRecoil: { mult: 0.94 } },
-    compat: { weapons: ['interdictor', 'l115', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86'] },
-    provenance: 'game',
+    description: 'Munição de precisão: agrupamento fechado a distância.',
+    mods: { accuracy: { add: 8 }, verticalRecoil: { mult: 0.94 }, drag: { mult: 0.88 } },
+    compat: { categories: ['sniper', 'dmr'] },
+    provenance: 'curated',
   },
   {
     id: 'ammo-polymer-case',
-    name: 'Estojo Polimérico',
+    name: 'Leve',
     originalName: 'Polymer Case',
     slot: 'ammo',
     cost: 10,
-    description: 'Cartucho leve: acelera mira e deslocamento.',
+    description: 'Cartucho de polímero: acelera a mira e o deslocamento.',
     mods: { mobility: { add: 5 }, adsMs: { mult: 0.95 }, velocity: { mult: 0.94 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l85a3', 'm16a4', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'nvo-228e', 'pp-19', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'tr-7', 'usg-90', 'vcr-2'] },
+    compat: { categories: ['ar', 'lmg'] },
     provenance: 'game',
   },
   {
     id: 'ammo-slugs',
-    name: 'Balote',
+    name: 'Projétil Único',
     originalName: 'Slugs',
     slot: 'ammo',
     cost: 40,
-    description: 'Projétil único: alcance muito maior, sem espalhamento.',
+    description: 'Um projétil só: alcance e dano na cabeça bem maiores, sem espalhamento.',
     pelletsOverride: 1,
     mods: { range: { mult: 2.2 }, damage: { mult: 11 }, hipfire: { add: -10 } },
     compat: { weapons: ['18-5ks-k', 'db-12', 'm1014', 'm87a1'] },
@@ -3491,20 +3492,21 @@ export const ATTACHMENTS: Attachment[] = [
     originalName: 'Synthetic Tip',
     slot: 'ammo',
     cost: 30,
-    description: 'Trajetória mais reta e alcance maior.',
+    description: 'Trajetória mais reta e mais dano em acerto na cabeça.',
     mods: { velocity: { mult: 1.1 }, range: { mult: 1.06 } },
+    headshotOverride: 1.75,
     compat: { weapons: ['ak-205', 'b36a4', 'drs-iar', 'ef88', 'grt-cps', 'kts100-mk8', 'l85a3', 'lmr27', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'sl9', 'sor-556-mk2', 'umg-40', 'vssm'] },
     provenance: 'game',
   },
   {
     id: 'ammo-tungsten-core',
-    name: 'Núcleo de Tungstênio',
+    name: 'Penetração',
     originalName: 'Tungsten Core',
     slot: 'ammo',
     cost: 5,
-    description: 'Perfura material fino.',
+    description: 'Núcleo de tungstênio: atravessa material fino em troca de recuo.',
     mods: { range: { mult: 1.2 }, velocity: { mult: 1.1 }, verticalRecoil: { mult: 1.06 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm'] },
+    compat: { categories: ['ar', 'carbine', 'smg', 'lmg', 'dmr', 'sniper', 'pistol'] },
     provenance: 'game',
   },
   {

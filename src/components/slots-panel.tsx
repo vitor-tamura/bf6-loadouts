@@ -24,6 +24,7 @@ const STAT_LABEL: Record<StatKey, string> = {
   range: 'alcance',
   rpm: 'cadência',
   velocity: 'velocidade',
+  drag: 'arrasto',
   magazine: 'carregador',
   reload: 'recarga',
   adsMs: 'mira',
@@ -377,14 +378,17 @@ function SlotOptions({
         className="grid grid-cols-[repeat(auto-fill,minmax(84px,1fr))] gap-1.5"
         onMouseLeave={() => setHovered(null)}
       >
-        <li>
-          <OptionTile
-            slot={slot}
-            active={!chosenId}
-            onSelect={() => onSelect(null)}
-            onFocus={() => setHovered(null)}
-          />
-        </li>
+        {/* Munição não tem estado vazio: a arma sempre sai com a de série. */}
+        {slot !== 'ammo' && (
+          <li>
+            <OptionTile
+              slot={slot}
+              active={!chosenId}
+              onSelect={() => onSelect(null)}
+              onFocus={() => setHovered(null)}
+            />
+          </li>
+        )}
         {options.map((option) => (
           <li key={option.id}>
             <OptionTile

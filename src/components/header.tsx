@@ -16,8 +16,8 @@ import { seasonLabel, seasonOn } from '@/data/season';
  */
 
 const SECTIONS = [
-  { href: '/', name: 'Montar' },
-  { href: '/armas/', name: 'Todas as Armas' },
+  { href: '/', name: 'Todas as Armas' },
+  { href: '/montar/', name: 'Montar' },
   { href: '/comparar/', name: 'Comparar' },
 ];
 

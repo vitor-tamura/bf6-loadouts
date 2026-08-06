@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { ATTACHMENTS, ATTACHMENTS_BY_ID, attachmentsForWeapon, isCompatible } from '@/data/attachments';
 import { WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
+import { defaultAmmo, stripIncompatible, EMPTY_LOADOUT } from './loadout';
 import { budgetFor, POINT_BUDGET } from '@/data/classes';
 import {
   fitsBudget,
@@ -183,5 +184,46 @@ describe('comparação com a arma de fábrica', () => {
 
   it('não sinaliza mudança quando nada mudou', () => {
     expect(compareStat('rpm', 514, 514).changed).toBe(false);
+  });
+});
+
+describe('munição', () => {
+  it('deixa toda arma de fogo com a munição de série montada', () => {
+    for (const weapon of WEAPONS) {
+      const ammo = defaultAmmo(weapon);
+      if (weapon.category === 'melee') {
+        expect(ammo, weapon.name).toBeNull();
+        continue;
+      }
+      const attachment = ATTACHMENTS_BY_ID.get(ammo!)!;
+      expect(attachment, weapon.name).toBeDefined();
+      expect(isCompatible(attachment, weapon), weapon.name).toBe(true);
+      // De série já vem montada, então não altera número nenhum — mas ocupa
+      // pontos do orçamento como qualquer outra peça.
+      expect(Object.keys(attachment.mods), weapon.name).toHaveLength(0);
+      expect(attachment.cost, weapon.name).toBeGreaterThan(0);
+    }
+  });
+
+  it('repõe a munição ao limpar a montagem ou trocar de arma', () => {
+    const montado = stripIncompatible({ ...EMPTY_LOADOUT, weapon: 'ak4d', attachments: {} });
+    expect(montado.attachments.ammo).toBe('ammo-fmj');
+
+    const escopeta = stripIncompatible({ ...EMPTY_LOADOUT, weapon: 'm1014', attachments: {} });
+    expect(escopeta.attachments.ammo).toBe('ammo-buckshot');
+  });
+
+  it('fixa o dano na cabeça em vez de multiplicar o da arma', () => {
+    const pontaOca = ATTACHMENTS_BY_ID.get('ammo-hollow-point')!;
+    const sintetica = ATTACHMENTS_BY_ID.get('ammo-synthetic-tip')!;
+    // O valor é o mesmo em qualquer arma — é isso que "1,50x" quer dizer.
+    expect(calculateStats(ak4d, [pontaOca]).headshot).toBe(1.5);
+    expect(calculateStats(WEAPONS_BY_ID.get('b36a4')!, [sintetica]).headshot).toBe(1.75);
+  });
+
+  it('reduz o arrasto do projétil com a munição de longo alcance', () => {
+    const sniper = WEAPONS_BY_ID.get('sv-98')!;
+    const longoAlcance = ATTACHMENTS_BY_ID.get('ammo-match-grade')!;
+    expect(calculateStats(sniper, [longoAlcance]).drag).toBeLessThan(baseStats(sniper).drag);
   });
 });
