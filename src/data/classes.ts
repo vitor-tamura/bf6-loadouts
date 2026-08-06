@@ -1,4 +1,4 @@
-import type { PlayerClass, SlotDefinition, SlotId } from './types';
+import type { PlayerClass, SlotDefinition, SlotId, WeaponCategory } from './types';
 
 export const CLASSES: PlayerClass[] = [
   {
@@ -121,26 +121,34 @@ export const SLOTS_BY_ID = new Map<SlotId, SlotDefinition>(SLOTS.map((s) => [s.i
 /** Orçamento de personalização do jogo. */
 export const POINT_BUDGET = 100;
 
-export const CATEGORY_NAMES: Record<string, string> = {
+/*
+ * Nomes de categoria na tela.
+ *
+ * O tipo é `Record<WeaponCategory, …>` de propósito, e não `Record<string, …>`:
+ * com a chave frouxa, uma categoria renomeada some do mapa sem o compilador
+ * dizer nada, e o chip aparece vazio na interface. Foi exatamente o que
+ * aconteceu quando os literais passaram para o inglês.
+ */
+export const CATEGORY_NAMES: Record<WeaponCategory, string> = {
   ar: 'Fuzis de Assalto',
-  carabina: 'Carabinas',
+  carbine: 'Carabinas',
   smg: 'Submetralhadoras',
   lmg: 'Metralhadoras',
   dmr: 'Rifles de Precisão Semiautomáticos',
   sniper: 'Rifles de Precisão',
-  escopeta: 'Escopetas',
-  pistola: 'Pistolas',
-  'melee': 'Corpo a Corpo',
+  shotgun: 'Escopetas',
+  pistol: 'Pistolas',
+  melee: 'Corpo a Corpo',
 };
 
-export const SHORT_CATEGORY_NAMES: Record<string, string> = {
+export const SHORT_CATEGORY_NAMES: Record<WeaponCategory, string> = {
   ar: 'Assalto',
-  carabina: 'Carabina',
+  carbine: 'Carabina',
   smg: 'SMG',
   lmg: 'LMG',
   dmr: 'DMR',
   sniper: 'Sniper',
-  escopeta: 'Escopeta',
-  pistola: 'Pistola',
-  'melee': 'Corpo a corpo',
+  shotgun: 'Escopeta',
+  pistol: 'Pistola',
+  melee: 'Corpo a corpo',
 };

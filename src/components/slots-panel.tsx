@@ -176,7 +176,7 @@ export function SlotsPanel({
               mais de duas listas montadas ao mesmo tempo.
             */}
             {mounted === slot && (
-              <div className="collapse col-span-full" data-open={expanded}>
+              <div className="disclosure col-span-full" data-open={expanded}>
                 <div>
                 <div className="card bevel-sm mt-1 p-2" style={{ borderColor: 'var(--accent)' }}>
                   <div className="mb-2 flex items-baseline justify-between gap-2">

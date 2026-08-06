@@ -7,7 +7,7 @@ import { WeaponPreview } from '@/components/weapon-preview';
 import { CATEGORY_NAMES, SHORT_CATEGORY_NAMES } from '@/data/classes';
 import { CATEGORY_ORDER, WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
 import { attachmentsForWeapon } from '@/data/attachments';
-import type { Weapon } from '@/data/types';
+import type { Weapon, WeaponCategory } from '@/data/types';
 import {
   analysisDistance,
   damagePerSecond,
@@ -225,7 +225,7 @@ export default function ComparePage() {
   const [idB, setIdB] = useState('m4a1');
   const [sortKey, setSortKey] = useState<GridKey>('dps');
   const [sortDirection, setSortDirection] = useState<1 | -1>(-1);
-  const [categoryFilter, setCategoryFilter] = useState<string>('all');
+  const [categoryFilter, setCategoryFilter] = useState<WeaponCategory | 'all'>('all');
 
   const weaponA = WEAPONS_BY_ID.get(idA)!;
   const weaponB = WEAPONS_BY_ID.get(idB)!;

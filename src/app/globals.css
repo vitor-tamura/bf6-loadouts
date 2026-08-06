@@ -236,17 +236,16 @@
       filter: brightness(1.22);
     }
 
-    /* O cartão sobe de leve; o link e o chip só clareiam. Levantar tudo faria
-       o cabeçalho inteiro tremer a cada passada do ponteiro. */
+    /* O cartão ganha sombra, e só. Deslocá-lo faria a grade inteira tremer a
+       cada passada do ponteiro — o realce tem de ser lido sem mexer no lugar
+       das coisas. */
     .card:hover {
       box-shadow: 0 6px 20px -12px color-mix(in oklab, var(--accent) 55%, transparent);
-      transform: translateY(-1px);
     }
   }
 
   button:not(:disabled):active {
     filter: brightness(0.94);
-    transform: translateY(0) scale(0.985);
   }
 }
 
@@ -347,7 +346,7 @@
  * `0fr` a `1fr` interpola, e o conteúdo dentro do `overflow: hidden` acompanha.
  * Nenhum número mágico, nenhuma medição em JavaScript.
  */
-.collapse {
+.disclosure {
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
@@ -356,12 +355,12 @@
     opacity 180ms var(--ease-out);
 }
 
-.collapse > * {
+.disclosure > * {
   overflow: hidden;
   min-height: 0;
 }
 
-.collapse[data-open='true'] {
+.disclosure[data-open='true'] {
   grid-template-rows: 1fr;
   opacity: 1;
 }
@@ -373,7 +372,7 @@
  * segundo render só para trocar um atributo.
  */
 @starting-style {
-  .collapse[data-open='true'] {
+  .disclosure[data-open='true'] {
     grid-template-rows: 0fr;
     opacity: 0;
   }
