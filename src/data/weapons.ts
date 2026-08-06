@@ -974,7 +974,7 @@ const SMGS: WeaponEntry[] = [
     name: 'PP-19',
     category: 'smg',
     archetype: 'smg-compact',
-    summary: 'Carregador helicoidal da Temporada 3: 53 tiros e tiro de quadril confiável.',
+    summary: 'Carregador helicoidal da Temporada 3: 53 tiros e tiro sem visada confiável.',
     damage: [
       [24, 0],
       [20.7, 8],
@@ -1369,7 +1369,7 @@ const DMRS: WeaponEntry[] = [
     name: 'SVDM',
     category: 'dmr',
     archetype: 'dmr',
-    summary: 'Dragunov moderno: alcance longo, recuo alto e recuperação lenta entre tiros.',
+    summary: 'Dragunov moderno: alcance longo, recuo alto e recuperação lenta entre disparos.',
     damage: [
       [33.4, 0],
       [30, 50],

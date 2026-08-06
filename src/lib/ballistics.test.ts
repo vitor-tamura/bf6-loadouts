@@ -41,7 +41,7 @@ describe('tiros e tempo para eliminar', () => {
   });
 
   it('conta apenas os intervalos entre disparos', () => {
-    // 514 RPM → 116,7 ms entre tiros; quatro tiros levam três intervalos.
+    // 514 RPM → 116,7 ms entre disparos; quatro tiros levam três intervalos.
     expect(timeToKill(ak4d, 0)).toBeCloseTo(3 * (60_000 / 514), 3);
   });
 

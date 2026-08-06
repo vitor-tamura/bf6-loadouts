@@ -73,7 +73,7 @@ verde ou vermelha conforme a mudança favoreça ou não o jogador:
 
 - Tempo para matar, tiros para matar, tiros na cabeça, alcance efetivo e dano por
   segundo;
-- Precisão, controle, mobilidade e tiro de quadril, em barras de 0 a 100, com a
+- Precisão, controle, mobilidade e tiro sem visada, em barras de 0 a 100, com a
   marca de onde estava o valor original;
 - Dano de perto, cadência, velocidade da bala, capacidade do carregador, recarga
   tática e com a arma vazia, tempo de mira, troca de arma e recuo vertical e

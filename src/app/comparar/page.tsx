@@ -44,7 +44,7 @@ function scores(stats: EffectiveStats): Record<string, number> {
     Alcance: range === 0 ? 100 : clamp((range / 90) * 100),
     Precisão: clamp(stats.accuracy),
     Controle: clamp(stats.control),
-    Quadril: clamp(stats.hipfire),
+    'Sem visada': clamp(stats.hipfire),
     Mobilidade: clamp(stats.mobility),
   };
 }

@@ -31,7 +31,7 @@ const STAT_LABEL: Record<StatKey, string> = {
   accuracy: 'precisão',
   control: 'controle',
   mobility: 'mobilidade',
-  hipfire: 'tiro de quadril',
+  hipfire: 'tiro sem visada',
   verticalRecoil: 'recuo vertical',
   horizontalRecoil: 'recuo horizontal',
   headshot: 'dano na cabeça',
