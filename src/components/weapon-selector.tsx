@@ -160,8 +160,12 @@ export function WeaponList({
   selected: string | null;
   onSelect: (id: string) => void;
 }) {
+  const equipada = selected ? WEAPONS.find((w) => w.id === selected) : null;
+
   return (
     <div className="space-y-4">
+      {equipada && <EquippedWeapon weapon={equipada} />}
+
       {[...filter.byCategory.entries()].map(([category, weaponList]) => (
         <div key={category}>
           <h3 className="label mb-1.5">{CATEGORY_NAMES[category]}</h3>
@@ -244,6 +248,47 @@ function FilterChip({
         </span>
       )}
     </button>
+  );
+}
+
+/**
+ * A arma equipada, em bloco próprio no alto da lista.
+ *
+ * Rolando sessenta e três armas, a escolhida some da vista — e ela é o assunto
+ * de tudo que está à direita na tela. Aqui ela fica presa no topo, com a foto
+ * grande e os números que identificam a arma, para o jogador nunca precisar
+ * procurar o que está montando.
+ */
+function EquippedWeapon({ weapon }: { weapon: Weapon }) {
+  const playerClass = CLASSES.find((c) => c.id === weapon.signatureClass);
+
+  return (
+    <div
+      className="bevel-sm sticky top-0 z-10 p-2.5"
+      style={{
+        background: 'color-mix(in oklab, var(--accent) 14%, var(--surface))',
+        border: '1px solid var(--accent)',
+        boxShadow: '0 8px 20px color-mix(in oklab, var(--accent) 18%, transparent)',
+      }}
+    >
+      <div className="flex items-center justify-between gap-2">
+        <span className="label" style={{ color: 'var(--accent)' }}>
+          Montando agora
+        </span>
+        <SeasonTag season={weapon.season} size="sm" />
+      </div>
+
+      <WeaponThumb weapon={weapon} className="my-1 h-16 w-full object-contain" />
+
+      <p className="font-display truncate text-lg leading-tight font-bold tracking-wide">
+        {weapon.name}
+      </p>
+      <p className="flex flex-wrap items-center gap-x-2 text-[11px]" style={{ color: 'var(--text-dim)' }}>
+        {playerClass && <span style={{ color: playerClass.color }}>{playerClass.name}</span>}
+        <span>{CATEGORY_NAMES[weapon.category]}</span>
+        {weapon.category !== 'melee' && <span className="font-mono">{weapon.rpm} RPM</span>}
+      </p>
+    </div>
   );
 }
 
@@ -333,7 +378,7 @@ function WeaponCard({
  * uma arma nova ainda sem arte —, o espaço não é reservado: uma moldura vazia
  * repetida em toda a lista pesa mais do que ajuda.
  */
-function WeaponThumb({ weapon }: { weapon: Weapon }) {
+function WeaponThumb({ weapon, className = 'h-9 w-16' }: { weapon: Weapon; className?: string }) {
   const [broken, setBroken] = useState(false);
   const ref = useRef<HTMLImageElement>(null);
 
@@ -356,7 +401,7 @@ function WeaponThumb({ weapon }: { weapon: Weapon }) {
       aria-hidden
       loading="lazy"
       onError={() => setBroken(true)}
-      className="h-9 w-16 shrink-0 object-contain"
+      className={`shrink-0 object-contain ${className}`}
     />
   );
 }
