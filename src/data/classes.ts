@@ -27,8 +27,8 @@ export const CLASSES: PlayerClass[] = [
     summary:
       'Especialista em veículos. Repara os aliados, destrói os inimigos e nega passagem com minas.',
     role: 'Dominar o combate de veículos',
-    trait: 'Manejo aprimorado de carabinas e reparo mais veloz.',
-    signatureCategory: 'carbine',
+    trait: 'Manejo aprimorado de submetralhadoras e reparo mais veloz.',
+    signatureCategory: 'smg',
     color: '#22c3d6',
   },
   {

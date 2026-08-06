@@ -12,8 +12,8 @@ Gerado por `node scripts/weapons-doc.mjs`.
 | Categoria | Original | Classe-assinatura | Armas |
 | --- | --- | --- | ---: |
 | Fuzis de Assalto | Assault Rifles | Assalto | 11 |
-| Carabinas | Carbines | Engenheiro | 9 |
-| Submetralhadoras | SMGs | — | 10 |
+| Carabinas | Carbines | — | 9 |
+| Submetralhadoras | SMGs | Engenheiro | 10 |
 | Metralhadoras | LMGs | Suporte | 10 |
 | Rifles de Precisão Semiautomáticos | DMRs | Reconhecimento | 6 |
 | Rifles de Precisão | Sniper Rifles | Reconhecimento | 6 |
@@ -42,7 +42,7 @@ Gerado por `node scripts/weapons-doc.mjs`.
 
 ## Carabinas
 
-*Carbines* — 9 weapons, arma-assinatura do Engenheiro.
+*Carbines* — 9 weapons.
 
 | Arma | Entrada | Dano | Queda | RPM | Velocidade | Carregador |
 | --- | --- | --- | --- | ---: | ---: | ---: |
@@ -58,7 +58,7 @@ Gerado por `node scripts/weapons-doc.mjs`.
 
 ## Submetralhadoras
 
-*SMGs* — 10 weapons.
+*SMGs* — 10 weapons, arma-assinatura do Engenheiro.
 
 | Arma | Entrada | Dano | Queda | RPM | Velocidade | Carregador |
 | --- | --- | --- | --- | ---: | ---: | ---: |

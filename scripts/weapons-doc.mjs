@@ -17,8 +17,8 @@ const readData = (arquivo) => readFileSync(join(root, 'src/data', arquivo), 'utf
 
 const CATEGORIES = [
   ['ar', 'Fuzis de Assalto', 'Assault Rifles', 'Assalto'],
-  ['carbine', 'Carabinas', 'Carbines', 'Engenheiro'],
-  ['smg', 'Submetralhadoras', 'SMGs', '—'],
+  ['carbine', 'Carabinas', 'Carbines', '—'],
+  ['smg', 'Submetralhadoras', 'SMGs', 'Engenheiro'],
   ['lmg', 'Metralhadoras', 'LMGs', 'Suporte'],
   ['dmr', 'Rifles de Precisão Semiautomáticos', 'DMRs', 'Reconhecimento'],
   ['sniper', 'Rifles de Precisão', 'Sniper Rifles', 'Reconhecimento'],

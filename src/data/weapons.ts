@@ -49,10 +49,10 @@ const PISTOL_SLOTS: SlotId[] = [
 const CLASS_BY_CATEGORY: Record<WeaponCategory, ClassId | null> = {
   ar: 'assault',
   lmg: 'support',
-  carbine: 'engineer',
+  smg: 'engineer',
   sniper: 'recon',
   dmr: 'recon',
-  smg: null,
+  carbine: null,
   shotgun: null,
   pistol: null,
   'melee': null,
