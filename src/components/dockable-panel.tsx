@@ -107,19 +107,25 @@ export function DockablePanel({
       >
         <h2 className="label flex-1 truncate">{title}</h2>
 
-        <PanelButton
-          label={encolhido ? 'Expandir a lista' : 'Encolher a lista'}
-          onClick={() => onModeChange(encolhido ? 'fixo' : 'encolhido')}
-        >
-          {encolhido ? '▢' : '—'}
-        </PanelButton>
+        {/*
+          Só no computador: numa tela de celular não há para onde arrastar, e a
+          navegação por abas já resolve a disputa por espaço.
+        */}
+        <span className="hidden items-center gap-1 lg:flex">
+          <PanelButton
+            label={encolhido ? 'Expandir a lista' : 'Encolher a lista'}
+            onClick={() => onModeChange(encolhido ? 'fixo' : 'encolhido')}
+          >
+            {encolhido ? '▢' : '—'}
+          </PanelButton>
 
-        <PanelButton
-          label={solto ? 'Prender a lista na coluna' : 'Soltar a lista da página'}
-          onClick={() => onModeChange(solto ? 'fixo' : 'solto')}
-        >
-          {solto ? '⇱' : '⇲'}
-        </PanelButton>
+          <PanelButton
+            label={solto ? 'Prender a lista na coluna' : 'Soltar a lista da página'}
+            onClick={() => onModeChange(solto ? 'fixo' : 'solto')}
+          >
+            {solto ? '⇱' : '⇲'}
+          </PanelButton>
+        </span>
       </header>
 
       {!encolhido && <div className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto p-3">{children}</div>}
