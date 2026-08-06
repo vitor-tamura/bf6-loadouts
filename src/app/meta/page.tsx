@@ -97,6 +97,18 @@ export default function MetaPage() {
                 <span className="font-mono text-[11px]" style={{ color: 'var(--text-dim)' }}>
                   [{i + 1}]
                 </span>
+                {f.pais === 'BR' && (
+                  <span
+                    className="bevel-sm px-1 py-px text-[9px] font-semibold"
+                    title="Publicação brasileira"
+                    style={{
+                      color: 'var(--accent)',
+                      border: '1px solid color-mix(in oklab, var(--accent) 45%, transparent)',
+                    }}
+                  >
+                    BR
+                  </span>
+                )}
                 <a
                   href={f.url}
                   target="_blank"
@@ -107,12 +119,18 @@ export default function MetaPage() {
                   {f.nome}
                 </a>
                 <span style={{ color: 'var(--text-dim)' }}>· {dataCurta(f.data)}</span>
+                {f.janela === 'lancamento' && (
+                  <span style={{ color: 'var(--text-dim)' }}>· leitura do lançamento</span>
+                )}
               </li>
             ))}
           </ul>
-          <p className="mt-2 text-[11px]" style={{ color: 'var(--text-dim)' }}>
-            Escopetas e pistolas não aparecem porque nenhuma das fontes as ranqueia. Preferimos o
-            vazio a uma posição inventada.
+          <p className="mt-2 max-w-[80ch] text-[11px] leading-relaxed" style={{ color: 'var(--text-dim)' }}>
+            As publicações brasileiras vêm primeiro, mas as duas que ranqueiam armas são de outubro
+            de 2025 — do lançamento, quatro temporadas atrás. Elas entram para mostrar o que já era
+            forte lá atrás e continua sendo; quem decide a posição de hoje são as leituras feitas
+            depois do patch da Temporada 4. Escopetas e pistolas não aparecem porque nenhuma das
+            fontes as ranqueia: preferimos o vazio a uma posição inventada.
           </p>
         </section>
 

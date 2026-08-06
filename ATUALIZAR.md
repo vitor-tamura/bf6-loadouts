@@ -110,10 +110,15 @@ publica. Então o que vale é o que os portais especializados escrevem.
 Quando o jogo receber atualização de balanceamento — que é quando o catálogo
 público muda e o PR automático aparece:
 
-1. Procure guias e matérias publicados **depois** do patch, em portais que
-   ranqueiam armas por classe (TheGamer, KeenGamer, Nerdschalk, PlayerAuctions,
-   Boostmatch e afins). O que interessa é a matéria com data e nome de arma, não
-   vídeo nem opinião solta de fórum.
+1. Procure guias e matérias publicados **depois** do patch. Publicação
+   brasileira tem prioridade — Critical Hits, Omelete, The Enemy, Mais Esports —
+   e aparece primeiro na tela, com selo. Fora daqui, TheGamer, KeenGamer,
+   Nerdschalk, PlayerAuctions, Boostmatch e afins. O que interessa é a matéria
+   com data e nome de arma, não vídeo nem opinião solta de fórum.
+   Prioridade não vale contra o calendário: fonte anterior ao patch entra como
+   `janela: 'lancamento'`, para mostrar o que já era forte antes, e não decide
+   posição no meta de hoje. Em agosto de 2026, as duas brasileiras que ranqueiam
+   armas eram de outubro de 2025 — quatro temporadas atrás.
 2. Cruze pelo menos duas fontes antes de mover uma arma. Uma citação isolada
    entra como menção, não como destaque.
 3. Atualize `ATUALIZADO_EM`, `TEMPORADA_DO_META` e a lista `FONTES` — cada fonte
