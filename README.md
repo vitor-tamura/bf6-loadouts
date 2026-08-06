@@ -53,6 +53,17 @@ npm run build
 npx serve out    # conferência local do build
 ```
 
+### Branches e versões
+
+Trabalho novo entra em `dev` e só vai para `main` depois de conferido — `main` é
+o que se publica. A sincronização automática de dados abre o Pull Request contra
+`dev` pelo mesmo motivo: dado de jogo também passa por teste.
+
+A release sai da versão, não do push. Ao promover para `main` com um `version`
+novo no `package.json`, o Actions cria a tag `vX.Y.Z` e publica a release com os
+commits desde a anterior; promoção que não mexe na versão não gera release
+nenhuma.
+
 ## Stack
 
 Next.js 16 (App Router, exportação estática) · TypeScript · Tailwind CSS 4 ·

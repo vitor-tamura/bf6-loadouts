@@ -1,0 +1,53 @@
+# Publica uma release sempre que a versão do package.json muda na main.
+#
+# O gatilho é a versão, não o push. Promover trabalho de `dev` para `main` não
+# gera release sozinho — gera quando você decide que aquilo é uma versão nova e
+# edita o campo `version`. Assim a lista de releases conta a história das
+# entregas, e não a de cada promoção.
+
+name: Publicar release
+
+on:
+  push:
+    branches: [main]
+    paths: ['package.json']
+
+permissions:
+  contents: write
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # As notas saem dos commits desde a tag anterior; com o checkout raso
+          # padrão não há histórico de onde montá-las.
+          fetch-depth: 0
+
+      - name: Ler a versão declarada
+        id: versao
+        run: |
+          echo "numero=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
+
+      # O package.json também muda por dependência. Sem esta guarda, qualquer
+      # bump de lib tentaria republicar a versão em vigor e o job falharia.
+      - name: Conferir se a versão é inédita
+        id: tag
+        run: |
+          if git rev-parse -q --verify "refs/tags/v${{ steps.versao.outputs.numero }}" >/dev/null; then
+            echo "Tag v${{ steps.versao.outputs.numero }} já existe — nada a publicar."
+            echo 'nova=false' >> "$GITHUB_OUTPUT"
+          else
+            echo 'nova=true' >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Criar a tag e a release
+        if: steps.tag.outputs.nova == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "v${{ steps.versao.outputs.numero }}" \
+            --title "v${{ steps.versao.outputs.numero }}" \
+            --target "${{ github.sha }}" \
+            --generate-notes
