@@ -1,4 +1,4 @@
-import { ATTACHMENTS_BY_ID, isCompatible } from '@/data/attachments';
+import { ATTACHMENTS_BY_ID, attachmentsForWeapon, isCompatible } from '@/data/attachments';
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import { GADGETS_BY_ID } from '@/data/gadgets';
 import type { Attachment, Weapon, ClassId, SlotId } from '@/data/types';
@@ -40,12 +40,40 @@ export const EMPTY_LOADOUT: Loadout = {
  *
  * O slot de munição nunca fica vazio no jogo: quem não escolhe nada está com a
  * de série — encamisada nas armas de projétil único, chumbo grosso nas
- * escopetas. Ela não custa pontos e não altera número nenhum, porque as
- * estatísticas da arma já foram medidas com ela.
+ * escopetas. Ela não altera número nenhum, porque as estatísticas da arma já
+ * foram medidas com ela, mas ocupa pontos do orçamento como qualquer peça.
  */
 export function defaultAmmo(weapon: Weapon): string | null {
   if (!weapon.slots.includes('ammo')) return null;
   return weapon.category === 'shotgun' ? 'ammo-buckshot' : 'ammo-fmj';
+}
+
+/**
+ * Mira que já vem na arma.
+ *
+ * Toda arma sai de fábrica enxergando alguma coisa: a alça de ferro, por cinco
+ * pontos. Sete não a aceitam — os seis rifles de precisão, que nascem com
+ * luneta, e a UMG-40, que traz alça própria —, e nessas vale a mira mais barata
+ * que a arma aceita.
+ */
+export function defaultSight(weapon: Weapon): string | null {
+  if (!weapon.slots.includes('sight')) return null;
+
+  const iron = ATTACHMENTS_BY_ID.get('sight-iron-sights');
+  if (iron && isCompatible(iron, weapon)) return iron.id;
+
+  // A lista de cada slot vem ordenada por custo, então a primeira é a mais barata.
+  return attachmentsForWeapon(weapon).get('sight')?.[0]?.id ?? null;
+}
+
+/** Tudo que a arma já traz montada antes de qualquer escolha do jogador. */
+export function factoryAttachments(weapon: Weapon): Partial<Record<SlotId, string>> {
+  const montadas: Partial<Record<SlotId, string>> = {};
+  const ammo = defaultAmmo(weapon);
+  const sight = defaultSight(weapon);
+  if (ammo) montadas.ammo = ammo;
+  if (sight) montadas.sight = sight;
+  return montadas;
 }
 
 /** Lista de acessórios escolhidos, na ordem dos slots da arma. */
@@ -108,10 +136,11 @@ function keepValidAttachments(
     }
   }
 
-  // Trocar de arma, abrir um link antigo ou limpar a montagem não deixa a arma
-  // sem munição: ela volta para a de série.
-  const ammo = defaultAmmo(weapon);
-  if (ammo && !kept.ammo) kept.ammo = ammo;
+  // Trocar de arma, abrir um link antigo ou limpar a montagem não deixa slot de
+  // fábrica vazio: mira e munição voltam para o que vem na arma.
+  for (const [slot, id] of Object.entries(factoryAttachments(weapon)) as [SlotId, string][]) {
+    if (!kept[slot]) kept[slot] = id;
+  }
 
   return kept;
 }

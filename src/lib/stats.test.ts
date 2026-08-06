@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { ATTACHMENTS, ATTACHMENTS_BY_ID, attachmentsForWeapon, isCompatible } from '@/data/attachments';
 import { WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
-import { defaultAmmo, stripIncompatible, EMPTY_LOADOUT } from './loadout';
+import { defaultAmmo, defaultSight, stripIncompatible, EMPTY_LOADOUT } from './loadout';
 import { budgetFor, POINT_BUDGET } from '@/data/classes';
 import {
   fitsBudget,
@@ -203,6 +203,22 @@ describe('munição', () => {
       expect(Object.keys(attachment.mods), weapon.name).toHaveLength(0);
       expect(attachment.cost, weapon.name).toBeGreaterThan(0);
     }
+  });
+
+  it('deixa toda arma de fogo enxergando alguma coisa', () => {
+    for (const weapon of WEAPONS) {
+      if (weapon.category === 'melee') continue;
+      const sight = defaultSight(weapon);
+      expect(sight, weapon.name).toBeTruthy();
+      const attachment = ATTACHMENTS_BY_ID.get(sight!)!;
+      expect(isCompatible(attachment, weapon), weapon.name).toBe(true);
+      // A alça de ferro é a de série; onde a arma não a aceita — rifles de
+      // precisão e a UMG-40 —, vale a mira mais barata que ela aceita.
+      const opcoes = attachmentsForWeapon(weapon).get('sight')!;
+      expect(attachment.cost, weapon.name).toBe(opcoes[0].cost);
+    }
+    expect(defaultSight(WEAPONS_BY_ID.get('ak4d')!)).toBe('sight-iron-sights');
+    expect(defaultSight(WEAPONS_BY_ID.get('sv-98')!)).not.toBe('sight-iron-sights');
   });
 
   it('repõe a munição ao limpar a montagem ou trocar de arma', () => {
