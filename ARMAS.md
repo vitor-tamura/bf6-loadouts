@@ -15,7 +15,7 @@ Gerado por `node scripts/weapons-doc.mjs`.
 | Carabinas | Carbines | — | 9 |
 | Submetralhadoras | SMGs | Engenheiro | 10 |
 | Metralhadoras | LMGs | Suporte | 10 |
-| Rifles de Precisão Semiautomáticos | DMRs | Reconhecimento | 6 |
+| Rifles de Precisão Semiautomáticos | DMRs | — | 6 |
 | Rifles de Precisão | Sniper Rifles | Reconhecimento | 6 |
 | Escopetas | Shotguns | — | 4 |
 | Pistolas | Sidearms | — | 7 |
@@ -92,7 +92,7 @@ Gerado por `node scripts/weapons-doc.mjs`.
 
 ## Rifles de Precisão Semiautomáticos
 
-*DMRs* — 6 weapons, arma-assinatura do Reconhecimento.
+*DMRs* — 6 weapons.
 
 | Arma | Entrada | Dano | Queda | RPM | Velocidade | Carregador |
 | --- | --- | --- | --- | ---: | ---: | ---: |
