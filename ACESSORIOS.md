@@ -1,6 +1,6 @@
 # Acessórios
 
-Relação completa das **317 peças** do montador, na ordem em que os slots
+Relação completa das **331 peças** do montador, na ordem em que os slots
 aparecem na interface.
 
 Nome, slot, custo em pontos e compatibilidade vêm do catálogo do bf6loadouts.com,
@@ -14,10 +14,10 @@ Gerado por `node scripts/attachments-doc.mjs`.
 
 | Slot | Original | Peças |
 | --- | --- | ---: |
-| [Mira](#mira) | Sight | 40 |
+| [Mira](#mira) | Sight | 41 |
 | [Boca](#boca) | Muzzle | 13 |
-| [Cano](#cano) | Barrel | 152 |
-| [Acoplamento Inferior](#acoplamento-inferior) | Underbarrel | 21 |
+| [Cano](#cano) | Barrel | 163 |
+| [Acoplamento Inferior](#acoplamento-inferior) | Underbarrel | 23 |
 | [Carregador](#carregador) | Magazine | 51 |
 | [Munição](#municao) | Ammunition | 10 |
 | [Ergonomia](#ergonomia) | Ergonomics | 6 |
@@ -27,7 +27,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 
 ## Mira
 
-*Sight* — 40 peças.
+*Sight* — 41 peças.
 
 | Peça | Original | Pts | Armas | Efeito |
 | --- | --- | ---: | --- | --- |
@@ -60,6 +60,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | SSDS 6.00x | SSDS 6.00x | 10 | 12 weapons | Mira com ampliação de 6.0×. |
 | ST Prism 5.00x | ST Prism 5.00x | 10 | 12 weapons | Mira com ampliação de 5.0×. |
 | SU-123 1.50x | SU-123 1.50x | 10 | 45 weapons | Mira com ampliação de 1.5×. |
+| TODO: traduzir | R-VPS 10.00x | 10 | 8 weapons | TODO: descrever em português. |
 | SU-230 LPVO | SU-230 LPVO | 20 | 6 weapons | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
 | 1P88 Variável | 1P88 Variable | 25 | 12 weapons | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
 | DVO LPVO | DVO LPVO | 25 | 32 weapons | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
@@ -90,14 +91,15 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | Supressor Padrão | Standard Suppressor | 20 | quase showAll (57) | Abafa o disparo e apaga a marcação, de perto e de longe. Piora o tiro sem visada. |
 | Supressor Longo | Long Suppressor | 25 | 41 weapons | O mais silencioso: recuo mais firme, em troca de mira lenta e mais oscilação. |
 | Supressor Aliviado | Lightened Suppressor | 30 | 45 weapons | Silêncio com o recuo mais firme dos supressores; o preço é o tiro sem visada. |
-| Supressor CQB | CQB Suppressor | 30 | 35 weapons | Silêncio sem penalidade de manejo — e sem ganho de recuo em troca. |
+| Supressor para Curta Distância | CQB Suppressor | 30 | 35 weapons | Silêncio sem penalidade de manejo — e sem ganho de recuo em troca. |
 
 ## Cano
 
-*Barrel* — 152 peças.
+*Barrel* — 163 peças.
 
 | Peça | Original | Pts | Armas | Efeito |
 | --- | --- | ---: | --- | --- |
+| 22" Estendido | 22" Factory | 5 | M39 EMR | Cano longo: acelera a bala e estica o alcance. |
 | 10,5" Padrão | 10.5" Factory | 10 | QBZ-192 | Cano curto: mira e movimento mais rápidos. |
 | 10" Padrão (Full) | 10" Full | 10 | GRT-BC | Cano curto: mira e movimento mais rápidos. |
 | 11" Pesado | 11" Heavy | 10 | SL9 | Massa extra na frente: agrupa melhor em fogo contínuo. |
@@ -116,7 +118,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | 17" Padrão (Fábrica) | 17" Factory | 10 | M/60, TR-7 | Cano longo: acelera a bala e estica o alcance. |
 | 18,5" Padrão | 18.5" Factory | 10 | M1014 | Cano longo: acelera a bala e estica o alcance. |
 | 18,9" Padrão | 18.9" Factory | 10 | DB-12 | Cano longo: acelera a bala e estica o alcance. |
-| 18" Curto | 18" EBR | 10 | M39 EMR | Cano longo: acelera a bala e estica o alcance. |
+| 18" Básico | 18" EBR | 10 | M39 EMR | Cano longo: acelera a bala e estica o alcance. |
 | 18" Curto (Govt.) | 18" Govt. | 10 | M16A4 | Cano longo: acelera a bala e estica o alcance. |
 | 18" Curto (SPR) | 18" SPR | 10 | M16A4 | Cano longo: acelera a bala e estica o alcance. |
 | 18" Estendido | 18" US | 10 | VCR-2 | Cano longo: acelera a bala e estica o alcance. |
@@ -133,7 +135,6 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | 200mm Padrão (Fábrica) | 200mm Factory | 10 | UMG-40 | Cano curto: mira e movimento mais rápidos. |
 | 21,5" Padrão | 21.5" Factory | 10 | LMR27, VSSM | Cano longo: acelera a bala e estica o alcance. |
 | 22" Estendido | 22" E3 Long | 10 | M/60 | Cano longo: acelera a bala e estica o alcance. |
-| 22" Padrão | 22" Factory | 10 | M39 EMR | Cano longo: acelera a bala e estica o alcance. |
 | 225mm Padrão | 225mm Factory | 10 | PW5A3 | Cano curto: mira e movimento mais rápidos. |
 | 24" Estendido | 24" Bravo | 10 | M240L | Cano longo: acelera a bala e estica o alcance. |
 | 24" Padrão | 24" Full | 10 | M2010 ESR, Mini Scout | Cano longo: acelera a bala e estica o alcance. |
@@ -187,6 +188,8 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | 9" Pesado | 9" Heavy | 10 | SL9 | Massa extra na frente: agrupa melhor em fogo contínuo. |
 | Padrão (Cryogenic) | Cryogenic | 10 | M16A4 | Cano da arma. |
 | Pesado | IAR Heavy | 10 | SOR-556 Mk2 | Massa extra na frente: agrupa melhor em fogo contínuo. |
+| TODO: traduzir | 305mm Custom-H | 10 | UMG-40 | TODO: descrever em português. |
+| TODO: traduzir | 407mm CIV-S | 10 | USG-90 | TODO: descrever em português. |
 | 11,5" Curto | 11.5" Commando | 15 | BROD 3, M4A1, SOR-300SC | Cano de comprimento intermediário. |
 | 11" Estendido | 11" Extended | 15 | SL9 | Cano curto: mira e movimento mais rápidos. |
 | 12" Curto | 12" Assaulter | 15 | M417 A2 | Cano de comprimento intermediário. |
@@ -226,6 +229,11 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | 620mm Estendido | 620mm Classic | 15 | SVDM | Cano longo: acelera a bala e estica o alcance. |
 | 730mm Estendido | 730mm 3LR | 15 | SV-98 | Cano longo: acelera a bala e estica o alcance. |
 | Estendido | Extended Barrel | 15 | SCW-10 | Cano da arma. |
+| TODO: traduzir | 305mm Custom | 15 | UMG-40 | TODO: descrever em português. |
+| TODO: traduzir | 330mm MK3 | 15 | KTS100 MK8 | TODO: descrever em português. |
+| TODO: traduzir | 8.37" Long | 15 | M44 | TODO: descrever em português. |
+| TODO: traduzir | 5.12" Compact | 15 | M44 | TODO: descrever em português. |
+| TODO: traduzir | 16.2" Cut | 15 | CZ3A1 | TODO: descrever em português. |
 | 10" Padrão (Fábrica) | 10" Factory | 20 | GRT-BC | Cano curto: mira e movimento mais rápidos. |
 | 12,5" Estriado | 12.5" Fluted | 20 | BROD 3, M4A1, SOR-300SC | Cano aliviado por estrias: manejo mais leve. |
 | 13" Estriado | 13" Fluted | 20 | M277 | Cano aliviado por estrias: manejo mais leve. |
@@ -249,11 +257,15 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | 650mm Estriado | 650mm Fluted | 20 | SV-98 | Cano aliviado por estrias: manejo mais leve. |
 | 7,7" Fino | 7.7" Pencil | 20 | CZ3A1 | Cano fino: sobe à mira mais rápido. |
 | 9" Estriado | 9" Fluted | 20 | SL9 | Cano aliviado por estrias: manejo mais leve. |
+| TODO: traduzir | 349mm Fluted | 20 | L110 | TODO: descrever em português. |
+| TODO: traduzir | 3.9" Pencil | 20 | P18 | TODO: descrever em português. |
+| TODO: traduzir | 122mm Pencil | 20 | ES 5.7 | TODO: descrever em português. |
+| TODO: traduzir | 5" Pencil | 20 | M45A1 | TODO: descrever em português. |
 | 16" Estriado | 16" Fluted | 25 | GRT-CPS | Cano aliviado por estrias: manejo mais leve. |
 
 ## Acoplamento Inferior
 
-*Underbarrel* — 21 peças.
+*Underbarrel* — 23 peças.
 
 | Peça | Original | Pts | Armas | Efeito |
 | --- | --- | ---: | --- | --- |
@@ -266,6 +278,8 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | Apoio de Mão Fino | Slim Handstop | 15 | 6 weapons | Melhora o tiro sem visada e o deslocamento. |
 | Curta Dobrável | Folding Stubby | 20 | 48 weapons | Recuperação de mira mais rápida entre disparos. |
 | Empunhadura com Bipé PTT | PTT Grip Pod | 20 | 33 weapons | Empunhadura e bipé na mesma peça. |
+| TODO: traduzir | Laser Light Combo Red | 20 | ES 5.7, M45A1, P18 | TODO: descrever em português. |
+| TODO: traduzir | Laser Light Combo Green | 20 | ES 5.7, M45A1, P18 | TODO: descrever em português. |
 | Vertical de Liga | Alloy Vertical | 20 | 44 weapons | O maior controle de recuo vertical. |
 | Vertical Estriada | Ribbed Vertical | 20 | 43 weapons | O maior controle de recuo vertical. |
 | Angular Completa | Full Angled | 25 | 40 weapons | Acelera a subida à mira e segura o desvio lateral. |
@@ -347,7 +361,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | Penetração | Tungsten Core | 5 |  | Núcleo de tungstênio: atravessa material fino em troca de recuo. |
 | Chumbo Grosso | Buckshot | 10 | 18.5KS-K, DB-12, M1014, M87A1 | Padrão das escopetas: nuvem de bagos com espalhamento próprio. |
 | Leve | Polymer Case | 10 |  | Cartucho de polímero: acelera a mira e o deslocamento. |
-| Longo Alcance | Match Grade | 10 |  | Munição de precisão: agrupamento fechado a distância. |
+| Longo Alcance | Match Grade | 10 |  | Agrupamento fechado, mas a bala freia mais no ar: o arrasto dobra. |
 | Fragmentável | Frangible | 20 |  | Atrasa a regeneração de vida do alvo. |
 | Ponta Oca | Hollow Point | 20 |  | Mais dano em acerto na cabeça; alcance menor. |
 | Flechette | Flechette | 30 | 18.5KS-K, DB-12, M1014, M87A1 | Dardos: ferem através de cobertura e atrasam a regeneração do alvo. |
