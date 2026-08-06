@@ -12,9 +12,10 @@ Funciona no navegador do celular (Android e iPhone), dentro de WebView, e pode
 ser instalado na tela inicial.
 
 - **O que o projeto faz e por quê:** [`CARACTERISTICAS.md`](./CARACTERISTICAS.md)
+- **Como manter o dataset em dia:** [`ATUALIZAR.md`](./ATUALIZAR.md)
 - **Relação de todas as armas:** [`ARMAS.md`](./ARMAS.md)
 - **Relação de todos os acessórios:** [`ACESSORIOS.md`](./ACESSORIOS.md)
-- **Como produzir as imagens das armas:** [`IMAGENS.md`](./IMAGENS.md)
+- **Imagens e ícones:** [`IMAGENS.md`](./IMAGENS.md)
 
 ## Rodando
 
@@ -29,11 +30,17 @@ npm run dev      # http://localhost:3000
 | --- | --- |
 | `npm run dev` | servidor de desenvolvimento |
 | `npm run build` | gera o site estático em `out/` |
-| `npm test` | 47 testes de dataset, cálculo, balística e link |
+| `npm test` | 53 testes de dataset, cálculo, balística, link e temporada |
 | `npm run typecheck` | checagem de tipos |
-| `node scripts/imagens.mjs` | mostra quais imagens de arma e acessório ainda faltam |
+| `npm run sync` | compara o dataset com o catálogo público — só relata |
+| `npm run sync:aplicar` | grava o que dá para gravar, preservando a curadoria |
+| `npm run imagens` | mostra quais fotos de arma ainda faltam |
+| `npm run imagens:baixar` | baixa as que faltam para `public/armas/` |
 | `node scripts/acessorios.mjs` | regenera `ACESSORIOS.md` a partir do dataset |
 | `node scripts/armas.mjs` | regenera `ARMAS.md` a partir do dataset |
+
+A sincronização também roda sozinha toda segunda, pelo GitHub Actions, e abre um
+Pull Request quando o jogo muda alguma coisa — ver [`ATUALIZAR.md`](./ATUALIZAR.md).
 
 ## Publicando
 

@@ -1,0 +1,7498 @@
+{
+ "registradoEm": "2026-08-06",
+ "armas": {
+  "sgx": {
+   "id": "sgx",
+   "name": "SGX",
+   "category": "smg",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     20,
+     9
+    ],
+    [
+     16.7,
+     21
+    ],
+    [
+     14.3,
+     36
+    ],
+    [
+     12.5,
+     75
+    ]
+   ],
+   "rpm": 831,
+   "velocity": 402,
+   "magazine": 31,
+   "reload": 2.517,
+   "emptyReload": 2.917,
+   "adsMs": 220,
+   "accuracy": 31,
+   "control": 58,
+   "mobility": 72,
+   "hipfire": 51
+  },
+  "p18": {
+   "id": "p18",
+   "name": "P18",
+   "category": "pistola",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     20,
+     9
+    ],
+    [
+     16.7,
+     21
+    ],
+    [
+     14.3,
+     36
+    ],
+    [
+     12.5,
+     75
+    ]
+   ],
+   "rpm": 400,
+   "velocity": 350,
+   "magazine": 18,
+   "reload": 1.934,
+   "emptyReload": 2.117,
+   "adsMs": 250,
+   "accuracy": 54,
+   "control": 25,
+   "mobility": 72,
+   "hipfire": 54
+  },
+  "l110": {
+   "id": "l110",
+   "name": "L110",
+   "category": "lmg",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     20,
+     21
+    ],
+    [
+     16.7,
+     75
+    ]
+   ],
+   "rpm": 720,
+   "velocity": 780,
+   "magazine": 100,
+   "reload": 6.5,
+   "emptyReload": 7.734,
+   "adsMs": 420,
+   "accuracy": 35,
+   "control": 62,
+   "mobility": 30,
+   "hipfire": 40
+  },
+  "m433": {
+   "id": "m433",
+   "name": "M433",
+   "category": "ar",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     20,
+     21
+    ],
+    [
+     16.7,
+     75
+    ]
+   ],
+   "rpm": 831,
+   "velocity": 670,
+   "magazine": 31,
+   "reload": 2.384,
+   "emptyReload": 2.967,
+   "adsMs": 310,
+   "accuracy": 20,
+   "control": 43,
+   "mobility": 52,
+   "hipfire": 40
+  },
+  "m87a1": {
+   "id": "m87a1",
+   "name": "M87A1",
+   "category": "escopeta",
+   "damage": [
+    [
+     8.4,
+     0
+    ],
+    [
+     7.2,
+     9
+    ],
+    [
+     5.6,
+     16
+    ],
+    [
+     3.8,
+     31
+    ]
+   ],
+   "rpm": 1800,
+   "velocity": 400,
+   "magazine": 8,
+   "reload": 0.7,
+   "adsMs": 420,
+   "accuracy": 10,
+   "control": 7,
+   "mobility": 52,
+   "hipfire": 40
+  },
+  "m4a1": {
+   "id": "m4a1",
+   "name": "M4A1",
+   "category": "carabina",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     21.5,
+     9
+    ],
+    [
+     17.7,
+     21
+    ],
+    [
+     16.7,
+     36
+    ],
+    [
+     14.3,
+     75
+    ]
+   ],
+   "rpm": 900,
+   "velocity": 630,
+   "magazine": 31,
+   "reload": 2.15,
+   "emptyReload": 2.634,
+   "adsMs": 300,
+   "accuracy": 24,
+   "control": 36,
+   "mobility": 60,
+   "hipfire": 54
+  },
+  "pw5a3": {
+   "id": "pw5a3",
+   "name": "PW5A3",
+   "category": "smg",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     20,
+     9
+    ],
+    [
+     16.7,
+     21
+    ],
+    [
+     14.3,
+     36
+    ],
+    [
+     12.5,
+     75
+    ]
+   ],
+   "rpm": 771,
+   "velocity": 432,
+   "magazine": 31,
+   "reload": 2.517,
+   "emptyReload": 2.9,
+   "adsMs": 245,
+   "accuracy": 34,
+   "control": 53,
+   "mobility": 68,
+   "hipfire": 47
+  },
+  "m39-emr": {
+   "id": "m39-emr",
+   "name": "M39 EMR",
+   "category": "dmr",
+   "damage": [
+    [
+     40,
+     0
+    ],
+    [
+     37.5,
+     21
+    ],
+    [
+     33.4,
+     75
+    ]
+   ],
+   "rpm": 257,
+   "velocity": 800,
+   "magazine": 21,
+   "reload": 2.534,
+   "emptyReload": 2.85,
+   "adsMs": 480,
+   "accuracy": 65,
+   "control": 15,
+   "mobility": 40,
+   "hipfire": 34
+  },
+  "drs-iar": {
+   "id": "drs-iar",
+   "name": "DRS-IAR",
+   "category": "lmg",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     20,
+     21
+    ],
+    [
+     16.7,
+     75
+    ]
+   ],
+   "rpm": 771,
+   "velocity": 720,
+   "magazine": 31,
+   "reload": 2.467,
+   "emptyReload": 2.95,
+   "adsMs": 400,
+   "accuracy": 27,
+   "control": 44,
+   "mobility": 40,
+   "hipfire": 34
+  },
+  "m277": {
+   "id": "m277",
+   "name": "M277",
+   "category": "carabina",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     20,
+     75
+    ]
+   ],
+   "rpm": 720,
+   "velocity": 624,
+   "magazine": 21,
+   "reload": 2.334,
+   "emptyReload": 2.5,
+   "adsMs": 290,
+   "accuracy": 21,
+   "control": 32,
+   "mobility": 58,
+   "hipfire": 40
+  },
+  "svk-86": {
+   "id": "svk-86",
+   "name": "SVK-8.6",
+   "category": "dmr",
+   "damage": [
+    [
+     66.7,
+     0
+    ],
+    [
+     59.9,
+     9
+    ],
+    [
+     50,
+     21
+    ]
+   ],
+   "rpm": 150,
+   "velocity": 720,
+   "magazine": 11,
+   "reload": 2.967,
+   "emptyReload": 4.217,
+   "adsMs": 550,
+   "accuracy": 30,
+   "control": 9,
+   "mobility": 32,
+   "hipfire": 29
+  },
+  "nvo-228e": {
+   "id": "nvo-228e",
+   "name": "NVO-228E",
+   "category": "ar",
+   "damage": [
+    [
+     33.4,
+     0
+    ],
+    [
+     27.3,
+     9
+    ],
+    [
+     21.5,
+     21
+    ],
+    [
+     20,
+     36
+    ],
+    [
+     16.7,
+     75
+    ]
+   ],
+   "rpm": 655,
+   "velocity": 671,
+   "magazine": 31,
+   "reload": 2.434,
+   "emptyReload": 2.9,
+   "adsMs": 330,
+   "accuracy": 24,
+   "control": 41,
+   "mobility": 52,
+   "hipfire": 40
+  },
+  "b36a4": {
+   "id": "b36a4",
+   "name": "B36A4",
+   "category": "ar",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     20,
+     21
+    ],
+    [
+     16.7,
+     75
+    ]
+   ],
+   "rpm": 720,
+   "velocity": 780,
+   "magazine": 31,
+   "reload": 2.384,
+   "emptyReload": 2.95,
+   "adsMs": 320,
+   "accuracy": 26,
+   "control": 45,
+   "mobility": 52,
+   "hipfire": 40
+  },
+  "m2010-esr": {
+   "id": "m2010-esr",
+   "name": "M2010 ESR",
+   "category": "sniper",
+   "damage": [
+    [
+     80,
+     0
+    ],
+    [
+     100,
+     75
+    ],
+    [
+     62.5,
+     160
+    ]
+   ],
+   "rpm": 44,
+   "velocity": 800,
+   "magazine": 6,
+   "reload": 3.234,
+   "emptyReload": 3.934,
+   "adsMs": 650,
+   "accuracy": 100,
+   "control": 27,
+   "mobility": 50,
+   "hipfire": 34
+  },
+  "lmr27": {
+   "id": "lmr27",
+   "name": "LMR27",
+   "category": "dmr",
+   "damage": [
+    [
+     28.6,
+     0
+    ],
+    [
+     27.3,
+     21
+    ],
+    [
+     25,
+     75
+    ]
+   ],
+   "rpm": 450,
+   "velocity": 880,
+   "magazine": 11,
+   "reload": 3.034,
+   "emptyReload": 3.067,
+   "adsMs": 480,
+   "accuracy": 66,
+   "control": 31,
+   "mobility": 52,
+   "hipfire": 40
+  },
+  "pw7a2": {
+   "id": "pw7a2",
+   "name": "PW7A2",
+   "category": "smg",
+   "damage": [
+    [
+     16.7,
+     0
+    ],
+    [
+     14.3,
+     21
+    ],
+    [
+     12.5,
+     75
+    ]
+   ],
+   "rpm": 947,
+   "velocity": 600,
+   "magazine": 31,
+   "reload": 2.1,
+   "emptyReload": 2.967,
+   "adsMs": 240,
+   "accuracy": 35,
+   "control": 58,
+   "mobility": 68,
+   "hipfire": 47
+  },
+  "ak-205": {
+   "id": "ak-205",
+   "name": "AK-205",
+   "category": "carabina",
+   "damage": [
+    [
+     20,
+     0
+    ],
+    [
+     17.7,
+     9
+    ],
+    [
+     15,
+     21
+    ],
+    [
+     14.3,
+     36
+    ],
+    [
+     12.5,
+     75
+    ]
+   ],
+   "rpm": 720,
+   "velocity": 737,
+   "magazine": 31,
+   "reload": 2.384,
+   "emptyReload": 2.8,
+   "adsMs": 310,
+   "accuracy": 88,
+   "control": 64,
+   "mobility": 56,
+   "hipfire": 47
+  },
+  "es-57": {
+   "id": "es-57",
+   "name": "ES 5.7",
+   "category": "pistola",
+   "damage": [
+    [
+     20,
+     0
+    ],
+    [
+     17.7,
+     9
+    ],
+    [
+     15,
+     21
+    ],
+    [
+     14.3,
+     36
+    ],
+    [
+     12.5,
+     75
+    ]
+   ],
+   "rpm": 450,
+   "velocity": 650,
+   "magazine": 21,
+   "reload": 2.017,
+   "emptyReload": 2.2,
+   "adsMs": 220,
+   "accuracy": 55,
+   "control": 31,
+   "mobility": 79,
+   "hipfire": 54
+  },
+  "sor-556-mk2": {
+   "id": "sor-556-mk2",
+   "name": "SOR-556 MK2",
+   "category": "ar",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     20,
+     21
+    ],
+    [
+     16.7,
+     75
+    ]
+   ],
+   "rpm": 568,
+   "velocity": 800,
+   "magazine": 31,
+   "reload": 2.384,
+   "emptyReload": 2.667,
+   "adsMs": 320,
+   "accuracy": 45,
+   "control": 48,
+   "mobility": 52,
+   "hipfire": 40
+  },
+  "sv-98": {
+   "id": "sv-98",
+   "name": "SV-98",
+   "category": "sniper",
+   "damage": [
+    [
+     80,
+     0
+    ],
+    [
+     100,
+     54
+    ],
+    [
+     62.5,
+     125
+    ]
+   ],
+   "rpm": 38,
+   "velocity": 720,
+   "magazine": 11,
+   "reload": 2.984,
+   "emptyReload": 3.967,
+   "adsMs": 680,
+   "accuracy": 100,
+   "control": 33,
+   "mobility": 46,
+   "hipfire": 34
+  },
+  "umg-40": {
+   "id": "umg-40",
+   "name": "UMG-40",
+   "category": "smg",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     21.5,
+     9
+    ],
+    [
+     17.7,
+     21
+    ],
+    [
+     16.7,
+     36
+    ],
+    [
+     14.3,
+     75
+    ]
+   ],
+   "rpm": 635,
+   "velocity": 488,
+   "magazine": 31,
+   "reload": 2.517,
+   "emptyReload": 2.917,
+   "adsMs": 250,
+   "accuracy": 49,
+   "control": 49,
+   "mobility": 68,
+   "hipfire": 47
+  },
+  "rpkm": {
+   "id": "rpkm",
+   "name": "RPKM",
+   "category": "lmg",
+   "damage": [
+    [
+     33.4,
+     0
+    ],
+    [
+     27.3,
+     9
+    ],
+    [
+     21.5,
+     21
+    ],
+    [
+     20,
+     36
+    ],
+    [
+     16.7,
+     75
+    ]
+   ],
+   "rpm": 554,
+   "velocity": 670,
+   "magazine": 41,
+   "reload": 2.8,
+   "emptyReload": 3.284,
+   "adsMs": 420,
+   "accuracy": 41,
+   "control": 45,
+   "mobility": 38,
+   "hipfire": 34
+  },
+  "m417-a2": {
+   "id": "m417-a2",
+   "name": "M417 A2",
+   "category": "carabina",
+   "damage": [
+    [
+     33.4,
+     0
+    ],
+    [
+     27.3,
+     9
+    ],
+    [
+     21.5,
+     21
+    ],
+    [
+     20,
+     36
+    ],
+    [
+     16.7,
+     75
+    ]
+   ],
+   "rpm": 655,
+   "velocity": 600,
+   "magazine": 21,
+   "reload": 2.467,
+   "emptyReload": 2.567,
+   "adsMs": 350,
+   "accuracy": 28,
+   "control": 30,
+   "mobility": 60,
+   "hipfire": 47
+  },
+  "ak4d": {
+   "id": "ak4d",
+   "name": "AK4D",
+   "category": "ar",
+   "damage": [
+    [
+     33.4,
+     0
+    ],
+    [
+     25,
+     21
+    ],
+    [
+     20,
+     75
+    ]
+   ],
+   "rpm": 514,
+   "velocity": 720,
+   "magazine": 21,
+   "reload": 2.467,
+   "emptyReload": 3.3,
+   "adsMs": 350,
+   "accuracy": 27,
+   "control": 35,
+   "mobility": 52,
+   "hipfire": 40
+  },
+  "usg-90": {
+   "id": "usg-90",
+   "name": "USG-90",
+   "category": "smg",
+   "damage": [
+    [
+     20,
+     0
+    ],
+    [
+     17.7,
+     9
+    ],
+    [
+     15,
+     21
+    ],
+    [
+     14.3,
+     36
+    ],
+    [
+     12.5,
+     75
+    ]
+   ],
+   "rpm": 900,
+   "velocity": 570,
+   "magazine": 51,
+   "reload": 2.867,
+   "emptyReload": 3.167,
+   "adsMs": 260,
+   "accuracy": 33,
+   "control": 57,
+   "mobility": 64,
+   "hipfire": 47
+  },
+  "m123k": {
+   "id": "m123k",
+   "name": "M123K",
+   "category": "lmg",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     20,
+     21
+    ],
+    [
+     16.7,
+     75
+    ]
+   ],
+   "rpm": 831,
+   "velocity": 670,
+   "magazine": 100,
+   "reload": 6.65,
+   "emptyReload": 7.434,
+   "adsMs": 470,
+   "accuracy": 21,
+   "control": 55,
+   "mobility": 34,
+   "hipfire": 34
+  },
+  "m45a1": {
+   "id": "m45a1",
+   "name": "M45A1",
+   "category": "pistola",
+   "damage": [
+    [
+     33.4,
+     0
+    ],
+    [
+     25,
+     9
+    ],
+    [
+     20,
+     21
+    ],
+    [
+     16.7,
+     36
+    ],
+    [
+     14.3,
+     54
+    ],
+    [
+     12.5,
+     75
+    ]
+   ],
+   "rpm": 327,
+   "velocity": 336,
+   "magazine": 8,
+   "reload": 1.867,
+   "emptyReload": 2,
+   "adsMs": 200,
+   "accuracy": 51,
+   "control": 17,
+   "mobility": 72,
+   "hipfire": 54
+  },
+  "grt-bc": {
+   "id": "grt-bc",
+   "name": "GRT-BC",
+   "category": "carabina",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     21.5,
+     9
+    ],
+    [
+     17.7,
+     21
+    ],
+    [
+     16.7,
+     36
+    ],
+    [
+     14.3,
+     75
+    ]
+   ],
+   "rpm": 831,
+   "velocity": 599,
+   "magazine": 31,
+   "reload": 2.5,
+   "emptyReload": 3.35,
+   "adsMs": 280,
+   "accuracy": 28,
+   "control": 37,
+   "mobility": 64,
+   "hipfire": 47
+  },
+  "m1014": {
+   "id": "m1014",
+   "name": "M1014",
+   "category": "escopeta",
+   "damage": [
+    [
+     7.2,
+     0
+    ],
+    [
+     5,
+     9
+    ],
+    [
+     3.1,
+     16
+    ],
+    [
+     2.3,
+     22
+    ]
+   ],
+   "rpm": 200,
+   "velocity": 400,
+   "magazine": 7,
+   "reload": 0.4,
+   "adsMs": 410,
+   "accuracy": 10,
+   "control": 10,
+   "mobility": 52,
+   "hipfire": 40
+  },
+  "kv9": {
+   "id": "kv9",
+   "name": "KV9",
+   "category": "smg",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     20,
+     9
+    ],
+    [
+     16.7,
+     21
+    ],
+    [
+     14.3,
+     36
+    ],
+    [
+     12.5,
+     75
+    ]
+   ],
+   "rpm": 1080,
+   "velocity": 348,
+   "magazine": 18,
+   "reload": 2.384,
+   "emptyReload": 2.9,
+   "adsMs": 250,
+   "accuracy": 23,
+   "control": 62,
+   "mobility": 68,
+   "hipfire": 47
+  },
+  "m250": {
+   "id": "m250",
+   "name": "M250",
+   "category": "lmg",
+   "damage": [
+    [
+     25,
+     0
+    ]
+   ],
+   "rpm": 675,
+   "velocity": 760,
+   "magazine": 50,
+   "reload": 5.75,
+   "emptyReload": 6.134,
+   "adsMs": 460,
+   "accuracy": 26,
+   "control": 43,
+   "mobility": 28,
+   "hipfire": 22
+  },
+  "m44": {
+   "id": "m44",
+   "name": "M44",
+   "category": "pistola",
+   "damage": [
+    [
+     66.7,
+     0
+    ],
+    [
+     59.9,
+     9
+    ],
+    [
+     33.4,
+     21
+    ],
+    [
+     25,
+     75
+    ]
+   ],
+   "rpm": 164,
+   "velocity": 440,
+   "magazine": 6,
+   "reload": 3.4,
+   "adsMs": 250,
+   "accuracy": 22,
+   "control": 2,
+   "mobility": 64,
+   "hipfire": 54
+  },
+  "tr-7": {
+   "id": "tr-7",
+   "name": "TR-7",
+   "category": "ar",
+   "damage": [
+    [
+     33.4,
+     0
+    ],
+    [
+     25,
+     21
+    ],
+    [
+     20,
+     75
+    ]
+   ],
+   "rpm": 720,
+   "velocity": 648,
+   "magazine": 21,
+   "reload": 2.35,
+   "emptyReload": 3.3,
+   "adsMs": 340,
+   "accuracy": 17,
+   "control": 29,
+   "mobility": 52,
+   "hipfire": 40
+  },
+  "kts100-mk8": {
+   "id": "kts100-mk8",
+   "name": "KTS100 MK8",
+   "category": "lmg",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     20,
+     21
+    ],
+    [
+     16.7,
+     75
+    ]
+   ],
+   "rpm": 514,
+   "velocity": 840,
+   "magazine": 60,
+   "reload": 3.25,
+   "emptyReload": 3.984,
+   "adsMs": 450,
+   "accuracy": 73,
+   "control": 63,
+   "mobility": 38,
+   "hipfire": 34
+  },
+  "kord-6p67": {
+   "id": "kord-6p67",
+   "name": "KORD 6P67",
+   "category": "ar",
+   "damage": [
+    [
+     20,
+     0
+    ],
+    [
+     16.7,
+     21
+    ],
+    [
+     14.3,
+     75
+    ]
+   ],
+   "rpm": 900,
+   "velocity": 760,
+   "magazine": 31,
+   "reload": 2.45,
+   "emptyReload": 3.017,
+   "adsMs": 330,
+   "accuracy": 33,
+   "control": 59,
+   "mobility": 52,
+   "hipfire": 40
+  },
+  "l85a3": {
+   "id": "l85a3",
+   "name": "L85 A3",
+   "category": "ar",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     20,
+     21
+    ],
+    [
+     16.7,
+     75
+    ]
+   ],
+   "rpm": 635,
+   "velocity": 814,
+   "magazine": 31,
+   "reload": 2.7,
+   "emptyReload": 2.667,
+   "adsMs": 340,
+   "accuracy": 31,
+   "control": 45,
+   "mobility": 52,
+   "hipfire": 40
+  },
+  "qbz-192": {
+   "id": "qbz-192",
+   "name": "QBZ-192",
+   "category": "carabina",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     21.5,
+     9
+    ],
+    [
+     17.7,
+     21
+    ],
+    [
+     16.7,
+     36
+    ],
+    [
+     14.3,
+     75
+    ]
+   ],
+   "rpm": 771,
+   "velocity": 644,
+   "magazine": 31,
+   "reload": 2.567,
+   "emptyReload": 2.784,
+   "adsMs": 300,
+   "accuracy": 34,
+   "control": 43,
+   "mobility": 56,
+   "hipfire": 47
+  },
+  "sg-553r": {
+   "id": "sg-553r",
+   "name": "SG 553R",
+   "category": "carabina",
+   "damage": [
+    [
+     33.4,
+     0
+    ],
+    [
+     25,
+     9
+    ],
+    [
+     20,
+     21
+    ],
+    [
+     16.7,
+     36
+    ],
+    [
+     14.3,
+     75
+    ]
+   ],
+   "rpm": 720,
+   "velocity": 519,
+   "magazine": 31,
+   "reload": 2.45,
+   "emptyReload": 2.867,
+   "adsMs": 320,
+   "accuracy": 23,
+   "control": 39,
+   "mobility": 60,
+   "hipfire": 47
+  },
+  "scw-10": {
+   "id": "scw-10",
+   "name": "SCW-10",
+   "category": "smg",
+   "damage": [
+    [
+     33.4,
+     0
+    ],
+    [
+     25,
+     9
+    ],
+    [
+     20,
+     21
+    ],
+    [
+     16.7,
+     36
+    ],
+    [
+     14.3,
+     75
+    ]
+   ],
+   "rpm": 800,
+   "velocity": 428,
+   "magazine": 16,
+   "reload": 2.55,
+   "emptyReload": 3.05,
+   "adsMs": 230,
+   "accuracy": 24,
+   "control": 41,
+   "mobility": 68,
+   "hipfire": 47
+  },
+  "sl9": {
+   "id": "sl9",
+   "name": "SL9",
+   "category": "smg",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     20,
+     9
+    ],
+    [
+     16.7,
+     21
+    ],
+    [
+     14.3,
+     36
+    ],
+    [
+     12.5,
+     75
+    ]
+   ],
+   "rpm": 675,
+   "velocity": 510,
+   "magazine": 31,
+   "reload": 2.734,
+   "emptyReload": 3.284,
+   "adsMs": 240,
+   "accuracy": 59,
+   "control": 59,
+   "mobility": 72,
+   "hipfire": 47
+  },
+  "m60": {
+   "id": "m60",
+   "name": "M/60",
+   "category": "lmg",
+   "damage": [
+    [
+     33.4,
+     0
+    ],
+    [
+     25,
+     21
+    ],
+    [
+     20,
+     75
+    ]
+   ],
+   "rpm": 514,
+   "velocity": 720,
+   "magazine": 100,
+   "reload": 7.284,
+   "emptyReload": 8.05,
+   "adsMs": 450,
+   "accuracy": 29,
+   "control": 43,
+   "mobility": 30,
+   "hipfire": 29
+  },
+  "m240l": {
+   "id": "m240l",
+   "name": "M240L",
+   "category": "lmg",
+   "damage": [
+    [
+     33.4,
+     0
+    ],
+    [
+     25,
+     21
+    ],
+    [
+     20,
+     75
+    ]
+   ],
+   "rpm": 600,
+   "velocity": 630,
+   "magazine": 50,
+   "reload": 4.034,
+   "emptyReload": 5.6,
+   "adsMs": 440,
+   "accuracy": 24,
+   "control": 39,
+   "mobility": 30,
+   "hipfire": 29
+  },
+  "svdm": {
+   "id": "svdm",
+   "name": "SVDM",
+   "category": "dmr",
+   "damage": [
+    [
+     40,
+     0
+    ],
+    [
+     37.5,
+     21
+    ],
+    [
+     33.4,
+     75
+    ]
+   ],
+   "rpm": 300,
+   "velocity": 800,
+   "magazine": 11,
+   "reload": 2.5,
+   "emptyReload": 3.45,
+   "adsMs": 500,
+   "accuracy": 55,
+   "control": 17,
+   "mobility": 44,
+   "hipfire": 40
+  },
+  "psr": {
+   "id": "psr",
+   "name": "PSR",
+   "category": "sniper",
+   "damage": [
+    [
+     80,
+     0
+    ],
+    [
+     100,
+     100
+    ],
+    [
+     62.5,
+     200
+    ]
+   ],
+   "rpm": 38,
+   "velocity": 720,
+   "magazine": 11,
+   "reload": 3.35,
+   "emptyReload": 4.35,
+   "adsMs": 700,
+   "accuracy": 100,
+   "control": 22,
+   "mobility": 34,
+   "hipfire": 29
+  },
+  "18-5ks-k": {
+   "id": "18-5ks-k",
+   "name": "18.5KS-K",
+   "category": "escopeta",
+   "damage": [
+    [
+     5,
+     0
+    ],
+    [
+     2.8,
+     16
+    ],
+    [
+     2,
+     22
+    ]
+   ],
+   "rpm": 300,
+   "velocity": 400,
+   "magazine": 9,
+   "reload": 2.75,
+   "emptyReload": 3.7,
+   "adsMs": 400,
+   "accuracy": 14,
+   "control": 15,
+   "mobility": 60,
+   "hipfire": 42
+  },
+  "mini-scout": {
+   "id": "mini-scout",
+   "name": "Mini Scout",
+   "category": "sniper",
+   "damage": [
+    [
+     80,
+     0
+    ],
+    [
+     62.5,
+     75
+    ]
+   ],
+   "rpm": 51,
+   "velocity": 800,
+   "magazine": 11,
+   "reload": 2.334,
+   "emptyReload": 3.9,
+   "adsMs": 550,
+   "accuracy": 100,
+   "control": 28,
+   "mobility": 54,
+   "hipfire": 40
+  },
+  "ggh-22": {
+   "id": "ggh-22",
+   "name": "GGH-22",
+   "category": "pistola",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     21.5,
+     9
+    ],
+    [
+     17.7,
+     21
+    ],
+    [
+     16.7,
+     36
+    ],
+    [
+     14.3,
+     75
+    ]
+   ],
+   "rpm": 360,
+   "velocity": 400,
+   "magazine": 16,
+   "reload": 1.934,
+   "emptyReload": 2.25,
+   "adsMs": 250,
+   "accuracy": 46,
+   "control": 19,
+   "mobility": 75,
+   "hipfire": 54
+  },
+  "sor-300sc": {
+   "id": "sor-300sc",
+   "name": "SOR-300SC",
+   "category": "carabina",
+   "damage": [
+    [
+     33.4,
+     0
+    ],
+    [
+     25,
+     9
+    ],
+    [
+     20,
+     21
+    ],
+    [
+     16.7,
+     36
+    ],
+    [
+     14.3,
+     75
+    ]
+   ],
+   "rpm": 600,
+   "velocity": 563,
+   "magazine": 31,
+   "reload": 2.25,
+   "emptyReload": 3.284,
+   "adsMs": 300,
+   "accuracy": 39,
+   "control": 39,
+   "mobility": 60,
+   "hipfire": 47
+  },
+  "m357-trait": {
+   "id": "m357-trait",
+   "name": "M357",
+   "category": "pistola",
+   "damage": [
+    [
+     50,
+     0
+    ],
+    [
+     37.5,
+     9
+    ],
+    [
+     27.3,
+     21
+    ],
+    [
+     25,
+     36
+    ],
+    [
+     20,
+     75
+    ]
+   ],
+   "rpm": 225,
+   "velocity": 410,
+   "magazine": 8,
+   "reload": 3.067,
+   "adsMs": 250,
+   "accuracy": 27,
+   "control": 8,
+   "mobility": 73,
+   "hipfire": 54
+  },
+  "db-12": {
+   "id": "db-12",
+   "name": "DB-12",
+   "category": "escopeta",
+   "damage": [
+    [
+     5,
+     0
+    ],
+    [
+     3.3,
+     16
+    ],
+    [
+     2.5,
+     22
+    ]
+   ],
+   "rpm": 360,
+   "velocity": 400,
+   "magazine": 16,
+   "reload": 0.866,
+   "adsMs": 410,
+   "accuracy": 6,
+   "control": 10,
+   "mobility": 62,
+   "hipfire": 39
+  },
+  "vcr-2": {
+   "id": "vcr-2",
+   "name": "VCR-2",
+   "category": "ar",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     20,
+     21
+    ],
+    [
+     16.7,
+     75
+    ]
+   ],
+   "rpm": 900,
+   "velocity": 704,
+   "magazine": 31,
+   "reload": 2.334,
+   "emptyReload": 3,
+   "adsMs": 310,
+   "accuracy": 18,
+   "control": 45,
+   "mobility": 52,
+   "hipfire": 47
+  },
+  "m121-a2": {
+   "id": "m121-a2",
+   "name": "M121 A2",
+   "category": "lmg",
+   "damage": [
+    [
+     33.4,
+     0
+    ],
+    [
+     25,
+     21
+    ],
+    [
+     20,
+     75
+    ]
+   ],
+   "rpm": 655,
+   "velocity": 600,
+   "magazine": 50,
+   "reload": 6.267,
+   "emptyReload": 7.25,
+   "adsMs": 450,
+   "accuracy": 20,
+   "control": 39,
+   "mobility": 34,
+   "hipfire": 34
+  },
+  "grt-cps": {
+   "id": "grt-cps",
+   "name": "GRT-CPS",
+   "category": "dmr",
+   "damage": [
+    [
+     28.6,
+     0
+    ],
+    [
+     27.3,
+     21
+    ],
+    [
+     25,
+     75
+    ]
+   ],
+   "rpm": 360,
+   "velocity": 800,
+   "magazine": 21,
+   "reload": 2.75,
+   "emptyReload": 3.284,
+   "adsMs": 250,
+   "accuracy": 76,
+   "control": 26,
+   "mobility": 48,
+   "hipfire": 34
+  },
+  "cz3a1": {
+   "id": "cz3a1",
+   "name": "CZ3A1",
+   "category": "smg",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     20,
+     9
+    ],
+    [
+     16.7,
+     21
+    ],
+    [
+     14.3,
+     36
+    ],
+    [
+     12.5,
+     75
+    ]
+   ],
+   "rpm": 982,
+   "velocity": 360,
+   "magazine": 31,
+   "reload": 2.217,
+   "emptyReload": 2.95,
+   "adsMs": 230,
+   "accuracy": 20,
+   "control": 50,
+   "mobility": 68,
+   "hipfire": 47
+  },
+  "m16a4": {
+   "id": "m16a4",
+   "name": "M16A4",
+   "category": "ar",
+   "damage": [
+    [
+     25,
+     0
+    ],
+    [
+     20,
+     21
+    ],
+    [
+     16.7,
+     75
+    ]
+   ],
+   "rpm": 771,
+   "velocity": 720,
+   "magazine": 31,
+   "reload": 2.2,
+   "emptyReload": 2.634,
+   "adsMs": 330,
+   "accuracy": 27,
+   "control": 43,
+   "mobility": 50,
+   "hipfire": 40
+  },
+  "rpk-74m": {
+   "id": "rpk-74m",
+   "name": "RPK-74M",
+   "category": "lmg",
+   "damage": [
+    [
+     20,
+     0
+    ],
+    [
+     16.7,
+     21
+    ],
+    [
+     14.3,
+     75
+    ]
+   ],
+   "rpm": 686,
+   "velocity": 840,
+   "magazine": 46,
+   "reload": 2.784,
+   "emptyReload": 3.1,
+   "adsMs": 430,
+   "accuracy": 59,
+   "control": 60,
+   "mobility": 38,
+   "hipfire": 34
+  },
+  "l115": {
+   "id": "l115",
+   "name": "L115",
+   "category": "sniper",
+   "damage": [
+    [
+     80,
+     0
+    ],
+    [
+     100,
+     120
+    ],
+    [
+     62.5,
+     200
+    ]
+   ],
+   "rpm": 46,
+   "velocity": 703,
+   "magazine": 6,
+   "reload": 2.75,
+   "emptyReload": 4.233,
+   "adsMs": 720,
+   "accuracy": 100,
+   "control": 19,
+   "mobility": 50,
+   "hipfire": 34
+  }
+ },
+ "acessorios": {
+  "mira-iron-sights": {
+   "id": "mira-iron-sights",
+   "slot": "mira",
+   "originalName": "Iron Sights",
+   "cost": 5,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "es-57",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m45a1",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "p18",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-su-123-1-50x": {
+   "id": "mira-su-123-1-50x",
+   "slot": "mira",
+   "originalName": "SU-123 1.50x",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-2pro-1-25x": {
+   "id": "mira-2pro-1-25x",
+   "slot": "mira",
+   "originalName": "2PRO 1.25x",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-osa-7-1-00x": {
+   "id": "mira-osa-7-1-00x",
+   "slot": "mira",
+   "originalName": "OSA-7 1.00x",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-1p87-1-50x": {
+   "id": "mira-1p87-1-50x",
+   "slot": "mira",
+   "originalName": "1P87 1.50x",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-r-mr-1-00x": {
+   "id": "mira-r-mr-1-00x",
+   "slot": "mira",
+   "originalName": "R-MR 1.00x",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "es-57",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m45a1",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "p18",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-cco-2-00x": {
+   "id": "mira-cco-2-00x",
+   "slot": "mira",
+   "originalName": "CCO 2.00x",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-sdo-3-50x": {
+   "id": "mira-sdo-3-50x",
+   "slot": "mira",
+   "originalName": "SDO 3.50x",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-cq-rds-1-25x": {
+   "id": "mira-cq-rds-1-25x",
+   "slot": "mira",
+   "originalName": "CQ RDS 1.25x",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "es-57",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m45a1",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "p18",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-mini-flex-1-00x": {
+   "id": "mira-mini-flex-1-00x",
+   "slot": "mira",
+   "originalName": "Mini Flex 1.00x",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "es-57",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m45a1",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "p18",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-3vzr-1-75x": {
+   "id": "mira-3vzr-1-75x",
+   "slot": "mira",
+   "originalName": "3VZR 1.75x",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-baker-3-00x": {
+   "id": "mira-baker-3-00x",
+   "slot": "mira",
+   "originalName": "Baker 3.00x",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-r4t-2-00x": {
+   "id": "mira-r4t-2-00x",
+   "slot": "mira",
+   "originalName": "R4T 2.00x",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-dvo-lpvo": {
+   "id": "mira-dvo-lpvo",
+   "slot": "mira",
+   "originalName": "DVO LPVO",
+   "cost": 25,
+   "weapons": [
+    "ak4d",
+    "b36a4",
+    "drs-iar",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "l110",
+    "lmr27",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m39-emr",
+    "m433",
+    "m60",
+    "nvo-228e",
+    "psr",
+    "rpk-74m",
+    "rpkm",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "vcr-2"
+   ]
+  },
+  "mira-ro-m-1-75x": {
+   "id": "mira-ro-m-1-75x",
+   "slot": "mira",
+   "originalName": "RO-M 1.75x",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-st-prism-5-00x": {
+   "id": "mira-st-prism-5-00x",
+   "slot": "mira",
+   "originalName": "ST Prism 5.00x",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-rox-1-50x": {
+   "id": "mira-rox-1-50x",
+   "slot": "mira",
+   "originalName": "ROX 1.50x",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "es-57",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m45a1",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "p18",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-bf-2m-2-50x": {
+   "id": "mira-bf-2m-2-50x",
+   "slot": "mira",
+   "originalName": "BF-2M 2.50x",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-mars-f-lpvo": {
+   "id": "mira-mars-f-lpvo",
+   "slot": "mira",
+   "originalName": "Mars-F LPVO",
+   "cost": 25,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m39-emr",
+    "m433",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-pvq-31-4-00x": {
+   "id": "mira-pvq-31-4-00x",
+   "slot": "mira",
+   "originalName": "PVQ-31 4.00x",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-ro-s-1-25x": {
+   "id": "mira-ro-s-1-25x",
+   "slot": "mira",
+   "originalName": "RO-S 1.25x",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "es-57",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m45a1",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "p18",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-mc-co-lpvo": {
+   "id": "mira-mc-co-lpvo",
+   "slot": "mira",
+   "originalName": "MC-CO LPVO",
+   "cost": 25,
+   "weapons": [
+    "ak4d",
+    "b36a4",
+    "drs-iar",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "l110",
+    "l115",
+    "lmr27",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m39-emr",
+    "m433",
+    "m60",
+    "nvo-228e",
+    "psr",
+    "rpk-74m",
+    "rpkm",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "vcr-2"
+   ]
+  },
+  "mira-lds-4-50x": {
+   "id": "mira-lds-4-50x",
+   "slot": "mira",
+   "originalName": "LDS 4.50x",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-pas-35-3-00x": {
+   "id": "mira-pas-35-3-00x",
+   "slot": "mira",
+   "originalName": "PAS-35 3.00x",
+   "cost": 25,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-a-p2-1-75x": {
+   "id": "mira-a-p2-1-75x",
+   "slot": "mira",
+   "originalName": "A-P2 1.75x",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "es-57",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m45a1",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "p18",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-sf-g2-5-00x": {
+   "id": "mira-sf-g2-5-00x",
+   "slot": "mira",
+   "originalName": "SF-G2 5.00x",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "mira-grim-1-50x": {
+   "id": "mira-grim-1-50x",
+   "slot": "mira",
+   "originalName": "Grim 1.50x",
+   "cost": 25,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "boca-flash-hider": {
+   "id": "boca-flash-hider",
+   "slot": "boca",
+   "originalName": "Flash Hider",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "es-57",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "lmr27",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m45a1",
+    "m4a1",
+    "m60",
+    "nvo-228e",
+    "p18",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "boca-linear-comp": {
+   "id": "boca-linear-comp",
+   "slot": "boca",
+   "originalName": "Linear Comp",
+   "cost": 10,
+   "weapons": [
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "lmr27",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "nvo-228e",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "boca-standard-suppressor": {
+   "id": "boca-standard-suppressor",
+   "slot": "boca",
+   "originalName": "Standard Suppressor",
+   "cost": 20,
+   "weapons": [
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "drs-iar",
+    "es-57",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m45a1",
+    "m4a1",
+    "m60",
+    "nvo-228e",
+    "p18",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "boca-cqb-suppressor": {
+   "id": "boca-cqb-suppressor",
+   "slot": "boca",
+   "originalName": "CQB Suppressor",
+   "cost": 30,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "es-57",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m45a1",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "p18",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "boca-double-port-brake": {
+   "id": "boca-double-port-brake",
+   "slot": "boca",
+   "originalName": "Double-Port Brake",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "boca-long-suppressor": {
+   "id": "boca-long-suppressor",
+   "slot": "boca",
+   "originalName": "Long Suppressor",
+   "cost": 25,
+   "weapons": [
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "boca-compensated-brake": {
+   "id": "boca-compensated-brake",
+   "slot": "boca",
+   "originalName": "Compensated Brake",
+   "cost": 20,
+   "weapons": [
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "boca-lightened-suppressor": {
+   "id": "boca-lightened-suppressor",
+   "slot": "boca",
+   "originalName": "Lightened Suppressor",
+   "cost": 30,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "cano-14-5-standard": {
+   "id": "cano-14-5-standard",
+   "slot": "cano",
+   "originalName": "14.5\" Standard",
+   "cost": 15,
+   "weapons": [
+    "m433"
+   ]
+  },
+  "cano-18-9-prototype": {
+   "id": "cano-18-9-prototype",
+   "slot": "cano",
+   "originalName": "18.9\" Prototype",
+   "cost": 15,
+   "weapons": [
+    "m433"
+   ]
+  },
+  "cano-16-5-rifle": {
+   "id": "cano-16-5-rifle",
+   "slot": "cano",
+   "originalName": "16.5\" Rifle",
+   "cost": 10,
+   "weapons": [
+    "m417-a2",
+    "m433"
+   ]
+  },
+  "cano-16-5-fluted": {
+   "id": "cano-16-5-fluted",
+   "slot": "cano",
+   "originalName": "16.5\" Fluted",
+   "cost": 20,
+   "weapons": [
+    "drs-iar",
+    "m433"
+   ]
+  },
+  "acoplamento-classic-vertical": {
+   "id": "acoplamento-classic-vertical",
+   "slot": "acoplamento",
+   "originalName": "Classic Vertical",
+   "cost": 35,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "vcr-2"
+   ]
+  },
+  "acoplamento-underslung-mount": {
+   "id": "acoplamento-underslung-mount",
+   "slot": "acoplamento",
+   "originalName": "Underslung Mount",
+   "cost": 10,
+   "weapons": [
+    "b36a4",
+    "m16a4",
+    "m277",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "sor-556-mk2"
+   ]
+  },
+  "acoplamento-folding-vertical": {
+   "id": "acoplamento-folding-vertical",
+   "slot": "acoplamento",
+   "originalName": "Folding Vertical",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "vcr-2"
+   ]
+  },
+  "acoplamento-alloy-vertical": {
+   "id": "acoplamento-alloy-vertical",
+   "slot": "acoplamento",
+   "originalName": "Alloy Vertical",
+   "cost": 20,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "vcr-2"
+   ]
+  },
+  "acoplamento-ribbed-vertical": {
+   "id": "acoplamento-ribbed-vertical",
+   "slot": "acoplamento",
+   "originalName": "Ribbed Vertical",
+   "cost": 20,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "vcr-2"
+   ]
+  },
+  "acoplamento-6h64-vertical": {
+   "id": "acoplamento-6h64-vertical",
+   "slot": "acoplamento",
+   "originalName": "6H64 Vertical",
+   "cost": 25,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "vcr-2"
+   ]
+  },
+  "acoplamento-folding-stubby": {
+   "id": "acoplamento-folding-stubby",
+   "slot": "acoplamento",
+   "originalName": "Folding Stubby",
+   "cost": 20,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "vcr-2"
+   ]
+  },
+  "acoplamento-ribbed-stubby": {
+   "id": "acoplamento-ribbed-stubby",
+   "slot": "acoplamento",
+   "originalName": "Ribbed Stubby",
+   "cost": 30,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "vcr-2"
+   ]
+  },
+  "acoplamento-canted-stubby": {
+   "id": "acoplamento-canted-stubby",
+   "slot": "acoplamento",
+   "originalName": "Canted Stubby",
+   "cost": 30,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "vcr-2"
+   ]
+  },
+  "acoplamento-full-angled": {
+   "id": "acoplamento-full-angled",
+   "slot": "acoplamento",
+   "originalName": "Full Angled",
+   "cost": 25,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "drs-iar",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "psr",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "sg-553r",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "vcr-2"
+   ]
+  },
+  "acoplamento-stippled-stubby": {
+   "id": "acoplamento-stippled-stubby",
+   "slot": "acoplamento",
+   "originalName": "Stippled Stubby",
+   "cost": 35,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "vcr-2"
+   ]
+  },
+  "acoplamento-ptt-grip-pod": {
+   "id": "acoplamento-ptt-grip-pod",
+   "slot": "acoplamento",
+   "originalName": "PTT Grip Pod",
+   "cost": 20,
+   "weapons": [
+    "ak4d",
+    "b36a4",
+    "drs-iar",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "l110",
+    "lmr27",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "nvo-228e",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "sor-556-mk2",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "vcr-2"
+   ]
+  },
+  "acoplamento-adjustable-angled": {
+   "id": "acoplamento-adjustable-angled",
+   "slot": "acoplamento",
+   "originalName": "Adjustable Angled",
+   "cost": 15,
+   "weapons": [
+    "ak4d",
+    "b36a4",
+    "drs-iar",
+    "lmr27",
+    "m1014",
+    "m16a4",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "sor-556-mk2",
+    "svdm",
+    "vcr-2"
+   ]
+  },
+  "acoplamento-low-profile-stubby": {
+   "id": "acoplamento-low-profile-stubby",
+   "slot": "acoplamento",
+   "originalName": "Low-Profile Stubby",
+   "cost": 45,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m1014",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "vcr-2"
+   ]
+  },
+  "acoplamento-bipod": {
+   "id": "acoplamento-bipod",
+   "slot": "acoplamento",
+   "originalName": "Bipod",
+   "cost": 10,
+   "weapons": [
+    "ak4d",
+    "b36a4",
+    "drs-iar",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "l110",
+    "l115",
+    "lmr27",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "nvo-228e",
+    "psr",
+    "rpk-74m",
+    "rpkm",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "vcr-2"
+   ]
+  },
+  "acoplamento-slim-angled": {
+   "id": "acoplamento-slim-angled",
+   "slot": "acoplamento",
+   "originalName": "Slim Angled",
+   "cost": 25,
+   "weapons": [
+    "18-5ks-k",
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "db-12",
+    "drs-iar",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "m1014",
+    "m121-a2",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "m87a1",
+    "nvo-228e",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "umg-40",
+    "vcr-2"
+   ]
+  },
+  "acoplamento-qd-grip-pod": {
+   "id": "acoplamento-qd-grip-pod",
+   "slot": "acoplamento",
+   "originalName": "QD Grip Pod",
+   "cost": 30,
+   "weapons": [
+    "ak4d",
+    "b36a4",
+    "drs-iar",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "l110",
+    "l115",
+    "lmr27",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "nvo-228e",
+    "psr",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "vcr-2"
+   ]
+  },
+  "acoplamento-classic-grip-pod": {
+   "id": "acoplamento-classic-grip-pod",
+   "slot": "acoplamento",
+   "originalName": "Classic Grip Pod",
+   "cost": 30,
+   "weapons": [
+    "ak4d",
+    "b36a4",
+    "drs-iar",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "l110",
+    "l115",
+    "lmr27",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "m60",
+    "nvo-228e",
+    "psr",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "vcr-2"
+   ]
+  },
+  "carregador-30rnd-magazine": {
+   "id": "carregador-30rnd-magazine",
+   "slot": "carregador",
+   "originalName": "30RND Magazine",
+   "cost": 5,
+   "weapons": [
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "drs-iar",
+    "es-57",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "m16a4",
+    "m277",
+    "m433",
+    "m4a1",
+    "nvo-228e",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "tr-7",
+    "umg-40",
+    "vcr-2"
+   ]
+  },
+  "carregador-30rnd-fast-mag": {
+   "id": "carregador-30rnd-fast-mag",
+   "slot": "carregador",
+   "originalName": "30RND Fast Mag",
+   "cost": 10,
+   "weapons": [
+    "ak-205",
+    "b36a4",
+    "cz3a1",
+    "drs-iar",
+    "grt-bc",
+    "kord-6p67",
+    "m16a4",
+    "m433",
+    "m4a1",
+    "nvo-228e",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "sg-553r",
+    "sgx",
+    "sor-556-mk2",
+    "umg-40",
+    "vcr-2"
+   ]
+  },
+  "carregador-20rnd-fast-mag": {
+   "id": "carregador-20rnd-fast-mag",
+   "slot": "carregador",
+   "originalName": "20RND Fast Mag",
+   "cost": 5,
+   "weapons": [
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "grt-cps",
+    "lmr27",
+    "m16a4",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "nvo-228e",
+    "sg-553r",
+    "sor-556-mk2",
+    "svdm",
+    "tr-7",
+    "vcr-2"
+   ]
+  },
+  "carregador-20rnd-magazine": {
+   "id": "carregador-20rnd-magazine",
+   "slot": "carregador",
+   "originalName": "20RND Magazine",
+   "cost": 5,
+   "weapons": [
+    "ak4d",
+    "b36a4",
+    "es-57",
+    "grt-cps",
+    "lmr27",
+    "m16a4",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "nvo-228e",
+    "pw5a3",
+    "pw7a2",
+    "scw-10",
+    "sg-553r",
+    "sor-556-mk2",
+    "tr-7",
+    "vcr-2"
+   ]
+  },
+  "carregador-40rnd-fast-mag": {
+   "id": "carregador-40rnd-fast-mag",
+   "slot": "carregador",
+   "originalName": "40RND Fast Mag",
+   "cost": 30,
+   "weapons": [
+    "ak-205",
+    "b36a4",
+    "drs-iar",
+    "kord-6p67",
+    "m16a4",
+    "m433",
+    "m4a1",
+    "nvo-228e",
+    "rpk-74m",
+    "rpkm",
+    "sg-553r",
+    "sor-556-mk2",
+    "vcr-2"
+   ]
+  },
+  "carregador-36rnd-magazine": {
+   "id": "carregador-36rnd-magazine",
+   "slot": "carregador",
+   "originalName": "36RND Magazine",
+   "cost": 15,
+   "weapons": [
+    "ak-205",
+    "b36a4",
+    "drs-iar",
+    "grt-bc",
+    "kord-6p67",
+    "m16a4",
+    "m433",
+    "m4a1",
+    "nvo-228e",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "sg-553r",
+    "sgx",
+    "sor-556-mk2",
+    "umg-40",
+    "vcr-2"
+   ]
+  },
+  "carregador-40rnd-magazine": {
+   "id": "carregador-40rnd-magazine",
+   "slot": "carregador",
+   "originalName": "40RND Magazine",
+   "cost": 25,
+   "weapons": [
+    "ak-205",
+    "b36a4",
+    "drs-iar",
+    "kord-6p67",
+    "m16a4",
+    "m433",
+    "m4a1",
+    "nvo-228e",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "sg-553r",
+    "sor-556-mk2",
+    "vcr-2"
+   ]
+  },
+  "ergonomia-magwell-flare": {
+   "id": "ergonomia-magwell-flare",
+   "slot": "ergonomia",
+   "originalName": "Magwell Flare",
+   "cost": 10,
+   "weapons": [
+    "ak-205",
+    "drs-iar",
+    "m16a4",
+    "m277",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "rpk-74m",
+    "rpkm",
+    "sor-556-mk2"
+   ]
+  },
+  "ergonomia-match-trigger": {
+   "id": "ergonomia-match-trigger",
+   "slot": "ergonomia",
+   "originalName": "Match Trigger",
+   "cost": 15,
+   "weapons": [
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "drs-iar",
+    "grt-bc",
+    "kord-6p67",
+    "kts100-mk8",
+    "m16a4",
+    "m277",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "nvo-228e",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "sg-553r",
+    "sor-556-mk2",
+    "tr-7",
+    "vcr-2"
+   ]
+  },
+  "municao-fmj": {
+   "id": "municao-fmj",
+   "slot": "municao",
+   "originalName": "FMJ",
+   "cost": 5,
+   "weapons": [
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "drs-iar",
+    "es-57",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m45a1",
+    "m4a1",
+    "m60",
+    "nvo-228e",
+    "p18",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "municao-tungsten-core": {
+   "id": "municao-tungsten-core",
+   "slot": "municao",
+   "originalName": "Tungsten Core",
+   "cost": 5,
+   "weapons": [
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "drs-iar",
+    "es-57",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m45a1",
+    "m4a1",
+    "m60",
+    "nvo-228e",
+    "p18",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "municao-hollow-point": {
+   "id": "municao-hollow-point",
+   "slot": "municao",
+   "originalName": "Hollow Point",
+   "cost": 20,
+   "weapons": [
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "drs-iar",
+    "es-57",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "lmr27",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m45a1",
+    "m4a1",
+    "m60",
+    "nvo-228e",
+    "p18",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "municao-frangible": {
+   "id": "municao-frangible",
+   "slot": "municao",
+   "originalName": "Frangible",
+   "cost": 20,
+   "weapons": [
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "cz3a1",
+    "drs-iar",
+    "es-57",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m121-a2",
+    "m123k",
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m44",
+    "m45a1",
+    "m4a1",
+    "m60",
+    "nvo-228e",
+    "p18",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "scw-10",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "sv-98",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "umg-40",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "municao-polymer-case": {
+   "id": "municao-polymer-case",
+   "slot": "municao",
+   "originalName": "Polymer Case",
+   "cost": 10,
+   "weapons": [
+    "ak-205",
+    "ak4d",
+    "b36a4",
+    "drs-iar",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "m16a4",
+    "m39-emr",
+    "m417-a2",
+    "m433",
+    "m4a1",
+    "nvo-228e",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "sg-553r",
+    "sor-556-mk2",
+    "tr-7",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "cano-480mm-factory": {
+   "id": "cano-480mm-factory",
+   "slot": "cano",
+   "originalName": "480mm Factory",
+   "cost": 10,
+   "weapons": [
+    "b36a4"
+   ]
+  },
+  "cano-510mm-fluted": {
+   "id": "cano-510mm-fluted",
+   "slot": "cano",
+   "originalName": "510mm Fluted",
+   "cost": 15,
+   "weapons": [
+    "b36a4"
+   ]
+  },
+  "cano-480mm-mg": {
+   "id": "cano-480mm-mg",
+   "slot": "cano",
+   "originalName": "480mm MG",
+   "cost": 10,
+   "weapons": [
+    "b36a4"
+   ]
+  },
+  "cano-480mm-fluted": {
+   "id": "cano-480mm-fluted",
+   "slot": "cano",
+   "originalName": "480mm Fluted",
+   "cost": 20,
+   "weapons": [
+    "b36a4"
+   ]
+  },
+  "cano-510mm-dmr": {
+   "id": "cano-510mm-dmr",
+   "slot": "cano",
+   "originalName": "510mm DMR",
+   "cost": 10,
+   "weapons": [
+    "b36a4"
+   ]
+  },
+  "cano-391mm-cqb": {
+   "id": "cano-391mm-cqb",
+   "slot": "cano",
+   "originalName": "391mm CQB",
+   "cost": 15,
+   "weapons": [
+    "b36a4"
+   ]
+  },
+  "carregador-45rnd-magazine": {
+   "id": "carregador-45rnd-magazine",
+   "slot": "carregador",
+   "originalName": "45RND Magazine",
+   "cost": 35,
+   "weapons": [
+    "ak-205",
+    "b36a4",
+    "drs-iar",
+    "grt-bc",
+    "kord-6p67",
+    "kts100-mk8",
+    "sor-556-mk2"
+   ]
+  },
+  "carregador-45rnd-fast-mag": {
+   "id": "carregador-45rnd-fast-mag",
+   "slot": "carregador",
+   "originalName": "45RND Fast Mag",
+   "cost": 40,
+   "weapons": [
+    "ak-205",
+    "b36a4",
+    "drs-iar",
+    "grt-bc",
+    "kord-6p67",
+    "kts100-mk8",
+    "sor-556-mk2"
+   ]
+  },
+  "municao-synthetic-tip": {
+   "id": "municao-synthetic-tip",
+   "slot": "municao",
+   "originalName": "Synthetic Tip",
+   "cost": 30,
+   "weapons": [
+    "ak-205",
+    "b36a4",
+    "drs-iar",
+    "grt-cps",
+    "kts100-mk8",
+    "lmr27",
+    "pw5a3",
+    "pw7a2",
+    "qbz-192",
+    "rpk-74m",
+    "rpkm",
+    "sl9",
+    "sor-556-mk2",
+    "umg-40"
+   ]
+  },
+  "mira-ngfc-lpvo": {
+   "id": "mira-ngfc-lpvo",
+   "slot": "mira",
+   "originalName": "NGFC LPVO",
+   "cost": 25,
+   "weapons": [
+    "m16a4",
+    "m2010-esr",
+    "m240l",
+    "m250",
+    "m277",
+    "m417-a2",
+    "m4a1",
+    "psr",
+    "sor-556-mk2"
+   ]
+  },
+  "boca-single-port-brake": {
+   "id": "boca-single-port-brake",
+   "slot": "boca",
+   "originalName": "Single-Port Brake",
+   "cost": 5,
+   "weapons": [
+    "cz3a1",
+    "drs-iar",
+    "es-57",
+    "grt-bc",
+    "grt-cps",
+    "kord-6p67",
+    "kts100-mk8",
+    "kv9",
+    "l110",
+    "l115",
+    "lmr27",
+    "m16a4",
+    "m2010-esr",
+    "m250",
+    "m277",
+    "m39-emr",
+    "m45a1",
+    "m4a1",
+    "m60",
+    "nvo-228e",
+    "p18",
+    "psr",
+    "pw7a2",
+    "sg-553r",
+    "sgx",
+    "sl9",
+    "sor-556-mk2",
+    "svdm",
+    "svk-86",
+    "tr-7",
+    "usg-90",
+    "vcr-2"
+   ]
+  },
+  "cano-14-5-factory": {
+   "id": "cano-14-5-factory",
+   "slot": "cano",
+   "originalName": "14.5\" Factory",
+   "cost": 15,
+   "weapons": [
+    "sor-556-mk2"
+   ]
+  },
+  "cano-16-us": {
+   "id": "cano-16-us",
+   "slot": "cano",
+   "originalName": "16\" US",
+   "cost": 10,
+   "weapons": [
+    "sor-556-mk2"
+   ]
+  },
+  "cano-18-us-lb": {
+   "id": "cano-18-us-lb",
+   "slot": "cano",
+   "originalName": "18\" US-LB",
+   "cost": 15,
+   "weapons": [
+    "sor-556-mk2"
+   ]
+  },
+  "cano-iar-heavy": {
+   "id": "cano-iar-heavy",
+   "slot": "cano",
+   "originalName": "IAR Heavy",
+   "cost": 10,
+   "weapons": [
+    "sor-556-mk2"
+   ]
+  },
+  "cano-18-custom": {
+   "id": "cano-18-custom",
+   "slot": "cano",
+   "originalName": "18\" Custom",
+   "cost": 10,
+   "weapons": [
+    "sor-556-mk2"
+   ]
+  },
+  "cano-450mm-factory": {
+   "id": "cano-450mm-factory",
+   "slot": "cano",
+   "originalName": "450mm Factory",
+   "cost": 10,
+   "weapons": [
+    "ak4d"
+   ]
+  },
+  "cano-600mm-cut": {
+   "id": "cano-600mm-cut",
+   "slot": "cano",
+   "originalName": "600mm Cut",
+   "cost": 10,
+   "weapons": [
+    "ak4d"
+   ]
+  },
+  "cano-600mm-fluted": {
+   "id": "cano-600mm-fluted",
+   "slot": "cano",
+   "originalName": "600mm Fluted",
+   "cost": 15,
+   "weapons": [
+    "ak4d"
+   ]
+  },
+  "cano-409mm-us": {
+   "id": "cano-409mm-us",
+   "slot": "cano",
+   "originalName": "409mm US",
+   "cost": 15,
+   "weapons": [
+    "ak4d"
+   ]
+  },
+  "cano-600mm-dmr": {
+   "id": "cano-600mm-dmr",
+   "slot": "cano",
+   "originalName": "600mm DMR",
+   "cost": 10,
+   "weapons": [
+    "ak4d"
+   ]
+  },
+  "carregador-15rnd-magazine": {
+   "id": "carregador-15rnd-magazine",
+   "slot": "carregador",
+   "originalName": "15RND Magazine",
+   "cost": 5,
+   "weapons": [
+    "ak4d",
+    "grt-cps",
+    "lmr27",
+    "m277",
+    "m39-emr",
+    "scw-10",
+    "tr-7"
+   ]
+  },
+  "carregador-15rnd-fast-mag": {
+   "id": "carregador-15rnd-fast-mag",
+   "slot": "carregador",
+   "originalName": "15RND Fast Mag",
+   "cost": 10,
+   "weapons": [
+    "ak4d",
+    "lmr27",
+    "m39-emr",
+    "scw-10"
+   ]
+  },
+  "cano-17-factory": {
+   "id": "cano-17-factory",
+   "slot": "cano",
+   "originalName": "17\" Factory",
+   "cost": 10,
+   "weapons": [
+    "m60",
+    "tr-7"
+   ]
+  },
+  "cano-20-long": {
+   "id": "cano-20-long",
+   "slot": "cano",
+   "originalName": "20\" Long",
+   "cost": 15,
+   "weapons": [
+    "tr-7"
+   ]
+  },
+  "cano-432mm-fluted": {
+   "id": "cano-432mm-fluted",
+   "slot": "cano",
+   "originalName": "432mm Fluted",
+   "cost": 20,
+   "weapons": [
+    "tr-7"
+   ]
+  },
+  "cano-17-cut": {
+   "id": "cano-17-cut",
+   "slot": "cano",
+   "originalName": "17\" Cut",
+   "cost": 15,
+   "weapons": [
+    "tr-7"
+   ]
+  },
+  "carregador-10rnd-fast-mag": {
+   "id": "carregador-10rnd-fast-mag",
+   "slot": "carregador",
+   "originalName": "10RND Fast Mag",
+   "cost": 5,
+   "weapons": [
+    "lmr27",
+    "svdm",
+    "svk-86",
+    "tr-7"
+   ]
+  },
+  "carregador-25rnd-magazine": {
+   "id": "carregador-25rnd-magazine",
+   "slot": "carregador",
+   "originalName": "25RND Magazine",
+   "cost": 20,
+   "weapons": [
+    "m277",
+    "m39-emr",
+    "m417-a2",
+    "scw-10",
+    "tr-7",
+    "umg-40"
+   ]
+  },
+  "carregador-25rnd-fast-mag": {
+   "id": "carregador-25rnd-fast-mag",
+   "slot": "carregador",
+   "originalName": "25RND Fast Mag",
+   "cost": 25,
+   "weapons": [
+    "m277",
+    "tr-7",
+    "umg-40"
+   ]
+  },
+  "ergonomia-improved-mag-catch": {
+   "id": "ergonomia-improved-mag-catch",
+   "slot": "ergonomia",
+   "originalName": "Improved Mag Catch",
+   "cost": 5,
+   "weapons": [
+    "ak-205",
+    "cz3a1",
+    "es-57",
+    "grt-bc",
+    "l115",
+    "lmr27",
+    "m277",
+    "m39-emr",
+    "m45a1",
+    "m4a1",
+    "p18",
+    "psr",
+    "pw5a3",
+    "pw7a2",
+    "scw-10",
+    "sg-553r",
+    "sl9",
+    "sv-98",
+    "svdm",
+    "tr-7",
+    "usg-90"
+   ]
+  },
+  "cano-415mm-factory": {
+   "id": "cano-415mm-factory",
+   "slot": "cano",
+   "originalName": "415mm Factory",
+   "cost": 10,
+   "weapons": [
+    "kord-6p67"
+   ]
+  },
+  "cano-415mm-prototype": {
+   "id": "cano-415mm-prototype",
+   "slot": "cano",
+   "originalName": "415mm Prototype",
+   "cost": 10,
+   "weapons": [
+    "kord-6p67"
+   ]
+  },
+  "cano-415mm-fluted": {
+   "id": "cano-415mm-fluted",
+   "slot": "cano",
+   "originalName": "415mm Fluted",
+   "cost": 20,
+   "weapons": [
+    "kord-6p67"
+   ]
+  },
+  "cano-409mm-factory": {
+   "id": "cano-409mm-factory",
+   "slot": "cano",
+   "originalName": "409mm Factory",
+   "cost": 10,
+   "weapons": [
+    "nvo-228e"
+   ]
+  },
+  "cano-458mm-custom": {
+   "id": "cano-458mm-custom",
+   "slot": "cano",
+   "originalName": "458mm Custom",
+   "cost": 15,
+   "weapons": [
+    "nvo-228e"
+   ]
+  },
+  "cano-409mm-cut": {
+   "id": "cano-409mm-cut",
+   "slot": "cano",
+   "originalName": "409mm Cut",
+   "cost": 15,
+   "weapons": [
+    "nvo-228e"
+   ]
+  },
+  "cano-409mm-fluted": {
+   "id": "cano-409mm-fluted",
+   "slot": "cano",
+   "originalName": "409mm Fluted",
+   "cost": 20,
+   "weapons": [
+    "nvo-228e"
+   ]
+  },
+  "cano-11-5-commando": {
+   "id": "cano-11-5-commando",
+   "slot": "cano",
+   "originalName": "11.5\" Commando",
+   "cost": 15,
+   "weapons": [
+    "m4a1"
+   ]
+  },
+  "cano-12-5-mid": {
+   "id": "cano-12-5-mid",
+   "slot": "cano",
+   "originalName": "12.5\" Mid",
+   "cost": 10,
+   "weapons": [
+    "m4a1"
+   ]
+  },
+  "cano-14-5-carbine": {
+   "id": "cano-14-5-carbine",
+   "slot": "cano",
+   "originalName": "14.5\" Carbine",
+   "cost": 15,
+   "weapons": [
+    "drs-iar",
+    "grt-cps",
+    "m4a1"
+   ]
+  },
+  "cano-12-5-fluted": {
+   "id": "cano-12-5-fluted",
+   "slot": "cano",
+   "originalName": "12.5\" Fluted",
+   "cost": 20,
+   "weapons": [
+    "m4a1"
+   ]
+  },
+  "cano-13-factory": {
+   "id": "cano-13-factory",
+   "slot": "cano",
+   "originalName": "13\" Factory",
+   "cost": 10,
+   "weapons": [
+    "m277"
+   ]
+  },
+  "cano-13-prototype": {
+   "id": "cano-13-prototype",
+   "slot": "cano",
+   "originalName": "13\" Prototype",
+   "cost": 10,
+   "weapons": [
+    "m277"
+   ]
+  },
+  "cano-16-custom": {
+   "id": "cano-16-custom",
+   "slot": "cano",
+   "originalName": "16\" Custom",
+   "cost": 10,
+   "weapons": [
+    "m277"
+   ]
+  },
+  "cano-16-rifle": {
+   "id": "cano-16-rifle",
+   "slot": "cano",
+   "originalName": "16\" Rifle",
+   "cost": 15,
+   "weapons": [
+    "grt-cps",
+    "m277"
+   ]
+  },
+  "cano-13-fluted": {
+   "id": "cano-13-fluted",
+   "slot": "cano",
+   "originalName": "13\" Fluted",
+   "cost": 20,
+   "weapons": [
+    "m277"
+   ]
+  },
+  "cano-314mm-factory": {
+   "id": "cano-314mm-factory",
+   "slot": "cano",
+   "originalName": "314mm Factory",
+   "cost": 10,
+   "weapons": [
+    "ak-205"
+   ]
+  },
+  "cano-314mm-prototype": {
+   "id": "cano-314mm-prototype",
+   "slot": "cano",
+   "originalName": "314mm Prototype",
+   "cost": 10,
+   "weapons": [
+    "ak-205"
+   ]
+  },
+  "cano-314mm-fluted": {
+   "id": "cano-314mm-fluted",
+   "slot": "cano",
+   "originalName": "314mm Fluted",
+   "cost": 20,
+   "weapons": [
+    "ak-205"
+   ]
+  },
+  "carregador-50rnd-fast-mag": {
+   "id": "carregador-50rnd-fast-mag",
+   "slot": "carregador",
+   "originalName": "50RND Fast Mag",
+   "cost": 45,
+   "weapons": [
+    "ak-205"
+   ]
+  },
+  "cano-13-commando": {
+   "id": "cano-13-commando",
+   "slot": "cano",
+   "originalName": "13\" Commando",
+   "cost": 10,
+   "weapons": [
+    "m417-a2"
+   ]
+  },
+  "cano-12-assaulter": {
+   "id": "cano-12-assaulter",
+   "slot": "cano",
+   "originalName": "12\" Assaulter",
+   "cost": 15,
+   "weapons": [
+    "m417-a2"
+   ]
+  },
+  "carregador-10rnd-magazine": {
+   "id": "carregador-10rnd-magazine",
+   "slot": "carregador",
+   "originalName": "10RND Magazine",
+   "cost": 5,
+   "weapons": [
+    "lmr27",
+    "m417-a2",
+    "psr",
+    "sv-98",
+    "svdm",
+    "svk-86"
+   ]
+  },
+  "cano-10-factory": {
+   "id": "cano-10-factory",
+   "slot": "cano",
+   "originalName": "10\" Factory",
+   "cost": 20,
+   "weapons": [
+    "grt-bc"
+   ]
+  },
+  "cano-10-full": {
+   "id": "cano-10-full",
+   "slot": "cano",
+   "originalName": "10\" Full",
+   "cost": 10,
+   "weapons": [
+    "grt-bc"
+   ]
+  },
+  "cano-14-5-alt": {
+   "id": "cano-14-5-alt",
+   "slot": "cano",
+   "originalName": "14.5\" Alt",
+   "cost": 15,
+   "weapons": [
+    "grt-bc"
+   ]
+  },
+  "acoplamento-compact-handstop": {
+   "id": "acoplamento-compact-handstop",
+   "slot": "acoplamento",
+   "originalName": "Compact Handstop",
+   "cost": 10,
+   "weapons": [
+    "cz3a1",
+    "grt-bc",
+    "kv9",
+    "pw5a3",
+    "pw7a2",
+    "scw-10",
+    "sgx",
+    "sl9",
+    "umg-40"
+   ]
+  },
+  "cano-10-5-factory": {
+   "id": "cano-10-5-factory",
+   "slot": "cano",
+   "originalName": "10.5\" Factory",
+   "cost": 10,
+   "weapons": [
+    "qbz-192"
+   ]
+  },
+  "cano-14-5-common": {
+   "id": "cano-14-5-common",
+   "slot": "cano",
+   "originalName": "14.5\" Common",
+   "cost": 10,
+   "weapons": [
+    "qbz-192"
+   ]
+  },
+  "cano-240mm-sb": {
+   "id": "cano-240mm-sb",
+   "slot": "cano",
+   "originalName": "240mm SB",
+   "cost": 10,
+   "weapons": [
+    "sg-553r"
+   ]
+  },
+  "cano-303mm-lb": {
+   "id": "cano-303mm-lb",
+   "slot": "cano",
+   "originalName": "303mm LB",
+   "cost": 15,
+   "weapons": [
+    "sg-553r"
+   ]
+  },
+  "cano-240mm-fluted": {
+   "id": "cano-240mm-fluted",
+   "slot": "cano",
+   "originalName": "240mm Fluted",
+   "cost": 20,
+   "weapons": [
+    "sg-553r"
+   ]
+  },
+  "mira-rmr-1-00x": {
+   "id": "mira-rmr-1-00x",
+   "slot": "mira",
+   "originalName": "RMR 1.00x",
+   "cost": 10,
+   "weapons": [
+    "sgx"
+   ]
+  },
+  "cano-6-standard": {
+   "id": "cano-6-standard",
+   "slot": "cano",
+   "originalName": "6\" Standard",
+   "cost": 10,
+   "weapons": [
+    "sgx"
+   ]
+  },
+  "cano-4-5-compact": {
+   "id": "cano-4-5-compact",
+   "slot": "cano",
+   "originalName": "4.5\" Compact",
+   "cost": 10,
+   "weapons": [
+    "sgx"
+   ]
+  },
+  "cano-8-extended": {
+   "id": "cano-8-extended",
+   "slot": "cano",
+   "originalName": "8\" Extended",
+   "cost": 10,
+   "weapons": [
+    "sgx"
+   ]
+  },
+  "cano-6-fluted": {
+   "id": "cano-6-fluted",
+   "slot": "cano",
+   "originalName": "6\" Fluted",
+   "cost": 10,
+   "weapons": [
+    "sgx"
+   ]
+  },
+  "carregador-41rnd-magazine": {
+   "id": "carregador-41rnd-magazine",
+   "slot": "carregador",
+   "originalName": "41RND Magazine",
+   "cost": 10,
+   "weapons": [
+    "sgx"
+   ]
+  },
+  "cano-225mm-factory": {
+   "id": "cano-225mm-factory",
+   "slot": "cano",
+   "originalName": "225mm Factory",
+   "cost": 10,
+   "weapons": [
+    "pw5a3"
+   ]
+  },
+  "cano-245mm-custom": {
+   "id": "cano-245mm-custom",
+   "slot": "cano",
+   "originalName": "245mm Custom",
+   "cost": 10,
+   "weapons": [
+    "pw5a3"
+   ]
+  },
+  "cano-180mm-standard": {
+   "id": "cano-180mm-standard",
+   "slot": "cano",
+   "originalName": "180mm Standard",
+   "cost": 10,
+   "weapons": [
+    "pw7a2"
+   ]
+  },
+  "cano-180mm-prototype": {
+   "id": "cano-180mm-prototype",
+   "slot": "cano",
+   "originalName": "180mm Prototype",
+   "cost": 10,
+   "weapons": [
+    "pw7a2"
+   ]
+  },
+  "mira-aperture-sights": {
+   "id": "mira-aperture-sights",
+   "slot": "mira",
+   "originalName": "Aperture Sights",
+   "cost": 5,
+   "weapons": [
+    "umg-40"
+   ]
+  },
+  "mira-cqb-sights": {
+   "id": "mira-cqb-sights",
+   "slot": "mira",
+   "originalName": "CQB Sights",
+   "cost": 5,
+   "weapons": [
+    "umg-40"
+   ]
+  },
+  "cano-200mm-factory": {
+   "id": "cano-200mm-factory",
+   "slot": "cano",
+   "originalName": "200mm Factory",
+   "cost": 10,
+   "weapons": [
+    "umg-40"
+   ]
+  },
+  "cano-200mm-custom-h": {
+   "id": "cano-200mm-custom-h",
+   "slot": "cano",
+   "originalName": "200mm Custom-H",
+   "cost": 10,
+   "weapons": [
+    "umg-40"
+   ]
+  },
+  "cano-305mm-custom-h": {
+   "id": "cano-305mm-custom-h",
+   "slot": "cano",
+   "originalName": "305mm Custom-H",
+   "cost": 10,
+   "weapons": [
+    "umg-40"
+   ]
+  },
+  "cano-305mm-custom": {
+   "id": "cano-305mm-custom",
+   "slot": "cano",
+   "originalName": "305mm Custom",
+   "cost": 15,
+   "weapons": [
+    "umg-40"
+   ]
+  },
+  "cano-200mm-custom": {
+   "id": "cano-200mm-custom",
+   "slot": "cano",
+   "originalName": "200mm Custom",
+   "cost": 20,
+   "weapons": [
+    "umg-40"
+   ]
+  },
+  "cano-246mm-factory": {
+   "id": "cano-246mm-factory",
+   "slot": "cano",
+   "originalName": "246mm Factory",
+   "cost": 10,
+   "weapons": [
+    "usg-90"
+   ]
+  },
+  "cano-264mm-prototype": {
+   "id": "cano-264mm-prototype",
+   "slot": "cano",
+   "originalName": "264mm Prototype",
+   "cost": 10,
+   "weapons": [
+    "usg-90"
+   ]
+  },
+  "cano-407mm-civ-s": {
+   "id": "cano-407mm-civ-s",
+   "slot": "cano",
+   "originalName": "407mm CIV-S",
+   "cost": 10,
+   "weapons": [
+    "usg-90"
+   ]
+  },
+  "cano-264mm-fluted": {
+   "id": "cano-264mm-fluted",
+   "slot": "cano",
+   "originalName": "264mm Fluted",
+   "cost": 20,
+   "weapons": [
+    "usg-90"
+   ]
+  },
+  "carregador-50rnd-magazine": {
+   "id": "carregador-50rnd-magazine",
+   "slot": "carregador",
+   "originalName": "50RND Magazine",
+   "cost": 5,
+   "weapons": [
+    "drs-iar",
+    "kts100-mk8",
+    "usg-90"
+   ]
+  },
+  "cano-5-5-factory": {
+   "id": "cano-5-5-factory",
+   "slot": "cano",
+   "originalName": "5.5\" Factory",
+   "cost": 10,
+   "weapons": [
+    "kv9"
+   ]
+  },
+  "cano-6-5-extended": {
+   "id": "cano-6-5-extended",
+   "slot": "cano",
+   "originalName": "6.5\" Extended",
+   "cost": 15,
+   "weapons": [
+    "kv9"
+   ]
+  },
+  "cano-5-5-fluted": {
+   "id": "cano-5-5-fluted",
+   "slot": "cano",
+   "originalName": "5.5\" Fluted",
+   "cost": 20,
+   "weapons": [
+    "kv9"
+   ]
+  },
+  "carregador-17rnd-magazine": {
+   "id": "carregador-17rnd-magazine",
+   "slot": "carregador",
+   "originalName": "17RND Magazine",
+   "cost": 5,
+   "weapons": [
+    "kv9",
+    "p18"
+   ]
+  },
+  "carregador-17rnd-fast-mag": {
+   "id": "carregador-17rnd-fast-mag",
+   "slot": "carregador",
+   "originalName": "17RND Fast Mag",
+   "cost": 10,
+   "weapons": [
+    "kv9"
+   ]
+  },
+  "carregador-23rnd-magazine": {
+   "id": "carregador-23rnd-magazine",
+   "slot": "carregador",
+   "originalName": "23RND Magazine",
+   "cost": 25,
+   "weapons": [
+    "kv9"
+   ]
+  },
+  "carregador-27rnd-magazine": {
+   "id": "carregador-27rnd-magazine",
+   "slot": "carregador",
+   "originalName": "27RND Magazine",
+   "cost": 45,
+   "weapons": [
+    "kv9"
+   ]
+  },
+  "cano-9-factory": {
+   "id": "cano-9-factory",
+   "slot": "cano",
+   "originalName": "9\" Factory",
+   "cost": 10,
+   "weapons": [
+    "sl9"
+   ]
+  },
+  "cano-9-fluted": {
+   "id": "cano-9-fluted",
+   "slot": "cano",
+   "originalName": "9\" Fluted",
+   "cost": 20,
+   "weapons": [
+    "sl9"
+   ]
+  },
+  "cano-11-extended": {
+   "id": "cano-11-extended",
+   "slot": "cano",
+   "originalName": "11\" Extended",
+   "cost": 15,
+   "weapons": [
+    "sl9"
+   ]
+  },
+  "cano-9-heavy": {
+   "id": "cano-9-heavy",
+   "slot": "cano",
+   "originalName": "9\" Heavy",
+   "cost": 10,
+   "weapons": [
+    "sl9"
+   ]
+  },
+  "cano-11-heavy": {
+   "id": "cano-11-heavy",
+   "slot": "cano",
+   "originalName": "11\" Heavy",
+   "cost": 10,
+   "weapons": [
+    "sl9"
+   ]
+  },
+  "acoplamento-factory-angled": {
+   "id": "acoplamento-factory-angled",
+   "slot": "acoplamento",
+   "originalName": "Factory Angled",
+   "cost": 15,
+   "weapons": [
+    "db-12",
+    "lmr27",
+    "sl9"
+   ]
+  },
+  "carregador-60rnd-magazine": {
+   "id": "carregador-60rnd-magazine",
+   "slot": "carregador",
+   "originalName": "60RND Magazine",
+   "cost": 55,
+   "weapons": [
+    "drs-iar",
+    "kts100-mk8",
+    "rpk-74m",
+    "rpkm",
+    "sl9"
+   ]
+  },
+  "cano-394mm-sb": {
+   "id": "cano-394mm-sb",
+   "slot": "cano",
+   "originalName": "394mm SB",
+   "cost": 10,
+   "weapons": [
+    "l110"
+   ]
+  },
+  "cano-465mm-lb": {
+   "id": "cano-465mm-lb",
+   "slot": "cano",
+   "originalName": "465mm LB",
+   "cost": 10,
+   "weapons": [
+    "l110"
+   ]
+  },
+  "cano-349mm-fluted": {
+   "id": "cano-349mm-fluted",
+   "slot": "cano",
+   "originalName": "349mm Fluted",
+   "cost": 20,
+   "weapons": [
+    "l110"
+   ]
+  },
+  "carregador-100rnd-belt-pouch": {
+   "id": "carregador-100rnd-belt-pouch",
+   "slot": "carregador",
+   "originalName": "100RND Belt Pouch",
+   "cost": 5,
+   "weapons": [
+    "l110",
+    "m123k",
+    "m250",
+    "m60"
+   ]
+  },
+  "carregador-200rnd-belt-box": {
+   "id": "carregador-200rnd-belt-box",
+   "slot": "carregador",
+   "originalName": "200RND Belt Box",
+   "cost": 55,
+   "weapons": [
+    "l110",
+    "m123k"
+   ]
+  },
+  "cano-16-5-lsw": {
+   "id": "cano-16-5-lsw",
+   "slot": "cano",
+   "originalName": "16.5\" LSW",
+   "cost": 10,
+   "weapons": [
+    "drs-iar"
+   ]
+  },
+  "cano-16-5-basic": {
+   "id": "cano-16-5-basic",
+   "slot": "cano",
+   "originalName": "16.5\" Basic",
+   "cost": 10,
+   "weapons": [
+    "drs-iar"
+   ]
+  },
+  "cano-20-le": {
+   "id": "cano-20-le",
+   "slot": "cano",
+   "originalName": "20\" LE",
+   "cost": 15,
+   "weapons": [
+    "drs-iar"
+   ]
+  },
+  "cano-20-sdm-r": {
+   "id": "cano-20-sdm-r",
+   "slot": "cano",
+   "originalName": "20\" SDM-R",
+   "cost": 10,
+   "weapons": [
+    "drs-iar"
+   ]
+  },
+  "cano-22-e3-long": {
+   "id": "cano-22-e3-long",
+   "slot": "cano",
+   "originalName": "22\" E3 Long",
+   "cost": 10,
+   "weapons": [
+    "m60"
+   ]
+  },
+  "cano-17-fluted": {
+   "id": "cano-17-fluted",
+   "slot": "cano",
+   "originalName": "17\" Fluted",
+   "cost": 20,
+   "weapons": [
+    "m60"
+   ]
+  },
+  "carregador-50rnd-loose-belt": {
+   "id": "carregador-50rnd-loose-belt",
+   "slot": "carregador",
+   "originalName": "50RND Loose Belt",
+   "cost": 5,
+   "weapons": [
+    "m240l",
+    "m60"
+   ]
+  },
+  "boca-slant-brake": {
+   "id": "boca-slant-brake",
+   "slot": "boca",
+   "originalName": "Slant Brake",
+   "cost": 5,
+   "weapons": [
+    "rpk-74m",
+    "rpkm"
+   ]
+  },
+  "cano-590mm-factory": {
+   "id": "cano-590mm-factory",
+   "slot": "cano",
+   "originalName": "590mm Factory",
+   "cost": 10,
+   "weapons": [
+    "rpk-74m",
+    "rpkm"
+   ]
+  },
+  "cano-521mm-boar-f": {
+   "id": "cano-521mm-boar-f",
+   "slot": "cano",
+   "originalName": "521mm Boar-F",
+   "cost": 10,
+   "weapons": [
+    "rpk-74m",
+    "rpkm"
+   ]
+  },
+  "cano-521mm-boar": {
+   "id": "cano-521mm-boar",
+   "slot": "cano",
+   "originalName": "521mm Boar",
+   "cost": 10,
+   "weapons": [
+    "rpk-74m",
+    "rpkm"
+   ]
+  },
+  "cano-600mm-tabuk": {
+   "id": "cano-600mm-tabuk",
+   "slot": "cano",
+   "originalName": "600mm Tabuk",
+   "cost": 15,
+   "weapons": [
+    "rpk-74m",
+    "rpkm"
+   ]
+  },
+  "cano-419mm-boar-f": {
+   "id": "cano-419mm-boar-f",
+   "slot": "cano",
+   "originalName": "419mm Boar-F",
+   "cost": 15,
+   "weapons": [
+    "rpk-74m",
+    "rpkm"
+   ]
+  },
+  "carregador-75rnd-drum": {
+   "id": "carregador-75rnd-drum",
+   "slot": "carregador",
+   "originalName": "75RND Drum",
+   "cost": 50,
+   "weapons": [
+    "rpk-74m",
+    "rpkm"
+   ]
+  },
+  "cano-370mm-compact": {
+   "id": "cano-370mm-compact",
+   "slot": "cano",
+   "originalName": "370mm Compact",
+   "cost": 15,
+   "weapons": [
+    "m123k"
+   ]
+  },
+  "cano-450mm-standard": {
+   "id": "cano-450mm-standard",
+   "slot": "cano",
+   "originalName": "450mm Standard",
+   "cost": 10,
+   "weapons": [
+    "m123k"
+   ]
+  },
+  "cano-612mm-vmw": {
+   "id": "cano-612mm-vmw",
+   "slot": "cano",
+   "originalName": "612mm VMW",
+   "cost": 10,
+   "weapons": [
+    "m123k"
+   ]
+  },
+  "cano-406mm-standard": {
+   "id": "cano-406mm-standard",
+   "slot": "cano",
+   "originalName": "406mm Standard",
+   "cost": 10,
+   "weapons": [
+    "m250"
+   ]
+  },
+  "cano-556mm-prototype": {
+   "id": "cano-556mm-prototype",
+   "slot": "cano",
+   "originalName": "556mm Prototype",
+   "cost": 10,
+   "weapons": [
+    "m250"
+   ]
+  },
+  "carregador-50rnd-belt-pouch": {
+   "id": "carregador-50rnd-belt-pouch",
+   "slot": "carregador",
+   "originalName": "50RND Belt Pouch",
+   "cost": 5,
+   "weapons": [
+    "m121-a2",
+    "m250"
+   ]
+  },
+  "cano-508mm-mk8": {
+   "id": "cano-508mm-mk8",
+   "slot": "cano",
+   "originalName": "508mm MK8",
+   "cost": 10,
+   "weapons": [
+    "kts100-mk8"
+   ]
+  },
+  "cano-457mm-mk9": {
+   "id": "cano-457mm-mk9",
+   "slot": "cano",
+   "originalName": "457mm MK9",
+   "cost": 10,
+   "weapons": [
+    "kts100-mk8"
+   ]
+  },
+  "cano-330mm-mk3": {
+   "id": "cano-330mm-mk3",
+   "slot": "cano",
+   "originalName": "330mm MK3",
+   "cost": 15,
+   "weapons": [
+    "kts100-mk8"
+   ]
+  },
+  "carregador-60rnd-drum-mag": {
+   "id": "carregador-60rnd-drum-mag",
+   "slot": "carregador",
+   "originalName": "60RND Drum Mag",
+   "cost": 5,
+   "weapons": [
+    "kts100-mk8"
+   ]
+  },
+  "carregador-100rnd-drum-mag": {
+   "id": "carregador-100rnd-drum-mag",
+   "slot": "carregador",
+   "originalName": "100RND Drum Mag",
+   "cost": 45,
+   "weapons": [
+    "kts100-mk8"
+   ]
+  },
+  "cano-20-lima": {
+   "id": "cano-20-lima",
+   "slot": "cano",
+   "originalName": "20\" Lima",
+   "cost": 10,
+   "weapons": [
+    "m240l"
+   ]
+  },
+  "cano-24-bravo": {
+   "id": "cano-24-bravo",
+   "slot": "cano",
+   "originalName": "24\" Bravo",
+   "cost": 10,
+   "weapons": [
+    "m240l"
+   ]
+  },
+  "cano-20-oh": {
+   "id": "cano-20-oh",
+   "slot": "cano",
+   "originalName": "20\" OH",
+   "cost": 20,
+   "weapons": [
+    "m240l"
+   ]
+  },
+  "carregador-75rnd-belt-box": {
+   "id": "carregador-75rnd-belt-box",
+   "slot": "carregador",
+   "originalName": "75RND Belt Box",
+   "cost": 10,
+   "weapons": [
+    "m240l"
+   ]
+  },
+  "carregador-100rnd-belt-box": {
+   "id": "carregador-100rnd-belt-box",
+   "slot": "carregador",
+   "originalName": "100RND Belt Box",
+   "cost": 25,
+   "weapons": [
+    "m240l"
+   ]
+  },
+  "mira-s-vps-6-00x": {
+   "id": "mira-s-vps-6-00x",
+   "slot": "mira",
+   "originalName": "S-VPS 6.00x",
+   "cost": 10,
+   "weapons": [
+    "grt-cps",
+    "l115",
+    "lmr27",
+    "m2010-esr",
+    "m39-emr",
+    "psr",
+    "sv-98",
+    "svdm",
+    "svk-86"
+   ]
+  },
+  "mira-ssds-6-00x": {
+   "id": "mira-ssds-6-00x",
+   "slot": "mira",
+   "originalName": "SSDS 6.00x",
+   "cost": 10,
+   "weapons": [
+    "grt-cps",
+    "l115",
+    "lmr27",
+    "m2010-esr",
+    "m39-emr",
+    "psr",
+    "sv-98",
+    "svdm",
+    "svk-86"
+   ]
+  },
+  "mira-lert-8-00x": {
+   "id": "mira-lert-8-00x",
+   "slot": "mira",
+   "originalName": "LERT 8.00x",
+   "cost": 10,
+   "weapons": [
+    "grt-cps",
+    "l115",
+    "lmr27",
+    "m2010-esr",
+    "m39-emr",
+    "psr",
+    "sv-98",
+    "svdm",
+    "svk-86"
+   ]
+  },
+  "mira-1p88-variable": {
+   "id": "mira-1p88-variable",
+   "slot": "mira",
+   "originalName": "1P88 Variable",
+   "cost": 25,
+   "weapons": [
+    "grt-cps",
+    "l115",
+    "lmr27",
+    "m2010-esr",
+    "m39-emr",
+    "psr",
+    "sv-98",
+    "svdm",
+    "svk-86"
+   ]
+  },
+  "mira-sm-rifle-variable": {
+   "id": "mira-sm-rifle-variable",
+   "slot": "mira",
+   "originalName": "SM Rifle Variable",
+   "cost": 25,
+   "weapons": [
+    "grt-cps",
+    "l115",
+    "lmr27",
+    "m2010-esr",
+    "m39-emr",
+    "psr",
+    "sv-98",
+    "svdm",
+    "svk-86"
+   ]
+  },
+  "mira-nfx-8-00x": {
+   "id": "mira-nfx-8-00x",
+   "slot": "mira",
+   "originalName": "NFX 8.00x",
+   "cost": 10,
+   "weapons": [
+    "grt-cps",
+    "l115",
+    "lmr27",
+    "m2010-esr",
+    "m39-emr",
+    "psr",
+    "sv-98",
+    "svdm",
+    "svk-86"
+   ]
+  },
+  "mira-ts-hd-6-00x": {
+   "id": "mira-ts-hd-6-00x",
+   "slot": "mira",
+   "originalName": "TS-HD 6.00x",
+   "cost": 25,
+   "weapons": [
+    "cz3a1",
+    "grt-cps",
+    "l115",
+    "lmr27",
+    "m2010-esr",
+    "m39-emr",
+    "psr",
+    "sv-98",
+    "svdm",
+    "svk-86"
+   ]
+  },
+  "mira-r-vps-10-00x": {
+   "id": "mira-r-vps-10-00x",
+   "slot": "mira",
+   "originalName": "R-VPS 10.00x",
+   "cost": 10,
+   "weapons": [
+    "grt-cps",
+    "lmr27",
+    "m2010-esr",
+    "m39-emr",
+    "psr",
+    "sv-98",
+    "svdm",
+    "svk-86"
+   ]
+  },
+  "cano-18-ebr": {
+   "id": "cano-18-ebr",
+   "slot": "cano",
+   "originalName": "18\" EBR",
+   "cost": 10,
+   "weapons": [
+    "m39-emr"
+   ]
+  },
+  "cano-22-factory": {
+   "id": "cano-22-factory",
+   "slot": "cano",
+   "originalName": "22\" Factory",
+   "cost": 10,
+   "weapons": [
+    "m39-emr"
+   ]
+  },
+  "cano-16-short": {
+   "id": "cano-16-short",
+   "slot": "cano",
+   "originalName": "16\" Short",
+   "cost": 15,
+   "weapons": [
+    "m39-emr"
+   ]
+  },
+  "municao-match-grade": {
+   "id": "municao-match-grade",
+   "slot": "municao",
+   "originalName": "Match Grade",
+   "cost": 10,
+   "weapons": [
+    "l115",
+    "m2010-esr",
+    "m39-emr",
+    "psr",
+    "sv-98",
+    "svdm",
+    "svk-86"
+   ]
+  },
+  "cano-21-5-factory": {
+   "id": "cano-21-5-factory",
+   "slot": "cano",
+   "originalName": "21.5\" Factory",
+   "cost": 10,
+   "weapons": [
+    "lmr27"
+   ]
+  },
+  "cano-24-extended": {
+   "id": "cano-24-extended",
+   "slot": "cano",
+   "originalName": "24\" Extended",
+   "cost": 15,
+   "weapons": [
+    "lmr27"
+   ]
+  },
+  "cano-21-5-fluted": {
+   "id": "cano-21-5-fluted",
+   "slot": "cano",
+   "originalName": "21.5\" Fluted",
+   "cost": 20,
+   "weapons": [
+    "lmr27"
+   ]
+  },
+  "boca-triple-port-brake": {
+   "id": "boca-triple-port-brake",
+   "slot": "boca",
+   "originalName": "Triple-Port Brake",
+   "cost": 10,
+   "weapons": [
+    "svk-86"
+   ]
+  },
+  "cano-560mm-factory": {
+   "id": "cano-560mm-factory",
+   "slot": "cano",
+   "originalName": "560mm Factory",
+   "cost": 15,
+   "weapons": [
+    "svk-86"
+   ]
+  },
+  "cano-560mm-cut": {
+   "id": "cano-560mm-cut",
+   "slot": "cano",
+   "originalName": "560mm Cut",
+   "cost": 10,
+   "weapons": [
+    "svk-86"
+   ]
+  },
+  "cano-457mm-urban": {
+   "id": "cano-457mm-urban",
+   "slot": "cano",
+   "originalName": "457mm Urban",
+   "cost": 15,
+   "weapons": [
+    "svk-86"
+   ]
+  },
+  "cano-550mm-factory": {
+   "id": "cano-550mm-factory",
+   "slot": "cano",
+   "originalName": "550mm Factory",
+   "cost": 15,
+   "weapons": [
+    "svdm"
+   ]
+  },
+  "cano-556mm-para": {
+   "id": "cano-556mm-para",
+   "slot": "cano",
+   "originalName": "556mm Para",
+   "cost": 10,
+   "weapons": [
+    "svdm"
+   ]
+  },
+  "cano-620mm-classic": {
+   "id": "cano-620mm-classic",
+   "slot": "cano",
+   "originalName": "620mm Classic",
+   "cost": 15,
+   "weapons": [
+    "svdm"
+   ]
+  },
+  "cano-565mm-fluted": {
+   "id": "cano-565mm-fluted",
+   "slot": "cano",
+   "originalName": "565mm Fluted",
+   "cost": 20,
+   "weapons": [
+    "svdm"
+   ]
+  },
+  "carregador-5rnd-fast-mag": {
+   "id": "carregador-5rnd-fast-mag",
+   "slot": "carregador",
+   "originalName": "5RND Fast Mag",
+   "cost": 5,
+   "weapons": [
+    "m2010-esr",
+    "svdm"
+   ]
+  },
+  "cano-24-fluted": {
+   "id": "cano-24-fluted",
+   "slot": "cano",
+   "originalName": "24\" Fluted",
+   "cost": 20,
+   "weapons": [
+    "m2010-esr"
+   ]
+  },
+  "cano-24-full": {
+   "id": "cano-24-full",
+   "slot": "cano",
+   "originalName": "24\" Full",
+   "cost": 10,
+   "weapons": [
+    "m2010-esr"
+   ]
+  },
+  "cano-26-carbon": {
+   "id": "cano-26-carbon",
+   "slot": "cano",
+   "originalName": "26\" Carbon",
+   "cost": 15,
+   "weapons": [
+    "m2010-esr"
+   ]
+  },
+  "carregador-5rnd-magazine": {
+   "id": "carregador-5rnd-magazine",
+   "slot": "carregador",
+   "originalName": "5RND Magazine",
+   "cost": 5,
+   "weapons": [
+    "l115",
+    "m2010-esr"
+   ]
+  },
+  "carregador-8rnd-magazine": {
+   "id": "carregador-8rnd-magazine",
+   "slot": "carregador",
+   "originalName": "8RND Magazine",
+   "cost": 25,
+   "weapons": [
+    "18-5ks-k",
+    "m2010-esr"
+   ]
+  },
+  "ergonomia-dlc-bolt": {
+   "id": "ergonomia-dlc-bolt",
+   "slot": "ergonomia",
+   "originalName": "DLC Bolt",
+   "cost": 30,
+   "weapons": [
+    "l115",
+    "m2010-esr",
+    "psr",
+    "sv-98"
+   ]
+  },
+  "boca-thread-protector": {
+   "id": "boca-thread-protector",
+   "slot": "boca",
+   "originalName": "Thread Protector",
+   "cost": 5,
+   "weapons": [
+    "sv-98"
+   ]
+  },
+  "cano-650mm-factory": {
+   "id": "cano-650mm-factory",
+   "slot": "cano",
+   "originalName": "650mm Factory",
+   "cost": 10,
+   "weapons": [
+    "sv-98"
+   ]
+  },
+  "cano-730mm-3lr": {
+   "id": "cano-730mm-3lr",
+   "slot": "cano",
+   "originalName": "730mm 3LR",
+   "cost": 15,
+   "weapons": [
+    "sv-98"
+   ]
+  },
+  "cano-650mm-fluted": {
+   "id": "cano-650mm-fluted",
+   "slot": "cano",
+   "originalName": "650mm Fluted",
+   "cost": 20,
+   "weapons": [
+    "sv-98"
+   ]
+  },
+  "cano-514mm-carbine": {
+   "id": "cano-514mm-carbine",
+   "slot": "cano",
+   "originalName": "514mm Carbine",
+   "cost": 15,
+   "weapons": [
+    "sv-98"
+   ]
+  },
+  "cano-27-mk22": {
+   "id": "cano-27-mk22",
+   "slot": "cano",
+   "originalName": "27\" MK22",
+   "cost": 15,
+   "weapons": [
+    "psr"
+   ]
+  },
+  "cano-26-factory": {
+   "id": "cano-26-factory",
+   "slot": "cano",
+   "originalName": "26\" Factory",
+   "cost": 10,
+   "weapons": [
+    "psr"
+   ]
+  },
+  "carregador-7rnd-magazine": {
+   "id": "carregador-7rnd-magazine",
+   "slot": "carregador",
+   "originalName": "7RND Magazine",
+   "cost": 5,
+   "weapons": [
+    "l115",
+    "m45a1",
+    "psr"
+   ]
+  },
+  "cano-20-factory": {
+   "id": "cano-20-factory",
+   "slot": "cano",
+   "originalName": "20\" Factory",
+   "cost": 10,
+   "weapons": [
+    "grt-cps",
+    "m16a4",
+    "m87a1"
+   ]
+  },
+  "carregador-7-shell-tube": {
+   "id": "carregador-7-shell-tube",
+   "slot": "carregador",
+   "originalName": "7 Shell Tube",
+   "cost": 5,
+   "weapons": [
+    "m1014",
+    "m87a1"
+   ]
+  },
+  "carregador-5-shell-tube": {
+   "id": "carregador-5-shell-tube",
+   "slot": "carregador",
+   "originalName": "5 Shell Tube",
+   "cost": 5,
+   "weapons": [
+    "m1014",
+    "m87a1"
+   ]
+  },
+  "carregador-6-shell-tube": {
+   "id": "carregador-6-shell-tube",
+   "slot": "carregador",
+   "originalName": "6 Shell Tube",
+   "cost": 5,
+   "weapons": [
+    "m87a1"
+   ]
+  },
+  "municao-buckshot": {
+   "id": "municao-buckshot",
+   "slot": "municao",
+   "originalName": "Buckshot",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k",
+    "db-12",
+    "m1014",
+    "m87a1"
+   ]
+  },
+  "municao-slugs": {
+   "id": "municao-slugs",
+   "slot": "municao",
+   "originalName": "Slugs",
+   "cost": 40,
+   "weapons": [
+    "18-5ks-k",
+    "db-12",
+    "m1014",
+    "m87a1"
+   ]
+  },
+  "municao-flechette": {
+   "id": "municao-flechette",
+   "slot": "municao",
+   "originalName": "Flechette",
+   "cost": 30,
+   "weapons": [
+    "18-5ks-k",
+    "db-12",
+    "m1014",
+    "m87a1"
+   ]
+  },
+  "cano-18-5-factory": {
+   "id": "cano-18-5-factory",
+   "slot": "cano",
+   "originalName": "18.5\" Factory",
+   "cost": 10,
+   "weapons": [
+    "m1014"
+   ]
+  },
+  "cano-430mm-cut": {
+   "id": "cano-430mm-cut",
+   "slot": "cano",
+   "originalName": "430mm Cut",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k"
+   ]
+  },
+  "cano-430mm-factory": {
+   "id": "cano-430mm-factory",
+   "slot": "cano",
+   "originalName": "430mm Factory",
+   "cost": 15,
+   "weapons": [
+    "18-5ks-k"
+   ]
+  },
+  "carregador-4rnd-magazine": {
+   "id": "carregador-4rnd-magazine",
+   "slot": "carregador",
+   "originalName": "4RND Magazine",
+   "cost": 5,
+   "weapons": [
+    "18-5ks-k"
+   ]
+  },
+  "carregador-8rnd-fast-mag": {
+   "id": "carregador-8rnd-fast-mag",
+   "slot": "carregador",
+   "originalName": "8RND Fast Mag",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k"
+   ]
+  },
+  "carregador-4rnd-fast-mag": {
+   "id": "carregador-4rnd-fast-mag",
+   "slot": "carregador",
+   "originalName": "4RND Fast Mag",
+   "cost": 10,
+   "weapons": [
+    "18-5ks-k"
+   ]
+  },
+  "cano-3-9-factory": {
+   "id": "cano-3-9-factory",
+   "slot": "cano",
+   "originalName": "3.9\" Factory",
+   "cost": 10,
+   "weapons": [
+    "p18"
+   ]
+  },
+  "cano-3-9-pencil": {
+   "id": "cano-3-9-pencil",
+   "slot": "cano",
+   "originalName": "3.9\" Pencil",
+   "cost": 20,
+   "weapons": [
+    "p18"
+   ]
+  },
+  "acoplamento-5-mw-red": {
+   "id": "acoplamento-5-mw-red",
+   "slot": "acoplamento",
+   "originalName": "5 MW Red",
+   "cost": 10,
+   "weapons": [
+    "es-57",
+    "m45a1",
+    "p18"
+   ]
+  },
+  "acoplamento-5-mw-green": {
+   "id": "acoplamento-5-mw-green",
+   "slot": "acoplamento",
+   "originalName": "5 MW Green",
+   "cost": 10,
+   "weapons": [
+    "es-57",
+    "m45a1",
+    "p18"
+   ]
+  },
+  "acoplamento-laser-light-combo-red": {
+   "id": "acoplamento-laser-light-combo-red",
+   "slot": "acoplamento",
+   "originalName": "Laser Light Combo Red",
+   "cost": 20,
+   "weapons": [
+    "es-57",
+    "m45a1",
+    "p18"
+   ]
+  },
+  "acoplamento-laser-light-combo-green": {
+   "id": "acoplamento-laser-light-combo-green",
+   "slot": "acoplamento",
+   "originalName": "Laser Light Combo Green",
+   "cost": 20,
+   "weapons": [
+    "es-57",
+    "m45a1",
+    "p18"
+   ]
+  },
+  "acoplamento-50-mw-green": {
+   "id": "acoplamento-50-mw-green",
+   "slot": "acoplamento",
+   "originalName": "50 MW Green",
+   "cost": 20,
+   "weapons": [
+    "es-57",
+    "m45a1",
+    "p18"
+   ]
+  },
+  "acoplamento-flashlight": {
+   "id": "acoplamento-flashlight",
+   "slot": "acoplamento",
+   "originalName": "Flashlight",
+   "cost": 10,
+   "weapons": [
+    "es-57",
+    "m45a1",
+    "p18"
+   ]
+  },
+  "carregador-21rnd-magazine": {
+   "id": "carregador-21rnd-magazine",
+   "slot": "carregador",
+   "originalName": "21RND Magazine",
+   "cost": 15,
+   "weapons": [
+    "p18"
+   ]
+  },
+  "cano-122mm-factory": {
+   "id": "cano-122mm-factory",
+   "slot": "cano",
+   "originalName": "122mm Factory",
+   "cost": 10,
+   "weapons": [
+    "es-57"
+   ]
+  },
+  "cano-122mm-pencil": {
+   "id": "cano-122mm-pencil",
+   "slot": "cano",
+   "originalName": "122mm Pencil",
+   "cost": 20,
+   "weapons": [
+    "es-57"
+   ]
+  },
+  "cano-5-factory": {
+   "id": "cano-5-factory",
+   "slot": "cano",
+   "originalName": "5\" Factory",
+   "cost": 10,
+   "weapons": [
+    "m45a1"
+   ]
+  },
+  "cano-5-pencil": {
+   "id": "cano-5-pencil",
+   "slot": "cano",
+   "originalName": "5\" Pencil",
+   "cost": 20,
+   "weapons": [
+    "m45a1"
+   ]
+  },
+  "carregador-11rnd-magazine": {
+   "id": "carregador-11rnd-magazine",
+   "slot": "carregador",
+   "originalName": "11RND Magazine",
+   "cost": 25,
+   "weapons": [
+    "m45a1"
+   ]
+  },
+  "cano-6-75-factory": {
+   "id": "cano-6-75-factory",
+   "slot": "cano",
+   "originalName": "6.75\" Factory",
+   "cost": 10,
+   "weapons": [
+    "m44"
+   ]
+  },
+  "cano-8-37-long": {
+   "id": "cano-8-37-long",
+   "slot": "cano",
+   "originalName": "8.37\" Long",
+   "cost": 15,
+   "weapons": [
+    "m44"
+   ]
+  },
+  "cano-5-12-compact": {
+   "id": "cano-5-12-compact",
+   "slot": "cano",
+   "originalName": "5.12\" Compact",
+   "cost": 15,
+   "weapons": [
+    "m44"
+   ]
+  },
+  "carregador-6rnd-speedloader": {
+   "id": "carregador-6rnd-speedloader",
+   "slot": "carregador",
+   "originalName": "6RND Speedloader",
+   "cost": 5,
+   "weapons": [
+    "m44"
+   ]
+  },
+  "cano-6-8-factory": {
+   "id": "cano-6-8-factory",
+   "slot": "cano",
+   "originalName": "6.8\" Factory",
+   "cost": 10,
+   "weapons": [
+    "scw-10"
+   ]
+  },
+  "cano-extended-barrel": {
+   "id": "cano-extended-barrel",
+   "slot": "cano",
+   "originalName": "Extended Barrel",
+   "cost": 15,
+   "weapons": [
+    "scw-10"
+   ]
+  },
+  "cano-6-8-fluted": {
+   "id": "cano-6-8-fluted",
+   "slot": "cano",
+   "originalName": "6.8\" Fluted",
+   "cost": 20,
+   "weapons": [
+    "scw-10"
+   ]
+  },
+  "mira-su-230-lpvo": {
+   "id": "mira-su-230-lpvo",
+   "slot": "mira",
+   "originalName": "SU-230 LPVO",
+   "cost": 20,
+   "weapons": [
+    "cz3a1",
+    "db-12",
+    "grt-cps",
+    "l115",
+    "m121-a2",
+    "m16a4",
+    "rpk-74m",
+    "vcr-2"
+   ]
+  },
+  "mira-th-rds-1-00x": {
+   "id": "mira-th-rds-1-00x",
+   "slot": "mira",
+   "originalName": "TH-RDS 1.00x",
+   "cost": 35,
+   "weapons": [
+    "db-12",
+    "grt-cps",
+    "m121-a2",
+    "rpk-74m",
+    "vcr-2"
+   ]
+  },
+  "cano-18-9-factory": {
+   "id": "cano-18-9-factory",
+   "slot": "cano",
+   "originalName": "18.9\" Factory",
+   "cost": 10,
+   "weapons": [
+    "db-12"
+   ]
+  },
+  "acoplamento-slim-handstop": {
+   "id": "acoplamento-slim-handstop",
+   "slot": "acoplamento",
+   "originalName": "Slim Handstop",
+   "cost": 15,
+   "weapons": [
+    "db-12",
+    "grt-cps",
+    "m121-a2",
+    "m16a4",
+    "rpk-74m",
+    "vcr-2"
+   ]
+  },
+  "carregador-7-shell-dual-tubes": {
+   "id": "carregador-7-shell-dual-tubes",
+   "slot": "carregador",
+   "originalName": "7 Shell Dual Tubes",
+   "cost": 5,
+   "weapons": [
+    "db-12"
+   ]
+  },
+  "boca-flash-comp": {
+   "id": "boca-flash-comp",
+   "slot": "boca",
+   "originalName": "Flash Comp",
+   "cost": 20,
+   "weapons": [
+    "grt-cps",
+    "m121-a2",
+    "m16a4",
+    "rpk-74m",
+    "vcr-2"
+   ]
+  },
+  "cano-16-factory": {
+   "id": "cano-16-factory",
+   "slot": "cano",
+   "originalName": "16\" Factory",
+   "cost": 15,
+   "weapons": [
+    "vcr-2"
+   ]
+  },
+  "cano-18-us": {
+   "id": "cano-18-us",
+   "slot": "cano",
+   "originalName": "18\" US",
+   "cost": 10,
+   "weapons": [
+    "vcr-2"
+   ]
+  },
+  "cano-20-marksman": {
+   "id": "cano-20-marksman",
+   "slot": "cano",
+   "originalName": "20\" Marksman",
+   "cost": 15,
+   "weapons": [
+    "vcr-2"
+   ]
+  },
+  "cano-18-fluted": {
+   "id": "cano-18-fluted",
+   "slot": "cano",
+   "originalName": "18\" Fluted",
+   "cost": 20,
+   "weapons": [
+    "vcr-2"
+   ]
+  },
+  "cano-460mm-factory": {
+   "id": "cano-460mm-factory",
+   "slot": "cano",
+   "originalName": "460mm Factory",
+   "cost": 15,
+   "weapons": [
+    "m121-a2"
+   ]
+  },
+  "cano-550mm-infantry": {
+   "id": "cano-550mm-infantry",
+   "slot": "cano",
+   "originalName": "550mm Infantry",
+   "cost": 10,
+   "weapons": [
+    "m121-a2"
+   ]
+  },
+  "cano-660mm-vmw": {
+   "id": "cano-660mm-vmw",
+   "slot": "cano",
+   "originalName": "660mm VMW",
+   "cost": 10,
+   "weapons": [
+    "m121-a2"
+   ]
+  },
+  "carregador-50rnd-drum": {
+   "id": "carregador-50rnd-drum",
+   "slot": "carregador",
+   "originalName": "50RND Drum",
+   "cost": 5,
+   "weapons": [
+    "m121-a2"
+   ]
+  },
+  "carregador-100rnd-magazine": {
+   "id": "carregador-100rnd-magazine",
+   "slot": "carregador",
+   "originalName": "100RND Magazine",
+   "cost": 55,
+   "weapons": [
+    "m121-a2"
+   ]
+  },
+  "cano-16-fluted": {
+   "id": "cano-16-fluted",
+   "slot": "cano",
+   "originalName": "16\" Fluted",
+   "cost": 25,
+   "weapons": [
+    "grt-cps"
+   ]
+  },
+  "cano-7-7-factory": {
+   "id": "cano-7-7-factory",
+   "slot": "cano",
+   "originalName": "7.7\" Factory",
+   "cost": 10,
+   "weapons": [
+    "cz3a1"
+   ]
+  },
+  "cano-7-7-pencil": {
+   "id": "cano-7-7-pencil",
+   "slot": "cano",
+   "originalName": "7.7\" Pencil",
+   "cost": 20,
+   "weapons": [
+    "cz3a1"
+   ]
+  },
+  "cano-16-2-cut": {
+   "id": "cano-16-2-cut",
+   "slot": "cano",
+   "originalName": "16.2\" Cut",
+   "cost": 15,
+   "weapons": [
+    "cz3a1"
+   ]
+  },
+  "carregador-35rnd-magazine": {
+   "id": "carregador-35rnd-magazine",
+   "slot": "carregador",
+   "originalName": "35RND Magazine",
+   "cost": 15,
+   "weapons": [
+    "cz3a1"
+   ]
+  },
+  "carregador-35rnd-fast-mag": {
+   "id": "carregador-35rnd-fast-mag",
+   "slot": "carregador",
+   "originalName": "35RND Fast Mag",
+   "cost": 20,
+   "weapons": [
+    "cz3a1"
+   ]
+  },
+  "cano-cryogenic": {
+   "id": "cano-cryogenic",
+   "slot": "cano",
+   "originalName": "Cryogenic",
+   "cost": 10,
+   "weapons": [
+    "m16a4"
+   ]
+  },
+  "cano-18-govt": {
+   "id": "cano-18-govt",
+   "slot": "cano",
+   "originalName": "18\" Govt.",
+   "cost": 10,
+   "weapons": [
+    "m16a4"
+   ]
+  },
+  "cano-18-spr": {
+   "id": "cano-18-spr",
+   "slot": "cano",
+   "originalName": "18\" SPR",
+   "cost": 10,
+   "weapons": [
+    "m16a4"
+   ]
+  },
+  "cano-18-pencil": {
+   "id": "cano-18-pencil",
+   "slot": "cano",
+   "originalName": "18\" Pencil",
+   "cost": 10,
+   "weapons": [
+    "m16a4"
+   ]
+  },
+  "cano-20-hbar": {
+   "id": "cano-20-hbar",
+   "slot": "cano",
+   "originalName": "20\" HBAR",
+   "cost": 10,
+   "weapons": [
+    "m16a4"
+   ]
+  },
+  "cano-16-dissipator": {
+   "id": "cano-16-dissipator",
+   "slot": "cano",
+   "originalName": "16\" Dissipator",
+   "cost": 10,
+   "weapons": [
+    "m16a4"
+   ]
+  },
+  "ergonomia-rail-cover": {
+   "id": "ergonomia-rail-cover",
+   "slot": "ergonomia",
+   "originalName": "Rail Cover",
+   "cost": 10,
+   "weapons": [
+    "m16a4"
+   ]
+  },
+  "ergonomia-a3-receiver": {
+   "id": "ergonomia-a3-receiver",
+   "slot": "ergonomia",
+   "originalName": "A3 Receiver",
+   "cost": 10,
+   "weapons": [
+    "m16a4"
+   ]
+  },
+  "cano-27-factory": {
+   "id": "cano-27-factory",
+   "slot": "cano",
+   "originalName": "27\" Factory",
+   "cost": 10,
+   "weapons": [
+    "l115"
+   ]
+  },
+  "cano-27-full": {
+   "id": "cano-27-full",
+   "slot": "cano",
+   "originalName": "27\" Full",
+   "cost": 10,
+   "weapons": [
+    "l115"
+   ]
+  },
+  "cano-32-custom": {
+   "id": "cano-32-custom",
+   "slot": "cano",
+   "originalName": "32\" Custom",
+   "cost": 10,
+   "weapons": [
+    "l115"
+   ]
+  },
+  "cano-20-custom-covert": {
+   "id": "cano-20-custom-covert",
+   "slot": "cano",
+   "originalName": "20\" Custom Covert",
+   "cost": 10,
+   "weapons": [
+    "l115"
+   ]
+  },
+  "carregador-7rnd-fast-mag": {
+   "id": "carregador-7rnd-fast-mag",
+   "slot": "carregador",
+   "originalName": "7RND Fast Mag",
+   "cost": 10,
+   "weapons": [
+    "l115"
+   ]
+  }
+ }
+}

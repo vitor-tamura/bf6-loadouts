@@ -1,0 +1,94 @@
+# Sincroniza o dataset com o catálogo público e abre um Pull Request quando
+# alguma coisa mudou.
+#
+# Roda sozinho toda segunda de manhã e pode ser disparado à mão. O que ele
+# **não** faz é publicar direto: mudança de dado de jogo passa por revisão
+# humana, porque item novo entra com campos marcados TODO e conflito entre a
+# fonte e a curadoria local precisa de alguém para decidir.
+
+name: Atualizar dados
+
+on:
+  schedule:
+    # Segunda-feira, 09:00 UTC — depois da janela habitual de patch.
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+    inputs:
+      aplicar:
+        description: 'Gravar as mudanças (desmarcado = só relatório)'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sincronizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: npm ci
+      - run: pip install --quiet Pillow
+
+      - name: Sincronizar dataset
+        id: sync
+        run: |
+          {
+            echo 'relatorio<<FIM'
+            node --experimental-strip-types scripts/sincronizar.mjs \
+              ${{ inputs.aplicar == false && '' || '--aplicar' }} 2>&1 \
+              | sed 's/\x1b\[[0-9;]*m//g'
+            echo 'FIM'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Baixar imagens que faltam
+        run: python3 scripts/baixar_imagens.py
+
+      # A suíte cobre a integridade do dataset: id repetido, degrau de dano fora
+      # de ordem, slot sem opção compatível, arma que não fecha nos 100 pontos.
+      # Um patch que quebre qualquer uma dessas coisas não vira PR silencioso —
+      # vira PR com o CI vermelho, que é o que se quer ver.
+      - name: Validar
+        continue-on-error: true
+        run: |
+          npm run typecheck
+          npm test
+          npm run build
+
+      - name: Abrir Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: dados/sincronizacao
+          base: dev
+          title: 'Sincroniza o dataset com o catálogo público'
+          commit-message: |
+            Sincroniza o dataset com o catálogo público
+
+            Gerado por scripts/sincronizar.mjs. Estatística curada à mão fica
+            como está — só entra o que a fonte mudou desde a última rodada.
+          body: |
+            Rodada automática de `scripts/sincronizar.mjs`.
+
+            ```
+            ${{ steps.sync.outputs.relatorio }}
+            ```
+
+            **Antes de aprovar:**
+
+            - [ ] Item novo veio com `TODO: traduzir` — traduzir e descrever
+            - [ ] Item novo veio com `mods: {}` — preencher o efeito, ou ele não muda nada
+            - [ ] Conflitos listados acima foram conferidos um a um
+            - [ ] O CI está verde
+          labels: dados, automático
+          delete-branch: true
