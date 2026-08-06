@@ -29,6 +29,9 @@ import { baseStats, type EffectiveStats } from '@/lib/stats';
  */
 
 /** Azul e laranja do protótipo: leem bem lado a lado nos dois temas. */
+/** As linhas que interessam numa pistola — o resto é leitura de arma principal. */
+const SIDEARM_ROWS = ['Dano por faixa', 'TTK 100 PV', 'Alcance efetivo', 'Carregador', 'Tempo de mira'];
+
 const COLOR_A = '#3987e5';
 const COLOR_B = '#d95926';
 
@@ -226,6 +229,8 @@ export default function ComparePage() {
   const [sortKey, setSortKey] = useState<GridKey>('dps');
   const [sortDirection, setSortDirection] = useState<1 | -1>(-1);
   const [categoryFilter, setCategoryFilter] = useState<WeaponCategory | 'all'>('all');
+  const [sidearmA, setSidearmA] = useState('m45a1');
+  const [sidearmB, setSidearmB] = useState('p18');
 
   const weaponA = WEAPONS_BY_ID.get(idA)!;
   const weaponB = WEAPONS_BY_ID.get(idB)!;
@@ -235,6 +240,18 @@ export default function ComparePage() {
   const scoresA = scores(statsA);
   const scoresB = scores(statsB);
   const rows = duelRows(statsA, statsB);
+
+  /*
+   * O confronto das secundárias é o mesmo cálculo, com outro par de armas. Ele
+   * some quando qualquer um dos dois lados fica vazio: comparar uma pistola com
+   * nada não diz nada.
+   */
+  const pistolA = sidearmA ? WEAPONS_BY_ID.get(sidearmA) : null;
+  const pistolB = sidearmB ? WEAPONS_BY_ID.get(sidearmB) : null;
+  const sidearmStats = useMemo(
+    () => (pistolA && pistolB ? ([baseStats(pistolA), baseStats(pistolB)] as const) : null),
+    [pistolA, pistolB],
+  );
 
   const maxDistance = Math.max(analysisDistance(statsA), analysisDistance(statsB));
   const series: Series[] = [
@@ -271,6 +288,22 @@ export default function ComparePage() {
         <div className="mb-4 flex flex-wrap items-end gap-4">
           <WeaponPicker label="Arma A" color={COLOR_A} value={idA} onChange={setIdA} />
           <WeaponPicker label="Arma B" color={COLOR_B} value={idB} onChange={setIdB} />
+          <WeaponPicker
+            label="Secundária A"
+            color={COLOR_A}
+            value={sidearmA}
+            onChange={setSidearmA}
+            categories={['pistol']}
+            allowEmpty
+          />
+          <WeaponPicker
+            label="Secundária B"
+            color={COLOR_B}
+            value={sidearmB}
+            onChange={setSidearmB}
+            categories={['pistol']}
+            allowEmpty
+          />
           <p className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
             Valores de fábrica, sem acessórios.
           </p>
@@ -355,6 +388,61 @@ export default function ComparePage() {
             </tbody>
           </table>
         </section>
+
+        {/*
+          Secundárias, em versão curta: só a linha de cima do confronto — quantos
+          tiros, em quanto tempo, a que alcance. A pistola decide menos duelos
+          que a principal, e um segundo bloco do mesmo tamanho competiria com ela
+          por atenção.
+        */}
+        {pistolA && pistolB && sidearmStats && (
+          <section className="card bevel mb-3 px-3 py-2.5">
+            <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
+              <h2 className="label">Secundárias</h2>
+              <span className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
+                <span style={{ color: COLOR_A }}>{pistolA.name}</span> ·{' '}
+                <span style={{ color: COLOR_B }}>{pistolB.name}</span>
+              </span>
+            </div>
+
+            <table className="w-full border-collapse text-sm">
+              <caption className="sr-only">Estatísticas das duas secundárias em confronto</caption>
+              <tbody>
+                {duelRows(sidearmStats[0], sidearmStats[1])
+                  .filter((row) => SIDEARM_ROWS.includes(row.label))
+                  .map((row) => (
+                    <tr key={row.label} style={{ borderBottom: '1px solid var(--border-soft)' }}>
+                      <th
+                        scope="row"
+                        className="py-1 text-left text-[12px] font-normal"
+                        style={{ color: 'var(--text-soft)' }}
+                      >
+                        {row.label}
+                      </th>
+                      <td
+                        className="py-1 text-right font-mono text-[13px]"
+                        style={{
+                          color: row.advantage > 0 ? 'var(--color-positive)' : 'var(--text)',
+                          fontWeight: row.advantage > 0 ? 700 : 400,
+                        }}
+                      >
+                        {row.a}
+                      </td>
+                      <td
+                        className="py-1 text-right font-mono text-[13px]"
+                        style={{
+                          color: row.advantage < 0 ? 'var(--color-positive)' : 'var(--text)',
+                          fontWeight: row.advantage < 0 ? 700 : 400,
+                        }}
+                      >
+                        {row.b}
+                      </td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </section>
+        )}
 
         {/* Curvas sobrepostas */}
         <div className="mb-3 grid gap-3 lg:grid-cols-2">
@@ -502,11 +590,16 @@ function WeaponPicker({
   color,
   value,
   onChange,
+  categories = CATEGORY_ORDER.filter((c) => c !== 'melee'),
+  allowEmpty = false,
 }: {
   label: string;
   color: string;
   value: string;
   onChange: (id: string) => void;
+  categories?: WeaponCategory[];
+  /** Deixa escolher "nenhuma" — a secundária é opcional na comparação. */
+  allowEmpty?: boolean;
 }) {
   return (
     <label className="flex items-center gap-2">
@@ -523,7 +616,8 @@ function WeaponPicker({
           color: 'var(--text)',
         }}
       >
-        {CATEGORY_ORDER.filter((c) => c !== 'melee').map((category) => (
+        {allowEmpty && <option value="">Nenhuma</option>}
+        {categories.map((category) => (
           <optgroup key={category} label={CATEGORY_NAMES[category]}>
             {WEAPONS.filter((w) => w.category === category).map((weapon) => (
               <option key={weapon.id} value={weapon.id}>
