@@ -378,8 +378,8 @@ function SlotOptions({
         className="grid grid-cols-[repeat(auto-fill,minmax(84px,1fr))] gap-1.5"
         onMouseLeave={() => setHovered(null)}
       >
-        {/* Munição não tem estado vazio: a arma sempre sai com a de série. */}
-        {slot !== 'ammo' && (
+        {/* Mira e munição não têm estado vazio: a arma já sai com as de série. */}
+        {slot !== 'ammo' && slot !== 'sight' && (
           <li>
             <OptionTile
               slot={slot}

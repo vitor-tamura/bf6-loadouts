@@ -26,11 +26,11 @@ describe('ida e volta do link', () => {
     expect(decodeLoadout(encodeLoadout(full))).toEqual(full);
   });
 
-  it('reproduz um loadout só com a arma, já com a munição de série', () => {
+  it('reproduz um loadout só com a arma, já com as peças de série', () => {
     const simple: Loadout = { ...EMPTY_LOADOUT, weapon: 'kv9' };
     expect(decodeLoadout(encodeLoadout(simple))).toEqual({
       ...simple,
-      attachments: { ammo: 'ammo-fmj' },
+      attachments: { ammo: 'ammo-fmj', sight: 'sight-iron-sights' },
     });
   });
 
@@ -127,6 +127,9 @@ describe('acessórios da secundária', () => {
   it('link antigo, sem o campo, abre com a secundária limpa', () => {
     // O campo é o último do formato, então versões anteriores continuam válidas.
     const semCampo = encodeLoadout({ ...full, sidearmAttachments: {} });
-    expect(decodeLoadout(semCampo)?.sidearmAttachments).toEqual({ ammo: 'ammo-fmj' });
+    expect(decodeLoadout(semCampo)?.sidearmAttachments).toEqual({
+      ammo: 'ammo-fmj',
+      sight: 'sight-iron-sights',
+    });
   });
 });
