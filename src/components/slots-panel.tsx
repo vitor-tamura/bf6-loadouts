@@ -168,11 +168,14 @@ export function SlotsPanel({
   chosen,
   onSelect,
   currentSpend,
+  compact = false,
 }: {
   weapon: Weapon;
   chosen: Partial<Record<SlotId, string>>;
   onSelect: (slot: SlotId, id: string | null) => void;
   currentSpend: number;
+  /** Blocos menores e mais por linha, para a arma secundária. */
+  compact?: boolean;
 }) {
   const [open, setOpen] = useState<SlotId | null>(null);
   const mounted = useCollapse(open);
@@ -213,7 +216,11 @@ export function SlotsPanel({
   return (
     <div
       ref={gridRef}
-      className="grid auto-rows-min grid-cols-2 content-start gap-2 sm:grid-cols-3 lg:grid-cols-4"
+      className={
+        compact
+          ? 'grid auto-rows-min grid-cols-3 content-start gap-1.5 sm:grid-cols-4 lg:grid-cols-6'
+          : 'grid auto-rows-min grid-cols-2 content-start gap-2 sm:grid-cols-3 lg:grid-cols-4'
+      }
     >
       {orderedSlots.map((slot, index) => {
         const definition = SLOTS_BY_ID.get(slot)!;
@@ -240,22 +247,29 @@ export function SlotsPanel({
               <span className="label w-full truncate">{definition.name}</span>
 
               <span
-                className="flex h-14 w-full items-center justify-center"
+                className={`flex w-full items-center justify-center ${compact ? 'h-10' : 'h-14'}`}
                 style={{ background: 'var(--surface-raised)' }}
               >
-                <AttachmentThumb attachment={current} slot={slot} size={52} />
+                <AttachmentThumb attachment={current} slot={slot} size={compact ? 36 : 52} />
               </span>
 
               <span
-                className="line-clamp-2 w-full text-[12px] leading-tight"
+                className={`line-clamp-2 w-full leading-tight ${compact ? 'text-[10px]' : 'text-[12px]'}`}
                 style={{ color: current ? 'var(--text)' : 'var(--text-dim)' }}
               >
                 {current ? current.name : 'Vazio'}
               </span>
 
-              <span className="font-mono text-[11px]" style={{ color: 'var(--text-dim)' }}>
-                {current ? `${current.cost} pts` : '—'}
-              </span>
+              {/* Na versão apertada, o custo só aparece quando há peça: uma
+                  coluna de travessões não informa nada e ocupa uma linha. */}
+              {(!compact || current) && (
+                <span
+                  className={`font-mono ${compact ? 'text-[10px]' : 'text-[11px]'}`}
+                  style={{ color: 'var(--text-dim)' }}
+                >
+                  {current ? `${current.cost} pts` : '—'}
+                </span>
+              )}
             </button>
 
             {/*
