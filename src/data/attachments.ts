@@ -3431,7 +3431,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'ammo-frangible',
-    name: 'Frágil',
+    name: 'Fragmentável',
     originalName: 'Frangible',
     slot: 'ammo',
     cost: 20,

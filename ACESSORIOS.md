@@ -348,7 +348,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | Chumbo Grosso | Buckshot | 10 | 18.5KS-K, DB-12, M1014, M87A1 | Padrão das escopetas: nuvem de bagos com espalhamento próprio. |
 | Leve | Polymer Case | 10 |  | Cartucho de polímero: acelera a mira e o deslocamento. |
 | Longo Alcance | Match Grade | 10 |  | Munição de precisão: agrupamento fechado a distância. |
-| Frágil | Frangible | 20 |  | Atrasa a regeneração de vida do alvo. |
+| Fragmentável | Frangible | 20 |  | Atrasa a regeneração de vida do alvo. |
 | Ponta Oca | Hollow Point | 20 |  | Mais dano em acerto na cabeça; alcance menor. |
 | Flechette | Flechette | 30 | 18.5KS-K, DB-12, M1014, M87A1 | Dardos: ferem através de cobertura e atrasam a regeneração do alvo. |
 | Ponta Sintética | Synthetic Tip | 30 | 17 weapons | Trajetória mais reta e mais dano em acerto na cabeça. |
