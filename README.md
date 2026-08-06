@@ -59,6 +59,10 @@ Trabalho novo entra em `dev` e só vai para `main` depois de conferido — `main
 o que se publica. A sincronização automática de dados abre o Pull Request contra
 `dev` pelo mesmo motivo: dado de jogo também passa por teste.
 
+A `main` é protegida: entra por Pull Request, com uma aprovação do dono do código
+(ver [`.github/CODEOWNERS`](./.github/CODEOWNERS)), sem force-push e sem apagar a
+branch.
+
 A release sai da versão, não do push. Ao promover para `main` com um `version`
 novo no `package.json`, o Actions cria a tag `vX.Y.Z` e publica a release com os
 commits desde a anterior; promoção que não mexe na versão não gera release
