@@ -132,7 +132,7 @@ export interface Budget {
 }
 
 export function calculateBudget(attachments: Attachment[]): Budget {
-  const spent = attachments.reduce((soma, a) => soma + a.cost, 0);
+  const spent = attachments.reduce((sum, a) => sum + a.cost, 0);
   return {
     spent,
     total: POINT_BUDGET,
@@ -150,7 +150,7 @@ export function fitsBudget(
   currentAttachments: Attachment[],
 ): boolean {
   const replaced = currentAttachments.find((a) => a.slot === candidate.slot);
-  const spent = currentAttachments.reduce((soma, a) => soma + a.cost, 0);
+  const spent = currentAttachments.reduce((sum, a) => sum + a.cost, 0);
   const newSpend = spent - (replaced?.cost ?? 0) + candidate.cost;
   return newSpend <= POINT_BUDGET;
 }
@@ -186,5 +186,5 @@ export function compareStat(
 
 /** Se algum número exibido veio de curadoria, a interface avisa. */
 export function hasApproximateValue(weapon: Weapon, attachments: Attachment[]): boolean {
-  return weapon.provenance === 'curado' || attachments.some((a) => a.provenance === 'curado');
+  return weapon.provenance === 'curated' || attachments.some((a) => a.provenance === 'curated');
 }

@@ -1,6 +1,6 @@
 {
- "registradoEm": "2026-08-06",
- "armas": {
+ "recordedAt": "2026-08-06",
+ "weapons": {
   "sgx": {
    "id": "sgx",
    "name": "SGX",
@@ -41,7 +41,7 @@
   "p18": {
    "id": "p18",
    "name": "P18",
-   "category": "pistola",
+   "category": "pistol",
    "damage": [
     [
      25,
@@ -136,7 +136,7 @@
   "m87a1": {
    "id": "m87a1",
    "name": "M87A1",
-   "category": "escopeta",
+   "category": "shotgun",
    "damage": [
     [
      8.4,
@@ -168,7 +168,7 @@
   "m4a1": {
    "id": "m4a1",
    "name": "M4A1",
-   "category": "carabina",
+   "category": "carbine",
    "damage": [
     [
      25,
@@ -300,7 +300,7 @@
   "m277": {
    "id": "m277",
    "name": "M277",
-   "category": "carabina",
+   "category": "carbine",
    "damage": [
     [
      25,
@@ -507,7 +507,7 @@
   "ak-205": {
    "id": "ak-205",
    "name": "AK-205",
-   "category": "carabina",
+   "category": "carbine",
    "damage": [
     [
      20,
@@ -544,7 +544,7 @@
   "es-57": {
    "id": "es-57",
    "name": "ES 5.7",
-   "category": "pistola",
+   "category": "pistol",
    "damage": [
     [
      20,
@@ -713,7 +713,7 @@
   "m417-a2": {
    "id": "m417-a2",
    "name": "M417 A2",
-   "category": "carabina",
+   "category": "carbine",
    "damage": [
     [
      33.4,
@@ -845,7 +845,7 @@
   "m45a1": {
    "id": "m45a1",
    "name": "M45A1",
-   "category": "pistola",
+   "category": "pistol",
    "damage": [
     [
      33.4,
@@ -886,7 +886,7 @@
   "grt-bc": {
    "id": "grt-bc",
    "name": "GRT-BC",
-   "category": "carabina",
+   "category": "carbine",
    "damage": [
     [
      25,
@@ -923,7 +923,7 @@
   "m1014": {
    "id": "m1014",
    "name": "M1014",
-   "category": "escopeta",
+   "category": "shotgun",
    "damage": [
     [
      7.2,
@@ -1013,7 +1013,7 @@
   "m44": {
    "id": "m44",
    "name": "M44",
-   "category": "pistola",
+   "category": "pistol",
    "damage": [
     [
      66.7,
@@ -1161,7 +1161,7 @@
   "qbz-192": {
    "id": "qbz-192",
    "name": "QBZ-192",
-   "category": "carabina",
+   "category": "carbine",
    "damage": [
     [
      25,
@@ -1198,7 +1198,7 @@
   "sg-553r": {
    "id": "sg-553r",
    "name": "SG 553R",
-   "category": "carabina",
+   "category": "carbine",
    "damage": [
     [
      33.4,
@@ -1425,7 +1425,7 @@
   "18-5ks-k": {
    "id": "18-5ks-k",
    "name": "18.5KS-K",
-   "category": "escopeta",
+   "category": "shotgun",
    "damage": [
     [
      5,
@@ -1479,7 +1479,7 @@
   "ggh-22": {
    "id": "ggh-22",
    "name": "GGH-22",
-   "category": "pistola",
+   "category": "pistol",
    "damage": [
     [
      25,
@@ -1516,7 +1516,7 @@
   "sor-300sc": {
    "id": "sor-300sc",
    "name": "SOR-300SC",
-   "category": "carabina",
+   "category": "carbine",
    "damage": [
     [
      33.4,
@@ -1553,7 +1553,7 @@
   "m357-trait": {
    "id": "m357-trait",
    "name": "M357",
-   "category": "pistola",
+   "category": "pistol",
    "damage": [
     [
      50,
@@ -1589,7 +1589,7 @@
   "db-12": {
    "id": "db-12",
    "name": "DB-12",
-   "category": "escopeta",
+   "category": "shotgun",
    "damage": [
     [
      5,
@@ -1826,10 +1826,10 @@
    "hipfire": 34
   }
  },
- "acessorios": {
-  "mira-iron-sights": {
-   "id": "mira-iron-sights",
-   "slot": "mira",
+ "attachments": {
+  "sight-iron-sights": {
+   "id": "sight-iron-sights",
+   "slot": "sight",
    "originalName": "Iron Sights",
    "cost": 5,
    "weapons": [
@@ -1886,9 +1886,9 @@
     "vcr-2"
    ]
   },
-  "mira-su-123-1-50x": {
-   "id": "mira-su-123-1-50x",
-   "slot": "mira",
+  "sight-su-123-1-50x": {
+   "id": "sight-su-123-1-50x",
+   "slot": "sight",
    "originalName": "SU-123 1.50x",
    "cost": 10,
    "weapons": [
@@ -1942,9 +1942,9 @@
     "vcr-2"
    ]
   },
-  "mira-2pro-1-25x": {
-   "id": "mira-2pro-1-25x",
-   "slot": "mira",
+  "sight-2pro-1-25x": {
+   "id": "sight-2pro-1-25x",
+   "slot": "sight",
    "originalName": "2PRO 1.25x",
    "cost": 10,
    "weapons": [
@@ -1999,9 +1999,9 @@
     "vcr-2"
    ]
   },
-  "mira-osa-7-1-00x": {
-   "id": "mira-osa-7-1-00x",
-   "slot": "mira",
+  "sight-osa-7-1-00x": {
+   "id": "sight-osa-7-1-00x",
+   "slot": "sight",
    "originalName": "OSA-7 1.00x",
    "cost": 10,
    "weapons": [
@@ -2056,9 +2056,9 @@
     "vcr-2"
    ]
   },
-  "mira-1p87-1-50x": {
-   "id": "mira-1p87-1-50x",
-   "slot": "mira",
+  "sight-1p87-1-50x": {
+   "id": "sight-1p87-1-50x",
+   "slot": "sight",
    "originalName": "1P87 1.50x",
    "cost": 10,
    "weapons": [
@@ -2113,9 +2113,9 @@
     "vcr-2"
    ]
   },
-  "mira-r-mr-1-00x": {
-   "id": "mira-r-mr-1-00x",
-   "slot": "mira",
+  "sight-r-mr-1-00x": {
+   "id": "sight-r-mr-1-00x",
+   "slot": "sight",
    "originalName": "R-MR 1.00x",
    "cost": 10,
    "weapons": [
@@ -2172,9 +2172,9 @@
     "vcr-2"
    ]
   },
-  "mira-cco-2-00x": {
-   "id": "mira-cco-2-00x",
-   "slot": "mira",
+  "sight-cco-2-00x": {
+   "id": "sight-cco-2-00x",
+   "slot": "sight",
    "originalName": "CCO 2.00x",
    "cost": 10,
    "weapons": [
@@ -2229,9 +2229,9 @@
     "vcr-2"
    ]
   },
-  "mira-sdo-3-50x": {
-   "id": "mira-sdo-3-50x",
-   "slot": "mira",
+  "sight-sdo-3-50x": {
+   "id": "sight-sdo-3-50x",
+   "slot": "sight",
    "originalName": "SDO 3.50x",
    "cost": 10,
    "weapons": [
@@ -2286,9 +2286,9 @@
     "vcr-2"
    ]
   },
-  "mira-cq-rds-1-25x": {
-   "id": "mira-cq-rds-1-25x",
-   "slot": "mira",
+  "sight-cq-rds-1-25x": {
+   "id": "sight-cq-rds-1-25x",
+   "slot": "sight",
    "originalName": "CQ RDS 1.25x",
    "cost": 10,
    "weapons": [
@@ -2346,9 +2346,9 @@
     "vcr-2"
    ]
   },
-  "mira-mini-flex-1-00x": {
-   "id": "mira-mini-flex-1-00x",
-   "slot": "mira",
+  "sight-mini-flex-1-00x": {
+   "id": "sight-mini-flex-1-00x",
+   "slot": "sight",
    "originalName": "Mini Flex 1.00x",
    "cost": 10,
    "weapons": [
@@ -2406,9 +2406,9 @@
     "vcr-2"
    ]
   },
-  "mira-3vzr-1-75x": {
-   "id": "mira-3vzr-1-75x",
-   "slot": "mira",
+  "sight-3vzr-1-75x": {
+   "id": "sight-3vzr-1-75x",
+   "slot": "sight",
    "originalName": "3VZR 1.75x",
    "cost": 10,
    "weapons": [
@@ -2463,9 +2463,9 @@
     "vcr-2"
    ]
   },
-  "mira-baker-3-00x": {
-   "id": "mira-baker-3-00x",
-   "slot": "mira",
+  "sight-baker-3-00x": {
+   "id": "sight-baker-3-00x",
+   "slot": "sight",
    "originalName": "Baker 3.00x",
    "cost": 10,
    "weapons": [
@@ -2520,9 +2520,9 @@
     "vcr-2"
    ]
   },
-  "mira-r4t-2-00x": {
-   "id": "mira-r4t-2-00x",
-   "slot": "mira",
+  "sight-r4t-2-00x": {
+   "id": "sight-r4t-2-00x",
+   "slot": "sight",
    "originalName": "R4T 2.00x",
    "cost": 10,
    "weapons": [
@@ -2577,9 +2577,9 @@
     "vcr-2"
    ]
   },
-  "mira-dvo-lpvo": {
-   "id": "mira-dvo-lpvo",
-   "slot": "mira",
+  "sight-dvo-lpvo": {
+   "id": "sight-dvo-lpvo",
+   "slot": "sight",
    "originalName": "DVO LPVO",
    "cost": 25,
    "weapons": [
@@ -2612,9 +2612,9 @@
     "vcr-2"
    ]
   },
-  "mira-ro-m-1-75x": {
-   "id": "mira-ro-m-1-75x",
-   "slot": "mira",
+  "sight-ro-m-1-75x": {
+   "id": "sight-ro-m-1-75x",
+   "slot": "sight",
    "originalName": "RO-M 1.75x",
    "cost": 10,
    "weapons": [
@@ -2669,9 +2669,9 @@
     "vcr-2"
    ]
   },
-  "mira-st-prism-5-00x": {
-   "id": "mira-st-prism-5-00x",
-   "slot": "mira",
+  "sight-st-prism-5-00x": {
+   "id": "sight-st-prism-5-00x",
+   "slot": "sight",
    "originalName": "ST Prism 5.00x",
    "cost": 10,
    "weapons": [
@@ -2726,9 +2726,9 @@
     "vcr-2"
    ]
   },
-  "mira-rox-1-50x": {
-   "id": "mira-rox-1-50x",
-   "slot": "mira",
+  "sight-rox-1-50x": {
+   "id": "sight-rox-1-50x",
+   "slot": "sight",
    "originalName": "ROX 1.50x",
    "cost": 10,
    "weapons": [
@@ -2786,9 +2786,9 @@
     "vcr-2"
    ]
   },
-  "mira-bf-2m-2-50x": {
-   "id": "mira-bf-2m-2-50x",
-   "slot": "mira",
+  "sight-bf-2m-2-50x": {
+   "id": "sight-bf-2m-2-50x",
+   "slot": "sight",
    "originalName": "BF-2M 2.50x",
    "cost": 10,
    "weapons": [
@@ -2843,9 +2843,9 @@
     "vcr-2"
    ]
   },
-  "mira-mars-f-lpvo": {
-   "id": "mira-mars-f-lpvo",
-   "slot": "mira",
+  "sight-mars-f-lpvo": {
+   "id": "sight-mars-f-lpvo",
+   "slot": "sight",
    "originalName": "Mars-F LPVO",
    "cost": 25,
    "weapons": [
@@ -2890,9 +2890,9 @@
     "vcr-2"
    ]
   },
-  "mira-pvq-31-4-00x": {
-   "id": "mira-pvq-31-4-00x",
-   "slot": "mira",
+  "sight-pvq-31-4-00x": {
+   "id": "sight-pvq-31-4-00x",
+   "slot": "sight",
    "originalName": "PVQ-31 4.00x",
    "cost": 10,
    "weapons": [
@@ -2947,9 +2947,9 @@
     "vcr-2"
    ]
   },
-  "mira-ro-s-1-25x": {
-   "id": "mira-ro-s-1-25x",
-   "slot": "mira",
+  "sight-ro-s-1-25x": {
+   "id": "sight-ro-s-1-25x",
+   "slot": "sight",
    "originalName": "RO-S 1.25x",
    "cost": 10,
    "weapons": [
@@ -3006,9 +3006,9 @@
     "vcr-2"
    ]
   },
-  "mira-mc-co-lpvo": {
-   "id": "mira-mc-co-lpvo",
-   "slot": "mira",
+  "sight-mc-co-lpvo": {
+   "id": "sight-mc-co-lpvo",
+   "slot": "sight",
    "originalName": "MC-CO LPVO",
    "cost": 25,
    "weapons": [
@@ -3042,9 +3042,9 @@
     "vcr-2"
    ]
   },
-  "mira-lds-4-50x": {
-   "id": "mira-lds-4-50x",
-   "slot": "mira",
+  "sight-lds-4-50x": {
+   "id": "sight-lds-4-50x",
+   "slot": "sight",
    "originalName": "LDS 4.50x",
    "cost": 10,
    "weapons": [
@@ -3099,9 +3099,9 @@
     "vcr-2"
    ]
   },
-  "mira-pas-35-3-00x": {
-   "id": "mira-pas-35-3-00x",
-   "slot": "mira",
+  "sight-pas-35-3-00x": {
+   "id": "sight-pas-35-3-00x",
+   "slot": "sight",
    "originalName": "PAS-35 3.00x",
    "cost": 25,
    "weapons": [
@@ -3155,9 +3155,9 @@
     "vcr-2"
    ]
   },
-  "mira-a-p2-1-75x": {
-   "id": "mira-a-p2-1-75x",
-   "slot": "mira",
+  "sight-a-p2-1-75x": {
+   "id": "sight-a-p2-1-75x",
+   "slot": "sight",
    "originalName": "A-P2 1.75x",
    "cost": 10,
    "weapons": [
@@ -3215,9 +3215,9 @@
     "vcr-2"
    ]
   },
-  "mira-sf-g2-5-00x": {
-   "id": "mira-sf-g2-5-00x",
-   "slot": "mira",
+  "sight-sf-g2-5-00x": {
+   "id": "sight-sf-g2-5-00x",
+   "slot": "sight",
    "originalName": "SF-G2 5.00x",
    "cost": 10,
    "weapons": [
@@ -3271,9 +3271,9 @@
     "vcr-2"
    ]
   },
-  "mira-grim-1-50x": {
-   "id": "mira-grim-1-50x",
-   "slot": "mira",
+  "sight-grim-1-50x": {
+   "id": "sight-grim-1-50x",
+   "slot": "sight",
    "originalName": "Grim 1.50x",
    "cost": 25,
    "weapons": [
@@ -3327,9 +3327,9 @@
     "vcr-2"
    ]
   },
-  "boca-flash-hider": {
-   "id": "boca-flash-hider",
-   "slot": "boca",
+  "muzzle-flash-hider": {
+   "id": "muzzle-flash-hider",
+   "slot": "muzzle",
    "originalName": "Flash Hider",
    "cost": 10,
    "weapons": [
@@ -3382,9 +3382,9 @@
     "vcr-2"
    ]
   },
-  "boca-linear-comp": {
-   "id": "boca-linear-comp",
-   "slot": "boca",
+  "muzzle-linear-comp": {
+   "id": "muzzle-linear-comp",
+   "slot": "muzzle",
    "originalName": "Linear Comp",
    "cost": 10,
    "weapons": [
@@ -3430,9 +3430,9 @@
     "vcr-2"
    ]
   },
-  "boca-standard-suppressor": {
-   "id": "boca-standard-suppressor",
-   "slot": "boca",
+  "muzzle-standard-suppressor": {
+   "id": "muzzle-standard-suppressor",
+   "slot": "muzzle",
    "originalName": "Standard Suppressor",
    "cost": 20,
    "weapons": [
@@ -3484,9 +3484,9 @@
     "vcr-2"
    ]
   },
-  "boca-cqb-suppressor": {
-   "id": "boca-cqb-suppressor",
-   "slot": "boca",
+  "muzzle-cqb-suppressor": {
+   "id": "muzzle-cqb-suppressor",
+   "slot": "muzzle",
    "originalName": "CQB Suppressor",
    "cost": 30,
    "weapons": [
@@ -3541,9 +3541,9 @@
     "vcr-2"
    ]
   },
-  "boca-double-port-brake": {
-   "id": "boca-double-port-brake",
-   "slot": "boca",
+  "muzzle-double-port-brake": {
+   "id": "muzzle-double-port-brake",
+   "slot": "muzzle",
    "originalName": "Double-Port Brake",
    "cost": 10,
    "weapons": [
@@ -3592,9 +3592,9 @@
     "vcr-2"
    ]
   },
-  "boca-long-suppressor": {
-   "id": "boca-long-suppressor",
-   "slot": "boca",
+  "muzzle-long-suppressor": {
+   "id": "muzzle-long-suppressor",
+   "slot": "muzzle",
    "originalName": "Long Suppressor",
    "cost": 25,
    "weapons": [
@@ -3643,9 +3643,9 @@
     "vcr-2"
    ]
   },
-  "boca-compensated-brake": {
-   "id": "boca-compensated-brake",
-   "slot": "boca",
+  "muzzle-compensated-brake": {
+   "id": "muzzle-compensated-brake",
+   "slot": "muzzle",
    "originalName": "Compensated Brake",
    "cost": 20,
    "weapons": [
@@ -3694,9 +3694,9 @@
     "vcr-2"
    ]
   },
-  "boca-lightened-suppressor": {
-   "id": "boca-lightened-suppressor",
-   "slot": "boca",
+  "muzzle-lightened-suppressor": {
+   "id": "muzzle-lightened-suppressor",
+   "slot": "muzzle",
    "originalName": "Lightened Suppressor",
    "cost": 30,
    "weapons": [
@@ -3747,27 +3747,27 @@
     "vcr-2"
    ]
   },
-  "cano-14-5-standard": {
-   "id": "cano-14-5-standard",
-   "slot": "cano",
+  "barrel-14-5-standard": {
+   "id": "barrel-14-5-standard",
+   "slot": "barrel",
    "originalName": "14.5\" Standard",
    "cost": 15,
    "weapons": [
     "m433"
    ]
   },
-  "cano-18-9-prototype": {
-   "id": "cano-18-9-prototype",
-   "slot": "cano",
+  "barrel-18-9-prototype": {
+   "id": "barrel-18-9-prototype",
+   "slot": "barrel",
    "originalName": "18.9\" Prototype",
    "cost": 15,
    "weapons": [
     "m433"
    ]
   },
-  "cano-16-5-rifle": {
-   "id": "cano-16-5-rifle",
-   "slot": "cano",
+  "barrel-16-5-rifle": {
+   "id": "barrel-16-5-rifle",
+   "slot": "barrel",
    "originalName": "16.5\" Rifle",
    "cost": 10,
    "weapons": [
@@ -3775,9 +3775,9 @@
     "m433"
    ]
   },
-  "cano-16-5-fluted": {
-   "id": "cano-16-5-fluted",
-   "slot": "cano",
+  "barrel-16-5-fluted": {
+   "id": "barrel-16-5-fluted",
+   "slot": "barrel",
    "originalName": "16.5\" Fluted",
    "cost": 20,
    "weapons": [
@@ -3785,9 +3785,9 @@
     "m433"
    ]
   },
-  "acoplamento-classic-vertical": {
-   "id": "acoplamento-classic-vertical",
-   "slot": "acoplamento",
+  "underbarrel-classic-vertical": {
+   "id": "underbarrel-classic-vertical",
+   "slot": "underbarrel",
    "originalName": "Classic Vertical",
    "cost": 35,
    "weapons": [
@@ -3836,9 +3836,9 @@
     "vcr-2"
    ]
   },
-  "acoplamento-underslung-mount": {
-   "id": "acoplamento-underslung-mount",
-   "slot": "acoplamento",
+  "underbarrel-underslung-mount": {
+   "id": "underbarrel-underslung-mount",
+   "slot": "underbarrel",
    "originalName": "Underslung Mount",
    "cost": 10,
    "weapons": [
@@ -3851,9 +3851,9 @@
     "sor-556-mk2"
    ]
   },
-  "acoplamento-folding-vertical": {
-   "id": "acoplamento-folding-vertical",
-   "slot": "acoplamento",
+  "underbarrel-folding-vertical": {
+   "id": "underbarrel-folding-vertical",
+   "slot": "underbarrel",
    "originalName": "Folding Vertical",
    "cost": 10,
    "weapons": [
@@ -3902,9 +3902,9 @@
     "vcr-2"
    ]
   },
-  "acoplamento-alloy-vertical": {
-   "id": "acoplamento-alloy-vertical",
-   "slot": "acoplamento",
+  "underbarrel-alloy-vertical": {
+   "id": "underbarrel-alloy-vertical",
+   "slot": "underbarrel",
    "originalName": "Alloy Vertical",
    "cost": 20,
    "weapons": [
@@ -3953,9 +3953,9 @@
     "vcr-2"
    ]
   },
-  "acoplamento-ribbed-vertical": {
-   "id": "acoplamento-ribbed-vertical",
-   "slot": "acoplamento",
+  "underbarrel-ribbed-vertical": {
+   "id": "underbarrel-ribbed-vertical",
+   "slot": "underbarrel",
    "originalName": "Ribbed Vertical",
    "cost": 20,
    "weapons": [
@@ -4003,9 +4003,9 @@
     "vcr-2"
    ]
   },
-  "acoplamento-6h64-vertical": {
-   "id": "acoplamento-6h64-vertical",
-   "slot": "acoplamento",
+  "underbarrel-6h64-vertical": {
+   "id": "underbarrel-6h64-vertical",
+   "slot": "underbarrel",
    "originalName": "6H64 Vertical",
    "cost": 25,
    "weapons": [
@@ -4053,9 +4053,9 @@
     "vcr-2"
    ]
   },
-  "acoplamento-folding-stubby": {
-   "id": "acoplamento-folding-stubby",
-   "slot": "acoplamento",
+  "underbarrel-folding-stubby": {
+   "id": "underbarrel-folding-stubby",
+   "slot": "underbarrel",
    "originalName": "Folding Stubby",
    "cost": 20,
    "weapons": [
@@ -4104,9 +4104,9 @@
     "vcr-2"
    ]
   },
-  "acoplamento-ribbed-stubby": {
-   "id": "acoplamento-ribbed-stubby",
-   "slot": "acoplamento",
+  "underbarrel-ribbed-stubby": {
+   "id": "underbarrel-ribbed-stubby",
+   "slot": "underbarrel",
    "originalName": "Ribbed Stubby",
    "cost": 30,
    "weapons": [
@@ -4155,9 +4155,9 @@
     "vcr-2"
    ]
   },
-  "acoplamento-canted-stubby": {
-   "id": "acoplamento-canted-stubby",
-   "slot": "acoplamento",
+  "underbarrel-canted-stubby": {
+   "id": "underbarrel-canted-stubby",
+   "slot": "underbarrel",
    "originalName": "Canted Stubby",
    "cost": 30,
    "weapons": [
@@ -4206,9 +4206,9 @@
     "vcr-2"
    ]
   },
-  "acoplamento-full-angled": {
-   "id": "acoplamento-full-angled",
-   "slot": "acoplamento",
+  "underbarrel-full-angled": {
+   "id": "underbarrel-full-angled",
+   "slot": "underbarrel",
    "originalName": "Full Angled",
    "cost": 25,
    "weapons": [
@@ -4250,9 +4250,9 @@
     "vcr-2"
    ]
   },
-  "acoplamento-stippled-stubby": {
-   "id": "acoplamento-stippled-stubby",
-   "slot": "acoplamento",
+  "underbarrel-stippled-stubby": {
+   "id": "underbarrel-stippled-stubby",
+   "slot": "underbarrel",
    "originalName": "Stippled Stubby",
    "cost": 35,
    "weapons": [
@@ -4301,9 +4301,9 @@
     "vcr-2"
    ]
   },
-  "acoplamento-ptt-grip-pod": {
-   "id": "acoplamento-ptt-grip-pod",
-   "slot": "acoplamento",
+  "underbarrel-ptt-grip-pod": {
+   "id": "underbarrel-ptt-grip-pod",
+   "slot": "underbarrel",
    "originalName": "PTT Grip Pod",
    "cost": 20,
    "weapons": [
@@ -4337,9 +4337,9 @@
     "vcr-2"
    ]
   },
-  "acoplamento-adjustable-angled": {
-   "id": "acoplamento-adjustable-angled",
-   "slot": "acoplamento",
+  "underbarrel-adjustable-angled": {
+   "id": "underbarrel-adjustable-angled",
+   "slot": "underbarrel",
    "originalName": "Adjustable Angled",
    "cost": 15,
    "weapons": [
@@ -4365,9 +4365,9 @@
     "vcr-2"
    ]
   },
-  "acoplamento-low-profile-stubby": {
-   "id": "acoplamento-low-profile-stubby",
-   "slot": "acoplamento",
+  "underbarrel-low-profile-stubby": {
+   "id": "underbarrel-low-profile-stubby",
+   "slot": "underbarrel",
    "originalName": "Low-Profile Stubby",
    "cost": 45,
    "weapons": [
@@ -4420,9 +4420,9 @@
     "vcr-2"
    ]
   },
-  "acoplamento-bipod": {
-   "id": "acoplamento-bipod",
-   "slot": "acoplamento",
+  "underbarrel-bipod": {
+   "id": "underbarrel-bipod",
+   "slot": "underbarrel",
    "originalName": "Bipod",
    "cost": 10,
    "weapons": [
@@ -4459,9 +4459,9 @@
     "vcr-2"
    ]
   },
-  "acoplamento-slim-angled": {
-   "id": "acoplamento-slim-angled",
-   "slot": "acoplamento",
+  "underbarrel-slim-angled": {
+   "id": "underbarrel-slim-angled",
+   "slot": "underbarrel",
    "originalName": "Slim Angled",
    "cost": 25,
    "weapons": [
@@ -4509,9 +4509,9 @@
     "vcr-2"
    ]
   },
-  "acoplamento-qd-grip-pod": {
-   "id": "acoplamento-qd-grip-pod",
-   "slot": "acoplamento",
+  "underbarrel-qd-grip-pod": {
+   "id": "underbarrel-qd-grip-pod",
+   "slot": "underbarrel",
    "originalName": "QD Grip Pod",
    "cost": 30,
    "weapons": [
@@ -4549,9 +4549,9 @@
     "vcr-2"
    ]
   },
-  "acoplamento-classic-grip-pod": {
-   "id": "acoplamento-classic-grip-pod",
-   "slot": "acoplamento",
+  "underbarrel-classic-grip-pod": {
+   "id": "underbarrel-classic-grip-pod",
+   "slot": "underbarrel",
    "originalName": "Classic Grip Pod",
    "cost": 30,
    "weapons": [
@@ -4589,9 +4589,9 @@
     "vcr-2"
    ]
   },
-  "carregador-30rnd-magazine": {
-   "id": "carregador-30rnd-magazine",
-   "slot": "carregador",
+  "magazine-30rnd-magazine": {
+   "id": "magazine-30rnd-magazine",
+   "slot": "magazine",
    "originalName": "30RND Magazine",
    "cost": 5,
    "weapons": [
@@ -4623,9 +4623,9 @@
     "vcr-2"
    ]
   },
-  "carregador-30rnd-fast-mag": {
-   "id": "carregador-30rnd-fast-mag",
-   "slot": "carregador",
+  "magazine-30rnd-fast-mag": {
+   "id": "magazine-30rnd-fast-mag",
+   "slot": "magazine",
    "originalName": "30RND Fast Mag",
    "cost": 10,
    "weapons": [
@@ -4651,9 +4651,9 @@
     "vcr-2"
    ]
   },
-  "carregador-20rnd-fast-mag": {
-   "id": "carregador-20rnd-fast-mag",
-   "slot": "carregador",
+  "magazine-20rnd-fast-mag": {
+   "id": "magazine-20rnd-fast-mag",
+   "slot": "magazine",
    "originalName": "20RND Fast Mag",
    "cost": 5,
    "weapons": [
@@ -4676,9 +4676,9 @@
     "vcr-2"
    ]
   },
-  "carregador-20rnd-magazine": {
-   "id": "carregador-20rnd-magazine",
-   "slot": "carregador",
+  "magazine-20rnd-magazine": {
+   "id": "magazine-20rnd-magazine",
+   "slot": "magazine",
    "originalName": "20RND Magazine",
    "cost": 5,
    "weapons": [
@@ -4703,9 +4703,9 @@
     "vcr-2"
    ]
   },
-  "carregador-40rnd-fast-mag": {
-   "id": "carregador-40rnd-fast-mag",
-   "slot": "carregador",
+  "magazine-40rnd-fast-mag": {
+   "id": "magazine-40rnd-fast-mag",
+   "slot": "magazine",
    "originalName": "40RND Fast Mag",
    "cost": 30,
    "weapons": [
@@ -4724,9 +4724,9 @@
     "vcr-2"
    ]
   },
-  "carregador-36rnd-magazine": {
-   "id": "carregador-36rnd-magazine",
-   "slot": "carregador",
+  "magazine-36rnd-magazine": {
+   "id": "magazine-36rnd-magazine",
+   "slot": "magazine",
    "originalName": "36RND Magazine",
    "cost": 15,
    "weapons": [
@@ -4749,9 +4749,9 @@
     "vcr-2"
    ]
   },
-  "carregador-40rnd-magazine": {
-   "id": "carregador-40rnd-magazine",
-   "slot": "carregador",
+  "magazine-40rnd-magazine": {
+   "id": "magazine-40rnd-magazine",
+   "slot": "magazine",
    "originalName": "40RND Magazine",
    "cost": 25,
    "weapons": [
@@ -4773,9 +4773,9 @@
     "vcr-2"
    ]
   },
-  "ergonomia-magwell-flare": {
-   "id": "ergonomia-magwell-flare",
-   "slot": "ergonomia",
+  "ergonomics-magwell-flare": {
+   "id": "ergonomics-magwell-flare",
+   "slot": "ergonomics",
    "originalName": "Magwell Flare",
    "cost": 10,
    "weapons": [
@@ -4791,9 +4791,9 @@
     "sor-556-mk2"
    ]
   },
-  "ergonomia-match-trigger": {
-   "id": "ergonomia-match-trigger",
-   "slot": "ergonomia",
+  "ergonomics-match-trigger": {
+   "id": "ergonomics-match-trigger",
+   "slot": "ergonomics",
    "originalName": "Match Trigger",
    "cost": 15,
    "weapons": [
@@ -4819,9 +4819,9 @@
     "vcr-2"
    ]
   },
-  "municao-fmj": {
-   "id": "municao-fmj",
-   "slot": "municao",
+  "ammo-fmj": {
+   "id": "ammo-fmj",
+   "slot": "ammo",
    "originalName": "FMJ",
    "cost": 5,
    "weapons": [
@@ -4875,9 +4875,9 @@
     "vcr-2"
    ]
   },
-  "municao-tungsten-core": {
-   "id": "municao-tungsten-core",
-   "slot": "municao",
+  "ammo-tungsten-core": {
+   "id": "ammo-tungsten-core",
+   "slot": "ammo",
    "originalName": "Tungsten Core",
    "cost": 5,
    "weapons": [
@@ -4931,9 +4931,9 @@
     "vcr-2"
    ]
   },
-  "municao-hollow-point": {
-   "id": "municao-hollow-point",
-   "slot": "municao",
+  "ammo-hollow-point": {
+   "id": "ammo-hollow-point",
+   "slot": "ammo",
    "originalName": "Hollow Point",
    "cost": 20,
    "weapons": [
@@ -4983,9 +4983,9 @@
     "vcr-2"
    ]
   },
-  "municao-frangible": {
-   "id": "municao-frangible",
-   "slot": "municao",
+  "ammo-frangible": {
+   "id": "ammo-frangible",
+   "slot": "ammo",
    "originalName": "Frangible",
    "cost": 20,
    "weapons": [
@@ -5039,9 +5039,9 @@
     "vcr-2"
    ]
   },
-  "municao-polymer-case": {
-   "id": "municao-polymer-case",
-   "slot": "municao",
+  "ammo-polymer-case": {
+   "id": "ammo-polymer-case",
+   "slot": "ammo",
    "originalName": "Polymer Case",
    "cost": 10,
    "weapons": [
@@ -5069,63 +5069,63 @@
     "vcr-2"
    ]
   },
-  "cano-480mm-factory": {
-   "id": "cano-480mm-factory",
-   "slot": "cano",
+  "barrel-480mm-factory": {
+   "id": "barrel-480mm-factory",
+   "slot": "barrel",
    "originalName": "480mm Factory",
    "cost": 10,
    "weapons": [
     "b36a4"
    ]
   },
-  "cano-510mm-fluted": {
-   "id": "cano-510mm-fluted",
-   "slot": "cano",
+  "barrel-510mm-fluted": {
+   "id": "barrel-510mm-fluted",
+   "slot": "barrel",
    "originalName": "510mm Fluted",
    "cost": 15,
    "weapons": [
     "b36a4"
    ]
   },
-  "cano-480mm-mg": {
-   "id": "cano-480mm-mg",
-   "slot": "cano",
+  "barrel-480mm-mg": {
+   "id": "barrel-480mm-mg",
+   "slot": "barrel",
    "originalName": "480mm MG",
    "cost": 10,
    "weapons": [
     "b36a4"
    ]
   },
-  "cano-480mm-fluted": {
-   "id": "cano-480mm-fluted",
-   "slot": "cano",
+  "barrel-480mm-fluted": {
+   "id": "barrel-480mm-fluted",
+   "slot": "barrel",
    "originalName": "480mm Fluted",
    "cost": 20,
    "weapons": [
     "b36a4"
    ]
   },
-  "cano-510mm-dmr": {
-   "id": "cano-510mm-dmr",
-   "slot": "cano",
+  "barrel-510mm-dmr": {
+   "id": "barrel-510mm-dmr",
+   "slot": "barrel",
    "originalName": "510mm DMR",
    "cost": 10,
    "weapons": [
     "b36a4"
    ]
   },
-  "cano-391mm-cqb": {
-   "id": "cano-391mm-cqb",
-   "slot": "cano",
+  "barrel-391mm-cqb": {
+   "id": "barrel-391mm-cqb",
+   "slot": "barrel",
    "originalName": "391mm CQB",
    "cost": 15,
    "weapons": [
     "b36a4"
    ]
   },
-  "carregador-45rnd-magazine": {
-   "id": "carregador-45rnd-magazine",
-   "slot": "carregador",
+  "magazine-45rnd-magazine": {
+   "id": "magazine-45rnd-magazine",
+   "slot": "magazine",
    "originalName": "45RND Magazine",
    "cost": 35,
    "weapons": [
@@ -5138,9 +5138,9 @@
     "sor-556-mk2"
    ]
   },
-  "carregador-45rnd-fast-mag": {
-   "id": "carregador-45rnd-fast-mag",
-   "slot": "carregador",
+  "magazine-45rnd-fast-mag": {
+   "id": "magazine-45rnd-fast-mag",
+   "slot": "magazine",
    "originalName": "45RND Fast Mag",
    "cost": 40,
    "weapons": [
@@ -5153,9 +5153,9 @@
     "sor-556-mk2"
    ]
   },
-  "municao-synthetic-tip": {
-   "id": "municao-synthetic-tip",
-   "slot": "municao",
+  "ammo-synthetic-tip": {
+   "id": "ammo-synthetic-tip",
+   "slot": "ammo",
    "originalName": "Synthetic Tip",
    "cost": 30,
    "weapons": [
@@ -5175,9 +5175,9 @@
     "umg-40"
    ]
   },
-  "mira-ngfc-lpvo": {
-   "id": "mira-ngfc-lpvo",
-   "slot": "mira",
+  "sight-ngfc-lpvo": {
+   "id": "sight-ngfc-lpvo",
+   "slot": "sight",
    "originalName": "NGFC LPVO",
    "cost": 25,
    "weapons": [
@@ -5192,9 +5192,9 @@
     "sor-556-mk2"
    ]
   },
-  "boca-single-port-brake": {
-   "id": "boca-single-port-brake",
-   "slot": "boca",
+  "muzzle-single-port-brake": {
+   "id": "muzzle-single-port-brake",
+   "slot": "muzzle",
    "originalName": "Single-Port Brake",
    "cost": 5,
    "weapons": [
@@ -5232,99 +5232,99 @@
     "vcr-2"
    ]
   },
-  "cano-14-5-factory": {
-   "id": "cano-14-5-factory",
-   "slot": "cano",
+  "barrel-14-5-factory": {
+   "id": "barrel-14-5-factory",
+   "slot": "barrel",
    "originalName": "14.5\" Factory",
    "cost": 15,
    "weapons": [
     "sor-556-mk2"
    ]
   },
-  "cano-16-us": {
-   "id": "cano-16-us",
-   "slot": "cano",
+  "barrel-16-us": {
+   "id": "barrel-16-us",
+   "slot": "barrel",
    "originalName": "16\" US",
    "cost": 10,
    "weapons": [
     "sor-556-mk2"
    ]
   },
-  "cano-18-us-lb": {
-   "id": "cano-18-us-lb",
-   "slot": "cano",
+  "barrel-18-us-lb": {
+   "id": "barrel-18-us-lb",
+   "slot": "barrel",
    "originalName": "18\" US-LB",
    "cost": 15,
    "weapons": [
     "sor-556-mk2"
    ]
   },
-  "cano-iar-heavy": {
-   "id": "cano-iar-heavy",
-   "slot": "cano",
+  "barrel-iar-heavy": {
+   "id": "barrel-iar-heavy",
+   "slot": "barrel",
    "originalName": "IAR Heavy",
    "cost": 10,
    "weapons": [
     "sor-556-mk2"
    ]
   },
-  "cano-18-custom": {
-   "id": "cano-18-custom",
-   "slot": "cano",
+  "barrel-18-custom": {
+   "id": "barrel-18-custom",
+   "slot": "barrel",
    "originalName": "18\" Custom",
    "cost": 10,
    "weapons": [
     "sor-556-mk2"
    ]
   },
-  "cano-450mm-factory": {
-   "id": "cano-450mm-factory",
-   "slot": "cano",
+  "barrel-450mm-factory": {
+   "id": "barrel-450mm-factory",
+   "slot": "barrel",
    "originalName": "450mm Factory",
    "cost": 10,
    "weapons": [
     "ak4d"
    ]
   },
-  "cano-600mm-cut": {
-   "id": "cano-600mm-cut",
-   "slot": "cano",
+  "barrel-600mm-cut": {
+   "id": "barrel-600mm-cut",
+   "slot": "barrel",
    "originalName": "600mm Cut",
    "cost": 10,
    "weapons": [
     "ak4d"
    ]
   },
-  "cano-600mm-fluted": {
-   "id": "cano-600mm-fluted",
-   "slot": "cano",
+  "barrel-600mm-fluted": {
+   "id": "barrel-600mm-fluted",
+   "slot": "barrel",
    "originalName": "600mm Fluted",
    "cost": 15,
    "weapons": [
     "ak4d"
    ]
   },
-  "cano-409mm-us": {
-   "id": "cano-409mm-us",
-   "slot": "cano",
+  "barrel-409mm-us": {
+   "id": "barrel-409mm-us",
+   "slot": "barrel",
    "originalName": "409mm US",
    "cost": 15,
    "weapons": [
     "ak4d"
    ]
   },
-  "cano-600mm-dmr": {
-   "id": "cano-600mm-dmr",
-   "slot": "cano",
+  "barrel-600mm-dmr": {
+   "id": "barrel-600mm-dmr",
+   "slot": "barrel",
    "originalName": "600mm DMR",
    "cost": 10,
    "weapons": [
     "ak4d"
    ]
   },
-  "carregador-15rnd-magazine": {
-   "id": "carregador-15rnd-magazine",
-   "slot": "carregador",
+  "magazine-15rnd-magazine": {
+   "id": "magazine-15rnd-magazine",
+   "slot": "magazine",
    "originalName": "15RND Magazine",
    "cost": 5,
    "weapons": [
@@ -5337,9 +5337,9 @@
     "tr-7"
    ]
   },
-  "carregador-15rnd-fast-mag": {
-   "id": "carregador-15rnd-fast-mag",
-   "slot": "carregador",
+  "magazine-15rnd-fast-mag": {
+   "id": "magazine-15rnd-fast-mag",
+   "slot": "magazine",
    "originalName": "15RND Fast Mag",
    "cost": 10,
    "weapons": [
@@ -5349,9 +5349,9 @@
     "scw-10"
    ]
   },
-  "cano-17-factory": {
-   "id": "cano-17-factory",
-   "slot": "cano",
+  "barrel-17-factory": {
+   "id": "barrel-17-factory",
+   "slot": "barrel",
    "originalName": "17\" Factory",
    "cost": 10,
    "weapons": [
@@ -5359,36 +5359,36 @@
     "tr-7"
    ]
   },
-  "cano-20-long": {
-   "id": "cano-20-long",
-   "slot": "cano",
+  "barrel-20-long": {
+   "id": "barrel-20-long",
+   "slot": "barrel",
    "originalName": "20\" Long",
    "cost": 15,
    "weapons": [
     "tr-7"
    ]
   },
-  "cano-432mm-fluted": {
-   "id": "cano-432mm-fluted",
-   "slot": "cano",
+  "barrel-432mm-fluted": {
+   "id": "barrel-432mm-fluted",
+   "slot": "barrel",
    "originalName": "432mm Fluted",
    "cost": 20,
    "weapons": [
     "tr-7"
    ]
   },
-  "cano-17-cut": {
-   "id": "cano-17-cut",
-   "slot": "cano",
+  "barrel-17-cut": {
+   "id": "barrel-17-cut",
+   "slot": "barrel",
    "originalName": "17\" Cut",
    "cost": 15,
    "weapons": [
     "tr-7"
    ]
   },
-  "carregador-10rnd-fast-mag": {
-   "id": "carregador-10rnd-fast-mag",
-   "slot": "carregador",
+  "magazine-10rnd-fast-mag": {
+   "id": "magazine-10rnd-fast-mag",
+   "slot": "magazine",
    "originalName": "10RND Fast Mag",
    "cost": 5,
    "weapons": [
@@ -5398,9 +5398,9 @@
     "tr-7"
    ]
   },
-  "carregador-25rnd-magazine": {
-   "id": "carregador-25rnd-magazine",
-   "slot": "carregador",
+  "magazine-25rnd-magazine": {
+   "id": "magazine-25rnd-magazine",
+   "slot": "magazine",
    "originalName": "25RND Magazine",
    "cost": 20,
    "weapons": [
@@ -5412,9 +5412,9 @@
     "umg-40"
    ]
   },
-  "carregador-25rnd-fast-mag": {
-   "id": "carregador-25rnd-fast-mag",
-   "slot": "carregador",
+  "magazine-25rnd-fast-mag": {
+   "id": "magazine-25rnd-fast-mag",
+   "slot": "magazine",
    "originalName": "25RND Fast Mag",
    "cost": 25,
    "weapons": [
@@ -5423,9 +5423,9 @@
     "umg-40"
    ]
   },
-  "ergonomia-improved-mag-catch": {
-   "id": "ergonomia-improved-mag-catch",
-   "slot": "ergonomia",
+  "ergonomics-improved-mag-catch": {
+   "id": "ergonomics-improved-mag-catch",
+   "slot": "ergonomics",
    "originalName": "Improved Mag Catch",
    "cost": 5,
    "weapons": [
@@ -5452,90 +5452,90 @@
     "usg-90"
    ]
   },
-  "cano-415mm-factory": {
-   "id": "cano-415mm-factory",
-   "slot": "cano",
+  "barrel-415mm-factory": {
+   "id": "barrel-415mm-factory",
+   "slot": "barrel",
    "originalName": "415mm Factory",
    "cost": 10,
    "weapons": [
     "kord-6p67"
    ]
   },
-  "cano-415mm-prototype": {
-   "id": "cano-415mm-prototype",
-   "slot": "cano",
+  "barrel-415mm-prototype": {
+   "id": "barrel-415mm-prototype",
+   "slot": "barrel",
    "originalName": "415mm Prototype",
    "cost": 10,
    "weapons": [
     "kord-6p67"
    ]
   },
-  "cano-415mm-fluted": {
-   "id": "cano-415mm-fluted",
-   "slot": "cano",
+  "barrel-415mm-fluted": {
+   "id": "barrel-415mm-fluted",
+   "slot": "barrel",
    "originalName": "415mm Fluted",
    "cost": 20,
    "weapons": [
     "kord-6p67"
    ]
   },
-  "cano-409mm-factory": {
-   "id": "cano-409mm-factory",
-   "slot": "cano",
+  "barrel-409mm-factory": {
+   "id": "barrel-409mm-factory",
+   "slot": "barrel",
    "originalName": "409mm Factory",
    "cost": 10,
    "weapons": [
     "nvo-228e"
    ]
   },
-  "cano-458mm-custom": {
-   "id": "cano-458mm-custom",
-   "slot": "cano",
+  "barrel-458mm-custom": {
+   "id": "barrel-458mm-custom",
+   "slot": "barrel",
    "originalName": "458mm Custom",
    "cost": 15,
    "weapons": [
     "nvo-228e"
    ]
   },
-  "cano-409mm-cut": {
-   "id": "cano-409mm-cut",
-   "slot": "cano",
+  "barrel-409mm-cut": {
+   "id": "barrel-409mm-cut",
+   "slot": "barrel",
    "originalName": "409mm Cut",
    "cost": 15,
    "weapons": [
     "nvo-228e"
    ]
   },
-  "cano-409mm-fluted": {
-   "id": "cano-409mm-fluted",
-   "slot": "cano",
+  "barrel-409mm-fluted": {
+   "id": "barrel-409mm-fluted",
+   "slot": "barrel",
    "originalName": "409mm Fluted",
    "cost": 20,
    "weapons": [
     "nvo-228e"
    ]
   },
-  "cano-11-5-commando": {
-   "id": "cano-11-5-commando",
-   "slot": "cano",
+  "barrel-11-5-commando": {
+   "id": "barrel-11-5-commando",
+   "slot": "barrel",
    "originalName": "11.5\" Commando",
    "cost": 15,
    "weapons": [
     "m4a1"
    ]
   },
-  "cano-12-5-mid": {
-   "id": "cano-12-5-mid",
-   "slot": "cano",
+  "barrel-12-5-mid": {
+   "id": "barrel-12-5-mid",
+   "slot": "barrel",
    "originalName": "12.5\" Mid",
    "cost": 10,
    "weapons": [
     "m4a1"
    ]
   },
-  "cano-14-5-carbine": {
-   "id": "cano-14-5-carbine",
-   "slot": "cano",
+  "barrel-14-5-carbine": {
+   "id": "barrel-14-5-carbine",
+   "slot": "barrel",
    "originalName": "14.5\" Carbine",
    "cost": 15,
    "weapons": [
@@ -5544,45 +5544,45 @@
     "m4a1"
    ]
   },
-  "cano-12-5-fluted": {
-   "id": "cano-12-5-fluted",
-   "slot": "cano",
+  "barrel-12-5-fluted": {
+   "id": "barrel-12-5-fluted",
+   "slot": "barrel",
    "originalName": "12.5\" Fluted",
    "cost": 20,
    "weapons": [
     "m4a1"
    ]
   },
-  "cano-13-factory": {
-   "id": "cano-13-factory",
-   "slot": "cano",
+  "barrel-13-factory": {
+   "id": "barrel-13-factory",
+   "slot": "barrel",
    "originalName": "13\" Factory",
    "cost": 10,
    "weapons": [
     "m277"
    ]
   },
-  "cano-13-prototype": {
-   "id": "cano-13-prototype",
-   "slot": "cano",
+  "barrel-13-prototype": {
+   "id": "barrel-13-prototype",
+   "slot": "barrel",
    "originalName": "13\" Prototype",
    "cost": 10,
    "weapons": [
     "m277"
    ]
   },
-  "cano-16-custom": {
-   "id": "cano-16-custom",
-   "slot": "cano",
+  "barrel-16-custom": {
+   "id": "barrel-16-custom",
+   "slot": "barrel",
    "originalName": "16\" Custom",
    "cost": 10,
    "weapons": [
     "m277"
    ]
   },
-  "cano-16-rifle": {
-   "id": "cano-16-rifle",
-   "slot": "cano",
+  "barrel-16-rifle": {
+   "id": "barrel-16-rifle",
+   "slot": "barrel",
    "originalName": "16\" Rifle",
    "cost": 15,
    "weapons": [
@@ -5590,72 +5590,72 @@
     "m277"
    ]
   },
-  "cano-13-fluted": {
-   "id": "cano-13-fluted",
-   "slot": "cano",
+  "barrel-13-fluted": {
+   "id": "barrel-13-fluted",
+   "slot": "barrel",
    "originalName": "13\" Fluted",
    "cost": 20,
    "weapons": [
     "m277"
    ]
   },
-  "cano-314mm-factory": {
-   "id": "cano-314mm-factory",
-   "slot": "cano",
+  "barrel-314mm-factory": {
+   "id": "barrel-314mm-factory",
+   "slot": "barrel",
    "originalName": "314mm Factory",
    "cost": 10,
    "weapons": [
     "ak-205"
    ]
   },
-  "cano-314mm-prototype": {
-   "id": "cano-314mm-prototype",
-   "slot": "cano",
+  "barrel-314mm-prototype": {
+   "id": "barrel-314mm-prototype",
+   "slot": "barrel",
    "originalName": "314mm Prototype",
    "cost": 10,
    "weapons": [
     "ak-205"
    ]
   },
-  "cano-314mm-fluted": {
-   "id": "cano-314mm-fluted",
-   "slot": "cano",
+  "barrel-314mm-fluted": {
+   "id": "barrel-314mm-fluted",
+   "slot": "barrel",
    "originalName": "314mm Fluted",
    "cost": 20,
    "weapons": [
     "ak-205"
    ]
   },
-  "carregador-50rnd-fast-mag": {
-   "id": "carregador-50rnd-fast-mag",
-   "slot": "carregador",
+  "magazine-50rnd-fast-mag": {
+   "id": "magazine-50rnd-fast-mag",
+   "slot": "magazine",
    "originalName": "50RND Fast Mag",
    "cost": 45,
    "weapons": [
     "ak-205"
    ]
   },
-  "cano-13-commando": {
-   "id": "cano-13-commando",
-   "slot": "cano",
+  "barrel-13-commando": {
+   "id": "barrel-13-commando",
+   "slot": "barrel",
    "originalName": "13\" Commando",
    "cost": 10,
    "weapons": [
     "m417-a2"
    ]
   },
-  "cano-12-assaulter": {
-   "id": "cano-12-assaulter",
-   "slot": "cano",
+  "barrel-12-assaulter": {
+   "id": "barrel-12-assaulter",
+   "slot": "barrel",
    "originalName": "12\" Assaulter",
    "cost": 15,
    "weapons": [
     "m417-a2"
    ]
   },
-  "carregador-10rnd-magazine": {
-   "id": "carregador-10rnd-magazine",
-   "slot": "carregador",
+  "magazine-10rnd-magazine": {
+   "id": "magazine-10rnd-magazine",
+   "slot": "magazine",
    "originalName": "10RND Magazine",
    "cost": 5,
    "weapons": [
@@ -5667,36 +5667,36 @@
     "svk-86"
    ]
   },
-  "cano-10-factory": {
-   "id": "cano-10-factory",
-   "slot": "cano",
+  "barrel-10-factory": {
+   "id": "barrel-10-factory",
+   "slot": "barrel",
    "originalName": "10\" Factory",
    "cost": 20,
    "weapons": [
     "grt-bc"
    ]
   },
-  "cano-10-full": {
-   "id": "cano-10-full",
-   "slot": "cano",
+  "barrel-10-full": {
+   "id": "barrel-10-full",
+   "slot": "barrel",
    "originalName": "10\" Full",
    "cost": 10,
    "weapons": [
     "grt-bc"
    ]
   },
-  "cano-14-5-alt": {
-   "id": "cano-14-5-alt",
-   "slot": "cano",
+  "barrel-14-5-alt": {
+   "id": "barrel-14-5-alt",
+   "slot": "barrel",
    "originalName": "14.5\" Alt",
    "cost": 15,
    "weapons": [
     "grt-bc"
    ]
   },
-  "acoplamento-compact-handstop": {
-   "id": "acoplamento-compact-handstop",
-   "slot": "acoplamento",
+  "underbarrel-compact-handstop": {
+   "id": "underbarrel-compact-handstop",
+   "slot": "underbarrel",
    "originalName": "Compact Handstop",
    "cost": 10,
    "weapons": [
@@ -5711,243 +5711,243 @@
     "umg-40"
    ]
   },
-  "cano-10-5-factory": {
-   "id": "cano-10-5-factory",
-   "slot": "cano",
+  "barrel-10-5-factory": {
+   "id": "barrel-10-5-factory",
+   "slot": "barrel",
    "originalName": "10.5\" Factory",
    "cost": 10,
    "weapons": [
     "qbz-192"
    ]
   },
-  "cano-14-5-common": {
-   "id": "cano-14-5-common",
-   "slot": "cano",
+  "barrel-14-5-common": {
+   "id": "barrel-14-5-common",
+   "slot": "barrel",
    "originalName": "14.5\" Common",
    "cost": 10,
    "weapons": [
     "qbz-192"
    ]
   },
-  "cano-240mm-sb": {
-   "id": "cano-240mm-sb",
-   "slot": "cano",
+  "barrel-240mm-sb": {
+   "id": "barrel-240mm-sb",
+   "slot": "barrel",
    "originalName": "240mm SB",
    "cost": 10,
    "weapons": [
     "sg-553r"
    ]
   },
-  "cano-303mm-lb": {
-   "id": "cano-303mm-lb",
-   "slot": "cano",
+  "barrel-303mm-lb": {
+   "id": "barrel-303mm-lb",
+   "slot": "barrel",
    "originalName": "303mm LB",
    "cost": 15,
    "weapons": [
     "sg-553r"
    ]
   },
-  "cano-240mm-fluted": {
-   "id": "cano-240mm-fluted",
-   "slot": "cano",
+  "barrel-240mm-fluted": {
+   "id": "barrel-240mm-fluted",
+   "slot": "barrel",
    "originalName": "240mm Fluted",
    "cost": 20,
    "weapons": [
     "sg-553r"
    ]
   },
-  "mira-rmr-1-00x": {
-   "id": "mira-rmr-1-00x",
-   "slot": "mira",
+  "sight-rmr-1-00x": {
+   "id": "sight-rmr-1-00x",
+   "slot": "sight",
    "originalName": "RMR 1.00x",
    "cost": 10,
    "weapons": [
     "sgx"
    ]
   },
-  "cano-6-standard": {
-   "id": "cano-6-standard",
-   "slot": "cano",
+  "barrel-6-standard": {
+   "id": "barrel-6-standard",
+   "slot": "barrel",
    "originalName": "6\" Standard",
    "cost": 10,
    "weapons": [
     "sgx"
    ]
   },
-  "cano-4-5-compact": {
-   "id": "cano-4-5-compact",
-   "slot": "cano",
+  "barrel-4-5-compact": {
+   "id": "barrel-4-5-compact",
+   "slot": "barrel",
    "originalName": "4.5\" Compact",
    "cost": 10,
    "weapons": [
     "sgx"
    ]
   },
-  "cano-8-extended": {
-   "id": "cano-8-extended",
-   "slot": "cano",
+  "barrel-8-extended": {
+   "id": "barrel-8-extended",
+   "slot": "barrel",
    "originalName": "8\" Extended",
    "cost": 10,
    "weapons": [
     "sgx"
    ]
   },
-  "cano-6-fluted": {
-   "id": "cano-6-fluted",
-   "slot": "cano",
+  "barrel-6-fluted": {
+   "id": "barrel-6-fluted",
+   "slot": "barrel",
    "originalName": "6\" Fluted",
    "cost": 10,
    "weapons": [
     "sgx"
    ]
   },
-  "carregador-41rnd-magazine": {
-   "id": "carregador-41rnd-magazine",
-   "slot": "carregador",
+  "magazine-41rnd-magazine": {
+   "id": "magazine-41rnd-magazine",
+   "slot": "magazine",
    "originalName": "41RND Magazine",
    "cost": 10,
    "weapons": [
     "sgx"
    ]
   },
-  "cano-225mm-factory": {
-   "id": "cano-225mm-factory",
-   "slot": "cano",
+  "barrel-225mm-factory": {
+   "id": "barrel-225mm-factory",
+   "slot": "barrel",
    "originalName": "225mm Factory",
    "cost": 10,
    "weapons": [
     "pw5a3"
    ]
   },
-  "cano-245mm-custom": {
-   "id": "cano-245mm-custom",
-   "slot": "cano",
+  "barrel-245mm-custom": {
+   "id": "barrel-245mm-custom",
+   "slot": "barrel",
    "originalName": "245mm Custom",
    "cost": 10,
    "weapons": [
     "pw5a3"
    ]
   },
-  "cano-180mm-standard": {
-   "id": "cano-180mm-standard",
-   "slot": "cano",
+  "barrel-180mm-standard": {
+   "id": "barrel-180mm-standard",
+   "slot": "barrel",
    "originalName": "180mm Standard",
    "cost": 10,
    "weapons": [
     "pw7a2"
    ]
   },
-  "cano-180mm-prototype": {
-   "id": "cano-180mm-prototype",
-   "slot": "cano",
+  "barrel-180mm-prototype": {
+   "id": "barrel-180mm-prototype",
+   "slot": "barrel",
    "originalName": "180mm Prototype",
    "cost": 10,
    "weapons": [
     "pw7a2"
    ]
   },
-  "mira-aperture-sights": {
-   "id": "mira-aperture-sights",
-   "slot": "mira",
+  "sight-aperture-sights": {
+   "id": "sight-aperture-sights",
+   "slot": "sight",
    "originalName": "Aperture Sights",
    "cost": 5,
    "weapons": [
     "umg-40"
    ]
   },
-  "mira-cqb-sights": {
-   "id": "mira-cqb-sights",
-   "slot": "mira",
+  "sight-cqb-sights": {
+   "id": "sight-cqb-sights",
+   "slot": "sight",
    "originalName": "CQB Sights",
    "cost": 5,
    "weapons": [
     "umg-40"
    ]
   },
-  "cano-200mm-factory": {
-   "id": "cano-200mm-factory",
-   "slot": "cano",
+  "barrel-200mm-factory": {
+   "id": "barrel-200mm-factory",
+   "slot": "barrel",
    "originalName": "200mm Factory",
    "cost": 10,
    "weapons": [
     "umg-40"
    ]
   },
-  "cano-200mm-custom-h": {
-   "id": "cano-200mm-custom-h",
-   "slot": "cano",
+  "barrel-200mm-custom-h": {
+   "id": "barrel-200mm-custom-h",
+   "slot": "barrel",
    "originalName": "200mm Custom-H",
    "cost": 10,
    "weapons": [
     "umg-40"
    ]
   },
-  "cano-305mm-custom-h": {
-   "id": "cano-305mm-custom-h",
-   "slot": "cano",
+  "barrel-305mm-custom-h": {
+   "id": "barrel-305mm-custom-h",
+   "slot": "barrel",
    "originalName": "305mm Custom-H",
    "cost": 10,
    "weapons": [
     "umg-40"
    ]
   },
-  "cano-305mm-custom": {
-   "id": "cano-305mm-custom",
-   "slot": "cano",
+  "barrel-305mm-custom": {
+   "id": "barrel-305mm-custom",
+   "slot": "barrel",
    "originalName": "305mm Custom",
    "cost": 15,
    "weapons": [
     "umg-40"
    ]
   },
-  "cano-200mm-custom": {
-   "id": "cano-200mm-custom",
-   "slot": "cano",
+  "barrel-200mm-custom": {
+   "id": "barrel-200mm-custom",
+   "slot": "barrel",
    "originalName": "200mm Custom",
    "cost": 20,
    "weapons": [
     "umg-40"
    ]
   },
-  "cano-246mm-factory": {
-   "id": "cano-246mm-factory",
-   "slot": "cano",
+  "barrel-246mm-factory": {
+   "id": "barrel-246mm-factory",
+   "slot": "barrel",
    "originalName": "246mm Factory",
    "cost": 10,
    "weapons": [
     "usg-90"
    ]
   },
-  "cano-264mm-prototype": {
-   "id": "cano-264mm-prototype",
-   "slot": "cano",
+  "barrel-264mm-prototype": {
+   "id": "barrel-264mm-prototype",
+   "slot": "barrel",
    "originalName": "264mm Prototype",
    "cost": 10,
    "weapons": [
     "usg-90"
    ]
   },
-  "cano-407mm-civ-s": {
-   "id": "cano-407mm-civ-s",
-   "slot": "cano",
+  "barrel-407mm-civ-s": {
+   "id": "barrel-407mm-civ-s",
+   "slot": "barrel",
    "originalName": "407mm CIV-S",
    "cost": 10,
    "weapons": [
     "usg-90"
    ]
   },
-  "cano-264mm-fluted": {
-   "id": "cano-264mm-fluted",
-   "slot": "cano",
+  "barrel-264mm-fluted": {
+   "id": "barrel-264mm-fluted",
+   "slot": "barrel",
    "originalName": "264mm Fluted",
    "cost": 20,
    "weapons": [
     "usg-90"
    ]
   },
-  "carregador-50rnd-magazine": {
-   "id": "carregador-50rnd-magazine",
-   "slot": "carregador",
+  "magazine-50rnd-magazine": {
+   "id": "magazine-50rnd-magazine",
+   "slot": "magazine",
    "originalName": "50RND Magazine",
    "cost": 5,
    "weapons": [
@@ -5956,36 +5956,36 @@
     "usg-90"
    ]
   },
-  "cano-5-5-factory": {
-   "id": "cano-5-5-factory",
-   "slot": "cano",
+  "barrel-5-5-factory": {
+   "id": "barrel-5-5-factory",
+   "slot": "barrel",
    "originalName": "5.5\" Factory",
    "cost": 10,
    "weapons": [
     "kv9"
    ]
   },
-  "cano-6-5-extended": {
-   "id": "cano-6-5-extended",
-   "slot": "cano",
+  "barrel-6-5-extended": {
+   "id": "barrel-6-5-extended",
+   "slot": "barrel",
    "originalName": "6.5\" Extended",
    "cost": 15,
    "weapons": [
     "kv9"
    ]
   },
-  "cano-5-5-fluted": {
-   "id": "cano-5-5-fluted",
-   "slot": "cano",
+  "barrel-5-5-fluted": {
+   "id": "barrel-5-5-fluted",
+   "slot": "barrel",
    "originalName": "5.5\" Fluted",
    "cost": 20,
    "weapons": [
     "kv9"
    ]
   },
-  "carregador-17rnd-magazine": {
-   "id": "carregador-17rnd-magazine",
-   "slot": "carregador",
+  "magazine-17rnd-magazine": {
+   "id": "magazine-17rnd-magazine",
+   "slot": "magazine",
    "originalName": "17RND Magazine",
    "cost": 5,
    "weapons": [
@@ -5993,81 +5993,81 @@
     "p18"
    ]
   },
-  "carregador-17rnd-fast-mag": {
-   "id": "carregador-17rnd-fast-mag",
-   "slot": "carregador",
+  "magazine-17rnd-fast-mag": {
+   "id": "magazine-17rnd-fast-mag",
+   "slot": "magazine",
    "originalName": "17RND Fast Mag",
    "cost": 10,
    "weapons": [
     "kv9"
    ]
   },
-  "carregador-23rnd-magazine": {
-   "id": "carregador-23rnd-magazine",
-   "slot": "carregador",
+  "magazine-23rnd-magazine": {
+   "id": "magazine-23rnd-magazine",
+   "slot": "magazine",
    "originalName": "23RND Magazine",
    "cost": 25,
    "weapons": [
     "kv9"
    ]
   },
-  "carregador-27rnd-magazine": {
-   "id": "carregador-27rnd-magazine",
-   "slot": "carregador",
+  "magazine-27rnd-magazine": {
+   "id": "magazine-27rnd-magazine",
+   "slot": "magazine",
    "originalName": "27RND Magazine",
    "cost": 45,
    "weapons": [
     "kv9"
    ]
   },
-  "cano-9-factory": {
-   "id": "cano-9-factory",
-   "slot": "cano",
+  "barrel-9-factory": {
+   "id": "barrel-9-factory",
+   "slot": "barrel",
    "originalName": "9\" Factory",
    "cost": 10,
    "weapons": [
     "sl9"
    ]
   },
-  "cano-9-fluted": {
-   "id": "cano-9-fluted",
-   "slot": "cano",
+  "barrel-9-fluted": {
+   "id": "barrel-9-fluted",
+   "slot": "barrel",
    "originalName": "9\" Fluted",
    "cost": 20,
    "weapons": [
     "sl9"
    ]
   },
-  "cano-11-extended": {
-   "id": "cano-11-extended",
-   "slot": "cano",
+  "barrel-11-extended": {
+   "id": "barrel-11-extended",
+   "slot": "barrel",
    "originalName": "11\" Extended",
    "cost": 15,
    "weapons": [
     "sl9"
    ]
   },
-  "cano-9-heavy": {
-   "id": "cano-9-heavy",
-   "slot": "cano",
+  "barrel-9-heavy": {
+   "id": "barrel-9-heavy",
+   "slot": "barrel",
    "originalName": "9\" Heavy",
    "cost": 10,
    "weapons": [
     "sl9"
    ]
   },
-  "cano-11-heavy": {
-   "id": "cano-11-heavy",
-   "slot": "cano",
+  "barrel-11-heavy": {
+   "id": "barrel-11-heavy",
+   "slot": "barrel",
    "originalName": "11\" Heavy",
    "cost": 10,
    "weapons": [
     "sl9"
    ]
   },
-  "acoplamento-factory-angled": {
-   "id": "acoplamento-factory-angled",
-   "slot": "acoplamento",
+  "underbarrel-factory-angled": {
+   "id": "underbarrel-factory-angled",
+   "slot": "underbarrel",
    "originalName": "Factory Angled",
    "cost": 15,
    "weapons": [
@@ -6076,9 +6076,9 @@
     "sl9"
    ]
   },
-  "carregador-60rnd-magazine": {
-   "id": "carregador-60rnd-magazine",
-   "slot": "carregador",
+  "magazine-60rnd-magazine": {
+   "id": "magazine-60rnd-magazine",
+   "slot": "magazine",
    "originalName": "60RND Magazine",
    "cost": 55,
    "weapons": [
@@ -6089,36 +6089,36 @@
     "sl9"
    ]
   },
-  "cano-394mm-sb": {
-   "id": "cano-394mm-sb",
-   "slot": "cano",
+  "barrel-394mm-sb": {
+   "id": "barrel-394mm-sb",
+   "slot": "barrel",
    "originalName": "394mm SB",
    "cost": 10,
    "weapons": [
     "l110"
    ]
   },
-  "cano-465mm-lb": {
-   "id": "cano-465mm-lb",
-   "slot": "cano",
+  "barrel-465mm-lb": {
+   "id": "barrel-465mm-lb",
+   "slot": "barrel",
    "originalName": "465mm LB",
    "cost": 10,
    "weapons": [
     "l110"
    ]
   },
-  "cano-349mm-fluted": {
-   "id": "cano-349mm-fluted",
-   "slot": "cano",
+  "barrel-349mm-fluted": {
+   "id": "barrel-349mm-fluted",
+   "slot": "barrel",
    "originalName": "349mm Fluted",
    "cost": 20,
    "weapons": [
     "l110"
    ]
   },
-  "carregador-100rnd-belt-pouch": {
-   "id": "carregador-100rnd-belt-pouch",
-   "slot": "carregador",
+  "magazine-100rnd-belt-pouch": {
+   "id": "magazine-100rnd-belt-pouch",
+   "slot": "magazine",
    "originalName": "100RND Belt Pouch",
    "cost": 5,
    "weapons": [
@@ -6128,9 +6128,9 @@
     "m60"
    ]
   },
-  "carregador-200rnd-belt-box": {
-   "id": "carregador-200rnd-belt-box",
-   "slot": "carregador",
+  "magazine-200rnd-belt-box": {
+   "id": "magazine-200rnd-belt-box",
+   "slot": "magazine",
    "originalName": "200RND Belt Box",
    "cost": 55,
    "weapons": [
@@ -6138,63 +6138,63 @@
     "m123k"
    ]
   },
-  "cano-16-5-lsw": {
-   "id": "cano-16-5-lsw",
-   "slot": "cano",
+  "barrel-16-5-lsw": {
+   "id": "barrel-16-5-lsw",
+   "slot": "barrel",
    "originalName": "16.5\" LSW",
    "cost": 10,
    "weapons": [
     "drs-iar"
    ]
   },
-  "cano-16-5-basic": {
-   "id": "cano-16-5-basic",
-   "slot": "cano",
+  "barrel-16-5-basic": {
+   "id": "barrel-16-5-basic",
+   "slot": "barrel",
    "originalName": "16.5\" Basic",
    "cost": 10,
    "weapons": [
     "drs-iar"
    ]
   },
-  "cano-20-le": {
-   "id": "cano-20-le",
-   "slot": "cano",
+  "barrel-20-le": {
+   "id": "barrel-20-le",
+   "slot": "barrel",
    "originalName": "20\" LE",
    "cost": 15,
    "weapons": [
     "drs-iar"
    ]
   },
-  "cano-20-sdm-r": {
-   "id": "cano-20-sdm-r",
-   "slot": "cano",
+  "barrel-20-sdm-r": {
+   "id": "barrel-20-sdm-r",
+   "slot": "barrel",
    "originalName": "20\" SDM-R",
    "cost": 10,
    "weapons": [
     "drs-iar"
    ]
   },
-  "cano-22-e3-long": {
-   "id": "cano-22-e3-long",
-   "slot": "cano",
+  "barrel-22-e3-long": {
+   "id": "barrel-22-e3-long",
+   "slot": "barrel",
    "originalName": "22\" E3 Long",
    "cost": 10,
    "weapons": [
     "m60"
    ]
   },
-  "cano-17-fluted": {
-   "id": "cano-17-fluted",
-   "slot": "cano",
+  "barrel-17-fluted": {
+   "id": "barrel-17-fluted",
+   "slot": "barrel",
    "originalName": "17\" Fluted",
    "cost": 20,
    "weapons": [
     "m60"
    ]
   },
-  "carregador-50rnd-loose-belt": {
-   "id": "carregador-50rnd-loose-belt",
-   "slot": "carregador",
+  "magazine-50rnd-loose-belt": {
+   "id": "magazine-50rnd-loose-belt",
+   "slot": "magazine",
    "originalName": "50RND Loose Belt",
    "cost": 5,
    "weapons": [
@@ -6202,9 +6202,9 @@
     "m60"
    ]
   },
-  "boca-slant-brake": {
-   "id": "boca-slant-brake",
-   "slot": "boca",
+  "muzzle-slant-brake": {
+   "id": "muzzle-slant-brake",
+   "slot": "muzzle",
    "originalName": "Slant Brake",
    "cost": 5,
    "weapons": [
@@ -6212,9 +6212,9 @@
     "rpkm"
    ]
   },
-  "cano-590mm-factory": {
-   "id": "cano-590mm-factory",
-   "slot": "cano",
+  "barrel-590mm-factory": {
+   "id": "barrel-590mm-factory",
+   "slot": "barrel",
    "originalName": "590mm Factory",
    "cost": 10,
    "weapons": [
@@ -6222,9 +6222,9 @@
     "rpkm"
    ]
   },
-  "cano-521mm-boar-f": {
-   "id": "cano-521mm-boar-f",
-   "slot": "cano",
+  "barrel-521mm-boar-f": {
+   "id": "barrel-521mm-boar-f",
+   "slot": "barrel",
    "originalName": "521mm Boar-F",
    "cost": 10,
    "weapons": [
@@ -6232,9 +6232,9 @@
     "rpkm"
    ]
   },
-  "cano-521mm-boar": {
-   "id": "cano-521mm-boar",
-   "slot": "cano",
+  "barrel-521mm-boar": {
+   "id": "barrel-521mm-boar",
+   "slot": "barrel",
    "originalName": "521mm Boar",
    "cost": 10,
    "weapons": [
@@ -6242,9 +6242,9 @@
     "rpkm"
    ]
   },
-  "cano-600mm-tabuk": {
-   "id": "cano-600mm-tabuk",
-   "slot": "cano",
+  "barrel-600mm-tabuk": {
+   "id": "barrel-600mm-tabuk",
+   "slot": "barrel",
    "originalName": "600mm Tabuk",
    "cost": 15,
    "weapons": [
@@ -6252,9 +6252,9 @@
     "rpkm"
    ]
   },
-  "cano-419mm-boar-f": {
-   "id": "cano-419mm-boar-f",
-   "slot": "cano",
+  "barrel-419mm-boar-f": {
+   "id": "barrel-419mm-boar-f",
+   "slot": "barrel",
    "originalName": "419mm Boar-F",
    "cost": 15,
    "weapons": [
@@ -6262,9 +6262,9 @@
     "rpkm"
    ]
   },
-  "carregador-75rnd-drum": {
-   "id": "carregador-75rnd-drum",
-   "slot": "carregador",
+  "magazine-75rnd-drum": {
+   "id": "magazine-75rnd-drum",
+   "slot": "magazine",
    "originalName": "75RND Drum",
    "cost": 50,
    "weapons": [
@@ -6272,54 +6272,54 @@
     "rpkm"
    ]
   },
-  "cano-370mm-compact": {
-   "id": "cano-370mm-compact",
-   "slot": "cano",
+  "barrel-370mm-compact": {
+   "id": "barrel-370mm-compact",
+   "slot": "barrel",
    "originalName": "370mm Compact",
    "cost": 15,
    "weapons": [
     "m123k"
    ]
   },
-  "cano-450mm-standard": {
-   "id": "cano-450mm-standard",
-   "slot": "cano",
+  "barrel-450mm-standard": {
+   "id": "barrel-450mm-standard",
+   "slot": "barrel",
    "originalName": "450mm Standard",
    "cost": 10,
    "weapons": [
     "m123k"
    ]
   },
-  "cano-612mm-vmw": {
-   "id": "cano-612mm-vmw",
-   "slot": "cano",
+  "barrel-612mm-vmw": {
+   "id": "barrel-612mm-vmw",
+   "slot": "barrel",
    "originalName": "612mm VMW",
    "cost": 10,
    "weapons": [
     "m123k"
    ]
   },
-  "cano-406mm-standard": {
-   "id": "cano-406mm-standard",
-   "slot": "cano",
+  "barrel-406mm-standard": {
+   "id": "barrel-406mm-standard",
+   "slot": "barrel",
    "originalName": "406mm Standard",
    "cost": 10,
    "weapons": [
     "m250"
    ]
   },
-  "cano-556mm-prototype": {
-   "id": "cano-556mm-prototype",
-   "slot": "cano",
+  "barrel-556mm-prototype": {
+   "id": "barrel-556mm-prototype",
+   "slot": "barrel",
    "originalName": "556mm Prototype",
    "cost": 10,
    "weapons": [
     "m250"
    ]
   },
-  "carregador-50rnd-belt-pouch": {
-   "id": "carregador-50rnd-belt-pouch",
-   "slot": "carregador",
+  "magazine-50rnd-belt-pouch": {
+   "id": "magazine-50rnd-belt-pouch",
+   "slot": "magazine",
    "originalName": "50RND Belt Pouch",
    "cost": 5,
    "weapons": [
@@ -6327,99 +6327,99 @@
     "m250"
    ]
   },
-  "cano-508mm-mk8": {
-   "id": "cano-508mm-mk8",
-   "slot": "cano",
+  "barrel-508mm-mk8": {
+   "id": "barrel-508mm-mk8",
+   "slot": "barrel",
    "originalName": "508mm MK8",
    "cost": 10,
    "weapons": [
     "kts100-mk8"
    ]
   },
-  "cano-457mm-mk9": {
-   "id": "cano-457mm-mk9",
-   "slot": "cano",
+  "barrel-457mm-mk9": {
+   "id": "barrel-457mm-mk9",
+   "slot": "barrel",
    "originalName": "457mm MK9",
    "cost": 10,
    "weapons": [
     "kts100-mk8"
    ]
   },
-  "cano-330mm-mk3": {
-   "id": "cano-330mm-mk3",
-   "slot": "cano",
+  "barrel-330mm-mk3": {
+   "id": "barrel-330mm-mk3",
+   "slot": "barrel",
    "originalName": "330mm MK3",
    "cost": 15,
    "weapons": [
     "kts100-mk8"
    ]
   },
-  "carregador-60rnd-drum-mag": {
-   "id": "carregador-60rnd-drum-mag",
-   "slot": "carregador",
+  "magazine-60rnd-drum-mag": {
+   "id": "magazine-60rnd-drum-mag",
+   "slot": "magazine",
    "originalName": "60RND Drum Mag",
    "cost": 5,
    "weapons": [
     "kts100-mk8"
    ]
   },
-  "carregador-100rnd-drum-mag": {
-   "id": "carregador-100rnd-drum-mag",
-   "slot": "carregador",
+  "magazine-100rnd-drum-mag": {
+   "id": "magazine-100rnd-drum-mag",
+   "slot": "magazine",
    "originalName": "100RND Drum Mag",
    "cost": 45,
    "weapons": [
     "kts100-mk8"
    ]
   },
-  "cano-20-lima": {
-   "id": "cano-20-lima",
-   "slot": "cano",
+  "barrel-20-lima": {
+   "id": "barrel-20-lima",
+   "slot": "barrel",
    "originalName": "20\" Lima",
    "cost": 10,
    "weapons": [
     "m240l"
    ]
   },
-  "cano-24-bravo": {
-   "id": "cano-24-bravo",
-   "slot": "cano",
+  "barrel-24-bravo": {
+   "id": "barrel-24-bravo",
+   "slot": "barrel",
    "originalName": "24\" Bravo",
    "cost": 10,
    "weapons": [
     "m240l"
    ]
   },
-  "cano-20-oh": {
-   "id": "cano-20-oh",
-   "slot": "cano",
+  "barrel-20-oh": {
+   "id": "barrel-20-oh",
+   "slot": "barrel",
    "originalName": "20\" OH",
    "cost": 20,
    "weapons": [
     "m240l"
    ]
   },
-  "carregador-75rnd-belt-box": {
-   "id": "carregador-75rnd-belt-box",
-   "slot": "carregador",
+  "magazine-75rnd-belt-box": {
+   "id": "magazine-75rnd-belt-box",
+   "slot": "magazine",
    "originalName": "75RND Belt Box",
    "cost": 10,
    "weapons": [
     "m240l"
    ]
   },
-  "carregador-100rnd-belt-box": {
-   "id": "carregador-100rnd-belt-box",
-   "slot": "carregador",
+  "magazine-100rnd-belt-box": {
+   "id": "magazine-100rnd-belt-box",
+   "slot": "magazine",
    "originalName": "100RND Belt Box",
    "cost": 25,
    "weapons": [
     "m240l"
    ]
   },
-  "mira-s-vps-6-00x": {
-   "id": "mira-s-vps-6-00x",
-   "slot": "mira",
+  "sight-s-vps-6-00x": {
+   "id": "sight-s-vps-6-00x",
+   "slot": "sight",
    "originalName": "S-VPS 6.00x",
    "cost": 10,
    "weapons": [
@@ -6434,9 +6434,9 @@
     "svk-86"
    ]
   },
-  "mira-ssds-6-00x": {
-   "id": "mira-ssds-6-00x",
-   "slot": "mira",
+  "sight-ssds-6-00x": {
+   "id": "sight-ssds-6-00x",
+   "slot": "sight",
    "originalName": "SSDS 6.00x",
    "cost": 10,
    "weapons": [
@@ -6451,9 +6451,9 @@
     "svk-86"
    ]
   },
-  "mira-lert-8-00x": {
-   "id": "mira-lert-8-00x",
-   "slot": "mira",
+  "sight-lert-8-00x": {
+   "id": "sight-lert-8-00x",
+   "slot": "sight",
    "originalName": "LERT 8.00x",
    "cost": 10,
    "weapons": [
@@ -6468,9 +6468,9 @@
     "svk-86"
    ]
   },
-  "mira-1p88-variable": {
-   "id": "mira-1p88-variable",
-   "slot": "mira",
+  "sight-1p88-variable": {
+   "id": "sight-1p88-variable",
+   "slot": "sight",
    "originalName": "1P88 Variable",
    "cost": 25,
    "weapons": [
@@ -6485,9 +6485,9 @@
     "svk-86"
    ]
   },
-  "mira-sm-rifle-variable": {
-   "id": "mira-sm-rifle-variable",
-   "slot": "mira",
+  "sight-sm-rifle-variable": {
+   "id": "sight-sm-rifle-variable",
+   "slot": "sight",
    "originalName": "SM Rifle Variable",
    "cost": 25,
    "weapons": [
@@ -6502,9 +6502,9 @@
     "svk-86"
    ]
   },
-  "mira-nfx-8-00x": {
-   "id": "mira-nfx-8-00x",
-   "slot": "mira",
+  "sight-nfx-8-00x": {
+   "id": "sight-nfx-8-00x",
+   "slot": "sight",
    "originalName": "NFX 8.00x",
    "cost": 10,
    "weapons": [
@@ -6519,9 +6519,9 @@
     "svk-86"
    ]
   },
-  "mira-ts-hd-6-00x": {
-   "id": "mira-ts-hd-6-00x",
-   "slot": "mira",
+  "sight-ts-hd-6-00x": {
+   "id": "sight-ts-hd-6-00x",
+   "slot": "sight",
    "originalName": "TS-HD 6.00x",
    "cost": 25,
    "weapons": [
@@ -6537,9 +6537,9 @@
     "svk-86"
    ]
   },
-  "mira-r-vps-10-00x": {
-   "id": "mira-r-vps-10-00x",
-   "slot": "mira",
+  "sight-r-vps-10-00x": {
+   "id": "sight-r-vps-10-00x",
+   "slot": "sight",
    "originalName": "R-VPS 10.00x",
    "cost": 10,
    "weapons": [
@@ -6553,36 +6553,36 @@
     "svk-86"
    ]
   },
-  "cano-18-ebr": {
-   "id": "cano-18-ebr",
-   "slot": "cano",
+  "barrel-18-ebr": {
+   "id": "barrel-18-ebr",
+   "slot": "barrel",
    "originalName": "18\" EBR",
    "cost": 10,
    "weapons": [
     "m39-emr"
    ]
   },
-  "cano-22-factory": {
-   "id": "cano-22-factory",
-   "slot": "cano",
+  "barrel-22-factory": {
+   "id": "barrel-22-factory",
+   "slot": "barrel",
    "originalName": "22\" Factory",
    "cost": 10,
    "weapons": [
     "m39-emr"
    ]
   },
-  "cano-16-short": {
-   "id": "cano-16-short",
-   "slot": "cano",
+  "barrel-16-short": {
+   "id": "barrel-16-short",
+   "slot": "barrel",
    "originalName": "16\" Short",
    "cost": 15,
    "weapons": [
     "m39-emr"
    ]
   },
-  "municao-match-grade": {
-   "id": "municao-match-grade",
-   "slot": "municao",
+  "ammo-match-grade": {
+   "id": "ammo-match-grade",
+   "slot": "ammo",
    "originalName": "Match Grade",
    "cost": 10,
    "weapons": [
@@ -6595,108 +6595,108 @@
     "svk-86"
    ]
   },
-  "cano-21-5-factory": {
-   "id": "cano-21-5-factory",
-   "slot": "cano",
+  "barrel-21-5-factory": {
+   "id": "barrel-21-5-factory",
+   "slot": "barrel",
    "originalName": "21.5\" Factory",
    "cost": 10,
    "weapons": [
     "lmr27"
    ]
   },
-  "cano-24-extended": {
-   "id": "cano-24-extended",
-   "slot": "cano",
+  "barrel-24-extended": {
+   "id": "barrel-24-extended",
+   "slot": "barrel",
    "originalName": "24\" Extended",
    "cost": 15,
    "weapons": [
     "lmr27"
    ]
   },
-  "cano-21-5-fluted": {
-   "id": "cano-21-5-fluted",
-   "slot": "cano",
+  "barrel-21-5-fluted": {
+   "id": "barrel-21-5-fluted",
+   "slot": "barrel",
    "originalName": "21.5\" Fluted",
    "cost": 20,
    "weapons": [
     "lmr27"
    ]
   },
-  "boca-triple-port-brake": {
-   "id": "boca-triple-port-brake",
-   "slot": "boca",
+  "muzzle-triple-port-brake": {
+   "id": "muzzle-triple-port-brake",
+   "slot": "muzzle",
    "originalName": "Triple-Port Brake",
    "cost": 10,
    "weapons": [
     "svk-86"
    ]
   },
-  "cano-560mm-factory": {
-   "id": "cano-560mm-factory",
-   "slot": "cano",
+  "barrel-560mm-factory": {
+   "id": "barrel-560mm-factory",
+   "slot": "barrel",
    "originalName": "560mm Factory",
    "cost": 15,
    "weapons": [
     "svk-86"
    ]
   },
-  "cano-560mm-cut": {
-   "id": "cano-560mm-cut",
-   "slot": "cano",
+  "barrel-560mm-cut": {
+   "id": "barrel-560mm-cut",
+   "slot": "barrel",
    "originalName": "560mm Cut",
    "cost": 10,
    "weapons": [
     "svk-86"
    ]
   },
-  "cano-457mm-urban": {
-   "id": "cano-457mm-urban",
-   "slot": "cano",
+  "barrel-457mm-urban": {
+   "id": "barrel-457mm-urban",
+   "slot": "barrel",
    "originalName": "457mm Urban",
    "cost": 15,
    "weapons": [
     "svk-86"
    ]
   },
-  "cano-550mm-factory": {
-   "id": "cano-550mm-factory",
-   "slot": "cano",
+  "barrel-550mm-factory": {
+   "id": "barrel-550mm-factory",
+   "slot": "barrel",
    "originalName": "550mm Factory",
    "cost": 15,
    "weapons": [
     "svdm"
    ]
   },
-  "cano-556mm-para": {
-   "id": "cano-556mm-para",
-   "slot": "cano",
+  "barrel-556mm-para": {
+   "id": "barrel-556mm-para",
+   "slot": "barrel",
    "originalName": "556mm Para",
    "cost": 10,
    "weapons": [
     "svdm"
    ]
   },
-  "cano-620mm-classic": {
-   "id": "cano-620mm-classic",
-   "slot": "cano",
+  "barrel-620mm-classic": {
+   "id": "barrel-620mm-classic",
+   "slot": "barrel",
    "originalName": "620mm Classic",
    "cost": 15,
    "weapons": [
     "svdm"
    ]
   },
-  "cano-565mm-fluted": {
-   "id": "cano-565mm-fluted",
-   "slot": "cano",
+  "barrel-565mm-fluted": {
+   "id": "barrel-565mm-fluted",
+   "slot": "barrel",
    "originalName": "565mm Fluted",
    "cost": 20,
    "weapons": [
     "svdm"
    ]
   },
-  "carregador-5rnd-fast-mag": {
-   "id": "carregador-5rnd-fast-mag",
-   "slot": "carregador",
+  "magazine-5rnd-fast-mag": {
+   "id": "magazine-5rnd-fast-mag",
+   "slot": "magazine",
    "originalName": "5RND Fast Mag",
    "cost": 5,
    "weapons": [
@@ -6704,36 +6704,36 @@
     "svdm"
    ]
   },
-  "cano-24-fluted": {
-   "id": "cano-24-fluted",
-   "slot": "cano",
+  "barrel-24-fluted": {
+   "id": "barrel-24-fluted",
+   "slot": "barrel",
    "originalName": "24\" Fluted",
    "cost": 20,
    "weapons": [
     "m2010-esr"
    ]
   },
-  "cano-24-full": {
-   "id": "cano-24-full",
-   "slot": "cano",
+  "barrel-24-full": {
+   "id": "barrel-24-full",
+   "slot": "barrel",
    "originalName": "24\" Full",
    "cost": 10,
    "weapons": [
     "m2010-esr"
    ]
   },
-  "cano-26-carbon": {
-   "id": "cano-26-carbon",
-   "slot": "cano",
+  "barrel-26-carbon": {
+   "id": "barrel-26-carbon",
+   "slot": "barrel",
    "originalName": "26\" Carbon",
    "cost": 15,
    "weapons": [
     "m2010-esr"
    ]
   },
-  "carregador-5rnd-magazine": {
-   "id": "carregador-5rnd-magazine",
-   "slot": "carregador",
+  "magazine-5rnd-magazine": {
+   "id": "magazine-5rnd-magazine",
+   "slot": "magazine",
    "originalName": "5RND Magazine",
    "cost": 5,
    "weapons": [
@@ -6741,9 +6741,9 @@
     "m2010-esr"
    ]
   },
-  "carregador-8rnd-magazine": {
-   "id": "carregador-8rnd-magazine",
-   "slot": "carregador",
+  "magazine-8rnd-magazine": {
+   "id": "magazine-8rnd-magazine",
+   "slot": "magazine",
    "originalName": "8RND Magazine",
    "cost": 25,
    "weapons": [
@@ -6751,9 +6751,9 @@
     "m2010-esr"
    ]
   },
-  "ergonomia-dlc-bolt": {
-   "id": "ergonomia-dlc-bolt",
-   "slot": "ergonomia",
+  "ergonomics-dlc-bolt": {
+   "id": "ergonomics-dlc-bolt",
+   "slot": "ergonomics",
    "originalName": "DLC Bolt",
    "cost": 30,
    "weapons": [
@@ -6763,72 +6763,72 @@
     "sv-98"
    ]
   },
-  "boca-thread-protector": {
-   "id": "boca-thread-protector",
-   "slot": "boca",
+  "muzzle-thread-protector": {
+   "id": "muzzle-thread-protector",
+   "slot": "muzzle",
    "originalName": "Thread Protector",
    "cost": 5,
    "weapons": [
     "sv-98"
    ]
   },
-  "cano-650mm-factory": {
-   "id": "cano-650mm-factory",
-   "slot": "cano",
+  "barrel-650mm-factory": {
+   "id": "barrel-650mm-factory",
+   "slot": "barrel",
    "originalName": "650mm Factory",
    "cost": 10,
    "weapons": [
     "sv-98"
    ]
   },
-  "cano-730mm-3lr": {
-   "id": "cano-730mm-3lr",
-   "slot": "cano",
+  "barrel-730mm-3lr": {
+   "id": "barrel-730mm-3lr",
+   "slot": "barrel",
    "originalName": "730mm 3LR",
    "cost": 15,
    "weapons": [
     "sv-98"
    ]
   },
-  "cano-650mm-fluted": {
-   "id": "cano-650mm-fluted",
-   "slot": "cano",
+  "barrel-650mm-fluted": {
+   "id": "barrel-650mm-fluted",
+   "slot": "barrel",
    "originalName": "650mm Fluted",
    "cost": 20,
    "weapons": [
     "sv-98"
    ]
   },
-  "cano-514mm-carbine": {
-   "id": "cano-514mm-carbine",
-   "slot": "cano",
+  "barrel-514mm-carbine": {
+   "id": "barrel-514mm-carbine",
+   "slot": "barrel",
    "originalName": "514mm Carbine",
    "cost": 15,
    "weapons": [
     "sv-98"
    ]
   },
-  "cano-27-mk22": {
-   "id": "cano-27-mk22",
-   "slot": "cano",
+  "barrel-27-mk22": {
+   "id": "barrel-27-mk22",
+   "slot": "barrel",
    "originalName": "27\" MK22",
    "cost": 15,
    "weapons": [
     "psr"
    ]
   },
-  "cano-26-factory": {
-   "id": "cano-26-factory",
-   "slot": "cano",
+  "barrel-26-factory": {
+   "id": "barrel-26-factory",
+   "slot": "barrel",
    "originalName": "26\" Factory",
    "cost": 10,
    "weapons": [
     "psr"
    ]
   },
-  "carregador-7rnd-magazine": {
-   "id": "carregador-7rnd-magazine",
-   "slot": "carregador",
+  "magazine-7rnd-magazine": {
+   "id": "magazine-7rnd-magazine",
+   "slot": "magazine",
    "originalName": "7RND Magazine",
    "cost": 5,
    "weapons": [
@@ -6837,9 +6837,9 @@
     "psr"
    ]
   },
-  "cano-20-factory": {
-   "id": "cano-20-factory",
-   "slot": "cano",
+  "barrel-20-factory": {
+   "id": "barrel-20-factory",
+   "slot": "barrel",
    "originalName": "20\" Factory",
    "cost": 10,
    "weapons": [
@@ -6848,9 +6848,9 @@
     "m87a1"
    ]
   },
-  "carregador-7-shell-tube": {
-   "id": "carregador-7-shell-tube",
-   "slot": "carregador",
+  "magazine-7-shell-tube": {
+   "id": "magazine-7-shell-tube",
+   "slot": "magazine",
    "originalName": "7 Shell Tube",
    "cost": 5,
    "weapons": [
@@ -6858,9 +6858,9 @@
     "m87a1"
    ]
   },
-  "carregador-5-shell-tube": {
-   "id": "carregador-5-shell-tube",
-   "slot": "carregador",
+  "magazine-5-shell-tube": {
+   "id": "magazine-5-shell-tube",
+   "slot": "magazine",
    "originalName": "5 Shell Tube",
    "cost": 5,
    "weapons": [
@@ -6868,18 +6868,18 @@
     "m87a1"
    ]
   },
-  "carregador-6-shell-tube": {
-   "id": "carregador-6-shell-tube",
-   "slot": "carregador",
+  "magazine-6-shell-tube": {
+   "id": "magazine-6-shell-tube",
+   "slot": "magazine",
    "originalName": "6 Shell Tube",
    "cost": 5,
    "weapons": [
     "m87a1"
    ]
   },
-  "municao-buckshot": {
-   "id": "municao-buckshot",
-   "slot": "municao",
+  "ammo-buckshot": {
+   "id": "ammo-buckshot",
+   "slot": "ammo",
    "originalName": "Buckshot",
    "cost": 10,
    "weapons": [
@@ -6889,9 +6889,9 @@
     "m87a1"
    ]
   },
-  "municao-slugs": {
-   "id": "municao-slugs",
-   "slot": "municao",
+  "ammo-slugs": {
+   "id": "ammo-slugs",
+   "slot": "ammo",
    "originalName": "Slugs",
    "cost": 40,
    "weapons": [
@@ -6901,9 +6901,9 @@
     "m87a1"
    ]
   },
-  "municao-flechette": {
-   "id": "municao-flechette",
-   "slot": "municao",
+  "ammo-flechette": {
+   "id": "ammo-flechette",
+   "slot": "ammo",
    "originalName": "Flechette",
    "cost": 30,
    "weapons": [
@@ -6913,81 +6913,81 @@
     "m87a1"
    ]
   },
-  "cano-18-5-factory": {
-   "id": "cano-18-5-factory",
-   "slot": "cano",
+  "barrel-18-5-factory": {
+   "id": "barrel-18-5-factory",
+   "slot": "barrel",
    "originalName": "18.5\" Factory",
    "cost": 10,
    "weapons": [
     "m1014"
    ]
   },
-  "cano-430mm-cut": {
-   "id": "cano-430mm-cut",
-   "slot": "cano",
+  "barrel-430mm-cut": {
+   "id": "barrel-430mm-cut",
+   "slot": "barrel",
    "originalName": "430mm Cut",
    "cost": 10,
    "weapons": [
     "18-5ks-k"
    ]
   },
-  "cano-430mm-factory": {
-   "id": "cano-430mm-factory",
-   "slot": "cano",
+  "barrel-430mm-factory": {
+   "id": "barrel-430mm-factory",
+   "slot": "barrel",
    "originalName": "430mm Factory",
    "cost": 15,
    "weapons": [
     "18-5ks-k"
    ]
   },
-  "carregador-4rnd-magazine": {
-   "id": "carregador-4rnd-magazine",
-   "slot": "carregador",
+  "magazine-4rnd-magazine": {
+   "id": "magazine-4rnd-magazine",
+   "slot": "magazine",
    "originalName": "4RND Magazine",
    "cost": 5,
    "weapons": [
     "18-5ks-k"
    ]
   },
-  "carregador-8rnd-fast-mag": {
-   "id": "carregador-8rnd-fast-mag",
-   "slot": "carregador",
+  "magazine-8rnd-fast-mag": {
+   "id": "magazine-8rnd-fast-mag",
+   "slot": "magazine",
    "originalName": "8RND Fast Mag",
    "cost": 10,
    "weapons": [
     "18-5ks-k"
    ]
   },
-  "carregador-4rnd-fast-mag": {
-   "id": "carregador-4rnd-fast-mag",
-   "slot": "carregador",
+  "magazine-4rnd-fast-mag": {
+   "id": "magazine-4rnd-fast-mag",
+   "slot": "magazine",
    "originalName": "4RND Fast Mag",
    "cost": 10,
    "weapons": [
     "18-5ks-k"
    ]
   },
-  "cano-3-9-factory": {
-   "id": "cano-3-9-factory",
-   "slot": "cano",
+  "barrel-3-9-factory": {
+   "id": "barrel-3-9-factory",
+   "slot": "barrel",
    "originalName": "3.9\" Factory",
    "cost": 10,
    "weapons": [
     "p18"
    ]
   },
-  "cano-3-9-pencil": {
-   "id": "cano-3-9-pencil",
-   "slot": "cano",
+  "barrel-3-9-pencil": {
+   "id": "barrel-3-9-pencil",
+   "slot": "barrel",
    "originalName": "3.9\" Pencil",
    "cost": 20,
    "weapons": [
     "p18"
    ]
   },
-  "acoplamento-5-mw-red": {
-   "id": "acoplamento-5-mw-red",
-   "slot": "acoplamento",
+  "underbarrel-5-mw-red": {
+   "id": "underbarrel-5-mw-red",
+   "slot": "underbarrel",
    "originalName": "5 MW Red",
    "cost": 10,
    "weapons": [
@@ -6996,9 +6996,9 @@
     "p18"
    ]
   },
-  "acoplamento-5-mw-green": {
-   "id": "acoplamento-5-mw-green",
-   "slot": "acoplamento",
+  "underbarrel-5-mw-green": {
+   "id": "underbarrel-5-mw-green",
+   "slot": "underbarrel",
    "originalName": "5 MW Green",
    "cost": 10,
    "weapons": [
@@ -7007,9 +7007,9 @@
     "p18"
    ]
   },
-  "acoplamento-laser-light-combo-red": {
-   "id": "acoplamento-laser-light-combo-red",
-   "slot": "acoplamento",
+  "underbarrel-laser-light-combo-red": {
+   "id": "underbarrel-laser-light-combo-red",
+   "slot": "underbarrel",
    "originalName": "Laser Light Combo Red",
    "cost": 20,
    "weapons": [
@@ -7018,9 +7018,9 @@
     "p18"
    ]
   },
-  "acoplamento-laser-light-combo-green": {
-   "id": "acoplamento-laser-light-combo-green",
-   "slot": "acoplamento",
+  "underbarrel-laser-light-combo-green": {
+   "id": "underbarrel-laser-light-combo-green",
+   "slot": "underbarrel",
    "originalName": "Laser Light Combo Green",
    "cost": 20,
    "weapons": [
@@ -7029,9 +7029,9 @@
     "p18"
    ]
   },
-  "acoplamento-50-mw-green": {
-   "id": "acoplamento-50-mw-green",
-   "slot": "acoplamento",
+  "underbarrel-50-mw-green": {
+   "id": "underbarrel-50-mw-green",
+   "slot": "underbarrel",
    "originalName": "50 MW Green",
    "cost": 20,
    "weapons": [
@@ -7040,9 +7040,9 @@
     "p18"
    ]
   },
-  "acoplamento-flashlight": {
-   "id": "acoplamento-flashlight",
-   "slot": "acoplamento",
+  "underbarrel-flashlight": {
+   "id": "underbarrel-flashlight",
+   "slot": "underbarrel",
    "originalName": "Flashlight",
    "cost": 10,
    "weapons": [
@@ -7051,126 +7051,126 @@
     "p18"
    ]
   },
-  "carregador-21rnd-magazine": {
-   "id": "carregador-21rnd-magazine",
-   "slot": "carregador",
+  "magazine-21rnd-magazine": {
+   "id": "magazine-21rnd-magazine",
+   "slot": "magazine",
    "originalName": "21RND Magazine",
    "cost": 15,
    "weapons": [
     "p18"
    ]
   },
-  "cano-122mm-factory": {
-   "id": "cano-122mm-factory",
-   "slot": "cano",
+  "barrel-122mm-factory": {
+   "id": "barrel-122mm-factory",
+   "slot": "barrel",
    "originalName": "122mm Factory",
    "cost": 10,
    "weapons": [
     "es-57"
    ]
   },
-  "cano-122mm-pencil": {
-   "id": "cano-122mm-pencil",
-   "slot": "cano",
+  "barrel-122mm-pencil": {
+   "id": "barrel-122mm-pencil",
+   "slot": "barrel",
    "originalName": "122mm Pencil",
    "cost": 20,
    "weapons": [
     "es-57"
    ]
   },
-  "cano-5-factory": {
-   "id": "cano-5-factory",
-   "slot": "cano",
+  "barrel-5-factory": {
+   "id": "barrel-5-factory",
+   "slot": "barrel",
    "originalName": "5\" Factory",
    "cost": 10,
    "weapons": [
     "m45a1"
    ]
   },
-  "cano-5-pencil": {
-   "id": "cano-5-pencil",
-   "slot": "cano",
+  "barrel-5-pencil": {
+   "id": "barrel-5-pencil",
+   "slot": "barrel",
    "originalName": "5\" Pencil",
    "cost": 20,
    "weapons": [
     "m45a1"
    ]
   },
-  "carregador-11rnd-magazine": {
-   "id": "carregador-11rnd-magazine",
-   "slot": "carregador",
+  "magazine-11rnd-magazine": {
+   "id": "magazine-11rnd-magazine",
+   "slot": "magazine",
    "originalName": "11RND Magazine",
    "cost": 25,
    "weapons": [
     "m45a1"
    ]
   },
-  "cano-6-75-factory": {
-   "id": "cano-6-75-factory",
-   "slot": "cano",
+  "barrel-6-75-factory": {
+   "id": "barrel-6-75-factory",
+   "slot": "barrel",
    "originalName": "6.75\" Factory",
    "cost": 10,
    "weapons": [
     "m44"
    ]
   },
-  "cano-8-37-long": {
-   "id": "cano-8-37-long",
-   "slot": "cano",
+  "barrel-8-37-long": {
+   "id": "barrel-8-37-long",
+   "slot": "barrel",
    "originalName": "8.37\" Long",
    "cost": 15,
    "weapons": [
     "m44"
    ]
   },
-  "cano-5-12-compact": {
-   "id": "cano-5-12-compact",
-   "slot": "cano",
+  "barrel-5-12-compact": {
+   "id": "barrel-5-12-compact",
+   "slot": "barrel",
    "originalName": "5.12\" Compact",
    "cost": 15,
    "weapons": [
     "m44"
    ]
   },
-  "carregador-6rnd-speedloader": {
-   "id": "carregador-6rnd-speedloader",
-   "slot": "carregador",
+  "magazine-6rnd-speedloader": {
+   "id": "magazine-6rnd-speedloader",
+   "slot": "magazine",
    "originalName": "6RND Speedloader",
    "cost": 5,
    "weapons": [
     "m44"
    ]
   },
-  "cano-6-8-factory": {
-   "id": "cano-6-8-factory",
-   "slot": "cano",
+  "barrel-6-8-factory": {
+   "id": "barrel-6-8-factory",
+   "slot": "barrel",
    "originalName": "6.8\" Factory",
    "cost": 10,
    "weapons": [
     "scw-10"
    ]
   },
-  "cano-extended-barrel": {
-   "id": "cano-extended-barrel",
-   "slot": "cano",
+  "barrel-extended-barrel": {
+   "id": "barrel-extended-barrel",
+   "slot": "barrel",
    "originalName": "Extended Barrel",
    "cost": 15,
    "weapons": [
     "scw-10"
    ]
   },
-  "cano-6-8-fluted": {
-   "id": "cano-6-8-fluted",
-   "slot": "cano",
+  "barrel-6-8-fluted": {
+   "id": "barrel-6-8-fluted",
+   "slot": "barrel",
    "originalName": "6.8\" Fluted",
    "cost": 20,
    "weapons": [
     "scw-10"
    ]
   },
-  "mira-su-230-lpvo": {
-   "id": "mira-su-230-lpvo",
-   "slot": "mira",
+  "sight-su-230-lpvo": {
+   "id": "sight-su-230-lpvo",
+   "slot": "sight",
    "originalName": "SU-230 LPVO",
    "cost": 20,
    "weapons": [
@@ -7184,9 +7184,9 @@
     "vcr-2"
    ]
   },
-  "mira-th-rds-1-00x": {
-   "id": "mira-th-rds-1-00x",
-   "slot": "mira",
+  "sight-th-rds-1-00x": {
+   "id": "sight-th-rds-1-00x",
+   "slot": "sight",
    "originalName": "TH-RDS 1.00x",
    "cost": 35,
    "weapons": [
@@ -7197,18 +7197,18 @@
     "vcr-2"
    ]
   },
-  "cano-18-9-factory": {
-   "id": "cano-18-9-factory",
-   "slot": "cano",
+  "barrel-18-9-factory": {
+   "id": "barrel-18-9-factory",
+   "slot": "barrel",
    "originalName": "18.9\" Factory",
    "cost": 10,
    "weapons": [
     "db-12"
    ]
   },
-  "acoplamento-slim-handstop": {
-   "id": "acoplamento-slim-handstop",
-   "slot": "acoplamento",
+  "underbarrel-slim-handstop": {
+   "id": "underbarrel-slim-handstop",
+   "slot": "underbarrel",
    "originalName": "Slim Handstop",
    "cost": 15,
    "weapons": [
@@ -7220,18 +7220,18 @@
     "vcr-2"
    ]
   },
-  "carregador-7-shell-dual-tubes": {
-   "id": "carregador-7-shell-dual-tubes",
-   "slot": "carregador",
+  "magazine-7-shell-dual-tubes": {
+   "id": "magazine-7-shell-dual-tubes",
+   "slot": "magazine",
    "originalName": "7 Shell Dual Tubes",
    "cost": 5,
    "weapons": [
     "db-12"
    ]
   },
-  "boca-flash-comp": {
-   "id": "boca-flash-comp",
-   "slot": "boca",
+  "muzzle-flash-comp": {
+   "id": "muzzle-flash-comp",
+   "slot": "muzzle",
    "originalName": "Flash Comp",
    "cost": 20,
    "weapons": [
@@ -7242,252 +7242,252 @@
     "vcr-2"
    ]
   },
-  "cano-16-factory": {
-   "id": "cano-16-factory",
-   "slot": "cano",
+  "barrel-16-factory": {
+   "id": "barrel-16-factory",
+   "slot": "barrel",
    "originalName": "16\" Factory",
    "cost": 15,
    "weapons": [
     "vcr-2"
    ]
   },
-  "cano-18-us": {
-   "id": "cano-18-us",
-   "slot": "cano",
+  "barrel-18-us": {
+   "id": "barrel-18-us",
+   "slot": "barrel",
    "originalName": "18\" US",
    "cost": 10,
    "weapons": [
     "vcr-2"
    ]
   },
-  "cano-20-marksman": {
-   "id": "cano-20-marksman",
-   "slot": "cano",
+  "barrel-20-marksman": {
+   "id": "barrel-20-marksman",
+   "slot": "barrel",
    "originalName": "20\" Marksman",
    "cost": 15,
    "weapons": [
     "vcr-2"
    ]
   },
-  "cano-18-fluted": {
-   "id": "cano-18-fluted",
-   "slot": "cano",
+  "barrel-18-fluted": {
+   "id": "barrel-18-fluted",
+   "slot": "barrel",
    "originalName": "18\" Fluted",
    "cost": 20,
    "weapons": [
     "vcr-2"
    ]
   },
-  "cano-460mm-factory": {
-   "id": "cano-460mm-factory",
-   "slot": "cano",
+  "barrel-460mm-factory": {
+   "id": "barrel-460mm-factory",
+   "slot": "barrel",
    "originalName": "460mm Factory",
    "cost": 15,
    "weapons": [
     "m121-a2"
    ]
   },
-  "cano-550mm-infantry": {
-   "id": "cano-550mm-infantry",
-   "slot": "cano",
+  "barrel-550mm-infantry": {
+   "id": "barrel-550mm-infantry",
+   "slot": "barrel",
    "originalName": "550mm Infantry",
    "cost": 10,
    "weapons": [
     "m121-a2"
    ]
   },
-  "cano-660mm-vmw": {
-   "id": "cano-660mm-vmw",
-   "slot": "cano",
+  "barrel-660mm-vmw": {
+   "id": "barrel-660mm-vmw",
+   "slot": "barrel",
    "originalName": "660mm VMW",
    "cost": 10,
    "weapons": [
     "m121-a2"
    ]
   },
-  "carregador-50rnd-drum": {
-   "id": "carregador-50rnd-drum",
-   "slot": "carregador",
+  "magazine-50rnd-drum": {
+   "id": "magazine-50rnd-drum",
+   "slot": "magazine",
    "originalName": "50RND Drum",
    "cost": 5,
    "weapons": [
     "m121-a2"
    ]
   },
-  "carregador-100rnd-magazine": {
-   "id": "carregador-100rnd-magazine",
-   "slot": "carregador",
+  "magazine-100rnd-magazine": {
+   "id": "magazine-100rnd-magazine",
+   "slot": "magazine",
    "originalName": "100RND Magazine",
    "cost": 55,
    "weapons": [
     "m121-a2"
    ]
   },
-  "cano-16-fluted": {
-   "id": "cano-16-fluted",
-   "slot": "cano",
+  "barrel-16-fluted": {
+   "id": "barrel-16-fluted",
+   "slot": "barrel",
    "originalName": "16\" Fluted",
    "cost": 25,
    "weapons": [
     "grt-cps"
    ]
   },
-  "cano-7-7-factory": {
-   "id": "cano-7-7-factory",
-   "slot": "cano",
+  "barrel-7-7-factory": {
+   "id": "barrel-7-7-factory",
+   "slot": "barrel",
    "originalName": "7.7\" Factory",
    "cost": 10,
    "weapons": [
     "cz3a1"
    ]
   },
-  "cano-7-7-pencil": {
-   "id": "cano-7-7-pencil",
-   "slot": "cano",
+  "barrel-7-7-pencil": {
+   "id": "barrel-7-7-pencil",
+   "slot": "barrel",
    "originalName": "7.7\" Pencil",
    "cost": 20,
    "weapons": [
     "cz3a1"
    ]
   },
-  "cano-16-2-cut": {
-   "id": "cano-16-2-cut",
-   "slot": "cano",
+  "barrel-16-2-cut": {
+   "id": "barrel-16-2-cut",
+   "slot": "barrel",
    "originalName": "16.2\" Cut",
    "cost": 15,
    "weapons": [
     "cz3a1"
    ]
   },
-  "carregador-35rnd-magazine": {
-   "id": "carregador-35rnd-magazine",
-   "slot": "carregador",
+  "magazine-35rnd-magazine": {
+   "id": "magazine-35rnd-magazine",
+   "slot": "magazine",
    "originalName": "35RND Magazine",
    "cost": 15,
    "weapons": [
     "cz3a1"
    ]
   },
-  "carregador-35rnd-fast-mag": {
-   "id": "carregador-35rnd-fast-mag",
-   "slot": "carregador",
+  "magazine-35rnd-fast-mag": {
+   "id": "magazine-35rnd-fast-mag",
+   "slot": "magazine",
    "originalName": "35RND Fast Mag",
    "cost": 20,
    "weapons": [
     "cz3a1"
    ]
   },
-  "cano-cryogenic": {
-   "id": "cano-cryogenic",
-   "slot": "cano",
+  "barrel-cryogenic": {
+   "id": "barrel-cryogenic",
+   "slot": "barrel",
    "originalName": "Cryogenic",
    "cost": 10,
    "weapons": [
     "m16a4"
    ]
   },
-  "cano-18-govt": {
-   "id": "cano-18-govt",
-   "slot": "cano",
+  "barrel-18-govt": {
+   "id": "barrel-18-govt",
+   "slot": "barrel",
    "originalName": "18\" Govt.",
    "cost": 10,
    "weapons": [
     "m16a4"
    ]
   },
-  "cano-18-spr": {
-   "id": "cano-18-spr",
-   "slot": "cano",
+  "barrel-18-spr": {
+   "id": "barrel-18-spr",
+   "slot": "barrel",
    "originalName": "18\" SPR",
    "cost": 10,
    "weapons": [
     "m16a4"
    ]
   },
-  "cano-18-pencil": {
-   "id": "cano-18-pencil",
-   "slot": "cano",
+  "barrel-18-pencil": {
+   "id": "barrel-18-pencil",
+   "slot": "barrel",
    "originalName": "18\" Pencil",
    "cost": 10,
    "weapons": [
     "m16a4"
    ]
   },
-  "cano-20-hbar": {
-   "id": "cano-20-hbar",
-   "slot": "cano",
+  "barrel-20-hbar": {
+   "id": "barrel-20-hbar",
+   "slot": "barrel",
    "originalName": "20\" HBAR",
    "cost": 10,
    "weapons": [
     "m16a4"
    ]
   },
-  "cano-16-dissipator": {
-   "id": "cano-16-dissipator",
-   "slot": "cano",
+  "barrel-16-dissipator": {
+   "id": "barrel-16-dissipator",
+   "slot": "barrel",
    "originalName": "16\" Dissipator",
    "cost": 10,
    "weapons": [
     "m16a4"
    ]
   },
-  "ergonomia-rail-cover": {
-   "id": "ergonomia-rail-cover",
-   "slot": "ergonomia",
+  "ergonomics-rail-cover": {
+   "id": "ergonomics-rail-cover",
+   "slot": "ergonomics",
    "originalName": "Rail Cover",
    "cost": 10,
    "weapons": [
     "m16a4"
    ]
   },
-  "ergonomia-a3-receiver": {
-   "id": "ergonomia-a3-receiver",
-   "slot": "ergonomia",
+  "ergonomics-a3-receiver": {
+   "id": "ergonomics-a3-receiver",
+   "slot": "ergonomics",
    "originalName": "A3 Receiver",
    "cost": 10,
    "weapons": [
     "m16a4"
    ]
   },
-  "cano-27-factory": {
-   "id": "cano-27-factory",
-   "slot": "cano",
+  "barrel-27-factory": {
+   "id": "barrel-27-factory",
+   "slot": "barrel",
    "originalName": "27\" Factory",
    "cost": 10,
    "weapons": [
     "l115"
    ]
   },
-  "cano-27-full": {
-   "id": "cano-27-full",
-   "slot": "cano",
+  "barrel-27-full": {
+   "id": "barrel-27-full",
+   "slot": "barrel",
    "originalName": "27\" Full",
    "cost": 10,
    "weapons": [
     "l115"
    ]
   },
-  "cano-32-custom": {
-   "id": "cano-32-custom",
-   "slot": "cano",
+  "barrel-32-custom": {
+   "id": "barrel-32-custom",
+   "slot": "barrel",
    "originalName": "32\" Custom",
    "cost": 10,
    "weapons": [
     "l115"
    ]
   },
-  "cano-20-custom-covert": {
-   "id": "cano-20-custom-covert",
-   "slot": "cano",
+  "barrel-20-custom-covert": {
+   "id": "barrel-20-custom-covert",
+   "slot": "barrel",
    "originalName": "20\" Custom Covert",
    "cost": 10,
    "weapons": [
     "l115"
    ]
   },
-  "carregador-7rnd-fast-mag": {
-   "id": "carregador-7rnd-fast-mag",
-   "slot": "carregador",
+  "magazine-7rnd-fast-mag": {
+   "id": "magazine-7rnd-fast-mag",
+   "slot": "magazine",
    "originalName": "7RND Fast Mag",
    "cost": 10,
    "weapons": [

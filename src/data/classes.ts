@@ -2,7 +2,7 @@ import type { PlayerClass, SlotDefinition, SlotId } from './types';
 
 export const CLASSES: PlayerClass[] = [
   {
-    id: 'assalto',
+    id: 'assault',
     name: 'Assalto',
     summary:
       'A ponta de lança do esquadrão. Avança, toma posição e sustenta a briga na linha de frente.',
@@ -12,7 +12,7 @@ export const CLASSES: PlayerClass[] = [
     color: '#ff8a00',
   },
   {
-    id: 'suporte',
+    id: 'support',
     name: 'Suporte',
     summary:
       'Mantém o time de pé: reanima, distribui munição, levanta cobertura e prende o inimigo com fogo de supressão.',
@@ -22,17 +22,17 @@ export const CLASSES: PlayerClass[] = [
     color: '#7ddc4c',
   },
   {
-    id: 'engenheiro',
+    id: 'engineer',
     name: 'Engenheiro',
     summary:
       'Especialista em veículos. Repara os aliados, destrói os inimigos e nega passagem com minas.',
     role: 'Dominar o combate de veículos',
     trait: 'Manejo aprimorado de carabinas e reparo mais veloz.',
-    signatureCategory: 'carabina',
+    signatureCategory: 'carbine',
     color: '#22c3d6',
   },
   {
-    id: 'reconhecimento',
+    id: 'recon',
     name: 'Reconhecimento',
     summary:
       'Os olhos do time. Marca alvos, abre caminhos de flanco e elimina a distância antes de ser visto.',
@@ -45,70 +45,70 @@ export const CLASSES: PlayerClass[] = [
 
 export const SLOTS: SlotDefinition[] = [
   {
-    id: 'mira',
+    id: 'sight',
     name: 'Mira',
     originalName: 'Sight',
     description: 'Define a ampliação e a velocidade de aquisição de alvo.',
     order: 1,
   },
   {
-    id: 'boca',
+    id: 'muzzle',
     name: 'Boca',
     originalName: 'Muzzle',
     description: 'Molda o recuo e decide se os disparos aparecem no minimapa.',
     order: 2,
   },
   {
-    id: 'cano',
+    id: 'barrel',
     name: 'Cano',
     originalName: 'Barrel',
     description: 'O slot de maior alcance: mexe em velocidade de bala, recuo e mira.',
     order: 3,
   },
   {
-    id: 'acoplamento',
+    id: 'underbarrel',
     name: 'Acoplamento Inferior',
     originalName: 'Underbarrel',
     description: 'Ajusta a estabilidade e o comportamento ao mirar em movimento.',
     order: 4,
   },
   {
-    id: 'carregador',
+    id: 'magazine',
     name: 'Carregador',
     originalName: 'Magazine',
     description: 'Capacidade contra manejo — carregadores maiores pesam na recarga.',
     order: 5,
   },
   {
-    id: 'municao',
+    id: 'ammo',
     name: 'Munição',
     originalName: 'Ammunition',
     description: 'Altera dano, alcance e velocidade do projétil.',
     order: 6,
   },
   {
-    id: 'ergonomia',
+    id: 'ergonomics',
     name: 'Ergonomia',
     originalName: 'Ergonomics',
     description: 'Coronhas e empunhaduras que trocam mobilidade por estabilidade.',
     order: 7,
   },
   {
-    id: 'opticoExtra',
+    id: 'opticAccessory',
     name: 'Acessório Óptico',
     originalName: 'Optic Accessory',
     description: 'Ampliadores e retículos acoplados à mira principal.',
     order: 8,
   },
   {
-    id: 'lateralEsquerda',
+    id: 'leftRail',
     name: 'Acessório Esquerdo',
     originalName: 'Left Accessory',
     description: 'Laser, lanterna e apoios montados na lateral esquerda.',
     order: 9,
   },
   {
-    id: 'lateralDireita',
+    id: 'rightRail',
     name: 'Acessório Direito',
     originalName: 'Right Accessory',
     description: 'Acessórios de manuseio montados na lateral direita.',
@@ -130,7 +130,7 @@ export const CATEGORY_NAMES: Record<string, string> = {
   sniper: 'Rifles de Precisão',
   escopeta: 'Escopetas',
   pistola: 'Pistolas',
-  'corpo-a-corpo': 'Corpo a Corpo',
+  'melee': 'Corpo a Corpo',
 };
 
 export const SHORT_CATEGORY_NAMES: Record<string, string> = {
@@ -142,5 +142,5 @@ export const SHORT_CATEGORY_NAMES: Record<string, string> = {
   sniper: 'Sniper',
   escopeta: 'Escopeta',
   pistola: 'Pistola',
-  'corpo-a-corpo': 'Corpo a corpo',
+  'melee': 'Corpo a corpo',
 };

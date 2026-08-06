@@ -26,20 +26,20 @@ const GADGET_SEP = '|';
 
 /** Abreviações de slot, para encurtar o link. */
 const SLOT_CODE: Record<SlotId, string> = {
-  mira: 'mi',
-  boca: 'bo',
-  cano: 'ca',
-  acoplamento: 'ac',
-  carregador: 'cr',
-  municao: 'mu',
-  ergonomia: 'er',
-  opticoExtra: 'op',
-  lateralEsquerda: 'le',
-  lateralDireita: 'ld',
+  sight: 'si',
+  muzzle: 'mz',
+  barrel: 'br',
+  underbarrel: 'ub',
+  magazine: 'mg',
+  ammo: 'am',
+  ergonomics: 'er',
+  opticAccessory: 'oa',
+  leftRail: 'lr',
+  rightRail: 'rr',
 };
 
 const SLOT_BY_CODE = new Map<string, SlotId>(
-  (Object.entries(SLOT_CODE) as [SlotId, string][]).map(([slot, sigla]) => [sigla, slot]),
+  (Object.entries(SLOT_CODE) as [SlotId, string][]).map(([slot, code]) => [code, slot]),
 );
 
 const CLASS_IDS = new Set<string>(CLASSES.map((c) => c.id));
@@ -69,9 +69,9 @@ function fromBase64Url(code: string): string {
 
 export function encodeLoadout(loadout: Loadout): string {
   const weapon = WEAPONS_BY_ID.get(loadout.weapon ?? '');
-  const ordemSlots = weapon?.slots ?? [];
+  const slotOrder = weapon?.slots ?? [];
 
-  const attachments = ordemSlots
+  const attachments = slotOrder
     .map((slot) => {
       const id = loadout.attachments[slot];
       return id ? `${SLOT_CODE[slot]}${PAIR_SEP}${id}` : null;
@@ -110,25 +110,25 @@ export function decodeLoadout(code: string): Loadout | null {
   const fields = text.split(FIELD_SEP);
   if (fields[0] !== VERSION) return null;
 
-  const [, armaId = '', acessoriosTexto = '', classeTexto = '', sidearm = '', gadgetsTexto = '', throwable = ''] =
+  const [, weaponId = '', attachmentsText = '', classText = '', sidearm = '', gadgetsText = '', throwable = ''] =
     fields;
 
   const attachments: Partial<Record<SlotId, string>> = {};
-  for (const par of acessoriosTexto.split(LIST_SEP)) {
-    if (!par) continue;
-    const corte = par.indexOf(PAIR_SEP);
-    if (corte < 0) continue;
-    const slot = SLOT_BY_CODE.get(par.slice(0, corte));
-    const id = par.slice(corte + 1);
+  for (const pair of attachmentsText.split(LIST_SEP)) {
+    if (!pair) continue;
+    const splitAt = pair.indexOf(PAIR_SEP);
+    if (splitAt < 0) continue;
+    const slot = SLOT_BY_CODE.get(pair.slice(0, splitAt));
+    const id = pair.slice(splitAt + 1);
     if (slot && id) attachments[slot] = id;
   }
 
-  const [gadget1 = '', gadget2 = ''] = gadgetsTexto.split(GADGET_SEP);
+  const [gadget1 = '', gadget2 = ''] = gadgetsText.split(GADGET_SEP);
 
   const raw: Loadout = {
     ...EMPTY_LOADOUT,
-    playerClass: CLASS_IDS.has(classeTexto) ? (classeTexto as ClassId) : EMPTY_LOADOUT.playerClass,
-    weapon: WEAPONS_BY_ID.has(armaId) ? armaId : null,
+    playerClass: CLASS_IDS.has(classText) ? (classText as ClassId) : EMPTY_LOADOUT.playerClass,
+    weapon: WEAPONS_BY_ID.has(weaponId) ? weaponId : null,
     attachments,
     sidearm: WEAPONS_BY_ID.has(sidearm) ? sidearm : null,
     gadget1: gadget1 || null,

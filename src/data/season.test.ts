@@ -6,12 +6,12 @@ import { SEASONS, phaseOn, seasonLabel, seasonOn, seasonTheme } from './season';
  * o site continuar vestido de uma temporada encerrada meses depois.
  */
 
-const T4 = SEASONS[0];
+const SEASON_4 = SEASONS[0];
 
 describe('temporada no ar', () => {
   it('reconhece o dia de abertura e o de encerramento', () => {
-    expect(seasonOn(new Date(T4.startsOn))?.number).toBe(4);
-    expect(seasonOn(new Date(T4.endsOn))?.number).toBe(4);
+    expect(seasonOn(new Date(SEASON_4.startsOn))?.number).toBe(4);
+    expect(seasonOn(new Date(SEASON_4.endsOn))?.number).toBe(4);
   });
 
   it('não vale na véspera nem no dia seguinte', () => {
@@ -28,10 +28,10 @@ describe('temporada no ar', () => {
 
 describe('fase corrente', () => {
   it('é a última que já começou', () => {
-    expect(phaseOn(new Date('2026-07-21'), T4).name).toBe('Pacific Front');
-    expect(phaseOn(new Date('2026-08-17'), T4).name).toBe('Pacific Front');
-    expect(phaseOn(new Date('2026-08-18'), T4).name).toBe('Top Gun');
-    expect(phaseOn(new Date('2026-09-30'), T4).name).toBe('Tidal Strike');
+    expect(phaseOn(new Date('2026-07-21'), SEASON_4).name).toBe('Pacific Front');
+    expect(phaseOn(new Date('2026-08-17'), SEASON_4).name).toBe('Pacific Front');
+    expect(phaseOn(new Date('2026-08-18'), SEASON_4).name).toBe('Top Gun');
+    expect(phaseOn(new Date('2026-09-30'), SEASON_4).name).toBe('Tidal Strike');
   });
 
   it('aparece na etiqueta', () => {
@@ -41,16 +41,16 @@ describe('fase corrente', () => {
 
 describe('integridade do cadastro', () => {
   it('não tem temporadas sobrepostas e cada fase cabe na janela', () => {
-    const ordenadas = [...SEASONS].sort((a, b) => a.startsOn.localeCompare(b.startsOn));
-    ordenadas.forEach((season, i) => {
+    const inOrder = [...SEASONS].sort((a, b) => a.startsOn.localeCompare(b.startsOn));
+    inOrder.forEach((season, i) => {
       expect(season.startsOn <= season.endsOn).toBe(true);
       expect(season.phases.length).toBeGreaterThan(0);
-      for (const fase of season.phases) {
-        expect(fase.startsOn >= season.startsOn).toBe(true);
-        expect(fase.startsOn <= season.endsOn).toBe(true);
+      for (const phase of season.phases) {
+        expect(phase.startsOn >= season.startsOn).toBe(true);
+        expect(phase.startsOn <= season.endsOn).toBe(true);
       }
-      const anterior = ordenadas[i - 1];
-      if (anterior) expect(anterior.endsOn < season.startsOn).toBe(true);
+      const previous = inOrder[i - 1];
+      if (previous) expect(previous.endsOn < season.startsOn).toBe(true);
     });
   });
 });

@@ -40,16 +40,16 @@ const SORTS: { id: SortKey; label: string }[] = [
 
 export default function WeaponsPage() {
   const [search, setSearch] = useState('');
-  const [category, setCategory] = useState<WeaponCategory | 'todas'>('todas');
-  const [playerClass, setPlayerClass] = useState<ClassId | 'todas'>('todas');
+  const [category, setCategory] = useState<WeaponCategory | 'all'>('all');
+  const [playerClass, setPlayerClass] = useState<ClassId | 'all'>('all');
   const [sort, setSort] = useState<SortKey>('nome');
 
   const list = useMemo(() => {
     const term = normalize(search.trim());
 
     const filtered = WEAPONS.filter((weapon) => {
-      if (category !== 'todas' && weapon.category !== category) return false;
-      if (playerClass !== 'todas' && weapon.signatureClass !== playerClass) return false;
+      if (category !== 'all' && weapon.category !== category) return false;
+      if (playerClass !== 'all' && weapon.signatureClass !== playerClass) return false;
       if (!term) return true;
       return (
         normalize(weapon.name).includes(term) ||
@@ -93,14 +93,14 @@ export default function WeaponsPage() {
 
   // Agrupar por categoria só ajuda quando a ordenação é alfabética; nas demais,
   // o que interessa é o ranking contínuo.
-  const grouped = sort === 'nome' && category === 'todas';
+  const grouped = sort === 'nome' && category === 'all';
 
   return (
     <div className="min-h-dvh">
       <AppHeader subtitle="Todas as armas" />
 
       <main className="mx-auto max-w-[1600px] px-3 py-3">
-        <div className="cartao chanfro mb-3 p-3">
+        <div className="card bevel mb-3 p-3">
           <div className="flex flex-wrap items-center gap-2">
             <label className="min-w-[200px] flex-1">
               <span className="sr-only">Buscar arma</span>
@@ -109,18 +109,18 @@ export default function WeaponsPage() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Buscar arma…"
-                className="chanfro-sm toque w-full px-3 py-2 text-sm outline-none"
-                style={{ background: 'var(--superficie-alta)', border: '1px solid var(--borda)' }}
+                className="bevel-sm touch w-full px-3 py-2 text-sm outline-none"
+                style={{ background: 'var(--surface-raised)', border: '1px solid var(--border)' }}
               />
             </label>
 
-            <label className="flex items-center gap-2 text-xs" style={{ color: 'var(--texto-fraco)' }}>
+            <label className="flex items-center gap-2 text-xs" style={{ color: 'var(--text-dim)' }}>
               Ordenar por
               <select
                 value={sort}
                 onChange={(e) => setSort(e.target.value as SortKey)}
-                className="chanfro-sm toque px-2 py-2 text-sm"
-                style={{ background: 'var(--superficie-alta)', border: '1px solid var(--borda)', color: 'var(--texto)' }}
+                className="bevel-sm touch px-2 py-2 text-sm"
+                style={{ background: 'var(--surface-raised)', border: '1px solid var(--border)', color: 'var(--text)' }}
               >
                 {SORTS.map((s) => (
                   <option key={s.id} value={s.id}>
@@ -131,8 +131,8 @@ export default function WeaponsPage() {
             </label>
           </div>
 
-          <div className="rolagem-x -mx-1 mt-2 flex gap-1.5 px-1 pb-1">
-            <Chip active={category === 'todas'} onClick={() => setCategory('todas')}>
+          <div className="scroll-x -mx-1 mt-2 flex gap-1.5 px-1 pb-1">
+            <Chip active={category === 'all'} onClick={() => setCategory('all')}>
               Todas as categorias
             </Chip>
             {CATEGORY_ORDER.map((c) => (
@@ -142,8 +142,8 @@ export default function WeaponsPage() {
             ))}
           </div>
 
-          <div className="rolagem-x -mx-1 mt-1.5 flex gap-1.5 px-1 pb-1">
-            <Chip active={playerClass === 'todas'} onClick={() => setPlayerClass('todas')}>
+          <div className="scroll-x -mx-1 mt-1.5 flex gap-1.5 px-1 pb-1">
+            <Chip active={playerClass === 'all'} onClick={() => setPlayerClass('all')}>
               Todas as classes
             </Chip>
             {CLASSES.map((c) => (
@@ -158,13 +158,13 @@ export default function WeaponsPage() {
             ))}
           </div>
 
-          <p className="mt-2 text-[11px]" style={{ color: 'var(--texto-fraco)' }}>
+          <p className="mt-2 text-[11px]" style={{ color: 'var(--text-dim)' }}>
             {list.length} {list.length === 1 ? 'arma encontrada' : 'armas encontradas'}
           </p>
         </div>
 
         {list.length === 0 && (
-          <p className="cartao chanfro p-8 text-center text-sm" style={{ color: 'var(--texto-fraco)' }}>
+          <p className="card bevel p-8 text-center text-sm" style={{ color: 'var(--text-dim)' }}>
             Nenhuma arma encontrada com esses filtros.
           </p>
         )}
@@ -172,7 +172,7 @@ export default function WeaponsPage() {
         {grouped ? (
           CATEGORY_ORDER.filter((c) => byCategory.has(c)).map((c) => (
             <section key={c} className="mb-5">
-              <h2 className="rotulo mb-2">
+              <h2 className="label mb-2">
                 {CATEGORY_NAMES[c]} · {byCategory.get(c)!.length}
               </h2>
               <Grid items={byCategory.get(c)!} />
@@ -182,7 +182,7 @@ export default function WeaponsPage() {
           <Grid items={list} />
         )}
 
-        <p className="pb-seguro mt-6 text-center text-[11px]" style={{ color: 'var(--texto-fraco)' }}>
+        <p className="pb-safe mt-6 text-center text-[11px]" style={{ color: 'var(--text-dim)' }}>
           Estatísticas das armas sem acessórios. Projeto de fã, sem vínculo com a EA ou a DICE.
         </p>
       </main>
@@ -201,17 +201,17 @@ function Chip({
   color?: string;
   children: React.ReactNode;
 }) {
-  const tint = color ?? 'var(--destaque)';
+  const tint = color ?? 'var(--accent)';
   return (
     <button
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className="chanfro-sm shrink-0 px-3 py-2 text-xs whitespace-nowrap"
+      className="bevel-sm shrink-0 px-3 py-2 text-xs whitespace-nowrap"
       style={{
-        background: active ? tint : 'var(--superficie-alta)',
-        color: active ? '#14170f' : 'var(--texto-suave)',
-        border: `1px solid ${active ? tint : 'var(--borda)'}`,
+        background: active ? tint : 'var(--surface-raised)',
+        color: active ? '#14170f' : 'var(--text-soft)',
+        border: `1px solid ${active ? tint : 'var(--border)'}`,
         fontWeight: active ? 600 : 500,
       }}
     >
@@ -234,7 +234,7 @@ function Grid({ items }: { items: { weapon: Weapon; stats: ReturnType<typeof bas
 
 function WeaponCard({ weapon, stats }: { weapon: Weapon; stats: ReturnType<typeof baseStats> }) {
   const signature = CLASSES.find((c) => c.id === weapon.signatureClass);
-  const melee = weapon.category === 'corpo-a-corpo';
+  const melee = weapon.category === 'melee';
   const ttk = timeToKill(stats, 0);
 
   // Abrir o montador já com a arma equipada é o que se espera de um catálogo.
@@ -243,13 +243,13 @@ function WeaponCard({ weapon, stats }: { weapon: Weapon; stats: ReturnType<typeo
   return (
     <Link
       href={href}
-      className="cartao chanfro block h-full p-2 transition-colors"
-      style={{ borderColor: 'var(--borda-suave)' }}
+      className="card bevel block h-full p-2 transition-colors"
+      style={{ borderColor: 'var(--border-soft)' }}
     >
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0">
           <p className="font-display truncate text-base leading-tight font-semibold">{weapon.name}</p>
-          <p className="text-[11px]" style={{ color: 'var(--texto-fraco)' }}>
+          <p className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
             {SHORT_CATEGORY_NAMES[weapon.category]}
             {signature && (
               <>
@@ -261,8 +261,8 @@ function WeaponCard({ weapon, stats }: { weapon: Weapon; stats: ReturnType<typeo
         </div>
         {weapon.season > 0 && (
           <span
-            className="chanfro-sm shrink-0 px-1.5 py-0.5 text-[10px] font-semibold"
-            style={{ background: 'var(--superficie-alta)', color: 'var(--destaque)' }}
+            className="bevel-sm shrink-0 px-1.5 py-0.5 text-[10px] font-semibold"
+            style={{ background: 'var(--surface-raised)', color: 'var(--accent)' }}
           >
             T{weapon.season}
           </span>
@@ -271,7 +271,7 @@ function WeaponCard({ weapon, stats }: { weapon: Weapon; stats: ReturnType<typeo
 
       <WeaponPreview weapon={weapon} className="my-1 w-full" />
 
-      <p className="mb-1.5 line-clamp-2 text-[11px] leading-snug" style={{ color: 'var(--texto-suave)' }}>
+      <p className="mb-1.5 line-clamp-2 text-[11px] leading-snug" style={{ color: 'var(--text-soft)' }}>
         {weapon.summary}
       </p>
 
@@ -289,11 +289,11 @@ function WeaponCard({ weapon, stats }: { weapon: Weapon; stats: ReturnType<typeo
 
 function Stat({ label, value, unit }: { label: string; value: string; unit?: string }) {
   return (
-    <div className="chanfro-sm px-1 py-1" style={{ background: 'var(--superficie-alta)' }}>
-      <dt className="rotulo text-[9px]">{label}</dt>
+    <div className="bevel-sm px-1 py-1" style={{ background: 'var(--surface-raised)' }}>
+      <dt className="label text-[9px]">{label}</dt>
       <dd className="font-mono text-sm leading-tight">
         {value}
-        {unit && <span className="text-[9px]" style={{ color: 'var(--texto-fraco)' }}>{unit}</span>}
+        {unit && <span className="text-[9px]" style={{ color: 'var(--text-dim)' }}>{unit}</span>}
       </dd>
     </div>
   );

@@ -4,15 +4,15 @@ import { attachmentsForWeapon } from '@/data/attachments';
 import { encodeLoadout, decodeLoadout, loadoutUrl } from './share';
 import { EMPTY_LOADOUT, type Loadout } from './loadout';
 
-const completo: Loadout = {
-  playerClass: 'assalto',
+const full: Loadout = {
+  playerClass: 'assault',
   weapon: 'ak4d',
   attachments: {
-    mira: 'mira-iron-sights',
-    boca: 'boca-compensated-brake',
-    cano: 'cano-600mm-dmr',
-    acoplamento: 'acoplamento-classic-vertical',
-    municao: 'municao-fmj',
+    sight: 'sight-iron-sights',
+    muzzle: 'muzzle-compensated-brake',
+    barrel: 'barrel-600mm-dmr',
+    underbarrel: 'underbarrel-classic-vertical',
+    ammo: 'ammo-fmj',
   },
   sidearm: 'm44',
   gadget1: 'qlink-6',
@@ -22,17 +22,17 @@ const completo: Loadout = {
 
 describe('ida e volta do link', () => {
   it('reproduz o loadout completo', () => {
-    expect(decodeLoadout(encodeLoadout(completo))).toEqual(completo);
+    expect(decodeLoadout(encodeLoadout(full))).toEqual(full);
   });
 
   it('reproduz um loadout só com a arma', () => {
-    const simples: Loadout = { ...EMPTY_LOADOUT, weapon: 'kv9' };
-    expect(decodeLoadout(encodeLoadout(simples))).toEqual(simples);
+    const simple: Loadout = { ...EMPTY_LOADOUT, weapon: 'kv9' };
+    expect(decodeLoadout(encodeLoadout(simple))).toEqual(simple);
   });
 
   it('funciona para toda arma com todos os slots preenchidos', () => {
     for (const weapon of WEAPONS) {
-      if (weapon.category === 'corpo-a-corpo') continue;
+      if (weapon.category === 'melee') continue;
       const attachments: Loadout['attachments'] = {};
       for (const [slot, list] of attachmentsForWeapon(weapon)) {
         attachments[slot as keyof Loadout['attachments']] = list[list.length - 1].id;
@@ -43,11 +43,11 @@ describe('ida e volta do link', () => {
   });
 
   it('gera um código curto o bastante para caber num QR code', () => {
-    expect(encodeLoadout(completo).length).toBeLessThan(300);
+    expect(encodeLoadout(full).length).toBeLessThan(300);
   });
 
   it('produz apenas caracteres seguros para URL', () => {
-    expect(encodeLoadout(completo)).toMatch(/^[A-Za-z0-9_-]+$/);
+    expect(encodeLoadout(full)).toMatch(/^[A-Za-z0-9_-]+$/);
   });
 });
 
@@ -67,29 +67,29 @@ describe('leitura tolerante', () => {
 
   it('remove acessório incompatível com a arma', () => {
     // Ferrolho Leve só existe para rifles de ferrolho.
-    const invalido: Loadout = {
+    const invalid: Loadout = {
       ...EMPTY_LOADOUT,
       weapon: 'kv9',
-      attachments: { ergonomia: 'ergonomia-dlc-bolt' },
+      attachments: { ergonomics: 'ergonomics-dlc-bolt' },
     };
-    const voltou = decodeLoadout(encodeLoadout(invalido))!;
-    expect(voltou.attachments.ergonomia).toBeUndefined();
+    const roundTripped = decodeLoadout(encodeLoadout(invalid))!;
+    expect(roundTripped.attachments.ergonomics).toBeUndefined();
   });
 
   it('remove gadget que não pertence à classe escolhida', () => {
-    const invalido: Loadout = {
+    const invalid: Loadout = {
       ...EMPTY_LOADOUT,
-      playerClass: 'suporte',
+      playerClass: 'support',
       weapon: 'm250',
       gadget1: 'xfgm-6d',
     };
-    expect(decodeLoadout(encodeLoadout(invalido))!.gadget1).toBeNull();
+    expect(decodeLoadout(encodeLoadout(invalid))!.gadget1).toBeNull();
   });
 
   it('mantém arremessável em qualquer classe', () => {
     const loadout: Loadout = {
       ...EMPTY_LOADOUT,
-      playerClass: 'reconhecimento',
+      playerClass: 'recon',
       weapon: 'sv-98',
       throwable: 'm67-frag',
     };
@@ -99,9 +99,9 @@ describe('leitura tolerante', () => {
 
 describe('URL de compartilhamento', () => {
   it('monta a URL do loadout sobre a origem informada', () => {
-    const url = loadoutUrl(completo, 'https://exemplo.com');
+    const url = loadoutUrl(full, 'https://exemplo.com');
     expect(url.startsWith('https://exemplo.com/?l=')).toBe(true);
     const code = new URL(url).searchParams.get('l')!;
-    expect(decodeLoadout(code)).toEqual(completo);
+    expect(decodeLoadout(code)).toEqual(full);
   });
 });

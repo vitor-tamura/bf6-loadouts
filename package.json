@@ -11,10 +11,12 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
-    "sync": "node --experimental-strip-types scripts/sincronizar.mjs",
-    "sync:aplicar": "node --experimental-strip-types scripts/sincronizar.mjs --aplicar",
-    "imagens": "node scripts/imagens.mjs",
-    "imagens:baixar": "python3 scripts/baixar_imagens.py"
+    "sync": "node --experimental-strip-types scripts/sync.mjs",
+    "sync:apply": "node --experimental-strip-types scripts/sync.mjs --apply",
+    "images": "node scripts/images.mjs",
+    "images:download": "python3 scripts/download_images.py",
+    "docs:weapons": "node scripts/weapons-doc.mjs",
+    "docs:attachments": "node scripts/attachments-doc.mjs"
   },
   "dependencies": {
     "next": "16.3.0",

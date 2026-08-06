@@ -40,7 +40,7 @@ function QrCode({ text, size = 168 }: { text: string; size?: number }) {
       role="img"
       aria-label="QR code do loadout"
       style={{ background: '#fff' }}
-      className="chanfro-sm"
+      className="bevel-sm"
     >
       <path d={qrPath.d} fill="#000" />
     </svg>
@@ -48,8 +48,8 @@ function QrCode({ text, size = 168 }: { text: string; size?: number }) {
 }
 
 export function ShareButton({ loadout, disabled }: { loadout: Loadout; disabled: boolean }) {
-  const [open, setAberto] = useState(false);
-  const [copied, setCopiado] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
   const [url, setUrl] = useState('');
 
   // A URL só existe no navegador; montar no servidor daria uma origem errada.
@@ -59,19 +59,19 @@ export function ShareButton({ loadout, disabled }: { loadout: Loadout; disabled:
 
   useEffect(() => {
     if (!copied) return;
-    const t = setTimeout(() => setCopiado(false), 2200);
+    const t = setTimeout(() => setCopied(false), 2200);
     return () => clearTimeout(t);
   }, [copied]);
 
   async function copyLink() {
     try {
       await navigator.clipboard.writeText(url);
-      setCopiado(true);
+      setCopied(true);
     } catch {
       // Sem permissão de área de transferência: o campo fica selecionado para
       // o jogador copiar à mão.
-      const campo = document.getElementById('campo-link') as HTMLInputElement | null;
-      campo?.select();
+      const field = document.getElementById('campo-link') as HTMLInputElement | null;
+      field?.select();
     }
   }
 
@@ -88,10 +88,10 @@ export function ShareButton({ loadout, disabled }: { loadout: Loadout; disabled:
     <>
       <button
         type="button"
-        onClick={() => setAberto(true)}
+        onClick={() => setOpen(true)}
         disabled={disabled}
-        className="chanfro-sm toque px-4 py-2 text-sm font-semibold transition-opacity disabled:opacity-40"
-        style={{ background: 'var(--destaque)', color: '#14170f' }}
+        className="bevel-sm touch px-4 py-2 text-sm font-semibold transition-opacity disabled:opacity-40"
+        style={{ background: 'var(--accent)', color: '#14170f' }}
       >
         Compartilhar
       </button>
@@ -103,13 +103,13 @@ export function ShareButton({ loadout, disabled }: { loadout: Loadout; disabled:
         <div
           className="fixed inset-0 z-50 flex items-end justify-center sm:items-center"
           style={{ background: 'rgb(0 0 0 / 0.6)' }}
-          onClick={() => setAberto(false)}
+          onClick={() => setOpen(false)}
           role="presentation"
         >
           {/* A janela rola por dentro: com o QR code e os botões ela pode ficar
               mais alta que a tela de um celular pequeno. */}
           <div
-            className="cartao chanfro pb-seguro max-h-[92dvh] w-full max-w-md overflow-y-auto p-4 sm:pb-4"
+            className="card bevel pb-safe max-h-[92dvh] w-full max-w-md overflow-y-auto p-4 sm:pb-4"
             onClick={(e) => e.stopPropagation()}
             role="dialog"
             aria-modal="true"
@@ -119,16 +119,16 @@ export function ShareButton({ loadout, disabled }: { loadout: Loadout; disabled:
               <h2 className="font-display text-lg font-semibold">Compartilhar loadout</h2>
               <button
                 type="button"
-                onClick={() => setAberto(false)}
-                className="toque px-2 text-lg"
+                onClick={() => setOpen(false)}
+                className="touch px-2 text-lg"
                 aria-label="Fechar"
-                style={{ color: 'var(--texto-fraco)' }}
+                style={{ color: 'var(--text-dim)' }}
               >
                 ✕
               </button>
             </div>
 
-            <p className="mb-3 text-sm" style={{ color: 'var(--texto-suave)' }}>
+            <p className="mb-3 text-sm" style={{ color: 'var(--text-soft)' }}>
               O loadout inteiro está dentro do link — não há servidor guardando nada, e ele não expira.
             </p>
 
@@ -139,8 +139,8 @@ export function ShareButton({ loadout, disabled }: { loadout: Loadout; disabled:
               readOnly
               value={url}
               onFocus={(e) => e.currentTarget.select()}
-              className="chanfro-sm mb-2 w-full px-3 py-2 font-mono text-xs"
-              style={{ background: 'var(--superficie-alta)', border: '1px solid var(--borda)' }}
+              className="bevel-sm mb-2 w-full px-3 py-2 font-mono text-xs"
+              style={{ background: 'var(--surface-raised)', border: '1px solid var(--border)' }}
               aria-label="Link do loadout"
             />
 
@@ -148,16 +148,16 @@ export function ShareButton({ loadout, disabled }: { loadout: Loadout; disabled:
               <button
                 type="button"
                 onClick={copyLink}
-                className="chanfro-sm toque flex-1 px-3 py-2 text-sm font-semibold"
-                style={{ background: 'var(--destaque)', color: '#14170f' }}
+                className="bevel-sm touch flex-1 px-3 py-2 text-sm font-semibold"
+                style={{ background: 'var(--accent)', color: '#14170f' }}
               >
                 {copied ? 'Link copiado' : 'Copiar link'}
               </button>
               <button
                 type="button"
                 onClick={shareNative}
-                className="chanfro-sm toque px-3 py-2 text-sm"
-                style={{ border: '1px solid var(--borda)' }}
+                className="bevel-sm touch px-3 py-2 text-sm"
+                style={{ border: '1px solid var(--border)' }}
               >
                 Enviar
               </button>

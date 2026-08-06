@@ -49,7 +49,7 @@ export default function BuilderPage() {
 
   const [tab, setTab] = useState<Tab>('arma');
 
-  const [choosingSidearm, setEscolhendoSecundaria] = useState(false);
+  const [choosingSidearm, setChoosingSidearm] = useState(false);
 
   const weapon = loadout.weapon ? (WEAPONS_BY_ID.get(loadout.weapon) ?? null) : null;
   const attachments = useMemo(() => loadoutAttachments(loadout, weapon), [loadout, weapon]);
@@ -75,7 +75,7 @@ export default function BuilderPage() {
       <main className="mx-auto max-w-[1600px] px-3 py-3">
         {/* Preview: sempre visível, é a resposta imediata a cada acessório. */}
         {weapon && (
-          <div className="cartao chanfro sticky top-[64px] z-20 mb-3 p-2 lg:static">
+          <div className="card bevel sticky top-[64px] z-20 mb-3 p-2 lg:static">
             {/* Largura limitada: com a proporção 8:3 do quadro, deixar o preview
                 ocupar 1600 px transformaria a arma em um painel de 600 px de
                 altura e empurraria todo o resto para fora da tela. */}
@@ -97,7 +97,7 @@ export default function BuilderPage() {
           <div className={tab === 'arma' ? 'block' : 'hidden lg:block'}>
             {/* No computador a lista rola dentro da própria coluna: com 63 armas,
                 deixá-la esticar faria a página inteira crescer sem necessidade. */}
-            <div className="cartao chanfro p-3 lg:max-h-[calc(100dvh-140px)] lg:overflow-y-auto">
+            <div className="card bevel p-3 lg:max-h-[calc(100dvh-140px)] lg:overflow-y-auto">
               <WeaponSelector
                 selected={loadout.weapon}
                 onSelect={chooseWeapon}
@@ -110,17 +110,17 @@ export default function BuilderPage() {
           <div className={tab === 'montar' ? 'block' : 'hidden lg:block'}>
             {weapon ? (
               <div className="space-y-3">
-                <div className="cartao chanfro p-3">
+                <div className="card bevel p-3">
                   <BudgetBar budget={budget} />
                   <div className="mt-2 flex items-center justify-between gap-2">
-                    <p className="text-[12px] leading-snug" style={{ color: 'var(--texto-suave)' }}>
+                    <p className="text-[12px] leading-snug" style={{ color: 'var(--text-soft)' }}>
                       {weapon.summary}
                     </p>
                     <button
                       type="button"
                       onClick={clearAttachments}
-                      className="toque shrink-0 px-2 text-xs underline"
-                      style={{ color: 'var(--texto-fraco)' }}
+                      className="touch shrink-0 px-2 text-xs underline"
+                      style={{ color: 'var(--text-dim)' }}
                     >
                       Limpar
                     </button>
@@ -143,15 +143,15 @@ export default function BuilderPage() {
           <div className={tab === 'numeros' ? 'block' : 'hidden lg:block'}>
             {weapon && stats && base ? (
               <div className="space-y-3">
-                <div className="cartao chanfro p-3">
+                <div className="card bevel p-3">
                   <div className="mb-3 flex items-center justify-between gap-2">
-                    <h2 className="rotulo">Estatísticas</h2>
-                    <label className="flex cursor-pointer items-center gap-1.5 text-[11px]" style={{ color: 'var(--texto-fraco)' }}>
+                    <h2 className="label">Estatísticas</h2>
+                    <label className="flex cursor-pointer items-center gap-1.5 text-[11px]" style={{ color: 'var(--text-dim)' }}>
                       <input
                         type="checkbox"
                         checked={compareWithBase}
                         onChange={toggleBaseComparison}
-                        className="accent-[var(--destaque)]"
+                        className="accent-[var(--accent)]"
                       />
                       comparar com a de fábrica
                     </label>
@@ -168,7 +168,7 @@ export default function BuilderPage() {
 
           {/* Gráficos: faixa larga no computador, para o texto dos eixos continuar
               legível; no celular seguem dentro da aba Números. */}
-          {weapon && stats && base && weapon.category !== 'corpo-a-corpo' && (
+          {weapon && stats && base && weapon.category !== 'melee' && (
             <div
               className={`${tab === 'numeros' ? 'grid' : 'hidden lg:grid'} gap-3 lg:col-span-3 lg:grid-cols-2`}
             >
@@ -189,7 +189,7 @@ export default function BuilderPage() {
 
           {/* Classe e equipamento: coluna própria no celular, rodapé no desktop */}
           <div className={`${tab === 'classe' ? 'block' : 'hidden lg:block'} lg:col-span-3`}>
-            <div className="cartao chanfro grid gap-4 p-3 lg:grid-cols-[minmax(0,320px)_minmax(0,1fr)]">
+            <div className="card bevel grid gap-4 p-3 lg:grid-cols-[minmax(0,320px)_minmax(0,1fr)]">
               <ClassSelector current={loadout.playerClass} onSelect={setPlayerClass} />
               <EquipmentPanel
                 playerClass={loadout.playerClass}
@@ -199,13 +199,13 @@ export default function BuilderPage() {
                 sidearm={loadout.sidearm}
                 onSetGadget={setGadget}
                 onSetThrowable={setThrowable}
-                onOpenSidearm={() => setEscolhendoSecundaria(true)}
+                onOpenSidearm={() => setChoosingSidearm(true)}
               />
             </div>
           </div>
         </div>
 
-        <footer className="pb-seguro-nav mt-6 text-center text-[11px] lg:pb-6" style={{ color: 'var(--texto-fraco)' }}>
+        <footer className="pb-safe-nav mt-6 text-center text-[11px] lg:pb-6" style={{ color: 'var(--text-dim)' }}>
           <p>
             Projeto de fã, sem vínculo com a EA ou a DICE. Battlefield é marca registrada da Electronic Arts.
           </p>
@@ -214,8 +214,8 @@ export default function BuilderPage() {
 
       {/* Navegação por abas, só no celular. */}
       <nav
-        className="pb-seguro fixed inset-x-0 bottom-0 z-30 grid grid-cols-4 border-t backdrop-blur lg:hidden"
-        style={{ background: 'color-mix(in oklab, var(--fundo) 92%, transparent)', borderColor: 'var(--borda)' }}
+        className="pb-safe fixed inset-x-0 bottom-0 z-30 grid grid-cols-4 border-t backdrop-blur lg:hidden"
+        style={{ background: 'color-mix(in oklab, var(--bg) 92%, transparent)', borderColor: 'var(--border)' }}
         aria-label="Seções do montador"
       >
         {TABS.map((item) => {
@@ -226,10 +226,10 @@ export default function BuilderPage() {
               type="button"
               onClick={() => setTab(item.id)}
               aria-current={active ? 'page' : undefined}
-              className="toque py-2 text-xs font-semibold"
+              className="touch py-2 text-xs font-semibold"
               style={{
-                color: active ? 'var(--destaque)' : 'var(--texto-fraco)',
-                borderTop: `2px solid ${active ? 'var(--destaque)' : 'transparent'}`,
+                color: active ? 'var(--accent)' : 'var(--text-dim)',
+                borderTop: `2px solid ${active ? 'var(--accent)' : 'transparent'}`,
               }}
             >
               {item.name}
@@ -242,11 +242,11 @@ export default function BuilderPage() {
         <div
           className="fixed inset-0 z-50 flex items-end justify-center sm:items-center"
           style={{ background: 'rgb(0 0 0 / 0.6)' }}
-          onClick={() => setEscolhendoSecundaria(false)}
+          onClick={() => setChoosingSidearm(false)}
           role="presentation"
         >
           <div
-            className="cartao chanfro pb-seguro max-h-[80dvh] w-full max-w-md overflow-y-auto p-4"
+            className="card bevel pb-safe max-h-[80dvh] w-full max-w-md overflow-y-auto p-4"
             onClick={(e) => e.stopPropagation()}
             role="dialog"
             aria-modal="true"
@@ -256,10 +256,10 @@ export default function BuilderPage() {
               <h2 className="font-display text-lg font-semibold">Arma secundária</h2>
               <button
                 type="button"
-                onClick={() => setEscolhendoSecundaria(false)}
-                className="toque px-2 text-lg"
+                onClick={() => setChoosingSidearm(false)}
+                className="touch px-2 text-lg"
                 aria-label="Fechar"
-                style={{ color: 'var(--texto-fraco)' }}
+                style={{ color: 'var(--text-dim)' }}
               >
                 ✕
               </button>
@@ -267,10 +267,10 @@ export default function BuilderPage() {
             <WeaponSelector
               title="Pistolas e corpo a corpo"
               selected={loadout.sidearm}
-              categories={['pistola', 'corpo-a-corpo']}
+              categories={['pistol', 'melee']}
               onSelect={(id) => {
                 setSidearm(id);
-                setEscolhendoSecundaria(false);
+                setChoosingSidearm(false);
               }}
             />
           </div>
@@ -282,8 +282,8 @@ export default function BuilderPage() {
 
 function EmptyState() {
   return (
-    <div className="cartao chanfro flex min-h-[180px] items-center justify-center p-6 text-center">
-      <p className="text-sm" style={{ color: 'var(--texto-fraco)' }}>
+    <div className="card bevel flex min-h-[180px] items-center justify-center p-6 text-center">
+      <p className="text-sm" style={{ color: 'var(--text-dim)' }}>
         Escolha uma arma para começar a montar.
       </p>
     </div>
@@ -292,8 +292,8 @@ function EmptyState() {
 
 function ApproximateNotice() {
   return (
-    <p className="cartao chanfro-sm p-3 text-[11px] leading-snug" style={{ color: 'var(--texto-fraco)' }}>
-      <strong style={{ color: 'var(--destaque)' }}>≈ valores aproximados.</strong> O jogo não expõe os
+    <p className="card bevel-sm p-3 text-[11px] leading-snug" style={{ color: 'var(--text-dim)' }}>
+      <strong style={{ color: 'var(--accent)' }}>≈ valores aproximados.</strong> O jogo não expõe os
       multiplicadores exatos de alguns acessórios e armas. Esses números foram calibrados a partir das
       descrições de efeito no jogo e de medições da comunidade — servem para comparar builds, não como
       medida oficial.

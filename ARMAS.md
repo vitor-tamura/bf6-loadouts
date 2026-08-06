@@ -1,11 +1,11 @@
 # Armas
 
-Relação completa das **68 armas** do montador, agrupadas por categoria e
-ordenadas pela temporada em que entraram no jogo.
+Relação completa das **68 armas** do montador, agrupadas por category e
+ordenadas pela season em que entraram no jogo.
 
-`Lanç.` marca o conteúdo de lançamento; `T1` a `T4`, a temporada de estreia.
+`Lanç.` marca o conteúdo de lançamento; `T1` a `T4`, a season de estreia.
 
-Gerado por `node scripts/armas.mjs`.
+Gerado por `node scripts/weapons-doc.mjs`.
 
 ## Resumo
 
@@ -24,7 +24,7 @@ Gerado por `node scripts/armas.mjs`.
 
 ## Fuzis de Assalto
 
-*Assault Rifles* — 11 armas, arma-assinatura do Assalto.
+*Assault Rifles* — 11 weapons, arma-assinatura do Assalto.
 
 | Arma | Entrada | Dano | Queda | RPM | Velocidade | Carregador |
 | --- | --- | --- | --- | ---: | ---: | ---: |
@@ -42,7 +42,7 @@ Gerado por `node scripts/armas.mjs`.
 
 ## Carabinas
 
-*Carbines* — 9 armas, arma-assinatura do Engenheiro.
+*Carbines* — 9 weapons, arma-assinatura do Engenheiro.
 
 | Arma | Entrada | Dano | Queda | RPM | Velocidade | Carregador |
 | --- | --- | --- | --- | ---: | ---: | ---: |
@@ -58,7 +58,7 @@ Gerado por `node scripts/armas.mjs`.
 
 ## Submetralhadoras
 
-*SMGs* — 10 armas.
+*SMGs* — 10 weapons.
 
 | Arma | Entrada | Dano | Queda | RPM | Velocidade | Carregador |
 | --- | --- | --- | --- | ---: | ---: | ---: |
@@ -75,7 +75,7 @@ Gerado por `node scripts/armas.mjs`.
 
 ## Metralhadoras
 
-*LMGs* — 10 armas, arma-assinatura do Suporte.
+*LMGs* — 10 weapons, arma-assinatura do Suporte.
 
 | Arma | Entrada | Dano | Queda | RPM | Velocidade | Carregador |
 | --- | --- | --- | --- | ---: | ---: | ---: |
@@ -92,7 +92,7 @@ Gerado por `node scripts/armas.mjs`.
 
 ## Rifles de Precisão Semiautomáticos
 
-*DMRs* — 6 armas, arma-assinatura do Reconhecimento.
+*DMRs* — 6 weapons, arma-assinatura do Reconhecimento.
 
 | Arma | Entrada | Dano | Queda | RPM | Velocidade | Carregador |
 | --- | --- | --- | --- | ---: | ---: | ---: |
@@ -105,7 +105,7 @@ Gerado por `node scripts/armas.mjs`.
 
 ## Rifles de Precisão
 
-*Sniper Rifles* — 6 armas, arma-assinatura do Reconhecimento.
+*Sniper Rifles* — 6 weapons, arma-assinatura do Reconhecimento.
 
 | Arma | Entrada | Dano | Queda | RPM | Velocidade | Carregador |
 | --- | --- | --- | --- | ---: | ---: | ---: |
@@ -118,7 +118,7 @@ Gerado por `node scripts/armas.mjs`.
 
 ## Escopetas
 
-*Shotguns* — 4 armas.
+*Shotguns* — 4 weapons.
 
 | Arma | Entrada | Dano | Queda | RPM | Velocidade | Carregador |
 | --- | --- | --- | --- | ---: | ---: | ---: |
@@ -129,7 +129,7 @@ Gerado por `node scripts/armas.mjs`.
 
 ## Pistolas
 
-*Sidearms* — 7 armas.
+*Sidearms* — 7 weapons.
 
 | Arma | Entrada | Dano | Queda | RPM | Velocidade | Carregador |
 | --- | --- | --- | --- | ---: | ---: | ---: |
@@ -143,7 +143,7 @@ Gerado por `node scripts/armas.mjs`.
 
 ## Corpo a Corpo
 
-*Melee* — 5 armas.
+*Melee* — 5 weapons.
 
 | Arma | Entrada | Descrição |
 | --- | --- | --- |

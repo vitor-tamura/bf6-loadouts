@@ -24,12 +24,12 @@ function samples(): Attachment[] {
 
 export default function IconSheet() {
   return (
-    <main className="p-4" style={{ color: 'var(--texto)' }}>
-      <h1 className="rotulo mb-3">Acessórios</h1>
+    <main className="p-4" style={{ color: 'var(--text)' }}>
+      <h1 className="label mb-3">Acessórios</h1>
       <ul className="grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-2">
         {samples().map((a) => (
-          <li key={a.id} className="chanfro-sm flex flex-col items-center gap-1 p-2" style={{ border: '1px solid var(--borda)' }}>
-            <span style={{ color: 'var(--destaque)' }}>
+          <li key={a.id} className="bevel-sm flex flex-col items-center gap-1 p-2" style={{ border: '1px solid var(--border)' }}>
+            <span style={{ color: 'var(--accent)' }}>
               <AttachmentIcon attachment={a} slot={a.slot} size={40} />
             </span>
             <span className="text-center text-[10px] leading-tight">{a.name}</span>
@@ -37,11 +37,11 @@ export default function IconSheet() {
         ))}
       </ul>
 
-      <h1 className="rotulo mb-3 mt-6">Gadgets</h1>
+      <h1 className="label mb-3 mt-6">Gadgets</h1>
       <ul className="grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-2">
         {GADGETS.map((g) => (
-          <li key={g.id} className="chanfro-sm flex flex-col items-center gap-1 p-2" style={{ border: '1px solid var(--borda)' }}>
-            <span style={{ color: 'var(--destaque)' }}>
+          <li key={g.id} className="bevel-sm flex flex-col items-center gap-1 p-2" style={{ border: '1px solid var(--border)' }}>
+            <span style={{ color: 'var(--accent)' }}>
               <GadgetIcon gadget={g} size={40} />
             </span>
             <span className="text-center text-[10px] leading-tight">{g.name}</span>

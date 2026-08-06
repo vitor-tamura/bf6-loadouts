@@ -12,7 +12,7 @@ import type { Attachment, SlotId } from '@/data/types';
  * destaque do bloco sem precisar de variante clara e escura.
  */
 
-const TRACO = {
+const STROKE = {
   fill: 'none',
   stroke: 'currentColor',
   strokeWidth: 1.8,
@@ -22,7 +22,7 @@ const TRACO = {
 
 /* ---------------------------------- Miras ---------------------------------- */
 
-const ferro = (
+const ironSights = (
   <>
     <path d="M5 17h14" />
     <path d="M8 17v-4l1.5-2 1.5 2v4" />
@@ -30,7 +30,7 @@ const ferro = (
   </>
 );
 
-const pontoVermelho = (
+const redDot = (
   <>
     <rect x="5" y="8" width="14" height="9" rx="1.5" />
     <path d="M8 8V6M16 8V6" />
@@ -38,7 +38,7 @@ const pontoVermelho = (
   </>
 );
 
-const holografica = (
+const holographic = (
   <>
     <rect x="4" y="7" width="16" height="10" rx="1.5" />
     <path d="M7 7V5M17 7V5" />
@@ -46,7 +46,7 @@ const holografica = (
   </>
 );
 
-const prisma = (
+const prism = (
   <>
     <rect x="6" y="7" width="12" height="10" rx="1.5" />
     <path d="M9 7V5h2v2" />
@@ -55,7 +55,7 @@ const prisma = (
   </>
 );
 
-const lunetaMedia = (
+const mediumScope = (
   <>
     <path d="M3 10.5h3M18 10.5h3" />
     <rect x="6" y="8" width="12" height="8" rx="1.5" />
@@ -64,7 +64,7 @@ const lunetaMedia = (
   </>
 );
 
-const lunetaLonga = (
+const longScope = (
   <>
     <path d="M2 11h2.5M19.5 11h2.5" />
     <rect x="4.5" y="8" width="15" height="7" rx="1.5" />
@@ -73,7 +73,7 @@ const lunetaLonga = (
   </>
 );
 
-const variavel = (
+const variableScope = (
   <>
     <path d="M2 11h2.5M19.5 11h2.5" />
     <rect x="4.5" y="8" width="15" height="7" rx="1.5" />
@@ -84,7 +84,7 @@ const variavel = (
 
 /* ---------------------------------- Bocas ---------------------------------- */
 
-const supressor = (
+const suppressor = (
   <>
     <rect x="4" y="9" width="15" height="7" rx="1.5" />
     <path d="M8 9v7M11 9v7M14 9v7" />
@@ -92,7 +92,7 @@ const supressor = (
   </>
 );
 
-const freio = (
+const brake = (
   <>
     <rect x="6" y="9" width="10" height="7" rx="1" />
     <path d="M8.5 9v2.5M11.5 9v2.5M8.5 13.5V16M11.5 13.5V16" />
@@ -100,7 +100,7 @@ const freio = (
   </>
 );
 
-const compensador = (
+const compensator = (
   <>
     <rect x="6" y="9" width="11" height="7" rx="1" />
     <path d="M8 9.8h7" />
@@ -108,7 +108,7 @@ const compensador = (
   </>
 );
 
-const quebraChamas = (
+const flashHider = (
   <>
     <path d="M8 16V9M11 16V8M14 16V9" />
     <rect x="6" y="16" width="10" height="3" rx="1" />
@@ -116,7 +116,7 @@ const quebraChamas = (
   </>
 );
 
-const rosca = (
+const threadProtector = (
   <>
     <rect x="8" y="9" width="7" height="7" rx="1.5" />
     <path d="M8 11h7M8 14h7" />
@@ -131,18 +131,18 @@ const rosca = (
  * muda é até onde o tubo vai e quão grosso ele é. Assim dois canos de
  * comprimentos diferentes se comparam de relance, sem vão entre as peças.
  */
-function cano(ate: number, perfil: 'padrao' | 'pesado' | 'estriado' | 'fino' = 'padrao') {
-  const altura = perfil === 'pesado' ? 7 : perfil === 'fino' ? 2.6 : 4.4;
-  const topo = 12 - altura / 2;
-  const ranhuras = [];
-  if (perfil === 'estriado') {
-    for (let x = 10; x < ate - 1; x += 2.6) ranhuras.push(`M${x} ${topo + 0.8}v${altura - 1.6}`);
+function barrelGlyph(endsAt: number, profile: 'padrao' | 'pesado' | 'estriado' | 'fino' = 'padrao') {
+  const height = profile === 'pesado' ? 7 : profile === 'fino' ? 2.6 : 4.4;
+  const top = 12 - height / 2;
+  const flutes = [];
+  if (profile === 'estriado') {
+    for (let x = 10; x < endsAt - 1; x += 2.6) flutes.push(`M${x} ${top + 0.8}v${height - 1.6}`);
   }
   return (
     <>
       <rect x="2" y="8" width="6" height="8" rx="1" />
-      <rect x="7" y={topo} width={ate - 7} height={altura} rx={altura / 3} />
-      {ranhuras.length > 0 && <path d={ranhuras.join('')} />}
+      <rect x="7" y={top} width={endsAt - 7} height={height} rx={height / 3} />
+      {flutes.length > 0 && <path d={flutes.join('')} />}
     </>
   );
 }
@@ -164,21 +164,21 @@ const angularGrip = (
   </>
 );
 
-const apoioMao = (
+const handstopGrip = (
   <>
     <path d="M4 8h16" />
     <path d="M11 8v4c0 1.5 1 2 2 2" />
   </>
 );
 
-const curtaGrip = (
+const stubbyGrip = (
   <>
     <path d="M4 8h16" />
     <rect x="10" y="8" width="4.5" height="6" rx="1.5" />
   </>
 );
 
-const bipe = (
+const bipod = (
   <>
     <path d="M4 7h16" />
     <path d="M12 7v3" />
@@ -187,7 +187,7 @@ const bipe = (
   </>
 );
 
-const suporteInferior = (
+const underbarrelMount = (
   <>
     <path d="M4 9h16" />
     <rect x="7" y="9" width="10" height="4" rx="1" />
@@ -197,14 +197,14 @@ const suporteInferior = (
 
 /* -------------------------------- Carregador -------------------------------- */
 
-const carregadorCurto = (
+const shortMag = (
   <>
     <path d="M8 5h8v3H8z" />
     <path d="M9 8h6v8H9z" />
   </>
 );
 
-const carregadorLongo = (
+const longMag = (
   <>
     <path d="M8 4h8v3H8z" />
     <path d="M9 7h6v13H9z" />
@@ -212,7 +212,7 @@ const carregadorLongo = (
   </>
 );
 
-const tambor = (
+const drumMag = (
   <>
     <path d="M9 4h6v4H9z" />
     <circle cx="12" cy="14" r="5.5" />
@@ -220,7 +220,7 @@ const tambor = (
   </>
 );
 
-const fita = (
+const ammoBelt = (
   <>
     <path d="M3 12h18" />
     <path d="M5 12V9M8 12V9M11 12V9M14 12V9M17 12V9M19.5 12V9" />
@@ -228,7 +228,7 @@ const fita = (
   </>
 );
 
-const caixaFita = (
+const beltBox = (
   <>
     <rect x="4" y="9" width="16" height="10" rx="1.5" />
     <path d="M8 9V7h8v2" />
@@ -245,7 +245,7 @@ const speedloader = (
   </>
 );
 
-const tuboEscopeta = (
+const shellTube = (
   <>
     <rect x="3" y="10" width="18" height="5" rx="2.5" />
     <path d="M7 10v5M11 10v5M15 10v5" />
@@ -254,25 +254,25 @@ const tuboEscopeta = (
 
 /* --------------------------------- Munição --------------------------------- */
 
-function cartucho(ponta: 'cheia' | 'oca' | 'plana' | 'serrilhada') {
+function cartridge(tip: 'cheia' | 'oca' | 'plana' | 'serrilhada') {
   return (
     <>
-      {ponta === 'cheia' && <path d="M12 3l3 5H9l3-5z" />}
-      {ponta === 'oca' && (
+      {tip === 'cheia' && <path d="M12 3l3 5H9l3-5z" />}
+      {tip === 'oca' && (
         <>
           <path d="M12 3.5l3 4.5H9l3-4.5z" />
           <path d="M10.8 5.5h2.4" />
         </>
       )}
-      {ponta === 'plana' && <path d="M9.5 8V5h5v3" />}
-      {ponta === 'serrilhada' && <path d="M9 8l1-2.5L11 7l1-3.5L13 7l1-1.5L15 8z" />}
+      {tip === 'plana' && <path d="M9.5 8V5h5v3" />}
+      {tip === 'serrilhada' && <path d="M9 8l1-2.5L11 7l1-3.5L13 7l1-1.5L15 8z" />}
       <rect x="9" y="8" width="6" height="10" rx="0.8" />
       <path d="M8.5 18h7v2h-7z" />
     </>
   );
 }
 
-const cartuchoEscopeta = (
+const shotgunShell = (
   <>
     <rect x="8.5" y="4" width="7" height="11" rx="1" />
     <path d="M8 15h8v5H8z" />
@@ -282,14 +282,14 @@ const cartuchoEscopeta = (
 
 /* -------------------------------- Ergonomia -------------------------------- */
 
-const gatilho = (
+const trigger = (
   <>
     <path d="M6 7h9a3 3 0 0 1 3 3v1" />
     <path d="M12 11c0 3-1 5-2.5 6.5" />
   </>
 );
 
-const ferrolho = (
+const bolt = (
   <>
     <rect x="4" y="10" width="13" height="5" rx="2.5" />
     <path d="M17 12.5h3" />
@@ -297,7 +297,7 @@ const ferrolho = (
   </>
 );
 
-const retentor = (
+const magCatch = (
   <>
     <rect x="7" y="6" width="10" height="6" rx="1" />
     <path d="M10 12v5M14 12v5" />
@@ -305,14 +305,14 @@ const retentor = (
   </>
 );
 
-const funil = (
+const magwell = (
   <>
     <path d="M5 7h14l-3.5 5H8.5z" />
     <path d="M8.5 12v6h7v-6" />
   </>
 );
 
-const capaTrilho = (
+const railCover = (
   <>
     <rect x="3" y="10" width="18" height="4" rx="1" />
     <path d="M6 10v4M9 10v4M12 10v4M15 10v4M18 10v4" />
@@ -329,7 +329,7 @@ const receiver = (
 
 /* ----------------------------- Acessório óptico ----------------------------- */
 
-const ampliador = (
+const magnifier = (
   <>
     <rect x="7" y="8" width="10" height="8" rx="1.5" />
     <path d="M7 12H4M20 12h-3" />
@@ -337,14 +337,14 @@ const ampliador = (
   </>
 );
 
-const antirreflexo = (
+const antiGlare = (
   <>
     <circle cx="12" cy="12" r="6" />
     <path d="M8 8l8 8" />
   </>
 );
 
-const inclinada = (
+const cantedMount = (
   <>
     <path d="M4 17h9" />
     <rect x="12" y="6" width="7" height="6" rx="1.5" transform="rotate(35 15.5 9)" />
@@ -361,14 +361,14 @@ const laser = (
   </>
 );
 
-const lanterna = (
+const flashlight = (
   <>
     <rect x="4" y="9" width="9" height="6" rx="1.5" />
     <path d="M14 9l6-2.5v11L14 15z" />
   </>
 );
 
-const telemetro = (
+const rangeFinder = (
   <>
     <rect x="4" y="8" width="12" height="8" rx="1.5" />
     <path d="M16 12h4" />
@@ -379,108 +379,108 @@ const telemetro = (
 /* ------------------------------- Resolução ------------------------------- */
 
 /** Ícone genérico do slot, quando nada mais específico se aplica. */
-const POR_SLOT: Record<SlotId, React.ReactNode> = {
-  mira: pontoVermelho,
-  boca: freio,
-  cano: cano(12),
-  acoplamento: verticalGrip,
-  carregador: carregadorCurto,
-  municao: cartucho('cheia'),
-  ergonomia: gatilho,
-  opticoExtra: ampliador,
-  lateralEsquerda: laser,
-  lateralDireita: laser,
+const BY_SLOT: Record<SlotId, React.ReactNode> = {
+  sight: redDot,
+  muzzle: brake,
+  barrel: barrelGlyph(12),
+  underbarrel: verticalGrip,
+  magazine: shortMag,
+  ammo: cartridge('cheia'),
+  ergonomics: trigger,
+  opticAccessory: magnifier,
+  leftRail: laser,
+  rightRail: laser,
 };
 
 /**
  * Escolhe o desenho pela palavra-chave do nome original. A ordem importa: o
  * termo mais específico vem antes ('flash hider' antes de 'flash').
  */
-function desenhoPara(attachment: Attachment): React.ReactNode {
+function glyphFor(attachment: Attachment): React.ReactNode {
   const n = attachment.originalName.toLowerCase();
   const amp = Number(n.match(/(\d+(?:\.\d+)?)x/)?.[1] ?? 0);
 
   switch (attachment.slot) {
-    case 'mira':
-      if (n.includes('iron') || n.includes('aperture') || n.includes('cqb')) return ferro;
-      if (n.includes('lpvo') || n.includes('variable')) return variavel;
-      if (n.includes('holo')) return holografica;
+    case 'sight':
+      if (n.includes('iron') || n.includes('aperture') || n.includes('cqb')) return ironSights;
+      if (n.includes('lpvo') || n.includes('variable')) return variableScope;
+      if (n.includes('holo')) return holographic;
       // A ampliação separa quatro formatos de corpo, como no jogo: pontual,
       // prismático curto, luneta média e luneta longa de precisão.
-      if (amp >= 4) return lunetaLonga;
-      if (amp >= 2.5) return lunetaMedia;
-      if (amp >= 1.5) return prisma;
-      return pontoVermelho;
+      if (amp >= 4) return longScope;
+      if (amp >= 2.5) return mediumScope;
+      if (amp >= 1.5) return prism;
+      return redDot;
 
-    case 'boca':
-      if (n.includes('suppressor')) return supressor;
-      if (n.includes('thread')) return rosca;
-      if (n.includes('flash hider')) return quebraChamas;
-      if (n.includes('comp')) return compensador;
-      if (n.includes('brake')) return freio;
-      return freio;
+    case 'muzzle':
+      if (n.includes('suppressor')) return suppressor;
+      if (n.includes('thread')) return threadProtector;
+      if (n.includes('flash hider')) return flashHider;
+      if (n.includes('comp')) return compensator;
+      if (n.includes('brake')) return brake;
+      return brake;
 
-    case 'cano': {
+    case 'barrel': {
       // O comprimento vem em polegadas ou em milímetros, conforme a arma.
       const mm = Number(n.match(/(\d+)\s*mm/)?.[1] ?? 0);
-      const polegadas = mm ? mm / 25.4 : Number(n.match(/(\d+(?:[.,]\d+)?)"/)?.[1]?.replace(',', '.') ?? 14);
-      const ate = polegadas >= 20 ? 22 : polegadas >= 16 ? 20 : polegadas >= 13 ? 17.5 : polegadas >= 11 ? 15 : 12.5;
+      const inches = mm ? mm / 25.4 : Number(n.match(/(\d+(?:[.,]\d+)?)"/)?.[1]?.replace(',', '.') ?? 14);
+      const endsAt = inches >= 20 ? 22 : inches >= 16 ? 20 : inches >= 13 ? 17.5 : inches >= 11 ? 15 : 12.5;
 
-      if (n.includes('heavy') || n.includes('hbar') || n.includes('lsw')) return cano(ate, 'pesado');
-      if (n.includes('fluted')) return cano(ate, 'estriado');
-      if (n.includes('pencil') || n.includes('light')) return cano(ate, 'fino');
-      return cano(ate);
+      if (n.includes('heavy') || n.includes('hbar') || n.includes('lsw')) return barrelGlyph(endsAt, 'pesado');
+      if (n.includes('fluted')) return barrelGlyph(endsAt, 'estriado');
+      if (n.includes('pencil') || n.includes('light')) return barrelGlyph(endsAt, 'fino');
+      return barrelGlyph(endsAt);
     }
 
-    case 'acoplamento':
-      if (n.includes('bipod') || n.includes('grip pod')) return bipe;
+    case 'underbarrel':
+      if (n.includes('bipod') || n.includes('grip pod')) return bipod;
       if (n.includes('vertical')) return verticalGrip;
       if (n.includes('angled')) return angularGrip;
-      if (n.includes('handstop')) return apoioMao;
-      if (n.includes('stubby')) return curtaGrip;
-      if (n.includes('mount')) return suporteInferior;
+      if (n.includes('handstop')) return handstopGrip;
+      if (n.includes('stubby')) return stubbyGrip;
+      if (n.includes('mount')) return underbarrelMount;
       if (n.includes('mw') || n.includes('laser')) return laser;
-      if (n.includes('flashlight')) return lanterna;
+      if (n.includes('flashlight')) return flashlight;
       return verticalGrip;
 
-    case 'carregador':
-      if (n.includes('shell')) return tuboEscopeta;
+    case 'magazine':
+      if (n.includes('shell')) return shellTube;
       if (n.includes('speedloader')) return speedloader;
-      if (n.includes('drum')) return tambor;
-      if (n.includes('belt box')) return caixaFita;
-      if (n.includes('belt')) return fita;
-      return (attachment.magazineSize ?? 0) >= 35 ? carregadorLongo : carregadorCurto;
+      if (n.includes('drum')) return drumMag;
+      if (n.includes('belt box')) return beltBox;
+      if (n.includes('belt')) return ammoBelt;
+      return (attachment.magazineSize ?? 0) >= 35 ? longMag : shortMag;
 
-    case 'municao':
-      if (n.includes('buck') || n.includes('flechette') || n.includes('slug')) return cartuchoEscopeta;
-      if (n.includes('hollow')) return cartucho('oca');
-      if (n.includes('frangible')) return cartucho('serrilhada');
-      if (n.includes('polymer') || n.includes('match')) return cartucho('plana');
-      return cartucho('cheia');
+    case 'ammo':
+      if (n.includes('buck') || n.includes('flechette') || n.includes('slug')) return shotgunShell;
+      if (n.includes('hollow')) return cartridge('oca');
+      if (n.includes('frangible')) return cartridge('serrilhada');
+      if (n.includes('polymer') || n.includes('match')) return cartridge('plana');
+      return cartridge('cheia');
 
-    case 'ergonomia':
-      if (n.includes('trigger')) return gatilho;
-      if (n.includes('bolt')) return ferrolho;
-      if (n.includes('mag catch')) return retentor;
-      if (n.includes('magwell')) return funil;
-      if (n.includes('rail cover')) return capaTrilho;
+    case 'ergonomics':
+      if (n.includes('trigger')) return trigger;
+      if (n.includes('bolt')) return bolt;
+      if (n.includes('mag catch')) return magCatch;
+      if (n.includes('magwell')) return magwell;
+      if (n.includes('rail cover')) return railCover;
       if (n.includes('receiver')) return receiver;
-      return gatilho;
+      return trigger;
 
-    case 'opticoExtra':
-      if (n.includes('magnification')) return ampliador;
-      if (n.includes('anti-glare')) return antirreflexo;
-      if (n.includes('canted') || n.includes('piggyback')) return inclinada;
-      return ampliador;
+    case 'opticAccessory':
+      if (n.includes('magnification')) return magnifier;
+      if (n.includes('anti-glare')) return antiGlare;
+      if (n.includes('canted') || n.includes('piggyback')) return cantedMount;
+      return magnifier;
 
-    case 'lateralEsquerda':
-    case 'lateralDireita':
-      if (n.includes('range finder')) return telemetro;
-      if (n.includes('flashlight')) return lanterna;
+    case 'leftRail':
+    case 'rightRail':
+      if (n.includes('range finder')) return rangeFinder;
+      if (n.includes('flashlight')) return flashlight;
       return laser;
 
     default:
-      return POR_SLOT[attachment.slot];
+      return BY_SLOT[attachment.slot];
   }
 }
 
@@ -501,9 +501,9 @@ export function AttachmentIcon({
       height={size}
       aria-hidden
       style={{ display: 'block' }}
-      {...TRACO}
+      {...STROKE}
     >
-      {attachment ? desenhoPara(attachment) : POR_SLOT[slot]}
+      {attachment ? glyphFor(attachment) : BY_SLOT[slot]}
     </svg>
   );
 }

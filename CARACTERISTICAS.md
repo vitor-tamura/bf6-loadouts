@@ -47,7 +47,7 @@ de WebView, e pode ser instalada na tela inicial como aplicativo (PWA).
 O quadro de preview mostra a arma como ela aparece no Battlefield 6. As fontes,
 em ordem:
 
-1. **`public/armas/<id>.png`** — arte própria, se alguém colocar uma;
+1. **`public/weapons/<id>.png`** — arte própria, se alguém colocar uma;
 2. **Foto do jogo** — carregada de fonte externa: a arte de catálogo da
    Battlefield Wiki e, como reserva, um render de terceiros;
 3. **Marcador** com o nome da arma, quando não há nem uma nem outra.
@@ -162,12 +162,12 @@ melhoria aparece como multiplicador abaixo de 1.
 
 ## Procedência dos números
 
-Cada arma e cada acessório carrega um campo `procedencia`:
+Cada arma e cada acessório carrega um campo `provenance`:
 
-- **`jogo`** — valor levantado do jogo ou de medições publicadas pela comunidade.
-- **`curado`** — valor calibrado por analogia, quando não havia medição publicada.
+- **`game`** — valor levantado do jogo ou de medições publicadas pela comunidade.
+- **`curated`** — valor calibrado por analogia, quando não havia medição publicada.
 
-Tudo marcado como `curado` aparece na interface com o sinal **≈** e, quando o
+Tudo marcado como `curated` aparece na interface com o sinal **≈** e, quando o
 loadout usa alguma dessas peças, um aviso explica em texto o que isso significa.
 
 O que sustenta cada tipo de número:

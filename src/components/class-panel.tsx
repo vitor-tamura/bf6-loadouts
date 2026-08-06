@@ -25,7 +25,7 @@ export function ClassSelector({
 
   return (
     <section>
-      <h2 className="rotulo mb-2">Classe</h2>
+      <h2 className="label mb-2">Classe</h2>
       <div className="grid grid-cols-2 gap-1.5">
         {CLASSES.map((c) => {
           const active = c.id === current;
@@ -35,19 +35,19 @@ export function ClassSelector({
               type="button"
               onClick={() => onSelect(c.id)}
               aria-pressed={active}
-              className="chanfro-sm toque px-2 py-2 text-center transition-colors"
+              className="bevel-sm touch px-2 py-2 text-center transition-colors"
               style={{
-                background: active ? `color-mix(in oklab, ${c.color} 20%, var(--superficie))` : 'var(--superficie)',
-                border: `1px solid ${active ? c.color : 'var(--borda-suave)'}`,
+                background: active ? `color-mix(in oklab, ${c.color} 20%, var(--surface))` : 'var(--surface)',
+                border: `1px solid ${active ? c.color : 'var(--border-soft)'}`,
               }}
             >
               <span
                 className="font-display block text-sm font-semibold tracking-wide"
-                style={{ color: active ? c.color : 'var(--texto-suave)' }}
+                style={{ color: active ? c.color : 'var(--text-soft)' }}
               >
                 {c.name}
               </span>
-              <span className="block text-[10px]" style={{ color: 'var(--texto-fraco)' }}>
+              <span className="block text-[10px]" style={{ color: 'var(--text-dim)' }}>
                 {c.role}
               </span>
             </button>
@@ -55,10 +55,10 @@ export function ClassSelector({
         })}
       </div>
 
-      <p className="mt-2 text-[12px] leading-snug" style={{ color: 'var(--texto-suave)' }}>
+      <p className="mt-2 text-[12px] leading-snug" style={{ color: 'var(--text-soft)' }}>
         {playerClass.summary}
       </p>
-      <p className="mt-1 text-[11px] leading-snug" style={{ color: 'var(--texto-fraco)' }}>
+      <p className="mt-1 text-[11px] leading-snug" style={{ color: 'var(--text-dim)' }}>
         <strong style={{ color: playerClass.color }}>Traço:</strong> {playerClass.trait}
       </p>
     </section>
@@ -80,7 +80,7 @@ function EquipmentList({
 }) {
   return (
     <div>
-      <h3 className="rotulo mb-1.5">{title}</h3>
+      <h3 className="label mb-1.5">{title}</h3>
       <ul className="grid gap-1">
         {allowEmpty && (
           <li>
@@ -88,8 +88,8 @@ function EquipmentList({
               type="button"
               onClick={() => onSelect(null)}
               aria-pressed={selected === null}
-              className="toque w-full px-2.5 py-1.5 text-left text-sm"
-              style={{ color: selected === null ? 'var(--texto)' : 'var(--texto-fraco)' }}
+              className="touch w-full px-2.5 py-1.5 text-left text-sm"
+              style={{ color: selected === null ? 'var(--text)' : 'var(--text-dim)' }}
             >
               Nenhum
             </button>
@@ -103,20 +103,20 @@ function EquipmentList({
                 type="button"
                 onClick={() => onSelect(item.id)}
                 aria-pressed={active}
-                className="chanfro-sm toque flex w-full items-start gap-2.5 px-2.5 py-1.5 text-left transition-colors"
+                className="bevel-sm touch flex w-full items-start gap-2.5 px-2.5 py-1.5 text-left transition-colors"
                 style={{
-                  background: active ? 'color-mix(in oklab, var(--destaque) 18%, transparent)' : 'transparent',
+                  background: active ? 'color-mix(in oklab, var(--accent) 18%, transparent)' : 'transparent',
                 }}
               >
                 <span
                   className="mt-0.5"
-                  style={{ color: active ? 'var(--destaque)' : 'var(--texto-fraco)', lineHeight: 0 }}
+                  style={{ color: active ? 'var(--accent)' : 'var(--text-dim)', lineHeight: 0 }}
                 >
                   <GadgetIcon gadget={item} size={28} />
                 </span>
                 <span className="min-w-0">
                   <span className="block text-sm font-medium">{item.name}</span>
-                  <span className="block text-[11px] leading-snug" style={{ color: 'var(--texto-fraco)' }}>
+                  <span className="block text-[11px] leading-snug" style={{ color: 'var(--text-dim)' }}>
                     {item.description}
                   </span>
                 </span>
@@ -154,16 +154,16 @@ export function EquipmentPanel({
   return (
     <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
       <div>
-        <h3 className="rotulo mb-1.5">Arma secundária</h3>
+        <h3 className="label mb-1.5">Arma secundária</h3>
         <button
           type="button"
           onClick={onOpenSidearm}
-          className="cartao chanfro-sm toque flex w-full items-center justify-between px-3 py-2 text-left"
+          className="card bevel-sm touch flex w-full items-center justify-between px-3 py-2 text-left"
         >
-          <span className="text-sm" style={{ color: weapon ? 'var(--texto)' : 'var(--texto-fraco)' }}>
+          <span className="text-sm" style={{ color: weapon ? 'var(--text)' : 'var(--text-dim)' }}>
             {weapon ? weapon.name : 'Escolher secundária'}
           </span>
-          <span aria-hidden style={{ color: 'var(--texto-fraco)' }}>
+          <span aria-hidden style={{ color: 'var(--text-dim)' }}>
             ›
           </span>
         </button>

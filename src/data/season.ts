@@ -9,7 +9,7 @@
  * Para vestir uma temporada nova bastam duas coisas:
  *
  * 1. uma entrada em [SEASONS], com `theme` batendo com
- * 2. um bloco `:root[data-temporada='<theme>']` em `globals.css`.
+ * 2. um bloco `:root[data-season='<theme>']` em `globals.css`.
  *
  * Uma entrada sem `theme` correspondente no CSS não quebra nada: a interface
  * fica no padrão e a etiqueta continua aparecendo.
@@ -61,14 +61,14 @@ export const SEASONS: Season[] = [
 
 /** A temporada no ar em uma data, ou `null` fora de qualquer janela. */
 export function seasonOn(date: Date): Season | null {
-  const dia = date.toISOString().slice(0, 10);
-  return SEASONS.find((s) => s.startsOn <= dia && dia <= s.endsOn) ?? null;
+  const day = date.toISOString().slice(0, 10);
+  return SEASONS.find((s) => s.startsOn <= day && day <= s.endsOn) ?? null;
 }
 
 /** A fase no ar dentro da temporada. */
 export function phaseOn(date: Date, season: Season): SeasonPhase {
-  const dia = date.toISOString().slice(0, 10);
-  return season.phases.filter((f) => f.startsOn <= dia).at(-1) ?? season.phases[0];
+  const day = date.toISOString().slice(0, 10);
+  return season.phases.filter((f) => f.startsOn <= day).at(-1) ?? season.phases[0];
 }
 
 /** Etiqueta curta da temporada no ar: `T4 · Pacific Front`. */
@@ -78,7 +78,7 @@ export function seasonLabel(date: Date): string | null {
 }
 
 /**
- * Valor do atributo `data-temporada` no `<html>`.
+ * Valor do atributo `data-season` no `<html>`.
  *
  * Fora de temporada — ou em temporada sem tema próprio — devolve `undefined`, e
  * o CSS aplica o tema padrão.

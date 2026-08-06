@@ -17,7 +17,7 @@ export interface Loadout {
 }
 
 export const EMPTY_LOADOUT: Loadout = {
-  playerClass: 'assalto',
+  playerClass: 'assault',
   weapon: null,
   attachments: {},
   sidearm: null,
@@ -62,7 +62,7 @@ export function stripIncompatible(loadout: Loadout): Loadout {
     if (!id) return null;
     const g = GADGETS_BY_ID.get(id);
     if (!g) return null;
-    return g.playerClass === loadout.playerClass || g.playerClass === 'todas' ? id : null;
+    return g.playerClass === loadout.playerClass || g.playerClass === 'all' ? id : null;
   };
 
   return {

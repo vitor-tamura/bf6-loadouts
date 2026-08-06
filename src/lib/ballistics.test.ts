@@ -63,42 +63,42 @@ describe('alcance efetivo', () => {
     // Nenhuma arma do dataset atual é plana, mas o cálculo precisa continuar
     // respondendo quando uma for: sem degrau que exija outro tiro, não há
     // alcance efetivo a apontar.
-    const plana = { ...ak4d, damage: [{ damage: 25, distance: 0 }] };
-    expect(effectiveRange(plana)).toBe(0);
+    const flat = { ...ak4d, damage: [{ damage: 25, distance: 0 }] };
+    expect(effectiveRange(flat)).toBe(0);
   });
 
   it('cresce quando um cano mais longo empurra os degraus', () => {
     const weapon = WEAPONS_BY_ID.get('ak4d')!;
-    const comCano = calculateStats(weapon, resolveAttachments(['cano-600mm-dmr']));
-    expect(effectiveRange(comCano)).toBeGreaterThan(effectiveRange(ak4d));
+    const withBarrel = calculateStats(weapon, resolveAttachments(['barrel-600mm-dmr']));
+    expect(effectiveRange(withBarrel)).toBeGreaterThan(effectiveRange(ak4d));
   });
 });
 
 describe('queda do projétil', () => {
   it('parte de zero na boca do cano e cresce com a distância', () => {
     expect(bulletDrop(ak4d, 0)).toBe(0);
-    const q100 = bulletDrop(ak4d, 100);
-    const q200 = bulletDrop(ak4d, 200);
-    expect(q100).toBeGreaterThan(0);
-    expect(q200).toBeGreaterThan(q100 * 2); // acelera, não é linear
+    const drop100 = bulletDrop(ak4d, 100);
+    const drop200 = bulletDrop(ak4d, 200);
+    expect(drop100).toBeGreaterThan(0);
+    expect(drop200).toBeGreaterThan(drop100 * 2); // acelera, não é linear
   });
 
   it('fica em valores plausíveis para um fuzil a 100 m', () => {
-    const queda = bulletDrop(ak4d, 100);
-    expect(queda).toBeGreaterThan(0.05);
-    expect(queda).toBeLessThan(0.2);
+    const drop = bulletDrop(ak4d, 100);
+    expect(drop).toBeGreaterThan(0.05);
+    expect(drop).toBeLessThan(0.2);
   });
 
   it('cai menos quando a bala é mais rápida', () => {
     const weapon = WEAPONS_BY_ID.get('ak4d')!;
-    const comCano = calculateStats(weapon, resolveAttachments(['cano-600mm-dmr']));
-    expect(bulletDrop(comCano, 150)).toBeLessThan(bulletDrop(ak4d, 150));
+    const withBarrel = calculateStats(weapon, resolveAttachments(['barrel-600mm-dmr']));
+    expect(bulletDrop(withBarrel, 150)).toBeLessThan(bulletDrop(ak4d, 150));
   });
 
   it('cai mais quando o supressor freia a bala', () => {
     const weapon = WEAPONS_BY_ID.get('ak4d')!;
-    const suprimida = calculateStats(weapon, resolveAttachments(['boca-cqb-suppressor']));
-    expect(bulletDrop(suprimida, 150)).toBeGreaterThan(bulletDrop(ak4d, 150));
+    const suppressed = calculateStats(weapon, resolveAttachments(['muzzle-cqb-suppressor']));
+    expect(bulletDrop(suppressed, 150)).toBeGreaterThan(bulletDrop(ak4d, 150));
   });
 
   it('não calcula voo para arma de corpo a corpo', () => {
@@ -112,10 +112,10 @@ describe('curvas dos gráficos', () => {
   it('desenha a queda de dano em ângulo reto', () => {
     const points = damageCurve(ak4d, 100);
     // Cada transição repete a distância: uma vez fechando o patamar, outra abrindo.
-    const em20 = points.filter((p) => p.distance === 20);
-    expect(em20).toHaveLength(2);
-    expect(em20[0].value).toBe(28);
-    expect(em20[1].value).toBe(26);
+    const at20 = points.filter((p) => p.distance === 20);
+    expect(at20).toHaveLength(2);
+    expect(at20[0].value).toBe(28);
+    expect(at20[1].value).toBe(26);
   });
 
   it('estende a curva até o limite pedido', () => {
@@ -132,7 +132,7 @@ describe('curvas dos gráficos', () => {
 
   it('escolhe uma distância de análise coerente para cada arma', () => {
     for (const weapon of WEAPONS) {
-      if (weapon.category === 'corpo-a-corpo') continue;
+      if (weapon.category === 'melee') continue;
       const distance = analysisDistance(baseStats(weapon));
       expect(distance, weapon.name).toBeGreaterThanOrEqual(100);
       expect(distance, weapon.name).toBeLessThanOrEqual(400);

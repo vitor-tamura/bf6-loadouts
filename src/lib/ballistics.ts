@@ -33,9 +33,9 @@ export function damagePerShot(stats: EffectiveStats, distance: number): number {
 export function shotsToKill(
   stats: EffectiveStats,
   distance: number,
-  cabeca = false,
+  head = false,
 ): number {
-  const damage = damagePerShot(stats, distance) * (cabeca ? stats.headshot : 1);
+  const damage = damagePerShot(stats, distance) * (head ? stats.headshot : 1);
   if (damage <= 0) return Infinity;
   return Math.ceil(FULL_HEALTH / damage);
 }
@@ -47,9 +47,9 @@ export function shotsToKill(
 export function timeToKill(
   stats: EffectiveStats,
   distance: number,
-  cabeca = false,
+  head = false,
 ): number {
-  const shots = shotsToKill(stats, distance, cabeca);
+  const shots = shotsToKill(stats, distance, head);
   if (!Number.isFinite(shots) || stats.rpm <= 0) return Infinity;
   return (shots - 1) * (60_000 / stats.rpm);
 }
@@ -69,12 +69,12 @@ export function damagePerSecond(stats: EffectiveStats, distance = 0): number {
  * o número que mais importa na hora de escolher munição e cano.
  */
 export function effectiveRange(stats: EffectiveStats): number {
-  const tirosDePerto = shotsToKill(stats, 0);
+  const closeShots = shotsToKill(stats, 0);
   for (const step of stats.damage) {
     if (step.distance === 0) continue;
     const damage = step.damage * stats.pellets;
     if (damage <= 0) continue;
-    if (Math.ceil(FULL_HEALTH / damage) > tirosDePerto) return step.distance;
+    if (Math.ceil(FULL_HEALTH / damage) > closeShots) return step.distance;
   }
   return stats.damage[stats.damage.length - 1]?.distance ?? 0;
 }

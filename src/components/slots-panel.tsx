@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { attachmentsForWeapon } from '@/data/attachments';
 import { POINT_BUDGET, SLOTS_BY_ID } from '@/data/classes';
 import type { Attachment, Weapon, StatKey, SlotId, WeaponCategory } from '@/data/types';
@@ -71,22 +71,22 @@ export function BudgetBar({ budget }: { budget: Budget }) {
   return (
     <div>
       <div className="mb-1 flex items-baseline justify-between">
-        <span className="rotulo">Pontos de personalização</span>
+        <span className="label">Pontos de personalização</span>
         <span className="font-mono text-sm">
-          <span style={{ color: tight ? 'var(--destaque)' : 'var(--texto)' }}>{budget.spent}</span>
-          <span style={{ color: 'var(--texto-fraco)' }}> / {budget.total}</span>
+          <span style={{ color: tight ? 'var(--accent)' : 'var(--text)' }}>{budget.spent}</span>
+          <span style={{ color: 'var(--text-dim)' }}> / {budget.total}</span>
         </span>
       </div>
-      <div className="h-2.5 overflow-hidden" style={{ background: 'var(--borda-suave)' }}>
+      <div className="h-2.5 overflow-hidden" style={{ background: 'var(--border-soft)' }}>
         <div
           className="h-full transition-[width] duration-300"
           style={{
             width: `${ratio}%`,
-            background: budget.overBudget ? 'var(--color-negativo)' : 'var(--destaque)',
+            background: budget.overBudget ? 'var(--color-negative)' : 'var(--accent)',
           }}
         />
       </div>
-      <p className="mt-1 text-[11px]" style={{ color: 'var(--texto-fraco)' }}>
+      <p className="mt-1 text-[11px]" style={{ color: 'var(--text-dim)' }}>
         {budget.overBudget
           ? 'Orçamento estourado — remova alguma peça.'
           : `Restam ${budget.remaining} pontos para gastar.`}
@@ -106,12 +106,13 @@ export function SlotsPanel({
   onSelect: (slot: SlotId, id: string | null) => void;
   currentSpend: number;
 }) {
-  const [open, setAberto] = useState<SlotId | null>(null);
+  const [open, setOpen] = useState<SlotId | null>(null);
+  const mounted = useCollapse(open);
   const bySlot = attachmentsForWeapon(weapon);
 
   if (bySlot.size === 0) {
     return (
-      <p className="cartao chanfro p-4 text-sm" style={{ color: 'var(--texto-fraco)' }}>
+      <p className="card bevel p-4 text-sm" style={{ color: 'var(--text-dim)' }}>
         Armas de corpo a corpo não recebem acessórios.
       </p>
     );
@@ -126,64 +127,72 @@ export function SlotsPanel({
       {orderedSlots.map((slot) => {
         const definition = SLOTS_BY_ID.get(slot)!;
         const options = bySlot.get(slot)!;
-        const atualId = chosen[slot];
-        const current = options.find((o) => o.id === atualId) ?? null;
+        const currentId = chosen[slot];
+        const current = options.find((o) => o.id === currentId) ?? null;
         const expanded = open === slot;
 
         return (
           <div key={slot} className="contents">
             <button
               type="button"
-              onClick={() => setAberto(expanded ? null : slot)}
+              onClick={() => setOpen(expanded ? null : slot)}
               aria-expanded={expanded}
-              className="cartao chanfro-sm flex flex-col items-center gap-1 p-2 text-center transition-colors"
+              className="card bevel-sm flex flex-col items-center gap-1 p-2 text-center transition-colors"
               style={{
                 borderColor: expanded
-                  ? 'var(--destaque)'
+                  ? 'var(--accent)'
                   : current
-                    ? 'color-mix(in oklab, var(--destaque) 45%, var(--borda-suave))'
-                    : 'var(--borda-suave)',
+                    ? 'color-mix(in oklab, var(--accent) 45%, var(--border-soft))'
+                    : 'var(--border-soft)',
               }}
             >
-              <span className="rotulo w-full truncate">{definition.name}</span>
+              <span className="label w-full truncate">{definition.name}</span>
 
               <span
                 className="flex h-14 w-full items-center justify-center"
-                style={{ background: 'var(--superficie-alta)' }}
+                style={{ background: 'var(--surface-raised)' }}
               >
                 <AttachmentThumb attachment={current} slot={slot} size={52} />
               </span>
 
               <span
                 className="line-clamp-2 w-full text-[12px] leading-tight"
-                style={{ color: current ? 'var(--texto)' : 'var(--texto-fraco)' }}
+                style={{ color: current ? 'var(--text)' : 'var(--text-dim)' }}
               >
                 {current ? current.name : 'Vazio'}
               </span>
 
-              <span className="font-mono text-[11px]" style={{ color: 'var(--texto-fraco)' }}>
+              <span className="font-mono text-[11px]" style={{ color: 'var(--text-dim)' }}>
                 {current ? `${current.cost} pts` : '—'}
               </span>
             </button>
 
-            {/* A lista abre na largura toda, logo abaixo da linha do bloco. */}
-            {expanded && (
-              <div className="col-span-full">
-                <div className="cartao chanfro-sm p-2" style={{ borderColor: 'var(--destaque)' }}>
+            {/*
+              A lista abre na largura toda, logo abaixo da linha do bloco.
+
+              Ela fica montada durante a saída — daí `mounted` em vez de
+              `expanded` — para que fechar seja tão animado quanto abrir. Só o
+              slot aberto e o que está saindo existem no DOM, então nunca há
+              mais de duas listas montadas ao mesmo tempo.
+            */}
+            {mounted === slot && (
+              <div className="collapse col-span-full" data-open={expanded}>
+                <div>
+                <div className="card bevel-sm mt-1 p-2" style={{ borderColor: 'var(--accent)' }}>
                   <div className="mb-2 flex items-baseline justify-between gap-2">
                     <h4 className="font-display text-sm font-semibold tracking-wide">
                       {definition.name}
                     </h4>
                     <button
                       type="button"
-                      onClick={() => setAberto(null)}
+                      onClick={() => setOpen(null)}
                       className="px-1 text-xs"
-                      style={{ color: 'var(--texto-fraco)' }}
+                      style={{ color: 'var(--text-dim)' }}
                     >
                       fechar
                     </button>
                   </div>
-                  <p className="mb-2 text-[11px]" style={{ color: 'var(--texto-fraco)' }}>
+                  <p className="mb-2 text-[11px]" style={{ color: 'var(--text-dim)' }}>
                     {definition.description}
                   </p>
 
@@ -191,7 +200,7 @@ export function SlotsPanel({
                     <li>
                       <EmptyOption
                         slot={slot}
-                        active={!atualId}
+                        active={!currentId}
                         onSelect={() => onSelect(slot, null)}
                       />
                     </li>
@@ -203,7 +212,7 @@ export function SlotsPanel({
                             attachment={option}
                             slot={slot}
                             category={weapon.category}
-                            active={option.id === atualId}
+                            active={option.id === currentId}
                             fits={fits}
                             onSelect={() => onSelect(slot, option.id)}
                           />
@@ -212,6 +221,7 @@ export function SlotsPanel({
                     })}
                   </ul>
                 </div>
+                </div>
               </div>
             )}
           </div>
@@ -219,6 +229,29 @@ export function SlotsPanel({
       })}
     </div>
   );
+}
+
+/**
+ * Segura o bloco no DOM enquanto ele fecha.
+ *
+ * Sem isso o React desmontaria a lista no clique e não haveria o que animar — a
+ * abertura seria suave e o fechamento, um corte seco. O valor devolvido é o
+ * slot que deve estar montado: o aberto, ou o que acabou de fechar até a
+ * animação terminar.
+ */
+function useCollapse(open: SlotId | null, ms = 280): SlotId | null {
+  const [mounted, setMounted] = useState(open);
+
+  useEffect(() => {
+    if (open) {
+      setMounted(open);
+      return;
+    }
+    const timer = setTimeout(() => setMounted(null), ms);
+    return () => clearTimeout(timer);
+  }, [open, ms]);
+
+  return mounted;
 }
 
 function EmptyOption({
@@ -235,19 +268,19 @@ function EmptyOption({
       type="button"
       onClick={onSelect}
       aria-pressed={active}
-      className="chanfro-sm flex w-full items-center gap-2 px-2 py-2 text-left"
+      className="bevel-sm flex w-full items-center gap-2 px-2 py-2 text-left"
       style={{
-        background: active ? 'color-mix(in oklab, var(--destaque) 18%, transparent)' : 'transparent',
-        border: '1px solid var(--borda-suave)',
+        background: active ? 'color-mix(in oklab, var(--accent) 18%, transparent)' : 'transparent',
+        border: '1px solid var(--border-soft)',
       }}
     >
       <span className="flex h-10 w-10 shrink-0 items-center justify-center">
         <AttachmentThumb attachment={null} slot={slot} size={32} />
       </span>
-      <span className="flex-1 text-sm" style={{ color: active ? 'var(--texto)' : 'var(--texto-fraco)' }}>
+      <span className="flex-1 text-sm" style={{ color: active ? 'var(--text)' : 'var(--text-dim)' }}>
         Vazio
       </span>
-      <span className="font-mono text-xs" style={{ color: 'var(--texto-fraco)' }}>
+      <span className="font-mono text-xs" style={{ color: 'var(--text-dim)' }}>
         0 pts
       </span>
     </button>
@@ -277,16 +310,16 @@ function AttachmentOption({
       onClick={onSelect}
       disabled={!fits && !active}
       aria-pressed={active}
-      className="chanfro-sm flex w-full gap-2 px-2 py-2 text-left transition-colors disabled:cursor-not-allowed"
+      className="bevel-sm flex w-full gap-2 px-2 py-2 text-left transition-colors disabled:cursor-not-allowed"
       style={{
-        background: active ? 'color-mix(in oklab, var(--destaque) 18%, transparent)' : 'transparent',
-        border: `1px solid ${active ? 'var(--destaque)' : 'var(--borda-suave)'}`,
+        background: active ? 'color-mix(in oklab, var(--accent) 18%, transparent)' : 'transparent',
+        border: `1px solid ${active ? 'var(--accent)' : 'var(--border-soft)'}`,
         opacity: !fits && !active ? 0.4 : 1,
       }}
     >
       <span
         className="flex h-12 w-12 shrink-0 items-center justify-center"
-        style={{ background: 'var(--superficie-alta)' }}
+        style={{ background: 'var(--surface-raised)' }}
       >
         <AttachmentThumb attachment={attachment} slot={slot} size={40} />
       </span>
@@ -296,38 +329,38 @@ function AttachmentOption({
           <span className="text-sm font-medium">
             {attachment.name}
             {attachment.magnification && attachment.magnification > 1 && (
-              <span style={{ color: 'var(--texto-fraco)' }}> · {attachment.magnification}×</span>
+              <span style={{ color: 'var(--text-dim)' }}> · {attachment.magnification}×</span>
             )}
           </span>
           <span
             className="shrink-0 font-mono text-xs"
-            style={{ color: active ? 'var(--destaque)' : 'var(--texto-fraco)' }}
+            style={{ color: active ? 'var(--accent)' : 'var(--text-dim)' }}
           >
             {attachment.cost} pts
           </span>
         </span>
 
-        <span className="mt-0.5 block text-[11px] leading-snug" style={{ color: 'var(--texto-fraco)' }}>
+        <span className="mt-0.5 block text-[11px] leading-snug" style={{ color: 'var(--text-dim)' }}>
           {attachment.description}
         </span>
 
         {list.length > 0 && (
           <span className="mt-1 flex flex-wrap gap-x-2 gap-y-0.5 font-mono text-[11px]">
-            {list.map((efeito) => (
+            {list.map((effect) => (
               <span
-                key={efeito.text}
-                style={{ color: efeito.good ? 'var(--color-positivo)' : 'var(--color-negativo)' }}
+                key={effect.text}
+                style={{ color: effect.good ? 'var(--color-positive)' : 'var(--color-negative)' }}
               >
-                {efeito.text}
+                {effect.text}
               </span>
             ))}
           </span>
         )}
 
-        <span className="mt-0.5 flex flex-wrap items-center gap-2 text-[10px]" style={{ color: 'var(--texto-fraco)' }}>
+        <span className="mt-0.5 flex flex-wrap items-center gap-2 text-[10px]" style={{ color: 'var(--text-dim)' }}>
           <span>{attachment.originalName}</span>
-          {attachment.provenance === 'curado' && <span title="Efeito aproximado">≈ aproximado</span>}
-          {!fits && !active && <span style={{ color: 'var(--color-negativo)' }}>não cabe no orçamento</span>}
+          {attachment.provenance === 'curated' && <span title="Efeito aproximado">≈ aproximado</span>}
+          {!fits && !active && <span style={{ color: 'var(--color-negative)' }}>não cabe no orçamento</span>}
         </span>
       </span>
     </button>

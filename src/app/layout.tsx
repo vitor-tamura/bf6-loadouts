@@ -7,14 +7,14 @@ import './globals.css';
 const barlow = Barlow({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-  variable: '--fonte-corpo',
+  variable: '--font-body',
   display: 'swap',
 });
 
 const barlowCondensed = Barlow_Condensed({
   subsets: ['latin'],
   weight: ['500', '600', '700'],
-  variable: '--fonte-titulo',
+  variable: '--font-heading',
   display: 'swap',
 });
 
@@ -57,12 +57,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
    * padrão para o sazonal. Encerrada a temporada, o atributo simplesmente não
    * sai mais daqui e o site volta ao tema permanente no deploy seguinte.
    */
-  const temporada = seasonTheme(new Date(BUILD_DATE));
+  const season = seasonTheme(new Date(BUILD_DATE));
 
   return (
     <html
       lang="pt-BR"
-      data-temporada={temporada}
+      data-season={season}
       className={`${barlow.variable} ${barlowCondensed.variable}`}
     >
       <body className="min-h-dvh antialiased">{children}</body>

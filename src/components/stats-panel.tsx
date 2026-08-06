@@ -21,7 +21,7 @@ import type { Weapon } from '@/data/types';
 
 function DeltaArrow({ improves }: { improves: boolean }) {
   return (
-    <span aria-hidden style={{ color: improves ? 'var(--color-positivo)' : 'var(--color-negativo)' }}>
+    <span aria-hidden style={{ color: improves ? 'var(--color-positive)' : 'var(--color-negative)' }}>
       {improves ? '▲' : '▼'}
     </span>
   );
@@ -41,17 +41,19 @@ function StatBar({
   showBase: boolean;
 }) {
   const delta = compareStat(statKey, base, value);
-  const mostra = showBase && delta.changed;
+  const shows = showBase && delta.changed;
 
   return (
-    <div>
+    // `group` liga o hover da linha inteira à barra: passar o ponteiro em
+    // qualquer ponto da estatística acende a barra dela e engrossa o traço.
+    <div className="stat-row group" title={`${label}: ${Math.round(value)} de 100`}>
       <div className="mb-1 flex items-baseline justify-between gap-2">
-        <span className="rotulo">{label}</span>
+        <span className="label transition-colors group-hover:[color:var(--text-soft)]">{label}</span>
         <span className="flex items-baseline gap-1.5 font-mono text-sm">
-          {mostra && (
+          {shows && (
             <span
               className="text-[11px]"
-              style={{ color: delta.improves ? 'var(--color-positivo)' : 'var(--color-negativo)' }}
+              style={{ color: delta.improves ? 'var(--color-positive)' : 'var(--color-negative)' }}
             >
               <DeltaArrow improves={delta.improves} /> {delta.difference > 0 ? '+' : ''}
               {Math.round(delta.difference)}
@@ -66,36 +68,39 @@ function StatBar({
         dele, e o que ele tirou aparece em vermelho no lugar que a barra perdeu.
         O risco branco marca onde estava o valor de fábrica.
       */}
-      <div className="relative h-2.5 overflow-hidden" style={{ background: 'var(--borda-suave)' }}>
+      <div
+        className="stat-track relative h-2.5 overflow-hidden"
+        style={{ background: 'var(--border-soft)' }}
+      >
         <span
           className="absolute top-0 left-0 h-full transition-[width] duration-300"
-          style={{ width: `${Math.min(100, Math.min(base, value))}%`, background: 'var(--destaque)' }}
+          style={{ width: `${Math.min(100, Math.min(base, value))}%`, background: 'var(--accent)' }}
         />
 
-        {mostra && delta.improves && (
+        {shows && delta.improves && (
           <span
             className="absolute top-0 h-full transition-all duration-300"
             style={{
               left: `${Math.min(100, base)}%`,
               width: `${Math.max(0, Math.min(100, value) - Math.min(100, base))}%`,
-              background: 'var(--color-positivo)',
+              background: 'var(--color-positive)',
             }}
           />
         )}
 
-        {mostra && !delta.improves && (
+        {shows && !delta.improves && (
           <span
             className="absolute top-0 h-full transition-all duration-300"
             style={{
               left: `${Math.min(100, value)}%`,
               width: `${Math.max(0, Math.min(100, base) - Math.min(100, value))}%`,
-              background: 'var(--color-negativo)',
+              background: 'var(--color-negative)',
               opacity: 0.45,
             }}
           />
         )}
 
-        {mostra && (
+        {shows && (
           <span
             className="absolute top-0 h-full w-[2px] transition-[left] duration-300"
             title={`Valor de fábrica: ${Math.round(base)}`}
@@ -125,18 +130,18 @@ function StatNumber({
   showBase: boolean;
 }) {
   const delta = compareStat(statKey, base, value);
-  const mostra = showBase && delta.changed;
+  const shows = showBase && delta.changed;
 
   return (
-    <div className="flex items-baseline justify-between gap-2 border-b py-1.5" style={{ borderColor: 'var(--borda-suave)' }}>
-      <span className="text-sm" style={{ color: 'var(--texto-suave)' }}>
+    <div className="flex items-baseline justify-between gap-2 border-b py-1.5" style={{ borderColor: 'var(--border-soft)' }}>
+      <span className="text-sm" style={{ color: 'var(--text-soft)' }}>
         {label}
       </span>
       <span className="flex items-baseline gap-1.5">
-        {mostra && (
+        {shows && (
           <span
             className="font-mono text-[11px] whitespace-nowrap"
-            style={{ color: delta.improves ? 'var(--color-positivo)' : 'var(--color-negativo)' }}
+            style={{ color: delta.improves ? 'var(--color-positive)' : 'var(--color-negative)' }}
             title={`De fábrica: ${base.toFixed(decimals)}${unit ? ` ${unit}` : ''}`}
           >
             <DeltaArrow improves={delta.improves} />
@@ -147,7 +152,7 @@ function StatNumber({
         )}
         <span className="font-mono text-sm">
           {value.toFixed(decimals)}
-          {unit && <span style={{ color: 'var(--texto-fraco)' }}> {unit}</span>}
+          {unit && <span style={{ color: 'var(--text-dim)' }}> {unit}</span>}
         </span>
       </span>
     </div>
@@ -194,13 +199,13 @@ function DerivedStat({
   const percent = comparable && rawBase !== 0 ? (difference / rawBase) * 100 : 0;
 
   return (
-    <div className="cartao chanfro-sm px-3 py-2">
-      <p className="rotulo">{label}</p>
+    <div className="card bevel-sm px-3 py-2">
+      <p className="label">{label}</p>
       <p className="font-mono text-lg leading-tight">{value}</p>
       {comparable && (
         <p
           className="font-mono text-[11px] whitespace-nowrap"
-          style={{ color: improves ? 'var(--color-positivo)' : 'var(--color-negativo)' }}
+          style={{ color: improves ? 'var(--color-positive)' : 'var(--color-negative)' }}
           title={`De fábrica: ${rawBase.toFixed(decimals)}${suffix}`}
         >
           <DeltaArrow improves={improves} />
@@ -211,7 +216,7 @@ function DerivedStat({
         </p>
       )}
       {detail && (
-        <p className="text-[11px]" style={{ color: 'var(--texto-fraco)' }}>
+        <p className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
           {detail}
         </p>
       )}
@@ -230,7 +235,7 @@ export function StatsPanel({
   base: EffectiveStats;
   showBase: boolean;
 }) {
-  const isMelee = weapon.category === 'corpo-a-corpo';
+  const isMelee = weapon.category === 'melee';
 
   const ttk = timeToKill(stats, 0);
   const shots = shotsToKill(stats, 0);
@@ -384,20 +389,20 @@ export function StatsPanel({
       </div>
 
       {!isMelee && (
-        <div className="cartao chanfro-sm p-3">
-          <p className="rotulo mb-1.5">Dano por faixa de distância</p>
+        <div className="card bevel-sm p-3">
+          <p className="label mb-1.5">Dano por faixa de distância</p>
           <div className="flex flex-wrap gap-x-4 gap-y-1 font-mono text-sm">
             {stats.damage.map((step, i) => {
               const nextStep = stats.damage[i + 1];
               const damage = step.damage * stats.pellets;
               return (
                 <span key={i}>
-                  <span style={{ color: 'var(--texto-fraco)' }}>
+                  <span style={{ color: 'var(--text-dim)' }}>
                     {Math.round(step.distance)}
                     {nextStep ? `–${Math.round(nextStep.distance)}` : '+'} m
                   </span>{' '}
                   {damage.toFixed(1)}
-                  <span style={{ color: 'var(--texto-fraco)' }}> ({Math.ceil(100 / damage)}×)</span>
+                  <span style={{ color: 'var(--text-dim)' }}> ({Math.ceil(100 / damage)}×)</span>
                 </span>
               );
             })}

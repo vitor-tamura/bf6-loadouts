@@ -24,18 +24,18 @@ export function AttachmentThumb({
   return (
     <span
       aria-hidden
-      className="chanfro-sm flex items-center justify-center"
+      className="bevel-sm flex items-center justify-center"
       style={{
         width: size,
         height: size,
-        border: `1px solid ${attachment ? 'var(--destaque)' : 'var(--borda)'}`,
-        color: attachment ? 'var(--destaque)' : 'var(--texto-fraco)',
-        background: attachment ? 'color-mix(in srgb, var(--destaque) 8%, transparent)' : 'transparent',
+        border: `1px solid ${attachment ? 'var(--accent)' : 'var(--border)'}`,
+        color: attachment ? 'var(--accent)' : 'var(--text-dim)',
+        background: attachment ? 'color-mix(in srgb, var(--accent) 8%, transparent)' : 'transparent',
         opacity: attachment ? 1 : 0.45,
       }}
     >
       {/* A `key` no id faz a animação de encaixe rodar de novo a cada troca. */}
-      <span key={attachment?.id ?? 'vazio'} className={attachment ? 'peca-encaixe' : undefined} style={{ lineHeight: 0 }}>
+      <span key={attachment?.id ?? 'empty'} className={attachment ? 'part-snap' : undefined} style={{ lineHeight: 0 }}>
         <AttachmentIcon attachment={attachment} slot={slot} size={size * 0.7} />
       </span>
     </span>

@@ -33,11 +33,11 @@ npm run dev      # http://localhost:3000
 | `npm test` | 53 testes de dataset, cálculo, balística, link e temporada |
 | `npm run typecheck` | checagem de tipos |
 | `npm run sync` | compara o dataset com o catálogo público — só relata |
-| `npm run sync:aplicar` | grava o que dá para gravar, preservando a curadoria |
-| `npm run imagens` | mostra quais fotos de arma ainda faltam |
-| `npm run imagens:baixar` | baixa as que faltam para `public/armas/` |
-| `node scripts/acessorios.mjs` | regenera `ACESSORIOS.md` a partir do dataset |
-| `node scripts/armas.mjs` | regenera `ARMAS.md` a partir do dataset |
+| `npm run sync:apply` | grava o que dá para gravar, preservando a curadoria |
+| `npm run images` | mostra quais fotos de arma ainda faltam |
+| `npm run images:download` | baixa as que faltam para `public/weapons/` |
+| `npm run docs:attachments` | regenera `ACESSORIOS.md` a partir do dataset |
+| `npm run docs:weapons` | regenera `ARMAS.md` a partir do dataset |
 
 A sincronização também roda sozinha toda segunda, pelo GitHub Actions, e abre um
 Pull Request quando o jogo muda alguma coisa — ver [`ATUALIZAR.md`](./ATUALIZAR.md).

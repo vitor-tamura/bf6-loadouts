@@ -101,12 +101,12 @@ function ChartFrame({
   }
 
   return (
-    <figure className="cartao chanfro p-3">
+    <figure className="card bevel p-3">
       <figcaption className="mb-1 flex items-baseline justify-between gap-2">
-        <h3 className="rotulo">
+        <h3 className="label">
           {title} <span style={{ opacity: 0.6 }}>· metros</span>
         </h3>
-        <div className="flex items-center gap-3 text-[11px]" style={{ color: 'var(--texto-fraco)' }}>
+        <div className="flex items-center gap-3 text-[11px]" style={{ color: 'var(--text-dim)' }}>
           {legend}
         </div>
       </figcaption>
@@ -129,14 +129,14 @@ function ChartFrame({
               x2={AREA.x + AREA.width}
               y1={scaleY(v, maxY)}
               y2={scaleY(v, maxY)}
-              stroke="var(--grade)"
+              stroke="var(--grid)"
               strokeWidth={1}
             />
             <text
               x={AREA.x - 7}
               y={scaleY(v, maxY) + 4}
               textAnchor="end"
-              fill="var(--texto-fraco)"
+              fill="var(--text-dim)"
               style={{ font: '500 11px var(--font-sans)' }}
             >
               {labelY(v)}
@@ -152,7 +152,7 @@ function ChartFrame({
               y2={AREA.y + AREA.height}
               x1={scaleX(v, maxX)}
               x2={scaleX(v, maxX)}
-              stroke="var(--grade)"
+              stroke="var(--grid)"
               strokeWidth={1}
               opacity={0.5}
             />
@@ -160,7 +160,7 @@ function ChartFrame({
               x={scaleX(v, maxX)}
               y={A - 12}
               textAnchor="middle"
-              fill="var(--texto-fraco)"
+              fill="var(--text-dim)"
               style={{ font: '500 11px var(--font-sans)' }}
             >
               {Math.round(v)}
@@ -176,7 +176,7 @@ function ChartFrame({
             x2={scaleX(activeDistance, maxX)}
             y1={AREA.y}
             y2={AREA.y + AREA.height}
-            stroke="var(--destaque)"
+            stroke="var(--accent)"
             strokeWidth={1.5}
             strokeDasharray="4 3"
           />
@@ -227,7 +227,7 @@ export function ComparisonChart({
   maxDistance: number;
   kind: 'damage' | 'drop';
 }) {
-  const [distance, setDistancia] = useState<number | null>(null);
+  const [distance, setDistance] = useState<number | null>(null);
 
   const curves = useMemo(
     () =>
@@ -262,7 +262,7 @@ export function ComparisonChart({
       maxX={maxDistance}
       maxY={maxY}
       labelY={(v) => String(Math.round(v))}
-      onPoint={setDistancia}
+      onPoint={setDistance}
       activeDistance={distance}
       description={`Comparação de ${kind === 'damage' ? 'dano' : 'queda da bala'} entre ${series
         .map((s) => s.name)
@@ -272,7 +272,7 @@ export function ComparisonChart({
         <text
           x={AREA.x - 34}
           y={AREA.y - 6}
-          fill="var(--texto-fraco)"
+          fill="var(--text-dim)"
           style={{ font: '600 10px var(--font-display)', letterSpacing: '0.12em' }}
         >
           CM
@@ -338,7 +338,7 @@ export function DamageChart({
   maxDistance: number;
   showBase: boolean;
 }) {
-  const [distance, setDistancia] = useState<number | null>(null);
+  const [distance, setDistance] = useState<number | null>(null);
 
   const curve = useMemo(() => damageCurve(stats, maxDistance), [stats, maxDistance]);
   const baseCurve = useMemo(() => damageCurve(base, maxDistance), [base, maxDistance]);
@@ -361,14 +361,14 @@ export function DamageChart({
       title="Dano por distância"
       legend={
         <>
-          {showBase && <LegendSwatch color="var(--texto-fraco)" dashed text="de fábrica" />}
-          <LegendSwatch color="var(--destaque)" text="montada" />
+          {showBase && <LegendSwatch color="var(--text-dim)" dashed text="de fábrica" />}
+          <LegendSwatch color="var(--accent)" text="montada" />
         </>
       }
       maxX={maxDistance}
       maxY={maxY}
       labelY={(v) => String(Math.round(v))}
-      onPoint={setDistancia}
+      onPoint={setDistance}
       activeDistance={distance}
       description={`Dano por disparo de ${Math.round(damagePerShot(stats, 0))} até ${Math.round(
         damagePerShot(stats, maxDistance),
@@ -378,7 +378,7 @@ export function DamageChart({
         <path
           d={linePath(baseCurve, maxDistance, maxY)}
           fill="none"
-          stroke="var(--texto-fraco)"
+          stroke="var(--text-dim)"
           strokeWidth={2}
           strokeDasharray="5 4"
           opacity={0.75}
@@ -387,7 +387,7 @@ export function DamageChart({
       <path
         d={linePath(curve, maxDistance, maxY)}
         fill="none"
-        stroke="var(--destaque)"
+        stroke="var(--accent)"
         strokeWidth={2.6}
         strokeLinejoin="round"
       />
@@ -404,7 +404,7 @@ export function DamageChart({
             x={scaleX(midpoint, maxDistance)}
             y={scaleY(damage, maxY) - 8}
             textAnchor="middle"
-            fill="var(--texto-suave)"
+            fill="var(--text-soft)"
             style={{ font: '600 11px var(--font-display)', letterSpacing: '0.06em' }}
           >
             {Math.ceil(100 / damage)} TIROS
@@ -418,12 +418,12 @@ export function DamageChart({
             cx={scaleX(distance, maxDistance)}
             cy={scaleY(reading.damage, maxY)}
             r={4.5}
-            fill="var(--destaque)"
+            fill="var(--accent)"
           />
           <text
             x={Math.min(scaleX(distance, maxDistance) + 10, L - 140)}
             y={AREA.y + 14}
-            fill="var(--texto)"
+            fill="var(--text)"
             style={{ font: '600 12px var(--font-sans)' }}
           >
             {Math.round(distance)} m · {reading.damage.toFixed(1)} de dano
@@ -431,7 +431,7 @@ export function DamageChart({
           <text
             x={Math.min(scaleX(distance, maxDistance) + 10, L - 140)}
             y={AREA.y + 30}
-            fill="var(--texto-suave)"
+            fill="var(--text-soft)"
             style={{ font: '500 12px var(--font-sans)' }}
           >
             {reading.shots} tiros · {Math.round(reading.ttk)} ms
@@ -455,7 +455,7 @@ export function DropChart({
   maxDistance: number;
   showBase: boolean;
 }) {
-  const [distance, setDistancia] = useState<number | null>(null);
+  const [distance, setDistance] = useState<number | null>(null);
 
   // Em centímetros: a queda de um fuzil a 100 m é de poucos centímetros e em
   // metros o gráfico ficaria colado no eixo.
@@ -474,21 +474,21 @@ export function DropChart({
       title="Queda da bala"
       legend={
         <>
-          {showBase && <LegendSwatch color="var(--texto-fraco)" dashed text="de fábrica" />}
-          <LegendSwatch color="var(--color-ciano-400)" text="montada" />
+          {showBase && <LegendSwatch color="var(--text-dim)" dashed text="de fábrica" />}
+          <LegendSwatch color="var(--color-cyan-400)" text="montada" />
         </>
       }
       maxX={maxDistance}
       maxY={maxY}
       labelY={(v) => `${Math.round(v)}`}
-      onPoint={setDistancia}
+      onPoint={setDistance}
       activeDistance={distance}
       description={`Queda do projétil de até ${Math.round(maxY)} centímetros em ${maxDistance} metros`}
     >
       <text
         x={AREA.x - 34}
         y={AREA.y - 6}
-        fill="var(--texto-fraco)"
+        fill="var(--text-dim)"
         style={{ font: '600 10px var(--font-display)', letterSpacing: '0.12em' }}
       >
         CM
@@ -498,7 +498,7 @@ export function DropChart({
         <path
           d={linePath(baseCurve, maxDistance, maxY)}
           fill="none"
-          stroke="var(--texto-fraco)"
+          stroke="var(--text-dim)"
           strokeWidth={2}
           strokeDasharray="5 4"
           opacity={0.75}
@@ -507,7 +507,7 @@ export function DropChart({
       <path
         d={linePath(curve, maxDistance, maxY)}
         fill="none"
-        stroke="var(--color-ciano-400)"
+        stroke="var(--color-cyan-400)"
         strokeWidth={2.6}
         strokeLinecap="round"
       />
@@ -518,12 +518,12 @@ export function DropChart({
             cx={scaleX(distance, maxDistance)}
             cy={scaleY(currentDrop, maxY)}
             r={4.5}
-            fill="var(--color-ciano-400)"
+            fill="var(--color-cyan-400)"
           />
           <text
             x={Math.min(scaleX(distance, maxDistance) + 10, L - 150)}
             y={AREA.y + 14}
-            fill="var(--texto)"
+            fill="var(--text)"
             style={{ font: '600 12px var(--font-sans)' }}
           >
             {Math.round(distance)} m · mire {currentDrop.toFixed(1)} cm acima

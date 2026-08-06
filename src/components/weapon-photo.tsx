@@ -34,11 +34,11 @@ export function WeaponPhoto({
   // Uma imagem que já falhou antes da hidratação não dispara `onError` de novo.
   useEffect(() => {
     const img = imgRef.current;
-    if (img?.complete && img.naturalWidth === 0) avancar();
+    if (img?.complete && img.naturalWidth === 0) advance();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [weapon.id, index]);
 
-  function avancar() {
+  function advance() {
     if (index + 1 < sources.length) setIndex(index + 1);
     else onUnavailable?.();
   }
@@ -53,7 +53,7 @@ export function WeaponPhoto({
       alt={`${weapon.name} no jogo`}
       loading="lazy"
       referrerPolicy="no-referrer"
-      onError={avancar}
+      onError={advance}
       className={className}
       style={{ width: '100%', height: '100%', objectFit: 'contain' }}
     />

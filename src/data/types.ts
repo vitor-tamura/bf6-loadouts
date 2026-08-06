@@ -9,34 +9,34 @@
  *   espelham as barras exibidas no menu do jogo.
  */
 
-export type ClassId = 'assalto' | 'suporte' | 'engenheiro' | 'reconhecimento';
+export type ClassId = 'assault' | 'support' | 'engineer' | 'recon';
 
 export type WeaponCategory =
   | 'ar'
-  | 'carabina'
+  | 'carbine'
   | 'smg'
   | 'lmg'
   | 'dmr'
   | 'sniper'
-  | 'escopeta'
-  | 'pistola'
-  | 'corpo-a-corpo';
+  | 'shotgun'
+  | 'pistol'
+  | 'melee';
 
 /** Os dez slots de personalização, com os nomes da localização do jogo. */
 export type SlotId =
-  | 'mira'
-  | 'boca'
-  | 'cano'
-  | 'carregador'
-  | 'municao'
-  | 'acoplamento'
-  | 'ergonomia'
-  | 'opticoExtra'
-  | 'lateralEsquerda'
-  | 'lateralDireita';
+  | 'sight'
+  | 'muzzle'
+  | 'barrel'
+  | 'magazine'
+  | 'ammo'
+  | 'underbarrel'
+  | 'ergonomics'
+  | 'opticAccessory'
+  | 'leftRail'
+  | 'rightRail';
 
 /** De onde vem cada número — dirige o aviso de valor aproximado na interface. */
-export type Provenance = 'jogo' | 'curado';
+export type Provenance = 'game' | 'curated';
 
 export interface DamageStep {
   /** Dano por projétil a partir desta distância. */
@@ -89,7 +89,7 @@ export interface Weapon {
   horizontalRecoil: number;
 
   /** Modo de disparo disponível. */
-  fireModes: ('automatico' | 'rajada' | 'semiautomatico' | 'ferrolho' | 'bombeamento')[];
+  fireModes: ('auto' | 'burst' | 'semi' | 'ferrolho' | 'bombeamento')[];
   /** Slots que esta arma aceita. */
   slots: SlotId[];
 
@@ -98,21 +98,21 @@ export interface Weapon {
 
 /** Silhuetas base reaproveitadas entre armas parecidas. */
 export type WeaponArchetype =
-  | 'ar-otan'
-  | 'ar-leste'
+  | 'ar-nato'
+  | 'ar-east'
   | 'bullpup'
-  | 'carabina-curta'
-  | 'smg-compacta'
+  | 'carbine-short'
+  | 'smg-compact'
   | 'smg-pdw'
-  | 'lmg-caixa'
-  | 'lmg-leve'
+  | 'lmg-belt'
+  | 'lmg-light'
   | 'dmr'
-  | 'sniper-ferrolho'
-  | 'escopeta'
-  | 'pistola'
+  | 'sniper-bolt'
+  | 'shotgun'
+  | 'pistol'
   | 'revolver'
-  | 'faca'
-  | 'contundente';
+  | 'knife'
+  | 'blunt';
 
 export interface Modifier {
   /** Somado ao valor base. */
@@ -174,45 +174,16 @@ export interface Attachment {
    */
   pelletsOverride?: number;
   compat: Compatibility;
-  /** Peça correspondente no desenho da arma. */
-  part?: AttachmentPart;
   /** Ampliação, para miras. */
   magnification?: number;
   provenance: Provenance;
 }
 
-/** Peças desenháveis sobre a silhueta da arma. */
-export type AttachmentPart =
-  | 'supressor'
-  | 'freio'
-  | 'compensador'
-  | 'quebra-chamas'
-  | 'cano-curto'
-  | 'cano-longo'
-  | 'cano-pesado'
-  | 'ponto-vermelho'
-  | 'holografica'
-  | 'luneta-media'
-  | 'luneta-longa'
-  | 'ferro'
-  | 'empunhadura-vertical'
-  | 'empunhadura-angular'
-  | 'bipe'
-  | 'apoio-mao'
-  | 'carregador-curto'
-  | 'carregador-longo'
-  | 'tambor'
-  | 'laser'
-  | 'lanterna'
-  | 'coronha-leve'
-  | 'coronha-pesada'
-  | 'ampliador';
-
 export interface Gadget {
   id: string;
   name: string;
   originalName: string;
-  playerClass: ClassId | 'todas';
+  playerClass: ClassId | 'all';
   /** `equipment` é o dispositivo de assinatura, fixo na classe. */
   kind: 'gadget' | 'throwable' | 'equipment';
   description: string;

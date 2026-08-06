@@ -8,7 +8,7 @@ import type { Gadget } from '@/data/types';
  * O traço é `currentColor`, como no [AttachmentIcon].
  */
 
-const TRACO = {
+const STROKE = {
   fill: 'none',
   stroke: 'currentColor',
   strokeWidth: 1.6,
@@ -17,7 +17,7 @@ const TRACO = {
 };
 
 /** Corpo de granada oval, base comum de vários arremessáveis. */
-const corpoGranada = (
+const grenadeBody = (
   <>
     <path d="M10.5 5h3v2h-3z" />
     <path d="M13.5 5.5c1 0 1.8.6 2 1.2" />
@@ -25,7 +25,7 @@ const corpoGranada = (
   </>
 );
 
-const DESENHOS: Record<string, React.ReactNode> = {
+const GLYPHS: Record<string, React.ReactNode> = {
   /* ------------------------------- Assalto ------------------------------- */
 
   // Escada extensível.
@@ -350,7 +350,7 @@ const DESENHOS: Record<string, React.ReactNode> = {
 
   /* ----------------------------- Arremessáveis ---------------------------- */
 
-  'm67-frag': corpoGranada,
+  'm67-frag': grenadeBody,
 
   // Lâmina de arremesso.
   'steel-wing': (
@@ -447,14 +447,14 @@ const DESENHOS: Record<string, React.ReactNode> = {
 };
 
 /** Reserva por tipo, se algum item novo entrar no dataset antes do desenho. */
-const POR_TIPO: Record<Gadget['kind'], React.ReactNode> = {
+const BY_KIND: Record<Gadget['kind'], React.ReactNode> = {
   gadget: (
     <>
       <rect x="4" y="7" width="16" height="11" rx="1.5" />
       <path d="M9 7V5h6v2" />
     </>
   ),
-  throwable: corpoGranada,
+  throwable: grenadeBody,
   equipment: (
     <>
       <circle cx="12" cy="12" r="8" />
@@ -471,9 +471,9 @@ export function GadgetIcon({ gadget, size = 32 }: { gadget: Gadget; size?: numbe
       height={size}
       aria-hidden
       style={{ display: 'block', flexShrink: 0 }}
-      {...TRACO}
+      {...STROKE}
     >
-      {DESENHOS[gadget.id] ?? POR_TIPO[gadget.kind]}
+      {GLYPHS[gadget.id] ?? BY_KIND[gadget.kind]}
     </svg>
   );
 }

@@ -16,9 +16,9 @@ export default function manifest(): MetadataRoute.Manifest {
     lang: 'pt-BR',
     categories: ['games', 'utilities'],
     icons: [
-      { src: '/icone-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
-      { src: '/icone-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
-      { src: '/icone-mascara.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+      { src: '/icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
+      { src: '/icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
+      { src: '/icon-mask.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
     ],
   };
 }

@@ -24,8 +24,8 @@ describe('integridade do dataset', () => {
 
   it('mantém os degraus de dano em distância crescente', () => {
     for (const weapon of WEAPONS) {
-      const distancias = weapon.damage.map((d) => d.distance);
-      expect(distancias, weapon.name).toEqual([...distancias].sort((a, b) => a - b));
+      const distances = weapon.damage.map((d) => d.distance);
+      expect(distances, weapon.name).toEqual([...distances].sort((a, b) => a - b));
       expect(weapon.damage[0].distance, weapon.name).toBe(0);
     }
   });
@@ -35,7 +35,7 @@ describe('integridade do dataset', () => {
     // simétrico. O que precisa valer é que a montagem faça sentido: vários slots
     // com opção, e nenhum slot exibido vazio.
     for (const weapon of WEAPONS) {
-      if (weapon.category === 'corpo-a-corpo') continue;
+      if (weapon.category === 'melee') continue;
       const bySlot = attachmentsForWeapon(weapon);
       expect(bySlot.size, weapon.name).toBeGreaterThanOrEqual(4);
       for (const [slot, list] of bySlot) {
@@ -46,11 +46,11 @@ describe('integridade do dataset', () => {
 
   it('permite montar a arma inteira sem estourar os 100 pontos usando as peças baratas', () => {
     for (const weapon of WEAPONS) {
-      if (weapon.category === 'corpo-a-corpo') continue;
-      const maisBaratos = [...attachmentsForWeapon(weapon).values()].map((list) =>
-        list.reduce((menor, a) => (a.cost < menor.cost ? a : menor)),
+      if (weapon.category === 'melee') continue;
+      const cheapest = [...attachmentsForWeapon(weapon).values()].map((list) =>
+        list.reduce((smallest, a) => (a.cost < smallest.cost ? a : smallest)),
       );
-      const total = maisBaratos.reduce((soma, a) => soma + a.cost, 0);
+      const total = cheapest.reduce((sum, a) => sum + a.cost, 0);
       expect(total, weapon.name).toBeLessThanOrEqual(POINT_BUDGET);
     }
   });
@@ -75,8 +75,8 @@ describe('cálculo de estatísticas', () => {
   });
 
   it('aplica multiplicadores de velocidade e alcance do cano', () => {
-    const cano = ATTACHMENTS_BY_ID.get('cano-600mm-dmr')!;
-    const stats = calculateStats(ak4d, [cano]);
+    const barrelGlyph = ATTACHMENTS_BY_ID.get('barrel-600mm-dmr')!;
+    const stats = calculateStats(ak4d, [barrelGlyph]);
     expect(stats.velocity).toBeGreaterThan(ak4d.velocity);
     // O primeiro degrau nasce no cano e não se move.
     expect(stats.damage[0].distance).toBe(0);
@@ -84,31 +84,31 @@ describe('cálculo de estatísticas', () => {
   });
 
   it('não muda o resultado conforme a ordem dos acessórios', () => {
-    const a = ATTACHMENTS_BY_ID.get('cano-600mm-dmr')!;
-    const b = ATTACHMENTS_BY_ID.get('boca-standard-suppressor')!;
-    const c = ATTACHMENTS_BY_ID.get('ergonomia-a3-receiver')!;
-    const um = calculateStats(ak4d, [a, b, c]);
+    const a = ATTACHMENTS_BY_ID.get('barrel-600mm-dmr')!;
+    const b = ATTACHMENTS_BY_ID.get('muzzle-standard-suppressor')!;
+    const c = ATTACHMENTS_BY_ID.get('ergonomics-a3-receiver')!;
+    const one = calculateStats(ak4d, [a, b, c]);
     const otherSlot = calculateStats(ak4d, [c, a, b]);
-    expect(um).toEqual(otherSlot);
+    expect(one).toEqual(otherSlot);
   });
 
   it('soma antes de multiplicar', () => {
     // Empunhadura Vertical: controle +7 e recuo vertical ×0,84.
-    const grip = ATTACHMENTS_BY_ID.get('acoplamento-classic-vertical')!;
+    const grip = ATTACHMENTS_BY_ID.get('underbarrel-classic-vertical')!;
     const stats = calculateStats(ak4d, [grip]);
     expect(stats.control).toBe(ak4d.control + 7);
     expect(stats.verticalRecoil).toBeCloseTo(ak4d.verticalRecoil * 0.84, 5);
   });
 
   it('mantém as barras de 0 a 100', () => {
-    const empilhados = resolveAttachments([
-      'mira-vs-8-00x',
-      'cano-600mm-dmr',
-      'carregador-100rnd-drum-mag',
-      'ergonomia-a3-receiver',
-      'acoplamento-bipod',
+    const stacked = resolveAttachments([
+      'sight-vs-8-00x',
+      'barrel-600mm-dmr',
+      'magazine-100rnd-drum-mag',
+      'ergonomics-a3-receiver',
+      'underbarrel-bipod',
     ]);
-    const stats = calculateStats(WEAPONS_BY_ID.get('m2010-esr')!, empilhados);
+    const stats = calculateStats(WEAPONS_BY_ID.get('m2010-esr')!, stacked);
     for (const value of [stats.accuracy, stats.control, stats.mobility, stats.hipfire]) {
       expect(value).toBeGreaterThanOrEqual(0);
       expect(value).toBeLessThanOrEqual(100);
@@ -116,48 +116,48 @@ describe('cálculo de estatísticas', () => {
   });
 
   it('arredonda o carregador para um número inteiro de balas', () => {
-    const estendido = ATTACHMENTS_BY_ID.get('carregador-45rnd-magazine')!;
-    const stats = calculateStats(WEAPONS_BY_ID.get('ak-205')!, [estendido]);
+    const extended = ATTACHMENTS_BY_ID.get('magazine-45rnd-magazine')!;
+    const stats = calculateStats(WEAPONS_BY_ID.get('ak-205')!, [extended]);
     expect(Number.isInteger(stats.magazine)).toBe(true);
     expect(stats.magazine).toBe(45);
   });
 
   it('acompanha a recarga vazia proporcionalmente à recarga tática', () => {
-    const rapido = ATTACHMENTS_BY_ID.get('carregador-20rnd-fast-mag')!;
-    const stats = calculateStats(ak4d, [rapido]);
+    const fast = ATTACHMENTS_BY_ID.get('magazine-20rnd-fast-mag')!;
+    const stats = calculateStats(ak4d, [fast]);
     expect(stats.reload / ak4d.reload).toBeCloseTo(stats.emptyReload / ak4d.emptyReload, 5);
   });
 
   it('descarta id de acessório desconhecido em vez de quebrar', () => {
-    expect(resolveAttachments(['nao-existe', null, undefined, 'cano-409mm-us'])).toHaveLength(1);
+    expect(resolveAttachments(['nao-existe', null, undefined, 'barrel-409mm-us'])).toHaveLength(1);
   });
 });
 
 describe('orçamento de 100 pontos', () => {
   it('soma o custo dos acessórios escolhidos', () => {
-    const list = resolveAttachments(['mira-iron-sights', 'boca-compensated-brake']);
-    const custos = list.reduce((soma, a) => soma + a.cost, 0);
+    const list = resolveAttachments(['sight-iron-sights', 'muzzle-compensated-brake']);
+    const costs = list.reduce((sum, a) => sum + a.cost, 0);
     const budget = calculateBudget(list);
-    expect(budget.spent).toBe(custos);
-    expect(budget.remaining).toBe(POINT_BUDGET - custos);
+    expect(budget.spent).toBe(costs);
+    expect(budget.remaining).toBe(POINT_BUDGET - costs);
     expect(budget.overBudget).toBe(false);
   });
 
   it('desconta a peça que será substituída no mesmo slot', () => {
-    const mira = ATTACHMENTS_BY_ID.get('mira-iron-sights')!;
-    const outra = ATTACHMENTS_BY_ID.get('boca-compensated-brake')!;
-    const atuais = [mira, outra];
+    const mira = ATTACHMENTS_BY_ID.get('sight-iron-sights')!;
+    const other = ATTACHMENTS_BY_ID.get('muzzle-compensated-brake')!;
+    const currentOnes = [mira, other];
 
     // Trocar dentro do mesmo slot só considera a diferença de custo.
-    const substituta = ATTACHMENTS.find(
-      (a) => a.slot === 'mira' && a.id !== mira.id && a.cost <= POINT_BUDGET - outra.cost,
+    const replacement = ATTACHMENTS.find(
+      (a) => a.slot === 'sight' && a.id !== mira.id && a.cost <= POINT_BUDGET - other.cost,
     )!;
-    expect(fitsBudget(substituta, atuais)).toBe(true);
+    expect(fitsBudget(replacement, currentOnes)).toBe(true);
 
     // Já uma peça cara em slot livre precisa caber no que sobrou.
-    const gastoQuaseTodo = ATTACHMENTS.filter((a) => a.slot === 'cano').slice(0, 1);
-    const caro = { ...substituta, id: 'teste-caro', slot: 'ergonomia' as const, cost: POINT_BUDGET };
-    expect(fitsBudget(caro, [...atuais, ...gastoQuaseTodo])).toBe(false);
+    const nearlyFullSpend = ATTACHMENTS.filter((a) => a.slot === 'barrel').slice(0, 1);
+    const expensive = { ...replacement, id: 'teste-caro', slot: 'ergonomics' as const, cost: POINT_BUDGET };
+    expect(fitsBudget(expensive, [...currentOnes, ...nearlyFullSpend])).toBe(false);
   });
 });
 

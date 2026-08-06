@@ -10,7 +10,7 @@ import { weaponImagePath } from './manifest';
  *
  * Ordem das fontes:
  *
- * 1. `public/armas/<id>.png` — arte própria, se alguém tiver colocado uma.
+ * 1. `public/weapons/<id>.png` — arte própria, se alguém tiver colocado uma.
  * 2. Foto do jogo, de fonte externa (ver `weapon-images.ts`).
  * 3. Nenhuma das duas — aparece um marcador com o nome da arma.
  *
@@ -79,8 +79,8 @@ export function WeaponPreview({ weapon, withLabel = false, className }: Props) {
 function Label({ weapon }: { weapon: Weapon }) {
   return (
     <span
-      className="rotulo"
-      style={{ position: 'absolute', right: 8, bottom: 6, color: 'var(--destaque)', opacity: 0.6 }}
+      className="label"
+      style={{ position: 'absolute', right: 8, bottom: 6, color: 'var(--accent)', opacity: 0.6 }}
     >
       {weapon.name}
     </span>
@@ -98,11 +98,11 @@ function Placeholder({ weapon, className }: { weapon: Weapon; className?: string
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'var(--superficie-alta)',
-        border: '1px dashed var(--borda)',
+        background: 'var(--surface-raised)',
+        border: '1px dashed var(--border)',
       }}
     >
-      <span className="rotulo text-center">
+      <span className="label text-center">
         {weapon.name}
         <br />
         <span style={{ opacity: 0.7 }}>sem imagem</span>

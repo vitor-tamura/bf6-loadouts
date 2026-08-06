@@ -14,5 +14,5 @@
  * são gerados por `scripts/baixar_imagens.py`.
  */
 export function weaponImagePath(id: string): string {
-  return `/armas/${id}.webp`;
+  return `/weapons/${id}.webp`;
 }

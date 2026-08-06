@@ -196,14 +196,14 @@ interface GridRow {
 }
 
 function buildGrid(): GridRow[] {
-  return WEAPONS.filter((w) => w.category !== 'corpo-a-corpo').map((weapon) => {
+  return WEAPONS.filter((w) => w.category !== 'melee').map((weapon) => {
     const stats = baseStats(weapon);
     const range = effectiveRange(stats);
     return {
       id: weapon.id,
       name: weapon.name,
       category: SHORT_CATEGORY_NAMES[weapon.category],
-      approximate: weapon.provenance === 'curado',
+      approximate: weapon.provenance === 'curated',
       season: weapon.season,
       attachments: [...attachmentsForWeapon(weapon).values()].reduce((total, list) => total + list.length, 0),
       damage: damagePerShot(stats, 0),
@@ -225,7 +225,7 @@ export default function ComparePage() {
   const [idB, setIdB] = useState('m4a1');
   const [sortKey, setSortKey] = useState<GridKey>('dps');
   const [sortDirection, setSortDirection] = useState<1 | -1>(-1);
-  const [categoryFilter, setCategoryFilter] = useState<string>('todas');
+  const [categoryFilter, setCategoryFilter] = useState<string>('all');
 
   const weaponA = WEAPONS_BY_ID.get(idA)!;
   const weaponB = WEAPONS_BY_ID.get(idB)!;
@@ -244,7 +244,7 @@ export default function ComparePage() {
 
   const grid = useMemo(() => {
     const list = buildGrid().filter(
-      (row) => categoryFilter === 'todas' || row.category === SHORT_CATEGORY_NAMES[categoryFilter],
+      (row) => categoryFilter === 'all' || row.category === SHORT_CATEGORY_NAMES[categoryFilter],
     );
     return list.sort((x, y) => {
       const a = x[sortKey];
@@ -271,14 +271,14 @@ export default function ComparePage() {
         <div className="mb-4 flex flex-wrap items-end gap-4">
           <WeaponPicker label="Arma A" color={COLOR_A} value={idA} onChange={setIdA} />
           <WeaponPicker label="Arma B" color={COLOR_B} value={idB} onChange={setIdB} />
-          <p className="text-[11px]" style={{ color: 'var(--texto-fraco)' }}>
+          <p className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
             Valores de fábrica, sem acessórios.
           </p>
         </div>
 
         {/* Confronto direto */}
-        <section className="cartao chanfro mb-3 p-4">
-          <h2 className="rotulo mb-3">Confronto direto</h2>
+        <section className="card bevel mb-3 p-4">
+          <h2 className="label mb-3">Confronto direto</h2>
 
           <div className="mb-4 grid gap-3 sm:grid-cols-2">
             <DuelCard weapon={weaponA} color={COLOR_A} side="A" />
@@ -294,29 +294,29 @@ export default function ComparePage() {
         </section>
 
         {/* Tabela do confronto */}
-        <section className="cartao chanfro mb-3 overflow-x-auto">
+        <section className="card bevel mb-3 overflow-x-auto">
           <table className="w-full min-w-[520px] border-collapse text-sm">
             <caption className="sr-only">Estatísticas das duas armas em confronto</caption>
             <thead>
               <tr>
                 <th
                   scope="col"
-                  className="rotulo px-3 py-2 text-left"
-                  style={{ borderBottom: '1px solid var(--borda)' }}
+                  className="label px-3 py-2 text-left"
+                  style={{ borderBottom: '1px solid var(--border)' }}
                 >
                   Estatística
                 </th>
                 <th
                   scope="col"
                   className="font-display px-3 py-2 text-right text-sm font-bold tracking-wide"
-                  style={{ color: COLOR_A, borderBottom: '1px solid var(--borda)' }}
+                  style={{ color: COLOR_A, borderBottom: '1px solid var(--border)' }}
                 >
                   {weaponA.name}
                 </th>
                 <th
                   scope="col"
                   className="font-display px-3 py-2 text-right text-sm font-bold tracking-wide"
-                  style={{ color: COLOR_B, borderBottom: '1px solid var(--borda)' }}
+                  style={{ color: COLOR_B, borderBottom: '1px solid var(--border)' }}
                 >
                   {weaponB.name}
                 </th>
@@ -324,18 +324,18 @@ export default function ComparePage() {
             </thead>
             <tbody>
               {rows.map((row) => (
-                <tr key={row.label} style={{ borderBottom: '1px solid var(--borda-suave)' }}>
+                <tr key={row.label} style={{ borderBottom: '1px solid var(--border-soft)' }}>
                   <th
                     scope="row"
                     className="px-3 py-1.5 text-left font-normal"
-                    style={{ color: 'var(--texto-suave)' }}
+                    style={{ color: 'var(--text-soft)' }}
                   >
                     {row.label}
                   </th>
                   <td
                     className="px-3 py-1.5 text-right font-mono"
                     style={{
-                      color: row.advantage > 0 ? 'var(--color-positivo)' : 'var(--texto)',
+                      color: row.advantage > 0 ? 'var(--color-positive)' : 'var(--text)',
                       fontWeight: row.advantage > 0 ? 700 : 400,
                     }}
                   >
@@ -344,7 +344,7 @@ export default function ComparePage() {
                   <td
                     className="px-3 py-1.5 text-right font-mono"
                     style={{
-                      color: row.advantage < 0 ? 'var(--color-positivo)' : 'var(--texto)',
+                      color: row.advantage < 0 ? 'var(--color-positive)' : 'var(--text)',
                       fontWeight: row.advantage < 0 ? 700 : 400,
                     }}
                   >
@@ -363,14 +363,14 @@ export default function ComparePage() {
         </div>
 
         {/* Arsenal inteiro, ordenável */}
-        <section className="cartao chanfro">
+        <section className="card bevel">
           <div className="flex flex-wrap items-center justify-between gap-2 p-3">
-            <h2 className="rotulo">Arsenal · {grid.length} armas</h2>
-            <div className="rolagem-x flex gap-1.5">
-              <FilterChip active={categoryFilter === 'todas'} onClick={() => setCategoryFilter('todas')}>
+            <h2 className="label">Arsenal · {grid.length} armas</h2>
+            <div className="scroll-x flex gap-1.5">
+              <FilterChip active={categoryFilter === 'all'} onClick={() => setCategoryFilter('all')}>
                 Todas
               </FilterChip>
-              {CATEGORY_ORDER.filter((c) => c !== 'corpo-a-corpo').map((c) => (
+              {CATEGORY_ORDER.filter((c) => c !== 'melee').map((c) => (
                 <FilterChip key={c} active={categoryFilter === c} onClick={() => setCategoryFilter(c)}>
                   {SHORT_CATEGORY_NAMES[c]}
                 </FilterChip>
@@ -397,18 +397,18 @@ export default function ComparePage() {
                             : 'ascending'
                           : 'none'
                       }
-                      className={`rotulo sticky top-0 z-10 px-3 py-2 ${column.key === 'name' ? 'text-left' : 'text-right'}`}
-                      style={{ borderBottom: '1px solid var(--borda)', background: 'var(--superficie)' }}
+                      className={`label sticky top-0 z-10 px-3 py-2 ${column.key === 'name' ? 'text-left' : 'text-right'}`}
+                      style={{ borderBottom: '1px solid var(--border)', background: 'var(--surface)' }}
                     >
                       <button
                         type="button"
                         onClick={() => sortBy(column)}
-                        className="rotulo"
-                        style={{ color: sortKey === column.key ? 'var(--texto)' : undefined }}
+                        className="label"
+                        style={{ color: sortKey === column.key ? 'var(--text)' : undefined }}
                       >
                         {column.label}
                         {sortKey === column.key && (
-                          <span className="ml-1 font-mono text-[9px]" style={{ color: 'var(--destaque)' }}>
+                          <span className="ml-1 font-mono text-[9px]" style={{ color: 'var(--accent)' }}>
                             {sortDirection === -1 ? '▼' : '▲'}
                           </span>
                         )}
@@ -422,7 +422,7 @@ export default function ComparePage() {
                   <tr
                     key={row.id}
                     style={{
-                      borderBottom: '1px solid var(--borda-suave)',
+                      borderBottom: '1px solid var(--border-soft)',
                       background:
                         row.id === idA
                           ? `color-mix(in oklab, ${COLOR_A} 14%, transparent)`
@@ -437,12 +437,12 @@ export default function ComparePage() {
                           {row.name}
                         </span>
                         {row.approximate && (
-                          <span title="Valores aproximados" style={{ color: 'var(--texto-fraco)' }}>
+                          <span title="Valores aproximados" style={{ color: 'var(--text-dim)' }}>
                             ≈
                           </span>
                         )}
                         {row.season > 0 && (
-                          <span className="font-mono text-[10px]" style={{ color: 'var(--destaque)' }}>
+                          <span className="font-mono text-[10px]" style={{ color: 'var(--accent)' }}>
                             T{row.season}
                           </span>
                         )}
@@ -462,7 +462,7 @@ export default function ComparePage() {
                         />
                       </span>
                     </td>
-                    <td className="px-3 py-1.5 text-right text-[11px]" style={{ color: 'var(--texto-fraco)' }}>
+                    <td className="px-3 py-1.5 text-right text-[11px]" style={{ color: 'var(--text-dim)' }}>
                       {row.category}
                     </td>
                     <Cell>{row.attachments}</Cell>
@@ -482,7 +482,7 @@ export default function ComparePage() {
           </div>
         </section>
 
-        <p className="pb-seguro mt-6 text-center text-[11px]" style={{ color: 'var(--texto-fraco)' }}>
+        <p className="pb-safe mt-6 text-center text-[11px]" style={{ color: 'var(--text-dim)' }}>
           Projeto de fã, sem vínculo com a EA ou a DICE. O sinal ≈ marca armas com valores
           aproximados.
         </p>
@@ -510,20 +510,20 @@ function WeaponPicker({
 }) {
   return (
     <label className="flex items-center gap-2">
-      <span className="rotulo" style={{ color }}>
+      <span className="label" style={{ color }}>
         {label}
       </span>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="chanfro-sm toque px-2 py-2 text-sm"
+        className="bevel-sm touch px-2 py-2 text-sm"
         style={{
-          background: 'var(--superficie-alta)',
+          background: 'var(--surface-raised)',
           border: `1px solid ${color}`,
-          color: 'var(--texto)',
+          color: 'var(--text)',
         }}
       >
-        {CATEGORY_ORDER.filter((c) => c !== 'corpo-a-corpo').map((category) => (
+        {CATEGORY_ORDER.filter((c) => c !== 'melee').map((category) => (
           <optgroup key={category} label={CATEGORY_NAMES[category]}>
             {WEAPONS.filter((w) => w.category === category).map((weapon) => (
               <option key={weapon.id} value={weapon.id}>
@@ -539,7 +539,7 @@ function WeaponPicker({
 
 function DuelCard({ weapon, color, side }: { weapon: Weapon; color: string; side: 'A' | 'B' }) {
   return (
-    <div className="chanfro-sm p-2" style={{ border: `1px solid ${color}`, background: 'var(--superficie-alta)' }}>
+    <div className="bevel-sm p-2" style={{ border: `1px solid ${color}`, background: 'var(--surface-raised)' }}>
       <div className="flex items-baseline gap-2">
         <span
           className="font-display px-1.5 text-xs font-bold"
@@ -550,7 +550,7 @@ function DuelCard({ weapon, color, side }: { weapon: Weapon; color: string; side
         <span className="font-display truncate text-base font-semibold tracking-wide">
           {weapon.name}
         </span>
-        <span className="ml-auto text-[11px]" style={{ color: 'var(--texto-fraco)' }}>
+        <span className="ml-auto text-[11px]" style={{ color: 'var(--text-dim)' }}>
           {SHORT_CATEGORY_NAMES[weapon.category]}
         </span>
       </div>
@@ -568,21 +568,21 @@ function MirrorRow({ label, a, b }: { label: string; a: number; b: number }) {
     <div className="grid items-center gap-2 [grid-template-columns:36px_1fr_92px_1fr_36px] sm:[grid-template-columns:48px_1fr_110px_1fr_48px]">
       <span
         className="text-right font-mono text-xs"
-        style={{ color: a > b ? 'var(--color-positivo)' : 'var(--texto-suave)', fontWeight: a > b ? 700 : 400 }}
+        style={{ color: a > b ? 'var(--color-positive)' : 'var(--text-soft)', fontWeight: a > b ? 700 : 400 }}
       >
         {a}
       </span>
 
-      <span className="relative block h-2" style={{ background: 'var(--borda-suave)' }}>
+      <span className="relative block h-2" style={{ background: 'var(--border-soft)' }}>
         <span
           className="absolute top-0 right-0 bottom-0 transition-[width] duration-300"
           style={{ width: `${a}%`, background: COLOR_A }}
         />
       </span>
 
-      <span className="rotulo text-center">{label}</span>
+      <span className="label text-center">{label}</span>
 
-      <span className="relative block h-2" style={{ background: 'var(--borda-suave)' }}>
+      <span className="relative block h-2" style={{ background: 'var(--border-soft)' }}>
         <span
           className="absolute top-0 bottom-0 left-0 transition-[width] duration-300"
           style={{ width: `${b}%`, background: COLOR_B }}
@@ -591,7 +591,7 @@ function MirrorRow({ label, a, b }: { label: string; a: number; b: number }) {
 
       <span
         className="font-mono text-xs"
-        style={{ color: b > a ? 'var(--color-positivo)' : 'var(--texto-suave)', fontWeight: b > a ? 700 : 400 }}
+        style={{ color: b > a ? 'var(--color-positive)' : 'var(--text-soft)', fontWeight: b > a ? 700 : 400 }}
       >
         {b}
       </span>
@@ -622,8 +622,8 @@ function SideButton({
       style={{
         width: 20,
         height: 20,
-        background: active ? color : 'var(--superficie-alta)',
-        color: active ? '#fff' : 'var(--texto-fraco)',
+        background: active ? color : 'var(--surface-raised)',
+        color: active ? '#fff' : 'var(--text-dim)',
       }}
     >
       {side}
@@ -645,11 +645,11 @@ function FilterChip({
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className="chanfro-sm shrink-0 px-3 py-1.5 text-xs whitespace-nowrap"
+      className="bevel-sm shrink-0 px-3 py-1.5 text-xs whitespace-nowrap"
       style={{
-        background: active ? 'var(--destaque)' : 'var(--superficie-alta)',
-        color: active ? '#14170f' : 'var(--texto-suave)',
-        border: `1px solid ${active ? 'var(--destaque)' : 'var(--borda)'}`,
+        background: active ? 'var(--accent)' : 'var(--surface-raised)',
+        color: active ? '#14170f' : 'var(--text-soft)',
+        border: `1px solid ${active ? 'var(--accent)' : 'var(--border)'}`,
         fontWeight: active ? 600 : 500,
       }}
     >

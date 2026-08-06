@@ -32,8 +32,8 @@ export function WeaponSelector({
   categories?: WeaponCategory[];
   title?: string;
 }) {
-  const [search, setBusca] = useState('');
-  const [filter, setFiltro] = useState<WeaponCategory | 'todas'>('todas');
+  const [search, setSearch] = useState('');
+  const [filter, setFilter] = useState<WeaponCategory | 'all'>('all');
 
   const available = useMemo(
     () => WEAPONS.filter((a) => categories.includes(a.category)),
@@ -43,7 +43,7 @@ export function WeaponSelector({
   const result = useMemo(() => {
     const term = normalize(search.trim());
     return available.filter((weapon) => {
-      if (filter !== 'todas' && weapon.category !== filter) return false;
+      if (filter !== 'all' && weapon.category !== filter) return false;
       if (!term) return true;
       return (
         normalize(weapon.name).includes(term) ||
@@ -67,37 +67,37 @@ export function WeaponSelector({
 
   return (
     <section>
-      <h2 className="rotulo mb-2">{title}</h2>
+      <h2 className="label mb-2">{title}</h2>
 
       <label className="block">
         <span className="sr-only">Buscar arma</span>
         <input
           type="search"
           value={search}
-          onChange={(e) => setBusca(e.target.value)}
+          onChange={(e) => setSearch(e.target.value)}
           placeholder="Buscar arma…"
-          className="chanfro-sm toque w-full px-3 py-2 text-sm outline-none"
-          style={{ background: 'var(--superficie-alta)', border: '1px solid var(--borda)' }}
+          className="bevel-sm touch w-full px-3 py-2 text-sm outline-none"
+          style={{ background: 'var(--surface-raised)', border: '1px solid var(--border)' }}
         />
       </label>
 
-      <div className="rolagem-x -mx-1 mt-2 flex gap-1.5 px-1 pb-1">
-        <FilterChip active={filter === 'todas'} onClick={() => setFiltro('todas')}>
+      <div className="scroll-x -mx-1 mt-2 flex gap-1.5 px-1 pb-1">
+        <FilterChip active={filter === 'all'} onClick={() => setFilter('all')}>
           Todas
         </FilterChip>
         {categoriesWithWeapons.map((c) => (
-          <FilterChip key={c} active={filter === c} onClick={() => setFiltro(c)}>
+          <FilterChip key={c} active={filter === c} onClick={() => setFilter(c)}>
             {SHORT_CATEGORY_NAMES[c]}
           </FilterChip>
         ))}
       </div>
 
       <div className="mt-3 space-y-4">
-        {[...byCategory.entries()].map(([category, armas]) => (
+        {[...byCategory.entries()].map(([category, weaponList]) => (
           <div key={category}>
-            <h3 className="rotulo mb-1.5">{CATEGORY_NAMES[category]}</h3>
+            <h3 className="label mb-1.5">{CATEGORY_NAMES[category]}</h3>
             <ul className="grid gap-1.5">
-              {armas.map((weapon) => (
+              {weaponList.map((weapon) => (
                 <li key={weapon.id}>
                   <WeaponCard
                     weapon={weapon}
@@ -111,7 +111,7 @@ export function WeaponSelector({
         ))}
 
         {result.length === 0 && (
-          <p className="py-6 text-center text-sm" style={{ color: 'var(--texto-fraco)' }}>
+          <p className="py-6 text-center text-sm" style={{ color: 'var(--text-dim)' }}>
             Nenhuma arma encontrada para “{search}”.
           </p>
         )}
@@ -134,11 +134,11 @@ function FilterChip({
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className="chanfro-sm shrink-0 px-3 py-2 text-xs whitespace-nowrap transition-colors"
+      className="bevel-sm shrink-0 px-3 py-2 text-xs whitespace-nowrap transition-colors"
       style={{
-        background: active ? 'var(--destaque)' : 'var(--superficie-alta)',
-        color: active ? '#14170f' : 'var(--texto-suave)',
-        border: `1px solid ${active ? 'var(--destaque)' : 'var(--borda)'}`,
+        background: active ? 'var(--accent)' : 'var(--surface-raised)',
+        color: active ? '#14170f' : 'var(--text-soft)',
+        border: `1px solid ${active ? 'var(--accent)' : 'var(--border)'}`,
         fontWeight: active ? 600 : 500,
       }}
     >
@@ -163,22 +163,22 @@ function WeaponCard({
       type="button"
       onClick={onSelect}
       aria-pressed={selected}
-      className="chanfro-sm toque w-full px-3 py-2 text-left transition-colors"
+      className="bevel-sm touch w-full px-3 py-2 text-left transition-colors"
       style={{
-        background: selected ? 'color-mix(in oklab, var(--destaque) 16%, var(--superficie))' : 'var(--superficie)',
-        border: `1px solid ${selected ? 'var(--destaque)' : 'var(--borda-suave)'}`,
+        background: selected ? 'color-mix(in oklab, var(--accent) 16%, var(--surface))' : 'var(--surface)',
+        border: `1px solid ${selected ? 'var(--accent)' : 'var(--border-soft)'}`,
       }}
     >
       <span className="flex items-baseline justify-between gap-2">
         <span className="font-display text-base font-semibold tracking-wide">{weapon.name}</span>
-        <span className="font-mono text-[11px]" style={{ color: 'var(--texto-fraco)' }}>
-          {weapon.category === 'corpo-a-corpo' ? '—' : `${weapon.rpm} RPM`}
+        <span className="font-mono text-[11px]" style={{ color: 'var(--text-dim)' }}>
+          {weapon.category === 'melee' ? '—' : `${weapon.rpm} RPM`}
         </span>
       </span>
-      <span className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[11px]" style={{ color: 'var(--texto-fraco)' }}>
+      <span className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[11px]" style={{ color: 'var(--text-dim)' }}>
         {playerClass && <span style={{ color: playerClass.color }}>{playerClass.name}</span>}
         {weapon.season > 0 && <span>Temporada {weapon.season}</span>}
-        {weapon.provenance === 'curado' && <span title="Valores aproximados">≈</span>}
+        {weapon.provenance === 'curated' && <span title="Valores aproximados">≈</span>}
       </span>
     </button>
   );

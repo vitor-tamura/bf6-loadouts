@@ -14,7 +14,7 @@ on:
     - cron: '0 9 * * 1'
   workflow_dispatch:
     inputs:
-      aplicar:
+      apply:
         description: 'Gravar as mudanças (desmarcado = só relatório)'
         type: boolean
         default: true
@@ -24,7 +24,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  sincronizar:
+  sync:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -46,14 +46,14 @@ jobs:
         run: |
           {
             echo 'relatorio<<FIM'
-            node --experimental-strip-types scripts/sincronizar.mjs \
-              ${{ inputs.aplicar == false && '' || '--aplicar' }} 2>&1 \
+            node --experimental-strip-types scripts/sync.mjs \
+              ${{ inputs.apply == false && '' || '--apply' }} 2>&1 \
               | sed 's/\x1b\[[0-9;]*m//g'
             echo 'FIM'
           } >> "$GITHUB_OUTPUT"
 
       - name: Baixar imagens que faltam
-        run: python3 scripts/baixar_imagens.py
+        run: python3 scripts/download_images.py
 
       # A suíte cobre a integridade do dataset: id repetido, degrau de dano fora
       # de ordem, slot sem opção compatível, arma que não fecha nos 100 pontos.
@@ -75,10 +75,10 @@ jobs:
           commit-message: |
             Sincroniza o dataset com o catálogo público
 
-            Gerado por scripts/sincronizar.mjs. Estatística curada à mão fica
+            Gerado por scripts/sync.mjs. Estatística curada à mão fica
             como está — só entra o que a fonte mudou desde a última rodada.
           body: |
-            Rodada automática de `scripts/sincronizar.mjs`.
+            Rodada automática de `scripts/sync.mjs`.
 
             ```
             ${{ steps.sync.outputs.relatorio }}

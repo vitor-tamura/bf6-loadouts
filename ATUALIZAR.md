@@ -6,12 +6,12 @@ atropelar o que foi corrigido à mão.
 
 ```bash
 npm run sync              # o que mudou lá fora — não escreve nada
-npm run sync:aplicar      # grava o que dá para gravar
-npm run imagens:baixar    # busca a foto das armas que ainda não têm
+npm run sync:apply      # grava o que dá para gravar
+npm run images:download    # busca a foto das armas que ainda não têm
 npm test                  # a rede de segurança
 ```
 
-No repositório, `.github/workflows/atualizar-dados.yml` roda isso toda segunda e
+No repositório, `.github/workflows/sync-data.yml` roda isso toda segunda e
 abre um Pull Request quando encontra diferença. Nada vai para produção sozinho:
 item novo chega com campos marcados `TODO`, e isso é proposital.
 
@@ -86,7 +86,7 @@ de lista.
 Nem tudo vem da fonte. Conteúdo de temporada costuma chegar aqui antes.
 
 **Arma:** entrada em `src/data/weapons.ts` e a URL da foto em
-`src/data/weapon-images.ts`; depois `npm run imagens:baixar`. Os slots saem da
+`src/data/weapon-images.ts`; depois `npm run images:download`. Os slots saem da
 categoria.
 
 **Acessório:** entrada em `src/data/attachments.ts` com slot, custo em pontos,

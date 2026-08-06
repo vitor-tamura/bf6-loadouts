@@ -5,10 +5,10 @@ aparecem na interface.
 
 Nome, slot, custo em pontos e compatibilidade vêm do catálogo do bf6loadouts.com,
 filtrados pelas regras por categoria da planilha `attachments-compatibility.xlsx`.
-A coluna **Armas** resume em quantas a peça encaixa — a lista exata de cada uma
+A coluna **Armas** resume em quantas a peça encaixa — a list exata de cada uma
 está em `src/data/attachments.ts`.
 
-Gerado por `node scripts/acessorios.mjs`.
+Gerado por `node scripts/attachments-doc.mjs`.
 
 ## Slots
 
@@ -33,44 +33,44 @@ Gerado por `node scripts/acessorios.mjs`.
 | --- | --- | ---: | --- | --- |
 | Alça CQB | CQB Sights | 5 | UMG-40 | Ponto vermelho para aquisição rápida. |
 | Alça de Abertura | Aperture Sights | 5 | UMG-40 | Alça de abertura, leitura rápida de perto. |
-| Alça de Ferro | Iron Sights | 5 | quase todas (56) | Mira de fábrica, a que menos pesa no manejo. |
-| 1P87 1.50x | 1P87 1.50x | 10 | 46 armas | Mira com ampliação de 1.5×. |
-| 2PRO 1.25x | 2PRO 1.25x | 10 | 51 armas | Mira com ampliação de 1.25×. |
-| 3VZR 1.75x | 3VZR 1.75x | 10 | 36 armas | Mira com ampliação de 1.75×. |
-| A-P2 1.75x | A-P2 1.75x | 10 | 36 armas | Mira com ampliação de 1.75×. |
-| Baker 3.00x | Baker 3.00x | 10 | 42 armas | Mira com ampliação de 3.0×. |
-| BF-2M 2.50x | BF-2M 2.50x | 10 | 42 armas | Mira com ampliação de 2.5×. |
-| CCO 2.00x | CCO 2.00x | 10 | 36 armas | Mira com ampliação de 2.0×. |
-| CQ RDS 1.25x | CQ RDS 1.25x | 10 | quase todas (57) | Mira com ampliação de 1.25×. |
-| LDS 4.50x | LDS 4.50x | 10 | 23 armas | Mira com ampliação de 4.5×. |
-| LERT 8.00x | LERT 8.00x | 10 | 12 armas | Mira com ampliação de 8.0×. |
-| Mini Flex 1.00x | Mini Flex 1.00x | 10 | quase todas (57) | Ponto vermelho para aquisição rápida. |
-| NFX 8.00x | NFX 8.00x | 10 | 12 armas | Mira com ampliação de 8.0×. |
-| OSA-7 1.00x | OSA-7 1.00x | 10 | 51 armas | Ponto vermelho para aquisição rápida. |
-| PVQ-31 4.00x | PVQ-31 4.00x | 10 | 42 armas | Mira com ampliação de 4.0×. |
-| R-MR 1.00x | R-MR 1.00x | 10 | quase todas (56) | Ponto vermelho para aquisição rápida. |
-| R4T 2.00x | R4T 2.00x | 10 | 36 armas | Mira com ampliação de 2.0×. |
+| Alça de Ferro | Iron Sights | 5 | quase showAll (56) | Mira de fábrica, a que menos pesa no manejo. |
+| 1P87 1.50x | 1P87 1.50x | 10 | 46 weapons | Mira com ampliação de 1.5×. |
+| 2PRO 1.25x | 2PRO 1.25x | 10 | 51 weapons | Mira com ampliação de 1.25×. |
+| 3VZR 1.75x | 3VZR 1.75x | 10 | 36 weapons | Mira com ampliação de 1.75×. |
+| A-P2 1.75x | A-P2 1.75x | 10 | 36 weapons | Mira com ampliação de 1.75×. |
+| Baker 3.00x | Baker 3.00x | 10 | 42 weapons | Mira com ampliação de 3.0×. |
+| BF-2M 2.50x | BF-2M 2.50x | 10 | 42 weapons | Mira com ampliação de 2.5×. |
+| CCO 2.00x | CCO 2.00x | 10 | 36 weapons | Mira com ampliação de 2.0×. |
+| CQ RDS 1.25x | CQ RDS 1.25x | 10 | quase showAll (57) | Mira com ampliação de 1.25×. |
+| LDS 4.50x | LDS 4.50x | 10 | 23 weapons | Mira com ampliação de 4.5×. |
+| LERT 8.00x | LERT 8.00x | 10 | 12 weapons | Mira com ampliação de 8.0×. |
+| Mini Flex 1.00x | Mini Flex 1.00x | 10 | quase showAll (57) | Ponto vermelho para aquisição rápida. |
+| NFX 8.00x | NFX 8.00x | 10 | 12 weapons | Mira com ampliação de 8.0×. |
+| OSA-7 1.00x | OSA-7 1.00x | 10 | 51 weapons | Ponto vermelho para aquisição rápida. |
+| PVQ-31 4.00x | PVQ-31 4.00x | 10 | 42 weapons | Mira com ampliação de 4.0×. |
+| R-MR 1.00x | R-MR 1.00x | 10 | quase showAll (56) | Ponto vermelho para aquisição rápida. |
+| R4T 2.00x | R4T 2.00x | 10 | 36 weapons | Mira com ampliação de 2.0×. |
 | RMR 1.00x | RMR 1.00x | 10 | SGX | Ponto vermelho para aquisição rápida. |
-| RO-M 1.75x | RO-M 1.75x | 10 | 36 armas | Mira com ampliação de 1.75×. |
-| RO-S 1.25x | RO-S 1.25x | 10 | quase todas (57) | Mira com ampliação de 1.25×. |
-| ROX 1.50x | ROX 1.50x | 10 | 46 armas | Mira com ampliação de 1.5×. |
-| S-VPS 6.00x | S-VPS 6.00x | 10 | 12 armas | Mira com ampliação de 6.0×. |
-| SDO 3.50x | SDO 3.50x | 10 | 42 armas | Mira com ampliação de 3.5×. |
-| SF-G2 5.00x | SF-G2 5.00x | 10 | 12 armas | Mira com ampliação de 5.0×. |
-| SSDS 6.00x | SSDS 6.00x | 10 | 12 armas | Mira com ampliação de 6.0×. |
-| ST Prism 5.00x | ST Prism 5.00x | 10 | 12 armas | Mira com ampliação de 5.0×. |
-| SU-123 1.50x | SU-123 1.50x | 10 | 45 armas | Mira com ampliação de 1.5×. |
-| SU-230 LPVO | SU-230 LPVO | 20 | 6 armas | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
-| 1P88 Variável | 1P88 Variable | 25 | 12 armas | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
-| DVO LPVO | DVO LPVO | 25 | 32 armas | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
-| Grim 1.50x | Grim 1.50x | 25 | 46 armas | Mira com ampliação de 1.5×. |
-| Mars-F LPVO | Mars-F LPVO | 25 | 29 armas | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
-| MC-CO LPVO | MC-CO LPVO | 25 | 33 armas | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
-| NGFC LPVO | NGFC LPVO | 25 | 13 armas | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
-| PAS-35 3.00x | PAS-35 3.00x | 25 | 42 armas | Mira com ampliação de 3.0×. |
-| SM Rifle Variável | SM Rifle Variable | 25 | 12 armas | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
-| TS-HD 6.00x | TS-HD 6.00x | 25 | 12 armas | Mira com ampliação de 6.0×. |
-| TH-RDS 1.00x | TH-RDS 1.00x | 35 | 5 armas | Ponto vermelho para aquisição rápida. |
+| RO-M 1.75x | RO-M 1.75x | 10 | 36 weapons | Mira com ampliação de 1.75×. |
+| RO-S 1.25x | RO-S 1.25x | 10 | quase showAll (57) | Mira com ampliação de 1.25×. |
+| ROX 1.50x | ROX 1.50x | 10 | 46 weapons | Mira com ampliação de 1.5×. |
+| S-VPS 6.00x | S-VPS 6.00x | 10 | 12 weapons | Mira com ampliação de 6.0×. |
+| SDO 3.50x | SDO 3.50x | 10 | 42 weapons | Mira com ampliação de 3.5×. |
+| SF-G2 5.00x | SF-G2 5.00x | 10 | 12 weapons | Mira com ampliação de 5.0×. |
+| SSDS 6.00x | SSDS 6.00x | 10 | 12 weapons | Mira com ampliação de 6.0×. |
+| ST Prism 5.00x | ST Prism 5.00x | 10 | 12 weapons | Mira com ampliação de 5.0×. |
+| SU-123 1.50x | SU-123 1.50x | 10 | 45 weapons | Mira com ampliação de 1.5×. |
+| SU-230 LPVO | SU-230 LPVO | 20 | 6 weapons | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
+| 1P88 Variável | 1P88 Variable | 25 | 12 weapons | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
+| DVO LPVO | DVO LPVO | 25 | 32 weapons | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
+| Grim 1.50x | Grim 1.50x | 25 | 46 weapons | Mira com ampliação de 1.5×. |
+| Mars-F LPVO | Mars-F LPVO | 25 | 29 weapons | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
+| MC-CO LPVO | MC-CO LPVO | 25 | 33 weapons | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
+| NGFC LPVO | NGFC LPVO | 25 | 13 weapons | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
+| PAS-35 3.00x | PAS-35 3.00x | 25 | 42 weapons | Mira com ampliação de 3.0×. |
+| SM Rifle Variável | SM Rifle Variable | 25 | 12 weapons | Luneta de ampliação variável: gira de perto para longe sem trocar de peça. |
+| TS-HD 6.00x | TS-HD 6.00x | 25 | 12 weapons | Mira com ampliação de 6.0×. |
+| TH-RDS 1.00x | TH-RDS 1.00x | 35 | 5 weapons | Ponto vermelho para aquisição rápida. |
 
 ## Boca
 
@@ -78,19 +78,19 @@ Gerado por `node scripts/acessorios.mjs`.
 
 | Peça | Original | Pts | Armas | Efeito |
 | --- | --- | ---: | --- | --- |
-| Freio de Porta Única | Single-Port Brake | 5 | 41 armas | Freio de boca: derruba o salto do cano. |
+| Freio de Porta Única | Single-Port Brake | 5 | 41 weapons | Freio de boca: derruba o salto do cano. |
 | Freio Inclinado | Slant Brake | 5 | RPK-74M, RPKM | Freio de boca: derruba o salto do cano. |
 | Protetor de Rosca | Thread Protector | 5 | SV-98 | Protege a rosca, sem efeito de tiro. |
-| Compensador Linear | Linear Comp | 10 | 46 armas | Compensador: segura o desvio do tiro. |
-| Freio de Porta Dupla | Double-Port Brake | 10 | 50 armas | Freio de boca: derruba o salto do cano. |
+| Compensador Linear | Linear Comp | 10 | 46 weapons | Compensador: segura o desvio do tiro. |
+| Freio de Porta Dupla | Double-Port Brake | 10 | 50 weapons | Freio de boca: derruba o salto do cano. |
 | Freio de Porta Tripla | Triple-Port Brake | 10 | SVK-8.6 | Freio de boca: derruba o salto do cano. |
-| Quebra-Chamas | Flash Hider | 10 | quase todas (58) | Apaga o clarão do disparo. |
-| Compensador com Quebra-Chamas | Flash Comp | 20 | 5 armas | Compensador: segura o desvio do tiro. |
-| Freio Compensado | Compensated Brake | 20 | 51 armas | Freio de boca: derruba o salto do cano. |
-| Supressor Padrão | Standard Suppressor | 20 | quase todas (57) | Oculta os disparos do minimapa inimigo. |
-| Supressor Longo | Long Suppressor | 25 | 41 armas | Oculta os disparos do minimapa inimigo. |
-| Supressor Aliviado | Lightened Suppressor | 30 | 45 armas | Oculta os disparos do minimapa inimigo. |
-| Supressor CQB | CQB Suppressor | 30 | 35 armas | Oculta os disparos do minimapa inimigo. |
+| Quebra-Chamas | Flash Hider | 10 | quase showAll (58) | Apaga o clarão do disparo. |
+| Compensador com Quebra-Chamas | Flash Comp | 20 | 5 weapons | Compensador: segura o desvio do tiro. |
+| Freio Compensado | Compensated Brake | 20 | 51 weapons | Freio de boca: derruba o salto do cano. |
+| Supressor Padrão | Standard Suppressor | 20 | quase showAll (57) | Oculta os disparos do minimapa inimigo. |
+| Supressor Longo | Long Suppressor | 25 | 41 weapons | Oculta os disparos do minimapa inimigo. |
+| Supressor Aliviado | Lightened Suppressor | 30 | 45 weapons | Oculta os disparos do minimapa inimigo. |
+| Supressor CQB | CQB Suppressor | 30 | 35 weapons | Oculta os disparos do minimapa inimigo. |
 
 ## Cano
 
@@ -191,7 +191,7 @@ Gerado por `node scripts/acessorios.mjs`.
 | 11" Estendido | 11" Extended | 15 | SL9 | Cano curto: mira e movimento mais rápidos. |
 | 12" de Assalto | 12" Assaulter | 15 | M417 A2 | Cano de comprimento intermediário. |
 | 14,5" Alt | 14.5" Alt | 15 | GRT-BC | Cano longo: acelera a bala e estica o alcance. |
-| 14,5" Carabina | 14.5" Carbine | 15 | 5 armas | Cano longo: acelera a bala e estica o alcance. |
+| 14,5" Carabina | 14.5" Carbine | 15 | 5 weapons | Cano longo: acelera a bala e estica o alcance. |
 | 14,5" de Fábrica | 14.5" Factory | 15 | SOR-556 Mk2 | Cano longo: acelera a bala e estica o alcance. |
 | 14,5" Padrão | 14.5" Standard | 15 | M433 | Cano longo: acelera a bala e estica o alcance. |
 | 16" Curto | 16" Short | 15 | M39 EMR | Cano longo: acelera a bala e estica o alcance. |
@@ -257,27 +257,27 @@ Gerado por `node scripts/acessorios.mjs`.
 
 | Peça | Original | Pts | Armas | Efeito |
 | --- | --- | ---: | --- | --- |
-| Apoio de Mão Compacto | Compact Handstop | 10 | 9 armas | Apoio curto: melhora o tiro de quadril sem pesar. |
-| Bipé | Bipod | 10 | 38 armas | Apoiado, praticamente zera o recuo. |
-| Suporte Inferior | Underslung Mount | 10 | 11 armas | Suporte inferior para acoplar outra peça. |
-| Vertical Dobrável | Folding Vertical | 10 | 44 armas | O maior controle de recuo vertical. |
-| Angular Ajustável | Adjustable Angled | 15 | 23 armas | Acelera a subida à mira e segura o desvio lateral. |
+| Apoio de Mão Compacto | Compact Handstop | 10 | 9 weapons | Apoio curto: melhora o tiro de quadril sem pesar. |
+| Bipé | Bipod | 10 | 38 weapons | Apoiado, praticamente zera o recuo. |
+| Suporte Inferior | Underslung Mount | 10 | 11 weapons | Suporte inferior para acoplar outra peça. |
+| Vertical Dobrável | Folding Vertical | 10 | 44 weapons | O maior controle de recuo vertical. |
+| Angular Ajustável | Adjustable Angled | 15 | 23 weapons | Acelera a subida à mira e segura o desvio lateral. |
 | Angular de Fábrica | Factory Angled | 15 | LMR27, SL9, VSSM | Acelera a subida à mira e segura o desvio lateral. |
-| Apoio de Mão Fino | Slim Handstop | 15 | 6 armas | Melhora o tiro de quadril e o deslocamento. |
-| Curta Dobrável | Folding Stubby | 20 | 48 armas | Recuperação de mira mais rápida entre tiros. |
-| Empunhadura com Bipé PTT | PTT Grip Pod | 20 | 33 armas | Empunhadura e bipé na mesma peça. |
-| Vertical de Liga | Alloy Vertical | 20 | 44 armas | O maior controle de recuo vertical. |
-| Vertical Estriada | Ribbed Vertical | 20 | 43 armas | O maior controle de recuo vertical. |
-| Angular Completa | Full Angled | 25 | 40 armas | Acelera a subida à mira e segura o desvio lateral. |
-| Angular Fina | Slim Angled | 25 | 44 armas | Acelera a subida à mira e segura o desvio lateral. |
-| Vertical 6H64 | 6H64 Vertical | 25 | 43 armas | O maior controle de recuo vertical. |
-| Curta Estriada | Ribbed Stubby | 30 | 48 armas | Recuperação de mira mais rápida entre tiros. |
-| Curta Inclinada | Canted Stubby | 30 | 48 armas | Recuperação de mira mais rápida entre tiros. |
-| Empunhadura com Bipé | Classic Grip Pod | 30 | 39 armas | Empunhadura e bipé na mesma peça. |
-| Empunhadura com Bipé QD | QD Grip Pod | 30 | 39 armas | Empunhadura e bipé na mesma peça. |
-| Curta Texturizada | Stippled Stubby | 35 | 48 armas | Recuperação de mira mais rápida entre tiros. |
-| Vertical Clássica | Classic Vertical | 35 | 44 armas | O maior controle de recuo vertical. |
-| Curta de Perfil Baixo | Low-Profile Stubby | 45 | 54 armas | Recuperação de mira mais rápida entre tiros. |
+| Apoio de Mão Fino | Slim Handstop | 15 | 6 weapons | Melhora o tiro de quadril e o deslocamento. |
+| Curta Dobrável | Folding Stubby | 20 | 48 weapons | Recuperação de mira mais rápida entre tiros. |
+| Empunhadura com Bipé PTT | PTT Grip Pod | 20 | 33 weapons | Empunhadura e bipé na mesma peça. |
+| Vertical de Liga | Alloy Vertical | 20 | 44 weapons | O maior controle de recuo vertical. |
+| Vertical Estriada | Ribbed Vertical | 20 | 43 weapons | O maior controle de recuo vertical. |
+| Angular Completa | Full Angled | 25 | 40 weapons | Acelera a subida à mira e segura o desvio lateral. |
+| Angular Fina | Slim Angled | 25 | 44 weapons | Acelera a subida à mira e segura o desvio lateral. |
+| Vertical 6H64 | 6H64 Vertical | 25 | 43 weapons | O maior controle de recuo vertical. |
+| Curta Estriada | Ribbed Stubby | 30 | 48 weapons | Recuperação de mira mais rápida entre tiros. |
+| Curta Inclinada | Canted Stubby | 30 | 48 weapons | Recuperação de mira mais rápida entre tiros. |
+| Empunhadura com Bipé | Classic Grip Pod | 30 | 39 weapons | Empunhadura e bipé na mesma peça. |
+| Empunhadura com Bipé QD | QD Grip Pod | 30 | 39 weapons | Empunhadura e bipé na mesma peça. |
+| Curta Texturizada | Stippled Stubby | 35 | 48 weapons | Recuperação de mira mais rápida entre tiros. |
+| Vertical Clássica | Classic Vertical | 35 | 44 weapons | O maior controle de recuo vertical. |
+| Curta de Perfil Baixo | Low-Profile Stubby | 45 | 54 weapons | Recuperação de mira mais rápida entre tiros. |
 
 ## Carregador
 
@@ -291,17 +291,17 @@ Gerado por `node scripts/acessorios.mjs`.
 | 7 Shell Tube | 7 Shell Tube | 5 | M1014, M87A1 | Alimentação da arma. |
 | Bolsa de Fita de 100 | 100RND Belt Pouch | 5 | L110, M123K, M250, M/60 | Fita de cartuchos para fogo sustentado. |
 | Bolsa de Fita de 50 | 50RND Belt Pouch | 5 | M121 A2, M250 | Fita de cartuchos para fogo sustentado. |
-| Carregador de 10 | 10RND Magazine | 5 | 8 armas | Carregador de 10 tiros. |
-| Carregador de 15 | 15RND Magazine | 5 | 8 armas | Carregador de 15 tiros. |
+| Carregador de 10 | 10RND Magazine | 5 | 8 weapons | Carregador de 10 tiros. |
+| Carregador de 15 | 15RND Magazine | 5 | 8 weapons | Carregador de 15 tiros. |
 | Carregador de 17 | 17RND Magazine | 5 | KV9, P18, vz. 61 | Carregador de 17 tiros. |
-| Carregador de 20 | 20RND Magazine | 5 | 24 armas | Carregador de 20 tiros. |
-| Carregador de 30 | 30RND Magazine | 5 | 30 armas | Carregador de 30 tiros. |
+| Carregador de 20 | 20RND Magazine | 5 | 24 weapons | Carregador de 20 tiros. |
+| Carregador de 30 | 30RND Magazine | 5 | 30 weapons | Carregador de 30 tiros. |
 | Carregador de 4 | 4RND Magazine | 5 | 18.5KS-K | Carregador de 4 tiros. |
 | Carregador de 5 | 5RND Magazine | 5 | L115, M2010 ESR, Mini Scout | Carregador de 5 tiros. |
 | Carregador de 50 | 50RND Magazine | 5 | DRS-IAR, KTS100 MK8, PP-19, USG-90 | Carregador de 50 tiros. |
-| Carregador de 7 | 7RND Magazine | 5 | 6 armas | Carregador de 7 tiros. |
-| Carregador Rápido de 10 | 10RND Fast Mag | 5 | 5 armas | Mesma capacidade, recarga mais rápida. |
-| Carregador Rápido de 20 | 20RND Fast Mag | 5 | 22 armas | Mesma capacidade, recarga mais rápida. |
+| Carregador de 7 | 7RND Magazine | 5 | 6 weapons | Carregador de 7 tiros. |
+| Carregador Rápido de 10 | 10RND Fast Mag | 5 | 5 weapons | Mesma capacidade, recarga mais rápida. |
+| Carregador Rápido de 20 | 20RND Fast Mag | 5 | 22 weapons | Mesma capacidade, recarga mais rápida. |
 | Carregador Rápido de 5 | 5RND Fast Mag | 5 | M2010 ESR, Mini Scout, SVDM | Mesma capacidade, recarga mais rápida. |
 | Drum de 50 | 50RND Drum | 5 | M121 A2 | Muita munição sem parar de atirar. |
 | Loose Belt de 50 | 50RND Loose Belt | 5 | M240L, M/60 | Fita de cartuchos para fogo sustentado. |
@@ -309,33 +309,33 @@ Gerado por `node scripts/acessorios.mjs`.
 | Tambor de 60 | 60RND Drum Mag | 5 | KTS100 MK8 | Muita munição sem parar de atirar. |
 | Caixa de Fita de 75 | 75RND Belt Box | 10 | M240L | Fita de cartuchos para fogo sustentado. |
 | Carregador de 41 | 41RND Magazine | 10 | SGX | Carregador de 41 tiros. |
-| Carregador Rápido de 15 | 15RND Fast Mag | 10 | 5 armas | Mesma capacidade, recarga mais rápida. |
+| Carregador Rápido de 15 | 15RND Fast Mag | 10 | 5 weapons | Mesma capacidade, recarga mais rápida. |
 | Carregador Rápido de 17 | 17RND Fast Mag | 10 | KV9 | Mesma capacidade, recarga mais rápida. |
-| Carregador Rápido de 30 | 30RND Fast Mag | 10 | 24 armas | Mesma capacidade, recarga mais rápida. |
+| Carregador Rápido de 30 | 30RND Fast Mag | 10 | 24 weapons | Mesma capacidade, recarga mais rápida. |
 | Carregador Rápido de 4 | 4RND Fast Mag | 10 | 18.5KS-K | Mesma capacidade, recarga mais rápida. |
 | Carregador Rápido de 7 | 7RND Fast Mag | 10 | L115 | Mesma capacidade, recarga mais rápida. |
 | Carregador Rápido de 8 | 8RND Fast Mag | 10 | 18.5KS-K | Mesma capacidade, recarga mais rápida. |
 | Carregador de 21 | 21RND Magazine | 15 | P18, vz. 61 | Carregador de 21 tiros. |
 | Carregador de 35 | 35RND Magazine | 15 | CZ3A1 | Carregador de 35 tiros. |
-| Carregador de 36 | 36RND Magazine | 15 | 21 armas | Carregador de 36 tiros. |
-| Carregador de 25 | 25RND Magazine | 20 | 6 armas | Carregador de 25 tiros. |
+| Carregador de 36 | 36RND Magazine | 15 | 21 weapons | Carregador de 36 tiros. |
+| Carregador de 25 | 25RND Magazine | 20 | 6 weapons | Carregador de 25 tiros. |
 | Carregador Rápido de 35 | 35RND Fast Mag | 20 | CZ3A1 | Mesma capacidade, recarga mais rápida. |
 | Caixa de Fita de 100 | 100RND Belt Box | 25 | M240L | Fita de cartuchos para fogo sustentado. |
 | Carregador de 11 | 11RND Magazine | 25 | GGH-22, M357 Trait, M45A1 | Carregador de 11 tiros. |
 | Carregador de 23 | 23RND Magazine | 25 | KV9 | Carregador de 23 tiros. |
-| Carregador de 40 | 40RND Magazine | 25 | 20 armas | Carregador de 40 tiros. |
+| Carregador de 40 | 40RND Magazine | 25 | 20 weapons | Carregador de 40 tiros. |
 | Carregador de 8 | 8RND Magazine | 25 | 18.5KS-K, M2010 ESR, Mini Scout | Carregador de 8 tiros. |
 | Carregador Rápido de 25 | 25RND Fast Mag | 25 | M277, TR-7, UMG-40 | Mesma capacidade, recarga mais rápida. |
-| Carregador Rápido de 40 | 40RND Fast Mag | 30 | 17 armas | Mesma capacidade, recarga mais rápida. |
-| Carregador de 45 | 45RND Magazine | 35 | 9 armas | Carregador de 45 tiros. |
-| Carregador Rápido de 45 | 45RND Fast Mag | 40 | 9 armas | Mesma capacidade, recarga mais rápida. |
+| Carregador Rápido de 40 | 40RND Fast Mag | 30 | 17 weapons | Mesma capacidade, recarga mais rápida. |
+| Carregador de 45 | 45RND Magazine | 35 | 9 weapons | Carregador de 45 tiros. |
+| Carregador Rápido de 45 | 45RND Fast Mag | 40 | 9 weapons | Mesma capacidade, recarga mais rápida. |
 | Carregador de 27 | 27RND Magazine | 45 | KV9 | Carregador de 27 tiros. |
 | Carregador Rápido de 50 | 50RND Fast Mag | 45 | AK-205 | Mesma capacidade, recarga mais rápida. |
 | Tambor de 100 | 100RND Drum Mag | 45 | KTS100 MK8 | Muita munição sem parar de atirar. |
 | Drum de 75 | 75RND Drum | 50 | RPK-74M, RPKM | Muita munição sem parar de atirar. |
 | Caixa de Fita de 200 | 200RND Belt Box | 55 | L110, M123K | Fita de cartuchos para fogo sustentado. |
 | Carregador de 100 | 100RND Magazine | 55 | M121 A2 | Carregador de 100 tiros. |
-| Carregador de 60 | 60RND Magazine | 55 | 5 armas | Carregador de 60 tiros. |
+| Carregador de 60 | 60RND Magazine | 55 | 5 weapons | Carregador de 60 tiros. |
 
 ## Munição
 
@@ -343,15 +343,15 @@ Gerado por `node scripts/acessorios.mjs`.
 
 | Peça | Original | Pts | Armas | Efeito |
 | --- | --- | ---: | --- | --- |
-| Encamisada | FMJ | 5 | quase todas (59) | Sustenta o dano à distância. |
-| Núcleo de Tungstênio | Tungsten Core | 5 | 52 armas | Perfura material fino. |
+| Encamisada | FMJ | 5 | quase showAll (59) | Sustenta o dano à distância. |
+| Núcleo de Tungstênio | Tungsten Core | 5 | 52 weapons | Perfura material fino. |
 | Chumbo Grosso | Buckshot | 10 | 18.5KS-K, DB-12, M1014, M87A1 | Chumbo tradicional de escopeta. |
-| Estojo Polimérico | Polymer Case | 10 | 27 armas | Cartucho leve: acelera mira e deslocamento. |
-| Grau Competição | Match Grade | 10 | 9 armas | Cartucho de precisão, agrupamento fechado. |
-| Frangível | Frangible | 20 | 40 armas | Atrasa a regeneração de vida do alvo. |
-| Ponta Oca | Hollow Point | 20 | 47 armas | Melhora o dano em acerto na cabeça. |
+| Estojo Polimérico | Polymer Case | 10 | 27 weapons | Cartucho leve: acelera mira e deslocamento. |
+| Grau Competição | Match Grade | 10 | 9 weapons | Cartucho de precisão, agrupamento fechado. |
+| Frangível | Frangible | 20 | 40 weapons | Atrasa a regeneração de vida do alvo. |
+| Ponta Oca | Hollow Point | 20 | 47 weapons | Melhora o dano em acerto na cabeça. |
 | Flechette | Flechette | 30 | 18.5KS-K, DB-12, M1014, M87A1 | Dardos: alcance maior, dano menor. |
-| Ponta Sintética | Synthetic Tip | 30 | 17 armas | Trajetória mais reta e alcance maior. |
+| Ponta Sintética | Synthetic Tip | 30 | 17 weapons | Trajetória mais reta e alcance maior. |
 | Balote | Slugs | 40 | 18.5KS-K, DB-12, M1014, M87A1 | Projétil único: alcance muito maior, sem espalhamento. |
 
 ## Ergonomia
@@ -360,12 +360,12 @@ Gerado por `node scripts/acessorios.mjs`.
 
 | Peça | Original | Pts | Armas | Efeito |
 | --- | --- | ---: | --- | --- |
-| Retentor de Carregador Aprimorado | Improved Mag Catch | 5 | 29 armas | Troca de carregador mais rápida. |
+| Retentor de Carregador Aprimorado | Improved Mag Catch | 5 | 29 weapons | Troca de carregador mais rápida. |
 | Capa de Trilho | Rail Cover | 10 | M16A4 | Protege o trilho e melhora o manuseio. |
-| Funil de Carregador | Magwell Flare | 10 | 12 armas | Funil que guia o carregador na recarga. |
+| Funil de Carregador | Magwell Flare | 10 | 12 weapons | Funil que guia o carregador na recarga. |
 | Receiver A3 | A3 Receiver | 10 | M16A4 | Receiver aprimorado: recuo mais previsível. |
-| Gatilho de Competição | Match Trigger | 15 | 24 armas | Gatilho leve: tiro sai mais rápido. |
-| Ferrolho Revestido | DLC Bolt | 30 | 6 armas | Ferrolho tratado: ciclo mais veloz. |
+| Gatilho de Competição | Match Trigger | 15 | 24 weapons | Gatilho leve: tiro sai mais rápido. |
+| Ferrolho Revestido | DLC Bolt | 30 | 6 weapons | Ferrolho tratado: ciclo mais veloz. |
 
 ## Acessório Óptico
 
@@ -373,14 +373,14 @@ Gerado por `node scripts/acessorios.mjs`.
 
 | Peça | Original | Pts | Armas | Efeito |
 | --- | --- | ---: | --- | --- |
-| Alça de Ferro Inclinada | Canted Iron Sight | 5 | 10 armas | Mira de fábrica, a que menos pesa no manejo. |
-| Alça de Ferro Inclinada | Canted Iron Sights | 5 | 44 armas | Mira de fábrica, a que menos pesa no manejo. |
-| Ampliação Ajustável 2.00x | Adjustable Magnification 2.00x | 10 | 8 armas | Ampliação basculante sobre a mira principal. |
-| Ampliação Ajustável 3.00x | Adjustable Magnification 3.00x | 10 | 8 armas | Ampliação basculante sobre a mira principal. |
-| Ampliação Ajustável 4.00x | Adjustable Magnification 4.00x | 10 | 8 armas | Ampliação basculante sobre a mira principal. |
-| Reflex Inclinada | Canted Reflex | 10 | 53 armas | Mira auxiliar inclinada para o alvo colado. |
-| Reflex Sobreposta | Piggyback Reflex | 10 | 30 armas | Ponto vermelho montado sobre a luneta, para o alvo colado. |
-| Revestimento Antirreflexo | Anti-Glare Coating | 10 | 6 armas | Elimina o brilho da lente que denuncia a posição. |
+| Alça de Ferro Inclinada | Canted Iron Sight | 5 | 10 weapons | Mira de fábrica, a que menos pesa no manejo. |
+| Alça de Ferro Inclinada | Canted Iron Sights | 5 | 44 weapons | Mira de fábrica, a que menos pesa no manejo. |
+| Ampliação Ajustável 2.00x | Adjustable Magnification 2.00x | 10 | 8 weapons | Ampliação basculante sobre a mira principal. |
+| Ampliação Ajustável 3.00x | Adjustable Magnification 3.00x | 10 | 8 weapons | Ampliação basculante sobre a mira principal. |
+| Ampliação Ajustável 4.00x | Adjustable Magnification 4.00x | 10 | 8 weapons | Ampliação basculante sobre a mira principal. |
+| Reflex Inclinada | Canted Reflex | 10 | 53 weapons | Mira auxiliar inclinada para o alvo colado. |
+| Reflex Sobreposta | Piggyback Reflex | 10 | 30 weapons | Ponto vermelho montado sobre a luneta, para o alvo colado. |
+| Revestimento Antirreflexo | Anti-Glare Coating | 10 | 6 weapons | Elimina o brilho da lente que denuncia a posição. |
 
 ## Acessório Superior
 
@@ -388,12 +388,12 @@ Gerado por `node scripts/acessorios.mjs`.
 
 | Peça | Original | Pts | Armas | Efeito |
 | --- | --- | ---: | --- | --- |
-| Laser Verde de 5 MW | 5 MW Green | 10 | 17 armas | Aperta o cone do tiro de quadril; o feixe é visível. |
-| Laser Vermelho de 5 MW | 5 MW Red | 10 | 17 armas | Aperta o cone do tiro de quadril; o feixe é visível. |
+| Laser Verde de 5 MW | 5 MW Green | 10 | 17 weapons | Aperta o cone do tiro de quadril; o feixe é visível. |
+| Laser Vermelho de 5 MW | 5 MW Red | 10 | 17 weapons | Aperta o cone do tiro de quadril; o feixe é visível. |
 | Laser Violeta de 50 MW | 50 MW Violet | 10 | VCR-2 | Aperta o cone do tiro de quadril; o feixe é visível. |
-| Laser Azul de 50 MW | 50 MW Blue | 20 | 17 armas | Aperta o cone do tiro de quadril; o feixe é visível. |
-| Laser Verde de 50 MW | 50 MW Green | 20 | 17 armas | Aperta o cone do tiro de quadril; o feixe é visível. |
-| Laser Azul de 120 MW | 120 MW Blue | 30 | 17 armas | Aperta o cone do tiro de quadril; o feixe é visível. |
+| Laser Azul de 50 MW | 50 MW Blue | 20 | 17 weapons | Aperta o cone do tiro de quadril; o feixe é visível. |
+| Laser Verde de 50 MW | 50 MW Green | 20 | 17 weapons | Aperta o cone do tiro de quadril; o feixe é visível. |
+| Laser Azul de 120 MW | 120 MW Blue | 30 | 17 weapons | Aperta o cone do tiro de quadril; o feixe é visível. |
 
 ## Acessório Direito
 
@@ -402,12 +402,12 @@ Gerado por `node scripts/acessorios.mjs`.
 | Peça | Original | Pts | Armas | Efeito |
 | --- | --- | ---: | --- | --- |
 | Combo Laser/Lanterna Vermelho | Laser/Light Combo Red | 10 | GRT-BC, KTS100 MK8, SL9 | Laser e lanterna na mesma peça. |
-| Lanterna Tática | Flashlight | 10 | 48 armas | Ofusca quem está à frente em ambiente fechado. |
-| Laser Verde de 5 MW | 5 MW Green | 10 | 17 armas | Aperta o cone do tiro de quadril; o feixe é visível. |
-| Laser Vermelho de 5 MW | 5 MW Red | 10 | 17 armas | Aperta o cone do tiro de quadril; o feixe é visível. |
+| Lanterna Tática | Flashlight | 10 | 48 weapons | Ofusca quem está à frente em ambiente fechado. |
+| Laser Verde de 5 MW | 5 MW Green | 10 | 17 weapons | Aperta o cone do tiro de quadril; o feixe é visível. |
+| Laser Vermelho de 5 MW | 5 MW Red | 10 | 17 weapons | Aperta o cone do tiro de quadril; o feixe é visível. |
 | Laser Violeta de 50 MW | 50 MW Violet | 10 | CZ3A1, DB-12 | Aperta o cone do tiro de quadril; o feixe é visível. |
-| Telêmetro | Range Finder | 15 | 10 armas | Mostra a distância exata até o alvo. |
+| Telêmetro | Range Finder | 15 | 10 weapons | Mostra a distância exata até o alvo. |
 | Combo Laser/Lanterna Verde | Laser/Light Combo Green | 20 | GRT-BC, KORD 6P67, KTS100 MK8, SL9 | Laser e lanterna na mesma peça. |
-| Laser Azul de 50 MW | 50 MW Blue | 20 | 17 armas | Aperta o cone do tiro de quadril; o feixe é visível. |
-| Laser Verde de 50 MW | 50 MW Green | 20 | 17 armas | Aperta o cone do tiro de quadril; o feixe é visível. |
-| Laser Azul de 120 MW | 120 MW Blue | 30 | 17 armas | Aperta o cone do tiro de quadril; o feixe é visível. |
+| Laser Azul de 50 MW | 50 MW Blue | 20 | 17 weapons | Aperta o cone do tiro de quadril; o feixe é visível. |
+| Laser Verde de 50 MW | 50 MW Green | 20 | 17 weapons | Aperta o cone do tiro de quadril; o feixe é visível. |
+| Laser Azul de 120 MW | 120 MW Blue | 30 | 17 weapons | Aperta o cone do tiro de quadril; o feixe é visível. |

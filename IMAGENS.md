@@ -4,20 +4,20 @@ Duas coisas diferentes aparecem na tela, e elas seguem caminhos separados:
 
 | O quê | Como é desenhado | Onde mora |
 | --- | --- | --- |
-| A arma, no quadro de preview | fotografia | `public/armas/` |
+| A arma, no quadro de preview | fotografia | `public/weapons/` |
 | Acessórios e gadgets | ícone vetorial | `src/components/icons/` |
 
 ---
 
 ## A arma
 
-As 62 fotos ficam no projeto, em `public/armas/<id-da-arma>.webp` — 1,5 MB no
+As 62 fotos ficam no projeto, em `public/weapons/<id-da-arma>.webp` — 1,5 MB no
 total. A aplicação não faz nenhuma requisição para fora: nada depende de site de
 terceiros continuar no ar nem de o CDN permitir hotlink.
 
 O preview procura, nesta ordem:
 
-1. `public/armas/<id-da-arma>.webp`;
+1. `public/weapons/<id-da-arma>.webp`;
 2. a URL de origem em `src/data/weapon-images.ts`, se o arquivo local faltar;
 3. um marcador com o nome da arma, quando não há nenhuma das duas.
 
@@ -31,17 +31,17 @@ da Battlefield Wiki (`<ARMA>_BF6.png` — a arma no cenário de inspeção do jo
 uma reserva no IMFDB ou no battlefieldmeta.gg. O download é um comando:
 
 ```bash
-python3 scripts/baixar_imagens.py           # só o que falta
-python3 scripts/baixar_imagens.py --forcar  # rebaixa tudo
+python3 scripts/download_images.py           # só o que falta
+python3 scripts/download_images.py --forcar  # rebaixa tudo
 ```
 
 Ele converte para WebP a até 800 px de largura — a mesma foto em PNG ocupa perto
 de dez vezes mais. Para conferir o inventário sem baixar nada:
 
 ```bash
-node scripts/imagens.mjs          # o que falta
-node scripts/imagens.mjs --todas  # tudo, com a situação de cada um
-node scripts/imagens.mjs --md     # tabela em Markdown
+node scripts/images.mjs          # o que falta
+node scripts/images.mjs --todas  # tudo, com a situação de cada um
+node scripts/images.mjs --md     # tabela em Markdown
 ```
 
 Para acrescentar uma arma: registre a URL em `weapon-images.ts` e rode o script.
