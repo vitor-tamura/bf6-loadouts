@@ -106,7 +106,7 @@ export default function BuilderPage() {
           <div className={tab === 'arma' ? 'block' : 'hidden lg:block'}>
             {/* No computador a lista rola dentro da própria coluna: com 63 armas,
                 deixá-la esticar faria a página inteira crescer sem necessidade. */}
-            <div className="card bevel p-3 lg:max-h-[calc(100dvh-140px)] lg:overflow-y-auto">
+            <div className="card bevel overflow-x-hidden p-3 lg:max-h-[calc(100dvh-140px)] lg:overflow-y-auto">
               <WeaponSelector
                 selected={loadout.weapon}
                 onSelect={chooseWeapon}

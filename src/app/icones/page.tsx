@@ -1,5 +1,5 @@
 import { AttachmentIcon } from '@/components/icons/attachment-icon';
-import { GadgetIcon } from '@/components/icons/gadget-icon';
+import { GadgetArt } from '@/components/gadget-art';
 import { ATTACHMENTS } from '@/data/attachments';
 import { GADGETS } from '@/data/gadgets';
 import type { Attachment } from '@/data/types';
@@ -42,7 +42,7 @@ export default function IconSheet() {
         {GADGETS.map((g) => (
           <li key={g.id} className="bevel-sm flex flex-col items-center gap-1 p-2" style={{ border: '1px solid var(--border)' }}>
             <span style={{ color: 'var(--accent)' }}>
-              <GadgetIcon gadget={g} size={40} />
+              <GadgetArt gadget={g} size={40} />
             </span>
             <span className="text-center text-[10px] leading-tight">{g.name}</span>
           </li>

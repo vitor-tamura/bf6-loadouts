@@ -1,7 +1,7 @@
 'use client';
 
 import { CLASSES } from '@/data/classes';
-import { GadgetIcon } from '@/components/icons/gadget-icon';
+import { GadgetArt } from '@/components/gadget-art';
 import { throwables, gadgetsForClass } from '@/data/gadgets';
 import type { Gadget, ClassId } from '@/data/types';
 
@@ -111,7 +111,7 @@ function EquipmentList({
                   className="mt-0.5"
                   style={{ color: active ? 'var(--accent)' : 'var(--text-dim)', lineHeight: 0 }}
                 >
-                  <GadgetIcon gadget={item} size={28} />
+                  <GadgetArt gadget={item} size={30} />
                 </span>
                 <span className="min-w-0">
                   <span className="block text-sm font-medium">{item.name}</span>

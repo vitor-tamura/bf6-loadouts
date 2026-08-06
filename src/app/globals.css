@@ -40,8 +40,13 @@
 
   /* Desacelera até parar, sem passar do ponto — a peça assenta no lugar. */
   --ease-snap: cubic-bezier(0.22, 1, 0.36, 1);
-  /* Curva neutra para cor e brilho, onde o exagero apareceria como atraso. */
+  /*
+   * Par de curvas do hover: entra desacelerando (`out`) e sai acelerando
+   * (`in`). O realce chega com calma e some sem arrastar — invertê-las faz o
+   * ponteiro parecer preso ao passar rápido por uma lista.
+   */
   --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-in: cubic-bezier(0.32, 0, 0.67, 0);
 }
 
 :root {
@@ -240,14 +245,27 @@
   button,
   a,
   summary,
-  label:has(input[type='checkbox']) {
-    transition:
-      filter 220ms var(--ease-out),
-      background-color 220ms var(--ease-out),
-      color 220ms var(--ease-out),
-      border-color 220ms var(--ease-out),
-      box-shadow 220ms var(--ease-out),
-      opacity 220ms var(--ease-out);
+  label:has(input[type='checkbox']),
+  .card,
+  .tile,
+  .chip,
+  .chip::before,
+  .stat-track {
+    transition-property: filter, background-color, color, border-color, box-shadow, opacity, transform;
+    transition-duration: 220ms;
+    transition-timing-function: var(--ease-in);
+  }
+
+  button:hover,
+  a:hover,
+  summary:hover,
+  label:has(input[type='checkbox']):hover,
+  .card:hover,
+  .tile:hover,
+  .chip:hover,
+  .chip:hover::before,
+  .stat-row:hover .stat-track {
+    transition-timing-function: var(--ease-out);
   }
 
   @media (hover: hover) {
@@ -330,20 +348,29 @@
     );
   }
 
+  /*
+   * Só cartão clicável reage ao ponteiro.
+   *
+   * `.card` também veste painéis — a coluna de armas, o quadro de estatísticas,
+   * a lista aberta de peças. Fazer todos acenderem punha a tela inteira
+   * piscando conforme o cursor atravessava a página para chegar a algum lugar.
+   * O seletor por elemento resolve sem precisar de uma segunda classe: quem é
+   * `<button>` ou `<a>` é para clicar, quem é `<div>` é superfície.
+   */
   @media (hover: hover) {
-    .card:hover,
+    button.card:hover,
+    a.card:hover,
     .tile:not([aria-pressed='true']):not(:disabled):hover {
       background-color: var(--surface-hover);
       filter: none;
     }
 
     /*
-     * O painel aberto não é alvo de clique — é a superfície onde se escolhe.
-     * Deixá-lo reagir ao ponteiro faria a área inteira acender toda vez que o
-     * cursor cruzasse para chegar num cartão de peça.
+     * O item já escolhido continua clicável, então também responde — só que
+     * pelo brilho, porque trocar o fundo dele apagaria a marca de seleção.
      */
-    .disclosure .card:hover {
-      background-color: var(--surface-veil);
+    .tile[aria-pressed='true']:hover {
+      filter: brightness(1.18);
     }
   }
 

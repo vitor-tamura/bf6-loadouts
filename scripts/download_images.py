@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Baixa as fotos das armas e grava cada uma em `public/weapons/`.
+Baixa as artes de arma e de gadget e grava cada uma em `public/`.
 
 Enquanto as imagens vinham de fora, bastava uma URL por arma. Trazidas para o
 projeto, elas param de depender de site de terceiros continuar no ar e do CDN
@@ -22,8 +22,10 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
-TARGET = ROOT / 'public' / 'weapons'
-SOURCE = ROOT / 'src' / 'data' / 'weapon-images.ts'
+WEAPONS_TARGET = ROOT / 'public' / 'weapons'
+WEAPONS_SOURCE = ROOT / 'src' / 'data' / 'weapon-images.ts'
+GADGETS_TARGET = ROOT / 'public' / 'gadgets'
+GADGETS_SOURCE = ROOT / 'src' / 'data' / 'gadget-images.ts'
 
 # Sem User-Agent de navegador, parte das origens devolve 403.
 HEADERS = {
@@ -33,11 +35,14 @@ HEADERS = {
 
 MAX_WIDTH = 800
 QUALITY = 82
+# O ícone de gadget aparece pequeno na interface; 256 px já é o dobro do que ele
+# ocupa na maior tela, e cabe num arquivo de poucos quilobytes.
+GADGET_WIDTH = 256
 
 
-def sources() -> dict[str, list[str]]:
+def weapon_sources() -> dict[str, list[str]]:
     """Lê o mapa de imagens do TypeScript: id da arma → URLs, da melhor à reserva."""
-    text = SOURCE.read_text(encoding='utf8')
+    text = WEAPONS_SOURCE.read_text(encoding='utf8')
     wiki = re.search(r"const WIKI = '([^']+)'", text).group(1)
 
     result = {}
@@ -56,17 +61,25 @@ def sources() -> dict[str, list[str]]:
     return result
 
 
+def gadget_sources() -> dict[str, list[str]]:
+    """Id do gadget → uma URL. O mapa mora no TS para o app e o script concordarem."""
+    text = GADGETS_SOURCE.read_text(encoding='utf8')
+    base = re.search(r"const TIERMAKER =\s*'([^']+)'", text).group(1)
+    pairs = re.findall(r"^  '?([\w-]+)'?: '([\w-]+)',$", text, flags=re.M)
+    return {gadget: [f'{base}/{file}.png'] for gadget, file in pairs}
+
+
 def fetch_bytes(url: str) -> bytes:
     request = urllib.request.Request(url, headers=HEADERS)
     with urllib.request.urlopen(request, timeout=30) as response:
         return response.read()
 
 
-def write_image(dados: bytes, path: Path) -> tuple[int, int]:
+def write_image(dados: bytes, path: Path, max_width: int = MAX_WIDTH) -> tuple[int, int]:
     image = Image.open(BytesIO(dados))
-    if image.width > MAX_WIDTH:
-        height = round(image.height * MAX_WIDTH / image.width)
-        image = image.resize((MAX_WIDTH, height), Image.LANCZOS)
+    if image.width > max_width:
+        height = round(image.height * max_width / image.width)
+        image = image.resize((max_width, height), Image.LANCZOS)
     # Modo P com transparência vira RGBA; o resto segue como está.
     if image.mode not in ('RGB', 'RGBA'):
         image = image.convert('RGBA' if 'transparency' in image.info else 'RGB')
@@ -74,29 +87,48 @@ def write_image(dados: bytes, path: Path) -> tuple[int, int]:
     return image.size
 
 
-def main() -> int:
-    force = '--force' in sys.argv
-    TARGET.mkdir(parents=True, exist_ok=True)
-
+def download(
+    label: str,
+    entries: dict[str, list[str]],
+    target: Path,
+    force: bool,
+    max_width: int = MAX_WIDTH,
+) -> tuple[int, int, int]:
+    target.mkdir(parents=True, exist_ok=True)
     done = failed = skipped = 0
-    for arma, urls in sorted(sources().items()):
-        path = TARGET / f'{arma}.webp'
+
+    print(f'\n{label}')
+    for item, urls in sorted(entries.items()):
+        path = target / f'{item}.webp'
         if path.exists() and not force:
             skipped += 1
             continue
 
+        last = 'sem URL'
         for url in urls:
             try:
-                width, height = write_image(fetch_bytes(url), path)
+                width, height = write_image(fetch_bytes(url), path, max_width)
             except Exception as error:  # origem fora do ar, formato ilegível, 403
                 last = f'{type(error).__name__}: {error}'
                 continue
-            print(f'  ✓ {arma:14} {width}x{height}  {path.stat().st_size // 1024} KB')
+            print(f'  ✓ {item:20} {width}x{height}  {path.stat().st_size // 1024} KB')
             done += 1
             break
         else:
-            print(f'  ✗ {arma:14} nenhuma fonte respondeu — {last}')
+            print(f'  ✗ {item:20} nenhuma fonte respondeu — {last}')
             failed += 1
+
+    return done, skipped, failed
+
+
+def main() -> int:
+    force = '--force' in sys.argv
+
+    totals = [
+        download('Armas', weapon_sources(), WEAPONS_TARGET, force),
+        download('Gadgets', gadget_sources(), GADGETS_TARGET, force, GADGET_WIDTH),
+    ]
+    done, skipped, failed = (sum(column) for column in zip(*totals))
 
     print(f'\n{done} baixadas · {skipped} já existiam · {failed} falharam')
     return 1 if failed else 0

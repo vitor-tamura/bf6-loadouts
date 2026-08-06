@@ -5,7 +5,8 @@ Duas coisas diferentes aparecem na tela, e elas seguem caminhos separados:
 | O quê | Como é desenhado | Onde mora |
 | --- | --- | --- |
 | A arma, no quadro de preview | fotografia | `public/weapons/` |
-| Acessórios e gadgets | ícone vetorial | `src/components/icons/` |
+| Gadgets | fotografia, com ícone de reserva | `public/gadgets/` |
+| Acessórios | ícone vetorial | `src/components/icons/` |
 
 ---
 
@@ -82,6 +83,19 @@ média, luneta longa) e o comprimento e o perfil do cano.
 
 Para acrescentar um desenho, basta adicionar o `case` correspondente — nenhum
 arquivo novo, nenhum asset.
+
+### Gadgets
+
+39 dos 43 têm foto, em `public/gadgets/<id>.webp` — 256 KB no total. A origem é
+um template público do TierMaker, cujos nomes de arquivo descrevem a função
+("smoke-nade", "recon-drone") em vez da designação que este projeto usa ("M18
+Smoke", "XFGM-6D"); o mapa item a item mora em `src/data/gadget-images.ts`, e o
+mesmo script baixa tudo.
+
+Os quatro sem foto — Repair Tool, Acoustic Sensor, AIO Impact e Biohazard Gas —
+aparecem com o ícone vetorial. É por isso que os ícones de gadget continuam
+existindo: eles não são enfeite, são o que aparece nesses quatro e em qualquer
+gadget novo antes de a arte chegar.
 
 ### Conferência
 

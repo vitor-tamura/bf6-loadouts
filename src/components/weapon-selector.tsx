@@ -164,7 +164,7 @@ function WeaponCard({
       type="button"
       onClick={onSelect}
       aria-pressed={selected}
-      className="tile bevel-sm touch flex w-full items-center gap-3 px-3 py-2 text-left"
+      className="tile bevel-sm touch flex w-full items-center gap-2.5 px-2.5 py-2 text-left"
       style={
         {
           '--tile-bg': selected
@@ -233,7 +233,7 @@ function WeaponThumb({ weapon }: { weapon: Weapon }) {
       aria-hidden
       loading="lazy"
       onError={() => setBroken(true)}
-      className="h-10 w-20 shrink-0 object-contain"
+      className="h-9 w-16 shrink-0 object-contain"
     />
   );
 }
