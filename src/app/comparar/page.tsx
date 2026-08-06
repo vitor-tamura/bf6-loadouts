@@ -2,6 +2,8 @@
 
 import { useMemo, useState } from 'react';
 import { AppHeader } from '@/components/header';
+import { SeasonTag } from '@/components/season-tag';
+import { SiteFooter } from '@/components/site-footer';
 import { ComparisonChart, type Series } from '@/components/charts';
 import { WeaponPreview } from '@/components/weapon-preview';
 import { CATEGORY_NAMES, SHORT_CATEGORY_NAMES } from '@/data/classes';
@@ -441,11 +443,7 @@ export default function ComparePage() {
                             ≈
                           </span>
                         )}
-                        {row.season > 0 && (
-                          <span className="font-mono text-[10px]" style={{ color: 'var(--accent)' }}>
-                            T{row.season}
-                          </span>
-                        )}
+                        <SeasonTag season={row.season} size="sm" />
                         <SideButton
                           side="A"
                           color={COLOR_A}
@@ -482,10 +480,7 @@ export default function ComparePage() {
           </div>
         </section>
 
-        <p className="pb-safe mt-6 text-center text-[11px]" style={{ color: 'var(--text-dim)' }}>
-          Projeto de fã, sem vínculo com a EA ou a DICE. O sinal ≈ marca armas com valores
-          aproximados.
-        </p>
+        <SiteFooter note="O sinal ≈ marca armas com valores aproximados." />
       </main>
     </div>
   );

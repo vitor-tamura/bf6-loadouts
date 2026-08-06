@@ -170,7 +170,16 @@ export function decodeLoadout(code: string): Loadout | null {
  */
 export const LOADOUT_PARAM = 'l';
 
+/**
+ * Onde o link do loadout abre.
+ *
+ * A raiz é o catálogo; o montador tem rota própria. Links antigos apontando
+ * para `/?l=…` continuam válidos — a home reencaminha para cá com o código
+ * intacto.
+ */
+export const BUILDER_PATH = '/montar/';
+
 export function loadoutUrl(loadout: Loadout, origin?: string): string {
   const base = origin ?? (typeof window !== 'undefined' ? window.location.origin : '');
-  return `${base}/?${LOADOUT_PARAM}=${encodeLoadout(loadout)}`;
+  return `${base}${BUILDER_PATH}?${LOADOUT_PARAM}=${encodeLoadout(loadout)}`;
 }

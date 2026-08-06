@@ -101,7 +101,7 @@ describe('leitura tolerante', () => {
 describe('URL de compartilhamento', () => {
   it('monta a URL do loadout sobre a origem informada', () => {
     const url = loadoutUrl(full, 'https://exemplo.com');
-    expect(url.startsWith('https://exemplo.com/?l=')).toBe(true);
+    expect(url.startsWith('https://exemplo.com/montar/?l=')).toBe(true);
     const code = new URL(url).searchParams.get('l')!;
     expect(decodeLoadout(code)).toEqual(full);
   });

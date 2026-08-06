@@ -1,477 +1,376 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import Link from 'next/link';
+import { useEffect, useMemo, useState } from 'react';
 import { AppHeader } from '@/components/header';
-import { ShareButton } from '@/components/share-button';
-import { DamageChart, DropChart } from '@/components/charts';
-import { EquipmentPanel, ClassSelector } from '@/components/class-panel';
-import { SlotsPanel, BudgetBar } from '@/components/slots-panel';
-import { StatsPanel } from '@/components/stats-panel';
 import { WeaponPreview } from '@/components/weapon-preview';
-import { WeaponSelector } from '@/components/weapon-selector';
-import { WEAPONS_BY_ID, PRIMARY_CATEGORIES } from '@/data/weapons';
-import { budgetFor, POINT_BUDGET } from '@/data/classes';
-import type { SlotId, Weapon } from '@/data/types';
-import { analysisDistance } from '@/lib/ballistics';
-import { loadoutAttachments } from '@/lib/loadout';
-import { calculateBudget, calculateStats, baseStats, hasApproximateValue, type Budget } from '@/lib/stats';
-import { useLoadout, useUrlSync } from '@/state/loadout';
+import { SeasonTag } from '@/components/season-tag';
+import { SiteFooter } from '@/components/site-footer';
+import { CATEGORY_NAMES, CLASSES, SHORT_CATEGORY_NAMES } from '@/data/classes';
+import { CATEGORY_ORDER, WEAPONS } from '@/data/weapons';
+import type { ClassId, Weapon, WeaponCategory } from '@/data/types';
+import { damagePerShot, shotsToKill, timeToKill } from '@/lib/ballistics';
+import { BUILDER_PATH, encodeLoadout, LOADOUT_PARAM } from '@/lib/share';
+import { EMPTY_LOADOUT } from '@/lib/loadout';
+import { baseStats } from '@/lib/stats';
 
 /**
- * Montador de loadout.
+ * Catálogo completo — a porta de entrada do site.
  *
- * No computador as três colunas ficam visíveis ao mesmo tempo — escolher a arma,
- * montar e ler o resultado sem nenhum menu escondido. No celular o preview fica
- * fixo no topo e o resto se divide em abas, para que cada tela peça uma decisão
- * de cada vez.
+ * Todas as armas de uma vez, com o desenho e os números que decidem a escolha à
+ * vista. Clicar em uma leva direto ao montador já com ela equipada — a lista
+ * existe para escolher, não só para consultar.
  */
 
-type Tab = 'arma' | 'montar' | 'classe' | 'numeros';
+/**
+ * Link de loadout que chegou na raiz.
+ *
+ * Enquanto o montador morava aqui, todo link compartilhado nasceu como
+ * `/?l=…`. Eles continuam circulando por aí, então a raiz reencaminha para o
+ * montador com o código intacto em vez de mostrar o catálogo e engolir a
+ * montagem que a pessoa clicou.
+ */
+function useLegacyLoadoutRedirect() {
+  useEffect(() => {
+    const code = new URLSearchParams(window.location.search).get(LOADOUT_PARAM);
+    if (code) window.location.replace(`${BUILDER_PATH}?${LOADOUT_PARAM}=${code}`);
+  }, []);
+}
 
-const TABS: { id: Tab; name: string }[] = [
-  { id: 'arma', name: 'Arma' },
-  { id: 'montar', name: 'Montar' },
-  { id: 'classe', name: 'Classe' },
-  { id: 'numeros', name: 'Números' },
+/** Remove acentos para que "precisao" também encontre "precisão". */
+function normalize(text: string): string {
+  return text
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+}
+
+/** A regra de busca, uma só para a lista e para as contagens dos chips. */
+function matchesSearch(weapon: Weapon, term: string): boolean {
+  if (!term) return true;
+  return (
+    normalize(weapon.name).includes(term) ||
+    normalize(CATEGORY_NAMES[weapon.category]).includes(term) ||
+    normalize(weapon.summary).includes(term)
+  );
+}
+
+type SortKey = 'nome' | 'dano' | 'cadencia' | 'ttk' | 'alcance';
+
+const SORTS: { id: SortKey; label: string }[] = [
+  { id: 'nome', label: 'Nome' },
+  { id: 'dano', label: 'Dano' },
+  { id: 'cadencia', label: 'Cadência' },
+  { id: 'ttk', label: 'Tempo para matar' },
+  { id: 'alcance', label: 'Velocidade' },
 ];
 
-export default function BuilderPage() {
-  useUrlSync();
+export default function WeaponsPage() {
+  useLegacyLoadoutRedirect();
 
-  const loadout = useLoadout((s) => s.loadout);
-  const compareWithBase = useLoadout((s) => s.compareWithBase);
-  const setWeapon = useLoadout((s) => s.setWeapon);
-  const setAttachment = useLoadout((s) => s.setAttachment);
-  const setPlayerClass = useLoadout((s) => s.setPlayerClass);
-  const setSidearm = useLoadout((s) => s.setSidearm);
-  const setSidearmAttachment = useLoadout((s) => s.setSidearmAttachment);
-  const setGadget = useLoadout((s) => s.setGadget);
-  const setThrowable = useLoadout((s) => s.setThrowable);
-  const toggleBaseComparison = useLoadout((s) => s.toggleBaseComparison);
-  const clearAttachments = useLoadout((s) => s.clearAttachments);
-  const clearSidearmAttachments = useLoadout((s) => s.clearSidearmAttachments);
+  const [search, setSearch] = useState('');
+  const [category, setCategory] = useState<WeaponCategory | 'all'>('all');
+  const [playerClass, setPlayerClass] = useState<ClassId | 'all'>('all');
+  const [sort, setSort] = useState<SortKey>('nome');
 
-  const [tab, setTab] = useState<Tab>('arma');
+  const list = useMemo(() => {
+    const term = normalize(search.trim());
 
-  const [choosingSidearm, setChoosingSidearm] = useState(false);
+    const filtered = WEAPONS.filter((weapon) => {
+      if (category !== 'all' && weapon.category !== category) return false;
+      if (playerClass !== 'all' && weapon.signatureClass !== playerClass) return false;
+      return matchesSearch(weapon, term);
+    });
 
-  const weapon = loadout.weapon ? (WEAPONS_BY_ID.get(loadout.weapon) ?? null) : null;
-  const sidearm = loadout.sidearm ? (WEAPONS_BY_ID.get(loadout.sidearm) ?? null) : null;
-  const attachments = useMemo(() => loadoutAttachments(loadout.attachments, weapon), [loadout, weapon]);
+    const withStats = filtered.map((weapon) => ({ weapon, stats: baseStats(weapon) }));
 
-  // A secundária gasta do próprio orçamento, como no jogo.
-  const sidearmAttachments = useMemo(
-    () => loadoutAttachments(loadout.sidearmAttachments, sidearm),
-    [loadout.sidearmAttachments, sidearm],
-  );
-  const sidearmStats = useMemo(
-    () => (sidearm ? calculateStats(sidearm, sidearmAttachments) : null),
-    [sidearm, sidearmAttachments],
-  );
-  const sidearmBase = useMemo(() => (sidearm ? baseStats(sidearm) : null), [sidearm]);
-  const sidearmBudget = useMemo(
-    () =>
-      calculateBudget(sidearmAttachments, sidearm ? budgetFor(sidearm.category) : POINT_BUDGET),
-    [sidearmAttachments, sidearm],
-  );
-  const stats = useMemo(() => (weapon ? calculateStats(weapon, attachments) : null), [weapon, attachments]);
-  const base = useMemo(() => (weapon ? baseStats(weapon) : null), [weapon]);
-  const budget = useMemo(
-    () => calculateBudget(attachments, weapon ? budgetFor(weapon.category) : POINT_BUDGET),
-    [attachments, weapon],
-  );
-  const distance = useMemo(() => (stats ? analysisDistance(stats) : 100), [stats]);
-  const approximate = weapon ? hasApproximateValue(weapon, attachments) : false;
+    withStats.sort((a, b) => {
+      switch (sort) {
+        case 'dano':
+          return damagePerShot(b.stats, 0) - damagePerShot(a.stats, 0);
+        case 'cadencia':
+          return b.stats.rpm - a.stats.rpm;
+        case 'ttk': {
+          const ta = timeToKill(a.stats, 0);
+          const tb = timeToKill(b.stats, 0);
+          return (Number.isFinite(ta) ? ta : Infinity) - (Number.isFinite(tb) ? tb : Infinity);
+        }
+        case 'alcance':
+          return b.stats.velocity - a.stats.velocity;
+        default:
+          return a.weapon.name.localeCompare(b.weapon.name, 'pt-BR');
+      }
+    });
 
-  // Ao escolher a arma no celular, a próxima decisão é montar.
-  function chooseWeapon(id: string) {
-    setWeapon(id);
-    setTab('montar');
-  }
+    return withStats;
+  }, [search, category, playerClass, sort]);
+
+  /*
+   * Quanto cada chip entrega se for clicado.
+   *
+   * A conta ignora o próprio eixo do chip e respeita os outros filtros: o
+   * número da Carabina é quanto sobra dela dentro da classe e da busca em
+   * vigor. Contar o arsenal inteiro prometeria armas que o clique não traz.
+   */
+  const counts = useMemo(() => {
+    const term = normalize(search.trim());
+    const byCat = new Map<WeaponCategory, number>();
+    const byClass = new Map<ClassId, number>();
+    let allCategories = 0;
+    let allClasses = 0;
+
+    for (const weapon of WEAPONS) {
+      if (!matchesSearch(weapon, term)) continue;
+
+      if (playerClass === 'all' || weapon.signatureClass === playerClass) {
+        byCat.set(weapon.category, (byCat.get(weapon.category) ?? 0) + 1);
+        allCategories++;
+      }
+
+      if (category === 'all' || weapon.category === category) {
+        allClasses++;
+        // Carabina, DMR, escopeta, pistola e faca não pertencem a classe nenhuma.
+        if (weapon.signatureClass) {
+          byClass.set(weapon.signatureClass, (byClass.get(weapon.signatureClass) ?? 0) + 1);
+        }
+      }
+    }
+
+    return { byCat, byClass, allCategories, allClasses };
+  }, [search, category, playerClass]);
+
+  const byCategory = useMemo(() => {
+    const map = new Map<WeaponCategory, typeof list>();
+    for (const item of list) {
+      const bucket = map.get(item.weapon.category) ?? [];
+      bucket.push(item);
+      map.set(item.weapon.category, bucket);
+    }
+    return map;
+  }, [list]);
+
+  // Agrupar por categoria só ajuda quando a ordenação é alfabética; nas demais,
+  // o que interessa é o ranking contínuo.
+  const grouped = sort === 'nome' && category === 'all';
 
   return (
     <div className="min-h-dvh">
-      <AppHeader
-        subtitle={weapon ? weapon.name : 'Montador de loadouts'}
-        actions={<ShareButton loadout={loadout} disabled={!weapon} />}
-      />
+      <AppHeader subtitle="Todas as armas" />
 
       <main className="mx-auto max-w-[1600px] px-3 py-3">
-        {/* Preview: sempre visível, é a resposta imediata a cada acessório. */}
-        {weapon && (
-          <div className="card bevel sticky top-[64px] z-20 mb-3 p-2 lg:static">
-            {/* Largura limitada: com a proporção 8:3 do quadro, deixar o preview
-                ocupar 1600 px transformaria a arma em um painel de 600 px de
-                altura e empurraria todo o resto para fora da tela. */}
-            <WeaponPreview
-              weapon={weapon}
-             
-              withLabel
-              className="mx-auto w-full max-w-[560px] lg:max-w-[760px]"
-            />
-
-          </div>
-        )}
-
-        {/* `min-w-0` nos filhos: sem isso, itens de grid usam a largura mínima do
-            conteúdo e a barra de filtros rolável estica a página inteira,
-            criando rolagem horizontal no celular. */}
-        <div className="grid gap-3 [&>*]:min-w-0 lg:grid-cols-[minmax(230px,270px)_minmax(0,1fr)_minmax(340px,420px)]">
-          {/* Coluna 1 — escolha da arma */}
-          <div className={tab === 'arma' ? 'block' : 'hidden lg:block'}>
-            {/* No computador a lista rola dentro da própria coluna: com 63 armas,
-                deixá-la esticar faria a página inteira crescer sem necessidade. */}
-            <div className="card bevel overflow-x-hidden p-3 lg:max-h-[calc(100dvh-140px)] lg:overflow-y-auto">
-              <WeaponSelector
-                selected={loadout.weapon}
-                onSelect={chooseWeapon}
-                categories={PRIMARY_CATEGORIES}
+        <div className="card bevel mb-3 p-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <label className="min-w-[200px] flex-1">
+              <span className="sr-only">Buscar arma</span>
+              <input
+                type="search"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Buscar arma…"
+                className="bevel-sm touch w-full px-3 py-2 text-sm outline-none"
+                style={{ background: 'var(--surface-raised)', border: '1px solid var(--border)' }}
               />
-            </div>
-          </div>
+            </label>
 
-          {/* Coluna 2 — montagem */}
-          <div className={tab === 'montar' ? 'block' : 'hidden lg:block'}>
-            {weapon ? (
-              <div className="space-y-3">
-                <div className="card bevel p-3">
-                  <BudgetBar budget={budget} />
-                  <div className="mt-2 flex items-center justify-between gap-2">
-                    <p className="text-[12px] leading-snug" style={{ color: 'var(--text-soft)' }}>
-                      {weapon.summary}
-                    </p>
-                    <button
-                      type="button"
-                      onClick={clearAttachments}
-                      className="touch shrink-0 px-2 text-xs underline"
-                      style={{ color: 'var(--text-dim)' }}
-                    >
-                      Limpar
-                    </button>
-                  </div>
-                </div>
-
-                <SlotsPanel
-                  weapon={weapon}
-                  chosen={loadout.attachments}
-                  onSelect={setAttachment}
-                  currentSpend={budget.spent}
-                />
-
-                {/*
-                  A secundária tem seção própria porque ela é uma arma inteira:
-                  aceita acessórios e tem os seus próprios cem pontos. Escondê-la
-                  atrás de um botão dava a entender que só se escolhia o modelo.
-                */}
-                <SidearmSection
-                  sidearm={sidearm}
-                  chosen={loadout.sidearmAttachments}
-                  budget={sidearmBudget}
-                  onOpenPicker={() => setChoosingSidearm(true)}
-                  onSelectAttachment={setSidearmAttachment}
-                  onClear={clearSidearmAttachments}
-                />
-              </div>
-            ) : (
-              <EmptyState />
-            )}
-          </div>
-
-          {/* Coluna 3 — números e gráficos */}
-          <div className={tab === 'numeros' ? 'block' : 'hidden lg:block'}>
-            {weapon && stats && base ? (
-              <div className="space-y-3">
-                <div className="card bevel p-3">
-                  <div className="mb-3 flex items-center justify-between gap-2">
-                    <h2 className="label">Estatísticas</h2>
-                    <label className="flex cursor-pointer items-center gap-1.5 text-[11px]" style={{ color: 'var(--text-dim)' }}>
-                      <input
-                        type="checkbox"
-                        checked={compareWithBase}
-                        onChange={toggleBaseComparison}
-                        className="accent-[var(--accent)]"
-                      />
-                      comparar com a de fábrica
-                    </label>
-                  </div>
-                  <StatsPanel weapon={weapon} stats={stats} base={base} showBase={compareWithBase} />
-                </div>
-
-                {/*
-                  A secundária entra logo abaixo, na mesma coluna: números moram
-                  aqui, e comparar as duas armas exige que estejam à mesma
-                  distância do olho.
-                */}
-                {sidearm && sidearmStats && sidearmBase && (
-                  <div className="card bevel p-2.5">
-                    <div className="mb-3 flex items-center justify-between gap-2">
-                      <h2 className="label">
-                        Secundária ·{' '}
-                        <span style={{ color: 'var(--text-soft)' }}>{sidearm.name}</span>
-                      </h2>
-                      {/* O mesmo interruptor do bloco de cima: as duas armas
-                          respondem juntas, porque a comparação com a de fábrica
-                          é um modo de leitura, não uma opção por arma. */}
-                      <label
-                        className="flex cursor-pointer items-center gap-1.5 text-[11px]"
-                        style={{ color: 'var(--text-dim)' }}
-                      >
-                        <input
-                          type="checkbox"
-                          checked={compareWithBase}
-                          onChange={toggleBaseComparison}
-                          className="accent-[var(--accent)]"
-                        />
-                        comparar com a de fábrica
-                      </label>
-                    </div>
-                    <StatsPanel
-                      weapon={sidearm}
-                      stats={sidearmStats}
-                      base={sidearmBase}
-                      showBase={compareWithBase}
-                      compact
-                    />
-                  </div>
-                )}
-
-                {approximate && <ApproximateNotice />}
-              </div>
-            ) : (
-              <EmptyState />
-            )}
-          </div>
-
-          {/* Gráficos: faixa larga no computador, para o texto dos eixos continuar
-              legível; no celular seguem dentro da aba Números. */}
-          {weapon && stats && base && weapon.category !== 'melee' && (
-            <div
-              className={`${tab === 'numeros' ? 'grid' : 'hidden lg:grid'} gap-3 lg:col-span-3 lg:grid-cols-2`}
-            >
-              <DamageChart
-                stats={stats}
-                base={base}
-                maxDistance={distance}
-                showBase={compareWithBase}
-              />
-              <DropChart
-                stats={stats}
-                base={base}
-                maxDistance={distance}
-                showBase={compareWithBase}
-              />
-            </div>
-          )}
-
-          {/* Classe e equipamento: coluna própria no celular, rodapé no desktop */}
-          <div className={`${tab === 'classe' ? 'block' : 'hidden lg:block'} lg:col-span-3`}>
-            <div className="card bevel grid gap-4 p-3 lg:grid-cols-[minmax(0,320px)_minmax(0,1fr)]">
-              <ClassSelector current={loadout.playerClass} onSelect={setPlayerClass} />
-              <EquipmentPanel
-                playerClass={loadout.playerClass}
-                gadget1={loadout.gadget1}
-                gadget2={loadout.gadget2}
-                throwable={loadout.throwable}
-                onSetGadget={setGadget}
-                onSetThrowable={setThrowable}
-              />
-            </div>
-          </div>
-        </div>
-
-        <footer className="pb-safe-nav mt-6 text-center text-[11px] lg:pb-6" style={{ color: 'var(--text-dim)' }}>
-          <p>
-            Projeto de fã, sem vínculo com a EA ou a DICE. Battlefield é marca registrada da Electronic Arts.
-          </p>
-        </footer>
-      </main>
-
-      {/* Navegação por abas, só no celular. */}
-      <nav
-        className="pb-safe fixed inset-x-0 bottom-0 z-30 grid grid-cols-4 border-t backdrop-blur lg:hidden"
-        style={{ background: 'color-mix(in oklab, var(--bg) 92%, transparent)', borderColor: 'var(--border)' }}
-        aria-label="Seções do montador"
-      >
-        {TABS.map((item) => {
-          const active = tab === item.id;
-          return (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => setTab(item.id)}
-              aria-current={active ? 'page' : undefined}
-              className="touch py-2 text-xs font-semibold"
-              style={{
-                color: active ? 'var(--accent)' : 'var(--text-dim)',
-                borderTop: `2px solid ${active ? 'var(--accent)' : 'transparent'}`,
-              }}
-            >
-              {item.name}
-            </button>
-          );
-        })}
-      </nav>
-
-      {choosingSidearm && (
-        <div
-          className="modal-backdrop fixed inset-0 z-50 flex items-end justify-center sm:items-center"
-          onClick={() => setChoosingSidearm(false)}
-          role="presentation"
-        >
-          <div
-            className="modal-panel card bevel pb-safe max-h-[80dvh] w-full max-w-md overflow-y-auto p-4"
-            onClick={(e) => e.stopPropagation()}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Escolher arma secundária"
-          >
-            <div className="mb-2 flex items-center justify-between">
-              <h2 className="font-display text-lg font-semibold">Arma secundária</h2>
-              <button
-                type="button"
-                onClick={() => setChoosingSidearm(false)}
-                className="touch px-2 text-lg"
-                aria-label="Fechar"
-                style={{ color: 'var(--text-dim)' }}
+            <label className="flex items-center gap-2 text-xs" style={{ color: 'var(--text-dim)' }}>
+              Ordenar por
+              <select
+                value={sort}
+                onChange={(e) => setSort(e.target.value as SortKey)}
+                className="bevel-sm touch px-2 py-2 text-sm"
+                style={{ background: 'var(--surface-raised)', border: '1px solid var(--border)', color: 'var(--text)' }}
               >
-                ✕
-              </button>
-            </div>
-            <WeaponSelector
-              title="Pistolas e corpo a corpo"
-              selected={loadout.sidearm}
-              categories={['pistol', 'melee']}
-              onSelect={(id) => {
-                setSidearm(id);
-                setChoosingSidearm(false);
-              }}
-            />
+                {SORTS.map((s) => (
+                  <option key={s.id} value={s.id}>
+                    {s.label}
+                  </option>
+                ))}
+              </select>
+            </label>
           </div>
-        </div>
-      )}
-    </div>
-  );
-}
 
-function EmptyState() {
-  return (
-    <div className="card bevel flex min-h-[180px] items-center justify-center p-6 text-center">
-      <p className="text-sm" style={{ color: 'var(--text-dim)' }}>
-        Escolha uma arma para começar a montar.
-      </p>
-    </div>
-  );
-}
-
-function ApproximateNotice() {
-  return (
-    <p className="card bevel-sm p-3 text-[11px] leading-snug" style={{ color: 'var(--text-dim)' }}>
-      <strong style={{ color: 'var(--accent)' }}>≈ valores aproximados.</strong> O jogo não expõe os
-      multiplicadores exatos de alguns acessórios e armas. Esses números foram calibrados a partir das
-      descrições de efeito no jogo e de medições da comunidade — servem para comparar builds, não como
-      medida oficial.
-    </p>
-  );
-}
-
-/**
- * Seção da arma secundária.
- *
- * Mesma estrutura da principal — escolher a arma, ver o orçamento, montar —
- * porque é o mesmo trabalho. O que muda é que ela começa fechada quando não há
- * secundária escolhida: sem arma, os dez slots vazios seriam ruído.
- */
-function SidearmSection({
-  sidearm,
-  chosen,
-  budget,
-  onOpenPicker,
-  onSelectAttachment,
-  onClear,
-}: {
-  sidearm: Weapon | null;
-  chosen: Partial<Record<SlotId, string>>;
-  budget: Budget;
-  onOpenPicker: () => void;
-  onSelectAttachment: (slot: SlotId, id: string | null) => void;
-  onClear: () => void;
-}) {
-  /*
-   * Tudo aqui é uma versão reduzida do que a arma principal tem: a foto menor,
-   * o resumo em uma linha, o medidor dividindo a linha com o "Limpar". A
-   * secundária decide menos partidas que a principal, e a tela precisa dizer
-   * isso antes de o jogador ler qualquer número.
-   */
-  return (
-    <section className="space-y-2">
-      <div className="card bevel p-2.5">
-        <div className="mb-2 flex items-center justify-between gap-2">
-          <h2 className="label">Arma secundária</h2>
-          <button
-            type="button"
-            onClick={onOpenPicker}
-            className="px-1 text-xs underline"
-            style={{ color: 'var(--text-dim)' }}
-          >
-            {sidearm ? 'Trocar' : 'Escolher'}
-          </button>
-        </div>
-
-        {sidearm ? (
-          <>
-            <button
-              type="button"
-              onClick={onOpenPicker}
-              className="tile bevel-sm flex w-full items-center gap-2 p-1.5 text-left"
-              style={{ border: '1px solid var(--border-soft)' }}
+          <div className="scroll-x -mx-1 mt-2 flex gap-1.5 px-1 pb-1">
+            <Chip
+              active={category === 'all'}
+              onClick={() => setCategory('all')}
+              count={counts.allCategories}
             >
-              <WeaponPreview weapon={sidearm} className="w-20 shrink-0" />
-              <span className="min-w-0">
-                <span className="font-display block text-sm leading-tight font-semibold tracking-wide">
-                  {sidearm.name}
-                </span>
-                <span
-                  className="line-clamp-1 block text-[11px]"
-                  style={{ color: 'var(--text-dim)' }}
-                >
-                  {sidearm.summary}
-                </span>
-              </span>
-            </button>
+              Todas as categorias
+            </Chip>
+            {CATEGORY_ORDER.map((c) => (
+              <Chip
+                key={c}
+                active={category === c}
+                onClick={() => setCategory(c)}
+                count={counts.byCat.get(c) ?? 0}
+              >
+                {SHORT_CATEGORY_NAMES[c]}
+              </Chip>
+            ))}
+          </div>
 
-            {sidearm.slots.length > 0 && (
-              <div className="mt-2 flex items-end gap-3">
-                <div className="min-w-0 flex-1">
-                  <BudgetBar budget={budget} />
-                </div>
-                <button
-                  type="button"
-                  onClick={onClear}
-                  className="shrink-0 px-1 pb-1 text-xs underline"
-                  style={{ color: 'var(--text-dim)' }}
-                >
-                  Limpar
-                </button>
-              </div>
-            )}
-          </>
-        ) : (
-          <p className="text-[11px] leading-snug" style={{ color: 'var(--text-dim)' }}>
-            Nenhuma secundária escolhida. Pistolas também aceitam acessórios, com seis blocos de
-            pontos em vez dos dez da arma principal.
+          <div className="scroll-x -mx-1 mt-1.5 flex gap-1.5 px-1 pb-1">
+            <Chip
+              active={playerClass === 'all'}
+              onClick={() => setPlayerClass('all')}
+              count={counts.allClasses}
+            >
+              Todas as classes
+            </Chip>
+            {CLASSES.map((c) => (
+              <Chip
+                key={c.id}
+                active={playerClass === c.id}
+                onClick={() => setPlayerClass(c.id)}
+                color={c.color}
+                count={counts.byClass.get(c.id) ?? 0}
+              >
+                {c.name}
+              </Chip>
+            ))}
+          </div>
+
+          <p className="mt-2 text-[11px]" style={{ color: 'var(--text-dim)' }}>
+            {list.length} {list.length === 1 ? 'arma encontrada' : 'armas encontradas'}
+          </p>
+        </div>
+
+        {list.length === 0 && (
+          <p className="card bevel p-8 text-center text-sm" style={{ color: 'var(--text-dim)' }}>
+            Nenhuma arma encontrada com esses filtros.
           </p>
         )}
+
+        {grouped ? (
+          CATEGORY_ORDER.filter((c) => byCategory.has(c)).map((c) => (
+            <section key={c} className="mb-5">
+              <h2 className="label mb-2">
+                {CATEGORY_NAMES[c]} · {byCategory.get(c)!.length}
+              </h2>
+              <Grid items={byCategory.get(c)!} />
+            </section>
+          ))
+        ) : (
+          <Grid items={list} />
+        )}
+
+        <SiteFooter note="Estatísticas das armas sem acessórios." />
+      </main>
+    </div>
+  );
+}
+
+function Chip({
+  active,
+  onClick,
+  color,
+  count,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  color?: string;
+  /** Quantas armas o filtro traz — some quando não há contagem a mostrar. */
+  count?: number;
+  children: React.ReactNode;
+}) {
+  const tint = color ?? 'var(--accent)';
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={active}
+      className="chip bevel-sm shrink-0 px-3 py-2 text-xs whitespace-nowrap"
+      style={{
+        background: active ? tint : 'var(--surface-raised)',
+        color: active ? '#14170f' : 'var(--text-soft)',
+        border: `1px solid ${active ? tint : 'var(--border)'}`,
+        fontWeight: active ? 600 : 500,
+      }}
+    >
+      {children}
+      {count !== undefined && (
+        <span
+          className="ml-1.5 tabular-nums"
+          // Opacidade em vez de cor fixa: o chip ativo tem fundo claro e o
+          // inativo, escuro — a mesma cor não serviria aos dois.
+          style={{ opacity: count === 0 ? 0.35 : 0.6 }}
+        >
+          {count}
+        </span>
+      )}
+    </button>
+  );
+}
+
+function Grid({ items }: { items: { weapon: Weapon; stats: ReturnType<typeof baseStats> }[] }) {
+  return (
+    <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {items.map(({ weapon, stats }) => (
+        <li key={weapon.id}>
+          <WeaponCard weapon={weapon} stats={stats} />
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function WeaponCard({ weapon, stats }: { weapon: Weapon; stats: ReturnType<typeof baseStats> }) {
+  const signature = CLASSES.find((c) => c.id === weapon.signatureClass);
+  const melee = weapon.category === 'melee';
+  const ttk = timeToKill(stats, 0);
+
+  // Abrir o montador já com a arma equipada é o que se espera de um catálogo.
+  const href = `${BUILDER_PATH}?l=${encodeLoadout({ ...EMPTY_LOADOUT, weapon: weapon.id })}`;
+
+  return (
+    <Link
+      href={href}
+      className="card bevel block h-full p-2"
+      style={{ borderColor: 'var(--border-soft)' }}
+    >
+      <div className="flex items-start justify-between gap-2">
+        <div className="min-w-0">
+          <p className="font-display truncate text-base leading-tight font-semibold">{weapon.name}</p>
+          <p className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
+            {SHORT_CATEGORY_NAMES[weapon.category]}
+            {signature && (
+              <>
+                {' · '}
+                <span style={{ color: signature.color }}>{signature.name}</span>
+              </>
+            )}
+          </p>
+        </div>
+        <SeasonTag season={weapon.season} />
       </div>
 
-      {sidearm && (
-        <SlotsPanel
-          weapon={sidearm}
-          chosen={chosen}
-          onSelect={onSelectAttachment}
-          currentSpend={budget.spent}
-          compact
-        />
+      <WeaponPreview weapon={weapon} className="my-1 w-full" />
+
+      <p className="mb-1.5 line-clamp-2 text-[11px] leading-snug" style={{ color: 'var(--text-soft)' }}>
+        {weapon.summary}
+      </p>
+
+      {!melee && (
+        <dl className="grid grid-cols-4 gap-1 text-center">
+          <Stat label="Dano" value={damagePerShot(stats, 0).toFixed(0)} />
+          <Stat label="RPM" value={String(stats.rpm)} />
+          <Stat label="TTK" value={Number.isFinite(ttk) ? `${Math.round(ttk)}` : '—'} unit="ms" />
+          <Stat label="Tiros" value={String(shotsToKill(stats, 0))} />
+        </dl>
       )}
-    </section>
+    </Link>
+  );
+}
+
+function Stat({ label, value, unit }: { label: string; value: string; unit?: string }) {
+  return (
+    <div className="bevel-sm px-1 py-1" style={{ background: 'var(--surface-raised)' }}>
+      <dt className="label text-[9px]">{label}</dt>
+      <dd className="font-mono text-sm leading-tight">
+        {value}
+        {unit && <span className="text-[9px]" style={{ color: 'var(--text-dim)' }}>{unit}</span>}
+      </dd>
+    </div>
   );
 }

@@ -5,6 +5,7 @@ import { WEAPONS, CATEGORY_ORDER } from '@/data/weapons';
 import { CLASSES, CATEGORY_NAMES, SHORT_CATEGORY_NAMES } from '@/data/classes';
 import type { Weapon, WeaponCategory } from '@/data/types';
 import { weaponImagePath } from './weapon-preview/manifest';
+import { SeasonTag } from './season-tag';
 
 /**
  * Escolha da arma.
@@ -22,6 +23,172 @@ function normalize(text: string): string {
     .toLowerCase();
 }
 
+/**
+ * Estado da busca de armas.
+ *
+ * Vive fora dos componentes porque a busca e a lista nem sempre ficam juntas:
+ * no montador os controles ocupam uma faixa larga no topo e a lista fica na
+ * coluna lateral. Quem monta a tela decide onde cada parte entra; o filtro é o
+ * mesmo objeto nos dois lugares.
+ */
+export interface WeaponFilterState {
+  search: string;
+  setSearch: (value: string) => void;
+  category: WeaponCategory | 'all';
+  setCategory: (value: WeaponCategory | 'all') => void;
+  /** Categorias que de fato têm arma na seleção atual. */
+  categories: WeaponCategory[];
+  /** Resultado agrupado, na ordem das categorias. */
+  byCategory: Map<WeaponCategory, Weapon[]>;
+  /** Quantas armas por categoria, ignorando o filtro de categoria. */
+  counts: Map<WeaponCategory | 'all', number>;
+  total: number;
+}
+
+export function useWeaponFilter(categories: WeaponCategory[] = CATEGORY_ORDER): WeaponFilterState {
+  const [search, setSearch] = useState('');
+  const [category, setCategory] = useState<WeaponCategory | 'all'>('all');
+
+  const available = useMemo(
+    () => WEAPONS.filter((a) => categories.includes(a.category)),
+    [categories],
+  );
+
+  const matches = (weapon: Weapon, term: string) =>
+    !term ||
+    normalize(weapon.name).includes(term) ||
+    normalize(CATEGORY_NAMES[weapon.category]).includes(term) ||
+    normalize(weapon.summary).includes(term);
+
+  const result = useMemo(() => {
+    const term = normalize(search.trim());
+    return available.filter((w) => (category === 'all' || w.category === category) && matches(w, term));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [available, search, category]);
+
+  const byCategory = useMemo(() => {
+    const map = new Map<WeaponCategory, Weapon[]>();
+    for (const weapon of result) map.set(weapon.category, [...(map.get(weapon.category) ?? []), weapon]);
+    return map;
+  }, [result]);
+
+  // Contagem por chip: só a busca conta, senão o chip escolhido zeraria os outros.
+  const counts = useMemo(() => {
+    const term = normalize(search.trim());
+    const map = new Map<WeaponCategory | 'all', number>();
+    let all = 0;
+    for (const weapon of available) {
+      if (!matches(weapon, term)) continue;
+      all++;
+      map.set(weapon.category, (map.get(weapon.category) ?? 0) + 1);
+    }
+    map.set('all', all);
+    return map;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [available, search]);
+
+  return {
+    search,
+    setSearch,
+    category,
+    setCategory,
+    categories: categories.filter((c) => available.some((a) => a.category === c)),
+    byCategory,
+    counts,
+    total: result.length,
+  };
+}
+
+/** Busca e chips de categoria. Ocupa a largura que o pai der. */
+export function WeaponFilters({
+  filter,
+  title = 'Arma principal',
+}: {
+  filter: WeaponFilterState;
+  title?: string;
+}) {
+  return (
+    <section>
+      {/* Em tela larga a busca fica ao lado dos chips; no celular, uma linha
+          para cada, porque lado a lado sobraria meia dúzia de caracteres. */}
+      <div className="flex flex-wrap items-center gap-2">
+        <h2 className="label shrink-0">{title}</h2>
+
+        <label className="min-w-[180px] flex-1 lg:max-w-[280px]">
+          <span className="sr-only">Buscar arma</span>
+          <input
+            type="search"
+            value={filter.search}
+            onChange={(e) => filter.setSearch(e.target.value)}
+            placeholder="Buscar arma…"
+            className="bevel-sm touch w-full px-3 py-2 text-sm outline-none"
+            style={{ background: 'var(--surface-raised)', border: '1px solid var(--border)' }}
+          />
+        </label>
+
+        <div className="scroll-x -mx-1 flex w-full gap-1.5 px-1 pb-1 lg:w-auto lg:flex-1 lg:flex-wrap lg:overflow-visible lg:pb-0">
+          <FilterChip
+            active={filter.category === 'all'}
+            onClick={() => filter.setCategory('all')}
+            count={filter.counts.get('all') ?? 0}
+          >
+            Todas
+          </FilterChip>
+          {filter.categories.map((c) => (
+            <FilterChip
+              key={c}
+              active={filter.category === c}
+              onClick={() => filter.setCategory(c)}
+              count={filter.counts.get(c) ?? 0}
+            >
+              {SHORT_CATEGORY_NAMES[c]}
+            </FilterChip>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** A lista em si, agrupada por categoria. */
+export function WeaponList({
+  filter,
+  selected,
+  onSelect,
+}: {
+  filter: WeaponFilterState;
+  selected: string | null;
+  onSelect: (id: string) => void;
+}) {
+  return (
+    <div className="space-y-4">
+      {[...filter.byCategory.entries()].map(([category, weaponList]) => (
+        <div key={category}>
+          <h3 className="label mb-1.5">{CATEGORY_NAMES[category]}</h3>
+          <ul className="grid gap-1.5">
+            {weaponList.map((weapon) => (
+              <li key={weapon.id}>
+                <WeaponCard
+                  weapon={weapon}
+                  selected={weapon.id === selected}
+                  onSelect={() => onSelect(weapon.id)}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+      {filter.total === 0 && (
+        <p className="py-6 text-center text-sm" style={{ color: 'var(--text-dim)' }}>
+          Nenhuma arma encontrada para “{filter.search}”.
+        </p>
+      )}
+    </div>
+  );
+}
+
+/** Busca e lista juntas, para quem não precisa separá-las — como o seletor de secundária. */
 export function WeaponSelector({
   selected,
   onSelect,
@@ -33,89 +200,13 @@ export function WeaponSelector({
   categories?: WeaponCategory[];
   title?: string;
 }) {
-  const [search, setSearch] = useState('');
-  const [filter, setFilter] = useState<WeaponCategory | 'all'>('all');
-
-  const available = useMemo(
-    () => WEAPONS.filter((a) => categories.includes(a.category)),
-    [categories],
-  );
-
-  const result = useMemo(() => {
-    const term = normalize(search.trim());
-    return available.filter((weapon) => {
-      if (filter !== 'all' && weapon.category !== filter) return false;
-      if (!term) return true;
-      return (
-        normalize(weapon.name).includes(term) ||
-        normalize(CATEGORY_NAMES[weapon.category]).includes(term) ||
-        normalize(weapon.summary).includes(term)
-      );
-    });
-  }, [available, search, filter]);
-
-  const byCategory = useMemo(() => {
-    const map = new Map<WeaponCategory, Weapon[]>();
-    for (const weapon of result) {
-      const list = map.get(weapon.category) ?? [];
-      list.push(weapon);
-      map.set(weapon.category, list);
-    }
-    return map;
-  }, [result]);
-
-  const categoriesWithWeapons = categories.filter((c) => available.some((a) => a.category === c));
+  const filter = useWeaponFilter(categories);
 
   return (
     <section>
-      <h2 className="label mb-2">{title}</h2>
-
-      <label className="block">
-        <span className="sr-only">Buscar arma</span>
-        <input
-          type="search"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Buscar arma…"
-          className="bevel-sm touch w-full px-3 py-2 text-sm outline-none"
-          style={{ background: 'var(--surface-raised)', border: '1px solid var(--border)' }}
-        />
-      </label>
-
-      <div className="scroll-x -mx-1 mt-2 flex gap-1.5 px-1 pb-1">
-        <FilterChip active={filter === 'all'} onClick={() => setFilter('all')}>
-          Todas
-        </FilterChip>
-        {categoriesWithWeapons.map((c) => (
-          <FilterChip key={c} active={filter === c} onClick={() => setFilter(c)}>
-            {SHORT_CATEGORY_NAMES[c]}
-          </FilterChip>
-        ))}
-      </div>
-
-      <div className="mt-3 space-y-4">
-        {[...byCategory.entries()].map(([category, weaponList]) => (
-          <div key={category}>
-            <h3 className="label mb-1.5">{CATEGORY_NAMES[category]}</h3>
-            <ul className="grid gap-1.5">
-              {weaponList.map((weapon) => (
-                <li key={weapon.id}>
-                  <WeaponCard
-                    weapon={weapon}
-                    selected={weapon.id === selected}
-                    onSelect={() => onSelect(weapon.id)}
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-
-        {result.length === 0 && (
-          <p className="py-6 text-center text-sm" style={{ color: 'var(--text-dim)' }}>
-            Nenhuma arma encontrada para “{search}”.
-          </p>
-        )}
+      <WeaponFilters filter={filter} title={title} />
+      <div className="mt-3">
+        <WeaponList filter={filter} selected={selected} onSelect={onSelect} />
       </div>
     </section>
   );
@@ -124,10 +215,13 @@ export function WeaponSelector({
 function FilterChip({
   active,
   onClick,
+  count,
   children,
 }: {
   active: boolean;
   onClick: () => void;
+  /** Quantas armas o chip traz. */
+  count?: number;
   children: React.ReactNode;
 }) {
   return (
@@ -144,6 +238,11 @@ function FilterChip({
       }}
     >
       {children}
+      {count !== undefined && (
+        <span className="ml-1.5 tabular-nums" style={{ opacity: count === 0 ? 0.35 : 0.6 }}>
+          {count}
+        </span>
+      )}
     </button>
   );
 }
@@ -195,7 +294,7 @@ function WeaponCard({
           style={{ color: 'var(--text-dim)' }}
         >
           {playerClass && <span style={{ color: playerClass.color }}>{playerClass.name}</span>}
-          {weapon.season > 0 && <span>Temporada {weapon.season}</span>}
+          <SeasonTag season={weapon.season} size="sm" />
           {weapon.provenance === 'curated' && <span title="Valores aproximados">≈</span>}
         </span>
       </span>
