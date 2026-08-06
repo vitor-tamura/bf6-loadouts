@@ -229,11 +229,20 @@ export function StatsPanel({
   stats,
   base,
   showBase,
+  compact = false,
 }: {
   weapon: Weapon;
   stats: EffectiveStats;
   base: EffectiveStats;
   showBase: boolean;
+  /**
+   * Versão curta, para a arma secundária.
+   *
+   * A pistola é o plano B: interessa saber quantos tiros ela precisa e quão
+   * rápido chega à mira, não a curva inteira. Cortar aqui é o que mantém a
+   * coluna de números legível com duas armas nela.
+   */
+  compact?: boolean;
 }) {
   const isMelee = weapon.category === 'melee';
 
@@ -252,7 +261,7 @@ export function StatsPanel({
   return (
     <div className="space-y-4">
       {!isMelee && (
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+        <div className={`grid grid-cols-2 gap-2 ${compact ? '' : 'sm:grid-cols-4'}`}>
           <DerivedStat
             label="Tempo para matar"
             value={Number.isFinite(ttk) ? `${Math.round(ttk)} ms` : '—'}
@@ -273,6 +282,8 @@ export function StatsPanel({
             suffix=" tiros"
             showBase={showBase}
           />
+          {!compact && (
+            <>
           <DerivedStat
             label="Alcance efetivo"
             value={range > 0 ? `${Math.round(range)} m` : 'constante'}
@@ -290,15 +301,21 @@ export function StatsPanel({
             rawBase={baseDps}
             showBase={showBase}
           />
+            </>
+          )}
         </div>
       )}
 
-      <div className="grid gap-3 sm:grid-cols-2">
+      <div className={compact ? 'grid gap-3' : 'grid gap-3 sm:grid-cols-2'}>
         <div className="space-y-3">
           <StatBar label="Precisão" statKey="accuracy" value={stats.accuracy} base={base.accuracy} showBase={showBase} />
           <StatBar label="Controle" statKey="control" value={stats.control} base={base.control} showBase={showBase} />
-          <StatBar label="Mobilidade" statKey="mobility" value={stats.mobility} base={base.mobility} showBase={showBase} />
-          <StatBar label="Tiro de quadril" statKey="hipfire" value={stats.hipfire} base={base.hipfire} showBase={showBase} />
+          {!compact && (
+            <>
+              <StatBar label="Mobilidade" statKey="mobility" value={stats.mobility} base={base.mobility} showBase={showBase} />
+              <StatBar label="Tiro de quadril" statKey="hipfire" value={stats.hipfire} base={base.hipfire} showBase={showBase} />
+            </>
+          )}
         </div>
 
         <div>
@@ -313,7 +330,8 @@ export function StatsPanel({
                 showBase={showBase}
               />
               <StatNumber label="Cadência" statKey="rpm" value={stats.rpm} base={base.rpm} unit="RPM" showBase={showBase} />
-              <StatNumber
+              {!compact && (
+                <StatNumber
                 label="Velocidade da bala"
                 statKey="velocity"
                 value={stats.velocity}
@@ -321,6 +339,7 @@ export function StatsPanel({
                 unit="m/s"
                 showBase={showBase}
               />
+              )}
               <StatNumber
                 label="Carregador"
                 statKey="magazine"
@@ -338,7 +357,8 @@ export function StatsPanel({
                 decimals={2}
                 showBase={showBase}
               />
-              <StatNumber
+              {!compact && (
+                <StatNumber
                 label="Recarga com a arma vazia"
                 statKey="emptyReload"
                 value={stats.emptyReload}
@@ -347,6 +367,7 @@ export function StatsPanel({
                 decimals={2}
                 showBase={showBase}
               />
+              )}
               <StatNumber
                 label="Tempo de mira"
                 statKey="adsMs"
@@ -388,7 +409,9 @@ export function StatsPanel({
         </div>
       </div>
 
-      {!isMelee && (
+      {/* A escada inteira é leitura de arma principal; na secundária ela só
+          empurraria o resto da coluna para baixo. */}
+      {!isMelee && !compact && (
         <div className="card bevel-sm p-3">
           <p className="label mb-1.5">Dano por faixa de distância</p>
           <div className="flex flex-wrap gap-x-4 gap-y-1 font-mono text-sm">

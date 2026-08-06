@@ -203,7 +203,7 @@ export default function BuilderPage() {
                   distância do olho.
                 */}
                 {sidearm && sidearmStats && sidearmBase && (
-                  <div className="card bevel p-3">
+                  <div className="card bevel p-2.5">
                     <div className="mb-3 flex items-center justify-between gap-2">
                       <h2 className="label">
                         Secundária ·{' '}
@@ -230,6 +230,7 @@ export default function BuilderPage() {
                       stats={sidearmStats}
                       base={sidearmBase}
                       showBase={compareWithBase}
+                      compact
                     />
                   </div>
                 )}
