@@ -3615,11 +3615,19 @@ export function isCompatible(attachment: Attachment, weapon: Weapon): boolean {
   return byCategory || byArchetype;
 }
 
-/** Acessórios compatíveis com uma arma, agrupados pelo slot. */
+/**
+ * Acessórios compatíveis com uma arma, agrupados pelo slot.
+ *
+ * Cada slot vem do mais barato para o mais caro, com o nome desempatando. É a
+ * ordem em que se monta uma arma: o orçamento é de cem pontos, então saber o
+ * que cabe importa mais do que a ordem em que a peça foi cadastrada.
+ */
 export function attachmentsForWeapon(weapon: Weapon): Map<string, Attachment[]> {
   const map = new Map<string, Attachment[]>();
   for (const slot of weapon.slots) {
-    const list = ATTACHMENTS.filter((a) => a.slot === slot && isCompatible(a, weapon));
+    const list = ATTACHMENTS.filter((a) => a.slot === slot && isCompatible(a, weapon)).sort(
+      (a, b) => a.cost - b.cost || a.name.localeCompare(b.name, 'pt-BR'),
+    );
     if (list.length > 0) map.set(slot, list);
   }
   return map;
