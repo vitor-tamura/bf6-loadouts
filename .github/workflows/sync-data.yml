@@ -70,7 +70,7 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           branch: dados/sincronizacao
-          base: dev
+          base: main
           title: 'Sincroniza o dataset com o catálogo público'
           commit-message: |
             Sincroniza o dataset com o catálogo público
