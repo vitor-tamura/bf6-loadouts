@@ -5,8 +5,9 @@ classe e a arma, encaixe os acessórios dentro dos 100 pontos, veja as
 estatísticas e os gráficos de dano e queda de bala se recalcularem a cada peça, e
 compartilhe a build por um link.
 
-Três telas: **Montar**, **Todas as Armas** (catálogo com filtros e ordenação) e
-**Comparar** (até quatro armas lado a lado).
+Quatro telas: **Todas as Armas** (catálogo com filtros e ordenação), **Montar**,
+**Comparar** (até quatro armas lado a lado) e **Meta** (o que a comunidade
+aponta como forte na temporada, com fonte e data).
 
 Funciona no navegador do celular (Android e iPhone), dentro de WebView, e pode
 ser instalado na tela inicial.
@@ -74,6 +75,56 @@ A release sai da versão, não do push. Ao promover para `main` com um `version`
 novo no `package.json`, o Actions cria a tag `vX.Y.Z` e publica a release com os
 commits desde a anterior; promoção que não mexe na versão não gera release
 nenhuma.
+
+## Milestones (GitHub)
+
+### Concluídas
+
+- **Base do produto publicada:** montador, catálogo e comparação funcionando em
+	produção na Vercel.
+- **Sincronização automática de dados:** workflow
+	[`.github/workflows/sync-data.yml`](./.github/workflows/sync-data.yml) executa
+	semanalmente, detecta diferenças no catálogo e abre Pull Request automático.
+- **Fluxo de release automatizado:** workflow
+	[`.github/workflows/release.yml`](./.github/workflows/release.yml) cria tag e
+	release quando há mudança de versão no `package.json`.
+- **Governança de branch principal:** `main` protegida com revisão obrigatória e
+	ownership por [`.github/CODEOWNERS`](./.github/CODEOWNERS).
+- **Rede de segurança validada:** suíte de testes cobrindo dataset, cálculos,
+	balística, share link e regras de temporada integrada ao fluxo de PR.
+- **M-01 · Pendências de tradução fechadas:** as peças que a sincronização
+	entrega com `TODO` passam a receber nome, descrição e efeito calibrado pela
+	escala do próprio dataset, marcados como `curated`.
+- **Tela de meta da temporada:** [`src/data/meta.ts`](./src/data/meta.ts) guarda
+	a leitura de guias públicos, com fonte e data por indicação — não há API
+	pública de uso real no BF6, e a tela diz isso ao leitor.
+
+### Próximas implementações
+
+- **M-06 · Manter o meta em dia**
+	Objetivo: revisar [`src/data/meta.ts`](./src/data/meta.ts) a cada patch de
+	balanceamento, trocando indicações que envelheceram e citando a fonte nova.
+	Entrega esperada: tela de meta sempre com data recente e sem arma que saiu
+	das listas da comunidade.
+- **M-02 · Completar mídia do arsenal**
+	Objetivo: fechar as fotos faltantes de armas (especialmente corpo a corpo e
+	Interdictor) e manter cobertura contínua para novos itens de temporada.
+	Entrega esperada: preview visual completo, sem fallback para marcador textual.
+- **M-03 · Reduzir heranças temporárias de compatibilidade**
+	Objetivo: substituir slots herdados em armas recém-chegadas por listas nativas
+	de compatibilidade assim que a fonte publicar os dados completos.
+	Entrega esperada: maior fidelidade entre montagem no site e comportamento real
+	do Gunsmith para 100% do arsenal.
+- **M-04 · Expandir curadoria de efeitos numéricos**
+	Objetivo: migrar gradualmente peças com efeito aproximado para valores
+	validados (`provenance: game`) com critérios rastreáveis.
+	Entrega esperada: redução do uso de aproximação em TTK, recuo, manejo e
+	balística, melhorando a confiança dos comparativos.
+- **M-05 · Observabilidade de atualização de conteúdo**
+	Objetivo: enriquecer o PR automático de sync com resumo estruturado (itens
+	novos, conflitos de curadoria e riscos de regressão).
+	Entrega esperada: revisão mais rápida das mudanças de temporada e menor tempo
+	entre patch do jogo e publicação no site.
 
 ## Stack
 

@@ -89,6 +89,11 @@ jobs:
             - [ ] Item novo veio com `TODO: traduzir` — traduzir e descrever
             - [ ] Item novo veio com `mods: {}` — preencher o efeito, ou ele não muda nada
             - [ ] Conflitos listados acima foram conferidos um a um
+            - [ ] Se o jogo mudou balanceamento, revisar `src/data/meta.ts`:
+                  data, indicações que envelheceram e fonte nova
             - [ ] O CI está verde
+
+            O catálogo público só muda quando o jogo muda, então este PR é o
+            aviso de que a tela de meta pode ter envelhecido junto.
           labels: dados, automático
           delete-branch: true

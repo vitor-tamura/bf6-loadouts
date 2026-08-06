@@ -19,6 +19,7 @@ const SECTIONS = [
   { href: '/', name: 'Todas as Armas' },
   { href: '/montar/', name: 'Montar' },
   { href: '/comparar/', name: 'Comparar' },
+  { href: '/meta/', name: 'Meta' },
 ];
 
 /**

@@ -99,6 +99,33 @@ precisa de código se for uma família de desenho nova (`IMAGENS.md`).
 **Temporada:** entrada em `src/data/season.ts`. O tema veste o site enquanto ela
 durar e sai sozinho quando ela encerra.
 
+## O meta, a cada patch
+
+A tela `/meta` não vem do catálogo: ela é curadoria, guardada em
+[`src/data/meta.ts`](./src/data/meta.ts). Não existe API pública de uso real no
+Battlefield 6 — a do gametools serve estatística por jogador e só tem endpoint
+agregado de arma para BF1, BF3, BF4 e BFV; o tracker.gg tem os números e não os
+publica. Então o que vale é o que os portais especializados escrevem.
+
+Quando o jogo receber atualização de balanceamento — que é quando o catálogo
+público muda e o PR automático aparece:
+
+1. Procure guias e matérias publicados **depois** do patch, em portais que
+   ranqueiam armas por classe (TheGamer, KeenGamer, Nerdschalk, PlayerAuctions,
+   Boostmatch e afins). O que interessa é a matéria com data e nome de arma, não
+   vídeo nem opinião solta de fórum.
+2. Cruze pelo menos duas fontes antes de mover uma arma. Uma citação isolada
+   entra como menção, não como destaque.
+3. Atualize `ATUALIZADO_EM`, `TEMPORADA_DO_META` e a lista `FONTES` — cada fonte
+   com nome, link e a data que ela mesma declara.
+4. Tire quem saiu das listas. Manter indicação velha só para a tela parecer
+   cheia é pior do que uma lista curta.
+
+O nome da arma na fonte nem sempre é o nome do dataset. Confira o id em
+[`src/data/weapons.ts`](./src/data/weapons.ts) antes de escrever: guia já citou
+arma que não existe no arsenal, e ali é melhor deixar de fora do que adivinhar
+equivalência.
+
 ## A rede de segurança
 
 Os testes cobrem a integridade do dataset, não só as fórmulas: id repetido,
