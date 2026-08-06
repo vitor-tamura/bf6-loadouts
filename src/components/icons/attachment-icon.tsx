@@ -22,65 +22,203 @@ const STROKE = {
 
 /* ---------------------------------- Miras ---------------------------------- */
 
+/*
+ * As miras são as únicas peças desenhadas com volume, e não só em contorno.
+ *
+ * Elas são o que o jogador escolhe primeiro e reconhece de longe, e a diferença
+ * entre um ponto vermelho aberto e uma luneta de 8× está no formato do corpo —
+ * algo que o contorno sozinho achata.
+ *
+ * Duas regras seguram o desenho: traço mais fino que o dos outros ícones (`SIGHT`
+ * abaixo), porque aqui há muita linha em pouco espaço, e preenchimento só onde
+ * ele significa alguma coisa — a face de cima, que pega luz, e a lente. Encher
+ * o corpo inteiro transformaria a peça em mancha.
+ *
+ * Quarenta miras, oito silhuetas — ver [SIGHT_SHAPE].
+ */
+
+/** Traço fino, para o desenho não fechar sobre si mesmo. */
+const SIGHT = { strokeWidth: 1.05 } as const;
+
+/** Face superior: onde bate a luz. */
+const TOP = { fill: 'currentColor', fillOpacity: 0.45, stroke: 'none' } as const;
+/** Lente: cheia, o ponto mais escuro ou mais aceso da peça. */
+const LENS = { fill: 'currentColor', fillOpacity: 0.75, stroke: 'currentColor' } as const;
+
+/** Trilho de montagem, comum a todas. */
+const rail = (
+  <>
+    <path d="M7 18.6h10v1.6H7z" {...TOP} />
+    <path d="M7 18.6h10v1.6H7z" />
+    <path d="M8.6 20.2v1M15.4 20.2v1" />
+  </>
+);
+
+// Alça de ferro: poste fino entre as duas orelhas.
 const ironSights = (
   <>
-    <path d="M5 17h14" />
-    <path d="M8 17v-4l1.5-2 1.5 2v4" />
-    <path d="M16 17V9" />
+    {rail}
+    <path d="M7.6 18.6v-5.4h1.6v5.4M14.8 18.6v-5.4h1.6v5.4" />
+    <path d="M7.6 13.2h1.6l-.4-.7h-.8zM14.8 13.2h1.6l-.4-.7h-.8z" {...TOP} />
+    <path d="M11.6 18.6V8.4h.9v10.2z" />
+    <path d="M11.2 8.4h1.7l-.5-1.1h-.7z" {...TOP} />
   </>
 );
 
-const redDot = (
+// Alça de abertura: anel de visada sobre a base.
+const apertureSights = (
   <>
-    <rect x="5" y="8" width="14" height="9" rx="1.5" />
-    <path d="M8 8V6M16 8V6" />
-    <circle cx="12" cy="12.5" r="1.2" fill="currentColor" stroke="none" />
+    {rail}
+    <path d="M6.8 18.6v-3.4a5.2 5.2 0 0 1 10.4 0v3.4" />
+    <path d="M7.4 13.4a5.2 5.2 0 0 1 9.2 0l-1.2.9a3.8 3.8 0 0 0-6.8 0z" {...TOP} />
+    <circle cx="12" cy="14.6" r="2.6" {...LENS} />
+    <circle cx="12" cy="14.6" r="1.1" fill="var(--bg)" stroke="none" />
   </>
 );
 
-const holographic = (
+// Alça CQB: bloco baixo com a aba dobrada à frente.
+const cqbSights = (
   <>
-    <rect x="4" y="7" width="16" height="10" rx="1.5" />
-    <path d="M7 7V5M17 7V5" />
-    <path d="M12 10v5M9.5 12.5h5" />
+    {rail}
+    <path d="M5.8 18.6v-3.2h12.4v3.2z" />
+    <path d="M5.8 15.4h12.4l-1.3-1h-9.8z" {...TOP} />
+    <path d="M8.8 14.4V9.6h3.4v4.8z" />
+    <path d="M8.8 9.6h3.4l-.9-1h-1.6z" {...TOP} />
+    <path d="M14 14.4v-2.6h2.4v2.6z" />
   </>
 );
 
-const prism = (
+// Ponto vermelho aberto: corpo em L com a janela inclinada à frente.
+const reflexOpen = (
   <>
-    <rect x="6" y="7" width="12" height="10" rx="1.5" />
-    <path d="M9 7V5h2v2" />
-    <path d="M4 12h2M18 12h2" />
-    <path d="M12 10v4M10 12h4" />
+    {rail}
+    <path d="M5.8 18.6v-4h12.4v4z" />
+    <path d="M5.8 14.6h12.4l-1.2-1H7z" {...TOP} />
+    <path d="M6.4 13.6V8.2h2.2v5.4" />
+    <path d="M6.4 8.2h2.2l-.5-.8h-1.2z" {...TOP} />
+    <path d="M8.6 8.6l9 1.5v3.5h-9z" {...LENS} />
+    <path d="M8.6 8.6l9 1.5.7-.7-8.9-1.5z" {...TOP} />
+    <circle cx="13.4" cy="11.4" r=".9" fill="var(--bg)" stroke="none" />
   </>
 );
 
-const mediumScope = (
+// Holográfico em caixa: janela ampla sob a capa.
+const reflexBoxed = (
   <>
-    <path d="M3 10.5h3M18 10.5h3" />
-    <rect x="6" y="8" width="12" height="8" rx="1.5" />
-    <path d="M11 8V5.5h2V8" />
-    <path d="M9 12h6" />
+    {rail}
+    <path d="M4.8 18.6V8.4h14.4v10.2z" />
+    <path d="M4.8 8.4h14.4l-1.4-1.2H6.2z" {...TOP} />
+    <path d="M6.6 16.8v-6h10.8v6z" {...LENS} />
+    <path d="M6.6 10.8h10.8l-.8-.8H7.4z" {...TOP} />
+    <path d="M12 12.4v2.8M10.6 13.8h2.8" stroke="var(--bg)" />
   </>
 );
 
-const longScope = (
+// Tubo curto prismático: lente frontal cheia e torre de ajuste em cima.
+const tubeShort = (
   <>
-    <path d="M2 11h2.5M19.5 11h2.5" />
-    <rect x="4.5" y="8" width="15" height="7" rx="1.5" />
-    <path d="M10 8V5h2.5v3" />
-    <path d="M7 11.5h10M12 9.5v4" />
+    {rail}
+    <path d="M6.4 10.4h10.2v8.2H6.4z" />
+    <path d="M6.4 10.4h10.2l-1.2-1.1H7.6z" {...TOP} />
+    <ellipse cx="16.6" cy="14.5" rx="1.9" ry="4.1" {...LENS} />
+    <path d="M6.4 10.4a1.4 4.1 0 0 0 0 8.2" />
+    <path d="M4.2 14.5h2.2" />
+    <path d="M10.2 9.3V6.6h3v2.7z" />
+    <path d="M10.2 6.6h3l-.6-.8h-1.8z" {...TOP} />
   </>
 );
 
+// Luneta longa: corpo estreito, ocular estreita e lente objetiva grande.
+const scopeLong = (
+  <>
+    {rail}
+    <path d="M5.4 11.6h13.2v6H5.4z" />
+    <path d="M5.4 11.6h13.2l-1-1H6.4z" {...TOP} />
+    <ellipse cx="18.6" cy="14.6" rx="1.7" ry="3.8" {...LENS} />
+    <ellipse cx="5.4" cy="14.6" rx="1.2" ry="3" />
+    <path d="M2.8 14.6h1.4" />
+    <path d="M10.6 10.6V7.4h2.8v3.2z" />
+    <path d="M10.6 7.4h2.8l-.6-.9h-1.6z" {...TOP} />
+    <path d="M8.6 11.6v6M15.2 11.6v6" />
+  </>
+);
+
+// Variável: o anel de ampliação com a alavanca é o que a distingue.
 const variableScope = (
   <>
-    <path d="M2 11h2.5M19.5 11h2.5" />
-    <rect x="4.5" y="8" width="15" height="7" rx="1.5" />
-    <path d="M9 8V5.5h2V8M14 8V6h1.5v2" />
-    <path d="M7 11.5h10" />
+    {rail}
+    <path d="M5.4 11.6h13.2v6H5.4z" />
+    <path d="M5.4 11.6h13.2l-1-1H6.4z" {...TOP} />
+    <ellipse cx="18.6" cy="14.6" rx="1.7" ry="3.8" {...LENS} />
+    <ellipse cx="5.4" cy="14.6" rx="1.2" ry="3" />
+    <path d="M2.8 14.6h1.4" />
+    <path d="M8.8 10.8V7.8h2.4v3z" />
+    <path d="M8.8 7.8h2.4l-.5-.8H9.2z" {...TOP} />
+    <path d="M13 11h2.6v7.6H13z" />
+    <path d="M13 11h2.6l-.7-.9h-1.2z" {...TOP} />
+    <path d="M15.6 12l2.6-1.9" />
   </>
 );
+
+/**
+ * Que silhueta cada mira usa.
+ *
+ * Vai por nome, e não por ampliação, porque o formato não segue o aumento: a
+ * SF-G2 é 5× e é uma caixa holográfica, a CCO é 2× e é um tubo. Uma mira que
+ * não esteja aqui cai na regra por ampliação de [glyphFor].
+ */
+const SIGHT_SHAPE: Record<string, React.ReactNode> = {
+  'iron sights': ironSights,
+  'aperture sights': apertureSights,
+  'cqb sights': cqbSights,
+
+  // Ponto vermelho aberto, corpo pequeno.
+  'rmr 1.00x': reflexOpen,
+  'r-mr 1.00x': reflexOpen,
+  'mini flex 1.00x': reflexOpen,
+  'osa-7 1.00x': reflexOpen,
+  'th-rds 1.00x': reflexOpen,
+  'cq rds 1.25x': reflexOpen,
+  'r4t 2.00x': reflexOpen,
+  'ro-s 1.25x': reflexOpen,
+
+  // Janela grande em caixa.
+  'rox 1.50x': reflexBoxed,
+  'a-p2 1.75x': reflexBoxed,
+  '3vzr 1.75x': reflexBoxed,
+  'ro-m 1.75x': reflexBoxed,
+  'bf-2m 2.50x': reflexBoxed,
+  'sf-g2 5.00x': reflexBoxed,
+
+  // Tubo curto.
+  '2pro 1.25x': tubeShort,
+  '1p87 1.50x': tubeShort,
+  'su-123 1.50x': tubeShort,
+  'grim 1.50x': tubeShort,
+  'cco 2.00x': tubeShort,
+  'baker 3.00x': tubeShort,
+  'pas-35 3.00x': tubeShort,
+  'sdo 3.50x': tubeShort,
+  'st prism 5.00x': tubeShort,
+
+  // Luneta longa.
+  'pvq-31 4.00x': scopeLong,
+  'lds 4.50x': scopeLong,
+  's-vps 6.00x': scopeLong,
+  'ssds 6.00x': scopeLong,
+  'ts-hd 6.00x': scopeLong,
+  'lert 8.00x': scopeLong,
+  'nfx 8.00x': scopeLong,
+
+  // Ampliação variável.
+  'su-230 lpvo': variableScope,
+  'dvo lpvo': variableScope,
+  'mars-f lpvo': variableScope,
+  'mc-co lpvo': variableScope,
+  'ngfc lpvo': variableScope,
+  '1p88 variable': variableScope,
+  'sm rifle variable': variableScope,
+};
 
 /* ---------------------------------- Bocas ---------------------------------- */
 
@@ -380,7 +518,7 @@ const rangeFinder = (
 
 /** Ícone genérico do slot, quando nada mais específico se aplica. */
 const BY_SLOT: Record<SlotId, React.ReactNode> = {
-  sight: redDot,
+  sight: reflexOpen,
   muzzle: brake,
   barrel: barrelGlyph(12),
   underbarrel: verticalGrip,
@@ -401,16 +539,15 @@ function glyphFor(attachment: Attachment): React.ReactNode {
   const amp = Number(n.match(/(\d+(?:\.\d+)?)x/)?.[1] ?? 0);
 
   switch (attachment.slot) {
-    case 'sight':
-      if (n.includes('iron') || n.includes('aperture') || n.includes('cqb')) return ironSights;
+    case 'sight': {
+      const known = SIGHT_SHAPE[n];
+      if (known) return known;
+      // Mira nova, ainda sem silhueta própria: a ampliação dá o palpite.
       if (n.includes('lpvo') || n.includes('variable')) return variableScope;
-      if (n.includes('holo')) return holographic;
-      // A ampliação separa quatro formatos de corpo, como no jogo: pontual,
-      // prismático curto, luneta média e luneta longa de precisão.
-      if (amp >= 4) return longScope;
-      if (amp >= 2.5) return mediumScope;
-      if (amp >= 1.5) return prism;
-      return redDot;
+      if (amp >= 4) return scopeLong;
+      if (amp >= 1.5) return tubeShort;
+      return reflexOpen;
+    }
 
     case 'muzzle':
       if (n.includes('suppressor')) return suppressor;
@@ -503,7 +640,11 @@ export function AttachmentIcon({
       style={{ display: 'block' }}
       {...STROKE}
     >
-      {attachment ? glyphFor(attachment) : BY_SLOT[slot]}
+      {attachment?.slot === 'sight' || (!attachment && slot === 'sight') ? (
+        <g {...SIGHT}>{attachment ? glyphFor(attachment) : BY_SLOT[slot]}</g>
+      ) : (
+        (attachment ? glyphFor(attachment) : BY_SLOT[slot])
+      )}
     </svg>
   );
 }
