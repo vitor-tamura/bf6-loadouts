@@ -118,8 +118,19 @@ export const SLOTS: SlotDefinition[] = [
 
 export const SLOTS_BY_ID = new Map<SlotId, SlotDefinition>(SLOTS.map((s) => [s.id, s]));
 
-/** Orçamento de personalização do jogo. */
+/** Orçamento de personalização da arma principal. */
 export const POINT_BUDGET = 100;
+
+/**
+ * Orçamento de uma arma, em pontos.
+ *
+ * O Gunsmith mostra isso como blocos de dez: a arma principal tem dez, a
+ * pistola tem seis. Corpo a corpo não recebe acessório e não tem orçamento.
+ */
+export function budgetFor(category: WeaponCategory): number {
+  if (category === 'melee') return 0;
+  return category === 'pistol' ? 60 : POINT_BUDGET;
+}
 
 /*
  * Nomes de categoria na tela.

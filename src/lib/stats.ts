@@ -131,13 +131,13 @@ export interface Budget {
   overBudget: boolean;
 }
 
-export function calculateBudget(attachments: Attachment[]): Budget {
+export function calculateBudget(attachments: Attachment[], total = POINT_BUDGET): Budget {
   const spent = attachments.reduce((sum, a) => sum + a.cost, 0);
   return {
     spent,
-    total: POINT_BUDGET,
-    remaining: POINT_BUDGET - spent,
-    overBudget: spent > POINT_BUDGET,
+    total,
+    remaining: total - spent,
+    overBudget: spent > total,
   };
 }
 
@@ -148,11 +148,12 @@ export function calculateBudget(attachments: Attachment[]): Budget {
 export function fitsBudget(
   candidate: Attachment,
   currentAttachments: Attachment[],
+  total = POINT_BUDGET,
 ): boolean {
   const replaced = currentAttachments.find((a) => a.slot === candidate.slot);
   const spent = currentAttachments.reduce((sum, a) => sum + a.cost, 0);
   const newSpend = spent - (replaced?.cost ?? 0) + candidate.cost;
-  return newSpend <= POINT_BUDGET;
+  return newSpend <= total;
 }
 
 export interface Delta {

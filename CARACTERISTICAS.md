@@ -30,7 +30,8 @@ de WebView, e pode ser instalada na tela inicial como aplicativo (PWA).
 - Os dez slots da localização brasileira: Mira, Boca, Cano, Acoplamento Inferior,
   Carregador, Munição, Ergonomia, Acessório Óptico, Acessório Esquerdo e
   Acessório Direito.
-- **Orçamento de 100 pontos**, como no jogo. Peça que não cabe continua visível,
+- **Orçamento em blocos de dez**, como no Gunsmith: dez blocos para a arma
+  principal, seis para a pistola. Peça que não cabe continua visível,
   porém desabilitada, com o motivo escrito — esconder a opção deixaria o jogador
   sem entender por que ela sumiu.
 - Compatibilidade real, vinda de duas fontes que se completam: a lista exata de

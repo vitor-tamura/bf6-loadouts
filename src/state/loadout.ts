@@ -21,6 +21,7 @@ interface LoadoutState {
   setThrowable: (id: string | null) => void;
   toggleBaseComparison: () => void;
   clearAttachments: () => void;
+  clearSidearmAttachments: () => void;
   loadLoadout: (loadout: Loadout) => void;
   resetLoadout: () => void;
 }
@@ -78,6 +79,9 @@ export const useLoadout = create<LoadoutState>((set) => ({
   toggleBaseComparison: () => set((s) => ({ compareWithBase: !s.compareWithBase })),
 
   clearAttachments: () => set((s) => ({ loadout: { ...s.loadout, attachments: {} } })),
+
+  clearSidearmAttachments: () =>
+    set((s) => ({ loadout: { ...s.loadout, sidearmAttachments: {} } })),
 
   loadLoadout: (loadout) => set({ loadout: stripIncompatible(loadout) }),
 

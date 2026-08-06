@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { ATTACHMENTS, ATTACHMENTS_BY_ID, attachmentsForWeapon, isCompatible } from '@/data/attachments';
 import { WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
-import { POINT_BUDGET } from '@/data/classes';
+import { budgetFor, POINT_BUDGET } from '@/data/classes';
 import {
   fitsBudget,
   calculateBudget,
@@ -44,15 +44,23 @@ describe('integridade do dataset', () => {
     }
   });
 
-  it('permite montar a arma inteira sem estourar os 100 pontos usando as peças baratas', () => {
+  it('permite montar a arma inteira, com as peças baratas, dentro do orçamento dela', () => {
+    // Pistola tem metade dos pontos, então este teste é mais apertado nela — e é
+    // exatamente onde um acessório caro demais passaria despercebido.
     for (const weapon of WEAPONS) {
       if (weapon.category === 'melee') continue;
       const cheapest = [...attachmentsForWeapon(weapon).values()].map((list) =>
         list.reduce((smallest, a) => (a.cost < smallest.cost ? a : smallest)),
       );
       const total = cheapest.reduce((sum, a) => sum + a.cost, 0);
-      expect(total, weapon.name).toBeLessThanOrEqual(POINT_BUDGET);
+      expect(total, weapon.name).toBeLessThanOrEqual(budgetFor(weapon.category));
     }
+  });
+
+  it('dá seis blocos à pistola e dez à arma principal', () => {
+    expect(budgetFor('pistol')).toBe(60);
+    expect(budgetFor('ar')).toBe(POINT_BUDGET);
+    expect(budgetFor('melee')).toBe(0);
   });
 
   it('só aceita acessório em slot que a arma possui', () => {

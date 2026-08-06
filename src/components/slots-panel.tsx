@@ -2,7 +2,7 @@
 
 import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type RefObject } from 'react';
 import { attachmentsForWeapon } from '@/data/attachments';
-import { POINT_BUDGET, SLOTS_BY_ID } from '@/data/classes';
+import { budgetFor, SLOTS_BY_ID } from '@/data/classes';
 import type { Attachment, Weapon, StatKey, SlotId, WeaponCategory } from '@/data/types';
 import { LOWER_IS_BETTER, type Budget } from '@/lib/stats';
 import { AttachmentIcon } from '@/components/icons/attachment-icon';
@@ -105,7 +105,16 @@ export function BudgetBar({ budget }: { budget: Budget }) {
         A marca em curso preenche pela fração gasta, e o que estoura o
         orçamento acende em vermelho no fim da fila.
       */}
-      <div className="flex gap-1" role="img" aria-label={`${budget.spent} de ${budget.total} pontos`}>
+      {/*
+        A grade tem sempre dez colunas, mesmo quando a arma só usa seis: o bloco
+        guarda a mesma largura em qualquer arma, e a barra da pistola fica
+        visivelmente mais curta que a da principal — que é a informação.
+      */}
+      <div
+        className="grid grid-cols-10 gap-1"
+        role="img"
+        aria-label={`${budget.spent} de ${budget.total} pontos`}
+      >
         {Array.from({ length: ticks }, (_, i) => {
           const start = i * POINTS_PER_TICK;
           const fill = Math.max(0, Math.min(1, (budget.spent - start) / POINTS_PER_TICK));
@@ -114,7 +123,7 @@ export function BudgetBar({ budget }: { budget: Budget }) {
           return (
             <span
               key={i}
-              className="tick relative h-3.5 flex-1 overflow-hidden"
+              className="tick relative h-3.5 overflow-hidden"
               style={{ border: `1px solid ${fill > 0 ? 'var(--accent)' : 'var(--border)'}` }}
             >
               <span
@@ -135,7 +144,7 @@ export function BudgetBar({ budget }: { budget: Budget }) {
             (_, i) => (
               <span
                 key={`over-${i}`}
-                className="tick h-3.5 flex-1"
+                className="tick h-3.5"
                 style={{
                   border: '1px solid var(--color-negative)',
                   background: 'color-mix(in oklab, var(--color-negative) 55%, transparent)',
@@ -202,7 +211,10 @@ export function SlotsPanel({
       : Math.min(orderedSlots.length - 1, (Math.floor(mountedIndex / columns) + 1) * columns - 1);
 
   return (
-    <div ref={gridRef} className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
+    <div
+      ref={gridRef}
+      className="grid auto-rows-min grid-cols-2 content-start gap-2 sm:grid-cols-3 lg:grid-cols-4"
+    >
       {orderedSlots.map((slot, index) => {
         const definition = SLOTS_BY_ID.get(slot)!;
         const options = bySlot.get(slot)!;
@@ -259,6 +271,7 @@ export function SlotsPanel({
                     options={bySlot.get(mounted)!}
                     chosenId={chosen[mounted] ?? null}
                     currentSpend={currentSpend}
+                    budgetTotal={budgetFor(weapon.category)}
                     onSelect={(id) => onSelect(mounted, id)}
                     onClose={() => setOpen(null)}
                   />
@@ -289,6 +302,7 @@ function SlotOptions({
   options,
   chosenId,
   currentSpend,
+  budgetTotal,
   onSelect,
   onClose,
 }: {
@@ -296,6 +310,7 @@ function SlotOptions({
   options: Attachment[];
   chosenId: string | null;
   currentSpend: number;
+  budgetTotal: number;
   onSelect: (id: string | null) => void;
   onClose: () => void;
 }) {
@@ -367,7 +382,7 @@ function SlotOptions({
               slot={slot}
               attachment={option}
               active={option.id === chosenId}
-              fits={spendWithout + option.cost <= POINT_BUDGET}
+              fits={spendWithout + option.cost <= budgetTotal}
               onSelect={() => onSelect(option.id)}
               onFocus={() => setHovered(option.id)}
             />

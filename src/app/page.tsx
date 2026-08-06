@@ -10,6 +10,7 @@ import { StatsPanel } from '@/components/stats-panel';
 import { WeaponPreview } from '@/components/weapon-preview';
 import { WeaponSelector } from '@/components/weapon-selector';
 import { WEAPONS_BY_ID, PRIMARY_CATEGORIES } from '@/data/weapons';
+import { budgetFor, POINT_BUDGET } from '@/data/classes';
 import type { SlotId, Weapon } from '@/data/types';
 import { analysisDistance } from '@/lib/ballistics';
 import { loadoutAttachments } from '@/lib/loadout';
@@ -48,6 +49,7 @@ export default function BuilderPage() {
   const setThrowable = useLoadout((s) => s.setThrowable);
   const toggleBaseComparison = useLoadout((s) => s.toggleBaseComparison);
   const clearAttachments = useLoadout((s) => s.clearAttachments);
+  const clearSidearmAttachments = useLoadout((s) => s.clearSidearmAttachments);
 
   const [tab, setTab] = useState<Tab>('arma');
 
@@ -59,12 +61,19 @@ export default function BuilderPage() {
 
   // A secundária gasta do próprio orçamento, como no jogo.
   const sidearmBudget = useMemo(
-    () => calculateBudget(loadoutAttachments(loadout.sidearmAttachments, sidearm)),
+    () =>
+      calculateBudget(
+        loadoutAttachments(loadout.sidearmAttachments, sidearm),
+        sidearm ? budgetFor(sidearm.category) : POINT_BUDGET,
+      ),
     [loadout.sidearmAttachments, sidearm],
   );
   const stats = useMemo(() => (weapon ? calculateStats(weapon, attachments) : null), [weapon, attachments]);
   const base = useMemo(() => (weapon ? baseStats(weapon) : null), [weapon]);
-  const budget = useMemo(() => calculateBudget(attachments), [attachments]);
+  const budget = useMemo(
+    () => calculateBudget(attachments, weapon ? budgetFor(weapon.category) : POINT_BUDGET),
+    [attachments, weapon],
+  );
   const distance = useMemo(() => (stats ? analysisDistance(stats) : 100), [stats]);
   const approximate = weapon ? hasApproximateValue(weapon, attachments) : false;
 
@@ -152,8 +161,10 @@ export default function BuilderPage() {
                   sidearm={sidearm}
                   chosen={loadout.sidearmAttachments}
                   budget={sidearmBudget}
+                  showBase={compareWithBase}
                   onOpenPicker={() => setChoosingSidearm(true)}
                   onSelectAttachment={setSidearmAttachment}
+                  onClear={clearSidearmAttachments}
                 />
               </div>
             ) : (
@@ -331,15 +342,26 @@ function SidearmSection({
   sidearm,
   chosen,
   budget,
+  showBase,
   onOpenPicker,
   onSelectAttachment,
+  onClear,
 }: {
   sidearm: Weapon | null;
   chosen: Partial<Record<SlotId, string>>;
   budget: Budget;
+  showBase: boolean;
   onOpenPicker: () => void;
   onSelectAttachment: (slot: SlotId, id: string | null) => void;
+  onClear: () => void;
 }) {
+  const attachments = useMemo(() => loadoutAttachments(chosen, sidearm), [chosen, sidearm]);
+  const stats = useMemo(
+    () => (sidearm ? calculateStats(sidearm, attachments) : null),
+    [sidearm, attachments],
+  );
+  const base = useMemo(() => (sidearm ? baseStats(sidearm) : null), [sidearm]);
+
   return (
     <section className="space-y-3">
       <div className="card bevel p-3">
@@ -374,23 +396,56 @@ function SidearmSection({
               </span>
             </button>
 
-            {sidearm.slots.length > 0 && <div className="mt-3">{<BudgetBar budget={budget} />}</div>}
+            {sidearm.slots.length > 0 && (
+              <div className="mt-3">
+                <BudgetBar budget={budget} />
+                <div className="mt-2 flex justify-end">
+                  <button
+                    type="button"
+                    onClick={onClear}
+                    className="touch px-2 text-xs underline"
+                    style={{ color: 'var(--text-dim)' }}
+                  >
+                    Limpar
+                  </button>
+                </div>
+              </div>
+            )}
           </>
         ) : (
           <p className="text-[12px]" style={{ color: 'var(--text-dim)' }}>
-            Nenhuma secundária escolhida. Pistolas também aceitam acessórios e têm o próprio
-            orçamento de 100 pontos.
+            Nenhuma secundária escolhida. Pistolas também aceitam acessórios, com seis blocos de
+            pontos em vez dos dez da arma principal.
           </p>
         )}
       </div>
 
+      {/*
+        Montagem e números lado a lado, na mesma proporção da arma principal —
+        a coluna de números tem a mesma largura lá e aqui, senão as caixas de
+        destaque quebram de um jeito na primária e de outro na secundária.
+      */}
       {sidearm && (
-        <SlotsPanel
-          weapon={sidearm}
-          chosen={chosen}
-          onSelect={onSelectAttachment}
-          currentSpend={budget.spent}
-        />
+        <div className="grid gap-3 [&>*]:min-w-0 xl:grid-cols-[minmax(0,1fr)_minmax(340px,420px)]">
+          <SlotsPanel
+            weapon={sidearm}
+            chosen={chosen}
+            onSelect={onSelectAttachment}
+            currentSpend={budget.spent}
+          />
+
+          {stats && base && (
+            <div className="card bevel h-fit p-3">
+              <div className="mb-3 flex items-center justify-between gap-2">
+                <h3 className="label">Estatísticas</h3>
+                <span className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
+                  {sidearm.name}
+                </span>
+              </div>
+              <StatsPanel weapon={sidearm} stats={stats} base={base} showBase={showBase} />
+            </div>
+          )}
+        </div>
       )}
     </section>
   );
