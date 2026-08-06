@@ -263,16 +263,32 @@ function WeaponCard({
       type="button"
       onClick={onSelect}
       aria-pressed={selected}
-      className="tile bevel-sm touch flex w-full items-center gap-2.5 px-2.5 py-2 text-left"
+      className="tile bevel-sm touch relative flex w-full items-center gap-2.5 py-2 pr-2.5 pl-3 text-left"
       style={
         {
+          /*
+           * A arma equipada não pode ser só "mais um item com a borda de outra
+           * cor": numa lista de sessenta e três, o olho volta a ela o tempo
+           * todo. Fundo mais forte, faixa na lateral e brilho em volta marcam
+           * qual arma está na mão sem precisar procurar.
+           */
           '--tile-bg': selected
-            ? 'color-mix(in oklab, var(--accent) 16%, var(--surface))'
+            ? 'color-mix(in oklab, var(--accent) 26%, var(--surface))'
             : 'var(--surface)',
           border: `1px solid ${selected ? 'var(--accent)' : 'var(--border-soft)'}`,
+          boxShadow: selected
+            ? '0 0 0 1px var(--accent), 0 6px 18px color-mix(in oklab, var(--accent) 22%, transparent)'
+            : undefined,
         } as CSSProperties
       }
     >
+      {selected && (
+        <span
+          aria-hidden
+          className="absolute inset-y-0 left-0 w-1"
+          style={{ background: 'var(--accent)' }}
+        />
+      )}
       {/*
         A foto vale mais que o nome aqui: quem procura a secundária costuma
         reconhecer a pistola de vista antes de lembrar da sigla. Corpo a corpo
@@ -282,7 +298,10 @@ function WeaponCard({
 
       <span className="min-w-0 flex-1">
         <span className="flex items-baseline justify-between gap-2">
-          <span className="font-display truncate text-base font-semibold tracking-wide">
+          <span
+            className="font-display truncate text-base font-semibold tracking-wide"
+            style={selected ? { color: 'var(--accent)' } : undefined}
+          >
             {weapon.name}
           </span>
           <span className="font-mono text-[11px] whitespace-nowrap" style={{ color: 'var(--text-dim)' }}>
@@ -293,6 +312,11 @@ function WeaponCard({
           className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[11px]"
           style={{ color: 'var(--text-dim)' }}
         >
+          {selected && (
+            <span className="label" style={{ color: 'var(--accent)' }}>
+              equipada
+            </span>
+          )}
           {playerClass && <span style={{ color: playerClass.color }}>{playerClass.name}</span>}
           <SeasonTag season={weapon.season} size="sm" />
           {weapon.provenance === 'curated' && <span title="Valores aproximados">≈</span>}
