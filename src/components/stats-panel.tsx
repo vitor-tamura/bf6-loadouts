@@ -1,5 +1,7 @@
 'use client';
 
+import { Tooltip } from 'antd';
+
 import {
   effectiveRange,
   damagePerShot,
@@ -46,7 +48,8 @@ function StatBar({
   return (
     // `group` liga o hover da linha inteira à barra: passar o ponteiro em
     // qualquer ponto da estatística acende a barra dela e engrossa o traço.
-    <div className="stat-row group" title={`${label}: ${Math.round(value)} de 100`}>
+    <Tooltip title={`${label}: ${Math.round(value)} de 100`} mouseEnterDelay={0.5}>
+    <div className="stat-row group">
       <div className="mb-1 flex items-baseline justify-between gap-2">
         <span className="label transition-colors group-hover:[color:var(--text-soft)]">{label}</span>
         <span className="flex items-baseline gap-1.5 font-mono text-sm">
@@ -101,14 +104,20 @@ function StatBar({
         )}
 
         {shows && (
-          <span
-            className="absolute top-0 h-full w-[2px] transition-[left] duration-300"
-            title={`Valor de fábrica: ${Math.round(base)}`}
-            style={{ left: `${Math.min(100, base)}%`, background: '#ffffff', boxShadow: '0 0 0 1px rgb(0 0 0 / 0.35)' }}
-          />
+          <Tooltip title={`Valor de fábrica: ${Math.round(base)}`}>
+            <span
+              className="absolute top-0 h-full w-[2px] transition-[left] duration-300"
+              style={{
+                left: `${Math.min(100, base)}%`,
+                background: '#ffffff',
+                boxShadow: '0 0 0 1px rgb(0 0 0 / 0.35)',
+              }}
+            />
+          </Tooltip>
         )}
       </div>
     </div>
+    </Tooltip>
   );
 }
 
@@ -144,16 +153,17 @@ function StatNumber({
       </span>
       <span className="flex items-baseline gap-1.5">
         {shows && (
-          <span
-            className="font-mono text-[11px] whitespace-nowrap"
-            style={{ color: delta.improves ? 'var(--color-positive)' : 'var(--color-negative)' }}
-            title={`De fábrica: ${base.toFixed(decimals)}${unit ? ` ${unit}` : ''}`}
-          >
-            <DeltaArrow improves={delta.improves} />
-            {delta.difference > 0 ? '+' : ''}
-            {delta.difference.toFixed(decimals)} ({delta.percent > 0 ? '+' : ''}
-            {delta.percent.toFixed(0)}%)
-          </span>
+          <Tooltip title={`De fábrica: ${base.toFixed(decimals)}${unit ? ` ${unit}` : ''}`}>
+            <span
+              className="font-mono text-[11px] whitespace-nowrap"
+              style={{ color: delta.improves ? 'var(--color-positive)' : 'var(--color-negative)' }}
+            >
+              <DeltaArrow improves={delta.improves} />
+              {delta.difference > 0 ? '+' : ''}
+              {delta.difference.toFixed(decimals)} ({delta.percent > 0 ? '+' : ''}
+              {delta.percent.toFixed(0)}%)
+            </span>
+          </Tooltip>
         )}
         <span className={`font-mono ${compact ? 'text-[12px]' : 'text-sm'}`}>
           {value.toFixed(decimals)}
@@ -215,17 +225,18 @@ function DerivedStat({
         {value}
       </p>
       {comparable && (
-        <p
-          className="font-mono text-[11px] whitespace-nowrap"
-          style={{ color: improves ? 'var(--color-positive)' : 'var(--color-negative)' }}
-          title={`De fábrica: ${rawBase.toFixed(decimals)}${suffix}`}
-        >
-          <DeltaArrow improves={improves} />
-          {difference > 0 ? '+' : ''}
-          {difference.toFixed(decimals)}
-          {suffix}
-          {rawBase !== 0 && ` (${percent > 0 ? '+' : ''}${percent.toFixed(0)}%)`}
-        </p>
+        <Tooltip title={`De fábrica: ${rawBase.toFixed(decimals)}${suffix}`}>
+          <p
+            className="font-mono text-[11px] whitespace-nowrap"
+            style={{ color: improves ? 'var(--color-positive)' : 'var(--color-negative)' }}
+          >
+            <DeltaArrow improves={improves} />
+            {difference > 0 ? '+' : ''}
+            {difference.toFixed(decimals)}
+            {suffix}
+            {rawBase !== 0 && ` (${percent > 0 ? '+' : ''}${percent.toFixed(0)}%)`}
+          </p>
+        </Tooltip>
       )}
       {detail && !compact && (
         <p className="text-[11px]" style={{ color: 'var(--text-dim)' }}>

@@ -1,3 +1,6 @@
+'use client';
+
+import { Card, Col, Row, Typography } from 'antd';
 import { AttachmentIcon } from '@/components/icons/attachment-icon';
 import { GadgetArt } from '@/components/gadget-art';
 import { ATTACHMENTS } from '@/data/attachments';
@@ -22,32 +25,53 @@ function samples(): Attachment[] {
   });
 }
 
+/** Seis por linha no computador, dois no celular — o desenho é o que importa. */
+const COLS = { xs: 12, sm: 8, md: 6, lg: 4, xl: 3 };
+
 export default function IconSheet() {
   return (
     <main className="p-4" style={{ color: 'var(--text)' }}>
-      <h1 className="label mb-3">Acessórios</h1>
-      <ul className="grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-2">
+      <Typography.Title level={2} className="label !mb-3">
+        Acessórios
+      </Typography.Title>
+      <Row gutter={[8, 8]}>
         {samples().map((a) => (
-          <li key={a.id} className="bevel-sm flex flex-col items-center gap-1 p-2" style={{ border: '1px solid var(--border)' }}>
-            <span style={{ color: 'var(--accent)' }}>
+          <Col key={a.id} {...COLS}>
+            <Celula nome={a.name}>
               <AttachmentIcon attachment={a} slot={a.slot} size={40} />
-            </span>
-            <span className="text-center text-[10px] leading-tight">{a.name}</span>
-          </li>
+            </Celula>
+          </Col>
         ))}
-      </ul>
+      </Row>
 
-      <h1 className="label mb-3 mt-6">Gadgets</h1>
-      <ul className="grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-2">
+      <Typography.Title level={2} className="label mt-6 !mb-3">
+        Gadgets
+      </Typography.Title>
+      <Row gutter={[8, 8]}>
         {GADGETS.map((g) => (
-          <li key={g.id} className="bevel-sm flex flex-col items-center gap-1 p-2" style={{ border: '1px solid var(--border)' }}>
-            <span style={{ color: 'var(--accent)' }}>
+          <Col key={g.id} {...COLS}>
+            <Celula nome={g.name}>
               <GadgetArt gadget={g} size={40} />
-            </span>
-            <span className="text-center text-[10px] leading-tight">{g.name}</span>
-          </li>
+            </Celula>
+          </Col>
         ))}
-      </ul>
+      </Row>
     </main>
+  );
+}
+
+function Celula({ nome, children }: { nome: string; children: React.ReactNode }) {
+  return (
+    <Card
+      variant="outlined"
+      className="bevel-sm h-full"
+      styles={{ body: { padding: 8 } }}
+      style={{ border: '1px solid var(--border)' }}
+    >
+      <span className="flex flex-col items-center gap-1">
+        <span style={{ color: 'var(--accent)' }}>{children}</span>
+        <span className="text-center text-[10px] leading-tight">{nome}</span>
+      </span>
+    </Card>
   );
 }

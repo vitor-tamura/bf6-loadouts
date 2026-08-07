@@ -1,5 +1,6 @@
 'use client';
 
+import { Alert, Button, Card, Checkbox, Empty, Modal, Segmented, Tooltip } from 'antd';
 import { Suspense, useMemo, useState } from 'react';
 import { AppHeader } from '@/components/header';
 import { ShareButton } from '@/components/share-button';
@@ -30,11 +31,11 @@ import { useLoadout, useUrlSync } from '@/state/loadout';
 
 type Tab = 'arma' | 'montar' | 'classe' | 'numeros';
 
-const TABS: { id: Tab; name: string }[] = [
-  { id: 'arma', name: 'Arma' },
-  { id: 'montar', name: 'Montar' },
-  { id: 'classe', name: 'Classe' },
-  { id: 'numeros', name: 'Números' },
+const TABS: { value: Tab; label: string }[] = [
+  { value: 'arma', label: 'Arma' },
+  { value: 'montar', label: 'Montar' },
+  { value: 'classe', label: 'Classe' },
+  { value: 'numeros', label: 'Números' },
 ];
 
 /**
@@ -134,18 +135,23 @@ function BuilderPage() {
       <main className="mx-auto max-w-[1600px] px-3 py-3">
         {/* Preview: sempre visível, é a resposta imediata a cada acessório. */}
         {weapon && (
-          <div className="card bevel sticky top-[64px] z-20 mb-3 p-2 lg:static">
+          /*
+            `sticky!` com o important: o `.ant-card` traz `position: relative` na
+            mesma especificidade da classe do Tailwind e ganhava por ordem no
+            arquivo. O `top-[64px]` continuava valendo, e um elemento `relative`
+            deslocado ocupa o lugar antigo no fluxo e é pintado 64px abaixo — o
+            preview passou a cobrir a faixa de busca inteira.
+          */
+          <Painel className="sticky! top-[64px] z-20 mb-3 lg:static!" padding={8}>
             {/* Largura limitada: com a proporção 8:3 do quadro, deixar o preview
                 ocupar 1600 px transformaria a arma em um painel de 600 px de
                 altura e empurraria todo o resto para fora da tela. */}
             <WeaponPreview
               weapon={weapon}
-             
               withLabel
               className="mx-auto w-full max-w-[560px] lg:max-w-[760px]"
             />
-
-          </div>
+          </Painel>
         )}
 
         {/*
@@ -154,11 +160,9 @@ function BuilderPage() {
           barrinha rolável de dois itens visíveis; aqui cabem todos de uma vez.
           No celular a faixa só aparece na aba da arma, que é onde ela serve.
         */}
-        <div
-          className={`card bevel mb-3 overflow-x-hidden p-3 ${tab === 'arma' ? 'block' : 'hidden lg:block'}`}
-        >
+        <Painel className={`mb-3 overflow-x-hidden ${tab === 'arma' ? 'block' : 'hidden lg:block'}`}>
           <WeaponFilters filter={weaponFilter} />
-        </div>
+        </Painel>
 
         {/* `min-w-0` nos filhos: sem isso, itens de grid usam a largura mínima do
             conteúdo e uma lista larga estica a página inteira, criando rolagem
@@ -199,22 +203,23 @@ function BuilderPage() {
           <div className={tab === 'montar' ? 'block' : 'hidden lg:block'}>
             {weapon ? (
               <div className="space-y-3">
-                <div className="card bevel p-3">
+                <Painel>
                   <BudgetBar budget={budget} />
                   <div className="mt-2 flex items-center justify-between gap-2">
                     <p className="text-[12px] leading-snug" style={{ color: 'var(--text-soft)' }}>
                       {weapon.summary}
                     </p>
-                    <button
-                      type="button"
+                    <Button
+                      type="link"
+                      size="small"
                       onClick={clearAttachments}
                       className="touch shrink-0 px-2 text-xs underline"
                       style={{ color: 'var(--text-dim)' }}
                     >
                       Limpar
-                    </button>
+                    </Button>
                   </div>
-                </div>
+                </Painel>
 
                 <SlotsPanel
                   weapon={weapon}
@@ -246,35 +251,29 @@ function BuilderPage() {
           <div className={tab === 'numeros' ? 'block' : 'hidden lg:block'}>
             {weapon && stats && base ? (
               <div className="space-y-3">
-                <div className="card bevel p-3">
+                <Painel>
                   <div className="mb-3 flex items-center justify-between gap-2">
                     <h2 className="label">Estatísticas</h2>
                     <div className="flex items-center gap-2">
-                      <label className="flex cursor-pointer items-center gap-1.5 text-[11px]" style={{ color: 'var(--text-dim)' }}>
-                        <input
-                          type="checkbox"
-                          checked={compareWithBase}
-                          onChange={toggleBaseComparison}
-                          className="accent-[var(--accent)]"
-                        />
-                        comparar com a de fábrica
-                      </label>
+                      <ComparaComFabrica checked={compareWithBase} onChange={toggleBaseComparison} />
                       {/*
                         Aberto, o painel prioriza a leitura: número grande, uma
                         linha por medida. Compacto, ele encolhe para caber junto
                         dos gráficos e da secundária sem rolagem.
                       */}
-                      <button
-                        type="button"
-                        onClick={() => setStatsCompactas((v) => !v)}
-                        title={statsCompactas ? 'Abrir as estatísticas' : 'Compactar as estatísticas'}
-                        aria-label={statsCompactas ? 'Abrir as estatísticas' : 'Compactar as estatísticas'}
-                        aria-pressed={statsCompactas}
-                        className="touch shrink-0 px-1.5 text-xs leading-none"
-                        style={{ color: statsCompactas ? 'var(--accent)' : 'var(--text-dim)' }}
-                      >
-                        {statsCompactas ? '▢' : '—'}
-                      </button>
+                      <Tooltip title={statsCompactas ? 'Abrir as estatísticas' : 'Compactar as estatísticas'}>
+                        <Button
+                          type="text"
+                          size="small"
+                          onClick={() => setStatsCompactas((v) => !v)}
+                          aria-label={statsCompactas ? 'Abrir as estatísticas' : 'Compactar as estatísticas'}
+                          aria-pressed={statsCompactas}
+                          className="touch shrink-0 px-1.5 text-xs leading-none"
+                          style={{ color: statsCompactas ? 'var(--accent)' : 'var(--text-dim)' }}
+                        >
+                          {statsCompactas ? '▢' : '—'}
+                        </Button>
+                      </Tooltip>
                     </div>
                   </div>
                   <StatsPanel
@@ -284,7 +283,7 @@ function BuilderPage() {
                     showBase={compareWithBase}
                     compact={statsCompactas}
                   />
-                </div>
+                </Painel>
 
                 {/*
                   A secundária entra logo abaixo, na mesma coluna: números moram
@@ -292,7 +291,7 @@ function BuilderPage() {
                   distância do olho.
                 */}
                 {sidearm && sidearmStats && sidearmBase && (
-                  <div className="card bevel p-2.5">
+                  <Painel padding={10}>
                     <div className="mb-3 flex items-center justify-between gap-2">
                       <h2 className="label">
                         Secundária ·{' '}
@@ -301,18 +300,7 @@ function BuilderPage() {
                       {/* O mesmo interruptor do bloco de cima: as duas armas
                           respondem juntas, porque a comparação com a de fábrica
                           é um modo de leitura, não uma opção por arma. */}
-                      <label
-                        className="flex cursor-pointer items-center gap-1.5 text-[11px]"
-                        style={{ color: 'var(--text-dim)' }}
-                      >
-                        <input
-                          type="checkbox"
-                          checked={compareWithBase}
-                          onChange={toggleBaseComparison}
-                          className="accent-[var(--accent)]"
-                        />
-                        comparar com a de fábrica
-                      </label>
+                      <ComparaComFabrica checked={compareWithBase} onChange={toggleBaseComparison} />
                     </div>
                     <StatsPanel
                       weapon={sidearm}
@@ -321,7 +309,7 @@ function BuilderPage() {
                       showBase={compareWithBase}
                       compact
                     />
-                  </div>
+                  </Painel>
                 )}
 
                 {approximate && <ApproximateNotice />}
@@ -354,17 +342,19 @@ function BuilderPage() {
 
           {/* Classe e equipamento: coluna própria no celular, rodapé no desktop */}
           <div className={`${tab === 'classe' ? 'block' : 'hidden lg:block'} ${larguraTotal}`}>
-            <div className="card bevel grid gap-4 p-3 lg:grid-cols-[minmax(0,320px)_minmax(0,1fr)]">
-              <ClassSelector current={loadout.playerClass} onSelect={setPlayerClass} />
-              <EquipmentPanel
-                playerClass={loadout.playerClass}
-                gadget1={loadout.gadget1}
-                gadget2={loadout.gadget2}
-                throwable={loadout.throwable}
-                onSetGadget={setGadget}
-                onSetThrowable={setThrowable}
-              />
-            </div>
+            <Painel>
+              <div className="grid gap-4 lg:grid-cols-[minmax(0,320px)_minmax(0,1fr)]">
+                <ClassSelector current={loadout.playerClass} onSelect={setPlayerClass} />
+                <EquipmentPanel
+                  playerClass={loadout.playerClass}
+                  gadget1={loadout.gadget1}
+                  gadget2={loadout.gadget2}
+                  throwable={loadout.throwable}
+                  onSetGadget={setGadget}
+                  onSetThrowable={setThrowable}
+                />
+              </div>
+            </Painel>
           </div>
         </div>
 
@@ -372,91 +362,124 @@ function BuilderPage() {
         <SiteFooter className="pb-safe-nav lg:pb-6" />
       </main>
 
-      {/* Navegação por abas, só no celular. */}
+      {/*
+        Navegação por abas, só no celular.
+        `Segmented` em vez dos `Tabs` do antd: as abas do antd trazem a faixa de
+        conteúdo junto, e aqui o conteúdo está espalhado pela grade da página —
+        o que a barra faz é trocar quais colunas aparecem.
+      */}
       <nav
-        className="pb-safe fixed inset-x-0 bottom-0 z-30 grid grid-cols-4 border-t backdrop-blur lg:hidden"
+        className="pb-safe fixed inset-x-0 bottom-0 z-30 border-t px-2 pt-1.5 backdrop-blur lg:hidden"
         style={{ background: 'color-mix(in oklab, var(--bg) 92%, transparent)', borderColor: 'var(--border)' }}
         aria-label="Seções do montador"
       >
-        {TABS.map((item) => {
-          const active = tab === item.id;
-          return (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => setTab(item.id)}
-              aria-current={active ? 'page' : undefined}
-              className="touch py-2 text-xs font-semibold"
-              style={{
-                color: active ? 'var(--accent)' : 'var(--text-dim)',
-                borderTop: `2px solid ${active ? 'var(--accent)' : 'transparent'}`,
-              }}
-            >
-              {item.name}
-            </button>
-          );
-        })}
+        <Segmented
+          block
+          options={TABS}
+          value={tab}
+          onChange={(v) => setTab(v as Tab)}
+          className="bevel-sm w-full"
+        />
       </nav>
 
-      {choosingSidearm && (
-        <div
-          className="modal-backdrop fixed inset-0 z-50 flex items-end justify-center sm:items-center"
-          onClick={() => setChoosingSidearm(false)}
-          role="presentation"
-        >
-          <div
-            className="modal-panel card bevel pb-safe max-h-[80dvh] w-full max-w-md overflow-y-auto p-4"
-            onClick={(e) => e.stopPropagation()}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Escolher arma secundária"
-          >
-            <div className="mb-2 flex items-center justify-between">
-              <h2 className="font-display text-lg font-semibold">Arma secundária</h2>
-              <button
-                type="button"
-                onClick={() => setChoosingSidearm(false)}
-                className="touch px-2 text-lg"
-                aria-label="Fechar"
-                style={{ color: 'var(--text-dim)' }}
-              >
-                ✕
-              </button>
-            </div>
-            <WeaponSelector
-              title="Pistolas e corpo a corpo"
-              selected={loadout.sidearm}
-              categories={['pistol', 'melee']}
-              onSelect={(id) => {
-                setSidearm(id);
-                setChoosingSidearm(false);
-              }}
-            />
-          </div>
-        </div>
-      )}
+      <Modal
+        open={choosingSidearm}
+        onCancel={() => setChoosingSidearm(false)}
+        footer={null}
+        title={<span className="font-display text-lg font-semibold">Arma secundária</span>}
+        aria-label="Escolher arma secundária"
+        className="bevel"
+        width={480}
+        styles={{ body: { maxHeight: '70dvh', overflowY: 'auto' } }}
+        destroyOnHidden
+      >
+        <WeaponSelector
+          title="Pistolas e corpo a corpo"
+          selected={loadout.sidearm}
+          categories={['pistol', 'melee']}
+          onSelect={(id) => {
+            setSidearm(id);
+            setChoosingSidearm(false);
+          }}
+        />
+      </Modal>
     </div>
+  );
+}
+
+/**
+ * O bloco padrão da tela.
+ *
+ * Existia como `<div className="card bevel p-3">` repetido uma dúzia de vezes.
+ * Virou `Card` do antd, e o molde ficou num lugar só — a borda e o recuo param
+ * de divergir de bloco para bloco a cada mexida.
+ */
+function Painel({
+  children,
+  className = '',
+  padding = 12,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  padding?: number;
+}) {
+  return (
+    <Card
+      variant="outlined"
+      className={`card bevel ${className}`}
+      styles={{ body: { padding } }}
+      style={{ borderColor: 'var(--border-soft)' }}
+    >
+      {children}
+    </Card>
+  );
+}
+
+/** O interruptor da leitura comparada, igual nos dois blocos de estatística. */
+function ComparaComFabrica({ checked, onChange }: { checked: boolean; onChange: () => void }) {
+  return (
+    <Checkbox
+      checked={checked}
+      onChange={onChange}
+      className="text-[11px]"
+      style={{ color: 'var(--text-dim)' }}
+    >
+      <span className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
+        comparar com a de fábrica
+      </span>
+    </Checkbox>
   );
 }
 
 function EmptyState() {
   return (
-    <div className="card bevel flex min-h-[180px] items-center justify-center p-6 text-center">
-      <p className="text-sm" style={{ color: 'var(--text-dim)' }}>
-        Escolha uma arma para começar a montar.
-      </p>
-    </div>
+    <Painel className="flex min-h-[180px] items-center justify-center" padding={24}>
+      <Empty
+        image={Empty.PRESENTED_IMAGE_SIMPLE}
+        description={
+          <span className="text-sm" style={{ color: 'var(--text-dim)' }}>
+            Escolha uma arma para começar a montar.
+          </span>
+        }
+      />
+    </Painel>
   );
 }
 
 function ApproximateNotice() {
   return (
-    <p className="card bevel-sm p-3 text-[11px] leading-snug" style={{ color: 'var(--text-dim)' }}>
-      <strong style={{ color: 'var(--accent)' }}>≈ valores aproximados.</strong> O jogo não expõe os
-      multiplicadores exatos de alguns acessórios e armas. Esses números foram calibrados a partir das
-      descrições de efeito no jogo e de medições da comunidade — servem para comparar builds, não como
-      medida oficial.
-    </p>
+    <Alert
+      type="info"
+      className="bevel-sm"
+      message={
+        <span className="text-[11px] leading-snug" style={{ color: 'var(--text-dim)' }}>
+          <strong style={{ color: 'var(--accent)' }}>≈ valores aproximados.</strong> O jogo não expõe
+          os multiplicadores exatos de alguns acessórios e armas. Esses números foram calibrados a
+          partir das descrições de efeito no jogo e de medições da comunidade — servem para comparar
+          builds, não como medida oficial.
+        </span>
+      }
+    />
   );
 }
 
@@ -490,17 +513,18 @@ function SidearmSection({
    */
   return (
     <section className="space-y-2">
-      <div className="card bevel p-2.5">
+      <Painel padding={10}>
         <div className="mb-2 flex items-center justify-between gap-2">
           <h2 className="label">Arma secundária</h2>
-          <button
-            type="button"
+          <Button
+            type="link"
+            size="small"
             onClick={onOpenPicker}
             className="px-1 text-xs underline"
             style={{ color: 'var(--text-dim)' }}
           >
             {sidearm ? 'Trocar' : 'Escolher'}
-          </button>
+          </Button>
         </div>
 
         {sidearm ? (
@@ -530,14 +554,15 @@ function SidearmSection({
                 <div className="min-w-0 flex-1">
                   <BudgetBar budget={budget} />
                 </div>
-                <button
-                  type="button"
+                <Button
+                  type="link"
+                  size="small"
                   onClick={onClear}
-                  className="shrink-0 px-1 pb-1 text-xs underline"
+                  className="shrink-0 px-1 text-xs underline"
                   style={{ color: 'var(--text-dim)' }}
                 >
                   Limpar
-                </button>
+                </Button>
               </div>
             )}
           </>
@@ -547,7 +572,7 @@ function SidearmSection({
             pontos em vez dos dez da arma principal.
           </p>
         )}
-      </div>
+      </Painel>
 
       {sidearm && (
         <SlotsPanel

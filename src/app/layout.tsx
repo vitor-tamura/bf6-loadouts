@@ -4,7 +4,7 @@ import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { BUILD_DATE } from '@/data/build';
 import { seasonTheme } from '@/data/season';
 import { ThemeProvider } from '@/components/theme';
-import { TransitionWatcher } from '@/components/view-transition';
+import { PageCurtain } from '@/components/page-transition';
 import './globals.css';
 
 const barlow = Barlow({
@@ -77,8 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         */}
         <AntdRegistry>
           <ThemeProvider>
-            <TransitionWatcher />
-            {children}
+            <PageCurtain>{children}</PageCurtain>
           </ThemeProvider>
         </AntdRegistry>
       </body>

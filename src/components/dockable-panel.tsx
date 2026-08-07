@@ -1,6 +1,8 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
+import { Button, Tooltip } from 'antd';
+import { motion, useDragControls } from 'motion/react';
+import { useRef, type PointerEvent as ReactPointerEvent, type ReactNode } from 'react';
 
 /**
  * Bloco que o jogador pode encolher ou soltar da página.
@@ -13,17 +15,16 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
  *
  * Só vale no computador: em tela de celular não há espaço sobrando para onde
  * arrastar, e as abas já resolvem a disputa por área.
+ *
+ * O arraste é o do Motion. Era feito à mão, com `pointermove` no `window` —
+ * ouvinte no cabeçalho deixava o painel para trás num movimento rápido, porque
+ * o ponteiro anda mais que o React re-renderiza. `drag` resolve isso no
+ * compositor, sem passar por estado do React a cada quadro, e `dragConstraints`
+ * cuida de não deixar o bloco sair pela borda.
  */
 
 export type PanelMode = 'fixo' | 'encolhido' | 'solto';
 
-interface Position {
-  x: number;
-  y: number;
-}
-
-/** Onde o painel nasce quando é solto, se ainda não foi arrastado. */
-const POSICAO_INICIAL: Position = { x: 24, y: 96 };
 const LARGURA_SOLTO = 300;
 
 export function DockablePanel({
@@ -39,62 +40,38 @@ export function DockablePanel({
   children: ReactNode;
   className?: string;
 }) {
-  const [position, setPosition] = useState<Position>(POSICAO_INICIAL);
-  const dragging = useRef<{ dx: number; dy: number } | null>(null);
-
-  /*
-   * O arraste corre no `window`, não no cabeçalho.
-   *
-   * Preso ao cabeçalho, um movimento rápido de mouse escapa do elemento e o
-   * painel fica para trás — o ponteiro anda mais que o React re-renderiza.
-   */
-  useEffect(() => {
-    if (mode !== 'solto') return;
-
-    const mover = (e: PointerEvent) => {
-      const alvo = dragging.current;
-      if (!alvo) return;
-      // Mantém o painel dentro da janela: um bloco arrastado para fora não
-      // volta, porque o cabeçalho vai junto.
-      const x = Math.min(Math.max(0, e.clientX - alvo.dx), window.innerWidth - LARGURA_SOLTO);
-      const y = Math.min(Math.max(0, e.clientY - alvo.dy), window.innerHeight - 80);
-      setPosition({ x, y });
-    };
-    const soltar = () => {
-      dragging.current = null;
-    };
-
-    window.addEventListener('pointermove', mover);
-    window.addEventListener('pointerup', soltar);
-    return () => {
-      window.removeEventListener('pointermove', mover);
-      window.removeEventListener('pointerup', soltar);
-    };
-  }, [mode]);
-
-  const iniciarArraste = useCallback(
-    (e: React.PointerEvent) => {
-      if (mode !== 'solto') return;
-      dragging.current = { dx: e.clientX - position.x, dy: e.clientY - position.y };
-    },
-    [mode, position],
-  );
+  const limites = useRef<HTMLDivElement>(null);
+  const controls = useDragControls();
 
   const solto = mode === 'solto';
   const encolhido = mode === 'encolhido';
 
-  return (
-    <section
-      className={`card bevel flex flex-col ${className}`}
+  /*
+   * O arraste começa pelo cabeçalho, não pelo bloco inteiro: dentro dele há uma
+   * lista que rola e sessenta e oito armas para clicar, e arrastar a partir
+   * delas tornaria a lista inutilizável.
+   */
+  const pegar = (e: ReactPointerEvent) => {
+    if (solto) controls.start(e);
+  };
+
+  const painel = (
+    <motion.section
+      className={`card bevel pointer-events-auto flex flex-col ${className}`}
+      drag={solto}
+      dragControls={controls}
+      dragListener={false}
+      dragMomentum={false}
+      dragConstraints={limites}
+      dragElastic={0}
       style={
         solto
           ? {
-              position: 'fixed',
-              left: position.x,
-              top: position.y,
+              position: 'absolute',
+              left: 24,
+              top: 96,
               width: LARGURA_SOLTO,
               maxHeight: 'calc(100dvh - 140px)',
-              zIndex: 40,
               boxShadow: '0 18px 40px rgb(0 0 0 / 0.45)',
             }
           : undefined
@@ -103,7 +80,7 @@ export function DockablePanel({
       <header
         className={`flex items-center gap-1 px-2 py-1.5 ${solto ? 'cursor-grab active:cursor-grabbing' : ''}`}
         style={{ borderBottom: encolhido ? 'none' : '1px solid var(--border-soft)' }}
-        onPointerDown={iniciarArraste}
+        onPointerDown={pegar}
       >
         <h2 className="label flex-1 truncate">{title}</h2>
 
@@ -129,7 +106,21 @@ export function DockablePanel({
       </header>
 
       {!encolhido && <div className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto p-3">{children}</div>}
-    </section>
+    </motion.section>
+  );
+
+  if (!solto) return painel;
+
+  /*
+   * Solto, o painel corre dentro desta moldura, que é a janela inteira. O
+   * Motion mede o elemento de `dragConstraints` para saber até onde pode ir, e
+   * ele precisa ser um ancestral — daí a moldura existir de fato, e não como
+   * conta de `window.innerWidth`. Ela não recebe cliques: só o painel recebe.
+   */
+  return (
+    <div ref={limites} className="pointer-events-none fixed inset-0 z-40">
+      {painel}
+    </div>
   );
 }
 
@@ -143,15 +134,17 @@ function PanelButton({
   children: ReactNode;
 }) {
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      title={label}
-      aria-label={label}
-      className="touch shrink-0 px-1.5 text-xs leading-none"
-      style={{ color: 'var(--text-dim)' }}
-    >
-      {children}
-    </button>
+    <Tooltip title={label}>
+      <Button
+        type="text"
+        size="small"
+        onClick={onClick}
+        aria-label={label}
+        className="touch shrink-0 px-1.5 text-xs leading-none"
+        style={{ color: 'var(--text-dim)' }}
+      >
+        {children}
+      </Button>
+    </Tooltip>
   );
 }
