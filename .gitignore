@@ -18,3 +18,8 @@ yarn-error.log*
 
 .vercel
 coverage/
+
+# O repositório versiona o package-lock.json; o yarn.lock aparece quando
+# alguém instala com yarn e confundiria o build, que escolhe o gerenciador
+# pelo lockfile encontrado.
+yarn.lock
