@@ -509,44 +509,13 @@
 }
 
 /*
- * Troca de tela.
+ * A troca de tela saiu daqui.
  *
- * O cruzamento padrão do navegador é bom, mas curto demais para a densidade
- * desta interface: a tela toda troca de conteúdo e o olho precisa de um
- * instante para reancorar. O que entra sobe alguns pixels — o suficiente para
- * dar direção ao movimento sem virar deslizamento de carrossel.
+ * Era View Transitions API, escrita em `::view-transition-*`. Agora é a cortina
+ * do Motion, em `src/components/page-transition.tsx`: como ela cobre a tela por
+ * inteiro durante a navegação, o cruzamento entre a página velha e a nova
+ * deixou de existir — e com ele o motivo destas regras.
  */
-::view-transition-old(root) {
-  animation: 160ms var(--ease-out) both fade-out;
-}
-
-::view-transition-new(root) {
-  animation: 260ms var(--ease-snap) 60ms both screen-in;
-}
-
-@keyframes fade-out {
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes screen-in {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-}
-
-/* O cabeçalho permanece entre as telas: deixá-lo cruzar junto o faria piscar. */
-header {
-  view-transition-name: app-header;
-}
-
-::view-transition-group(app-header),
-::view-transition-old(app-header),
-::view-transition-new(app-header) {
-  animation: none;
-}
 
 /*
  * Marca do medidor de pontos.

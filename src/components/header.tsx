@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Button, Layout, Menu, Tag, Tooltip } from 'antd';
-import { TransitionLink } from '@/components/view-transition';
+import { TransitionLink } from '@/components/page-transition';
 import { usePathname } from 'next/navigation';
 import { useMemo, type ReactNode } from 'react';
 import { BUILD_DATE } from '@/data/build';

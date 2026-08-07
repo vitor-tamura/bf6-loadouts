@@ -100,6 +100,14 @@ function ChartFrame({
     onPoint(Math.max(0, Math.min(maxX, raw)));
   }
 
+  /*
+   * A moldura segue sendo `<figure>`, e não o `Card` do antd.
+   *
+   * O `Card` renderiza uma `<div>` e não aceita trocar a tag, e aqui a tag é a
+   * informação: um gráfico com legenda é `<figure>` + `<figcaption>`, e é isso
+   * que faz o leitor de tela anunciar a legenda junto do desenho. A borda que o
+   * `Card` traria já vem da classe `.card`.
+   */
   return (
     <figure className="card bevel p-3">
       <figcaption className="mb-1 flex items-baseline justify-between gap-2">

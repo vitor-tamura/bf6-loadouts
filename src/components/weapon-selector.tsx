@@ -1,5 +1,6 @@
 'use client';
 
+import { Empty, Input, Tag, Tooltip } from 'antd';
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import { WEAPONS, CATEGORY_ORDER } from '@/data/weapons';
 import { CLASSES, CATEGORY_NAMES, SHORT_CATEGORY_NAMES } from '@/data/classes';
@@ -141,17 +142,17 @@ export function WeaponFilters({
   );
 
   const busca = (
-    <label className={empilhado ? 'block' : 'min-w-[180px] flex-1 lg:max-w-[280px]'}>
-      <span className="sr-only">Buscar arma</span>
-      <input
+    <div className={empilhado ? 'block' : 'min-w-[180px] flex-1 lg:max-w-[280px]'}>
+      <Input
         type="search"
         value={filter.search}
         onChange={(e) => filter.setSearch(e.target.value)}
         placeholder="Buscar arma…"
-        className="bevel-sm touch w-full px-3 py-2 text-sm outline-none"
-        style={{ background: 'var(--surface-raised)', border: '1px solid var(--border)' }}
+        allowClear
+        aria-label="Buscar arma"
+        className="bevel-sm touch w-full"
       />
-    </label>
+    </div>
   );
 
   if (empilhado) {
@@ -213,9 +214,15 @@ export function WeaponList({
       ))}
 
       {filter.total === 0 && (
-        <p className="py-6 text-center text-sm" style={{ color: 'var(--text-dim)' }}>
-          Nenhuma arma encontrada para “{filter.search}”.
-        </p>
+        <Empty
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+          className="py-6"
+          description={
+            <span className="text-sm" style={{ color: 'var(--text-dim)' }}>
+              Nenhuma arma encontrada para “{filter.search}”.
+            </span>
+          }
+        />
       )}
     </div>
   );
@@ -258,16 +265,16 @@ function FilterChip({
   children: React.ReactNode;
 }) {
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-pressed={active}
-      className="chip bevel-sm shrink-0 px-3 py-2 text-xs whitespace-nowrap"
+    <Tag.CheckableTag
+      checked={active}
+      onChange={onClick}
+      className="chip bevel-sm touch shrink-0 px-3 py-2 text-xs whitespace-nowrap"
       style={{
         background: active ? 'var(--accent)' : 'var(--surface-raised)',
         color: active ? '#14170f' : 'var(--text-soft)',
         border: `1px solid ${active ? 'var(--accent)' : 'var(--border)'}`,
         fontWeight: active ? 600 : 500,
+        marginInlineEnd: 0,
       }}
     >
       {children}
@@ -276,7 +283,7 @@ function FilterChip({
           {count}
         </span>
       )}
-    </button>
+    </Tag.CheckableTag>
   );
 }
 
@@ -393,7 +400,11 @@ function WeaponCard({
           )}
           {playerClass && <span style={{ color: playerClass.color }}>{playerClass.name}</span>}
           <SeasonTag season={weapon.season} size="sm" />
-          {weapon.provenance === 'curated' && <span title="Valores aproximados">≈</span>}
+          {weapon.provenance === 'curated' && (
+            <Tooltip title="Valores aproximados">
+              <span>≈</span>
+            </Tooltip>
+          )}
         </span>
       </span>
     </button>

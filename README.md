@@ -129,16 +129,30 @@ nenhuma.
 ## Stack
 
 Next.js 16 (App Router, exportação estática) · TypeScript · Tailwind CSS 4 ·
-Ant Design 6 · Zustand · Vitest. Gráficos e desenhos das armas são SVG próprio,
-sem bibliotecas de visualização.
+Ant Design 6 · Motion · Zustand · Vitest. Gráficos e desenhos das armas são SVG
+próprio, sem bibliotecas de visualização.
 
-O Ant Design entrou como piloto, não como reforma: ele veste o cabeçalho, o
-rodapé e a tela de catálogo, e as demais seguem no Tailwind. Quem manda na
-aparência continua sendo o CSS do site — o `ConfigProvider` recebe as cores e o
-canto reto em [`src/lib/antd-theme.ts`](./src/lib/antd-theme.ts), e o chanfro
-entra por cima, pelas classes `.bevel`. Os tokens precisam de cor literal
-(o antd deriva a paleta em JavaScript, e `var(--accent)` chegaria lá como
-texto), então esse arquivo espelha os blocos `:root` do `globals.css`.
+**Ant Design** dá os componentes de todas as telas: tabelas ordenáveis, modais,
+seleção com busca, avisos, campos e etiquetas. Quem manda na aparência continua
+sendo o CSS do site — o `ConfigProvider` recebe as cores e o canto reto em
+[`src/lib/antd-theme.ts`](./src/lib/antd-theme.ts), e o chanfro entra por cima,
+pelas classes `.bevel`. Os tokens precisam de cor literal (o antd deriva a
+paleta em JavaScript, e `var(--accent)` chegaria lá como texto), então esse
+arquivo espelha os blocos `:root` do `globals.css`.
+
+Onde o antd não entrou, foi por motivo: os gráficos seguem em `<figure>` porque
+o `Card` não troca de tag e a semântica é a informação; as barras espelhadas da
+comparação crescem do centro para os lados, o que o `Progress` não faz; as
+quatro classes têm cada uma a sua cor de seleção, e os componentes de escolha do
+antd têm uma só. O `List` foi tentado e desfeito — está depreciado na versão 6.
+
+**Motion** cuida do movimento. A troca de tela é uma cortina inclinada que varre
+a página, cobre, deixa a rota nova montar e sai pelo outro lado
+([`src/components/page-transition.tsx`](./src/components/page-transition.tsx));
+o painel de armas do montador é arrastável pelo `drag` da mesma biblioteca. O
+efeito é o `curtains wipe` do Motion, cuja versão oficial vem do hook
+`useCurtains` — parte do Motion+, pago; aqui ele está reproduzido com a API
+aberta.
 
 O código usa nomes em inglês; a interface e o dataset, português.
 

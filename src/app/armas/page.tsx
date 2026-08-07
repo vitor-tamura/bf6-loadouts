@@ -1,5 +1,6 @@
 'use client';
 
+import { Spin } from 'antd';
 import { useEffect } from 'react';
 
 /**
@@ -16,9 +17,16 @@ export default function ArmasRedirect() {
 
   return (
     <main className="grid min-h-dvh place-items-center p-8">
-      <p className="text-sm" style={{ color: 'var(--text-dim)' }}>
-        O catálogo agora é a tela inicial. Redirecionando…
-      </p>
+      <Spin
+        size="large"
+        tip={
+          <span className="text-sm" style={{ color: 'var(--text-dim)' }}>
+            O catálogo agora é a tela inicial. Redirecionando…
+          </span>
+        }
+      >
+        <div className="p-4" />
+      </Spin>
     </main>
   );
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { ConfigProvider } from 'antd';
+import { App, ConfigProvider } from 'antd';
 import ptBR from 'antd/locale/pt_BR';
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
 import { antdTheme } from '@/lib/antd-theme';
@@ -51,8 +51,13 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   return (
     <TemaContext.Provider value={{ light, toggle: () => setLight((v) => !v) }}>
+      {/*
+        `App` embrulha tudo para que `message` e `modal` saiam vestidos com o
+        tema. Chamados pelo atalho estático — `message.success(...)` — eles
+        nascem fora do `ConfigProvider` e voltam ao azul padrão do antd.
+      */}
       <ConfigProvider theme={antdTheme(light)} locale={ptBR}>
-        {children}
+        <App component={false}>{children}</App>
       </ConfigProvider>
     </TemaContext.Provider>
   );
