@@ -129,8 +129,16 @@ nenhuma.
 ## Stack
 
 Next.js 16 (App Router, exportação estática) · TypeScript · Tailwind CSS 4 ·
-Zustand · Vitest. Gráficos e desenhos das armas são SVG próprio, sem bibliotecas
-de visualização.
+Ant Design 6 · Zustand · Vitest. Gráficos e desenhos das armas são SVG próprio,
+sem bibliotecas de visualização.
+
+O Ant Design entrou como piloto, não como reforma: ele veste o cabeçalho, o
+rodapé e a tela de catálogo, e as demais seguem no Tailwind. Quem manda na
+aparência continua sendo o CSS do site — o `ConfigProvider` recebe as cores e o
+canto reto em [`src/lib/antd-theme.ts`](./src/lib/antd-theme.ts), e o chanfro
+entra por cima, pelas classes `.bevel`. Os tokens precisam de cor literal
+(o antd deriva a paleta em JavaScript, e `var(--accent)` chegaria lá como
+texto), então esse arquivo espelha os blocos `:root` do `globals.css`.
 
 O código usa nomes em inglês; a interface e o dataset, português.
 

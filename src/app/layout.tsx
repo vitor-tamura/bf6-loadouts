@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from 'next';
 import { Barlow, Barlow_Condensed } from 'next/font/google';
+import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { BUILD_DATE } from '@/data/build';
 import { seasonTheme } from '@/data/season';
+import { ThemeProvider } from '@/components/theme';
 import { TransitionWatcher } from '@/components/view-transition';
 import './globals.css';
 
@@ -67,8 +69,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${barlow.variable} ${barlowCondensed.variable}`}
     >
       <body className="min-h-dvh antialiased">
-        <TransitionWatcher />
-        {children}
+        {/*
+          O registry recolhe o CSS-in-JS do antd durante o pré-render e o
+          escreve no `<head>` do HTML gerado. Sem ele os componentes nasceriam
+          sem estilo e se ajeitariam depois da hidratação — num site estático,
+          isso é um piscar visível em toda primeira visita.
+        */}
+        <AntdRegistry>
+          <ThemeProvider>
+            <TransitionWatcher />
+            {children}
+          </ThemeProvider>
+        </AntdRegistry>
       </body>
     </html>
   );
