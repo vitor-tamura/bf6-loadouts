@@ -34,8 +34,22 @@ import {
  * saber que ela existe.
  */
 
-/** Quanto dura cada metade do movimento. */
-const VARRIDA_MS = 420;
+/*
+ * Quanto dura cada metade do movimento, e com que curva.
+ *
+ * As duas metades não são simétricas de propósito. A entrada é curta e sai do
+ * lugar sem tranco, porque ela responde a um clique e qualquer atraso aí vira
+ * sensação de travamento. A saída é bem mais longa e desacelera até parar: é
+ * ela que a pessoa realmente vê, já lendo a tela nova por trás, e é o freio
+ * longo no fim que faz o movimento passar de brusco a macio.
+ */
+const ENTRADA_MS = 440;
+const SAIDA_MS = 620;
+
+/** Aceleração e freio equilibrados na ida. */
+const ENTRADA_CURVA = [0.5, 0, 0.25, 1] as const;
+/** Freio longo na volta — a faixa perde velocidade bem antes de sumir. */
+const SAIDA_CURVA = [0.16, 1, 0.3, 1] as const;
 
 /**
  * Se a navegação não chegar, a cortina abre assim mesmo.
@@ -142,7 +156,10 @@ export function PageCurtain({ children }: { children: ReactNode }) {
             initial={{ x: '-115%' }}
             animate={{ x: fase === 'revelando' ? '115%' : '0%' }}
             exit={{ x: '115%' }}
-            transition={{ duration: VARRIDA_MS / 1000, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              duration: (fase === 'revelando' ? SAIDA_MS : ENTRADA_MS) / 1000,
+              ease: fase === 'revelando' ? [...SAIDA_CURVA] : [...ENTRADA_CURVA],
+            }}
             onAnimationComplete={() => {
               setFase((atual) => {
                 if (atual === 'cobrindo') return 'coberto';
@@ -165,7 +182,16 @@ export function PageCurtain({ children }: { children: ReactNode }) {
               left: '-20vw',
               skewX: -INCLINACAO,
               background: 'var(--bg)',
-              borderRight: '2px solid var(--accent)',
+              /*
+               * A borda de ataque era uma linha dura de 2 px, e o corte contra a
+               * página aparecia a cada varrida. Agora é uma linha fina com halo:
+               * o brilho antecipa a chegada da faixa e dissolve o limite entre
+               * ela e o que está por baixo. O halo só existe para fora da faixa,
+               * então não abre nenhuma fresta no instante em que a tela precisa
+               * estar coberta.
+               */
+              borderRight: '1px solid var(--accent)',
+              boxShadow: '10px 0 34px -6px color-mix(in oklab, var(--accent) 45%, transparent)',
             }}
           />
         )}

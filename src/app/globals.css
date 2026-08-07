@@ -540,6 +540,24 @@
   isolation: isolate;
 }
 
+/*
+ * Caixa e alinhamento do chip, escritos com a classe repetida.
+ *
+ * O `Tag` do antd se declara como `:where(.css-…).ant-tag` — mesmo peso que
+ * `.chip` —, e o `<style>` dele entra no `<head>` depois da folha da aplicação,
+ * então no empate quem ganhava era ele: `display: block` e preenchimento
+ * próprio. Com isso o texto ficava encostado no alto dos 44 px de altura mínima
+ * do alvo de toque, em vez de no meio. As utilitárias do Tailwind não resolviam
+ * porque a v4 as põe em `@layer utilities`, que perde para qualquer regra fora
+ * de camada. `.chip.chip` desempata sem citar o nome de classe interno do antd.
+ */
+.chip.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 0.75rem;
+}
+
 .chip::before {
   content: '';
   position: absolute;

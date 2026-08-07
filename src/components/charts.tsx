@@ -262,8 +262,13 @@ export function ComparisonChart({
       title={title}
       legend={
         <div className="flex flex-wrap gap-x-3 gap-y-0.5">
-          {series.map((s) => (
-            <LegendSwatch key={s.name} color={s.color} text={s.name} />
+          {/*
+            A chave é a posição, não o nome: nada impede comparar uma arma com
+            ela mesma, e com dois nomes iguais o React reaproveitava o nó errado
+            na troca seguinte — a legenda antiga ficava na tela para sempre.
+          */}
+          {series.map((s, i) => (
+            <LegendSwatch key={i} color={s.color} text={s.name} />
           ))}
         </div>
       }
@@ -287,9 +292,9 @@ export function ComparisonChart({
         </text>
       )}
 
-      {curves.map((curve) => (
+      {curves.map((curve, i) => (
         <path
-          key={curve.name}
+          key={i}
           d={linePath(curve.points, maxDistance, maxY)}
           fill="none"
           stroke={curve.color}
@@ -308,7 +313,7 @@ export function ComparisonChart({
                 ? damagePerShot(curve.stats, distance)
                 : bulletDrop(curve.stats, distance) * 100;
             return (
-              <g key={curve.name}>
+              <g key={i}>
                 <circle
                   cx={scaleX(distance, maxDistance)}
                   cy={scaleY(value, maxY)}

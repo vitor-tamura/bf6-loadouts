@@ -268,7 +268,7 @@ function FilterChip({
     <Tag.CheckableTag
       checked={active}
       onChange={onClick}
-      className="chip bevel-sm touch shrink-0 px-3 py-2 text-xs whitespace-nowrap"
+      className="chip bevel-sm touch shrink-0 text-xs whitespace-nowrap"
       style={{
         background: active ? 'var(--accent)' : 'var(--surface-raised)',
         color: active ? '#14170f' : 'var(--text-soft)',
