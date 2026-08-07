@@ -11,7 +11,12 @@ import type { WeaponCategory } from './types';
  * tela precisa dizer isso com todas as letras. Cada indicação cita de onde veio
  * e quando, para o leitor julgar a idade da opinião.
  *
- * Para atualizar: troque `atualizadoEm`, revise as listas e acrescente a fonte
+ * Só entra leitura publicada depois do patch da temporada, de veículo que
+ * ranqueia arma por classe. Guia de lançamento fica de fora por mais completo
+ * que seja: entre ele e hoje vieram quatro temporadas e um patch que mexeu em
+ * velocidade e recuo. É o que o campo `janela` marca.
+ *
+ * Para atualizar: troque `ATUALIZADO_EM`, revise as listas e acrescente a fonte
  * nova em [FONTES]. Arma que ninguém mais cita sai; não há mérito em manter
  * indicação velha só para a lista parecer cheia.
  */
@@ -21,6 +26,16 @@ export interface FonteMeta {
   url: string;
   /** Data de publicação ou última atualização declarada pela fonte, ISO. */
   data: string;
+  /** País da publicação — as brasileiras vêm primeiro na tela. */
+  pais: 'BR' | 'INT';
+  /**
+   * A que momento do jogo a leitura se refere.
+   *
+   * Fonte do lançamento não descreve o meta de hoje: entre uma coisa e outra
+   * vieram quatro temporadas e o patch que mexeu em velocidade e recuo. Ela
+   * entra pelo histórico, não para decidir posição.
+   */
+  janela: 'temporada-4' | 'lancamento';
 }
 
 export interface IndicacaoMeta {
@@ -45,21 +60,36 @@ export const FONTES: FonteMeta[] = [
     nome: 'TheGamer — melhores armas por classe',
     url: 'https://www.thegamer.com/battlefield-6-best-weapons-class-meta-smg-lmg-assault-rifle-sniper-dmr-season-4-guide/',
     data: '2026-08-03',
+    pais: 'INT',
+    janela: 'temporada-4',
   },
   {
     nome: 'KeenGamer — as cinco melhores da Temporada 4',
     url: 'https://www.keengamer.com/articles/guides/battlefield-6-season-4-meta-5-best-weapons-ranked/',
     data: '2026-07-24',
+    pais: 'INT',
+    janela: 'temporada-4',
   },
   {
     nome: 'Nerdschalk — meta e loadouts da Temporada 4',
     url: 'https://nerdschalk.com/battlefield-6-season-4-meta-weapons-tier-list-and-best-loadouts/',
     data: '2026-07-22',
+    pais: 'INT',
+    janela: 'temporada-4',
   },
   {
     nome: 'DTGRE — tier list das armas novas da Temporada 4',
     url: 'https://www.dtgre.com/2026/07/battlefield-6-season-4-best-weapons-tier-list-ef88-brod-3-vssm.html',
     data: '2026-07-22',
+    pais: 'INT',
+    janela: 'temporada-4',
+  },
+  {
+    nome: 'Game Rant — armas do meta da Temporada 4',
+    url: 'https://gamerant.com/battlefield-6-bf6-best-guns-weapons-meta-season-4-s4/',
+    data: '2026-07-24',
+    pais: 'INT',
+    janela: 'temporada-4',
   },
 ];
 
@@ -80,7 +110,12 @@ export const DESTAQUES: IndicacaoMeta[] = [
   {
     weapon: 'ef88',
     porque: 'A novidade que encara as veteranas: recuo previsível, alcance médio-longo confiável e a curva de aprendizado mais curta da temporada.',
-    fontes: [1, 3],
+    fontes: [1, 3, 4],
+  },
+  {
+    weapon: 'm4a1',
+    porque: 'A carabina de investida: mobilidade para tomar objetivo e resposta boa no médio-curto.',
+    fontes: [1, 2, 4],
   },
   {
     weapon: 'm16a4',
@@ -88,28 +123,23 @@ export const DESTAQUES: IndicacaoMeta[] = [
     fontes: [1, 2],
   },
   {
-    weapon: 'm4a1',
-    porque: 'A carabina de investida: mobilidade para tomar objetivo e resposta boa no médio-curto.',
-    fontes: [1, 2],
-  },
-  {
     weapon: 'kts100-mk8',
     porque: 'Carregador grande e bala veloz: sustenta a defesa de objetivo em área aberta.',
-    fontes: [1],
-  },
-  {
-    weapon: 'rpk-74m',
-    porque: 'A metralhadora que mais aparece nas listas: controle firme com volume de fogo.',
-    fontes: [2],
+    fontes: [1, 4],
   },
   {
     weapon: 'm2010-esr',
     porque: 'Bala veloz e poder de parada — permite trocar de posição sem perder o domínio do vão longo.',
-    fontes: [1],
+    fontes: [1, 4],
   },
   {
     weapon: 'b36a4',
-    porque: 'Bullpup equilibrado com o maior potencial de eliminação entre os fuzis, na leitura da fonte.',
+    porque: 'Bullpup equilibrado com o maior potencial de eliminação entre os fuzis, na leitura das fontes.',
+    fontes: [2, 4],
+  },
+  {
+    weapon: 'rpk-74m',
+    porque: 'A metralhadora que mais aparece nas listas: controle firme com volume de fogo.',
     fontes: [2],
   },
 ];
@@ -125,30 +155,30 @@ export const POR_CATEGORIA: DestaqueCategoria[] = [
   {
     category: 'ar',
     melhor: { weapon: 'tr-7', porque: 'Tempo para matar curto, boa mobilidade e cadência alta.', fontes: [0] },
-    mencoes: [{ weapon: 'm433', porque: 'A alternativa de cadência ainda maior no vão curto.', fontes: [0] }],
+    mencoes: [{ weapon: 'm433', porque: 'A alternativa de cadência ainda maior no vão curto.', fontes: [0, 4] }],
   },
   {
     category: 'carbine',
     melhor: { weapon: 'sg-553r', porque: 'A carabina mais sólida da temporada na leitura da fonte.', fontes: [0] },
     mencoes: [
       { weapon: 'm4a1', porque: 'Mais fácil de dominar, e a preferida de quem joga na investida.', fontes: [0, 1, 2] },
-      { weapon: 'brod-3', porque: 'A carabina nova, agressiva: para quem troca alcance por mobilidade.', fontes: [3] },
+      { weapon: 'brod-3', porque: 'A carabina nova, agressiva: para quem troca alcance por mobilidade.', fontes: [3, 4] },
     ],
   },
   {
     category: 'smg',
-    melhor: { weapon: 'cz3a1', porque: 'Cadência altíssima e tiro sem visada muito bom.', fontes: [0] },
+    melhor: { weapon: 'cz3a1', porque: 'Cadência altíssima e tiro sem visada muito bom.', fontes: [0, 4] },
     mencoes: [
-      { weapon: 'scw-10', porque: 'Equilíbrio entre manejo e controle no vão curto.', fontes: [0] },
-      { weapon: 'sgx', porque: 'Opção agressiva para quem entra primeiro.', fontes: [0] },
+      { weapon: 'scw-10', porque: 'Equilíbrio entre manejo e controle no vão curto.', fontes: [0, 4] },
+      { weapon: 'sgx', porque: 'Opção agressiva para quem entra primeiro — já era tier S no lançamento.', fontes: [0] },
     ],
   },
   {
     category: 'lmg',
-    melhor: { weapon: 'drs-iar', porque: 'Tempo para matar rápido com alcance sólido.', fontes: [0] },
+    melhor: { weapon: 'drs-iar', porque: 'Tempo para matar rápido com alcance sólido.', fontes: [0, 4] },
     mencoes: [
       { weapon: 'kts100-mk8', porque: 'Carregador grande e bala veloz para segurar objetivo.', fontes: [0, 1] },
-      { weapon: 'm123k', porque: 'Volume de fogo para negar passagem.', fontes: [0] },
+      { weapon: 'm123k', porque: 'Volume de fogo para negar passagem.', fontes: [0, 4] },
     ],
   },
   {
@@ -163,7 +193,7 @@ export const POR_CATEGORIA: DestaqueCategoria[] = [
     melhor: { weapon: 'l115', porque: 'Ferrolho tradicional, excelente no vão longo.', fontes: [0] },
     mencoes: [
       { weapon: 'm2010-esr', porque: 'Bala veloz e mobilidade entre posições.', fontes: [1] },
-      { weapon: 'mini-scout', porque: 'A leve, para quem troca de posição o tempo todo.', fontes: [0] },
+      { weapon: 'mini-scout', porque: 'A leve, para quem troca de posição o tempo todo.', fontes: [0, 4] },
     ],
   },
 ];

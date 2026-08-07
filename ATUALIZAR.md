@@ -110,10 +110,16 @@ publica. Então o que vale é o que os portais especializados escrevem.
 Quando o jogo receber atualização de balanceamento — que é quando o catálogo
 público muda e o PR automático aparece:
 
-1. Procure guias e matérias publicados **depois** do patch, em portais que
-   ranqueiam armas por classe (TheGamer, KeenGamer, Nerdschalk, PlayerAuctions,
-   Boostmatch e afins). O que interessa é a matéria com data e nome de arma, não
-   vídeo nem opinião solta de fórum.
+1. Procure guias e matérias publicados **depois** do patch, nos veículos de
+   maior alcance que ranqueiam arma por classe: Game Rant, TheGamer, KeenGamer,
+   Nerdschalk, PlayerAuctions, Boostmatch, DTGRE. O que interessa é matéria com
+   data e nome de arma, não vídeo nem opinião solta de fórum.
+   **Data manda.** Guia de lançamento não entra, por mais completo que seja:
+   entre ele e hoje vieram quatro temporadas e o patch que mexeu em velocidade e
+   recuo. Em agosto de 2026 as duas publicações brasileiras que ranqueavam armas
+   — Critical Hits e Omelete — eram de outubro de 2025, e por isso ficaram de
+   fora. Publicação brasileira dentro da janela é bem-vinda e aparece com selo
+   `BR`; fora da janela, não.
 2. Cruze pelo menos duas fontes antes de mover uma arma. Uma citação isolada
    entra como menção, não como destaque.
 3. Atualize `ATUALIZADO_EM`, `TEMPORADA_DO_META` e a lista `FONTES` — cada fonte

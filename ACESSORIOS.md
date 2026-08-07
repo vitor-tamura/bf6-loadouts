@@ -272,7 +272,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | --- | --- | ---: | --- | --- |
 | Apoio de Mão Compacto | Compact Handstop | 10 | 9 weapons | Apoio curto: melhora o tiro sem visada sem pesar. |
 | Bipé | Bipod | 10 | 38 weapons | Apoiado, praticamente zera o recuo. |
-| Suporte Inferior | Underslung Mount | 10 | 11 weapons | Berço do lança-granadas: sem ele, o M320A1 não acopla na arma. |
+| Lança-Granadas | Underslung Mount | 10 | 11 weapons | Lança-granadas acoplado sob o cano, no lugar da empunhadura. |
 | Vertical Dobrável | Folding Vertical | 10 | 44 weapons | O maior controle de recuo vertical. |
 | Angular Ajustável | Adjustable Angled | 15 | 23 weapons | Acelera a subida à mira e segura o desvio lateral. |
 | Angular de Fábrica | Factory Angled | 15 | LMR27, SL9, VSSM | Acelera a subida à mira e segura o desvio lateral. |

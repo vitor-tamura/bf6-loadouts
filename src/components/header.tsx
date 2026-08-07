@@ -15,11 +15,12 @@ import { seasonLabel, seasonOn } from '@/data/season';
  * problema do site que serviu de referência.
  */
 
+/** `curto` é o rótulo do celular, onde o nome inteiro quebraria em três linhas. */
 const SECTIONS = [
-  { href: '/', name: 'Todas as Armas' },
-  { href: '/montar/', name: 'Montar' },
-  { href: '/comparar/', name: 'Comparar' },
-  { href: '/meta/', name: 'Meta' },
+  { href: '/', name: 'Todas as Armas', curto: 'Armas' },
+  { href: '/montar/', name: 'Montar', curto: 'Montar' },
+  { href: '/comparar/', name: 'Comparar', curto: 'Comparar' },
+  { href: '/meta/', name: 'Meta', curto: 'Meta' },
 ];
 
 /**
@@ -72,6 +73,20 @@ function useTheme() {
   return { light, toggle: () => setLight((v) => !v) };
 }
 
+function ThemeButton({ theme }: { theme: { light: boolean; toggle: () => void } }) {
+  return (
+    <button
+      type="button"
+      onClick={theme.toggle}
+      className="touch px-2 text-base"
+      aria-label={theme.light ? 'Usar tema escuro' : 'Usar tema claro'}
+      style={{ color: 'var(--text-dim)' }}
+    >
+      {theme.light ? '☾' : '☀'}
+    </button>
+  );
+}
+
 export function AppHeader({ subtitle, actions }: { subtitle?: string; actions?: ReactNode }) {
   const pathname = usePathname();
   const theme = useTheme();
@@ -84,9 +99,15 @@ export function AppHeader({ subtitle, actions }: { subtitle?: string; actions?: 
         borderColor: 'var(--border-soft)',
       }}
     >
-      <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-3">
-        <div className="flex min-w-0 items-center gap-4">
-          <Link href="/" className="min-w-0 shrink-0">
+      {/*
+        No celular o cabeçalho tem duas linhas: identificação e ações em cima,
+        seções embaixo. Tudo numa linha só, o nome da tela atual disputava
+        espaço com quatro links e o botão de compartilhar — "Todas as Armas"
+        quebrava em três linhas e "Meta" sumia atrás do botão.
+      */}
+      <div className="mx-auto flex max-w-[1600px] flex-col gap-1.5 lg:flex-row lg:items-center lg:justify-between lg:gap-3">
+        <div className="flex min-w-0 items-center justify-between gap-3 lg:justify-start lg:gap-4">
+          <Link href="/" className="flex min-w-0 items-baseline gap-2 lg:block">
             <h1 className="font-display truncate text-lg leading-tight font-bold tracking-wide">
               ARSENAL <span style={{ color: 'var(--accent)' }}>BF6</span>
             </h1>
@@ -99,37 +120,39 @@ export function AppHeader({ subtitle, actions }: { subtitle?: string; actions?: 
 
           <SeasonBadge />
 
-          <nav aria-label="Seções" className="flex gap-1">
-            {SECTIONS.map((section) => {
-              const active = pathname === section.href || pathname === section.href.replace(/\/$/, '');
-              return (
-                <TransitionLink
-                  key={section.href}
-                  href={section.href}
-                  aria-current={active ? 'page' : undefined}
-                  className="bevel-sm px-3 py-1.5 text-sm font-semibold"
-                  style={{
-                    background: active ? 'color-mix(in oklab, var(--accent) 18%, transparent)' : 'transparent',
-                    color: active ? 'var(--accent)' : 'var(--text-dim)',
-                  }}
-                >
-                  {section.name}
-                </TransitionLink>
-              );
-            })}
-          </nav>
+          {/* No celular as ações sobem para esta linha; no computador ficam à direita. */}
+          <div className="flex shrink-0 items-center gap-2 lg:hidden">
+            <ThemeButton theme={theme} />
+            {actions}
+          </div>
         </div>
 
-        <div className="flex shrink-0 items-center gap-2">
-          <button
-            type="button"
-            onClick={theme.toggle}
-            className="touch px-2 text-base"
-            aria-label={theme.light ? 'Usar tema escuro' : 'Usar tema claro'}
-            style={{ color: 'var(--text-dim)' }}
-          >
-            {theme.light ? '☾' : '☀'}
-          </button>
+        <nav
+          aria-label="Seções"
+          className="scroll-x -mx-1 flex gap-1 px-1 lg:mx-0 lg:overflow-visible lg:px-0"
+        >
+          {SECTIONS.map((section) => {
+            const active = pathname === section.href || pathname === section.href.replace(/\/$/, '');
+            return (
+              <TransitionLink
+                key={section.href}
+                href={section.href}
+                aria-current={active ? 'page' : undefined}
+                className="bevel-sm shrink-0 px-3 py-1.5 text-sm font-semibold whitespace-nowrap"
+                style={{
+                  background: active ? 'color-mix(in oklab, var(--accent) 18%, transparent)' : 'transparent',
+                  color: active ? 'var(--accent)' : 'var(--text-dim)',
+                }}
+              >
+                <span className="lg:hidden">{section.curto}</span>
+                <span className="hidden lg:inline">{section.name}</span>
+              </TransitionLink>
+            );
+          })}
+        </nav>
+
+        <div className="hidden shrink-0 items-center gap-2 lg:flex">
+          <ThemeButton theme={theme} />
           {actions}
         </div>
       </div>
