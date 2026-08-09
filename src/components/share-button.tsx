@@ -1,7 +1,7 @@
 'use client';
 
 import { App, Button, Input, Modal, Typography } from 'antd';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import qrcode from 'qrcode-generator';
 import { loadoutUrl } from '@/lib/share';
 import type { Loadout } from '@/lib/loadout';
@@ -50,12 +50,17 @@ function QrCode({ text, size = 168 }: { text: string; size?: number }) {
 export function ShareButton({ loadout, disabled }: { loadout: Loadout; disabled: boolean }) {
   const { message } = App.useApp();
   const [open, setOpen] = useState(false);
-  const [url, setUrl] = useState('');
 
-  // A URL só existe no navegador; montar no servidor daria uma origem errada.
-  useEffect(() => {
-    if (open) setUrl(loadoutUrl(loadout));
-  }, [open, loadout]);
+  /*
+   * A URL sai do próprio render, e não de um efeito guardando estado.
+   *
+   * `loadoutUrl` lê `window.location`, que não existe no servidor — por isso a
+   * conta só pode acontecer com a janela aberta, e a janela só abre no
+   * navegador. Calcular aqui ainda corrige um caso que o efeito errava: trocar
+   * um acessório com a janela aberta atualizava o link um quadro depois do QR
+   * code, e por um instante os dois apontavam para loadouts diferentes.
+   */
+  const url = open ? loadoutUrl(loadout) : '';
 
   async function copyLink() {
     try {

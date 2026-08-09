@@ -66,7 +66,6 @@ export function useWeaponFilter(categories: WeaponCategory[] = CATEGORY_ORDER): 
   const result = useMemo(() => {
     const term = normalize(search.trim());
     return available.filter((w) => (category === 'all' || w.category === category) && matches(w, term));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [available, search, category]);
 
   const byCategory = useMemo(() => {
@@ -87,7 +86,6 @@ export function useWeaponFilter(categories: WeaponCategory[] = CATEGORY_ORDER): 
     }
     map.set('all', all);
     return map;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [available, search]);
 
   return {
@@ -529,16 +527,17 @@ function WeaponCard({
  * repetida em toda a lista pesa mais do que ajuda.
  */
 function WeaponThumb({ weapon, className = 'h-9 w-16' }: { weapon: Weapon; className?: string }) {
-  const [broken, setBroken] = useState(false);
+  // De qual arma a foto falhou, e não um sim/não: a lista reaproveita o mesmo
+  // componente ao rolar, e um booleano teria de ser desligado a cada troca.
+  const [falhouEm, setFalhouEm] = useState<string | null>(null);
+  const broken = falhouEm === weapon.id;
   const ref = useRef<HTMLImageElement>(null);
-
-  useEffect(() => setBroken(false), [weapon.id]);
 
   // Ver a nota em weapon-preview: uma imagem que já falhou antes da hidratação
   // não dispara `onError` de novo.
   useEffect(() => {
     const img = ref.current;
-    if (img?.complete && img.naturalWidth === 0) setBroken(true);
+    if (img?.complete && img.naturalWidth === 0) setFalhouEm(weapon.id);
   }, [weapon.id]);
 
   if (broken) return null;
@@ -550,7 +549,7 @@ function WeaponThumb({ weapon, className = 'h-9 w-16' }: { weapon: Weapon; class
       alt=""
       aria-hidden
       loading="lazy"
-      onError={() => setBroken(true)}
+      onError={() => setFalhouEm(weapon.id)}
       className={`shrink-0 object-contain ${className}`}
     />
   );

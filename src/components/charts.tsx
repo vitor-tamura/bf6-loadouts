@@ -359,7 +359,6 @@ export function DropChart({
     const montada = pontos(emCentimetros(dropCurve(stats, maxDistance)), MONTADA);
     if (!showBase) return montada;
     return [...pontos(emCentimetros(dropCurve(base, maxDistance)), FABRICA), ...montada];
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stats, base, maxDistance, showBase]);
 
   return (

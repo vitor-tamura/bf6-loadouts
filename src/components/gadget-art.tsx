@@ -14,16 +14,23 @@ import type { Gadget } from '@/data/types';
  */
 export function GadgetArt({ gadget, size = 32 }: { gadget: Gadget; size?: number }) {
   const src = gadgetImagePath(gadget.id);
-  const [broken, setBroken] = useState(false);
+  /*
+   * Guarda de qual gadget a arte falhou, e não um sim/não.
+   *
+   * O componente é reaproveitado quando a lista troca de item, então um booleano
+   * precisaria ser desligado a cada troca — e desligar estado dentro de efeito
+   * custa um quadro mostrando a resposta do gadget anterior. Comparando o id, a
+   * resposta certa já sai na primeira renderização.
+   */
+  const [falhouEm, setFalhouEm] = useState<string | null>(null);
+  const broken = falhouEm === gadget.id;
   const ref = useRef<HTMLImageElement>(null);
-
-  useEffect(() => setBroken(false), [gadget.id]);
 
   // Ver a nota em weapon-preview: `onError` não dispara de novo para a imagem
   // que já falhou antes de o React assumir a página.
   useEffect(() => {
     const img = ref.current;
-    if (img?.complete && img.naturalWidth === 0) setBroken(true);
+    if (img?.complete && img.naturalWidth === 0) setFalhouEm(gadget.id);
   }, [gadget.id]);
 
   if (!src || broken) return <GadgetIcon gadget={gadget} size={size} />;
@@ -35,7 +42,7 @@ export function GadgetArt({ gadget, size = 32 }: { gadget: Gadget; size?: number
       alt=""
       aria-hidden
       loading="lazy"
-      onError={() => setBroken(true)}
+      onError={() => setFalhouEm(gadget.id)}
       style={{ width: size, height: size, objectFit: 'contain', display: 'block', flexShrink: 0 }}
     />
   );

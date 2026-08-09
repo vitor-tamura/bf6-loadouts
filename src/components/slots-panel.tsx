@@ -11,7 +11,7 @@ import {
 } from 'react';
 import { attachmentsForWeapon } from '@/data/attachments';
 import { budgetFor, SLOTS_BY_ID } from '@/data/classes';
-import type { Attachment, Weapon, StatKey, SlotId, WeaponCategory } from '@/data/types';
+import type { Attachment, Weapon, StatKey, SlotId } from '@/data/types';
 import { LOWER_IS_BETTER, type Budget } from '@/lib/stats';
 import { AttachmentIcon } from '@/components/icons/attachment-icon';
 import { AttachmentThumb } from './attachment-thumb';
@@ -566,16 +566,26 @@ function useGridColumns(ref: RefObject<HTMLElement | null>): number {
  * animação terminar.
  */
 function useCollapse(open: SlotId | null, ms = 280): SlotId | null {
-  const [mounted, setMounted] = useState(open);
+  const [ultimo, setUltimo] = useState<SlotId | null>(open);
 
+  /*
+   * O último aberto é acertado durante a renderização, não num efeito.
+   *
+   * Efeito roda depois da pintura: copiar `open` lá dentro fazia o bloco
+   * estrear fechado por um quadro antes de a animação começar. Ajustar estado
+   * no corpo do componente quando uma prop muda é o caminho que o React indica
+   * para exatamente este caso — ele reinicia a renderização na hora, sem pintar
+   * o resultado intermediário.
+   */
+  if (open && open !== ultimo) setUltimo(open);
+
+  // Só o fechamento precisa de tempo: o bloco continua no DOM até a animação
+  // acabar, e aí o slot sai de vez.
   useEffect(() => {
-    if (open) {
-      setMounted(open);
-      return;
-    }
-    const timer = setTimeout(() => setMounted(null), ms);
+    if (open) return;
+    const timer = setTimeout(() => setUltimo(null), ms);
     return () => clearTimeout(timer);
   }, [open, ms]);
 
-  return mounted;
+  return open ?? ultimo;
 }
