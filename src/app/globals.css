@@ -565,6 +565,19 @@
 }
 
 /*
+ * Rolar a página passando o dedo sobre o gráfico.
+ *
+ * O G2 escreve `touch-action: none` no próprio canvas para poder ler o
+ * arrasto e mostrar a leitura sob o dedo. O efeito colateral aparece no
+ * celular: a página trava assim que o polegar encosta no gráfico, e a única
+ * saída é rolar pela margem. `pan-y` devolve a rolagem vertical ao navegador
+ * e deixa o resto do gesto para o gráfico — tocar continua mostrando o valor.
+ */
+figure canvas {
+  touch-action: pan-y !important;
+}
+
+/*
  * Chip de filtro.
  *
  * O preenchimento cresce da esquerda, em vez de o chip pular ou mudar de

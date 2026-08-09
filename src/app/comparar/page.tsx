@@ -1,7 +1,7 @@
 'use client';
 
 import { Hint } from '@/components/hint';
-import { Card, Segmented, Select, Table, Tag, Typography } from 'antd';
+import { Card, Modal, Segmented, Select, Table, Tag, Typography } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { useEffect, useMemo, useState } from 'react';
 import { AppHeader } from '@/components/header';
@@ -9,6 +9,7 @@ import { SeasonTag } from '@/components/season-tag';
 import { SiteFooter } from '@/components/site-footer';
 import { ComparisonChart, type Series } from '@/components/charts';
 import { WeaponPreview } from '@/components/weapon-preview';
+import { WeaponSelector } from '@/components/weapon-selector';
 import { CATEGORY_NAMES, SHORT_CATEGORY_NAMES } from '@/data/classes';
 import { CATEGORY_ORDER, WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
 import { attachmentsForWeapon } from '@/data/attachments';
@@ -23,6 +24,7 @@ import {
 } from '@/lib/ballistics';
 import { baseStats, type EffectiveStats } from '@/lib/stats';
 import { analyzeMatchup, GAME_MODES, type GameMode } from '@/lib/matchup';
+import { useDesktop } from '@/lib/media';
 
 /**
  * Confronto direto entre duas armas.
@@ -226,6 +228,9 @@ export default function ComparePage() {
   const [categoryFilter, setCategoryFilter] = useState<WeaponCategory | 'all'>('all');
   // O modo escolhido muda o peso de cada estatística na leitura do confronto.
   const [mode, setMode] = useState<GameMode>('multiplayer');
+  const desktop = useDesktop();
+  // Qual dos dois lados está escolhendo arma — nenhum, quando a lista está fechada.
+  const [picking, setPicking] = useState<'a' | 'b' | null>(null);
 
   const weaponA = WEAPONS_BY_ID.get(idA)!;
   const weaponB = WEAPONS_BY_ID.get(idB)!;
@@ -354,8 +359,8 @@ export default function ComparePage() {
           <h2 className="label mb-3">Confronto direto</h2>
 
           <div className="mb-4 grid gap-3 sm:grid-cols-2">
-            <DuelCard weapon={weaponA} color={COLOR_A} side="A" />
-            <DuelCard weapon={weaponB} color={COLOR_B} side="B" />
+            <DuelCard weapon={weaponA} color={COLOR_A} side="A" onPick={() => setPicking('a')} />
+            <DuelCard weapon={weaponB} color={COLOR_B} side="B" onPick={() => setPicking('b')} />
           </div>
 
           {/*
@@ -427,13 +432,32 @@ export default function ComparePage() {
             pagination={false}
             size="small"
             sticky
-            scroll={{ x: 1100, y: '70dvh' }}
+            /*
+             * A altura fixa é coisa de computador.
+             *
+             * No celular ela cria uma janela de 590 px que rola por dentro: o
+             * polegar entra nela ao descer a página e a rolagem trava ali,
+             * porque a tabela consome o gesto antes do documento. Sem a altura,
+             * a tabela cresce e quem rola é a página, como no resto da tela. A
+             * rolagem lateral continua, que é a única saída para doze colunas.
+             */
+            scroll={{ x: 1100, y: desktop ? '70dvh' : undefined }}
             rowClassName={(row) => (row.id === idA ? 'linha-a' : row.id === idB ? 'linha-b' : '')}
           />
         </Card>
 
         <SiteFooter note="O sinal ≈ marca armas com valores aproximados." />
       </main>
+
+      {picking && (
+        <WeaponPickerModal
+          side={picking === 'a' ? 'A' : 'B'}
+          color={picking === 'a' ? COLOR_A : COLOR_B}
+          selected={picking === 'a' ? idA : idB}
+          onSelect={picking === 'a' ? setIdA : setIdB}
+          onClose={() => setPicking(null)}
+        />
+      )}
 
       {/*
         As duas linhas em confronto ficam tingidas na grade. Vai em CSS porque
@@ -639,8 +663,10 @@ function WeaponPicker({
   onChange: (id: string) => void;
 }) {
   return (
-    <label className="flex items-center gap-2">
-      <span className="label" style={{ color }}>
+    // `min-w-0` e largura fluida: em 390 px os dois seletores lado a lado com
+    // 190 px fixos passavam da tela, e o rótulo era o primeiro a ser espremido.
+    <label className="flex min-w-0 flex-1 items-center gap-2 sm:flex-none">
+      <span className="label shrink-0" style={{ color }}>
         {label}
       </span>
       {/*
@@ -653,17 +679,48 @@ function WeaponPicker({
         options={WEAPON_OPTIONS}
         showSearch
         optionFilterProp="label"
-        className="bevel-sm touch"
-        style={{ width: 190, borderColor: color }}
-        popupMatchSelectWidth={240}
+        className="bevel-sm touch min-w-0 flex-1 sm:w-[190px] sm:flex-none"
+        style={{ borderColor: color }}
+        /*
+         * A lista abre com a largura do campo e não passa da tela. Com 240 px
+         * fixos ela vazava pela direita no celular, e no aplicativo instalado
+         * — onde não há barra do navegador para absorver — isso virava rolagem
+         * lateral da página inteira.
+         */
+        popupMatchSelectWidth
+        styles={{ popup: { root: { maxWidth: 'calc(100vw - 24px)' } } }}
       />
     </label>
   );
 }
 
-function DuelCard({ weapon, color, side }: { weapon: Weapon; color: string; side: 'A' | 'B' }) {
+/**
+ * O cartão da arma em confronto, que também é o botão de trocá-la.
+ *
+ * A foto é o maior alvo da tela e estava ali só enfeitando: para trocar de arma
+ * era preciso subir até o seletor, abrir a lista e ler sessenta e três nomes sem
+ * imagem nenhuma. Tocar na própria arma abre a lista com as fotos ao lado, que é
+ * como se reconhece uma arma de relance — pelo desenho, não pela sigla.
+ */
+function DuelCard({
+  weapon,
+  color,
+  side,
+  onPick,
+}: {
+  weapon: Weapon;
+  color: string;
+  side: 'A' | 'B';
+  onPick: () => void;
+}) {
   return (
-    <div className="bevel-sm p-2" style={{ border: `1px solid ${color}`, background: 'var(--surface-raised)' }}>
+    <button
+      type="button"
+      onClick={onPick}
+      aria-label={`Trocar a arma ${side}, agora ${weapon.name}`}
+      className="bevel-sm w-full p-2 text-left"
+      style={{ border: `1px solid ${color}`, background: 'var(--surface-raised)' }}
+    >
       <div className="flex items-baseline gap-2">
         <Tag className="font-display m-0 px-1.5 text-xs font-bold" style={{ background: color, color: '#fff', border: 'none' }}>
           {side}
@@ -676,7 +733,59 @@ function DuelCard({ weapon, color, side }: { weapon: Weapon; color: string; side
         </span>
       </div>
       <WeaponPreview weapon={weapon} className="mx-auto w-full max-w-[420px]" />
-    </div>
+      <span className="mt-1 block text-center text-[11px]" style={{ color: 'var(--text-dim)' }}>
+        Toque para trocar
+      </span>
+    </button>
+  );
+}
+
+/**
+ * A lista de armas com foto, para escolher quem entra no confronto.
+ *
+ * O `WeaponSelector` do montador já faz exatamente isto — busca, chips de
+ * categoria e a lista com miniatura —, então aqui ele é reaproveitado inteiro
+ * em vez de ganhar uma segunda versão que envelheceria em separado.
+ */
+function WeaponPickerModal({
+  side,
+  color,
+  selected,
+  onSelect,
+  onClose,
+}: {
+  side: 'A' | 'B';
+  color: string;
+  selected: string;
+  onSelect: (id: string) => void;
+  onClose: () => void;
+}) {
+  return (
+    <Modal
+      open
+      onCancel={onClose}
+      footer={null}
+      title={
+        <span className="font-display text-lg font-semibold" style={{ color }}>
+          Escolher a arma {side}
+        </span>
+      }
+      className="bevel"
+      width={480}
+      styles={{ body: { maxHeight: '70dvh', overflowY: 'auto' } }}
+      destroyOnHidden
+    >
+      <WeaponSelector
+        title="Todas as armas"
+        selected={selected}
+        equippedLabel={`No confronto · lado ${side}`}
+        categories={CATEGORY_ORDER.filter((c) => c !== 'melee')}
+        onSelect={(id) => {
+          onSelect(id);
+          onClose();
+        }}
+      />
+    </Modal>
   );
 }
 
