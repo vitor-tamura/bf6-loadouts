@@ -50,6 +50,21 @@ const POSITIVO = '#7ddc4c';
 const NEGATIVO = '#ff5c47';
 const INFO = '#22c3d6';
 
+/**
+ * A paleta do tema em cores literais.
+ *
+ * Os gráficos são desenhados em canvas pelo Ant Design Plots, e canvas não lê
+ * `var(--accent)`: lá dentro só entra cor resolvida. Como estes valores já
+ * existiam aqui para alimentar os *seed tokens* do antd, os gráficos bebem da
+ * mesma fonte em vez de abrir uma terceira cópia da paleta.
+ */
+export function coresDoTema(light: boolean) {
+  return light ? CLARO : ESCURO;
+}
+
+/** Iguais nos dois temas, para quem precisa delas fora dos tokens do antd. */
+export const CORES_FIXAS = { positivo: POSITIVO, negativo: NEGATIVO, info: INFO };
+
 export function antdTheme(light: boolean): ThemeConfig {
   const c = light ? CLARO : ESCURO;
 
