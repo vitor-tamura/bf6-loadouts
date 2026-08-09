@@ -1,4 +1,5 @@
 import { generateText, APICallError } from 'ai';
+import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import { SHORT_CATEGORY_NAMES } from '@/data/classes';
 import {
@@ -32,12 +33,34 @@ export const maxDuration = 15;
  * Modelo pequeno de propósito.
  *
  * A tarefa é redigir três frases a partir de números já mastigados — não há
- * raciocínio a fazer, e um modelo grande gastaria o crédito gratuito do mês em
- * pouca coisa. `models` é a fila de reserva do próprio gateway, para o caso de
- * o primeiro estar fora do ar.
+ * raciocínio a fazer, e um modelo grande gastaria o crédito do mês em pouca
+ * coisa. `models` é a fila de reserva do próprio gateway, para o caso de o
+ * primeiro estar fora do ar.
  */
 const MODEL = 'anthropic/claude-haiku-4.5';
 const FALLBACK_MODELS = ['google/gemini-3-flash', 'openai/gpt-5.4'];
+
+/**
+ * De onde vem o modelo, na ordem em que se tenta.
+ *
+ * O AI Gateway é o caminho preferido — uma configuração só, failover e
+ * contabilidade prontos —, mas ele exige cartão cadastrado na Vercel antes de
+ * liberar o crédito gratuito. Quem não quiser cadastrar cartão põe uma chave do
+ * Google AI Studio em `GOOGLE_GENERATIVE_AI_API_KEY`, que é gratuita e sai em
+ * dois cliques; existindo a chave, ela ganha, porque é a única das duas que
+ * funciona sem mais nada.
+ *
+ * Sem nenhuma das duas, a rota falha e a tela fica com a análise por regras —
+ * que é o que acontece hoje em qualquer instalação recém-clonada.
+ */
+function pickModel() {
+  const googleKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
+  if (googleKey) {
+    const google = createGoogleGenerativeAI({ apiKey: googleKey });
+    return { model: google('gemini-2.5-flash'), viaGateway: false };
+  }
+  return { model: MODEL, viaGateway: true };
+}
 
 /** O que o modelo pode escrever, e o que ele não pode inventar. */
 const SYSTEM = `Você escreve para um site brasileiro de loadouts de Battlefield 6.
@@ -116,9 +139,11 @@ export async function POST(request: Request) {
     return Response.json({ error: 'arma desconhecida' }, { status: 404 });
   }
 
+  const { model, viaGateway } = pickModel();
+
   try {
     const { text } = await generateText({
-      model: MODEL,
+      model,
       system: SYSTEM,
       prompt: [
         `Modo: ${MODE_BRIEF[mode as GameMode]}`,
@@ -127,18 +152,23 @@ export async function POST(request: Request) {
         'Escreva a leitura do confronto entre as duas neste modo.',
       ].join('\n\n'),
       maxOutputTokens: 220,
-      providerOptions: {
-        gateway: {
-          models: FALLBACK_MODELS,
-          tags: ['feature:matchup'],
-          /*
-           * As combinações são finitas — 63 armas em dois modos — e a resposta
-           * não depende de quem perguntou. Guardar por um dia derruba o custo
-           * para perto de zero e devolve na hora quem repetir a comparação.
-           */
-          cacheControl: 'max-age=86400',
-        },
-      },
+      // As opções abaixo são do gateway; com a chave do Google elas não têm
+      // para quem falar, e passá-las assim mesmo só encheria o pedido.
+      providerOptions: viaGateway
+        ? {
+            gateway: {
+              models: FALLBACK_MODELS,
+              tags: ['feature:matchup'],
+              /*
+               * As combinações são finitas — 63 armas em dois modos — e a
+               * resposta não depende de quem perguntou. Guardar por um dia
+               * derruba o custo para perto de zero e devolve na hora quem
+               * repetir a comparação.
+               */
+              cacheControl: 'max-age=86400',
+            },
+          }
+        : undefined,
     });
 
     const answer = text.trim();
@@ -151,6 +181,19 @@ export async function POST(request: Request) {
     );
   } catch (error) {
     const status = APICallError.isInstance(error) ? error.statusCode : undefined;
+    /*
+     * O motivo fica no log da função, não na resposta.
+     *
+     * Quem chama não tem o que fazer com "sem crédito" ou "chave inválida" — a
+     * tela já cai para a análise por regras de qualquer jeito. Mas sem isto
+     * aqui, um 502 na produção não diz se o gateway está desligado, se o
+     * crédito acabou ou se o nome do modelo mudou.
+     */
+    console.error('[matchup] falha no modelo', {
+      status,
+      message: error instanceof Error ? error.message : String(error),
+    });
+
     // 402 é crédito esgotado e 429 é excesso de pedidos: nos dois casos a tela
     // já tem o que mostrar, então a rota só avisa que não veio nada.
     return Response.json({ error: 'modelo indisponível' }, { status: status === 402 ? 402 : 502 });
