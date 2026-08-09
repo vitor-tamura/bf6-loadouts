@@ -1,7 +1,7 @@
 'use client';
 
 import { Hint } from '@/components/hint';
-import { Card, Modal, Segmented, Select, Table, Tag, Typography } from 'antd';
+import { Card, Modal, Segmented, Spin, Table, Tag } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { useEffect, useMemo, useState } from 'react';
 import { AppHeader } from '@/components/header';
@@ -10,7 +10,7 @@ import { SiteFooter } from '@/components/site-footer';
 import { ComparisonChart, type Series } from '@/components/charts';
 import { WeaponPreview } from '@/components/weapon-preview';
 import { WeaponSelector } from '@/components/weapon-selector';
-import { CATEGORY_NAMES, SHORT_CATEGORY_NAMES } from '@/data/classes';
+import { SHORT_CATEGORY_NAMES } from '@/data/classes';
 import { CATEGORY_ORDER, WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
 import { attachmentsForWeapon } from '@/data/attachments';
 import type { Weapon, WeaponCategory } from '@/data/types';
@@ -203,15 +203,6 @@ function buildGrid(): GridRow[] {
   });
 }
 
-/** As armas agrupadas por categoria, como o seletor precisa delas. */
-const WEAPON_OPTIONS = CATEGORY_ORDER.filter((c) => c !== 'melee').map((category) => ({
-  label: CATEGORY_NAMES[category],
-  options: WEAPONS.filter((w) => w.category === category).map((w) => ({
-    label: w.name,
-    value: w.id,
-  })),
-}));
-
 const CATEGORY_OPTIONS = [
   { label: 'Todas', value: 'all' as const },
   ...CATEGORY_ORDER.filter((c) => c !== 'melee').map((c) => ({
@@ -340,14 +331,17 @@ export default function ComparePage() {
       <AppHeader subtitle="Comparar armas" />
 
       <main className="mx-auto max-w-[1600px] px-3 py-3">
-        {/* Seleção das duas armas */}
-        <div className="mb-4 flex flex-wrap items-end gap-4">
-          <WeaponPicker label="Arma A" color={COLOR_A} value={idA} onChange={setIdA} />
-          <WeaponPicker label="Arma B" color={COLOR_B} value={idB} onChange={setIdB} />
-          <Typography.Text className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
-            Valores de fábrica, sem acessórios.
-          </Typography.Text>
-        </div>
+        {/*
+          Não há mais seletor no topo.
+          Trocar de arma é tocar na foto dela, logo abaixo — um alvo grande, com
+          a imagem à vista, que abre a lista inteira com miniaturas. Os dois
+          campos que ficavam aqui faziam o mesmo por um caminho pior: em tela de
+          celular viravam duas caixas de três centímetros, lado a lado, com o
+          nome da arma cortado.
+        */}
+        <p className="mb-3 text-[11px]" style={{ color: 'var(--text-dim)' }}>
+          Valores de fábrica, sem acessórios.
+        </p>
 
         {/* Confronto direto */}
         <Card
@@ -532,7 +526,7 @@ function MatchupReading({
     [statsA, statsB, nameA, nameB, mode],
   );
 
-  const written = useWrittenReading(idA, idB, mode);
+  const { text: written, loading } = useWrittenReading(idA, idB, mode);
 
   const color =
     reading.winner === 'a' ? COLOR_A : reading.winner === 'b' ? COLOR_B : 'var(--text-soft)';
@@ -546,7 +540,24 @@ function MatchupReading({
       }}
     >
       <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
-        <h3 className="label">Leitura do confronto</h3>
+        <h3 className="label flex items-center gap-2">
+          Leitura do confronto
+          {/*
+            O indicador diz o que está acontecendo sem tirar nada da tela: a
+            leitura por regras já está escrita abaixo, e o que se espera é a
+            versão do modelo, que pode não vir. Um esqueleto piscando no lugar
+            do texto seria pior — esconderia uma resposta que já existe.
+          */}
+          {loading && (
+            <span
+              className="flex items-center gap-1 text-[10px] font-normal normal-case"
+              style={{ color: 'var(--text-dim)' }}
+            >
+              <Spin size="small" />
+              gerando análise…
+            </span>
+          )}
+        </h3>
         <Segmented
           options={GAME_MODES}
           value={mode}
@@ -606,14 +617,22 @@ function MatchupReading({
  * a arma ou o modo mudam, senão uma resposta atrasada sobrescreveria a
  * comparação seguinte.
  */
-function useWrittenReading(idA: string, idB: string, mode: GameMode): string | null {
+function useWrittenReading(
+  idA: string,
+  idB: string,
+  mode: GameMode,
+): { text: string | null; loading: boolean } {
   const key = `${idA}|${idB}|${mode}`;
-  const [answer, setAnswer] = useState<{ key: string; text: string | null }>({ key, text: null });
+  const [answer, setAnswer] = useState<{ key: string; text: string | null; done: boolean }>({
+    key,
+    text: null,
+    done: false,
+  });
 
   // Trocar de arma limpa o texto na hora, ainda na renderização: um efeito
   // faria isso depois da pintura, e por um quadro a leitura da arma anterior
   // apareceria sob o nome da nova.
-  if (answer.key !== key) setAnswer({ key, text: null });
+  if (answer.key !== key) setAnswer({ key, text: null, done: false });
 
   useEffect(() => {
     const controller = new AbortController();
@@ -628,16 +647,21 @@ function useWrittenReading(idA: string, idB: string, mode: GameMode): string | n
     })
       .then((response) => (response.ok ? response.json() : null))
       .then((data: { text?: string } | null) => {
-        if (data?.text) setAnswer({ key, text: data.text });
+        setAnswer({ key, text: data?.text ?? null, done: true });
       })
-      .catch(() => {
-        // Cancelamento e falha de rede terminam aqui, e é o que se espera.
+      .catch((error: unknown) => {
+        // Cancelar não é falhar: quem cancelou foi a troca de arma, e o pedido
+        // seguinte já está a caminho — marcar `done` aqui apagaria o indicador
+        // antes da hora.
+        if ((error as { name?: string })?.name === 'AbortError') return;
+        setAnswer({ key, text: null, done: true });
       });
 
     return () => controller.abort();
   }, [idA, idB, mode, key]);
 
-  return answer.key === key ? answer.text : null;
+  const current = answer.key === key ? answer : null;
+  return { text: current?.text ?? null, loading: !current?.done };
 }
 
 function DuelValue({ value, wins }: { value: string; wins: boolean }) {
@@ -648,49 +672,6 @@ function DuelValue({ value, wins }: { value: string; wins: boolean }) {
     >
       {value}
     </span>
-  );
-}
-
-function WeaponPicker({
-  label,
-  color,
-  value,
-  onChange,
-}: {
-  label: string;
-  color: string;
-  value: string;
-  onChange: (id: string) => void;
-}) {
-  return (
-    // `min-w-0` e largura fluida: em 390 px os dois seletores lado a lado com
-    // 190 px fixos passavam da tela, e o rótulo era o primeiro a ser espremido.
-    <label className="flex min-w-0 flex-1 items-center gap-2 sm:flex-none">
-      <span className="label shrink-0" style={{ color }}>
-        {label}
-      </span>
-      {/*
-        Busca por digitação: são 63 armas em oito grupos, e rolar a lista até a
-        letra certa era o jeito mais lento de trocar de arma.
-      */}
-      <Select
-        value={value}
-        onChange={onChange}
-        options={WEAPON_OPTIONS}
-        showSearch
-        optionFilterProp="label"
-        className="bevel-sm touch min-w-0 flex-1 sm:w-[190px] sm:flex-none"
-        style={{ borderColor: color }}
-        /*
-         * A lista abre com a largura do campo e não passa da tela. Com 240 px
-         * fixos ela vazava pela direita no celular, e no aplicativo instalado
-         * — onde não há barra do navegador para absorver — isso virava rolagem
-         * lateral da página inteira.
-         */
-        popupMatchSelectWidth
-        styles={{ popup: { root: { maxWidth: 'calc(100vw - 24px)' } } }}
-      />
-    </label>
   );
 }
 

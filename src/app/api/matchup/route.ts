@@ -43,13 +43,14 @@ const FALLBACK_MODELS = ['google/gemini-3-flash', 'openai/gpt-5.4'];
 /**
  * Os modelos gratuitos do Google, na ordem em que se tenta.
  *
- * A lista existe porque o nome do modelo é a parte que envelhece: o
- * `gemini-2.5-flash` parou de ser liberado para projetos novos e passou a
- * responder 404 dizendo isso. O primeiro da fila é o apelido que a Google
- * mantém apontando para o Flash da vez; os outros são rede de segurança para
- * quando o apelido não existir na conta.
+ * A lista existe porque o nome do modelo é a parte que envelhece, e o log da
+ * função foi quem disse quais valem: `gemini-2.5-flash`, `2.5-flash-lite` e
+ * `gemini-3-flash` respondem 404 com "no longer available to new users" numa
+ * conta criada agora. Quem atende é o `gemini-3.6-flash`, e é ele que abre a
+ * fila; o apelido `gemini-flash-latest` fica logo atrás, para o dia em que a
+ * Google promover outro Flash e aposentar este.
  */
-const GOOGLE_MODELS = ['gemini-flash-latest', 'gemini-3-flash', 'gemini-2.5-flash-lite'];
+const GOOGLE_MODELS = ['gemini-3.6-flash', 'gemini-flash-latest'];
 
 /**
  * De onde vem o modelo, na ordem em que se tenta.
