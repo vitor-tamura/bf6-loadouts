@@ -82,7 +82,7 @@ export default function MetaPage() {
             type="warning"
             showIcon
             className="bevel-sm mt-2"
-            message={
+            title={
               <span className="text-[12px] leading-relaxed" style={{ color: 'var(--text-soft)' }}>
                 Esta lista é <strong>opinião da comunidade, não medição</strong>. Não existe fonte
                 pública de uso real no Battlefield 6 — as APIs abertas servem estatística por
@@ -96,7 +96,7 @@ export default function MetaPage() {
             type="info"
             showIcon
             className="bevel-sm mt-2"
-            message={
+            title={
               <span className="text-[12px] leading-relaxed" style={{ color: 'var(--text-soft)' }}>
                 O escopo é o <strong>multiplayer</strong>: Conquista, Avanço e afins. O{' '}
                 <strong>REDSEC</strong>, o battle royale, tem meta próprio e fica de fora — com vida

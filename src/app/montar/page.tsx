@@ -471,7 +471,7 @@ function ApproximateNotice() {
     <Alert
       type="info"
       className="bevel-sm"
-      message={
+      title={
         <span className="text-[11px] leading-snug" style={{ color: 'var(--text-dim)' }}>
           <strong style={{ color: 'var(--accent)' }}>≈ valores aproximados.</strong> O jogo não expõe
           os multiplicadores exatos de alguns acessórios e armas. Esses números foram calibrados a
