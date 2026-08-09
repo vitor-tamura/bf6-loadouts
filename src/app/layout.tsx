@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import { Barlow, Barlow_Condensed } from 'next/font/google';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { BUILD_DATE } from '@/data/build';
 import { seasonTheme } from '@/data/season';
 import { ThemeProvider } from '@/components/theme';
@@ -80,6 +82,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <PageCurtain>{children}</PageCurtain>
           </ThemeProvider>
         </AntdRegistry>
+        {/*
+          Medição da Vercel: o Analytics conta visita por rota e o Speed
+          Insights coleta as Web Vitals de quem realmente acessa — o que o
+          Lighthouse local não mostra, porque aqui não há celular ruim nem rede
+          lenta. Os dois leem a rota pelo `useSearchParams`, e cada um já se
+          envolve num Suspense próprio; sem isso o Next desistiria do
+          pré-render de todas as telas de uma vez, que foi o que aconteceu com
+          o montador antes de 7b77ae2.
+
+          Os scripts são servidos pela plataforma em /_vercel/, então só
+          respondem em deploy da Vercel. Servido de outra hospedagem estática,
+          o pedido dá 404 e morre ali — nenhuma tela quebra por causa disso.
+        */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

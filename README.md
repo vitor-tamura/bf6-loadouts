@@ -31,7 +31,7 @@ npm run dev      # http://localhost:3000
 | --- | --- |
 | `npm run dev` | servidor de desenvolvimento |
 | `npm run build` | gera o site estático em `out/` |
-| `npm test` | 56 testes de dataset, cálculo, balística, link e temporada |
+| `npm test` | 72 testes de dataset, cálculo, balística, link e temporada |
 | `npm run typecheck` | checagem de tipos |
 | `npm run sync` | compara o dataset com o catálogo público — só relata |
 | `npm run sync:apply` | grava o que dá para gravar, preservando a curadoria |
@@ -131,6 +131,19 @@ nenhuma.
 Next.js 16 (App Router, exportação estática) · TypeScript · Tailwind CSS 4 ·
 Ant Design 6 · Motion · Zustand · Vitest. Gráficos e desenhos das armas são SVG
 próprio, sem bibliotecas de visualização.
+
+**Medição** vem do Vercel Analytics e do Speed Insights, montados no layout raiz
+([`src/app/layout.tsx`](./src/app/layout.tsx)). O primeiro conta visita por rota
+— é ele que responde quais telas as pessoas realmente abrem; o segundo coleta as
+Web Vitals de quem acessa de verdade, em celular e rede que o Lighthouse local
+não reproduz. Nenhum dos dois recebe o loadout: o que identifica uma build viaja
+na query da URL, e a rota registrada é o caminho, não a montagem.
+
+Os dois scripts são servidos pela plataforma, em `/_vercel/`, e por isso só
+respondem em deploy da Vercel — em outra hospedagem estática o pedido dá 404 e
+para por ali, sem afetar nenhuma tela. Cada um precisa ser ligado uma vez no
+painel do projeto, na aba correspondente; sem isso o script sobe e não há onde
+ler o resultado.
 
 **Ant Design** dá os componentes de todas as telas: tabelas ordenáveis, modais,
 seleção com busca, avisos, campos e etiquetas. Quem manda na aparência continua
