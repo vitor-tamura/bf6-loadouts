@@ -70,6 +70,14 @@
   --weave: var(--color-base-600);
   --tide: transparent;
 
+  /*
+   * Sombra dos cartões que precisam descolar do fundo.
+   *
+   * Vive numa variável porque no tema claro ela é outra: preto a 60% sobre
+   * fundo escuro é profundidade, sobre fundo claro é sujeira.
+   */
+  --card-shadow: 0 6px 16px -8px rgb(0 0 0 / 0.7);
+
   color-scheme: dark;
 }
 
@@ -87,6 +95,7 @@
   --grid: #d2d6c6;
   --surface-veil: rgb(255 255 255 / 0.78);
   --surface-hover: rgb(255 255 255 / 0.95);
+  --card-shadow: 0 6px 16px -8px rgb(20 24 15 / 0.22);
 
   color-scheme: light;
 }
@@ -346,6 +355,33 @@
       color-mix(in oklab, var(--text) 5%, transparent),
       transparent 55%
     );
+  }
+
+  /*
+   * Cartão de peça: o mesmo cartão de escolha, com vidro por baixo.
+   *
+   * A grade abre com até 152 peças de uma vez, todas do mesmo tamanho e com o
+   * mesmo fundo chapado — o olho não achava onde uma terminava e a outra
+   * começava. O fundo passa a ser translúcido com desfoque, e a trama do site
+   * atravessa cada cartão embaçada, em vez de sumir atrás de um bloco opaco. É
+   * o suficiente para o cartão parecer estar *sobre* a página.
+   *
+   * A sombra faz o resto: separa o cartão do fundo sem engordar borda nenhuma,
+   * e some no cartão escolhido, que já se destaca pela cor.
+   *
+   * O desfoque é pequeno de propósito. São muitos cartões na tela ao mesmo
+   * tempo, e cada camada de `backdrop-filter` custa uma composição extra —
+   * 5 px dão o efeito sem virar peso no celular.
+   */
+  .tile-glass {
+    background-color: color-mix(in oklab, var(--tile-bg, var(--surface-raised)) 68%, transparent);
+    backdrop-filter: blur(5px);
+    box-shadow: var(--card-shadow);
+  }
+
+  .tile-glass[aria-pressed='true'] {
+    /* O escolhido troca a sombra por um halo na cor do destaque. */
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent) 50%, transparent);
   }
 
   /*

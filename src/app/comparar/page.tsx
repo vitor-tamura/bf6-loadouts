@@ -22,6 +22,7 @@ import {
   timeToKill,
 } from '@/lib/ballistics';
 import { baseStats, type EffectiveStats } from '@/lib/stats';
+import { analyzeMatchup, GAME_MODES, type GameMode } from '@/lib/matchup';
 
 /**
  * Confronto direto entre duas armas.
@@ -223,6 +224,8 @@ export default function ComparePage() {
   const [idA, setIdA] = useState('ak4d');
   const [idB, setIdB] = useState('m4a1');
   const [categoryFilter, setCategoryFilter] = useState<WeaponCategory | 'all'>('all');
+  // O modo escolhido muda o peso de cada estatística na leitura do confronto.
+  const [mode, setMode] = useState<GameMode>('multiplayer');
 
   const weaponA = WEAPONS_BY_ID.get(idA)!;
   const weaponB = WEAPONS_BY_ID.get(idB)!;
@@ -365,6 +368,15 @@ export default function ComparePage() {
               <MirrorRow key={key} label={key} a={scoresA[key]} b={scoresB[key]} />
             ))}
           </div>
+
+          <MatchupReading
+            statsA={statsA}
+            statsB={statsB}
+            nameA={weaponA.name}
+            nameB={weaponB.name}
+            mode={mode}
+            onModeChange={setMode}
+          />
         </Card>
 
         {/* Tabela do confronto */}
@@ -455,6 +467,88 @@ function numericColumn(
     defaultSortOrder: preset === 'dps' ? 'descend' : undefined,
     render: (v: number) => <span className="font-mono text-[12px]">{render(v)}</span>,
   };
+}
+
+/**
+ * A leitura do confronto, em frases.
+ *
+ * A tabela abaixo tem quatorze linhas de números e responde tudo — desde que a
+ * pessoa saiba o que perguntar. Esta leitura responde a pergunta que traz
+ * alguém a esta tela: qual das duas levar, e para qual modo. Ela sai das mesmas
+ * estatísticas que estão na tela, comparadas por eixos e pesadas pelo modo
+ * escolhido; ver `src/lib/matchup.ts`.
+ *
+ * O botão de modo fica junto do texto, e não no topo da página, porque é ele
+ * que muda o que o texto diz — no multiplayer decide quem mata primeiro e vira
+ * mais rápido; no REDSEC, quem alcança longe e aguenta a briga com um pente.
+ */
+function MatchupReading({
+  statsA,
+  statsB,
+  nameA,
+  nameB,
+  mode,
+  onModeChange,
+}: {
+  statsA: EffectiveStats;
+  statsB: EffectiveStats;
+  nameA: string;
+  nameB: string;
+  mode: GameMode;
+  onModeChange: (mode: GameMode) => void;
+}) {
+  const reading = useMemo(
+    () => analyzeMatchup(statsA, statsB, nameA, nameB, mode),
+    [statsA, statsB, nameA, nameB, mode],
+  );
+
+  const color =
+    reading.winner === 'a' ? COLOR_A : reading.winner === 'b' ? COLOR_B : 'var(--text-soft)';
+
+  return (
+    <section
+      className="bevel-sm mt-4 p-3"
+      style={{
+        border: '1px solid var(--border-soft)',
+        background: 'var(--surface-raised)',
+      }}
+    >
+      <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+        <h3 className="label">Leitura do confronto</h3>
+        <Segmented
+          options={GAME_MODES}
+          value={mode}
+          onChange={(v) => onModeChange(v as GameMode)}
+          size="small"
+          className="bevel-sm"
+        />
+      </div>
+
+      <p className="text-[13px] leading-snug font-semibold" style={{ color }}>
+        {reading.headline}
+      </p>
+
+      <ul className="mt-1.5 space-y-1">
+        {reading.points.map((point) => (
+          <li
+            key={point}
+            className="flex gap-1.5 text-[12px] leading-snug"
+            style={{ color: 'var(--text-soft)' }}
+          >
+            <span aria-hidden style={{ color: 'var(--text-dim)' }}>
+              ·
+            </span>
+            {point}
+          </li>
+        ))}
+      </ul>
+
+      <p className="mt-2 text-[11px]" style={{ color: 'var(--text-dim)' }}>
+        Leitura automática das estatísticas desta tela — sem acessórios, e sem contar acerto na
+        cabeça.
+      </p>
+    </section>
+  );
 }
 
 function DuelValue({ value, wins }: { value: string; wins: boolean }) {

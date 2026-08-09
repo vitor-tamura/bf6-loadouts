@@ -117,15 +117,6 @@ export const SOURCES: MetaSource[] = [
     timeframe: 'season-4',
   },
   {
-    name: 'DTGRE — tier list das armas novas da Temporada 4',
-    url: 'https://www.dtgre.com/2026/07/battlefield-6-season-4-best-weapons-tier-list-ef88-brod-3-vssm.html',
-    date: '2026-07-22',
-    country: 'INT',
-    mode: 'multiplayer',
-    scope: 'Ranqueia as três armas novas pelos mapas de multiplayer da temporada; não trata do battle royale.',
-    timeframe: 'season-4',
-  },
-  {
     name: 'Game Rant — armas do meta da Temporada 4',
     url: 'https://gamerant.com/battlefield-6-bf6-best-guns-weapons-meta-season-4-s4/',
     date: '2026-07-24',
@@ -160,12 +151,12 @@ export const HIGHLIGHTS: MetaPick[] = [
   {
     weapon: 'b36a4',
     reason: 'Bullpup equilibrado, logo atrás da M16A4 — o maior potencial de eliminação entre os fuzis, na leitura das fontes.',
-    sources: [0, 4],
+    sources: [0, 3],
   },
   {
     weapon: 'drs-iar',
     reason: 'A metralhadora do momento: tempo para matar curto para o porte e alcance suficiente para segurar objetivo.',
-    sources: [0, 1, 4],
+    sources: [0, 1, 3],
   },
   {
     weapon: 'sgx',
@@ -175,12 +166,12 @@ export const HIGHLIGHTS: MetaPick[] = [
   {
     weapon: 'pw5a3',
     reason: 'Equilíbrio entre manejo e controle no vão curto, sem o custo de mobilidade das opções mais pesadas.',
-    sources: [0, 4],
+    sources: [0, 3],
   },
   {
     weapon: 'm2010-esr',
     reason: 'O ferrolho de referência: bala veloz e poder de parada, com mobilidade para trocar de posição.',
-    sources: [0, 2, 4],
+    sources: [0, 2, 3],
   },
   {
     weapon: 'sg-553r',
@@ -202,12 +193,12 @@ export const BY_CATEGORY: CategoryHighlight[] = [
     category: 'ar',
     best: { weapon: 'm16a4', reason: 'Primeira da classe e do ranking geral do multiplayer.', sources: [0, 2] },
     mentions: [
-      { weapon: 'b36a4', reason: 'Logo atrás, com o maior potencial de eliminação entre os fuzis.', sources: [0, 4] },
+      { weapon: 'b36a4', reason: 'Logo atrás, com o maior potencial de eliminação entre os fuzis.', sources: [0, 3] },
       { weapon: 'kord-6p67', reason: 'Terceira da classe, e a primeira quando a briga é no vão longo.', sources: [0] },
       {
         weapon: 'ef88',
         reason: 'A novidade da temporada: os guias a chamam de melhor do jogo, mas o ranking do multiplayer ainda a põe atrás das veteranas.',
-        sources: [2, 3, 4],
+        sources: [2, 3],
       },
     ],
   },
@@ -216,8 +207,8 @@ export const BY_CATEGORY: CategoryHighlight[] = [
     best: { weapon: 'qbz-192', reason: 'Primeira da classe no multiplayer, à frente da carabina que os guias preferem.', sources: [0] },
     mentions: [
       { weapon: 'sg-553r', reason: 'Segunda no ranking e primeira na leitura do guia — a diferença entre as duas é pequena.', sources: [0, 1] },
-      { weapon: 'brod-3', reason: 'A carabina nova, agressiva: para quem troca alcance por mobilidade.', sources: [0, 3, 4] },
-      { weapon: 'm4a1', reason: 'Mais fácil de dominar, e a preferida de quem joga na investida.', sources: [0, 1, 2, 4] },
+      { weapon: 'brod-3', reason: 'A carabina nova, agressiva: para quem troca alcance por mobilidade.', sources: [0, 3] },
+      { weapon: 'm4a1', reason: 'Mais fácil de dominar, e a preferida de quem joga na investida.', sources: [0, 1, 2, 3] },
     ],
   },
   {
@@ -225,26 +216,26 @@ export const BY_CATEGORY: CategoryHighlight[] = [
     best: { weapon: 'pp-19', reason: 'Primeira da classe: carregador fundo e controle que sustenta a rajada longa.', sources: [0] },
     mentions: [
       { weapon: 'sgx', reason: 'Opção agressiva para quem entra primeiro.', sources: [0, 1] },
-      { weapon: 'pw5a3', reason: 'Equilíbrio entre manejo e controle no vão curto.', sources: [0, 4] },
-      { weapon: 'cz3a1', reason: 'Cadência altíssima e tiro sem visada muito bom — a favorita dos guias, quinta no ranking.', sources: [0, 1, 4] },
+      { weapon: 'pw5a3', reason: 'Equilíbrio entre manejo e controle no vão curto.', sources: [0, 3] },
+      { weapon: 'cz3a1', reason: 'Cadência altíssima e tiro sem visada muito bom — a favorita dos guias, quinta no ranking.', sources: [0, 1, 3] },
     ],
   },
   {
     category: 'lmg',
-    best: { weapon: 'drs-iar', reason: 'Tempo para matar rápido com alcance sólido — primeira da classe nas duas leituras.', sources: [0, 1, 4] },
+    best: { weapon: 'drs-iar', reason: 'Tempo para matar rápido com alcance sólido — primeira da classe nas duas leituras.', sources: [0, 1, 3] },
     mentions: [
       { weapon: 'rpk-74m', reason: 'Controle firme com volume de fogo, para negar passagem em mapa aberto.', sources: [0] },
       { weapon: 'l110', reason: 'A leve da classe, para quem quer volume de fogo sem perder o passo.', sources: [0] },
       {
         weapon: 'kts100-mk8',
         reason: 'Cuidado: é a nº 1 do REDSEC e vive em lista de melhores, mas no multiplayer só a sexta da classe.',
-        sources: [0, 1, 2, 4],
+        sources: [0, 1, 2, 3],
       },
     ],
   },
   {
     category: 'dmr',
-    best: { weapon: 'vssm', reason: 'A novidade da temporada assumiu a classe: supressor integrado e automático, para quem joga escondido.', sources: [0, 1, 3, 4] },
+    best: { weapon: 'vssm', reason: 'A novidade da temporada assumiu a classe: supressor integrado e automático, para quem joga escondido.', sources: [0, 1, 3] },
     mentions: [
       { weapon: 'm39-emr', reason: 'A semiautomática de sempre, segunda da classe.', sources: [0] },
       { weapon: 'svdm', reason: 'Cadência consistente, mas o multiplayer a rebaixou — no REDSEC ela lidera a classe.', sources: [0, 1] },
@@ -252,9 +243,9 @@ export const BY_CATEGORY: CategoryHighlight[] = [
   },
   {
     category: 'sniper',
-    best: { weapon: 'm2010-esr', reason: 'Bala veloz e poder de parada, com mobilidade entre posições.', sources: [0, 2, 4] },
+    best: { weapon: 'm2010-esr', reason: 'Bala veloz e poder de parada, com mobilidade entre posições.', sources: [0, 2, 3] },
     mentions: [
-      { weapon: 'mini-scout', reason: 'A leve, para quem troca de posição o tempo todo.', sources: [0, 1, 4] },
+      { weapon: 'mini-scout', reason: 'A leve, para quem troca de posição o tempo todo.', sources: [0, 1, 3] },
       { weapon: 'psr', reason: 'Terceira da classe, para o vão realmente longo.', sources: [0] },
       { weapon: 'l115', reason: 'Ferrolho tradicional, e a primeira escolha do guia — quarta no ranking.', sources: [0, 1] },
     ],
@@ -263,7 +254,7 @@ export const BY_CATEGORY: CategoryHighlight[] = [
     category: 'shotgun',
     best: { weapon: 'm87a1', reason: 'A única escopeta no primeiro escalão do multiplayer, e com folga sobre as demais.', sources: [0] },
     mentions: [
-      { weapon: 'm1014', reason: 'A semiautomática, para quem prefere o segundo tiro rápido ao dano do primeiro.', sources: [0, 4] },
+      { weapon: 'm1014', reason: 'A semiautomática, para quem prefere o segundo tiro rápido ao dano do primeiro.', sources: [0, 3] },
       { weapon: '18-5ks-k', reason: 'Terceira da classe, de bombeamento.', sources: [0] },
     ],
   },

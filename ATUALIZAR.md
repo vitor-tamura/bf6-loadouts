@@ -121,8 +121,8 @@ público muda e o PR automático aparece:
 
 1. Procure guias e matérias publicados **depois** do patch, nos veículos de
    maior alcance que ranqueiam arma por classe: Game Rant, TheGamer, KeenGamer,
-   PlayerAuctions, Boostmatch, DTGRE. O que interessa é matéria com data e nome
-   de arma, não vídeo nem opinião solta de fórum.
+   PlayerAuctions, Boostmatch. O que interessa é matéria com data e nome de
+   arma, não vídeo nem opinião solta de fórum.
    **Data manda.** Guia de lançamento não entra, por mais completo que seja:
    entre ele e hoje vieram quatro temporadas e o patch que mexeu em velocidade e
    recuo. Em agosto de 2026 as duas publicações brasileiras que ranqueavam armas

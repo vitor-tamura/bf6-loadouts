@@ -1,64 +1,30 @@
 'use client';
 
-import { Tooltip } from 'antd';
-import { cloneElement, useSyncExternalStore, type ReactElement, type ReactNode } from 'react';
+import { cloneElement, type ReactElement, type ReactNode } from 'react';
 
 /**
- * Um balão de dica que some quando o site roda como aplicativo.
+ * Uma dica que não vira balão.
  *
- * Instalado na tela inicial, o site é usado com o dedo — e balão de dica em
- * tela de toque é um estorvo: ele abre no toque que era para acionar o botão,
- * fica preso até o toque seguinte e cobre justamente o que a pessoa quis tocar.
- * No navegador, com ponteiro, ele continua sendo útil e continua lá.
+ * O site tinha `Tooltip` em vinte lugares. No computador eles funcionavam; no
+ * celular e no aplicativo instalado, não — balão em tela de toque abre no toque
+ * que era para acionar o botão, fica preso até o toque seguinte e cobre
+ * justamente o que a pessoa quis tocar. Como a maior parte dos acessos é por
+ * telefone, os balões saíram de vez.
  *
- * A dica não se perde no caminho: fora do balão, ela vira o atributo `title` do
- * próprio elemento. Nada aparece ao toque, e quem navega por teclado ou leitor
- * de tela continua alcançando o texto.
- */
-
-/** Assina a mudança de modo de exibição — instalar ou desinstalar o app troca isso. */
-function subscribe(onChange: () => void) {
-  const query = window.matchMedia('(display-mode: standalone)');
-  query.addEventListener('change', onChange);
-  return () => query.removeEventListener('change', onChange);
-}
-
-/*
- * `display-mode` cobre Android e desktop; o `navigator.standalone` é a resposta
- * do iOS, que só implementou o media query bem depois e ainda aparece em
- * aparelho antigo.
- */
-const isStandalone = () =>
-  window.matchMedia('(display-mode: standalone)').matches ||
-  (navigator as Navigator & { standalone?: boolean }).standalone === true;
-
-/*
- * No servidor a resposta é sempre "não é aplicativo".
+ * O texto não se perde: vira o nome acessível do elemento. Nada aparece na
+ * tela, e quem usa leitor de tela continua ouvindo a explicação.
  *
- * O HTML é gerado no build, e `useSyncExternalStore` exige um valor para essa
- * hora. Marcar `false` deixa o primeiro quadro igual ao do navegador comum —
- * quem abriu pelo app perde os balões no quadro seguinte, o que é justamente o
- * que se quer.
+ * Onde a dica era a única fonte da informação — o `≈` das armas aproximadas, a
+ * etiqueta de temporada — vale, com o tempo, trazer o texto para a tela em vez
+ * de deixá-lo só aqui.
  */
-const onServer = () => false;
-
-export function useStandalone(): boolean {
-  return useSyncExternalStore(subscribe, isStandalone, onServer);
-}
-
 export function Hint({
   label,
   children,
 }: {
   label: ReactNode;
-  children: ReactElement<{ title?: string }>;
+  children: ReactElement<{ 'aria-label'?: string }>;
 }) {
-  const standalone = useStandalone();
-
-  if (standalone) {
-    // `title` só aceita texto; dica montada com JSX simplesmente não vira atributo.
-    return typeof label === 'string' ? cloneElement(children, { title: label }) : children;
-  }
-
-  return <Tooltip title={label}>{children}</Tooltip>;
+  // Só texto vira nome acessível; dica montada com JSX passa direto.
+  return typeof label === 'string' ? cloneElement(children, { 'aria-label': label }) : children;
 }
