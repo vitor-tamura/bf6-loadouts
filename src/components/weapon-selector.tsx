@@ -1,6 +1,8 @@
 'use client';
 
 import { Empty, Input, Tag, Tooltip } from 'antd';
+import type { InputRef } from 'antd';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import { WEAPONS, CATEGORY_ORDER } from '@/data/weapons';
 import { CLASSES, CATEGORY_NAMES, SHORT_CATEGORY_NAMES } from '@/data/classes';
@@ -141,42 +143,150 @@ export function WeaponFilters({
     </>
   );
 
-  const busca = (
-    <div className={empilhado ? 'block' : 'min-w-[180px] flex-1 lg:max-w-[280px]'}>
-      <Input
-        type="search"
-        value={filter.search}
-        onChange={(e) => filter.setSearch(e.target.value)}
-        placeholder="Buscar arma…"
-        allowClear
-        aria-label="Buscar arma"
-        className="bevel-sm touch w-full"
-      />
-    </div>
-  );
-
   if (empilhado) {
     return (
       <section>
         <h2 className="label mb-2">{title}</h2>
-        {busca}
+        <Input
+          type="search"
+          value={filter.search}
+          onChange={(e) => filter.setSearch(e.target.value)}
+          placeholder="Buscar arma…"
+          allowClear
+          aria-label="Buscar arma"
+          className="bevel-sm touch w-full"
+        />
         <div className="scroll-x -mx-1 mt-2 flex gap-1.5 px-1 pb-1">{chips}</div>
       </section>
     );
   }
 
+  return <FaixaDeBusca filter={filter} title={title} chips={chips} />;
+}
+
+/**
+ * A faixa de busca do montador, recolhida numa lupa.
+ *
+ * Aberta, ela come uma tira inteira da largura da tela — e o montador já
+ * disputa esse espaço com o preview da arma, a lista e o painel de estatísticas.
+ * Fechada, sobra o título, a lupa e um resumo do que está filtrando; o clique
+ * abre a caixa de texto na largura toda e os chips sem barra de rolagem, que é
+ * o momento em que a busca merece o espaço.
+ *
+ * O resumo ao lado da lupa não é enfeite: sem ele, uma categoria escolhida
+ * sumiria junto com os chips e a lista pareceria ter perdido armas sozinha.
+ */
+function FaixaDeBusca({
+  filter,
+  title,
+  chips,
+}: {
+  filter: WeaponFilterState;
+  title: string;
+  chips: React.ReactNode;
+}) {
+  const [aberta, setAberta] = useState(false);
+  const campo = useRef<InputRef>(null);
+  const lupa = useRef<HTMLButtonElement>(null);
+  const reduzido = useReducedMotion();
+
+  // Abrir a busca e ter de clicar de novo para digitar seria um clique perdido.
+  useEffect(() => {
+    if (aberta) campo.current?.focus();
+  }, [aberta]);
+
+  const termo = filter.search.trim();
+  const resumo =
+    [
+      filter.category === 'all' ? null : SHORT_CATEGORY_NAMES[filter.category],
+      termo ? `“${termo}”` : null,
+    ]
+      .filter(Boolean)
+      .join(' · ') || `${filter.total} armas`;
+
+  function fechar() {
+    setAberta(false);
+    lupa.current?.focus();
+  }
+
   return (
-    <section>
-      {/* Em tela larga a busca fica ao lado dos chips; no celular, uma linha
-          para cada, porque lado a lado sobraria meia dúzia de caracteres. */}
-      <div className="flex flex-wrap items-center gap-2">
+    <section
+      onKeyDown={(e) => {
+        if (e.key === 'Escape' && aberta) {
+          e.stopPropagation();
+          fechar();
+        }
+      }}
+    >
+      <div className="flex items-center gap-2">
         <h2 className="label shrink-0">{title}</h2>
-        {busca}
-        <div className="scroll-x -mx-1 flex w-full gap-1.5 px-1 pb-1 lg:w-auto lg:flex-1 lg:flex-wrap lg:overflow-visible lg:pb-0">
-          {chips}
-        </div>
+
+        <button
+          ref={lupa}
+          type="button"
+          onClick={() => (aberta ? fechar() : setAberta(true))}
+          aria-expanded={aberta}
+          aria-controls="busca-de-armas"
+          aria-label={aberta ? 'Fechar a busca de armas' : 'Buscar arma'}
+          className="chip bevel-sm touch shrink-0"
+          style={{
+            background: aberta ? 'var(--accent)' : 'var(--surface-raised)',
+            color: aberta ? '#14170f' : 'var(--text-soft)',
+            border: `1px solid ${aberta ? 'var(--accent)' : 'var(--border)'}`,
+          }}
+        >
+          <IconeLupa />
+        </button>
+
+        {/* Fechada, a faixa ainda precisa dizer o que está filtrando. */}
+        {!aberta && (
+          <span className="truncate text-xs" style={{ color: 'var(--text-dim)' }}>
+            {resumo}
+          </span>
+        )}
       </div>
+
+      <AnimatePresence initial={false}>
+        {aberta && (
+          <motion.div
+            id="busca-de-armas"
+            /*
+             * `overflow-hidden` enquanto a altura anima: sem isso os chips
+             * escapam por baixo da faixa antes de ela terminar de abrir.
+             */
+            className="overflow-hidden"
+            initial={reduzido ? false : { height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={reduzido ? { opacity: 0 } : { height: 0, opacity: 0 }}
+            transition={{ duration: reduzido ? 0 : 0.26, ease: [0.32, 0.72, 0, 1] }}
+          >
+            <Input
+              ref={campo}
+              type="search"
+              value={filter.search}
+              onChange={(e) => filter.setSearch(e.target.value)}
+              placeholder="Buscar arma…"
+              allowClear
+              aria-label="Buscar arma"
+              className="bevel-sm touch mt-2 w-full"
+            />
+            {/* Aberta, a faixa tem largura de sobra: os chips quebram linha em
+                vez de virarem uma barrinha rolável de dois itens visíveis. */}
+            <div className="mt-2 flex flex-wrap gap-1.5">{chips}</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
+  );
+}
+
+/** Lupa desenhada à mão — o resto dos ícones do site também é SVG local. */
+function IconeLupa() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+      <circle cx="7" cy="7" r="4.5" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M10.5 10.5 14 14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
   );
 }
 
