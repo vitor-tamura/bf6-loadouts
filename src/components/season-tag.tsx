@@ -1,4 +1,5 @@
-import { Tag, Tooltip } from 'antd';
+import { Hint } from '@/components/hint';
+import { Tag } from 'antd';
 import { seasonTag } from '@/data/season';
 
 /**
@@ -17,7 +18,7 @@ export function SeasonTag({ season, size = 'md' }: { season: number; size?: 'sm'
   if (!tag) return null;
 
   return (
-    <Tooltip title={tag.title}>
+    <Hint label={tag.title}>
       <Tag
         className={`bevel-sm m-0 shrink-0 font-semibold ${
           size === 'sm' ? 'px-1 text-[9px]' : 'px-1.5 text-[10px]'
@@ -33,6 +34,6 @@ export function SeasonTag({ season, size = 'md' }: { season: number; size?: 'sm'
       >
         {tag.label}
       </Tag>
-    </Tooltip>
+    </Hint>
   );
 }

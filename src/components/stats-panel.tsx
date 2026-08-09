@@ -1,7 +1,8 @@
 'use client';
 
-import { Tooltip } from 'antd';
 
+
+import { Hint } from '@/components/hint';
 import {
   effectiveRange,
   damagePerShot,
@@ -48,7 +49,7 @@ function StatBar({
   return (
     // `group` liga o hover da linha inteira à barra: passar o ponteiro em
     // qualquer ponto da estatística acende a barra dela e engrossa o traço.
-    <Tooltip title={`${label}: ${Math.round(value)} de 100`} mouseEnterDelay={0.5}>
+    <Hint label={`${label}: ${Math.round(value)} de 100`}>
     <div className="stat-row group">
       <div className="mb-1 flex items-baseline justify-between gap-2">
         <span className="label transition-colors group-hover:[color:var(--text-soft)]">{label}</span>
@@ -104,7 +105,7 @@ function StatBar({
         )}
 
         {shows && (
-          <Tooltip title={`Valor de fábrica: ${Math.round(base)}`}>
+          <Hint label={`Valor de fábrica: ${Math.round(base)}`}>
             <span
               className="absolute top-0 h-full w-[2px] transition-[left] duration-300"
               style={{
@@ -113,11 +114,11 @@ function StatBar({
                 boxShadow: '0 0 0 1px rgb(0 0 0 / 0.35)',
               }}
             />
-          </Tooltip>
+          </Hint>
         )}
       </div>
     </div>
-    </Tooltip>
+    </Hint>
   );
 }
 
@@ -153,7 +154,7 @@ function StatNumber({
       </span>
       <span className="flex items-baseline gap-1.5">
         {shows && (
-          <Tooltip title={`De fábrica: ${base.toFixed(decimals)}${unit ? ` ${unit}` : ''}`}>
+          <Hint label={`De fábrica: ${base.toFixed(decimals)}${unit ? ` ${unit}` : ''}`}>
             <span
               className="font-mono text-[11px] whitespace-nowrap"
               style={{ color: delta.improves ? 'var(--color-positive)' : 'var(--color-negative)' }}
@@ -163,7 +164,7 @@ function StatNumber({
               {delta.difference.toFixed(decimals)} ({delta.percent > 0 ? '+' : ''}
               {delta.percent.toFixed(0)}%)
             </span>
-          </Tooltip>
+          </Hint>
         )}
         <span className={`font-mono ${compact ? 'text-[12px]' : 'text-sm'}`}>
           {value.toFixed(decimals)}
@@ -225,7 +226,7 @@ function DerivedStat({
         {value}
       </p>
       {comparable && (
-        <Tooltip title={`De fábrica: ${rawBase.toFixed(decimals)}${suffix}`}>
+        <Hint label={`De fábrica: ${rawBase.toFixed(decimals)}${suffix}`}>
           <p
             className="font-mono text-[11px] whitespace-nowrap"
             style={{ color: improves ? 'var(--color-positive)' : 'var(--color-negative)' }}
@@ -236,7 +237,7 @@ function DerivedStat({
             {suffix}
             {rawBase !== 0 && ` (${percent > 0 ? '+' : ''}${percent.toFixed(0)}%)`}
           </p>
-        </Tooltip>
+        </Hint>
       )}
       {detail && !compact && (
         <p className="text-[11px]" style={{ color: 'var(--text-dim)' }}>

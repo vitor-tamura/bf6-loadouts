@@ -1,6 +1,7 @@
 'use client';
 
-import { Button, Card, Empty, Tooltip } from 'antd';
+import { Hint } from '@/components/hint';
+import { Button, Card, Empty } from 'antd';
 import {
   useEffect,
   useLayoutEffect,
@@ -398,9 +399,9 @@ function SlotOptions({
             ))}
             <span style={{ color: 'var(--text-dim)' }}>{preview.originalName}</span>
             {preview.provenance === 'curated' && (
-              <Tooltip title="Efeito aproximado">
+              <Hint label="Efeito aproximado">
                 <span style={{ color: 'var(--accent)' }}>≈ aproximado</span>
-              </Tooltip>
+              </Hint>
             )}
           </p>
         )}
@@ -465,12 +466,7 @@ function OptionTile({
   const disabled = !fits && !active;
 
   return (
-    <Tooltip
-      title={attachment ? `${attachment.name} · ${attachment.cost} pts` : 'Sem acessório'}
-      // A grade chega a 152 peças; sem o atraso, atravessá-la com o ponteiro
-      // acenderia um balão atrás do outro.
-      mouseEnterDelay={0.4}
-    >
+    <Hint label={attachment ? `${attachment.name} · ${attachment.cost} pts` : 'Sem acessório'}>
       <button
         type="button"
         onClick={onSelect}
@@ -543,7 +539,7 @@ function OptionTile({
           {attachment ? attachment.name : 'Vazio'}
         </span>
       </button>
-    </Tooltip>
+    </Hint>
   );
 }
 

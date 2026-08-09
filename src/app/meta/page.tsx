@@ -1,7 +1,8 @@
 'use client';
 
+import { Hint } from '@/components/hint';
 import Link from 'next/link';
-import { Alert, Card, Col, Row, Tag, Tooltip, Typography } from 'antd';
+import { Alert, Card, Col, Row, Tag, Typography } from 'antd';
 import { AppHeader } from '@/components/header';
 import { SeasonTag } from '@/components/season-tag';
 import { SiteFooter } from '@/components/site-footer';
@@ -55,7 +56,7 @@ export default function MetaPage() {
           <div className="flex flex-wrap items-baseline justify-between gap-2">
             <h1 className="font-display flex flex-wrap items-baseline gap-2 text-xl font-bold tracking-wide">
               Meta da Temporada {META_SEASON}
-              <Tooltip title="O battle royale REDSEC tem meta próprio e não entra nesta lista">
+              <Hint label="O battle royale REDSEC tem meta próprio e não entra nesta lista">
                 <Tag
                   className="bevel-sm m-0 text-[10px] font-semibold tracking-[0.14em] uppercase"
                   style={{
@@ -66,7 +67,7 @@ export default function MetaPage() {
                 >
                   Multiplayer
                 </Tag>
-              </Tooltip>
+              </Hint>
             </h1>
             <Typography.Text className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
               revisado em {shortDate(UPDATED_AT)}
@@ -207,7 +208,7 @@ export default function MetaPage() {
                     [{i + 1}]
                   </span>
                   {f.country === 'BR' && (
-                    <Tooltip title="Publicação brasileira">
+                    <Hint label="Publicação brasileira">
                       <Tag
                         className="bevel-sm m-0 px-1 text-[9px] font-semibold"
                         style={{
@@ -217,7 +218,7 @@ export default function MetaPage() {
                       >
                         BR
                       </Tag>
-                    </Tooltip>
+                    </Hint>
                   )}
                   <Typography.Link
                     href={f.url}
