@@ -1,11 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { TransitionLink } from '@/components/view-transition';
+import { Button, Layout, Menu, Tag, Tooltip } from 'antd';
+import { TransitionLink } from '@/components/page-transition';
 import { usePathname } from 'next/navigation';
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useMemo, type ReactNode } from 'react';
 import { BUILD_DATE } from '@/data/build';
 import { seasonLabel, seasonOn } from '@/data/season';
+import { useTheme } from '@/components/theme';
 
 /**
  * Cabeçalho comum às telas.
@@ -13,6 +15,11 @@ import { seasonLabel, seasonOn } from '@/data/season';
  * O menu fica sempre visível — montar e comparar são as duas coisas que o
  * jogador faz aqui, e esconder uma delas atrás de um ícone seria repetir o
  * problema do site que serviu de referência.
+ *
+ * A navegação passou a ser o `Menu` do Ant Design, que já traz seleção, foco
+ * pelo teclado e o traço sob o item ativo. O arranjo em duas linhas no celular
+ * é do site e continua a cargo do Tailwind: o menu do antd resolve o item, não
+ * o lugar dele na tela.
  */
 
 /** `curto` é o rótulo do celular, onde o nome inteiro quebraria em três linhas. */
@@ -32,71 +39,83 @@ function SeasonBadge() {
   const season = seasonOn(date);
   if (!season) return null;
 
+  /*
+   * Quem esconde a etiqueta no celular é o invólucro, não a etiqueta.
+   * `.ant-tag` declara o próprio `display: inline-block` com a mesma
+   * especificidade do `hidden` do Tailwind, e vencia por ordem no arquivo — a
+   * etiqueta aparecia em 390px e empurrava "ARSENAL BF6" para as reticências.
+   */
   return (
-    <span
-      className="bevel-sm hidden shrink-0 px-2 py-1 text-[10px] font-semibold tracking-[0.14em] uppercase sm:inline-block"
-      title={`Temporada ${season.number}: ${season.name} — ${season.summary}`}
-      style={{
-        color: 'var(--color-cyan-400)',
-        border: '1px solid color-mix(in oklab, var(--color-cyan-500) 45%, transparent)',
-        background: 'color-mix(in oklab, var(--color-cyan-500) 10%, transparent)',
-      }}
-    >
-      {seasonLabel(date)}
+    <span className="hidden shrink-0 sm:inline-block">
+      <Tooltip title={`Temporada ${season.number}: ${season.name} — ${season.summary}`}>
+        <Tag
+          color="cyan"
+          className="bevel-sm text-[10px] font-semibold tracking-[0.14em] uppercase"
+          style={{ marginInlineEnd: 0 }}
+        >
+          {seasonLabel(date)}
+        </Tag>
+      </Tooltip>
     </span>
   );
 }
 
-/** Quanto dura o esmaecimento entre os temas — o mesmo valor está no CSS. */
-const THEME_FADE_MS = 320;
-
-function useTheme() {
-  const [light, setLight] = useState(false);
-  const first = useRef(true);
-
-  useEffect(() => {
-    const root = document.documentElement;
-    root.dataset.theme = light ? 'light' : 'dark';
-
-    // Na primeira renderização não há de onde transicionar, e marcar o `<html>`
-    // faria a página inteira nascer esmaecendo.
-    if (first.current) {
-      first.current = false;
-      return;
-    }
-
-    root.dataset.themeSwitching = '';
-    const timer = setTimeout(() => delete root.dataset.themeSwitching, THEME_FADE_MS);
-    return () => clearTimeout(timer);
-  }, [light]);
-
-  return { light, toggle: () => setLight((v) => !v) };
-}
-
-function ThemeButton({ theme }: { theme: { light: boolean; toggle: () => void } }) {
+function ThemeButton() {
+  const theme = useTheme();
   return (
-    <button
-      type="button"
+    <Button
+      type="text"
       onClick={theme.toggle}
-      className="touch px-2 text-base"
+      className="touch"
       aria-label={theme.light ? 'Usar tema escuro' : 'Usar tema claro'}
-      style={{ color: 'var(--text-dim)' }}
+      style={{ color: 'var(--text-dim)', fontSize: 16 }}
     >
       {theme.light ? '☾' : '☀'}
-    </button>
+    </Button>
   );
 }
 
 export function AppHeader({ subtitle, actions }: { subtitle?: string; actions?: ReactNode }) {
   const pathname = usePathname();
-  const theme = useTheme();
+
+  /*
+   * O item ativo é o caminho atual, com e sem a barra final: as rotas são
+   * geradas com `trailingSlash`, mas o `usePathname` devolve o endereço como
+   * ele está na barra do navegador, e nem sempre os dois coincidem.
+   */
+  const selected = useMemo(() => {
+    const match = SECTIONS.find(
+      (s) => pathname === s.href || pathname === s.href.replace(/\/$/, ''),
+    );
+    return match ? [match.href] : [];
+  }, [pathname]);
+
+  const items = useMemo(
+    () =>
+      SECTIONS.map((section) => ({
+        key: section.href,
+        label: (
+          <TransitionLink href={section.href}>
+            <span className="lg:hidden">{section.curto}</span>
+            <span className="hidden lg:inline">{section.name}</span>
+          </TransitionLink>
+        ),
+      })),
+    [],
+  );
 
   return (
-    <header
-      className="pt-safe sticky top-0 z-30 border-b px-3 pb-2 backdrop-blur"
+    <Layout.Header
+      className="pt-safe sticky top-0 z-30 border-b pb-2 backdrop-blur"
       style={{
         background: 'color-mix(in oklab, var(--bg) 88%, transparent)',
         borderColor: 'var(--border-soft)',
+        height: 'auto',
+        lineHeight: 'normal',
+        // O recuo vai no estilo, não em `px-3`: o antd declara `padding-inline`
+        // no próprio `.ant-layout-header`, e a classe do Tailwind perdia para
+        // ele — o título nascia colado na borda da tela.
+        paddingInline: 12,
       }}
     >
       {/*
@@ -122,40 +141,35 @@ export function AppHeader({ subtitle, actions }: { subtitle?: string; actions?: 
 
           {/* No celular as ações sobem para esta linha; no computador ficam à direita. */}
           <div className="flex shrink-0 items-center gap-2 lg:hidden">
-            <ThemeButton theme={theme} />
+            <ThemeButton />
             {actions}
           </div>
         </div>
 
-        <nav
+        <Menu
+          mode="horizontal"
           aria-label="Seções"
-          className="scroll-x -mx-1 flex gap-1 px-1 lg:mx-0 lg:overflow-visible lg:px-0"
-        >
-          {SECTIONS.map((section) => {
-            const active = pathname === section.href || pathname === section.href.replace(/\/$/, '');
-            return (
-              <TransitionLink
-                key={section.href}
-                href={section.href}
-                aria-current={active ? 'page' : undefined}
-                className="bevel-sm shrink-0 px-3 py-1.5 text-sm font-semibold whitespace-nowrap"
-                style={{
-                  background: active ? 'color-mix(in oklab, var(--accent) 18%, transparent)' : 'transparent',
-                  color: active ? 'var(--accent)' : 'var(--text-dim)',
-                }}
-              >
-                <span className="lg:hidden">{section.curto}</span>
-                <span className="hidden lg:inline">{section.name}</span>
-              </TransitionLink>
-            );
-          })}
-        </nav>
+          selectedKeys={selected}
+          items={items}
+          // Sem isto o antd esconde o que não couber atrás de "···". São quatro
+          // itens curtos: no celular é melhor deixá-los rolar de lado do que
+          // sumir com metade da navegação.
+          disabledOverflow
+          /*
+           * A rolagem lateral é rede de segurança do celular, e some no
+           * computador — lá os quatro itens cabem, e a barra aparecia sem ter o
+           * que rolar. É `overflow-x-auto` em vez da `.scroll-x` do site porque
+           * as duas vivem na mesma camada do CSS e a variante `lg:` perdia.
+           */
+          className="min-w-0 flex-1 justify-start overflow-x-auto border-0 bg-transparent lg:flex-none lg:justify-end lg:overflow-x-visible"
+          style={{ lineHeight: '2.2rem', scrollbarWidth: 'none' }}
+        />
 
         <div className="hidden shrink-0 items-center gap-2 lg:flex">
-          <ThemeButton theme={theme} />
+          <ThemeButton />
           {actions}
         </div>
       </div>
-    </header>
+    </Layout.Header>
   );
 }

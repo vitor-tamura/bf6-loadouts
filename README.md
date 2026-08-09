@@ -31,7 +31,7 @@ npm run dev      # http://localhost:3000
 | --- | --- |
 | `npm run dev` | servidor de desenvolvimento |
 | `npm run build` | gera o site estático em `out/` |
-| `npm test` | 56 testes de dataset, cálculo, balística, link e temporada |
+| `npm test` | 72 testes de dataset, cálculo, balística, link e temporada |
 | `npm run typecheck` | checagem de tipos |
 | `npm run sync` | compara o dataset com o catálogo público — só relata |
 | `npm run sync:apply` | grava o que dá para gravar, preservando a curadoria |
@@ -129,8 +129,43 @@ nenhuma.
 ## Stack
 
 Next.js 16 (App Router, exportação estática) · TypeScript · Tailwind CSS 4 ·
-Zustand · Vitest. Gráficos e desenhos das armas são SVG próprio, sem bibliotecas
-de visualização.
+Ant Design 6 · Motion · Zustand · Vitest. Gráficos e desenhos das armas são SVG
+próprio, sem bibliotecas de visualização.
+
+**Medição** vem do Vercel Analytics e do Speed Insights, montados no layout raiz
+([`src/app/layout.tsx`](./src/app/layout.tsx)). O primeiro conta visita por rota
+— é ele que responde quais telas as pessoas realmente abrem; o segundo coleta as
+Web Vitals de quem acessa de verdade, em celular e rede que o Lighthouse local
+não reproduz. Nenhum dos dois recebe o loadout: o que identifica uma build viaja
+na query da URL, e a rota registrada é o caminho, não a montagem.
+
+Os dois scripts são servidos pela plataforma, em `/_vercel/`, e por isso só
+respondem em deploy da Vercel — em outra hospedagem estática o pedido dá 404 e
+para por ali, sem afetar nenhuma tela. Cada um precisa ser ligado uma vez no
+painel do projeto, na aba correspondente; sem isso o script sobe e não há onde
+ler o resultado.
+
+**Ant Design** dá os componentes de todas as telas: tabelas ordenáveis, modais,
+seleção com busca, avisos, campos e etiquetas. Quem manda na aparência continua
+sendo o CSS do site — o `ConfigProvider` recebe as cores e o canto reto em
+[`src/lib/antd-theme.ts`](./src/lib/antd-theme.ts), e o chanfro entra por cima,
+pelas classes `.bevel`. Os tokens precisam de cor literal (o antd deriva a
+paleta em JavaScript, e `var(--accent)` chegaria lá como texto), então esse
+arquivo espelha os blocos `:root` do `globals.css`.
+
+Onde o antd não entrou, foi por motivo: os gráficos seguem em `<figure>` porque
+o `Card` não troca de tag e a semântica é a informação; as barras espelhadas da
+comparação crescem do centro para os lados, o que o `Progress` não faz; as
+quatro classes têm cada uma a sua cor de seleção, e os componentes de escolha do
+antd têm uma só. O `List` foi tentado e desfeito — está depreciado na versão 6.
+
+**Motion** cuida do movimento. A troca de tela é uma cortina inclinada que varre
+a página, cobre, deixa a rota nova montar e sai pelo outro lado
+([`src/components/page-transition.tsx`](./src/components/page-transition.tsx));
+o painel de armas do montador é arrastável pelo `drag` da mesma biblioteca. O
+efeito é o `curtains wipe` do Motion, cuja versão oficial vem do hook
+`useCurtains` — parte do Motion+, pago; aqui ele está reproduzido com a API
+aberta.
 
 O código usa nomes em inglês; a interface e o dataset, português.
 

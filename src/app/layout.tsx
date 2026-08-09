@@ -1,8 +1,12 @@
 import type { Metadata, Viewport } from 'next';
 import { Barlow, Barlow_Condensed } from 'next/font/google';
+import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { BUILD_DATE } from '@/data/build';
 import { seasonTheme } from '@/data/season';
-import { TransitionWatcher } from '@/components/view-transition';
+import { ThemeProvider } from '@/components/theme';
+import { PageCurtain } from '@/components/page-transition';
 import './globals.css';
 
 const barlow = Barlow({
@@ -67,8 +71,32 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${barlow.variable} ${barlowCondensed.variable}`}
     >
       <body className="min-h-dvh antialiased">
-        <TransitionWatcher />
-        {children}
+        {/*
+          O registry recolhe o CSS-in-JS do antd durante o pré-render e o
+          escreve no `<head>` do HTML gerado. Sem ele os componentes nasceriam
+          sem estilo e se ajeitariam depois da hidratação — num site estático,
+          isso é um piscar visível em toda primeira visita.
+        */}
+        <AntdRegistry>
+          <ThemeProvider>
+            <PageCurtain>{children}</PageCurtain>
+          </ThemeProvider>
+        </AntdRegistry>
+        {/*
+          Medição da Vercel: o Analytics conta visita por rota e o Speed
+          Insights coleta as Web Vitals de quem realmente acessa — o que o
+          Lighthouse local não mostra, porque aqui não há celular ruim nem rede
+          lenta. Os dois leem a rota pelo `useSearchParams`, e cada um já se
+          envolve num Suspense próprio; sem isso o Next desistiria do
+          pré-render de todas as telas de uma vez, que foi o que aconteceu com
+          o montador antes de 7b77ae2.
+
+          Os scripts são servidos pela plataforma em /_vercel/, então só
+          respondem em deploy da Vercel. Servido de outra hospedagem estática,
+          o pedido dá 404 e morre ali — nenhuma tela quebra por causa disso.
+        */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

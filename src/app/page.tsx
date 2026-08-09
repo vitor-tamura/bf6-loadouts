@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { Card, Col, Empty, Input, Row, Select, Tag, Typography } from 'antd';
 import { useEffect, useMemo, useState } from 'react';
 import { AppHeader } from '@/components/header';
 import { WeaponPreview } from '@/components/weapon-preview';
@@ -20,6 +21,12 @@ import { baseStats } from '@/lib/stats';
  * Todas as armas de uma vez, com o desenho e os números que decidem a escolha à
  * vista. Clicar em uma leva direto ao montador já com ela equipada — a lista
  * existe para escolher, não só para consultar.
+ *
+ * É a tela-piloto do Ant Design: os controles de busca, ordenação e filtro
+ * saíram do que era feito à mão e passaram a ser `Input`, `Select` e
+ * `Tag.CheckableTag`, e a grade virou `Row`/`Col`. O que não mudou foi a
+ * aparência — o chanfro, a trama do fundo e as cores continuam vindo do CSS do
+ * site, aplicados por cima dos componentes.
  */
 
 /**
@@ -57,13 +64,16 @@ function matchesSearch(weapon: Weapon, term: string): boolean {
 
 type SortKey = 'nome' | 'dano' | 'cadencia' | 'ttk' | 'alcance';
 
-const SORTS: { id: SortKey; label: string }[] = [
-  { id: 'nome', label: 'Nome' },
-  { id: 'dano', label: 'Dano' },
-  { id: 'cadencia', label: 'Cadência' },
-  { id: 'ttk', label: 'Tempo para matar' },
-  { id: 'alcance', label: 'Velocidade' },
+const SORTS: { value: SortKey; label: string }[] = [
+  { value: 'nome', label: 'Nome' },
+  { value: 'dano', label: 'Dano' },
+  { value: 'cadencia', label: 'Cadência' },
+  { value: 'ttk', label: 'Tempo para matar' },
+  { value: 'alcance', label: 'Velocidade' },
 ];
+
+/** Uma coluna por faixa de largura — o mesmo que o grid do Tailwind fazia. */
+const COLS = { xs: 24, sm: 12, lg: 8, xl: 6 };
 
 export default function WeaponsPage() {
   useLegacyLoadoutRedirect();
@@ -158,34 +168,39 @@ export default function WeaponsPage() {
       <AppHeader subtitle="Todas as armas" />
 
       <main className="mx-auto max-w-[1600px] px-3 py-3">
-        <div className="card bevel mb-3 p-3">
+        <Card
+          variant="outlined"
+          className="card bevel mb-3"
+          styles={{ body: { padding: 12 } }}
+          style={{ borderColor: 'var(--border-soft)' }}
+        >
+          {/*
+            No celular a busca fica com a linha inteira e a ordenação desce para
+            a seguinte. Dividir as duas ali sobrava um campo de busca de 90px, e
+            é ele que a pessoa usa primeiro.
+          */}
           <div className="flex flex-wrap items-center gap-2">
-            <label className="min-w-[200px] flex-1">
-              <span className="sr-only">Buscar arma</span>
-              <input
-                type="search"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                placeholder="Buscar arma…"
-                className="bevel-sm touch w-full px-3 py-2 text-sm outline-none"
-                style={{ background: 'var(--surface-raised)', border: '1px solid var(--border)' }}
-              />
-            </label>
+            <Input
+              type="search"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Buscar arma…"
+              allowClear
+              aria-label="Buscar arma"
+              className="bevel-sm touch w-full sm:w-auto sm:min-w-[200px] sm:flex-1"
+            />
 
-            <label className="flex items-center gap-2 text-xs" style={{ color: 'var(--text-dim)' }}>
+            <label
+              className="flex w-full items-center gap-2 text-xs sm:w-auto"
+              style={{ color: 'var(--text-dim)' }}
+            >
               Ordenar por
-              <select
+              <Select
                 value={sort}
-                onChange={(e) => setSort(e.target.value as SortKey)}
-                className="bevel-sm touch px-2 py-2 text-sm"
-                style={{ background: 'var(--surface-raised)', border: '1px solid var(--border)', color: 'var(--text)' }}
-              >
-                {SORTS.map((s) => (
-                  <option key={s.id} value={s.id}>
-                    {s.label}
-                  </option>
-                ))}
-              </select>
+                onChange={setSort}
+                options={SORTS}
+                className="bevel-sm touch flex-1 sm:w-[170px] sm:flex-none"
+              />
             </label>
           </div>
 
@@ -230,15 +245,15 @@ export default function WeaponsPage() {
             ))}
           </div>
 
-          <p className="mt-2 text-[11px]" style={{ color: 'var(--text-dim)' }}>
+          <Typography.Text className="mt-2 block text-[11px]" style={{ color: 'var(--text-dim)' }}>
             {list.length} {list.length === 1 ? 'arma encontrada' : 'armas encontradas'}
-          </p>
-        </div>
+          </Typography.Text>
+        </Card>
 
         {list.length === 0 && (
-          <p className="card bevel p-8 text-center text-sm" style={{ color: 'var(--text-dim)' }}>
-            Nenhuma arma encontrada com esses filtros.
-          </p>
+          <Card variant="outlined" className="card bevel" style={{ borderColor: 'var(--border-soft)' }}>
+            <Empty description="Nenhuma arma encontrada com esses filtros." />
+          </Card>
         )}
 
         {grouped ? (
@@ -260,6 +275,13 @@ export default function WeaponsPage() {
   );
 }
 
+/**
+ * Chip de filtro.
+ *
+ * `Tag.CheckableTag` é o componente do antd para exatamente isto — filtro que
+ * liga e desliga —, mas ele só conhece uma cor de seleção, e aqui cada classe
+ * tem a sua. Daí o estilo continuar vindo por fora.
+ */
 function Chip({
   active,
   onClick,
@@ -276,16 +298,16 @@ function Chip({
 }) {
   const tint = color ?? 'var(--accent)';
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-pressed={active}
-      className="chip bevel-sm shrink-0 px-3 py-2 text-xs whitespace-nowrap"
+    <Tag.CheckableTag
+      checked={active}
+      onChange={onClick}
+      className="chip bevel-sm touch shrink-0 text-xs whitespace-nowrap"
       style={{
         background: active ? tint : 'var(--surface-raised)',
         color: active ? '#14170f' : 'var(--text-soft)',
         border: `1px solid ${active ? tint : 'var(--border)'}`,
         fontWeight: active ? 600 : 500,
+        marginInlineEnd: 0,
       }}
     >
       {children}
@@ -299,19 +321,19 @@ function Chip({
           {count}
         </span>
       )}
-    </button>
+    </Tag.CheckableTag>
   );
 }
 
 function Grid({ items }: { items: { weapon: Weapon; stats: ReturnType<typeof baseStats> }[] }) {
   return (
-    <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <Row gutter={[8, 8]}>
       {items.map(({ weapon, stats }) => (
-        <li key={weapon.id}>
+        <Col key={weapon.id} {...COLS}>
           <WeaponCard weapon={weapon} stats={stats} />
-        </li>
+        </Col>
       ))}
-    </ul>
+    </Row>
   );
 }
 
@@ -324,41 +346,56 @@ function WeaponCard({ weapon, stats }: { weapon: Weapon; stats: ReturnType<typeo
   const href = `${BUILDER_PATH}?l=${encodeLoadout({ ...EMPTY_LOADOUT, weapon: weapon.id })}`;
 
   return (
-    <Link
-      href={href}
-      className="card bevel block h-full p-2"
-      style={{ borderColor: 'var(--border-soft)' }}
-    >
-      <div className="flex items-start justify-between gap-2">
-        <div className="min-w-0">
-          <p className="font-display truncate text-base leading-tight font-semibold">{weapon.name}</p>
-          <p className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
-            {SHORT_CATEGORY_NAMES[weapon.category]}
-            {signature && (
-              <>
-                {' · '}
-                <span style={{ color: signature.color }}>{signature.name}</span>
-              </>
-            )}
-          </p>
+    <Link href={href} className="block h-full">
+      <Card
+        variant="outlined"
+        hoverable
+        className="card bevel h-full"
+        styles={{ body: { padding: 8 } }}
+        style={{ borderColor: 'var(--border-soft)' }}
+      >
+        <div className="flex items-start justify-between gap-2">
+          <div className="min-w-0">
+            <p className="font-display truncate text-base leading-tight font-semibold">
+              {weapon.name}
+            </p>
+            <p className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
+              {SHORT_CATEGORY_NAMES[weapon.category]}
+              {signature && (
+                <>
+                  {' · '}
+                  <span style={{ color: signature.color }}>{signature.name}</span>
+                </>
+              )}
+            </p>
+          </div>
+          <SeasonTag season={weapon.season} />
         </div>
-        <SeasonTag season={weapon.season} />
-      </div>
 
-      <WeaponPreview weapon={weapon} className="my-1 w-full" />
+        <WeaponPreview weapon={weapon} className="my-1 w-full" />
 
-      <p className="mb-1.5 line-clamp-2 text-[11px] leading-snug" style={{ color: 'var(--text-soft)' }}>
-        {weapon.summary}
-      </p>
+        <p
+          className="mb-1.5 line-clamp-2 text-[11px] leading-snug"
+          style={{ color: 'var(--text-soft)' }}
+        >
+          {weapon.summary}
+        </p>
 
-      {!melee && (
-        <dl className="grid grid-cols-4 gap-1 text-center">
-          <Stat label="Dano" value={damagePerShot(stats, 0).toFixed(0)} />
-          <Stat label="RPM" value={String(stats.rpm)} />
-          <Stat label="TTK" value={Number.isFinite(ttk) ? `${Math.round(ttk)}` : '—'} unit="ms" />
-          <Stat label="Tiros" value={String(shotsToKill(stats, 0))} />
-        </dl>
-      )}
+        {/*
+          Os quatro números seguem numa lista de definição, com a grade do
+          Tailwind. `Row`/`Col` não renderizam `<dl>`, e trocar o par
+          rótulo/valor por divs só para usar o componente do antd custaria a
+          semântica sem ganhar nada — são quatro células de largura fixa.
+        */}
+        {!melee && (
+          <dl className="grid grid-cols-4 gap-1 text-center">
+            <Stat label="Dano" value={damagePerShot(stats, 0).toFixed(0)} />
+            <Stat label="RPM" value={String(stats.rpm)} />
+            <Stat label="TTK" value={Number.isFinite(ttk) ? `${Math.round(ttk)}` : '—'} unit="ms" />
+            <Stat label="Tiros" value={String(shotsToKill(stats, 0))} />
+          </dl>
+        )}
+      </Card>
     </Link>
   );
 }
@@ -369,7 +406,11 @@ function Stat({ label, value, unit }: { label: string; value: string; unit?: str
       <dt className="label text-[9px]">{label}</dt>
       <dd className="font-mono text-sm leading-tight">
         {value}
-        {unit && <span className="text-[9px]" style={{ color: 'var(--text-dim)' }}>{unit}</span>}
+        {unit && (
+          <span className="text-[9px]" style={{ color: 'var(--text-dim)' }}>
+            {unit}
+          </span>
+        )}
       </dd>
     </div>
   );

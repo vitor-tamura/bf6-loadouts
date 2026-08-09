@@ -1,6 +1,14 @@
 'use client';
 
-import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type RefObject } from 'react';
+import { Button, Card, Empty, Tooltip } from 'antd';
+import {
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type RefObject,
+} from 'react';
 import { attachmentsForWeapon } from '@/data/attachments';
 import { budgetFor, SLOTS_BY_ID } from '@/data/classes';
 import type { Attachment, Weapon, StatKey, SlotId, WeaponCategory } from '@/data/types';
@@ -125,7 +133,9 @@ export function BudgetBar({ budget }: { budget: Budget }) {
             <span
               key={i}
               className="tick relative h-3.5 overflow-hidden"
-              style={{ border: `1px solid ${fill > 0 ? 'var(--accent)' : 'var(--border)'}` }}
+              style={{
+                border: `1px solid ${fill > 0 ? 'var(--accent)' : 'var(--border)'}`,
+              }}
             >
               <span
                 className="absolute inset-y-0 left-0 transition-[width] duration-300"
@@ -141,7 +151,9 @@ export function BudgetBar({ budget }: { budget: Budget }) {
         {/* Marcas extras, uma por dezena estourada — o excesso precisa caber. */}
         {budget.overBudget &&
           Array.from(
-            { length: Math.ceil((budget.spent - budget.total) / POINTS_PER_TICK) },
+            {
+              length: Math.ceil((budget.spent - budget.total) / POINTS_PER_TICK),
+            },
             (_, i) => (
               <span
                 key={`over-${i}`}
@@ -186,9 +198,21 @@ export function SlotsPanel({
 
   if (bySlot.size === 0) {
     return (
-      <p className="card bevel p-4 text-sm" style={{ color: 'var(--text-dim)' }}>
-        Armas de corpo a corpo não recebem acessórios.
-      </p>
+      <Card
+        variant="outlined"
+        className="card bevel"
+        styles={{ body: { padding: 16 } }}
+        style={{ borderColor: 'var(--border-soft)' }}
+      >
+        <Empty
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+          description={
+            <span className="text-sm" style={{ color: 'var(--text-dim)' }}>
+              Armas de corpo a corpo não recebem acessórios.
+            </span>
+          }
+        />
+      </Card>
     );
   }
 
@@ -236,7 +260,7 @@ export function SlotsPanel({
               type="button"
               onClick={() => setOpen(expanded ? null : slot)}
               aria-expanded={expanded}
-      className="card bevel-sm flex flex-col items-center gap-1 p-2 text-center"
+              className="card bevel-sm flex flex-col items-center gap-1 p-2 text-center"
               style={{
                 borderColor: expanded
                   ? 'var(--accent)'
@@ -332,17 +356,23 @@ function SlotOptions({
   const spendWithout = currentSpend - (chosen?.cost ?? 0);
 
   return (
-    <div className="card bevel-sm mt-1 p-3" style={{ borderColor: 'var(--accent)' }}>
+    <Card
+      variant="outlined"
+      className="card bevel-sm mt-1"
+      styles={{ body: { padding: 12 } }}
+      style={{ borderColor: 'var(--accent)' }}
+    >
       <div className="mb-1 flex items-baseline justify-between gap-2">
         <span className="label">{definition.name}</span>
-        <button
-          type="button"
+        <Button
+          type="link"
+          size="small"
           onClick={onClose}
           className="px-1 text-xs"
           style={{ color: 'var(--text-dim)' }}
         >
           fechar
-        </button>
+        </Button>
       </div>
 
       {/* Detalhe da peça em foco. A altura é reservada para que passar o
@@ -359,16 +389,18 @@ function SlotOptions({
             {summarizeEffects(preview).map((effect) => (
               <span
                 key={effect.text}
-                style={{ color: effect.good ? 'var(--color-positive)' : 'var(--color-negative)' }}
+                style={{
+                  color: effect.good ? 'var(--color-positive)' : 'var(--color-negative)',
+                }}
               >
                 {effect.text}
               </span>
             ))}
             <span style={{ color: 'var(--text-dim)' }}>{preview.originalName}</span>
             {preview.provenance === 'curated' && (
-              <span style={{ color: 'var(--accent)' }} title="Efeito aproximado">
-                ≈ aproximado
-              </span>
+              <Tooltip title="Efeito aproximado">
+                <span style={{ color: 'var(--accent)' }}>≈ aproximado</span>
+              </Tooltip>
             )}
           </p>
         )}
@@ -402,7 +434,7 @@ function SlotOptions({
           </li>
         ))}
       </ul>
-    </div>
+    </Card>
   );
 }
 
@@ -433,49 +465,66 @@ function OptionTile({
   const disabled = !fits && !active;
 
   return (
-    <button
-      type="button"
-      onClick={onSelect}
-      onMouseEnter={onFocus}
-      onFocus={onFocus}
-      disabled={disabled}
-      aria-pressed={active}
+    <Tooltip
       title={attachment ? `${attachment.name} · ${attachment.cost} pts` : 'Sem acessório'}
-      className="tile bevel-sm flex aspect-square w-full flex-col items-center justify-between p-1.5 text-center"
-      style={
-        {
-          '--tile-bg': active
-            ? 'color-mix(in oklab, var(--accent) 16%, var(--surface))'
-            : 'var(--surface-raised)',
-          border: `1px solid ${active ? 'var(--accent)' : 'var(--border-soft)'}`,
-          opacity: disabled ? 0.4 : 1,
-        } as CSSProperties
-      }
+      // A grade chega a 152 peças; sem o atraso, atravessá-la com o ponteiro
+      // acenderia um balão atrás do outro.
+      mouseEnterDelay={0.4}
     >
-      <span
-        className="w-full text-left font-mono text-[10px] leading-none"
-        style={{ color: disabled ? 'var(--color-negative)' : active ? 'var(--accent)' : 'var(--text-dim)' }}
+      <button
+        type="button"
+        onClick={onSelect}
+        onMouseEnter={onFocus}
+        onFocus={onFocus}
+        disabled={disabled}
+        aria-pressed={active}
+        className="tile bevel-sm flex aspect-square w-full flex-col items-center justify-between p-1.5 text-center"
+        style={
+          {
+            '--tile-bg': active
+              ? 'color-mix(in oklab, var(--accent) 16%, var(--surface))'
+              : 'var(--surface-raised)',
+            border: `1px solid ${active ? 'var(--accent)' : 'var(--border-soft)'}`,
+            opacity: disabled ? 0.4 : 1,
+          } as CSSProperties
+        }
       >
-        {attachment ? attachment.cost : 0}
-      </span>
+        <span
+          className="w-full text-left font-mono text-[10px] leading-none"
+          style={{
+            color: disabled
+              ? 'var(--color-negative)'
+              : active
+                ? 'var(--accent)'
+                : 'var(--text-dim)',
+          }}
+        >
+          {attachment ? attachment.cost : 0}
+        </span>
 
-      <span style={{ color: active ? 'var(--accent)' : 'var(--text-soft)', lineHeight: 0 }}>
-        {attachment ? (
-          <AttachmentIcon attachment={attachment} slot={slot} size={30} />
-        ) : (
-          <span className="block text-lg" style={{ color: 'var(--text-dim)' }}>
-            ✕
-          </span>
-        )}
-      </span>
+        <span
+          style={{
+            color: active ? 'var(--accent)' : 'var(--text-soft)',
+            lineHeight: 0,
+          }}
+        >
+          {attachment ? (
+            <AttachmentIcon attachment={attachment} slot={slot} size={30} />
+          ) : (
+            <span className="block text-lg" style={{ color: 'var(--text-dim)' }}>
+              ✕
+            </span>
+          )}
+        </span>
 
-      <span
-        className="line-clamp-2 w-full text-[10px] leading-tight"
-        style={{ color: active ? 'var(--text)' : 'var(--text-dim)' }}
-      >
-        {attachment ? attachment.name : 'Vazio'}
-      </span>
-    </button>
+        <span
+          className="line-clamp-2 w-full text-[10px] leading-tight"
+          style={{ color: active ? 'var(--text)' : 'var(--text-dim)' }}
+        >
+          {attachment ? attachment.name : 'Vazio'}
+        </span>
+      </button>
+    </Tooltip>
   );
 }
 

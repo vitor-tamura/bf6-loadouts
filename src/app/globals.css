@@ -509,44 +509,13 @@
 }
 
 /*
- * Troca de tela.
+ * A troca de tela saiu daqui.
  *
- * O cruzamento padrão do navegador é bom, mas curto demais para a densidade
- * desta interface: a tela toda troca de conteúdo e o olho precisa de um
- * instante para reancorar. O que entra sobe alguns pixels — o suficiente para
- * dar direção ao movimento sem virar deslizamento de carrossel.
+ * Era View Transitions API, escrita em `::view-transition-*`. Agora é a cortina
+ * do Motion, em `src/components/page-transition.tsx`: como ela cobre a tela por
+ * inteiro durante a navegação, o cruzamento entre a página velha e a nova
+ * deixou de existir — e com ele o motivo destas regras.
  */
-::view-transition-old(root) {
-  animation: 160ms var(--ease-out) both fade-out;
-}
-
-::view-transition-new(root) {
-  animation: 260ms var(--ease-snap) 60ms both screen-in;
-}
-
-@keyframes fade-out {
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes screen-in {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-}
-
-/* O cabeçalho permanece entre as telas: deixá-lo cruzar junto o faria piscar. */
-header {
-  view-transition-name: app-header;
-}
-
-::view-transition-group(app-header),
-::view-transition-old(app-header),
-::view-transition-new(app-header) {
-  animation: none;
-}
 
 /*
  * Marca do medidor de pontos.
@@ -569,6 +538,24 @@ header {
 .chip {
   position: relative;
   isolation: isolate;
+}
+
+/*
+ * Caixa e alinhamento do chip, escritos com a classe repetida.
+ *
+ * O `Tag` do antd se declara como `:where(.css-…).ant-tag` — mesmo peso que
+ * `.chip` —, e o `<style>` dele entra no `<head>` depois da folha da aplicação,
+ * então no empate quem ganhava era ele: `display: block` e preenchimento
+ * próprio. Com isso o texto ficava encostado no alto dos 44 px de altura mínima
+ * do alvo de toque, em vez de no meio. As utilitárias do Tailwind não resolviam
+ * porque a v4 as põe em `@layer utilities`, que perde para qualquer regra fora
+ * de camada. `.chip.chip` desempata sem citar o nome de classe interno do antd.
+ */
+.chip.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 0.75rem;
 }
 
 .chip::before {

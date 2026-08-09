@@ -1,207 +1,142 @@
 'use client';
 
-import { useMemo, useRef, useState, type ReactNode } from 'react';
-import {
-  damageCurve,
-  dropCurve,
-  damagePerShot,
-  bulletDrop,
-  timeToKill,
-  shotsToKill,
-  type CurvePoint,
-} from '@/lib/ballistics';
+import dynamic from 'next/dynamic';
+import { useMemo, type ReactNode } from 'react';
+import { damageCurve, dropCurve, damagePerShot, type CurvePoint } from '@/lib/ballistics';
+import { coresDoTema } from '@/lib/antd-theme';
+import { useTheme } from './theme';
 import type { EffectiveStats } from '@/lib/stats';
 
 /**
- * Gráficos desenhados à mão em SVG.
+ * Os gráficos, desenhados pelo Ant Design Plots.
  *
- * São dois gráficos pequenos, lidos no celular, que precisam responder a cada
- * acessório trocado e funcionar nos dois temas. Uma biblioteca de gráficos
- * traria muito mais peso e menos controle do que as poucas contas de escala
- * necessárias aqui.
+ * Antes eram SVG escritos à mão aqui dentro. O desenho continua o mesmo — curva
+ * de dano em degraus, queda do projétil, comparação entre armas —, mas eixos,
+ * grade, legenda, tooltip e a linha guia sob o cursor passaram a vir prontos, e
+ * com eles o comportamento que ninguém tinha escrito: reticulado que acompanha
+ * o ponteiro, valores de todas as séries de uma vez, redesenho ao redimensionar.
+ *
+ * A biblioteca entra por `@ant-design/plots`, e não pelo guarda-chuva
+ * `@ant-design/charts`: o guarda-chuva reexporta junto o pacote de grafos, que
+ * não tem uso nenhum aqui e dobraria o peso baixado à toa.
+ *
+ * O canvas é montado só no navegador (`ssr: false`). O site é exportado
+ * estático, e o G2 mede o elemento para se dimensionar — no HTML pré-gerado não
+ * há elemento medido, e o gráfico nasceria com tamanho zero.
  */
 
-const L = 640;
-const A = 250;
-const MARGIN = { topo: 18, direita: 14, base: 34, esquerda: 44 };
-const AREA = {
-  x: MARGIN.esquerda,
-  y: MARGIN.topo,
-  width: L - MARGIN.esquerda - MARGIN.direita,
-  height: A - MARGIN.topo - MARGIN.base,
-};
+const Line = dynamic(() => import('@ant-design/plots').then((m) => m.Line), {
+  ssr: false,
+  loading: () => <div style={{ height: ALTURA }} aria-hidden />,
+});
 
-function scaleX(value: number, max: number): number {
-  return AREA.x + (value / max) * AREA.width;
+const ALTURA = 250;
+
+/** Um ponto no formato longo que o G2 espera: distância, valor e série. */
+interface Ponto {
+  distancia: number;
+  valor: number;
+  serie: string;
 }
 
-function scaleY(value: number, max: number): number {
-  return AREA.y + AREA.height - (value / Math.max(max, 1e-6)) * AREA.height;
+const pontos = (curva: CurvePoint[], serie: string): Ponto[] =>
+  curva.map((p) => ({ distancia: p.distance, valor: p.value, serie }));
+
+/** Metros e centímetros escritos como se escreve em português. */
+const numero = (v: number, casas = 1) => v.toFixed(casas).replace('.', ',');
+
+/**
+ * O molde comum aos três gráficos.
+ *
+ * Eixos sem linha nem marca, grade discreta, legenda em cima e tooltip
+ * compartilhada — o mesmo enquadramento que o desenho à mão tinha, agora dito
+ * uma vez só.
+ */
+function useMolde(rotuloY: string) {
+  const { light } = useTheme();
+
+  return useMemo(() => {
+    const c = coresDoTema(light);
+    const fonte = 'var(--font-sans), system-ui, sans-serif';
+
+    return {
+      autoFit: true,
+      height: ALTURA,
+      theme: light ? 'classic' : 'classicDark',
+      // Fundo transparente: o cartão por baixo já tem a superfície e a trama.
+      style: { viewFill: 'transparent', plotFill: 'transparent' },
+      axis: {
+        x: {
+          title: 'metros',
+          titleFill: c.textDim,
+          titleFontSize: 10,
+          labelFill: c.textDim,
+          labelFontSize: 11,
+          labelFontFamily: fonte,
+          line: false,
+          tick: false,
+          grid: true,
+          gridStroke: c.border,
+          gridStrokeOpacity: 0.5,
+        },
+        y: {
+          title: rotuloY,
+          titleFill: c.textDim,
+          titleFontSize: 10,
+          labelFill: c.textDim,
+          labelFontSize: 11,
+          labelFontFamily: fonte,
+          line: false,
+          tick: false,
+          gridStroke: c.border,
+        },
+      },
+      legend: {
+        color: {
+          position: 'top' as const,
+          layout: { justifyContent: 'flex-end' as const },
+          itemLabelFill: c.textDim,
+          itemLabelFontSize: 11,
+          itemLabelFontFamily: fonte,
+          itemMarkerSize: 10,
+        },
+      },
+      interaction: { tooltip: { shared: true, crosshairs: true, marker: true } },
+    };
+  }, [light, rotuloY]);
+}
+
+/** As cores do tema no ar, para o que não cabe no molde. */
+function useCores() {
+  const { light } = useTheme();
+  return useMemo(() => coresDoTema(light), [light]);
 }
 
 /**
- * Coordenadas com duas casas decimais.
+ * A moldura segue sendo `<figure>` + `<figcaption>`.
  *
- * A precisão extra não muda nada na tela — o SVG tem 640 unidades de largura — e
- * o arredondamento evita divergência de última casa entre o HTML pré-renderizado
- * e o que o navegador recalcula, que o React acusaria como erro de hidratação.
+ * É a tag que faz o leitor de tela anunciar a legenda junto do desenho, e o
+ * canvas em si é opaco para ele — daí o resumo em texto logo abaixo, que continua
+ * sendo a única forma de ler o gráfico sem enxergá-lo.
  */
-function linePath(points: CurvePoint[], maxX: number, maxY: number): string {
-  return points
-    .map(
-      (p, i) =>
-        `${i === 0 ? 'M' : 'L'} ${scaleX(p.distance, maxX).toFixed(2)} ${scaleY(p.value, maxY).toFixed(2)}`,
-    )
-    .join(' ');
-}
-
-/** Escolhe marcas de eixo redondas dentro do intervalo. */
-function axisTicks(max: number, count = 5): number[] {
-  const raw = max / count;
-  const magnitude = 10 ** Math.floor(Math.log10(raw));
-  const stepSize = [1, 2, 2.5, 5, 10].map((m) => m * magnitude).find((p) => p >= raw) ?? magnitude * 10;
-  const out: number[] = [];
-  for (let v = 0; v <= max + 1e-9; v += stepSize) out.push(Number(v.toFixed(6)));
-  return out;
-}
-
-interface ChartFrameProps {
-  title: string;
-  legend: ReactNode;
-  maxX: number;
-  maxY: number;
-  labelY: (v: number) => string;
-  children: ReactNode;
-  /** Chamado com a distância sob o cursor, ou nulo ao sair. */
-  onPoint?: (distance: number | null) => void;
-  activeDistance?: number | null;
-  description: string;
-}
-
-function ChartFrame({
+function Moldura({
   title,
-  legend,
-  maxX,
-  maxY,
-  labelY,
-  children,
-  onPoint,
-  activeDistance,
   description,
-}: ChartFrameProps) {
-  const ref = useRef<SVGSVGElement>(null);
-
-  function trackPointer(event: React.PointerEvent<SVGSVGElement>) {
-    const svg = ref.current;
-    if (!svg || !onPoint) return;
-    const viewBox = svg.getBoundingClientRect();
-    const x = ((event.clientX - viewBox.left) / viewBox.width) * L;
-    const raw = ((x - AREA.x) / AREA.width) * maxX;
-    onPoint(Math.max(0, Math.min(maxX, raw)));
-  }
-
+  children,
+}: {
+  title: string;
+  description: string;
+  children: ReactNode;
+}) {
   return (
     <figure className="card bevel p-3">
-      <figcaption className="mb-1 flex items-baseline justify-between gap-2">
-        <h3 className="label">
-          {title} <span style={{ opacity: 0.6 }}>· metros</span>
-        </h3>
-        <div className="flex items-center gap-3 text-[11px]" style={{ color: 'var(--text-dim)' }}>
-          {legend}
-        </div>
+      <figcaption className="mb-1">
+        <h3 className="label">{title}</h3>
       </figcaption>
-
-      <svg
-        ref={ref}
-        viewBox={`0 0 ${L} ${A}`}
-        className="w-full touch-pan-y"
-        role="img"
-        aria-label={description}
-        onPointerMove={trackPointer}
-        onPointerDown={trackPointer}
-        onPointerLeave={() => onPoint?.(null)}
-      >
-        {/* Grade e eixo vertical. */}
-        {axisTicks(maxY).map((v) => (
-          <g key={`y${v}`}>
-            <line
-              x1={AREA.x}
-              x2={AREA.x + AREA.width}
-              y1={scaleY(v, maxY)}
-              y2={scaleY(v, maxY)}
-              stroke="var(--grid)"
-              strokeWidth={1}
-            />
-            <text
-              x={AREA.x - 7}
-              y={scaleY(v, maxY) + 4}
-              textAnchor="end"
-              fill="var(--text-dim)"
-              style={{ font: '500 11px var(--font-sans)' }}
-            >
-              {labelY(v)}
-            </text>
-          </g>
-        ))}
-
-        {/* Eixo horizontal, em metros. */}
-        {axisTicks(maxX).map((v) => (
-          <g key={`x${v}`}>
-            <line
-              y1={AREA.y}
-              y2={AREA.y + AREA.height}
-              x1={scaleX(v, maxX)}
-              x2={scaleX(v, maxX)}
-              stroke="var(--grid)"
-              strokeWidth={1}
-              opacity={0.5}
-            />
-            <text
-              x={scaleX(v, maxX)}
-              y={A - 12}
-              textAnchor="middle"
-              fill="var(--text-dim)"
-              style={{ font: '500 11px var(--font-sans)' }}
-            >
-              {Math.round(v)}
-            </text>
-          </g>
-        ))}
+      <div role="img" aria-label={description}>
         {children}
-
-        {/* Guia vertical sob o dedo ou o cursor. */}
-        {activeDistance != null && (
-          <line
-            x1={scaleX(activeDistance, maxX)}
-            x2={scaleX(activeDistance, maxX)}
-            y1={AREA.y}
-            y2={AREA.y + AREA.height}
-            stroke="var(--accent)"
-            strokeWidth={1.5}
-            strokeDasharray="4 3"
-          />
-        )}
-      </svg>
+      </div>
     </figure>
-  );
-}
-
-function LegendSwatch({ color, dashed, text }: { color: string; dashed?: boolean; text: string }) {
-  return (
-    <span className="flex items-center gap-1.5">
-      <svg width="16" height="8" aria-hidden>
-        <line
-          x1="0"
-          y1="4"
-          x2="16"
-          y2="4"
-          stroke={color}
-          strokeWidth="2.5"
-          strokeDasharray={dashed ? '4 3' : undefined}
-        />
-      </svg>
-      {text}
-    </span>
   );
 }
 
@@ -227,105 +162,80 @@ export function ComparisonChart({
   maxDistance: number;
   kind: 'damage' | 'drop';
 }) {
-  const [distance, setDistance] = useState<number | null>(null);
+  const dano = kind === 'damage';
+  const molde = useMolde(dano ? 'dano' : 'cm');
 
-  const curves = useMemo(
+  /*
+   * Duas armas iguais são um caso real — dá para comparar uma arma com ela
+   * mesma —, e aí os dois nomes coincidem. O índice entra no rótulo da série
+   * para que as curvas não se fundam numa só na legenda e na escala de cor.
+   */
+  const rotulo = (s: Series, i: number) =>
+    series.filter((o) => o.name === s.name).length > 1 ? `${s.name} (${i === 0 ? 'A' : 'B'})` : s.name;
+
+  const data = useMemo(
     () =>
-      series.map((serie) => ({
-        ...serie,
-        points:
-          kind === 'damage'
-            ? damageCurve(serie.stats, maxDistance)
-            : dropCurve(serie.stats, maxDistance).map((p) => ({
-                distance: p.distance,
-                value: p.value * 100,
-              })),
-      })),
-    [series, maxDistance, kind],
+      series.flatMap((s, i) =>
+        pontos(
+          dano
+            ? damageCurve(s.stats, maxDistance)
+            : dropCurve(s.stats, maxDistance).map((p) => ({ distance: p.distance, value: p.value * 100 })),
+          rotulo(s, i),
+        ),
+      ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [series, maxDistance, dano],
   );
 
-  const maxY = useMemo(() => {
-    const values = curves.flatMap((c) => c.points.map((p) => p.value));
-    return (values.length ? Math.max(...values) : 1) * 1.15 || 1;
-  }, [curves]);
-
   return (
-    <ChartFrame
+    <Moldura
       title={title}
-      legend={
-        <div className="flex flex-wrap gap-x-3 gap-y-0.5">
-          {series.map((s) => (
-            <LegendSwatch key={s.name} color={s.color} text={s.name} />
-          ))}
-        </div>
-      }
-      maxX={maxDistance}
-      maxY={maxY}
-      labelY={(v) => String(Math.round(v))}
-      onPoint={setDistance}
-      activeDistance={distance}
-      description={`Comparação de ${kind === 'damage' ? 'dano' : 'queda da bala'} entre ${series
+      description={`Comparação de ${dano ? 'dano' : 'queda da bala'} entre ${series
         .map((s) => s.name)
         .join(', ')}`}
     >
-      {kind === 'drop' && (
-        <text
-          x={AREA.x - 34}
-          y={AREA.y - 6}
-          fill="var(--text-dim)"
-          style={{ font: '600 10px var(--font-display)', letterSpacing: '0.12em' }}
-        >
-          CM
-        </text>
-      )}
-
-      {curves.map((curve) => (
-        <path
-          key={curve.name}
-          d={linePath(curve.points, maxDistance, maxY)}
-          fill="none"
-          stroke={curve.color}
-          strokeWidth={2.4}
-          strokeLinejoin="round"
-          strokeLinecap="round"
-        />
-      ))}
-
-      {/* Leitura de todas as séries na distância apontada. */}
-      {distance != null && (
-        <g>
-          {curves.map((curve, i) => {
-            const value =
-              kind === 'damage'
-                ? damagePerShot(curve.stats, distance)
-                : bulletDrop(curve.stats, distance) * 100;
-            return (
-              <g key={curve.name}>
-                <circle
-                  cx={scaleX(distance, maxDistance)}
-                  cy={scaleY(value, maxY)}
-                  r={4}
-                  fill={curve.color}
-                />
-                <text
-                  x={Math.min(scaleX(distance, maxDistance) + 10, L - 130)}
-                  y={AREA.y + 14 + i * 15}
-                  fill={curve.color}
-                  style={{ font: '600 11px var(--font-sans)' }}
-                >
-                  {curve.name}: {value.toFixed(1)}
-                  {kind === 'damage' ? '' : ' cm'}
-                </text>
-              </g>
-            );
-          })}
-        </g>
-      )}
-    </ChartFrame>
+      <Line
+        {...molde}
+        data={data}
+        xField="distancia"
+        yField="valor"
+        colorField="serie"
+        // O dano cai em patamares: entre um degrau e o seguinte ele não muda.
+        shapeField={dano ? 'hv' : 'smooth'}
+        scale={{
+          color: {
+            domain: series.map(rotulo),
+            range: series.map((s) => s.color),
+          },
+          /*
+           * O eixo de dano nasce no zero.
+           *
+           * Sozinho, o G2 corta a escala na faixa dos valores — e num gráfico de
+           * comparação isso mente: duas armas separadas por seis pontos de dano
+           * viram um abismo de meia altura. A queda da bala já começa no zero
+           * por natureza e não precisa da amarra.
+           */
+          y: dano ? { domainMin: 0, nice: true } : undefined,
+        }}
+        style={{ lineWidth: 2.4 }}
+        tooltip={{
+          title: (d: Ponto) => `${Math.round(d.distancia)} m`,
+          items: [
+            {
+              channel: 'y' as const,
+              valueFormatter: (v: number) => (dano ? numero(v) : `${numero(v)} cm`),
+            },
+          ],
+        }}
+      />
+    </Moldura>
   );
 }
 
 /* ------------------------------ Dano por distância ------------------------------ */
+
+const MONTADA = 'montada';
+const FABRICA = 'de fábrica';
 
 export function DamageChart({
   stats,
@@ -338,107 +248,89 @@ export function DamageChart({
   maxDistance: number;
   showBase: boolean;
 }) {
-  const [distance, setDistance] = useState<number | null>(null);
+  const molde = useMolde('dano');
+  const c = useCores();
 
-  const curve = useMemo(() => damageCurve(stats, maxDistance), [stats, maxDistance]);
-  const baseCurve = useMemo(() => damageCurve(base, maxDistance), [base, maxDistance]);
-  const maxY = useMemo(
-    () => Math.max(...curve.map((p) => p.value), ...baseCurve.map((p) => p.value)) * 1.15,
-    [curve, baseCurve],
+  const data = useMemo(() => {
+    const montada = pontos(damageCurve(stats, maxDistance), MONTADA);
+    if (!showBase) return montada;
+    return [...pontos(damageCurve(base, maxDistance), FABRICA), ...montada];
+  }, [stats, base, maxDistance, showBase]);
+
+  /*
+   * Quantos tiros cada patamar exige, escrito sobre ele.
+   *
+   * É a leitura que decide a briga — dano por tiro só importa depois de virar
+   * número de tiros — e ela não cabe na tooltip, que só aparece sob o cursor.
+   */
+  const anotacoes = useMemo(
+    () =>
+      stats.damage.flatMap((step, i) => {
+        const dano = step.damage * stats.pellets;
+        if (dano <= 0 || step.distance > maxDistance) return [];
+        const proximo = stats.damage[i + 1]?.distance ?? maxDistance;
+        return [
+          {
+            type: 'text',
+            data: [(step.distance + Math.min(proximo, maxDistance)) / 2, dano],
+            style: {
+              text: `${Math.ceil(100 / dano)} TIROS`,
+              textAlign: 'center',
+              textBaseline: 'bottom',
+              dy: -8,
+              fill: c.textSoft,
+              fontSize: 11,
+              fontWeight: 600,
+              fontFamily: 'var(--font-display), system-ui, sans-serif',
+            },
+          },
+        ];
+      }),
+    [stats, maxDistance, c.textSoft],
   );
 
-  const reading =
-    distance == null
-      ? null
-      : {
-          damage: damagePerShot(stats, distance),
-          shots: shotsToKill(stats, distance),
-          ttk: timeToKill(stats, distance),
-        };
-
   return (
-    <ChartFrame
+    <Moldura
       title="Dano por distância"
-      legend={
-        <>
-          {showBase && <LegendSwatch color="var(--text-dim)" dashed text="de fábrica" />}
-          <LegendSwatch color="var(--accent)" text="montada" />
-        </>
-      }
-      maxX={maxDistance}
-      maxY={maxY}
-      labelY={(v) => String(Math.round(v))}
-      onPoint={setDistance}
-      activeDistance={distance}
       description={`Dano por disparo de ${Math.round(damagePerShot(stats, 0))} até ${Math.round(
         damagePerShot(stats, maxDistance),
       )} ao longo de ${maxDistance} metros`}
     >
-      {showBase && (
-        <path
-          d={linePath(baseCurve, maxDistance, maxY)}
-          fill="none"
-          stroke="var(--text-dim)"
-          strokeWidth={2}
-          strokeDasharray="5 4"
-          opacity={0.75}
-        />
-      )}
-      <path
-        d={linePath(curve, maxDistance, maxY)}
-        fill="none"
-        stroke="var(--accent)"
-        strokeWidth={2.6}
-        strokeLinejoin="round"
+      <Line
+        {...molde}
+        data={data}
+        xField="distancia"
+        yField="valor"
+        colorField="serie"
+        shapeField="hv"
+        scale={{
+          color: { domain: [FABRICA, MONTADA], range: [c.textDim, c.accent] },
+          // Pelo mesmo motivo da comparação: dano se lê a partir do zero.
+          y: { domainMin: 0, nice: true },
+        }}
+        // A curva de fábrica é a referência, não o assunto: fica tracejada e fina.
+        style={{
+          lineWidth: (d: Ponto[]) => (d?.[0]?.serie === FABRICA ? 2 : 2.6),
+          lineDash: (d: Ponto[]) => (d?.[0]?.serie === FABRICA ? [5, 4] : [0, 0]),
+          strokeOpacity: (d: Ponto[]) => (d?.[0]?.serie === FABRICA ? 0.75 : 1),
+        }}
+        annotations={anotacoes}
+        legend={showBase ? molde.legend : false}
+        tooltip={{
+          title: (d: Ponto) => `${Math.round(d.distancia)} m`,
+          /*
+           * Um item por série, e só o dano.
+           *
+           * Tentar pendurar aqui os tiros para abater custava o nome das séries:
+           * com a tooltip compartilhada, qualquer item extra passa a valer para
+           * todas as curvas e o rótulo vira o nome do campo. Quantos tiros cada
+           * patamar exige está escrito sobre os próprios degraus, que é onde a
+           * conta não muda.
+           */
+          items: [{ channel: 'y' as const, valueFormatter: (v: number) => numero(v) }],
+        }}
       />
-
-      {/* Quantos tiros são necessários em cada patamar. */}
-      {stats.damage.map((step, i) => {
-        const damage = step.damage * stats.pellets;
-        if (damage <= 0 || step.distance > maxDistance) return null;
-        const nextStep = stats.damage[i + 1]?.distance ?? maxDistance;
-        const midpoint = (step.distance + Math.min(nextStep, maxDistance)) / 2;
-        return (
-          <text
-            key={i}
-            x={scaleX(midpoint, maxDistance)}
-            y={scaleY(damage, maxY) - 8}
-            textAnchor="middle"
-            fill="var(--text-soft)"
-            style={{ font: '600 11px var(--font-display)', letterSpacing: '0.06em' }}
-          >
-            {Math.ceil(100 / damage)} TIROS
-          </text>
-        );
-      })}
-
-      {reading && distance != null && (
-        <g>
-          <circle
-            cx={scaleX(distance, maxDistance)}
-            cy={scaleY(reading.damage, maxY)}
-            r={4.5}
-            fill="var(--accent)"
-          />
-          <text
-            x={Math.min(scaleX(distance, maxDistance) + 10, L - 140)}
-            y={AREA.y + 14}
-            fill="var(--text)"
-            style={{ font: '600 12px var(--font-sans)' }}
-          >
-            {Math.round(distance)} m · {reading.damage.toFixed(1)} de dano
-          </text>
-          <text
-            x={Math.min(scaleX(distance, maxDistance) + 10, L - 140)}
-            y={AREA.y + 30}
-            fill="var(--text-soft)"
-            style={{ font: '500 12px var(--font-sans)' }}
-          >
-            {reading.shots} tiros · {Math.round(reading.ttk)} ms
-          </text>
-        </g>
-      )}
-    </ChartFrame>
+    </Moldura>
   );
 }
 
@@ -455,81 +347,51 @@ export function DropChart({
   maxDistance: number;
   showBase: boolean;
 }) {
-  const [distance, setDistance] = useState<number | null>(null);
+  const molde = useMolde('cm');
+  const c = useCores();
 
   // Em centímetros: a queda de um fuzil a 100 m é de poucos centímetros e em
   // metros o gráfico ficaria colado no eixo.
-  const toCentimeters = (p: CurvePoint) => ({ distance: p.distance, value: p.value * 100 });
-  const curve = useMemo(() => dropCurve(stats, maxDistance).map(toCentimeters), [stats, maxDistance]);
-  const baseCurve = useMemo(() => dropCurve(base, maxDistance).map(toCentimeters), [base, maxDistance]);
-  const maxY = useMemo(
-    () => Math.max(...curve.map((p) => p.value), ...baseCurve.map((p) => p.value)) * 1.12 || 1,
-    [curve, baseCurve],
-  );
+  const emCentimetros = (curva: CurvePoint[]) =>
+    curva.map((p) => ({ distance: p.distance, value: p.value * 100 }));
 
-  const currentDrop = distance == null ? null : bulletDrop(stats, distance) * 100;
+  const data = useMemo(() => {
+    const montada = pontos(emCentimetros(dropCurve(stats, maxDistance)), MONTADA);
+    if (!showBase) return montada;
+    return [...pontos(emCentimetros(dropCurve(base, maxDistance)), FABRICA), ...montada];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [stats, base, maxDistance, showBase]);
 
   return (
-    <ChartFrame
+    <Moldura
       title="Queda da bala"
-      legend={
-        <>
-          {showBase && <LegendSwatch color="var(--text-dim)" dashed text="de fábrica" />}
-          <LegendSwatch color="var(--color-cyan-400)" text="montada" />
-        </>
-      }
-      maxX={maxDistance}
-      maxY={maxY}
-      labelY={(v) => `${Math.round(v)}`}
-      onPoint={setDistance}
-      activeDistance={distance}
-      description={`Queda do projétil de até ${Math.round(maxY)} centímetros em ${maxDistance} metros`}
+      description={`Queda do projétil ao longo de ${maxDistance} metros, em centímetros`}
     >
-      <text
-        x={AREA.x - 34}
-        y={AREA.y - 6}
-        fill="var(--text-dim)"
-        style={{ font: '600 10px var(--font-display)', letterSpacing: '0.12em' }}
-      >
-        CM
-      </text>
-
-      {showBase && (
-        <path
-          d={linePath(baseCurve, maxDistance, maxY)}
-          fill="none"
-          stroke="var(--text-dim)"
-          strokeWidth={2}
-          strokeDasharray="5 4"
-          opacity={0.75}
-        />
-      )}
-      <path
-        d={linePath(curve, maxDistance, maxY)}
-        fill="none"
-        stroke="var(--color-cyan-400)"
-        strokeWidth={2.6}
-        strokeLinecap="round"
+      <Line
+        {...molde}
+        data={data}
+        xField="distancia"
+        yField="valor"
+        colorField="serie"
+        shapeField="smooth"
+        scale={{ color: { domain: [FABRICA, MONTADA], range: [c.textDim, '#5fe3f0'] } }}
+        style={{
+          lineWidth: (d: Ponto[]) => (d?.[0]?.serie === FABRICA ? 2 : 2.6),
+          lineDash: (d: Ponto[]) => (d?.[0]?.serie === FABRICA ? [5, 4] : [0, 0]),
+          strokeOpacity: (d: Ponto[]) => (d?.[0]?.serie === FABRICA ? 0.75 : 1),
+        }}
+        legend={showBase ? molde.legend : false}
+        tooltip={{
+          title: (d: Ponto) => `${Math.round(d.distancia)} m`,
+          items: [
+            {
+              channel: 'y' as const,
+              // O número sozinho não diz o que fazer com ele.
+              valueFormatter: (v: number) => `mire ${numero(v)} cm acima`,
+            },
+          ],
+        }}
       />
-
-      {currentDrop != null && distance != null && (
-        <g>
-          <circle
-            cx={scaleX(distance, maxDistance)}
-            cy={scaleY(currentDrop, maxY)}
-            r={4.5}
-            fill="var(--color-cyan-400)"
-          />
-          <text
-            x={Math.min(scaleX(distance, maxDistance) + 10, L - 150)}
-            y={AREA.y + 14}
-            fill="var(--text)"
-            style={{ font: '600 12px var(--font-sans)' }}
-          >
-            {Math.round(distance)} m · mire {currentDrop.toFixed(1)} cm acima
-          </text>
-        </g>
-      )}
-    </ChartFrame>
+    </Moldura>
   );
 }
