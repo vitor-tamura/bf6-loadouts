@@ -43,13 +43,13 @@ import {
  * ela que a pessoa realmente vê, já lendo a tela nova por trás, e é o freio
  * longo no fim que faz o movimento passar de brusco a macio.
  */
-const ENTRADA_MS = 440;
-const SAIDA_MS = 620;
+const ENTER_MS = 440;
+const EXIT_MS = 620;
 
 /** Aceleração e freio equilibrados na ida. */
-const ENTRADA_CURVA = [0.5, 0, 0.25, 1] as const;
+const ENTER_EASE = [0.5, 0, 0.25, 1] as const;
 /** Freio longo na volta — a faixa perde velocidade bem antes de sumir. */
-const SAIDA_CURVA = [0.16, 1, 0.3, 1] as const;
+const EXIT_EASE = [0.16, 1, 0.3, 1] as const;
 
 /**
  * Se a navegação não chegar, a cortina abre assim mesmo.
@@ -57,15 +57,15 @@ const SAIDA_CURVA = [0.16, 1, 0.3, 1] as const;
  * Uma tela coberta para sempre é muito pior do que um corte seco: a pessoa fica
  * sem saber se o site morreu ou se ela é que não clicou direito.
  */
-const SOCORRO_MS = 1600;
+const FAILSAFE_MS = 1600;
 
 /** A inclinação da faixa, em graus — a mesma ideia do `angle` do exemplo. */
-const INCLINACAO = 14;
+const SKEW_ANGLE = 14;
 
-type Fase = 'parado' | 'cobrindo' | 'coberto' | 'revelando';
+type Phase = 'idle' | 'covering' | 'covered' | 'revealing';
 
 /** Só entra na cortina o que é navegação de verdade dentro do site. */
-function ehNavegacaoInterna(a: HTMLAnchorElement, event: MouseEvent): boolean {
+function isInternalNavigation(a: HTMLAnchorElement, event: MouseEvent): boolean {
   // Modificadores abrem em outra aba: deixa o navegador cuidar.
   if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return false;
   if (event.button !== 0) return false;
@@ -79,20 +79,20 @@ function ehNavegacaoInterna(a: HTMLAnchorElement, event: MouseEvent): boolean {
   return true;
 }
 
-const semBarra = (caminho: string) => caminho.replace(/\/$/, '') || '/';
+const withoutTrailingSlash = (path: string) => path.replace(/\/$/, '') || '/';
 
 export function PageCurtain({ children }: { children: ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
-  const reduzido = useReducedMotion();
+  const reducedMotion = useReducedMotion();
 
-  const [fase, setFase] = useState<Fase>('parado');
-  const destino = useRef<string | null>(null);
+  const [phase, setPhase] = useState<Phase>('idle');
+  const target = useRef<string | null>(null);
 
-  const cobrir = useCallback(
+  const cover = useCallback(
     (href: string) => {
-      destino.current = href;
-      setFase('cobrindo');
+      target.current = href;
+      setPhase('covering');
     },
     [],
   );
@@ -104,67 +104,67 @@ export function PageCurtain({ children }: { children: ReactNode }) {
    * escuta o clique e navegaria por baixo da cortina.
    */
   useEffect(() => {
-    if (reduzido) return;
+    if (reducedMotion) return;
 
-    function aoClicar(event: MouseEvent) {
+    function handleClick(event: MouseEvent) {
       if (event.defaultPrevented) return;
 
       const a = (event.target as Element | null)?.closest?.('a[href]') as HTMLAnchorElement | null;
-      if (!a || !ehNavegacaoInterna(a, event)) return;
+      if (!a || !isInternalNavigation(a, event)) return;
 
       const url = new URL(a.href, window.location.href);
-      const alvo = `${url.pathname}${url.search}`;
-      if (semBarra(url.pathname) === semBarra(pathname) && !url.search) return;
+      const href = `${url.pathname}${url.search}`;
+      if (withoutTrailingSlash(url.pathname) === withoutTrailingSlash(pathname) && !url.search) return;
 
       event.preventDefault();
-      cobrir(alvo);
+      cover(href);
     }
 
-    document.addEventListener('click', aoClicar, true);
-    return () => document.removeEventListener('click', aoClicar, true);
-  }, [pathname, cobrir, reduzido]);
+    document.addEventListener('click', handleClick, true);
+    return () => document.removeEventListener('click', handleClick, true);
+  }, [pathname, cover, reducedMotion]);
 
   /* Coberta a tela, a navegação acontece escondida. */
   useEffect(() => {
-    if (fase !== 'coberto' || !destino.current) return;
-    startTransition(() => router.push(destino.current!));
-  }, [fase, router]);
+    if (phase !== 'covered' || !target.current) return;
+    startTransition(() => router.push(target.current!));
+  }, [phase, router]);
 
   /* A tela nova chegou: pode abrir. */
   useEffect(() => {
-    if (fase !== 'coberto' || !destino.current) return;
-    if (semBarra(new URL(destino.current, 'http://x').pathname) !== semBarra(pathname)) return;
-    setFase('revelando');
-  }, [pathname, fase]);
+    if (phase !== 'covered' || !target.current) return;
+    if (withoutTrailingSlash(new URL(target.current, 'http://x').pathname) !== withoutTrailingSlash(pathname)) return;
+    setPhase('revealing');
+  }, [pathname, phase]);
 
   /* Rede de segurança: navegação que não chega não deixa a tela coberta. */
   useEffect(() => {
-    if (fase !== 'coberto') return;
-    const timer = setTimeout(() => setFase('revelando'), SOCORRO_MS);
+    if (phase !== 'covered') return;
+    const timer = setTimeout(() => setPhase('revealing'), FAILSAFE_MS);
     return () => clearTimeout(timer);
-  }, [fase]);
+  }, [phase]);
 
   return (
     <>
       {children}
 
       <AnimatePresence>
-        {fase !== 'parado' && (
+        {phase !== 'idle' && (
           <motion.div
             aria-hidden
             className="pointer-events-none fixed inset-0 z-[100]"
             initial={{ x: '-115%' }}
-            animate={{ x: fase === 'revelando' ? '115%' : '0%' }}
+            animate={{ x: phase === 'revealing' ? '115%' : '0%' }}
             exit={{ x: '115%' }}
             transition={{
-              duration: (fase === 'revelando' ? SAIDA_MS : ENTRADA_MS) / 1000,
-              ease: fase === 'revelando' ? [...SAIDA_CURVA] : [...ENTRADA_CURVA],
+              duration: (phase === 'revealing' ? EXIT_MS : ENTER_MS) / 1000,
+              ease: phase === 'revealing' ? [...EXIT_EASE] : [...ENTER_EASE],
             }}
             onAnimationComplete={() => {
-              setFase((atual) => {
-                if (atual === 'cobrindo') return 'coberto';
-                if (atual === 'revelando') return 'parado';
-                return atual;
+              setPhase((current) => {
+                if (current === 'covering') return 'covered';
+                if (current === 'revealing') return 'idle';
+                return current;
               });
             }}
             style={{
@@ -180,7 +180,7 @@ export function PageCurtain({ children }: { children: ReactNode }) {
                */
               width: '140vw',
               left: '-20vw',
-              skewX: -INCLINACAO,
+              skewX: -SKEW_ANGLE,
               background: 'var(--bg)',
               /*
                * A borda de ataque era uma linha dura de 2 px, e o corte contra a

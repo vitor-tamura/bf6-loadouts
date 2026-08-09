@@ -26,10 +26,17 @@ export function WeaponPhoto({
   onUnavailable?: () => void;
 }) {
   const sources = externalImageSources(weapon.id);
-  const [index, setIndex] = useState(0);
+  /*
+   * A tentativa carrega junto de que arma ela é.
+   *
+   * O componente sobrevive à troca de arma, e um índice solto apontaria a
+   * terceira fonte da arma anterior para a arma nova — que talvez tenha só
+   * uma. Guardando o par, a arma nova já nasce na primeira fonte, sem precisar
+   * de um efeito para zerar o índice depois do primeiro quadro.
+   */
+  const [tentativa, setTentativa] = useState({ weapon: weapon.id, index: 0 });
+  const index = tentativa.weapon === weapon.id ? tentativa.index : 0;
   const imgRef = useRef<HTMLImageElement>(null);
-
-  useEffect(() => setIndex(0), [weapon.id]);
 
   // Uma imagem que já falhou antes da hidratação não dispara `onError` de novo.
   useEffect(() => {
@@ -39,7 +46,7 @@ export function WeaponPhoto({
   }, [weapon.id, index]);
 
   function advance() {
-    if (index + 1 < sources.length) setIndex(index + 1);
+    if (index + 1 < sources.length) setTentativa({ weapon: weapon.id, index: index + 1 });
     else onUnavailable?.();
   }
 

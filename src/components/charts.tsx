@@ -27,23 +27,23 @@ import type { EffectiveStats } from '@/lib/stats';
 
 const Line = dynamic(() => import('@ant-design/plots').then((m) => m.Line), {
   ssr: false,
-  loading: () => <div style={{ height: ALTURA }} aria-hidden />,
+  loading: () => <div style={{ height: HEIGHT }} aria-hidden />,
 });
 
-const ALTURA = 250;
+const HEIGHT = 250;
 
 /** Um ponto no formato longo que o G2 espera: distância, valor e série. */
-interface Ponto {
-  distancia: number;
-  valor: number;
-  serie: string;
+interface Point {
+  distance: number;
+  value: number;
+  series: string;
 }
 
-const pontos = (curva: CurvePoint[], serie: string): Ponto[] =>
-  curva.map((p) => ({ distancia: p.distance, valor: p.value, serie }));
+const toPoints = (curve: CurvePoint[], series: string): Point[] =>
+  curve.map((p) => ({ distance: p.distance, value: p.value, series }));
 
 /** Metros e centímetros escritos como se escreve em português. */
-const numero = (v: number, casas = 1) => v.toFixed(casas).replace('.', ',');
+const formatNumber = (v: number, decimals = 1) => v.toFixed(decimals).replace('.', ',');
 
 /**
  * O molde comum aos três gráficos.
@@ -52,16 +52,16 @@ const numero = (v: number, casas = 1) => v.toFixed(casas).replace('.', ',');
  * compartilhada — o mesmo enquadramento que o desenho à mão tinha, agora dito
  * uma vez só.
  */
-function useMolde(rotuloY: string) {
+function useBaseConfig(yLabel: string) {
   const { light } = useTheme();
 
   return useMemo(() => {
     const c = coresDoTema(light);
-    const fonte = 'var(--font-sans), system-ui, sans-serif';
+    const fontFamily = 'var(--font-sans), system-ui, sans-serif';
 
     return {
       autoFit: true,
-      height: ALTURA,
+      height: HEIGHT,
       theme: light ? 'classic' : 'classicDark',
       // Fundo transparente: o cartão por baixo já tem a superfície e a trama.
       style: { viewFill: 'transparent', plotFill: 'transparent' },
@@ -72,7 +72,7 @@ function useMolde(rotuloY: string) {
           titleFontSize: 10,
           labelFill: c.textDim,
           labelFontSize: 11,
-          labelFontFamily: fonte,
+          labelFontFamily: fontFamily,
           line: false,
           tick: false,
           grid: true,
@@ -80,12 +80,12 @@ function useMolde(rotuloY: string) {
           gridStrokeOpacity: 0.5,
         },
         y: {
-          title: rotuloY,
+          title: yLabel,
           titleFill: c.textDim,
           titleFontSize: 10,
           labelFill: c.textDim,
           labelFontSize: 11,
-          labelFontFamily: fonte,
+          labelFontFamily: fontFamily,
           line: false,
           tick: false,
           gridStroke: c.border,
@@ -97,17 +97,17 @@ function useMolde(rotuloY: string) {
           layout: { justifyContent: 'flex-end' as const },
           itemLabelFill: c.textDim,
           itemLabelFontSize: 11,
-          itemLabelFontFamily: fonte,
+          itemLabelFontFamily: fontFamily,
           itemMarkerSize: 10,
         },
       },
       interaction: { tooltip: { shared: true, crosshairs: true, marker: true } },
     };
-  }, [light, rotuloY]);
+  }, [light, yLabel]);
 }
 
 /** As cores do tema no ar, para o que não cabe no molde. */
-function useCores() {
+function useThemeColors() {
   const { light } = useTheme();
   return useMemo(() => coresDoTema(light), [light]);
 }
@@ -119,7 +119,7 @@ function useCores() {
  * canvas em si é opaco para ele — daí o resumo em texto logo abaixo, que continua
  * sendo a única forma de ler o gráfico sem enxergá-lo.
  */
-function Moldura({
+function ChartFrame({
   title,
   description,
   children,
@@ -162,49 +162,49 @@ export function ComparisonChart({
   maxDistance: number;
   kind: 'damage' | 'drop';
 }) {
-  const dano = kind === 'damage';
-  const molde = useMolde(dano ? 'dano' : 'cm');
+  const isDamage = kind === 'damage';
+  const baseConfig = useBaseConfig(isDamage ? 'dano' : 'cm');
 
   /*
    * Duas armas iguais são um caso real — dá para comparar uma arma com ela
    * mesma —, e aí os dois nomes coincidem. O índice entra no rótulo da série
    * para que as curvas não se fundam numa só na legenda e na escala de cor.
    */
-  const rotulo = (s: Series, i: number) =>
+  const seriesLabel = (s: Series, i: number) =>
     series.filter((o) => o.name === s.name).length > 1 ? `${s.name} (${i === 0 ? 'A' : 'B'})` : s.name;
 
   const data = useMemo(
     () =>
       series.flatMap((s, i) =>
-        pontos(
-          dano
+        toPoints(
+          isDamage
             ? damageCurve(s.stats, maxDistance)
             : dropCurve(s.stats, maxDistance).map((p) => ({ distance: p.distance, value: p.value * 100 })),
-          rotulo(s, i),
+          seriesLabel(s, i),
         ),
       ),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [series, maxDistance, dano],
+    [series, maxDistance, isDamage],
   );
 
   return (
-    <Moldura
+    <ChartFrame
       title={title}
-      description={`Comparação de ${dano ? 'dano' : 'queda da bala'} entre ${series
+      description={`Comparação de ${isDamage ? 'dano' : 'queda da bala'} entre ${series
         .map((s) => s.name)
         .join(', ')}`}
     >
       <Line
-        {...molde}
+        {...baseConfig}
         data={data}
-        xField="distancia"
-        yField="valor"
-        colorField="serie"
+        xField="distance"
+        yField="value"
+        colorField="series"
         // O dano cai em patamares: entre um degrau e o seguinte ele não muda.
-        shapeField={dano ? 'hv' : 'smooth'}
+        shapeField={isDamage ? 'hv' : 'smooth'}
         scale={{
           color: {
-            domain: series.map(rotulo),
+            domain: series.map(seriesLabel),
             range: series.map((s) => s.color),
           },
           /*
@@ -215,27 +215,27 @@ export function ComparisonChart({
            * viram um abismo de meia altura. A queda da bala já começa no zero
            * por natureza e não precisa da amarra.
            */
-          y: dano ? { domainMin: 0, nice: true } : undefined,
+          y: isDamage ? { domainMin: 0, nice: true } : undefined,
         }}
         style={{ lineWidth: 2.4 }}
         tooltip={{
-          title: (d: Ponto) => `${Math.round(d.distancia)} m`,
+          title: (d: Point) => `${Math.round(d.distance)} m`,
           items: [
             {
               channel: 'y' as const,
-              valueFormatter: (v: number) => (dano ? numero(v) : `${numero(v)} cm`),
+              valueFormatter: (v: number) => (isDamage ? formatNumber(v) : `${formatNumber(v)} cm`),
             },
           ],
         }}
       />
-    </Moldura>
+    </ChartFrame>
   );
 }
 
 /* ------------------------------ Dano por distância ------------------------------ */
 
-const MONTADA = 'montada';
-const FABRICA = 'de fábrica';
+const BUILT = 'montada';
+const FACTORY = 'de fábrica';
 
 export function DamageChart({
   stats,
@@ -248,13 +248,13 @@ export function DamageChart({
   maxDistance: number;
   showBase: boolean;
 }) {
-  const molde = useMolde('dano');
-  const c = useCores();
+  const baseConfig = useBaseConfig('dano');
+  const c = useThemeColors();
 
   const data = useMemo(() => {
-    const montada = pontos(damageCurve(stats, maxDistance), MONTADA);
-    if (!showBase) return montada;
-    return [...pontos(damageCurve(base, maxDistance), FABRICA), ...montada];
+    const built = toPoints(damageCurve(stats, maxDistance), BUILT);
+    if (!showBase) return built;
+    return [...toPoints(damageCurve(base, maxDistance), FACTORY), ...built];
   }, [stats, base, maxDistance, showBase]);
 
   /*
@@ -263,18 +263,18 @@ export function DamageChart({
    * É a leitura que decide a briga — dano por tiro só importa depois de virar
    * número de tiros — e ela não cabe na tooltip, que só aparece sob o cursor.
    */
-  const anotacoes = useMemo(
+  const annotations = useMemo(
     () =>
       stats.damage.flatMap((step, i) => {
-        const dano = step.damage * stats.pellets;
-        if (dano <= 0 || step.distance > maxDistance) return [];
-        const proximo = stats.damage[i + 1]?.distance ?? maxDistance;
+        const damage = step.damage * stats.pellets;
+        if (damage <= 0 || step.distance > maxDistance) return [];
+        const nextStep = stats.damage[i + 1]?.distance ?? maxDistance;
         return [
           {
             type: 'text',
-            data: [(step.distance + Math.min(proximo, maxDistance)) / 2, dano],
+            data: [(step.distance + Math.min(nextStep, maxDistance)) / 2, damage],
             style: {
-              text: `${Math.ceil(100 / dano)} TIROS`,
+              text: `${Math.ceil(100 / damage)} TIROS`,
               textAlign: 'center',
               textBaseline: 'bottom',
               dy: -8,
@@ -290,34 +290,34 @@ export function DamageChart({
   );
 
   return (
-    <Moldura
+    <ChartFrame
       title="Dano por distância"
       description={`Dano por disparo de ${Math.round(damagePerShot(stats, 0))} até ${Math.round(
         damagePerShot(stats, maxDistance),
       )} ao longo de ${maxDistance} metros`}
     >
       <Line
-        {...molde}
+        {...baseConfig}
         data={data}
-        xField="distancia"
-        yField="valor"
-        colorField="serie"
+        xField="distance"
+        yField="value"
+        colorField="series"
         shapeField="hv"
         scale={{
-          color: { domain: [FABRICA, MONTADA], range: [c.textDim, c.accent] },
+          color: { domain: [FACTORY, BUILT], range: [c.textDim, c.accent] },
           // Pelo mesmo motivo da comparação: dano se lê a partir do zero.
           y: { domainMin: 0, nice: true },
         }}
         // A curva de fábrica é a referência, não o assunto: fica tracejada e fina.
         style={{
-          lineWidth: (d: Ponto[]) => (d?.[0]?.serie === FABRICA ? 2 : 2.6),
-          lineDash: (d: Ponto[]) => (d?.[0]?.serie === FABRICA ? [5, 4] : [0, 0]),
-          strokeOpacity: (d: Ponto[]) => (d?.[0]?.serie === FABRICA ? 0.75 : 1),
+          lineWidth: (d: Point[]) => (d?.[0]?.series === FACTORY ? 2 : 2.6),
+          lineDash: (d: Point[]) => (d?.[0]?.series === FACTORY ? [5, 4] : [0, 0]),
+          strokeOpacity: (d: Point[]) => (d?.[0]?.series === FACTORY ? 0.75 : 1),
         }}
-        annotations={anotacoes}
-        legend={showBase ? molde.legend : false}
+        annotations={annotations}
+        legend={showBase ? baseConfig.legend : false}
         tooltip={{
-          title: (d: Ponto) => `${Math.round(d.distancia)} m`,
+          title: (d: Point) => `${Math.round(d.distance)} m`,
           /*
            * Um item por série, e só o dano.
            *
@@ -327,10 +327,10 @@ export function DamageChart({
            * patamar exige está escrito sobre os próprios degraus, que é onde a
            * conta não muda.
            */
-          items: [{ channel: 'y' as const, valueFormatter: (v: number) => numero(v) }],
+          items: [{ channel: 'y' as const, valueFormatter: (v: number) => formatNumber(v) }],
         }}
       />
-    </Moldura>
+    </ChartFrame>
   );
 }
 
@@ -347,51 +347,50 @@ export function DropChart({
   maxDistance: number;
   showBase: boolean;
 }) {
-  const molde = useMolde('cm');
-  const c = useCores();
+  const baseConfig = useBaseConfig('cm');
+  const c = useThemeColors();
 
   // Em centímetros: a queda de um fuzil a 100 m é de poucos centímetros e em
   // metros o gráfico ficaria colado no eixo.
-  const emCentimetros = (curva: CurvePoint[]) =>
-    curva.map((p) => ({ distance: p.distance, value: p.value * 100 }));
+  const toCentimeters = (curve: CurvePoint[]) =>
+    curve.map((p) => ({ distance: p.distance, value: p.value * 100 }));
 
   const data = useMemo(() => {
-    const montada = pontos(emCentimetros(dropCurve(stats, maxDistance)), MONTADA);
-    if (!showBase) return montada;
-    return [...pontos(emCentimetros(dropCurve(base, maxDistance)), FABRICA), ...montada];
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const built = toPoints(toCentimeters(dropCurve(stats, maxDistance)), BUILT);
+    if (!showBase) return built;
+    return [...toPoints(toCentimeters(dropCurve(base, maxDistance)), FACTORY), ...built];
   }, [stats, base, maxDistance, showBase]);
 
   return (
-    <Moldura
+    <ChartFrame
       title="Queda da bala"
       description={`Queda do projétil ao longo de ${maxDistance} metros, em centímetros`}
     >
       <Line
-        {...molde}
+        {...baseConfig}
         data={data}
-        xField="distancia"
-        yField="valor"
-        colorField="serie"
+        xField="distance"
+        yField="value"
+        colorField="series"
         shapeField="smooth"
-        scale={{ color: { domain: [FABRICA, MONTADA], range: [c.textDim, '#5fe3f0'] } }}
+        scale={{ color: { domain: [FACTORY, BUILT], range: [c.textDim, '#5fe3f0'] } }}
         style={{
-          lineWidth: (d: Ponto[]) => (d?.[0]?.serie === FABRICA ? 2 : 2.6),
-          lineDash: (d: Ponto[]) => (d?.[0]?.serie === FABRICA ? [5, 4] : [0, 0]),
-          strokeOpacity: (d: Ponto[]) => (d?.[0]?.serie === FABRICA ? 0.75 : 1),
+          lineWidth: (d: Point[]) => (d?.[0]?.series === FACTORY ? 2 : 2.6),
+          lineDash: (d: Point[]) => (d?.[0]?.series === FACTORY ? [5, 4] : [0, 0]),
+          strokeOpacity: (d: Point[]) => (d?.[0]?.series === FACTORY ? 0.75 : 1),
         }}
-        legend={showBase ? molde.legend : false}
+        legend={showBase ? baseConfig.legend : false}
         tooltip={{
-          title: (d: Ponto) => `${Math.round(d.distancia)} m`,
+          title: (d: Point) => `${Math.round(d.distance)} m`,
           items: [
             {
               channel: 'y' as const,
               // O número sozinho não diz o que fazer com ele.
-              valueFormatter: (v: number) => `mire ${numero(v)} cm acima`,
+              valueFormatter: (v: number) => `mire ${formatNumber(v)} cm acima`,
             },
           ],
         }}
       />
-    </Moldura>
+    </ChartFrame>
   );
 }

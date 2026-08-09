@@ -11,7 +11,7 @@ import {
 } from 'react';
 import { attachmentsForWeapon } from '@/data/attachments';
 import { budgetFor, SLOTS_BY_ID } from '@/data/classes';
-import type { Attachment, Weapon, StatKey, SlotId, WeaponCategory } from '@/data/types';
+import type { Attachment, Weapon, StatKey, SlotId } from '@/data/types';
 import { LOWER_IS_BETTER, type Budget } from '@/lib/stats';
 import { AttachmentIcon } from '@/components/icons/attachment-icon';
 import { AttachmentThumb } from './attachment-thumb';
@@ -479,24 +479,43 @@ function OptionTile({
         disabled={disabled}
         aria-pressed={active}
         className="tile bevel-sm flex aspect-square w-full flex-col items-center justify-between p-1.5 text-center"
+        /*
+         * A grade chega a 152 peças de uma vez, e cada cartão é pequeno: a
+         * borda quase invisível de antes fazia o conjunto ler como uma mancha
+         * só, sem começo nem fim de cada peça. Borda cheia e um leve
+         * afastamento do fundo dão contorno a cada uma sem virar ruído.
+         */
         style={
           {
             '--tile-bg': active
               ? 'color-mix(in oklab, var(--accent) 16%, var(--surface))'
               : 'var(--surface-raised)',
-            border: `1px solid ${active ? 'var(--accent)' : 'var(--border-soft)'}`,
-            opacity: disabled ? 0.4 : 1,
+            border: `1px solid ${active ? 'var(--accent)' : 'var(--border)'}`,
+            boxShadow: active
+              ? '0 0 0 1px color-mix(in oklab, var(--accent) 45%, transparent)'
+              : '0 2px 8px -6px rgb(0 0 0 / 0.55)',
+            opacity: disabled ? 0.45 : 1,
           } as CSSProperties
         }
       >
+        {/*
+          O custo ganhou fundo próprio.
+          Solto no canto, ele se confundia com o nome da peça logo abaixo — e é
+          o número que decide se a peça cabe no orçamento.
+        */}
         <span
-          className="w-full text-left font-mono text-[10px] leading-none"
+          className="self-start px-1 font-mono text-[10px] leading-[1.5] font-semibold"
           style={{
             color: disabled
               ? 'var(--color-negative)'
               : active
+                ? '#14170f'
+                : 'var(--text-soft)',
+            background: disabled
+              ? 'color-mix(in oklab, var(--color-negative) 18%, transparent)'
+              : active
                 ? 'var(--accent)'
-                : 'var(--text-dim)',
+                : 'color-mix(in oklab, var(--text) 10%, transparent)',
           }}
         >
           {attachment ? attachment.cost : 0}
@@ -504,14 +523,14 @@ function OptionTile({
 
         <span
           style={{
-            color: active ? 'var(--accent)' : 'var(--text-soft)',
+            color: active ? 'var(--accent)' : 'var(--text)',
             lineHeight: 0,
           }}
         >
           {attachment ? (
-            <AttachmentIcon attachment={attachment} slot={slot} size={30} />
+            <AttachmentIcon attachment={attachment} slot={slot} size={32} />
           ) : (
-            <span className="block text-lg" style={{ color: 'var(--text-dim)' }}>
+            <span className="block text-lg" style={{ color: 'var(--text-soft)' }}>
               ✕
             </span>
           )}
@@ -519,7 +538,7 @@ function OptionTile({
 
         <span
           className="line-clamp-2 w-full text-[10px] leading-tight"
-          style={{ color: active ? 'var(--text)' : 'var(--text-dim)' }}
+          style={{ color: active ? 'var(--text)' : 'var(--text-soft)' }}
         >
           {attachment ? attachment.name : 'Vazio'}
         </span>
@@ -566,16 +585,26 @@ function useGridColumns(ref: RefObject<HTMLElement | null>): number {
  * animação terminar.
  */
 function useCollapse(open: SlotId | null, ms = 280): SlotId | null {
-  const [mounted, setMounted] = useState(open);
+  const [last, setLast] = useState<SlotId | null>(open);
 
+  /*
+   * O último aberto é acertado durante a renderização, não num efeito.
+   *
+   * Efeito roda depois da pintura: copiar `open` lá dentro fazia o bloco
+   * estrear fechado por um quadro antes de a animação começar. Ajustar estado
+   * no corpo do componente quando uma prop muda é o caminho que o React indica
+   * para exatamente este caso — ele reinicia a renderização na hora, sem pintar
+   * o resultado intermediário.
+   */
+  if (open && open !== last) setLast(open);
+
+  // Só o fechamento precisa de tempo: o bloco continua no DOM até a animação
+  // acabar, e aí o slot sai de vez.
   useEffect(() => {
-    if (open) {
-      setMounted(open);
-      return;
-    }
-    const timer = setTimeout(() => setMounted(null), ms);
+    if (open) return;
+    const timer = setTimeout(() => setLast(null), ms);
     return () => clearTimeout(timer);
   }, [open, ms]);
 
-  return mounted;
+  return open ?? last;
 }

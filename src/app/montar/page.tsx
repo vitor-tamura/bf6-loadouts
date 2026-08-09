@@ -85,11 +85,11 @@ function BuilderPage() {
   // blocos diferentes da página.
   const weaponFilter = useWeaponFilter(PRIMARY_CATEGORIES);
 
-  const [statsCompactas, setStatsCompactas] = useState(false);
-  const [painelLista, setPainelLista] = useState<PanelMode>('fixo');
-  const listaOcupaColuna = painelLista === 'fixo';
+  const [compactStats, setCompactStats] = useState(false);
+  const [listPanel, setPainelLista] = useState<PanelMode>('fixo');
+  const listTakesColumn = listPanel === 'fixo';
   // Quem ocupa a largura toda precisa saber quantas colunas existem agora.
-  const larguraTotal = listaOcupaColuna ? 'lg:col-span-3' : 'lg:col-span-2';
+  const fullWidth = listTakesColumn ? 'lg:col-span-3' : 'lg:col-span-2';
 
   const weapon = loadout.weapon ? (WEAPONS_BY_ID.get(loadout.weapon) ?? null) : null;
   const sidearm = loadout.sidearm ? (WEAPONS_BY_ID.get(loadout.sidearm) ?? null) : null;
@@ -142,7 +142,7 @@ function BuilderPage() {
             deslocado ocupa o lugar antigo no fluxo e é pintado 64px abaixo — o
             preview passou a cobrir a faixa de busca inteira.
           */
-          <Painel className="sticky! top-[64px] z-20 mb-3 lg:static!" padding={8}>
+          <Panel className="sticky! top-[64px] z-20 mb-3 lg:static!" padding={8}>
             {/* Largura limitada: com a proporção 8:3 do quadro, deixar o preview
                 ocupar 1600 px transformaria a arma em um painel de 600 px de
                 altura e empurraria todo o resto para fora da tela. */}
@@ -151,7 +151,7 @@ function BuilderPage() {
               withLabel
               className="mx-auto w-full max-w-[560px] lg:max-w-[760px]"
             />
-          </Painel>
+          </Panel>
         )}
 
         {/*
@@ -160,9 +160,9 @@ function BuilderPage() {
           barrinha rolável de dois itens visíveis; aqui cabem todos de uma vez.
           No celular a faixa só aparece na aba da arma, que é onde ela serve.
         */}
-        <Painel className={`mb-3 overflow-x-hidden ${tab === 'arma' ? 'block' : 'hidden lg:block'}`}>
+        <Panel className={`mb-3 overflow-x-hidden ${tab === 'arma' ? 'block' : 'hidden lg:block'}`}>
           <WeaponFilters filter={weaponFilter} />
-        </Painel>
+        </Panel>
 
         {/* `min-w-0` nos filhos: sem isso, itens de grid usam a largura mínima do
             conteúdo e uma lista larga estica a página inteira, criando rolagem
@@ -170,7 +170,7 @@ function BuilderPage() {
         <div
           className={`grid gap-3 [&>*]:min-w-0 ${
             // Lista solta ou encolhida devolve a coluna para o resto da tela.
-            listaOcupaColuna
+            listTakesColumn
               ? 'lg:grid-cols-[minmax(230px,270px)_minmax(0,1fr)_minmax(340px,420px)]'
               : 'lg:grid-cols-[minmax(0,1fr)_minmax(340px,420px)]'
           }`}
@@ -180,16 +180,16 @@ function BuilderPage() {
             className={`${tab === 'arma' ? 'block' : 'hidden lg:block'} ${
               // Solta, a lista vira painel flutuante e sai da grade; encolhida,
               // vira uma faixa no topo em vez de segurar uma coluna inteira.
-              painelLista === 'solto' ? 'lg:contents' : ''
-            } ${painelLista === 'encolhido' ? 'lg:col-span-2' : ''}`}
+              listPanel === 'solto' ? 'lg:contents' : ''
+            } ${listPanel === 'encolhido' ? 'lg:col-span-2' : ''}`}
           >
             {/* No computador a lista rola dentro do próprio bloco: com 63 armas,
                 deixá-la esticar faria a página inteira crescer sem necessidade. */}
             <DockablePanel
               title="Arma principal"
-              mode={painelLista}
+              mode={listPanel}
               onModeChange={setPainelLista}
-              className={painelLista === 'solto' ? '' : 'lg:max-h-[calc(100dvh-140px)]'}
+              className={listPanel === 'solto' ? '' : 'lg:max-h-[calc(100dvh-140px)]'}
             >
               <WeaponList
                 filter={weaponFilter}
@@ -203,7 +203,7 @@ function BuilderPage() {
           <div className={tab === 'montar' ? 'block' : 'hidden lg:block'}>
             {weapon ? (
               <div className="space-y-3">
-                <Painel>
+                <Panel>
                   <BudgetBar budget={budget} />
                   <div className="mt-2 flex items-center justify-between gap-2">
                     <p className="text-[12px] leading-snug" style={{ color: 'var(--text-soft)' }}>
@@ -219,7 +219,7 @@ function BuilderPage() {
                       Limpar
                     </Button>
                   </div>
-                </Painel>
+                </Panel>
 
                 <SlotsPanel
                   weapon={weapon}
@@ -251,27 +251,27 @@ function BuilderPage() {
           <div className={tab === 'numeros' ? 'block' : 'hidden lg:block'}>
             {weapon && stats && base ? (
               <div className="space-y-3">
-                <Painel>
+                <Panel>
                   <div className="mb-3 flex items-center justify-between gap-2">
                     <h2 className="label">Estatísticas</h2>
                     <div className="flex items-center gap-2">
-                      <ComparaComFabrica checked={compareWithBase} onChange={toggleBaseComparison} />
+                      <CompareWithFactory checked={compareWithBase} onChange={toggleBaseComparison} />
                       {/*
                         Aberto, o painel prioriza a leitura: número grande, uma
                         linha por medida. Compacto, ele encolhe para caber junto
                         dos gráficos e da secundária sem rolagem.
                       */}
-                      <Tooltip title={statsCompactas ? 'Abrir as estatísticas' : 'Compactar as estatísticas'}>
+                      <Tooltip title={compactStats ? 'Abrir as estatísticas' : 'Compactar as estatísticas'}>
                         <Button
                           type="text"
                           size="small"
-                          onClick={() => setStatsCompactas((v) => !v)}
-                          aria-label={statsCompactas ? 'Abrir as estatísticas' : 'Compactar as estatísticas'}
-                          aria-pressed={statsCompactas}
+                          onClick={() => setCompactStats((v) => !v)}
+                          aria-label={compactStats ? 'Abrir as estatísticas' : 'Compactar as estatísticas'}
+                          aria-pressed={compactStats}
                           className="touch shrink-0 px-1.5 text-xs leading-none"
-                          style={{ color: statsCompactas ? 'var(--accent)' : 'var(--text-dim)' }}
+                          style={{ color: compactStats ? 'var(--accent)' : 'var(--text-dim)' }}
                         >
-                          {statsCompactas ? '▢' : '—'}
+                          {compactStats ? '▢' : '—'}
                         </Button>
                       </Tooltip>
                     </div>
@@ -281,9 +281,9 @@ function BuilderPage() {
                     stats={stats}
                     base={base}
                     showBase={compareWithBase}
-                    compact={statsCompactas}
+                    compact={compactStats}
                   />
-                </Painel>
+                </Panel>
 
                 {/*
                   A secundária entra logo abaixo, na mesma coluna: números moram
@@ -291,7 +291,7 @@ function BuilderPage() {
                   distância do olho.
                 */}
                 {sidearm && sidearmStats && sidearmBase && (
-                  <Painel padding={10}>
+                  <Panel padding={10}>
                     <div className="mb-3 flex items-center justify-between gap-2">
                       <h2 className="label">
                         Secundária ·{' '}
@@ -300,7 +300,7 @@ function BuilderPage() {
                       {/* O mesmo interruptor do bloco de cima: as duas armas
                           respondem juntas, porque a comparação com a de fábrica
                           é um modo de leitura, não uma opção por arma. */}
-                      <ComparaComFabrica checked={compareWithBase} onChange={toggleBaseComparison} />
+                      <CompareWithFactory checked={compareWithBase} onChange={toggleBaseComparison} />
                     </div>
                     <StatsPanel
                       weapon={sidearm}
@@ -309,7 +309,7 @@ function BuilderPage() {
                       showBase={compareWithBase}
                       compact
                     />
-                  </Painel>
+                  </Panel>
                 )}
 
                 {approximate && <ApproximateNotice />}
@@ -323,7 +323,7 @@ function BuilderPage() {
               legível; no celular seguem dentro da aba Números. */}
           {weapon && stats && base && weapon.category !== 'melee' && (
             <div
-              className={`${tab === 'numeros' ? 'grid' : 'hidden lg:grid'} gap-3 ${larguraTotal} lg:grid-cols-2`}
+              className={`${tab === 'numeros' ? 'grid' : 'hidden lg:grid'} gap-3 ${fullWidth} lg:grid-cols-2`}
             >
               <DamageChart
                 stats={stats}
@@ -341,8 +341,8 @@ function BuilderPage() {
           )}
 
           {/* Classe e equipamento: coluna própria no celular, rodapé no desktop */}
-          <div className={`${tab === 'classe' ? 'block' : 'hidden lg:block'} ${larguraTotal}`}>
-            <Painel>
+          <div className={`${tab === 'classe' ? 'block' : 'hidden lg:block'} ${fullWidth}`}>
+            <Panel>
               <div className="grid gap-4 lg:grid-cols-[minmax(0,320px)_minmax(0,1fr)]">
                 <ClassSelector current={loadout.playerClass} onSelect={setPlayerClass} />
                 <EquipmentPanel
@@ -354,7 +354,7 @@ function BuilderPage() {
                   onSetThrowable={setThrowable}
                 />
               </div>
-            </Painel>
+            </Panel>
           </div>
         </div>
 
@@ -414,7 +414,7 @@ function BuilderPage() {
  * Virou `Card` do antd, e o molde ficou num lugar só — a borda e o recuo param
  * de divergir de bloco para bloco a cada mexida.
  */
-function Painel({
+function Panel({
   children,
   className = '',
   padding = 12,
@@ -436,7 +436,7 @@ function Painel({
 }
 
 /** O interruptor da leitura comparada, igual nos dois blocos de estatística. */
-function ComparaComFabrica({ checked, onChange }: { checked: boolean; onChange: () => void }) {
+function CompareWithFactory({ checked, onChange }: { checked: boolean; onChange: () => void }) {
   return (
     <Checkbox
       checked={checked}
@@ -453,7 +453,7 @@ function ComparaComFabrica({ checked, onChange }: { checked: boolean; onChange: 
 
 function EmptyState() {
   return (
-    <Painel className="flex min-h-[180px] items-center justify-center" padding={24}>
+    <Panel className="flex min-h-[180px] items-center justify-center" padding={24}>
       <Empty
         image={Empty.PRESENTED_IMAGE_SIMPLE}
         description={
@@ -462,7 +462,7 @@ function EmptyState() {
           </span>
         }
       />
-    </Painel>
+    </Panel>
   );
 }
 
@@ -471,7 +471,7 @@ function ApproximateNotice() {
     <Alert
       type="info"
       className="bevel-sm"
-      message={
+      title={
         <span className="text-[11px] leading-snug" style={{ color: 'var(--text-dim)' }}>
           <strong style={{ color: 'var(--accent)' }}>≈ valores aproximados.</strong> O jogo não expõe
           os multiplicadores exatos de alguns acessórios e armas. Esses números foram calibrados a
@@ -513,7 +513,7 @@ function SidearmSection({
    */
   return (
     <section className="space-y-2">
-      <Painel padding={10}>
+      <Panel padding={10}>
         <div className="mb-2 flex items-center justify-between gap-2">
           <h2 className="label">Arma secundária</h2>
           <Button
@@ -572,7 +572,7 @@ function SidearmSection({
             pontos em vez dos dez da arma principal.
           </p>
         )}
-      </Painel>
+      </Panel>
 
       {sidearm && (
         <SlotsPanel

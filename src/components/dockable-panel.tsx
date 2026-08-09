@@ -25,7 +25,7 @@ import { useRef, type PointerEvent as ReactPointerEvent, type ReactNode } from '
 
 export type PanelMode = 'fixo' | 'encolhido' | 'solto';
 
-const LARGURA_SOLTO = 300;
+const FLOATING_WIDTH = 300;
 
 export function DockablePanel({
   title,
@@ -40,37 +40,37 @@ export function DockablePanel({
   children: ReactNode;
   className?: string;
 }) {
-  const limites = useRef<HTMLDivElement>(null);
+  const boundsRef = useRef<HTMLDivElement>(null);
   const controls = useDragControls();
 
-  const solto = mode === 'solto';
-  const encolhido = mode === 'encolhido';
+  const floating = mode === 'solto';
+  const collapsed = mode === 'encolhido';
 
   /*
    * O arraste começa pelo cabeçalho, não pelo bloco inteiro: dentro dele há uma
    * lista que rola e sessenta e oito armas para clicar, e arrastar a partir
    * delas tornaria a lista inutilizável.
    */
-  const pegar = (e: ReactPointerEvent) => {
-    if (solto) controls.start(e);
+  const startDrag = (e: ReactPointerEvent) => {
+    if (floating) controls.start(e);
   };
 
-  const painel = (
+  const panel = (
     <motion.section
       className={`card bevel pointer-events-auto flex flex-col ${className}`}
-      drag={solto}
+      drag={floating}
       dragControls={controls}
       dragListener={false}
       dragMomentum={false}
-      dragConstraints={limites}
+      dragConstraints={boundsRef}
       dragElastic={0}
       style={
-        solto
+        floating
           ? {
               position: 'absolute',
               left: 24,
               top: 96,
-              width: LARGURA_SOLTO,
+              width: FLOATING_WIDTH,
               maxHeight: 'calc(100dvh - 140px)',
               boxShadow: '0 18px 40px rgb(0 0 0 / 0.45)',
             }
@@ -78,9 +78,9 @@ export function DockablePanel({
       }
     >
       <header
-        className={`flex items-center gap-1 px-2 py-1.5 ${solto ? 'cursor-grab active:cursor-grabbing' : ''}`}
-        style={{ borderBottom: encolhido ? 'none' : '1px solid var(--border-soft)' }}
-        onPointerDown={pegar}
+        className={`flex items-center gap-1 px-2 py-1.5 ${floating ? 'cursor-grab active:cursor-grabbing' : ''}`}
+        style={{ borderBottom: collapsed ? 'none' : '1px solid var(--border-soft)' }}
+        onPointerDown={startDrag}
       >
         <h2 className="label flex-1 truncate">{title}</h2>
 
@@ -90,26 +90,26 @@ export function DockablePanel({
         */}
         <span className="hidden items-center gap-1 lg:flex">
           <PanelButton
-            label={encolhido ? 'Expandir a lista' : 'Encolher a lista'}
-            onClick={() => onModeChange(encolhido ? 'fixo' : 'encolhido')}
+            label={collapsed ? 'Expandir a lista' : 'Encolher a lista'}
+            onClick={() => onModeChange(collapsed ? 'fixo' : 'encolhido')}
           >
-            {encolhido ? '▢' : '—'}
+            {collapsed ? '▢' : '—'}
           </PanelButton>
 
           <PanelButton
-            label={solto ? 'Prender a lista na coluna' : 'Soltar a lista da página'}
-            onClick={() => onModeChange(solto ? 'fixo' : 'solto')}
+            label={floating ? 'Prender a lista na coluna' : 'Soltar a lista da página'}
+            onClick={() => onModeChange(floating ? 'fixo' : 'solto')}
           >
-            {solto ? '⇱' : '⇲'}
+            {floating ? '⇱' : '⇲'}
           </PanelButton>
         </span>
       </header>
 
-      {!encolhido && <div className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto p-3">{children}</div>}
+      {!collapsed && <div className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto p-3">{children}</div>}
     </motion.section>
   );
 
-  if (!solto) return painel;
+  if (!floating) return panel;
 
   /*
    * Solto, o painel corre dentro desta moldura, que é a janela inteira. O
@@ -118,8 +118,8 @@ export function DockablePanel({
    * conta de `window.innerWidth`. Ela não recebe cliques: só o painel recebe.
    */
   return (
-    <div ref={limites} className="pointer-events-none fixed inset-0 z-40">
-      {painel}
+    <div ref={boundsRef} className="pointer-events-none fixed inset-0 z-40">
+      {panel}
     </div>
   );
 }

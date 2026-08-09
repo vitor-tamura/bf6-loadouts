@@ -37,9 +37,9 @@ export default function IconSheet() {
       <Row gutter={[8, 8]}>
         {samples().map((a) => (
           <Col key={a.id} {...COLS}>
-            <Celula nome={a.name}>
+            <Cell name={a.name}>
               <AttachmentIcon attachment={a} slot={a.slot} size={40} />
-            </Celula>
+            </Cell>
           </Col>
         ))}
       </Row>
@@ -50,9 +50,9 @@ export default function IconSheet() {
       <Row gutter={[8, 8]}>
         {GADGETS.map((g) => (
           <Col key={g.id} {...COLS}>
-            <Celula nome={g.name}>
+            <Cell name={g.name}>
               <GadgetArt gadget={g} size={40} />
-            </Celula>
+            </Cell>
           </Col>
         ))}
       </Row>
@@ -60,7 +60,7 @@ export default function IconSheet() {
   );
 }
 
-function Celula({ nome, children }: { nome: string; children: React.ReactNode }) {
+function Cell({ name, children }: { name: string; children: React.ReactNode }) {
   return (
     <Card
       variant="outlined"
@@ -70,7 +70,7 @@ function Celula({ nome, children }: { nome: string; children: React.ReactNode })
     >
       <span className="flex flex-col items-center gap-1">
         <span style={{ color: 'var(--accent)' }}>{children}</span>
-        <span className="text-center text-[10px] leading-tight">{nome}</span>
+        <span className="text-center text-[10px] leading-tight">{name}</span>
       </span>
     </Card>
   );

@@ -200,7 +200,7 @@ function buildGrid(): GridRow[] {
 }
 
 /** As armas agrupadas por categoria, como o seletor precisa delas. */
-const OPCOES_ARMAS = CATEGORY_ORDER.filter((c) => c !== 'melee').map((category) => ({
+const WEAPON_OPTIONS = CATEGORY_ORDER.filter((c) => c !== 'melee').map((category) => ({
   label: CATEGORY_NAMES[category],
   options: WEAPONS.filter((w) => w.category === category).map((w) => ({
     label: w.name,
@@ -208,7 +208,7 @@ const OPCOES_ARMAS = CATEGORY_ORDER.filter((c) => c !== 'melee').map((category) 
   })),
 }));
 
-const OPCOES_CATEGORIA = [
+const CATEGORY_OPTIONS = [
   { label: 'Todas', value: 'all' as const },
   ...CATEGORY_ORDER.filter((c) => c !== 'melee').map((c) => ({
     label: SHORT_CATEGORY_NAMES[c],
@@ -216,7 +216,7 @@ const OPCOES_CATEGORIA = [
   })),
 ];
 
-const numero = (v: number) => v.toFixed(1).replace('.', ',');
+const formatNumber = (v: number) => v.toFixed(1).replace('.', ',');
 
 export default function ComparePage() {
   const [idA, setIdA] = useState('ak4d');
@@ -247,7 +247,7 @@ export default function ComparePage() {
   );
 
   /** As três colunas do confronto: o rótulo e um valor de cada arma. */
-  const colunasDuelo: ColumnsType<DuelRow> = [
+  const duelColumns: ColumnsType<DuelRow> = [
     {
       title: 'Estatística',
       dataIndex: 'label',
@@ -260,14 +260,14 @@ export default function ComparePage() {
       dataIndex: 'a',
       key: 'a',
       align: 'right',
-      render: (valor: string, row) => <ValorDuelo valor={valor} vence={row.advantage > 0} />,
+      render: (value: string, row) => <DuelValue value={value} wins={row.advantage > 0} />,
     },
     {
       title: <span style={{ color: COLOR_B }}>{weaponB.name}</span>,
       dataIndex: 'b',
       key: 'b',
       align: 'right',
-      render: (valor: string, row) => <ValorDuelo valor={valor} vence={row.advantage < 0} />,
+      render: (value: string, row) => <DuelValue value={value} wins={row.advantage < 0} />,
     },
   ];
 
@@ -279,7 +279,7 @@ export default function ComparePage() {
    * e `sortDirections` nas demais: a primeira batida do cabeçalho já traz a
    * ponta que interessa, em vez de obrigar a um segundo clique.
    */
-  const colunasGrade: ColumnsType<GridRow> = [
+  const gridColumns: ColumnsType<GridRow> = [
     {
       title: 'Arma',
       dataIndex: 'name',
@@ -314,16 +314,16 @@ export default function ComparePage() {
         </span>
       ),
     },
-    coluna('Acess.', 'attachments', (v) => String(v), 'descend'),
-    coluna('Dano', 'damage', numero, 'descend'),
-    coluna('RPM', 'rpm', (v) => String(v), 'descend'),
-    coluna('DPS', 'dps', (v) => String(Math.round(v)), 'descend', 'dps'),
-    coluna('TTK ms', 'ttk', (v) => (v === 0 ? '1 tiro' : String(Math.round(v))), 'ascend'),
-    coluna('Carreg.', 'magazine', (v) => String(v), 'descend'),
-    coluna('Recarga s', 'reload', (v) => v.toFixed(2).replace('.', ','), 'ascend'),
-    coluna('ADS ms', 'ads', (v) => String(Math.round(v)), 'ascend'),
-    coluna('Queda m', 'range', (v) => (v === 999 ? '∞' : String(Math.round(v))), 'descend'),
-    coluna('Mob.', 'mobility', (v) => String(Math.round(v)), 'descend'),
+    numericColumn('Acess.', 'attachments', (v) => String(v), 'descend'),
+    numericColumn('Dano', 'damage', formatNumber, 'descend'),
+    numericColumn('RPM', 'rpm', (v) => String(v), 'descend'),
+    numericColumn('DPS', 'dps', (v) => String(Math.round(v)), 'descend', 'dps'),
+    numericColumn('TTK ms', 'ttk', (v) => (v === 0 ? '1 tiro' : String(Math.round(v))), 'ascend'),
+    numericColumn('Carreg.', 'magazine', (v) => String(v), 'descend'),
+    numericColumn('Recarga s', 'reload', (v) => v.toFixed(2).replace('.', ','), 'ascend'),
+    numericColumn('ADS ms', 'ads', (v) => String(Math.round(v)), 'ascend'),
+    numericColumn('Queda m', 'range', (v) => (v === 999 ? '∞' : String(Math.round(v))), 'descend'),
+    numericColumn('Mob.', 'mobility', (v) => String(Math.round(v)), 'descend'),
   ];
 
   return (
@@ -374,7 +374,7 @@ export default function ComparePage() {
           style={{ borderColor: 'var(--border-soft)' }}
         >
           <Table<DuelRow>
-            columns={colunasDuelo}
+            columns={duelColumns}
             dataSource={rows}
             pagination={false}
             size="small"
@@ -398,7 +398,7 @@ export default function ComparePage() {
           <div className="flex flex-wrap items-center justify-between gap-2 p-3">
             <h2 className="label">Arsenal · {grid.length} armas</h2>
             <Segmented
-              options={OPCOES_CATEGORIA}
+              options={CATEGORY_OPTIONS}
               value={categoryFilter}
               onChange={(v) => setCategoryFilter(v as WeaponCategory | 'all')}
               size="small"
@@ -407,7 +407,7 @@ export default function ComparePage() {
           </div>
 
           <Table<GridRow>
-            columns={colunasGrade}
+            columns={gridColumns}
             dataSource={grid}
             pagination={false}
             size="small"
@@ -436,12 +436,12 @@ export default function ComparePage() {
 /* --------------------------------- peças --------------------------------- */
 
 /** Coluna numérica da grade — todas seguem o mesmo molde. */
-function coluna(
+function numericColumn(
   title: string,
   key: keyof GridRow,
   render: (v: number) => string,
-  ordemInicial: 'ascend' | 'descend',
-  padrao?: 'dps',
+  initialOrder: 'ascend' | 'descend',
+  preset?: 'dps',
 ): ColumnsType<GridRow>[number] {
   return {
     title,
@@ -450,19 +450,19 @@ function coluna(
     align: 'right',
     width: 96,
     sorter: (x: GridRow, y: GridRow) => (x[key] as number) - (y[key] as number),
-    sortDirections: ordemInicial === 'descend' ? ['descend', 'ascend'] : ['ascend', 'descend'],
-    defaultSortOrder: padrao === 'dps' ? 'descend' : undefined,
+    sortDirections: initialOrder === 'descend' ? ['descend', 'ascend'] : ['ascend', 'descend'],
+    defaultSortOrder: preset === 'dps' ? 'descend' : undefined,
     render: (v: number) => <span className="font-mono text-[12px]">{render(v)}</span>,
   };
 }
 
-function ValorDuelo({ valor, vence }: { valor: string; vence: boolean }) {
+function DuelValue({ value, wins }: { value: string; wins: boolean }) {
   return (
     <span
       className="font-mono"
-      style={{ color: vence ? 'var(--color-positive)' : 'var(--text)', fontWeight: vence ? 700 : 400 }}
+      style={{ color: wins ? 'var(--color-positive)' : 'var(--text)', fontWeight: wins ? 700 : 400 }}
     >
-      {valor}
+      {value}
     </span>
   );
 }
@@ -490,7 +490,7 @@ function WeaponPicker({
       <Select
         value={value}
         onChange={onChange}
-        options={OPCOES_ARMAS}
+        options={WEAPON_OPTIONS}
         showSearch
         optionFilterProp="label"
         className="bevel-sm touch"

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { hasPhoto, WeaponPhoto } from '@/components/weapon-photo';
-import type { Attachment, Weapon } from '@/data/types';
+import type { Weapon } from '@/data/types';
 import { weaponImagePath } from './manifest';
 
 /**
@@ -29,14 +29,19 @@ interface Props {
 const ASPECT_RATIO = '8 / 3';
 
 export function WeaponPreview({ weapon, withLabel = false, className }: Props) {
-  const [noOwnImage, setNoOwnImage] = useState(false);
-  const [photoFailed, setPhotoFailed] = useState(false);
+  /*
+   * As duas falhas guardam de qual arma são, em vez de sim/não.
+   *
+   * O preview fica no mesmo lugar da tela enquanto a arma muda por baixo — é o
+   * componente que menos desmonta do montador —, e dois booleanos precisariam
+   * ser desligados a cada troca. Desligá-los num efeito custa um quadro: a arma
+   * nova estrearia mostrando o marcador de "sem imagem" da anterior.
+   */
+  const [semArtePropria, setSemArtePropria] = useState<string | null>(null);
+  const [semFoto, setSemFoto] = useState<string | null>(null);
+  const noOwnImage = semArtePropria === weapon.id;
+  const photoFailed = semFoto === weapon.id;
   const imgRef = useRef<HTMLImageElement>(null);
-
-  useEffect(() => {
-    setNoOwnImage(false);
-    setPhotoFailed(false);
-  }, [weapon.id]);
 
   /*
    * `onError` sozinho não basta: a página é pré-renderizada, e quando o React
@@ -45,7 +50,7 @@ export function WeaponPreview({ weapon, withLabel = false, className }: Props) {
    */
   useEffect(() => {
     const img = imgRef.current;
-    if (img?.complete && img.naturalWidth === 0) setNoOwnImage(true);
+    if (img?.complete && img.naturalWidth === 0) setSemArtePropria(weapon.id);
   }, [weapon.id]);
 
   // Sem arte própria: foto do jogo, que não aceita camadas.
@@ -53,7 +58,7 @@ export function WeaponPreview({ weapon, withLabel = false, className }: Props) {
     if (!photoFailed && hasPhoto(weapon)) {
       return (
         <div className={className} style={{ position: 'relative', aspectRatio: ASPECT_RATIO }}>
-          <WeaponPhoto weapon={weapon} onUnavailable={() => setPhotoFailed(true)} />
+          <WeaponPhoto weapon={weapon} onUnavailable={() => setSemFoto(weapon.id)} />
           {withLabel && <Label weapon={weapon} />}
         </div>
       );
@@ -67,7 +72,7 @@ export function WeaponPreview({ weapon, withLabel = false, className }: Props) {
         ref={imgRef}
         src={weaponImagePath(weapon.id)}
         alt={weapon.name}
-        onError={() => setNoOwnImage(true)}
+        onError={() => setSemArtePropria(weapon.id)}
         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain' }}
       />
 
