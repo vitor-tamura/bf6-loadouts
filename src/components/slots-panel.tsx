@@ -268,6 +268,9 @@ export function SlotsPanel({
                   : current
                     ? 'color-mix(in oklab, var(--accent) 45%, var(--border-soft))'
                     : 'var(--border-soft)',
+                // Os dez slots são a fila de decisões da tela: a sombra os põe
+                // um passo à frente do fundo, no mesmo tom das peças da grade.
+                boxShadow: expanded ? undefined : 'var(--card-shadow)',
               }}
             >
               <span className="label w-full truncate">{definition.name}</span>
@@ -474,22 +477,19 @@ function OptionTile({
         onFocus={onFocus}
         disabled={disabled}
         aria-pressed={active}
-        className="tile bevel-sm flex aspect-square w-full flex-col items-center justify-between p-1.5 text-center"
+        className="tile tile-glass bevel-sm flex aspect-square w-full flex-col items-center justify-between p-1.5 text-center"
         /*
          * A grade chega a 152 peças de uma vez, e cada cartão é pequeno: a
          * borda quase invisível de antes fazia o conjunto ler como uma mancha
-         * só, sem começo nem fim de cada peça. Borda cheia e um leve
-         * afastamento do fundo dão contorno a cada uma sem virar ruído.
+         * só, sem começo nem fim de cada peça. Borda cheia, sombra e o fundo
+         * translúcido de `tile-glass` dão contorno a cada uma sem virar ruído.
          */
         style={
           {
             '--tile-bg': active
-              ? 'color-mix(in oklab, var(--accent) 16%, var(--surface))'
+              ? 'color-mix(in oklab, var(--accent) 22%, var(--surface))'
               : 'var(--surface-raised)',
             border: `1px solid ${active ? 'var(--accent)' : 'var(--border)'}`,
-            boxShadow: active
-              ? '0 0 0 1px color-mix(in oklab, var(--accent) 45%, transparent)'
-              : '0 2px 8px -6px rgb(0 0 0 / 0.55)',
             opacity: disabled ? 0.45 : 1,
           } as CSSProperties
         }
