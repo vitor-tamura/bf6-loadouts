@@ -144,7 +144,13 @@ export function WeaponFilters({
 
   if (stacked) {
     return (
-      <section>
+      /*
+       * `overflow-x-hidden` por causa da faixa de chips logo abaixo: ela usa
+       * margem negativa para o primeiro chip encostar na borda, e esses poucos
+       * pixels de sangria viravam rolagem lateral no modal da secundária, que
+       * é estreito e não tem folga nenhuma.
+       */
+      <section className="overflow-x-hidden">
         <h2 className="label mb-2">{title}</h2>
         <Input
           type="search"
@@ -294,16 +300,19 @@ export function WeaponList({
   filter,
   selected,
   onSelect,
+  equippedLabel = 'Montando agora',
 }: {
   filter: WeaponFilterState;
   selected: string | null;
   onSelect: (id: string) => void;
+  /** O que se lê sobre a arma escolhida — "montando" só vale no montador. */
+  equippedLabel?: string;
 }) {
   const equipped = selected ? WEAPONS.find((w) => w.id === selected) : null;
 
   return (
     <div className="space-y-4">
-      {equipped && <EquippedWeapon weapon={equipped} />}
+      {equipped && <EquippedWeapon weapon={equipped} equippedLabel={equippedLabel} />}
 
       {[...filter.byCategory.entries()].map(([category, weaponList]) => (
         <div key={category}>
@@ -343,11 +352,13 @@ export function WeaponSelector({
   onSelect,
   categories = CATEGORY_ORDER,
   title = 'Arma principal',
+  equippedLabel,
 }: {
   selected: string | null;
   onSelect: (id: string) => void;
   categories?: WeaponCategory[];
   title?: string;
+  equippedLabel?: string;
 }) {
   const filter = useWeaponFilter(categories);
 
@@ -355,7 +366,12 @@ export function WeaponSelector({
     <section>
       <WeaponFilters filter={filter} title={title} layout="stacked" />
       <div className="mt-3">
-        <WeaponList filter={filter} selected={selected} onSelect={onSelect} />
+        <WeaponList
+          filter={filter}
+          selected={selected}
+          onSelect={onSelect}
+          equippedLabel={equippedLabel}
+        />
       </div>
     </section>
   );
@@ -404,7 +420,7 @@ function FilterChip({
  * grande e os números que identificam a arma, para o jogador nunca precisar
  * procurar o que está montando.
  */
-function EquippedWeapon({ weapon }: { weapon: Weapon }) {
+function EquippedWeapon({ weapon, equippedLabel }: { weapon: Weapon; equippedLabel: string }) {
   const playerClass = CLASSES.find((c) => c.id === weapon.signatureClass);
 
   return (
@@ -418,7 +434,7 @@ function EquippedWeapon({ weapon }: { weapon: Weapon }) {
     >
       <div className="flex items-center justify-between gap-2">
         <span className="label" style={{ color: 'var(--accent)' }}>
-          Montando agora
+          {equippedLabel}
         </span>
         <SeasonTag season={weapon.season} size="sm" />
       </div>

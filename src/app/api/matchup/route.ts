@@ -175,9 +175,16 @@ export async function POST(request: Request) {
           `Arma B: ${JSON.stringify(weaponB)}`,
           'Escreva a leitura do confronto entre as duas neste modo.',
         ].join('\n\n'),
-        maxOutputTokens: 220,
-        // As opções abaixo são do gateway; com a chave do Google elas não têm
-        // para quem falar, e passá-las assim mesmo só encheria o pedido.
+        /*
+         * Teto alto para três frases, e por um motivo.
+         *
+         * O Flash gasta parte do orçamento de saída raciocinando antes de
+         * escrever, e esses tokens contam aqui: com 220 a resposta chegava
+         * cortada no meio da primeira frase. O `thinkingBudget: 0` desliga o
+         * raciocínio, que não tem o que fazer numa tarefa de redigir a partir
+         * de números já comparados, e o teto folgado cobre o resto.
+         */
+        maxOutputTokens: 800,
         providerOptions: viaGateway
           ? {
               gateway: {
@@ -192,7 +199,7 @@ export async function POST(request: Request) {
                 cacheControl: 'max-age=86400',
               },
             }
-          : undefined,
+          : { google: { thinkingConfig: { thinkingBudget: 0 } } },
       });
 
       const answer = text.trim();
