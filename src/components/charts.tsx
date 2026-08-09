@@ -129,11 +129,21 @@ function ChartFrame({
   children: ReactNode;
 }) {
   return (
-    <figure className="card bevel p-3">
+    /*
+     * `min-w-0` no quadro e no desenho.
+     *
+     * O canvas do G2 nasce com 640 px — a largura que ele assume antes de medir
+     * o pai. Item de grid tem largura mínima igual ao conteúdo, então esses 640
+     * px viravam o piso do bloco: em tela de celular o gráfico empurrava a
+     * página inteira para o lado, e a rolagem horizontal aparecia no site todo,
+     * não só aqui dentro. Com a largura mínima zerada, o quadro encolhe até o
+     * tamanho da tela e o `autoFit` mede o valor certo.
+     */
+    <figure className="card bevel min-w-0 p-3">
       <figcaption className="mb-1">
         <h3 className="label">{title}</h3>
       </figcaption>
-      <div role="img" aria-label={description}>
+      <div role="img" aria-label={description} className="min-w-0 overflow-hidden">
         {children}
       </div>
     </figure>

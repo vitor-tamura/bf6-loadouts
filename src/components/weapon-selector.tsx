@@ -1,6 +1,7 @@
 'use client';
 
-import { Empty, Input, Tag, Tooltip } from 'antd';
+import { Hint } from '@/components/hint';
+import { Empty, Input, Tag } from 'antd';
 import type { InputRef } from 'antd';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
@@ -509,9 +510,9 @@ function WeaponCard({
           {playerClass && <span style={{ color: playerClass.color }}>{playerClass.name}</span>}
           <SeasonTag season={weapon.season} size="sm" />
           {weapon.provenance === 'curated' && (
-            <Tooltip title="Valores aproximados">
+            <Hint label="Valores aproximados">
               <span>≈</span>
-            </Tooltip>
+            </Hint>
           )}
         </span>
       </span>

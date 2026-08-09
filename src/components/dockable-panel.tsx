@@ -1,6 +1,7 @@
 'use client';
 
-import { Button, Tooltip } from 'antd';
+import { Hint } from '@/components/hint';
+import { Button } from 'antd';
 import { motion, useDragControls } from 'motion/react';
 import { useRef, type PointerEvent as ReactPointerEvent, type ReactNode } from 'react';
 
@@ -134,7 +135,7 @@ function PanelButton({
   children: ReactNode;
 }) {
   return (
-    <Tooltip title={label}>
+    <Hint label={label}>
       <Button
         type="text"
         size="small"
@@ -145,6 +146,6 @@ function PanelButton({
       >
         {children}
       </Button>
-    </Tooltip>
+    </Hint>
   );
 }

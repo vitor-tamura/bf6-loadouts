@@ -1,7 +1,8 @@
 'use client';
 
+import { Hint } from '@/components/hint';
 import Link from 'next/link';
-import { Button, Layout, Menu, Tag, Tooltip } from 'antd';
+import { Button, Layout, Menu, Tag } from 'antd';
 import { TransitionLink } from '@/components/page-transition';
 import { usePathname } from 'next/navigation';
 import { useMemo, type ReactNode } from 'react';
@@ -47,7 +48,7 @@ function SeasonBadge() {
    */
   return (
     <span className="hidden shrink-0 sm:inline-block">
-      <Tooltip title={`Temporada ${season.number}: ${season.name} — ${season.summary}`}>
+      <Hint label={`Temporada ${season.number}: ${season.name} — ${season.summary}`}>
         <Tag
           color="cyan"
           className="bevel-sm text-[10px] font-semibold tracking-[0.14em] uppercase"
@@ -55,7 +56,7 @@ function SeasonBadge() {
         >
           {seasonLabel(date)}
         </Tag>
-      </Tooltip>
+      </Hint>
     </span>
   );
 }

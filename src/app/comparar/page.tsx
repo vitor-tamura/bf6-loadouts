@@ -1,6 +1,7 @@
 'use client';
 
-import { Card, Segmented, Select, Table, Tag, Tooltip, Typography } from 'antd';
+import { Hint } from '@/components/hint';
+import { Card, Segmented, Select, Table, Tag, Typography } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { useMemo, useState } from 'react';
 import { AppHeader } from '@/components/header';
@@ -291,9 +292,9 @@ export default function ComparePage() {
         <span className="flex items-center gap-1.5">
           <span className="font-display text-sm font-semibold tracking-wide">{row.name}</span>
           {row.approximate && (
-            <Tooltip title="Valores aproximados">
+            <Hint label="Valores aproximados">
               <span style={{ color: 'var(--text-dim)' }}>≈</span>
-            </Tooltip>
+            </Hint>
           )}
           <SeasonTag season={row.season} size="sm" />
           <SideButton side="A" color={COLOR_A} active={row.id === idA} onClick={() => setIdA(row.id)} weaponName={row.name} />
@@ -574,7 +575,7 @@ function SideButton({
   weaponName: string;
 }) {
   return (
-    <Tooltip title={`Definir ${weaponName} como arma ${side}`}>
+    <Hint label={`Definir ${weaponName} como arma ${side}`}>
       <button
         type="button"
         onClick={onClick}
@@ -590,6 +591,6 @@ function SideButton({
       >
         {side}
       </button>
-    </Tooltip>
+    </Hint>
   );
 }

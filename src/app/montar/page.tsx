@@ -1,6 +1,7 @@
 'use client';
 
-import { Alert, Button, Card, Checkbox, Empty, Modal, Segmented, Tooltip } from 'antd';
+import { Hint } from '@/components/hint';
+import { Alert, Button, Card, Checkbox, Empty, Modal, Segmented } from 'antd';
 import { Suspense, useMemo, useState } from 'react';
 import { AppHeader } from '@/components/header';
 import { ShareButton } from '@/components/share-button';
@@ -261,7 +262,7 @@ function BuilderPage() {
                         linha por medida. Compacto, ele encolhe para caber junto
                         dos gráficos e da secundária sem rolagem.
                       */}
-                      <Tooltip title={compactStats ? 'Abrir as estatísticas' : 'Compactar as estatísticas'}>
+                      <Hint label={compactStats ? 'Abrir as estatísticas' : 'Compactar as estatísticas'}>
                         <Button
                           type="text"
                           size="small"
@@ -273,7 +274,7 @@ function BuilderPage() {
                         >
                           {compactStats ? '▢' : '—'}
                         </Button>
-                      </Tooltip>
+                      </Hint>
                     </div>
                   </div>
                   <StatsPanel
