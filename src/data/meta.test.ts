@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import {
-  DESTAQUES,
-  FONTES,
-  NAO_E_MULTIPLAYER,
-  POR_CATEGORIA,
-  type IndicacaoMeta,
+  HIGHLIGHTS,
+  SOURCES,
+  NOT_MULTIPLAYER,
+  BY_CATEGORY,
+  type MetaPick,
 } from './meta';
 import { WEAPONS_BY_ID } from './weapons';
 
@@ -19,84 +19,84 @@ import { WEAPONS_BY_ID } from './weapons';
  * ranking errado publicado.
  */
 
-const todas: IndicacaoMeta[] = [
-  ...DESTAQUES,
-  ...POR_CATEGORIA.flatMap((bloco) => [bloco.melhor, ...bloco.mencoes]),
+const all: MetaPick[] = [
+  ...HIGHLIGHTS,
+  ...BY_CATEGORY.flatMap((group) => [group.best, ...group.mentions]),
 ];
 
 describe('fontes do meta', () => {
   it('são todas de multiplayer, com o indício registrado', () => {
-    for (const fonte of FONTES) {
-      expect(fonte.modo, fonte.nome).toBe('multiplayer');
-      expect(fonte.escopo.length, `escopo de ${fonte.nome}`).toBeGreaterThan(20);
+    for (const source of SOURCES) {
+      expect(source.mode, source.name).toBe('multiplayer');
+      expect(source.scope.length, `escopo de ${source.name}`).toBeGreaterThan(20);
     }
   });
 
   it('declaram data dentro da temporada corrente', () => {
-    for (const fonte of FONTES) {
-      expect(fonte.data, fonte.nome).toMatch(/^\d{4}-\d{2}-\d{2}$/);
-      expect(new Date(fonte.data).getTime(), fonte.nome).toBeGreaterThan(
+    for (const source of SOURCES) {
+      expect(source.date, source.name).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(new Date(source.date).getTime(), source.name).toBeGreaterThan(
         new Date('2026-07-21').getTime(),
       );
     }
   });
 
   it('não repetem link', () => {
-    expect(new Set(FONTES.map((f) => f.url)).size).toBe(FONTES.length);
+    expect(new Set(SOURCES.map((f) => f.url)).size).toBe(SOURCES.length);
   });
 });
 
 describe('indicações', () => {
   it('citam arma que existe no arsenal', () => {
-    for (const indicacao of todas) {
-      expect(WEAPONS_BY_ID.has(indicacao.weapon), indicacao.weapon).toBe(true);
+    for (const pick of all) {
+      expect(WEAPONS_BY_ID.has(pick.weapon), pick.weapon).toBe(true);
     }
-    for (const item of NAO_E_MULTIPLAYER) {
+    for (const item of NOT_MULTIPLAYER) {
       expect(WEAPONS_BY_ID.has(item.weapon), item.weapon).toBe(true);
     }
   });
 
   it('apontam para fonte que existe', () => {
-    for (const indicacao of todas) {
-      expect(indicacao.fontes.length, indicacao.weapon).toBeGreaterThan(0);
-      for (const i of indicacao.fontes) {
-        expect(FONTES[i], `${indicacao.weapon} cita fonte ${i}`).toBeDefined();
+    for (const pick of all) {
+      expect(pick.sources.length, pick.weapon).toBeGreaterThan(0);
+      for (const i of pick.sources) {
+        expect(SOURCES[i], `${pick.weapon} cita fonte ${i}`).toBeDefined();
       }
     }
   });
 
   it('exigem duas fontes para virar destaque', () => {
-    for (const destaque of DESTAQUES) {
-      expect(destaque.fontes.length, destaque.weapon).toBeGreaterThanOrEqual(2);
+    for (const highlight of HIGHLIGHTS) {
+      expect(highlight.sources.length, highlight.weapon).toBeGreaterThanOrEqual(2);
     }
   });
 });
 
 describe('blocos por categoria', () => {
   it('só listam arma da própria categoria', () => {
-    for (const bloco of POR_CATEGORIA) {
-      for (const indicacao of [bloco.melhor, ...bloco.mencoes]) {
-        expect(WEAPONS_BY_ID.get(indicacao.weapon)?.category, indicacao.weapon).toBe(
-          bloco.category,
+    for (const group of BY_CATEGORY) {
+      for (const pick of [group.best, ...group.mentions]) {
+        expect(WEAPONS_BY_ID.get(pick.weapon)?.category, pick.weapon).toBe(
+          group.category,
         );
       }
     }
   });
 
   it('não repetem arma dentro do mesmo bloco nem entre categorias', () => {
-    const vistas = new Set<string>();
-    for (const bloco of POR_CATEGORIA) {
-      const ids = [bloco.melhor, ...bloco.mencoes].map((i) => i.weapon);
-      expect(new Set(ids).size, bloco.category).toBe(ids.length);
+    const seen = new Set<string>();
+    for (const group of BY_CATEGORY) {
+      const ids = [group.best, ...group.mentions].map((i) => i.weapon);
+      expect(new Set(ids).size, group.category).toBe(ids.length);
       for (const id of ids) {
-        expect(vistas.has(id), `${id} aparece em mais de uma categoria`).toBe(false);
-        vistas.add(id);
+        expect(seen.has(id), `${id} aparece em mais de uma categoria`).toBe(false);
+        seen.add(id);
       }
     }
   });
 
   it('cobrem uma categoria por vez', () => {
-    const cats = POR_CATEGORIA.map((b) => b.category);
+    const cats = BY_CATEGORY.map((b) => b.category);
     expect(new Set(cats).size).toBe(cats.length);
   });
 });

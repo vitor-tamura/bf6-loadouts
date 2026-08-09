@@ -73,8 +73,8 @@ describe('integridade do dataset', () => {
     for (const weapon of WEAPONS) {
       if (weapon.category === 'melee') continue;
       for (const [slot, list] of attachmentsForWeapon(weapon)) {
-        const maisBarata = Math.min(...list.map((a) => a.cost));
-        expect(maisBarata, `${weapon.name} · ${slot}`).toBeLessThanOrEqual(budgetFor(weapon.category));
+        const cheapest = Math.min(...list.map((a) => a.cost));
+        expect(cheapest, `${weapon.name} · ${slot}`).toBeLessThanOrEqual(budgetFor(weapon.category));
       }
     }
   });
@@ -174,13 +174,13 @@ describe('orçamento de 100 pontos', () => {
   });
 
   it('desconta a peça que será substituída no mesmo slot', () => {
-    const mira = ATTACHMENTS_BY_ID.get('sight-iron-sights')!;
+    const sight = ATTACHMENTS_BY_ID.get('sight-iron-sights')!;
     const other = ATTACHMENTS_BY_ID.get('muzzle-compensated-brake')!;
-    const currentOnes = [mira, other];
+    const currentOnes = [sight, other];
 
     // Trocar dentro do mesmo slot só considera a diferença de custo.
     const replacement = ATTACHMENTS.find(
-      (a) => a.slot === 'sight' && a.id !== mira.id && a.cost <= POINT_BUDGET - other.cost,
+      (a) => a.slot === 'sight' && a.id !== sight.id && a.cost <= POINT_BUDGET - other.cost,
     )!;
     expect(fitsBudget(replacement, currentOnes)).toBe(true);
 
@@ -235,34 +235,34 @@ describe('munição', () => {
       expect(isCompatible(attachment, weapon), weapon.name).toBe(true);
       // A alça de ferro é a de série; onde a arma não a aceita — rifles de
       // precisão e a UMG-40 —, vale a mira mais barata que ela aceita.
-      const opcoes = attachmentsForWeapon(weapon).get('sight')!;
-      expect(attachment.cost, weapon.name).toBe(opcoes[0].cost);
+      const options = attachmentsForWeapon(weapon).get('sight')!;
+      expect(attachment.cost, weapon.name).toBe(options[0].cost);
     }
     expect(defaultSight(WEAPONS_BY_ID.get('ak4d')!)).toBe('sight-iron-sights');
     expect(defaultSight(WEAPONS_BY_ID.get('sv-98')!)).not.toBe('sight-iron-sights');
   });
 
   it('repõe a munição ao limpar a montagem ou trocar de arma', () => {
-    const montado = stripIncompatible({ ...EMPTY_LOADOUT, weapon: 'ak4d', attachments: {} });
-    expect(montado.attachments.ammo).toBe('ammo-fmj');
+    const built = stripIncompatible({ ...EMPTY_LOADOUT, weapon: 'ak4d', attachments: {} });
+    expect(built.attachments.ammo).toBe('ammo-fmj');
 
-    const escopeta = stripIncompatible({ ...EMPTY_LOADOUT, weapon: 'm1014', attachments: {} });
-    expect(escopeta.attachments.ammo).toBe('ammo-buckshot');
+    const shotgun = stripIncompatible({ ...EMPTY_LOADOUT, weapon: 'm1014', attachments: {} });
+    expect(shotgun.attachments.ammo).toBe('ammo-buckshot');
   });
 
   it('fixa o dano na cabeça em vez de multiplicar o da arma', () => {
-    const pontaOca = ATTACHMENTS_BY_ID.get('ammo-hollow-point')!;
-    const sintetica = ATTACHMENTS_BY_ID.get('ammo-synthetic-tip')!;
+    const hollowPoint = ATTACHMENTS_BY_ID.get('ammo-hollow-point')!;
+    const synthetic = ATTACHMENTS_BY_ID.get('ammo-synthetic-tip')!;
     // O valor é o mesmo em qualquer arma — é isso que "1,50x" quer dizer.
-    expect(calculateStats(ak4d, [pontaOca]).headshot).toBe(1.5);
-    expect(calculateStats(WEAPONS_BY_ID.get('b36a4')!, [sintetica]).headshot).toBe(1.75);
+    expect(calculateStats(ak4d, [hollowPoint]).headshot).toBe(1.5);
+    expect(calculateStats(WEAPONS_BY_ID.get('b36a4')!, [synthetic]).headshot).toBe(1.75);
   });
 
   it('dobra o arrasto do projétil com a munição de longo alcance', () => {
     // O patch 1.3.3.0 subiu o arrasto de todas as armas em 40% e o da Match
     // Grade em 100%: a peça fecha o agrupamento e cobra na queda da bala.
     const sniper = WEAPONS_BY_ID.get('sv-98')!;
-    const longoAlcance = ATTACHMENTS_BY_ID.get('ammo-match-grade')!;
-    expect(calculateStats(sniper, [longoAlcance]).drag).toBeGreaterThan(baseStats(sniper).drag);
+    const longRange = ATTACHMENTS_BY_ID.get('ammo-match-grade')!;
+    expect(calculateStats(sniper, [longRange]).drag).toBeGreaterThan(baseStats(sniper).drag);
   });
 });

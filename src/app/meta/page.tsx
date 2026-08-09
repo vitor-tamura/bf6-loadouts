@@ -8,13 +8,13 @@ import { SiteFooter } from '@/components/site-footer';
 import { WeaponPreview } from '@/components/weapon-preview';
 import { CATEGORY_NAMES, CLASSES } from '@/data/classes';
 import {
-  ATUALIZADO_EM,
-  DESTAQUES,
-  FONTES,
-  NAO_E_MULTIPLAYER,
-  POR_CATEGORIA,
-  TEMPORADA_DO_META,
-  type IndicacaoMeta,
+  UPDATED_AT,
+  HIGHLIGHTS,
+  SOURCES,
+  NOT_MULTIPLAYER,
+  BY_CATEGORY,
+  META_SEASON,
+  type MetaPick,
 } from '@/data/meta';
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import { EMPTY_LOADOUT } from '@/lib/loadout';
@@ -37,7 +37,7 @@ import { shotsToKill, timeToKill } from '@/lib/ballistics';
  * para escondê-las, mas para o leitor não as confundir com o meta daqui.
  */
 
-const dataCurta = (iso: string) =>
+const shortDate = (iso: string) =>
   new Date(`${iso}T12:00:00Z`).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' });
 
 export default function MetaPage() {
@@ -54,7 +54,7 @@ export default function MetaPage() {
         >
           <div className="flex flex-wrap items-baseline justify-between gap-2">
             <h1 className="font-display flex flex-wrap items-baseline gap-2 text-xl font-bold tracking-wide">
-              Meta da Temporada {TEMPORADA_DO_META}
+              Meta da Temporada {META_SEASON}
               <Tooltip title="O battle royale REDSEC tem meta próprio e não entra nesta lista">
                 <Tag
                   className="bevel-sm m-0 text-[10px] font-semibold tracking-[0.14em] uppercase"
@@ -69,7 +69,7 @@ export default function MetaPage() {
               </Tooltip>
             </h1>
             <Typography.Text className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
-              revisado em {dataCurta(ATUALIZADO_EM)}
+              revisado em {shortDate(UPDATED_AT)}
             </Typography.Text>
           </div>
 
@@ -110,9 +110,9 @@ export default function MetaPage() {
         <section className="mb-3">
           <h2 className="label mb-2">O topo do multiplayer</h2>
           <Row gutter={[8, 8]}>
-            {DESTAQUES.map((indicacao, posicao) => (
-              <Col key={indicacao.weapon} xs={24} sm={12} lg={8} xl={6}>
-                <CartaoMeta indicacao={indicacao} posicao={posicao + 1} />
+            {HIGHLIGHTS.map((pick, rank) => (
+              <Col key={pick.weapon} xs={24} sm={12} lg={8} xl={6}>
+                <MetaCard pick={pick} rank={rank + 1} />
               </Col>
             ))}
           </Row>
@@ -121,21 +121,21 @@ export default function MetaPage() {
         <section className="mb-3">
           <h2 className="label mb-2">Por categoria</h2>
           <Row gutter={[8, 8]}>
-            {POR_CATEGORIA.map((bloco) => (
-              <Col key={bloco.category} xs={24} lg={12} xl={8}>
+            {BY_CATEGORY.map((group) => (
+              <Col key={group.category} xs={24} lg={12} xl={8}>
                 <Card
                   variant="outlined"
                   className="card bevel h-full"
-                  title={<span className="label">{CATEGORY_NAMES[bloco.category]}</span>}
+                  title={<span className="label">{CATEGORY_NAMES[group.category]}</span>}
                   styles={{ header: { minHeight: 0, padding: '8px 12px' }, body: { padding: 12 } }}
                   style={{ borderColor: 'var(--border-soft)' }}
                 >
-                  <CartaoMeta indicacao={bloco.melhor} destaque />
-                  {bloco.mencoes.length > 0 && (
+                  <MetaCard pick={group.best} featured />
+                  {group.mentions.length > 0 && (
                     <ul className="mt-2 space-y-1.5">
-                      {bloco.mencoes.map((m) => (
+                      {group.mentions.map((m) => (
                         <li key={m.weapon}>
-                          <LinhaMencao indicacao={m} />
+                          <MentionRow pick={m} />
                         </li>
                       ))}
                     </ul>
@@ -163,7 +163,7 @@ export default function MetaPage() {
               listas de melhores armas que não batem com o que você sente jogando Conquista.
             </Typography.Paragraph>
             <Row gutter={[8, 8]}>
-              {NAO_E_MULTIPLAYER.map((item) => {
+              {NOT_MULTIPLAYER.map((item) => {
                 const weapon = WEAPONS_BY_ID.get(item.weapon);
                 if (!weapon) return null;
                 return (
@@ -177,7 +177,7 @@ export default function MetaPage() {
                         <span style={{ color: 'var(--text-soft)' }}>{item.multiplayer}</span>
                       </p>
                       <p className="mt-1 text-[11px] leading-snug" style={{ color: 'var(--text-dim)' }}>
-                        {item.nota}
+                        {item.note}
                       </p>
                     </div>
                   </Col>
@@ -200,13 +200,13 @@ export default function MetaPage() {
             duas linhas de texto — nada que o componente resolvesse por nós.
           */}
           <ul className="space-y-1.5 text-[12px]">
-            {FONTES.map((f, i) => (
+            {SOURCES.map((f, i) => (
               <li key={f.url}>
                 <p className="flex flex-wrap items-baseline gap-x-2">
                   <span className="font-mono text-[11px]" style={{ color: 'var(--text-dim)' }}>
                     [{i + 1}]
                   </span>
-                  {f.pais === 'BR' && (
+                  {f.country === 'BR' && (
                     <Tooltip title="Publicação brasileira">
                       <Tag
                         className="bevel-sm m-0 px-1 text-[9px] font-semibold"
@@ -226,15 +226,15 @@ export default function MetaPage() {
                     className="text-[12px] underline underline-offset-2"
                     style={{ color: 'var(--text-soft)' }}
                   >
-                    {f.nome}
+                    {f.name}
                   </Typography.Link>
-                  <span style={{ color: 'var(--text-dim)' }}>· {dataCurta(f.data)}</span>
-                  {f.janela === 'lancamento' && (
+                  <span style={{ color: 'var(--text-dim)' }}>· {shortDate(f.date)}</span>
+                  {f.timeframe === 'launch' && (
                     <span style={{ color: 'var(--text-dim)' }}>· leitura do lançamento</span>
                   )}
                 </p>
                 <p className="mt-0.5 ml-6 text-[11px] leading-snug" style={{ color: 'var(--text-dim)' }}>
-                  {f.escopo}
+                  {f.scope}
                 </p>
               </li>
             ))}
@@ -254,41 +254,41 @@ export default function MetaPage() {
 }
 
 /** Cartão de arma indicada, com o link que já abre o montador com ela. */
-function CartaoMeta({
-  indicacao,
-  posicao,
-  destaque = false,
+function MetaCard({
+  pick,
+  rank,
+  featured = false,
 }: {
-  indicacao: IndicacaoMeta;
-  posicao?: number;
-  destaque?: boolean;
+  pick: MetaPick;
+  rank?: number;
+  featured?: boolean;
 }) {
-  const weapon = WEAPONS_BY_ID.get(indicacao.weapon);
+  const weapon = WEAPONS_BY_ID.get(pick.weapon);
   if (!weapon) return null;
 
   const stats = baseStats(weapon);
   const ttk = timeToKill(stats, 0);
-  const tiros = shotsToKill(stats, 0);
-  const classe = CLASSES.find((c) => c.id === weapon.signatureClass);
+  const shots = shotsToKill(stats, 0);
+  const playerClass = CLASSES.find((c) => c.id === weapon.signatureClass);
   const href = `${BUILDER_PATH}?l=${encodeLoadout({ ...EMPTY_LOADOUT, weapon: weapon.id })}`;
 
   return (
-    <Link href={href} className={destaque ? 'block' : 'block h-full'}>
+    <Link href={href} className={featured ? 'block' : 'block h-full'}>
       <Card
         variant="outlined"
         hoverable
-        className={`card bevel ${destaque ? '' : 'h-full'}`}
+        className={`card bevel ${featured ? '' : 'h-full'}`}
         styles={{ body: { padding: 10 } }}
         style={{
-          borderColor: destaque ? 'var(--accent)' : 'var(--border-soft)',
-          background: destaque ? 'color-mix(in oklab, var(--accent) 8%, transparent)' : undefined,
+          borderColor: featured ? 'var(--accent)' : 'var(--border-soft)',
+          background: featured ? 'color-mix(in oklab, var(--accent) 8%, transparent)' : undefined,
         }}
       >
         <div className="flex items-baseline justify-between gap-2">
           <span className="font-display truncate text-base font-semibold tracking-wide">
-            {posicao && (
+            {rank && (
               <span className="mr-1.5 font-mono text-[11px]" style={{ color: 'var(--accent)' }}>
-                {posicao}º
+                {rank}º
               </span>
             )}
             {weapon.name}
@@ -296,32 +296,32 @@ function CartaoMeta({
           <SeasonTag season={weapon.season} size="sm" />
         </div>
 
-        {!posicao && <WeaponPreview weapon={weapon} className="my-1 w-full" />}
+        {!rank && <WeaponPreview weapon={weapon} className="my-1 w-full" />}
 
         <p className="mt-1 text-[11px] leading-snug" style={{ color: 'var(--text-soft)' }}>
-          {indicacao.porque}
+          {pick.reason}
         </p>
 
         <p
           className="mt-1.5 flex flex-wrap items-center gap-x-2 font-mono text-[11px]"
           style={{ color: 'var(--text-dim)' }}
         >
-          {classe && <span style={{ color: classe.color }}>{classe.name}</span>}
+          {playerClass && <span style={{ color: playerClass.color }}>{playerClass.name}</span>}
           <span>{weapon.rpm} RPM</span>
-          {tiros === 1 ? (
+          {shots === 1 ? (
             <span>1 tiro</span>
           ) : (
             Number.isFinite(ttk) && <span>{Math.round(ttk)} ms</span>
           )}
-          <span>{indicacao.fontes.map((f) => `[${f + 1}]`).join(' ')}</span>
+          <span>{pick.sources.map((f) => `[${f + 1}]`).join(' ')}</span>
         </p>
       </Card>
     </Link>
   );
 }
 
-function LinhaMencao({ indicacao }: { indicacao: IndicacaoMeta }) {
-  const weapon = WEAPONS_BY_ID.get(indicacao.weapon);
+function MentionRow({ pick }: { pick: MetaPick }) {
+  const weapon = WEAPONS_BY_ID.get(pick.weapon);
   if (!weapon) return null;
 
   const href = `${BUILDER_PATH}?l=${encodeLoadout({ ...EMPTY_LOADOUT, weapon: weapon.id })}`;
@@ -331,11 +331,11 @@ function LinhaMencao({ indicacao }: { indicacao: IndicacaoMeta }) {
       <span className="flex items-baseline justify-between gap-2">
         <span className="font-display truncate text-sm font-semibold">{weapon.name}</span>
         <span className="font-mono text-[10px]" style={{ color: 'var(--text-dim)' }}>
-          {indicacao.fontes.map((f) => `[${f + 1}]`).join(' ')}
+          {pick.sources.map((f) => `[${f + 1}]`).join(' ')}
         </span>
       </span>
       <span className="mt-0.5 block text-[11px] leading-snug" style={{ color: 'var(--text-dim)' }}>
-        {indicacao.porque}
+        {pick.reason}
       </span>
     </Link>
   );

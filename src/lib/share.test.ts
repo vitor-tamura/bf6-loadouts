@@ -126,8 +126,8 @@ describe('acessórios da secundária', () => {
 
   it('link antigo, sem o campo, abre com a secundária limpa', () => {
     // O campo é o último do formato, então versões anteriores continuam válidas.
-    const semCampo = encodeLoadout({ ...full, sidearmAttachments: {} });
-    expect(decodeLoadout(semCampo)?.sidearmAttachments).toEqual({
+    const withoutField = encodeLoadout({ ...full, sidearmAttachments: {} });
+    expect(decodeLoadout(withoutField)?.sidearmAttachments).toEqual({
       ammo: 'ammo-fmj',
       sight: 'sight-iron-sights',
     });

@@ -585,7 +585,7 @@ function useGridColumns(ref: RefObject<HTMLElement | null>): number {
  * animação terminar.
  */
 function useCollapse(open: SlotId | null, ms = 280): SlotId | null {
-  const [ultimo, setUltimo] = useState<SlotId | null>(open);
+  const [last, setLast] = useState<SlotId | null>(open);
 
   /*
    * O último aberto é acertado durante a renderização, não num efeito.
@@ -596,15 +596,15 @@ function useCollapse(open: SlotId | null, ms = 280): SlotId | null {
    * para exatamente este caso — ele reinicia a renderização na hora, sem pintar
    * o resultado intermediário.
    */
-  if (open && open !== ultimo) setUltimo(open);
+  if (open && open !== last) setLast(open);
 
   // Só o fechamento precisa de tempo: o bloco continua no DOM até a animação
   // acabar, e aí o slot sai de vez.
   useEffect(() => {
     if (open) return;
-    const timer = setTimeout(() => setUltimo(null), ms);
+    const timer = setTimeout(() => setLast(null), ms);
     return () => clearTimeout(timer);
   }, [open, ms]);
 
-  return open ?? ultimo;
+  return open ?? last;
 }

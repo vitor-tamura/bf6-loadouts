@@ -111,13 +111,13 @@ export function useWeaponFilter(categories: WeaponCategory[] = CATEGORY_ORDER): 
 export function WeaponFilters({
   filter,
   title = 'Arma principal',
-  layout = 'linha',
+  layout = 'row',
 }: {
   filter: WeaponFilterState;
   title?: string;
-  layout?: 'linha' | 'empilhado';
+  layout?: 'row' | 'stacked';
 }) {
-  const empilhado = layout === 'empilhado';
+  const stacked = layout === 'stacked';
 
   const chips = (
     <>
@@ -141,7 +141,7 @@ export function WeaponFilters({
     </>
   );
 
-  if (empilhado) {
+  if (stacked) {
     return (
       <section>
         <h2 className="label mb-2">{title}</h2>
@@ -159,7 +159,7 @@ export function WeaponFilters({
     );
   }
 
-  return <FaixaDeBusca filter={filter} title={title} chips={chips} />;
+  return <SearchBar filter={filter} title={title} chips={chips} />;
 }
 
 /**
@@ -174,7 +174,7 @@ export function WeaponFilters({
  * O resumo ao lado da lupa não é enfeite: sem ele, uma categoria escolhida
  * sumiria junto com os chips e a lista pareceria ter perdido armas sozinha.
  */
-function FaixaDeBusca({
+function SearchBar({
   filter,
   title,
   chips,
@@ -183,36 +183,36 @@ function FaixaDeBusca({
   title: string;
   chips: React.ReactNode;
 }) {
-  const [aberta, setAberta] = useState(false);
-  const campo = useRef<InputRef>(null);
-  const lupa = useRef<HTMLButtonElement>(null);
-  const reduzido = useReducedMotion();
+  const [open, setOpen] = useState(false);
+  const fieldRef = useRef<InputRef>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const reducedMotion = useReducedMotion();
 
   // Abrir a busca e ter de clicar de novo para digitar seria um clique perdido.
   useEffect(() => {
-    if (aberta) campo.current?.focus();
-  }, [aberta]);
+    if (open) fieldRef.current?.focus();
+  }, [open]);
 
-  const termo = filter.search.trim();
-  const resumo =
+  const term = filter.search.trim();
+  const summary =
     [
       filter.category === 'all' ? null : SHORT_CATEGORY_NAMES[filter.category],
-      termo ? `“${termo}”` : null,
+      term ? `“${term}”` : null,
     ]
       .filter(Boolean)
       .join(' · ') || `${filter.total} armas`;
 
-  function fechar() {
-    setAberta(false);
-    lupa.current?.focus();
+  function close() {
+    setOpen(false);
+    buttonRef.current?.focus();
   }
 
   return (
     <section
       onKeyDown={(e) => {
-        if (e.key === 'Escape' && aberta) {
+        if (e.key === 'Escape' && open) {
           e.stopPropagation();
-          fechar();
+          close();
         }
       }}
     >
@@ -220,32 +220,32 @@ function FaixaDeBusca({
         <h2 className="label shrink-0">{title}</h2>
 
         <button
-          ref={lupa}
+          ref={buttonRef}
           type="button"
-          onClick={() => (aberta ? fechar() : setAberta(true))}
-          aria-expanded={aberta}
+          onClick={() => (open ? close() : setOpen(true))}
+          aria-expanded={open}
           aria-controls="busca-de-armas"
-          aria-label={aberta ? 'Fechar a busca de armas' : 'Buscar arma'}
+          aria-label={open ? 'Fechar a busca de armas' : 'Buscar arma'}
           className="chip bevel-sm touch shrink-0"
           style={{
-            background: aberta ? 'var(--accent)' : 'var(--surface-raised)',
-            color: aberta ? '#14170f' : 'var(--text-soft)',
-            border: `1px solid ${aberta ? 'var(--accent)' : 'var(--border)'}`,
+            background: open ? 'var(--accent)' : 'var(--surface-raised)',
+            color: open ? '#14170f' : 'var(--text-soft)',
+            border: `1px solid ${open ? 'var(--accent)' : 'var(--border)'}`,
           }}
         >
-          <IconeLupa />
+          <SearchIcon />
         </button>
 
         {/* Fechada, a faixa ainda precisa dizer o que está filtrando. */}
-        {!aberta && (
+        {!open && (
           <span className="truncate text-xs" style={{ color: 'var(--text-dim)' }}>
-            {resumo}
+            {summary}
           </span>
         )}
       </div>
 
       <AnimatePresence initial={false}>
-        {aberta && (
+        {open && (
           <motion.div
             id="busca-de-armas"
             /*
@@ -253,13 +253,13 @@ function FaixaDeBusca({
              * escapam por baixo da faixa antes de ela terminar de abrir.
              */
             className="overflow-hidden"
-            initial={reduzido ? false : { height: 0, opacity: 0 }}
+            initial={reducedMotion ? false : { height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
-            exit={reduzido ? { opacity: 0 } : { height: 0, opacity: 0 }}
-            transition={{ duration: reduzido ? 0 : 0.26, ease: [0.32, 0.72, 0, 1] }}
+            exit={reducedMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
+            transition={{ duration: reducedMotion ? 0 : 0.26, ease: [0.32, 0.72, 0, 1] }}
           >
             <Input
-              ref={campo}
+              ref={fieldRef}
               type="search"
               value={filter.search}
               onChange={(e) => filter.setSearch(e.target.value)}
@@ -279,7 +279,7 @@ function FaixaDeBusca({
 }
 
 /** Lupa desenhada à mão — o resto dos ícones do site também é SVG local. */
-function IconeLupa() {
+function SearchIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
       <circle cx="7" cy="7" r="4.5" stroke="currentColor" strokeWidth="1.8" />
@@ -298,11 +298,11 @@ export function WeaponList({
   selected: string | null;
   onSelect: (id: string) => void;
 }) {
-  const equipada = selected ? WEAPONS.find((w) => w.id === selected) : null;
+  const equipped = selected ? WEAPONS.find((w) => w.id === selected) : null;
 
   return (
     <div className="space-y-4">
-      {equipada && <EquippedWeapon weapon={equipada} />}
+      {equipped && <EquippedWeapon weapon={equipped} />}
 
       {[...filter.byCategory.entries()].map(([category, weaponList]) => (
         <div key={category}>
@@ -352,7 +352,7 @@ export function WeaponSelector({
 
   return (
     <section>
-      <WeaponFilters filter={filter} title={title} layout="empilhado" />
+      <WeaponFilters filter={filter} title={title} layout="stacked" />
       <div className="mt-3">
         <WeaponList filter={filter} selected={selected} onSelect={onSelect} />
       </div>
@@ -503,7 +503,7 @@ function WeaponCard({
         >
           {selected && (
             <span className="label" style={{ color: 'var(--accent)' }}>
-              equipada
+              equipped
             </span>
           )}
           {playerClass && <span style={{ color: playerClass.color }}>{playerClass.name}</span>}
@@ -529,8 +529,8 @@ function WeaponCard({
 function WeaponThumb({ weapon, className = 'h-9 w-16' }: { weapon: Weapon; className?: string }) {
   // De qual arma a foto falhou, e não um sim/não: a lista reaproveita o mesmo
   // componente ao rolar, e um booleano teria de ser desligado a cada troca.
-  const [falhouEm, setFalhouEm] = useState<string | null>(null);
-  const broken = falhouEm === weapon.id;
+  const [failedFor, setFalhouEm] = useState<string | null>(null);
+  const broken = failedFor === weapon.id;
   const ref = useRef<HTMLImageElement>(null);
 
   // Ver a nota em weapon-preview: uma imagem que já falhou antes da hidratação
