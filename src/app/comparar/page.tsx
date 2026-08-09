@@ -3,7 +3,7 @@
 import { Hint } from '@/components/hint';
 import { Card, Segmented, Select, Table, Tag, Typography } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { AppHeader } from '@/components/header';
 import { SeasonTag } from '@/components/season-tag';
 import { SiteFooter } from '@/components/site-footer';
@@ -370,6 +370,8 @@ export default function ComparePage() {
           </div>
 
           <MatchupReading
+            idA={idA}
+            idB={idB}
             statsA={statsA}
             statsB={statsB}
             nameA={weaponA.name}
@@ -483,6 +485,8 @@ function numericColumn(
  * mais rápido; no REDSEC, quem alcança longe e aguenta a briga com um pente.
  */
 function MatchupReading({
+  idA,
+  idB,
   statsA,
   statsB,
   nameA,
@@ -490,6 +494,8 @@ function MatchupReading({
   mode,
   onModeChange,
 }: {
+  idA: string;
+  idB: string;
   statsA: EffectiveStats;
   statsB: EffectiveStats;
   nameA: string;
@@ -501,6 +507,8 @@ function MatchupReading({
     () => analyzeMatchup(statsA, statsB, nameA, nameB, mode),
     [statsA, statsB, nameA, nameB, mode],
   );
+
+  const written = useWrittenReading(idA, idB, mode);
 
   const color =
     reading.winner === 'a' ? COLOR_A : reading.winner === 'b' ? COLOR_B : 'var(--text-soft)';
@@ -524,31 +532,88 @@ function MatchupReading({
         />
       </div>
 
-      <p className="text-[13px] leading-snug font-semibold" style={{ color }}>
-        {reading.headline}
-      </p>
+      {/*
+        O texto do modelo entra no lugar da análise por regras quando chega, e
+        não antes. Assim a seção nunca aparece vazia nem com um esqueleto
+        piscando: o que está na tela desde o primeiro quadro já responde a
+        pergunta, e a versão escrita só a substitui se vier melhor.
+      */}
+      {written ? (
+        <p className="text-[13px] leading-relaxed" style={{ color: 'var(--text)' }}>
+          {written}
+        </p>
+      ) : (
+        <>
+          <p className="text-[13px] leading-snug font-semibold" style={{ color }}>
+            {reading.headline}
+          </p>
 
-      <ul className="mt-1.5 space-y-1">
-        {reading.points.map((point) => (
-          <li
-            key={point}
-            className="flex gap-1.5 text-[12px] leading-snug"
-            style={{ color: 'var(--text-soft)' }}
-          >
-            <span aria-hidden style={{ color: 'var(--text-dim)' }}>
-              ·
-            </span>
-            {point}
-          </li>
-        ))}
-      </ul>
+          <ul className="mt-1.5 space-y-1">
+            {reading.points.map((point) => (
+              <li
+                key={point}
+                className="flex gap-1.5 text-[12px] leading-snug"
+                style={{ color: 'var(--text-soft)' }}
+              >
+                <span aria-hidden style={{ color: 'var(--text-dim)' }}>
+                  ·
+                </span>
+                {point}
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
 
       <p className="mt-2 text-[11px]" style={{ color: 'var(--text-dim)' }}>
-        Leitura automática das estatísticas desta tela — sem acessórios, e sem contar acerto na
-        cabeça.
+        {written ? 'Escrito por IA a partir das' : 'Leitura automática das'} estatísticas desta tela
+        — sem acessórios, e sem contar acerto na cabeça.
       </p>
     </section>
   );
+}
+
+/**
+ * Pede ao servidor a leitura escrita, e desiste em silêncio.
+ *
+ * A tela já mostra a análise por regras, então falhar aqui não custa nada: sem
+ * rede, sem crédito no gateway ou com o modelo fora do ar, o texto simplesmente
+ * não chega e o que está na tela continua valendo. O pedido é cancelado quando
+ * a arma ou o modo mudam, senão uma resposta atrasada sobrescreveria a
+ * comparação seguinte.
+ */
+function useWrittenReading(idA: string, idB: string, mode: GameMode): string | null {
+  const key = `${idA}|${idB}|${mode}`;
+  const [answer, setAnswer] = useState<{ key: string; text: string | null }>({ key, text: null });
+
+  // Trocar de arma limpa o texto na hora, ainda na renderização: um efeito
+  // faria isso depois da pintura, e por um quadro a leitura da arma anterior
+  // apareceria sob o nome da nova.
+  if (answer.key !== key) setAnswer({ key, text: null });
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    // A barra no fim não é enfeite: o site roda com `trailingSlash`, e sem ela
+    // o pedido leva um 308 antes de chegar na rota.
+    fetch('/api/matchup/', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ a: idA, b: idB, mode }),
+      signal: controller.signal,
+    })
+      .then((response) => (response.ok ? response.json() : null))
+      .then((data: { text?: string } | null) => {
+        if (data?.text) setAnswer({ key, text: data.text });
+      })
+      .catch(() => {
+        // Cancelamento e falha de rede terminam aqui, e é o que se espera.
+      });
+
+    return () => controller.abort();
+  }, [idA, idB, mode, key]);
+
+  return answer.key === key ? answer.text : null;
 }
 
 function DuelValue({ value, wins }: { value: string; wins: boolean }) {
