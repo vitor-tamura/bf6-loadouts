@@ -1,33 +1,29 @@
 import { MetaScreen } from './meta-screen';
-import { readMetaFromSearch } from '@/lib/meta-ai';
+import live from '@/data/meta-live.json';
+import type { MetaPick, MetaSource } from '@/data/meta';
 
 /**
- * A tela do meta, relida uma vez por dia.
+ * A tela do meta.
  *
- * `revalidate` é o que faz a conta bater com a cota: a página fica guardada por
- * 24 horas, e só a primeira visita depois disso paga uma chamada à busca. Todas
- * as outras leem o que já está pronto. Não há cron nem fila — a própria visita
- * é o gatilho, e nos dias sem visita nenhuma nada é gasto.
+ * Não há chamada a modelo nenhum aqui: a leitura do dia é feita fora do site,
+ * pelo workflow `meta-daily`, que grava `meta-live.json` no repositório. A
+ * página lê esse arquivo no build, como qualquer outro dado — volta a ser
+ * estática, e o custo de servi-la é zero.
  *
- * Falhando a leitura — sem chave, sem cota, resposta ilegível —, entra a
- * curadoria escrita à mão que continua em `src/data/meta.ts`. A tela não fica
- * vazia em nenhuma hipótese; no máximo, mostra a lista revisada por último.
+ * Enquanto o arquivo não tiver leitura nenhuma — repositório recém-clonado, ou
+ * o workflow ainda não rodou —, quem responde é a curadoria escrita à mão em
+ * `src/data/meta.ts`, que é o padrão do componente.
  */
-// Vinte e quatro horas, escritas como número: o Next lê esta configuração
-// estaticamente e recusa qualquer coisa que não seja um literal — importar a
-// constante daqui falha o build com "Invalid segment configuration export".
-export const revalidate = 86400;
+export default function MetaPage() {
+  const picks = live.picks as MetaPick[];
 
-export default async function MetaPage() {
-  const reading = await readMetaFromSearch();
-
-  if (!reading) return <MetaScreen />;
+  if (!live.readAt || !picks.length) return <MetaScreen />;
 
   return (
     <MetaScreen
-      picks={reading.picks}
-      sources={reading.sources}
-      readAt={reading.readAt.slice(0, 10)}
+      picks={picks}
+      sources={live.sources as MetaSource[]}
+      readAt={live.readAt}
       fromSearch
     />
   );

@@ -13,6 +13,7 @@
     "typecheck": "tsc --noEmit",
     "sync": "node --experimental-strip-types scripts/sync.mjs",
     "sync:apply": "node --experimental-strip-types scripts/sync.mjs --apply",
+    "meta:search": "node --experimental-strip-types scripts/meta-search.mjs",
     "images": "node scripts/images.mjs",
     "images:download": "python3 scripts/download_images.py",
     "docs:weapons": "node scripts/weapons-doc.mjs",

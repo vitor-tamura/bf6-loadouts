@@ -1,0 +1,59 @@
+# Relê o meta uma vez por dia e publica o resultado.
+#
+# Diferente do `sync-data.yml`, que abre PR e espera revisão, este commita
+# direto: o que ele grava é uma leitura de opinião pública, já filtrada contra o
+# dataset — só entra arma que existe no jogo —, e a tela diz na cara que a lista
+# é automática. Segurar isso atrás de um clique diário faria a tela congelar no
+# último dia em que alguém lembrou de aprovar, que é justamente o problema que
+# esta automação existe para resolver.
+#
+# Se vier bobagem, o diff mostra o que mudou e um `git revert` desfaz.
+
+name: Atualizar meta
+
+on:
+  schedule:
+    # 10:00 UTC, todo dia — manhã no Brasil, depois do pico de discussão da noite.
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Duas execuções ao mesmo tempo escreveriam o mesmo arquivo e uma perderia.
+concurrency:
+  group: meta-daily
+  cancel-in-progress: false
+
+jobs:
+  meta:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Perguntar à busca
+        env:
+          GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}
+        run: npm run meta:search
+
+      - name: Publicar se mudou
+        run: |
+          if git diff --quiet -- src/data/meta-live.json; then
+            echo "Nada mudou; nada a publicar."
+            exit 0
+          fi
+
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add src/data/meta-live.json
+          git commit -m "Atualiza o meta com a leitura do dia"
+          git push
