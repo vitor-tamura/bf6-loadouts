@@ -503,7 +503,7 @@ function WeaponCard({
         >
           {selected && (
             <span className="label" style={{ color: 'var(--accent)' }}>
-              equipped
+              equipada
             </span>
           )}
           {playerClass && <span style={{ color: playerClass.color }}>{playerClass.name}</span>}
