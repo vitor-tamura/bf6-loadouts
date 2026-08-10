@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { ATTACHMENTS, ATTACHMENTS_BY_ID, attachmentsForWeapon, isCompatible } from '@/data/attachments';
 import { WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
 import {
+  attachmentCost,
   attachmentName,
   defaultAmmo,
   defaultSight,
@@ -353,18 +354,55 @@ describe('nome do cano', () => {
   });
 
   /*
-   * O cano de fábrica custa dez pontos, e é o que o jogo cobra só por carregar
-   * a arma. Três armas ainda saem disso: a peça que faz o papel de Básico nelas
-   * cumpre outro papel na maioria das armas, e `cost` é um número só por peça —
-   * o custo é relativo à arma do mesmo jeito que o nome, e o modelo ainda não
-   * representa isso. São PP-19, GRT-CPS e M87A1.
+   * O cano de fábrica custa dez pontos em toda arma — é o que o jogo cobra só
+   * por carregá-la. Antes três armas escapavam disso, porque a peça que faz o
+   * papel de Básico nelas cumpre outro papel na maioria e o preço vinha de um
+   * campo só por peça. Agora o preço sai da categoria, que é por arma.
    */
-  it('mantém o cano de fábrica em dez pontos, salvo as três exceções conhecidas', () => {
+  it('mantém o cano de fábrica em dez pontos, em toda arma', () => {
     const fora = comCano
-      .filter((w) => ATTACHMENTS_BY_ID.get(factoryAttachments(w).barrel!)!.cost !== 10)
-      .map((w) => w.name)
-      .sort();
-    expect(fora).toEqual(['GRT-CPS', 'M87A1', 'PP-19']);
+      .filter((w) => attachmentCost(ATTACHMENTS_BY_ID.get(factoryAttachments(w).barrel!)!, w) !== 10)
+      .map((w) => w.name);
+    expect(fora).toEqual([]);
+  });
+
+  /*
+   * Os cinco canos que a correção encareceu, com o valor que tinham antes.
+   *
+   * Ficam nomeados porque são o efeito visível dela: um link compartilhado que
+   * estivesse no limite com um destes abre marcado como capacidade excedida. O
+   * link não deixou de valer — ele descrevia uma montagem que o jogo não
+   * aceita, e o site é que dizia o contrário.
+   *
+   * Os dois primeiros são os que mais pesam: `14.5" Carbine` é barato por ser
+   * Estendido na maioria das armas, e nestas duas ele é o Curto.
+   */
+  it('encarece exatamente os cinco canos que estavam com o preço de outro papel', () => {
+    const casos = [
+      ['drs-iar', '14.5" Carbine', 5, 15],
+      ['grt-cps', '14.5" Carbine', 5, 15],
+      ['grt-cps', '16" Rifle', 5, 10],
+      ['m87a1', '20" Factory', 5, 10],
+      ['pp-19', '264mm Fluted', 20, 25],
+    ] as const;
+
+    for (const [armaId, original, antes, agora] of casos) {
+      const w = WEAPONS_BY_ID.get(armaId)!;
+      const cano = canosDe(w).find((c) => c.originalName === original)!;
+      expect([armaId, original, cano.cost, attachmentCost(cano, w)]).toEqual([
+        armaId,
+        original,
+        antes,
+        agora,
+      ]);
+    }
+  });
+
+  it('cobra pelo cano o papel que ele cumpre naquela arma, e não na maioria', () => {
+    // A mesma peça: Estendido na M16A4 por 5, Básico na M87A1 por 10.
+    const vinte = ATTACHMENTS_BY_ID.get('barrel-20-factory')!;
+    expect(attachmentCost(vinte, WEAPONS_BY_ID.get('m16a4')!)).toBe(5);
+    expect(attachmentCost(vinte, WEAPONS_BY_ID.get('m87a1')!)).toBe(10);
   });
 
   it('reproduz a tela da M16A4 peça por peça', () => {

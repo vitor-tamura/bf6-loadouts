@@ -108,13 +108,13 @@ function BuilderPage() {
   const sidearmBase = useMemo(() => (sidearm ? baseStats(sidearm) : null), [sidearm]);
   const sidearmBudget = useMemo(
     () =>
-      calculateBudget(sidearmAttachments, sidearm ? budgetFor(sidearm.category) : POINT_BUDGET),
+      calculateBudget(sidearmAttachments, sidearm ? budgetFor(sidearm.category) : POINT_BUDGET, sidearm),
     [sidearmAttachments, sidearm],
   );
   const stats = useMemo(() => (weapon ? calculateStats(weapon, attachments) : null), [weapon, attachments]);
   const base = useMemo(() => (weapon ? baseStats(weapon) : null), [weapon]);
   const budget = useMemo(
-    () => calculateBudget(attachments, weapon ? budgetFor(weapon.category) : POINT_BUDGET),
+    () => calculateBudget(attachments, weapon ? budgetFor(weapon.category) : POINT_BUDGET, weapon),
     [attachments, weapon],
   );
   const distance = useMemo(() => (stats ? analysisDistance(stats) : 100), [stats]);
