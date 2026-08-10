@@ -114,9 +114,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | Cano Estendido | 20" Long | 5 | TR-7 | Cano longo: acelera a bala e estica o alcance. |
 | Cano Estendido | 20" Marksman | 5 | VCR-2 | Cano longo: acelera a bala e estica o alcance. |
 | Cano Estendido | 20" SDM-R | 5 | DRS-IAR | Cano longo: acelera a bala e estica o alcance. |
-| Cano Estendido | 22" E3 Long | 5 | M/60 | Cano longo: acelera a bala e estica o alcance. |
 | Cano Estendido | 22" Factory | 5 | M39 EMR | Cano longo: acelera a bala e estica o alcance. |
-| Cano Estendido | 24" Bravo | 5 | M240L | Cano longo: acelera a bala e estica o alcance. |
 | Cano Estendido | 24" Extended | 5 | LMR27, VSSM | Cano longo: acelera a bala e estica o alcance. |
 | Cano Estendido | 245mm Custom | 5 | PW5A3 | Cano curto: mira e movimento mais rápidos. |
 | Cano Estendido | 26" Carbon | 5 | M2010 ESR, Mini Scout | Cano longo: acelera a bala e estica o alcance. |
@@ -125,9 +123,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | Cano Estendido | 32" Custom | 5 | L115 | Cano longo: acelera a bala e estica o alcance. |
 | Cano Estendido | 458mm Custom | 5 | NVO-228E | Cano longo: acelera a bala e estica o alcance. |
 | Cano Estendido | 465mm LB | 5 | L110 | Cano longo: acelera a bala e estica o alcance. |
-| Cano Estendido | 508mm MK8 | 5 | KTS100 MK8 | Cano longo: acelera a bala e estica o alcance. |
 | Cano Estendido | 510mm DMR | 5 | B36A4, EF88, L85A3 | Cano longo: acelera a bala e estica o alcance. |
-| Cano Estendido | 556mm Prototype | 5 | M250 | Cano longo: acelera a bala e estica o alcance. |
 | Cano Estendido | 560mm Cut | 5 | SVK-8.6 | Cano longo: acelera a bala e estica o alcance. |
 | Cano Estendido | 560mm Factory | 5 | SVK-8.6 | Cano longo: acelera a bala e estica o alcance. |
 | Cano Estendido | 590mm Factory | 5 | RPK-74M, RPKM | Cano longo: acelera a bala e estica o alcance. |
@@ -135,18 +131,14 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | Cano Estendido | 600mm Cut | 5 | AK4D | Cano longo: acelera a bala e estica o alcance. |
 | Cano Estendido | 600mm DMR | 5 | AK4D | Cano longo: acelera a bala e estica o alcance. |
 | Cano Estendido | 600mm Tabuk | 5 | RPK-74M, RPKM | Cano longo: acelera a bala e estica o alcance. |
-| Cano Estendido | 612mm VMW | 5 | M123K | Aperta o cone do tiro sem visada; o feixe é visível. |
 | Cano Estendido | 620mm Classic | 5 | SVDM | Cano longo: acelera a bala e estica o alcance. |
-| Cano Estendido | 660mm VMW | 5 | M121 A2 | Aperta o cone do tiro sem visada; o feixe é visível. |
 | Cano Estendido | 730mm 3LR | 5 | SV-98 | Cano longo: acelera a bala e estica o alcance. |
 | Cano Estendido | 8" Extended | 5 | SGX | Cano curto: mira e movimento mais rápidos. |
 | Cano Estendido | Extended Barrel | 5 | 18.5KS-K, DB-12, M1014, M87A1 | Extensão de quatro polegadas: acelera a bala e pesa na mira. |
 | Cano Estendido | 305mm Custom-H | 5 | UMG-40 | Cano longo: acelera a bala e estica o alcance. |
 | Cano Estendido | 305mm Custom | 5 | UMG-40 | Cano longo: acelera a bala e estica o alcance. |
-| Cano Estendido | 407mm CIV-S | 5 | USG-90 | Cano longo: acelera a bala e estica o alcance. |
 | Cano Estendido | 8.37" Long | 5 | M44 | Cano longo: acelera a bala e estica o alcance. |
 | Cano Estendido | 16.2" Cut | 5 | CZ3A1 | Cano longo: acelera a bala e estica o alcance. |
-| Cano Básico | 10" Factory | 10 | GRT-BC | Cano curto: mira e movimento mais rápidos. |
 | Cano Básico | 10" Full | 10 | GRT-BC | Cano curto: mira e movimento mais rápidos. |
 | Cano Básico | 10.5" Factory | 10 | QBZ-192 | Cano curto: mira e movimento mais rápidos. |
 | Cano Básico | 12.5" Mid | 10 | BROD 3, M4A1, SOR-300SC | Cano de comprimento intermediário. |
@@ -167,8 +159,6 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | Cano Básico | 180mm Prototype | 10 | PW7A2 | Cano curto: mira e movimento mais rápidos. |
 | Cano Básico | 180mm Standard | 10 | PW7A2 | Cano curto: mira e movimento mais rápidos. |
 | Cano Básico | 20" Lima | 10 | M240L | Cano longo: acelera a bala e estica o alcance. |
-| Cano Básico | 20" OH | 10 | M240L | Cano longo: acelera a bala e estica o alcance. |
-| Cano Básico | 200mm Custom | 10 | UMG-40 | Cano curto: mira e movimento mais rápidos. |
 | Cano Básico | 200mm Custom-H | 10 | UMG-40 | Cano curto: mira e movimento mais rápidos. |
 | Cano Básico | 200mm Factory | 10 | UMG-40 | Cano curto: mira e movimento mais rápidos. |
 | Cano Básico | 21.5" Factory | 10 | LMR27, VSSM | Cano longo: acelera a bala e estica o alcance. |
@@ -209,6 +199,13 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | Cano Básico | 9" Factory | 10 | SL9 | Cano curto: mira e movimento mais rápidos. |
 | Cano Ext. Pesado | 11" Heavy | 10 | SL9 | Massa extra na frente: agrupa melhor em fogo contínuo. |
 | Cano Ext. Pesado | 20" HBAR | 10 | M16A4 | Cano longo: acelera a bala e estica o alcance. |
+| Cano Ext. Pesado | 22" E3 Long | 10 | M/60 | Cano longo: acelera a bala e estica o alcance. |
+| Cano Ext. Pesado | 24" Bravo | 10 | M240L | Cano longo: acelera a bala e estica o alcance. |
+| Cano Ext. Pesado | 508mm MK8 | 10 | KTS100 MK8 | Cano longo: acelera a bala e estica o alcance. |
+| Cano Ext. Pesado | 556mm Prototype | 10 | M250 | Cano longo: acelera a bala e estica o alcance. |
+| Cano Ext. Pesado | 612mm VMW | 10 | M123K | Aperta o cone do tiro sem visada; o feixe é visível. |
+| Cano Ext. Pesado | 660mm VMW | 10 | M121 A2 | Aperta o cone do tiro sem visada; o feixe é visível. |
+| Cano Ext. Pesado | 407mm CIV-S | 10 | USG-90 | Cano longo: acelera a bala e estica o alcance. |
 | Cano Pesado | 16.5" LSW | 10 | DRS-IAR | Cano longo: acelera a bala e estica o alcance. |
 | Cano Pesado | 18" SPR | 10 | M16A4 | Cano longo: acelera a bala e estica o alcance. |
 | Cano Pesado | 480mm MG | 10 | B36A4, EF88, L85A3 | Cano longo: acelera a bala e estica o alcance. |
@@ -234,6 +231,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | Cano Curto | 330mm MK3 | 15 | KTS100 MK8 | Cano curto: mira e movimento mais rápidos. |
 | Cano Curto | 5.12" Compact | 15 | M44 | Cano curto: mira e movimento mais rápidos. |
 | Cano Crio | Cryogenic | 20 | 18 weapons | Cano da arma. |
+| Cano Leve | 10" Factory | 20 | GRT-BC | Cano curto: mira e movimento mais rápidos. |
 | Cano Leve | 12.5" Fluted | 20 | BROD 3, M4A1, SOR-300SC | Cano aliviado por estrias: manejo mais leve. |
 | Cano Leve | 13" Fluted | 20 | M277 | Cano aliviado por estrias: manejo mais leve. |
 | Cano Leve | 16" Fluted | 20 | GRT-CPS | Cano aliviado por estrias: manejo mais leve. |
@@ -241,6 +239,8 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | Cano Leve | 17" Fluted | 20 | M/60 | Cano aliviado por estrias: manejo mais leve. |
 | Cano Leve | 18" Fluted | 20 | VCR-2 | Cano aliviado por estrias: manejo mais leve. |
 | Cano Leve | 18" Pencil | 20 | M16A4 | Cano fino: sobe à mira mais rápido. |
+| Cano Leve | 20" OH | 20 | M240L | Cano longo: acelera a bala e estica o alcance. |
+| Cano Leve | 200mm Custom | 20 | UMG-40 | Cano curto: mira e movimento mais rápidos. |
 | Cano Leve | 21.5" Fluted | 20 | LMR27, VSSM | Cano aliviado por estrias: manejo mais leve. |
 | Cano Leve | 24" Fluted | 20 | M2010 ESR, Mini Scout | Cano aliviado por estrias: manejo mais leve. |
 | Cano Leve | 240mm Fluted | 20 | SG 553R | Cano aliviado por estrias: manejo mais leve. |
@@ -248,6 +248,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | Cano Leve | 314mm Fluted | 20 | AK-205 | Cano aliviado por estrias: manejo mais leve. |
 | Cano Leve | 409mm Fluted | 20 | NVO-228E | Cano aliviado por estrias: manejo mais leve. |
 | Cano Leve | 415mm Fluted | 20 | KORD 6P67 | Cano aliviado por estrias: manejo mais leve. |
+| Cano Leve | 432mm Fluted | 20 | TR-7 | Cano aliviado por estrias: manejo mais leve. |
 | Cano Leve | 480mm Fluted | 20 | B36A4, EF88, L85A3 | Cano aliviado por estrias: manejo mais leve. |
 | Cano Leve | 5.5" Fluted | 20 | KV9 | Cano aliviado por estrias: manejo mais leve. |
 | Cano Leve | 6" Fluted | 20 | SGX | Cano aliviado por estrias: manejo mais leve. |
@@ -255,11 +256,10 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | Cano Leve | 650mm Fluted | 20 | SV-98 | Cano aliviado por estrias: manejo mais leve. |
 | Cano Leve | 7.7" Pencil | 20 | CZ3A1 | Cano fino: sobe à mira mais rápido. |
 | Cano Leve | 9" Fluted | 20 | SL9 | Cano aliviado por estrias: manejo mais leve. |
+| Cano Leve | 349mm Fluted | 20 | L110 | Cano aliviado por estrias: manejo mais leve. |
 | Cano Leve | 3.9" Pencil | 20 | P18 | Cano fino: sobe à mira mais rápido. |
 | Cano Leve | 122mm Pencil | 20 | ES 5.7 | Cano fino: sobe à mira mais rápido. |
 | Cano Leve | 5" Pencil | 20 | M45A1 | Cano fino: sobe à mira mais rápido. |
-| Cano Curto Leve | 349mm Fluted | 25 | L110 | Cano aliviado por estrias: manejo mais leve. |
-| Cano Estendido Leve | 432mm Fluted | 25 | TR-7 | Cano aliviado por estrias: manejo mais leve. |
 | Cano Estendido Leve | 510mm Fluted | 25 | B36A4, EF88, L85A3 | Cano aliviado por estrias: manejo mais leve. |
 | Cano Estendido Leve | 565mm Fluted | 25 | SVDM | Cano aliviado por estrias: manejo mais leve. |
 | Cano Estendido Leve | 600mm Fluted | 25 | AK4D | Cano aliviado por estrias: manejo mais leve. |

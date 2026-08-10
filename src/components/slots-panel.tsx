@@ -14,6 +14,7 @@ import { attachmentsForWeapon } from '@/data/attachments';
 import { budgetFor, SLOTS_BY_ID } from '@/data/classes';
 import type { Attachment, Weapon, StatKey, SlotId } from '@/data/types';
 import { LOWER_IS_BETTER, type Budget } from '@/lib/stats';
+import { attachmentName } from '@/lib/loadout';
 import { AttachmentIcon } from '@/components/icons/attachment-icon';
 import { AttachmentThumb } from './attachment-thumb';
 
@@ -286,7 +287,7 @@ export function SlotsPanel({
                 className={`w-full leading-tight ${compact ? 'line-clamp-1 text-[10px]' : 'line-clamp-2 text-[12px]'}`}
                 style={{ color: current ? 'var(--text)' : 'var(--text-dim)' }}
               >
-                {current ? current.name : 'Vazio'}
+                {current ? attachmentName(current, weapon) : 'Vazio'}
               </span>
 
               {!compact && (
@@ -306,6 +307,7 @@ export function SlotsPanel({
                 <div>
                   <SlotOptions
                     slot={mounted}
+                    weapon={weapon}
                     options={bySlot.get(mounted)!}
                     chosenId={chosen[mounted] ?? null}
                     currentSpend={currentSpend}
@@ -337,6 +339,7 @@ export function SlotsPanel({
  */
 function SlotOptions({
   slot,
+  weapon,
   options,
   chosenId,
   currentSpend,
@@ -345,6 +348,8 @@ function SlotOptions({
   onClose,
 }: {
   slot: SlotId;
+  /** A arma decide o nome do cano — ver `attachmentName`. */
+  weapon: Weapon;
   options: Attachment[];
   chosenId: string | null;
   currentSpend: number;
@@ -383,7 +388,7 @@ function SlotOptions({
           ponteiro pela grade não empurre a grade para cima e para baixo. */}
       <div className="mb-3 min-h-[4.5rem]">
         <h4 className="font-display text-lg leading-tight font-semibold tracking-wide">
-          {preview ? preview.name : 'Sem acessório'}
+          {preview ? attachmentName(preview, weapon) : 'Sem acessório'}
         </h4>
         <p className="mt-0.5 text-[12px] leading-snug" style={{ color: 'var(--text-soft)' }}>
           {preview ? preview.description : definition.description}
@@ -419,6 +424,7 @@ function SlotOptions({
           <li>
             <OptionTile
               slot={slot}
+              weapon={weapon}
               active={!chosenId}
               onSelect={() => onSelect(null)}
               onFocus={() => setHovered(null)}
@@ -429,6 +435,7 @@ function SlotOptions({
           <li key={option.id}>
             <OptionTile
               slot={slot}
+              weapon={weapon}
               attachment={option}
               active={option.id === chosenId}
               fits={spendWithout + option.cost <= budgetTotal}
@@ -452,6 +459,7 @@ function SlotOptions({
  */
 function OptionTile({
   slot,
+  weapon,
   attachment,
   active,
   fits = true,
@@ -459,6 +467,7 @@ function OptionTile({
   onFocus,
 }: {
   slot: SlotId;
+  weapon: Weapon;
   /** Sem peça, é o cartão de "nenhum acessório". */
   attachment?: Attachment;
   active: boolean;
@@ -469,7 +478,9 @@ function OptionTile({
   const disabled = !fits && !active;
 
   return (
-    <Hint label={attachment ? `${attachment.name} · ${attachment.cost} pts` : 'Sem acessório'}>
+    <Hint
+      label={attachment ? `${attachmentName(attachment, weapon)} · ${attachment.cost} pts` : 'Sem acessório'}
+    >
       <button
         type="button"
         onClick={onSelect}
@@ -536,7 +547,7 @@ function OptionTile({
           className="line-clamp-2 w-full text-[10px] leading-tight"
           style={{ color: active ? 'var(--text)' : 'var(--text-soft)' }}
         >
-          {attachment ? attachment.name : 'Vazio'}
+          {attachment ? attachmentName(attachment, weapon) : 'Vazio'}
         </span>
       </button>
     </Hint>

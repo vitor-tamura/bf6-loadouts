@@ -7,7 +7,7 @@ import { SLOTS_BY_ID, budgetFor } from '@/data/classes';
 import { seasonLabel } from '@/data/season';
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import type { Attachment } from '@/data/types';
-import { loadoutAttachments } from '@/lib/loadout';
+import { attachmentName, loadoutAttachments } from '@/lib/loadout';
 import { LOADOUT_PARAM, decodeLoadout } from '@/lib/share';
 
 /**
@@ -239,7 +239,7 @@ export async function GET(request: Request) {
                     letterSpacing: 0.4,
                   }}
                 >
-                  {peca.name.toUpperCase()}
+                  {attachmentName(peca, weapon).toUpperCase()}
                 </div>
                 <div style={{ display: 'flex', fontSize: 20, color: COR.fraco, marginTop: 2 }}>
                   {(SLOTS_BY_ID.get(peca.slot)?.name ?? peca.slot).toUpperCase()} · {peca.cost} pts
