@@ -35,6 +35,15 @@ HEADERS = {
 
 MAX_WIDTH = 800
 QUALITY = 82
+# Cópia em PNG para o cartão de compartilhamento. O cartão é montado fora do
+# navegador, pelo Satori, que não lê WebP — e sem uma segunda cópia a foto
+# simplesmente não aparece. A paleta reduzida deixa o arquivo do tamanho do
+# WebP original, e a largura basta para a faixa do cartão.
+CARD_TARGET = ROOT / 'public' / 'weapons' / 'card'
+# A faixa do cartão tem 680x180; passar disso só engorda o arquivo, e as fotos
+# mais altas engordam muito. O limite vale para os dois lados.
+CARD_BOX = (680, 180)
+CARD_COLORS = 128
 # O ícone de gadget aparece pequeno na interface; 256 px já é o dobro do que ele
 # ocupa na maior tela, e cabe num arquivo de poucos quilobytes.
 GADGET_WIDTH = 256
@@ -87,6 +96,27 @@ def write_image(dados: bytes, path: Path, max_width: int = MAX_WIDTH) -> tuple[i
     return image.size
 
 
+def write_card_images(force: bool) -> tuple[int, int]:
+    """Gera, a partir de cada WebP de arma, a cópia PNG que o cartão consegue ler."""
+    CARD_TARGET.mkdir(parents=True, exist_ok=True)
+    done = skipped = 0
+
+    print('\nCópias para o cartão')
+    for origem in sorted(WEAPONS_TARGET.glob('*.webp')):
+        destino = CARD_TARGET / f'{origem.stem}.png'
+        if destino.exists() and not force and destino.stat().st_mtime >= origem.stat().st_mtime:
+            skipped += 1
+            continue
+
+        image = Image.open(origem).convert('RGBA')
+        image.thumbnail(CARD_BOX, Image.LANCZOS)
+        image.quantize(colors=CARD_COLORS, method=Image.FASTOCTREE).save(destino, optimize=True)
+        print(f'  ✓ {origem.stem:20} {image.width}x{image.height}  {destino.stat().st_size // 1024} KB')
+        done += 1
+
+    return done, skipped
+
+
 def download(
     label: str,
     entries: dict[str, list[str]],
@@ -130,7 +160,10 @@ def main() -> int:
     ]
     done, skipped, failed = (sum(column) for column in zip(*totals))
 
+    cartoes, cartoes_prontos = write_card_images(force)
+
     print(f'\n{done} baixadas · {skipped} já existiam · {failed} falharam')
+    print(f'{cartoes} cópias para o cartão · {cartoes_prontos} já existiam')
     return 1 if failed else 0
 
 

@@ -46,6 +46,29 @@ const LINHA = 92;
 const CABECALHO = 86;
 const RODAPE = 20;
 const LARGURA = 760;
+/** Faixa da foto da arma, entre o cabeçalho e a lista. */
+const FOTO = 210;
+
+/**
+ * A foto da arma, embutida no cartão.
+ *
+ * Vem de `public/weapons/card`, e não da foto que o site serve: o cartão é
+ * montado pelo Satori, que não lê WebP — apontar para o arquivo original
+ * derruba a renderização inteira, sem erro que ajude a descobrir por quê. As
+ * cópias em PNG saem de `scripts/download_images.py`.
+ *
+ * Precisa ir como `data:` porque, fora do navegador, caminho relativo não tem
+ * de onde ser resolvido. Arma sem arquivo devolve nulo, e o cartão nem abre
+ * espaço para a faixa.
+ */
+async function fotoDaArma(id: string): Promise<string | null> {
+  try {
+    const bytes = await readFile(join(process.cwd(), 'public', 'weapons', 'card', `${id}.png`));
+    return `data:image/png;base64,${bytes.toString('base64')}`;
+  } catch {
+    return null;
+  }
+}
 
 /**
  * O ícone da peça, redesenhado no que o Satori aceita.
@@ -104,7 +127,8 @@ export async function GET(request: Request) {
   const gasto = pecas.reduce((soma, peca) => soma + peca.cost, 0);
   const teto = budgetFor(weapon.category);
   const temporada = seasonLabel(new Date());
-  const altura = CABECALHO + pecas.length * LINHA + RODAPE;
+  const foto = await fotoDaArma(weapon.id);
+  const altura = CABECALHO + (foto ? FOTO : 0) + pecas.length * LINHA + RODAPE;
 
   return new ImageResponse(
     (
@@ -153,6 +177,21 @@ export async function GET(request: Request) {
             {gasto}/{teto}
           </div>
         </div>
+
+        {/* A arma inteira, montada de fábrica — é o que identifica a build de relance. */}
+        {foto ? (
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: FOTO,
+              borderBottom: `2px solid ${COR.linha}`,
+            }}
+          >
+            <img src={foto} alt="" width={LARGURA - 80} height={FOTO - 30} style={{ objectFit: 'contain' }} />
+          </div>
+        ) : null}
 
         {/* Uma linha por peça, na ordem dos slots da arma. */}
         <div style={{ display: 'flex', flexDirection: 'column', paddingTop: 10 }}>
