@@ -14,7 +14,7 @@ import { attachmentsForWeapon } from '@/data/attachments';
 import { budgetFor, SLOTS_BY_ID } from '@/data/classes';
 import type { Attachment, Weapon, StatKey, SlotId } from '@/data/types';
 import { LOWER_IS_BETTER, type Budget } from '@/lib/stats';
-import { attachmentName } from '@/lib/loadout';
+import { attachmentName, factoryAttachments } from '@/lib/loadout';
 import { AttachmentIcon } from '@/components/icons/attachment-icon';
 import { AttachmentThumb } from './attachment-thumb';
 
@@ -419,8 +419,12 @@ function SlotOptions({
         className="grid grid-cols-[repeat(auto-fill,minmax(84px,1fr))] gap-1.5"
         onMouseLeave={() => setHovered(null)}
       >
-        {/* Mira e munição não têm estado vazio: a arma já sai com as de série. */}
-        {slot !== 'ammo' && slot !== 'sight' && (
+        {/*
+          Slot que vem montado de fábrica não tem estado vazio: mira, munição e
+          cano já estão na arma antes de qualquer escolha, e no jogo não há como
+          tirá-los para recuperar os pontos.
+        */}
+        {!factoryAttachments(weapon)[slot] && (
           <li>
             <OptionTile
               slot={slot}
