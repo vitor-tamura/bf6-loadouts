@@ -22,6 +22,14 @@ const nextConfig: NextConfig = {
    */
   images: { unoptimized: true },
   trailingSlash: true,
+  /*
+   * As fontes do cartão de imagem são lidas do disco em tempo de execução, e o
+   * rastreador não enxerga esse `readFile` — sem esta linha os arquivos ficam
+   * fora do pacote e a rota só quebra depois de publicada.
+   */
+  outputFileTracingIncludes: {
+    '/api/loadout/imagem': ['./assets/**'],
+  },
 };
 
 export default nextConfig;

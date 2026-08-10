@@ -3,7 +3,8 @@
 import { App, Button, Input, Modal, Typography } from 'antd';
 import { useMemo, useState } from 'react';
 import qrcode from 'qrcode-generator';
-import { loadoutUrl } from '@/lib/share';
+import { LOADOUT_PARAM, encodeLoadout, loadoutUrl } from '@/lib/share';
+import { WEAPONS_BY_ID } from '@/data/weapons';
 import type { Loadout } from '@/lib/loadout';
 
 /**
@@ -61,6 +62,21 @@ export function ShareButton({ loadout, disabled }: { loadout: Loadout; disabled:
    * code, e por um instante os dois apontavam para loadouts diferentes.
    */
   const url = open ? loadoutUrl(loadout) : '';
+
+  /*
+   * O cartão sai da mesma string que o link, então nunca mostra um loadout
+   * diferente do que o endereço abre.
+   */
+  const imagemUrl = open ? `/api/loadout/imagem/?${LOADOUT_PARAM}=${encodeLoadout(loadout)}` : '';
+
+  function baixarImagem() {
+    const arma = loadout.weapon ? WEAPONS_BY_ID.get(loadout.weapon)?.name : null;
+    const link = document.createElement('a');
+    link.href = imagemUrl;
+    // Espaço e acento atrapalham no nome do arquivo em alguns aparelhos.
+    link.download = `loadout-${(arma ?? 'bf6').toLowerCase().replace(/[^a-z0-9]+/g, '-')}.png`;
+    link.click();
+  }
 
   async function copyLink() {
     try {
@@ -140,6 +156,14 @@ export function ShareButton({ loadout, disabled }: { loadout: Loadout; disabled:
             Enviar
           </Button>
         </div>
+
+        {/*
+          O cartão em imagem existe para a conversa em que o link não é clicado:
+          a lista de peças aparece de relance, sem ninguém precisar abrir o site.
+        */}
+        <Button onClick={baixarImagem} className="bevel-sm touch mt-2 w-full" disabled={!imagemUrl}>
+          Baixar imagem do loadout
+        </Button>
       </Modal>
     </>
   );
