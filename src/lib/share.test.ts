@@ -2,7 +2,11 @@ import { describe, expect, it } from 'vitest';
 import { WEAPONS } from '@/data/weapons';
 import { attachmentsForWeapon } from '@/data/attachments';
 import { encodeLoadout, decodeLoadout, loadoutUrl } from './share';
-import { EMPTY_LOADOUT, type Loadout } from './loadout';
+import { EMPTY_LOADOUT, factoryAttachments, type Loadout } from './loadout';
+import { WEAPONS_BY_ID } from '@/data/weapons';
+
+/** O que a arma já traz montada — mira, munição e cano de fábrica. */
+const serie = (id: string) => factoryAttachments(WEAPONS_BY_ID.get(id)!);
 
 const full: Loadout = {
   playerClass: 'assault',
@@ -15,7 +19,7 @@ const full: Loadout = {
     ammo: 'ammo-fmj',
   },
   sidearm: 'm44',
-  sidearmAttachments: { sight: 'sight-iron-sights', ammo: 'ammo-fmj' },
+  sidearmAttachments: { ...serie('m44'), sight: 'sight-iron-sights', ammo: 'ammo-fmj' },
   gadget1: 'qlink-6',
   gadget2: 'tarantula-alx',
   throwable: 'm67-frag',
@@ -30,7 +34,7 @@ describe('ida e volta do link', () => {
     const simple: Loadout = { ...EMPTY_LOADOUT, weapon: 'kv9' };
     expect(decodeLoadout(encodeLoadout(simple))).toEqual({
       ...simple,
-      attachments: { ammo: 'ammo-fmj', sight: 'sight-iron-sights' },
+      attachments: serie('kv9'),
     });
   });
 
@@ -114,8 +118,8 @@ describe('acessórios da secundária', () => {
   it('viajam no link junto com os da principal', () => {
     const restored = decodeLoadout(encodeLoadout(full));
     expect(restored?.sidearmAttachments).toEqual({
+      ...serie('m44'),
       ...full.sidearmAttachments,
-      ammo: 'ammo-fmj',
     });
   });
 
@@ -127,9 +131,6 @@ describe('acessórios da secundária', () => {
   it('link antigo, sem o campo, abre com a secundária limpa', () => {
     // O campo é o último do formato, então versões anteriores continuam válidas.
     const withoutField = encodeLoadout({ ...full, sidearmAttachments: {} });
-    expect(decodeLoadout(withoutField)?.sidearmAttachments).toEqual({
-      ammo: 'ammo-fmj',
-      sight: 'sight-iron-sights',
-    });
+    expect(decodeLoadout(withoutField)?.sidearmAttachments).toEqual(serie('m44'));
   });
 });

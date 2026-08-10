@@ -1,7 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import { ATTACHMENTS, ATTACHMENTS_BY_ID, attachmentsForWeapon, isCompatible } from '@/data/attachments';
 import { WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
-import { attachmentName, defaultAmmo, defaultSight, stripIncompatible, EMPTY_LOADOUT } from './loadout';
+import {
+  attachmentName,
+  defaultAmmo,
+  defaultSight,
+  factoryAttachments,
+  stripIncompatible,
+  EMPTY_LOADOUT,
+} from './loadout';
 import { budgetFor, POINT_BUDGET } from '@/data/classes';
 import type { SlotId, Weapon } from '@/data/types';
 import {
@@ -324,6 +331,40 @@ describe('nome do cano', () => {
       'Cano Curto Leve': 25, 'Cano Estendido Leve': 25,
     };
     for (const c of canos) expect(tabela[c.name]).toBe(c.cost);
+  });
+
+  /*
+   * Nenhuma arma sai de fábrica sem cano: o Básico vem montado, cobra os dez
+   * pontos e não há como tirá-lo para recuperá-los. Sem isso, o orçamento da
+   * tela não bate com o do jogo.
+   */
+  it('monta o cano de fábrica em toda arma que tem o slot', () => {
+    const semCano = WEAPONS.filter(
+      (w) => w.slots.includes('barrel') && canosDe(w).length > 0 && !factoryAttachments(w).barrel,
+    );
+    expect(semCano.map((w) => w.name)).toEqual([]);
+  });
+
+  it('monta sempre o Cano Básico como peça de fábrica', () => {
+    for (const w of comCano) {
+      const cano = ATTACHMENTS_BY_ID.get(factoryAttachments(w).barrel!)!;
+      expect([w.name, attachmentName(cano, w)]).toEqual([w.name, 'Cano Básico']);
+    }
+  });
+
+  /*
+   * O cano de fábrica custa dez pontos, e é o que o jogo cobra só por carregar
+   * a arma. Três armas ainda saem disso: a peça que faz o papel de Básico nelas
+   * cumpre outro papel na maioria das armas, e `cost` é um número só por peça —
+   * o custo é relativo à arma do mesmo jeito que o nome, e o modelo ainda não
+   * representa isso. São PP-19, GRT-CPS e M87A1.
+   */
+  it('mantém o cano de fábrica em dez pontos, salvo as três exceções conhecidas', () => {
+    const fora = comCano
+      .filter((w) => ATTACHMENTS_BY_ID.get(factoryAttachments(w).barrel!)!.cost !== 10)
+      .map((w) => w.name)
+      .sort();
+    expect(fora).toEqual(['GRT-CPS', 'M87A1', 'PP-19']);
   });
 
   it('reproduz a tela da M16A4 peça por peça', () => {

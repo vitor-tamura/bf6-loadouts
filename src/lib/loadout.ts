@@ -78,13 +78,40 @@ export function defaultSight(weapon: Weapon): string | null {
   return attachmentsForWeapon(weapon).get('sight')?.[0]?.id ?? null;
 }
 
+/**
+ * Cano que já vem na arma.
+ *
+ * Nenhuma arma sai de fábrica sem cano, e o que vem montado é sempre o Básico —
+ * ele ocupa o slot e cobra os dez pontos de sempre, sem opção de tirar para
+ * recuperá-los. É a mesma regra da munição e da mira.
+ *
+ * Onze armas têm dois canos disputando o papel de Básico, e a tela do jogo é o
+ * único lugar que diz qual é o verdadeiro. O desempate aqui não altera conta
+ * nenhuma: os candidatos têm modificadores e custo idênticos, então a escolha
+ * muda o nome exibido e mais nada. Fica com o de nome mais óbvio, e é estável
+ * entre execuções para o link compartilhado não mudar de sentido.
+ */
+export function defaultBarrel(weapon: Weapon): string | null {
+  if (!weapon.slots.includes('barrel')) return null;
+
+  const basicos = (attachmentsForWeapon(weapon).get('barrel') ?? []).filter(
+    (cano) => attachmentName(cano, weapon) === 'Cano Básico',
+  );
+  if (basicos.length === 0) return null;
+
+  const obvio = basicos.find((c) => /factory|standard|basic/i.test(c.originalName));
+  return (obvio ?? basicos[0]).id;
+}
+
 /** Tudo que a arma já traz montada antes de qualquer escolha do jogador. */
 export function factoryAttachments(weapon: Weapon): Partial<Record<SlotId, string>> {
   const montadas: Partial<Record<SlotId, string>> = {};
   const ammo = defaultAmmo(weapon);
   const sight = defaultSight(weapon);
+  const barrel = defaultBarrel(weapon);
   if (ammo) montadas.ammo = ammo;
   if (sight) montadas.sight = sight;
+  if (barrel) montadas.barrel = barrel;
   return montadas;
 }
 
