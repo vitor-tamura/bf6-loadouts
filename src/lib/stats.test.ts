@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { ATTACHMENTS, ATTACHMENTS_BY_ID, attachmentsForWeapon, isCompatible } from '@/data/attachments';
 import { WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
-import { defaultAmmo, defaultSight, stripIncompatible, EMPTY_LOADOUT } from './loadout';
+import { attachmentName, defaultAmmo, defaultSight, stripIncompatible, EMPTY_LOADOUT } from './loadout';
 import { budgetFor, POINT_BUDGET } from '@/data/classes';
-import type { SlotId } from '@/data/types';
+import type { SlotId, Weapon } from '@/data/types';
 import {
   fitsBudget,
   calculateBudget,
@@ -264,5 +264,82 @@ describe('munição', () => {
     const sniper = WEAPONS_BY_ID.get('sv-98')!;
     const longRange = ATTACHMENTS_BY_ID.get('ammo-match-grade')!;
     expect(calculateStats(sniper, [longRange]).drag).toBeGreaterThan(baseStats(sniper).drag);
+  });
+});
+
+describe('nome do cano', () => {
+  const canos = ATTACHMENTS.filter((a) => a.slot === 'barrel');
+  const canosDe = (weapon: Weapon) => canos.filter((c) => (c.compat.weapons ?? []).includes(weapon.id));
+  const comCano = WEAPONS.filter((w) => canosDe(w).length > 0);
+
+  /*
+   * O jogo nomeia o cano pelo papel que ele cumpre na arma, e cada papel aparece
+   * uma vez só na tela de seleção. Dois canos com o mesmo nome na mesma arma são
+   * duas peças que o jogador não consegue distinguir na hora de escolher.
+   *
+   * Vinte e duas armas ainda caem nisso: são canos de mesmo comprimento e mesmo
+   * perfil, que o dataset não tem como separar sem a tela do jogo. O teste
+   * segura o número onde está — ele deve cair quando chegar tela nova, e nunca
+   * subir.
+   */
+  it('não deixa o nome do cano repetir mais do que o já conhecido', () => {
+    const repetidos = comCano.flatMap((w) => {
+      const porNome = new Map<string, number>();
+      for (const c of canosDe(w)) {
+        const nome = attachmentName(c, w);
+        porNome.set(nome, (porNome.get(nome) ?? 0) + 1);
+      }
+      return [...porNome.values()].filter((n) => n > 1);
+    });
+    expect(repetidos.length).toBeLessThanOrEqual(22);
+  });
+
+  /** Toda arma sai de fábrica com um cano montado, e é sempre o Básico. */
+  it('dá a cada arma um cano básico, e um só', () => {
+    const semUm = comCano.filter(
+      (w) => canosDe(w).filter((c) => attachmentName(c, w) === 'Cano Básico').length !== 1,
+    );
+    // As mesmas armas do teste acima, pela mesma razão.
+    expect(semUm.length).toBeLessThanOrEqual(14);
+  });
+
+  it('só usa os nomes que a tela de seleção do jogo mostra', () => {
+    const oficiais = new Set([
+      'Cano Curto', 'Cano Básico', 'Cano Estendido', 'Cano Curto Leve', 'Cano Leve',
+      'Cano Estendido Leve', 'Cano Pesado', 'Cano Ext. Pesado', 'Cano Crio',
+    ]);
+    const fora = new Set<string>();
+    for (const w of comCano) for (const c of canosDe(w)) {
+      const nome = attachmentName(c, w);
+      if (!oficiais.has(nome)) fora.add(nome);
+    }
+    expect([...fora]).toEqual([]);
+  });
+
+  it('cobra pelo cano o que a tela do jogo cobra', () => {
+    // Tabela lida em duas telas, e igual nas duas.
+    const tabela: Record<string, number> = {
+      'Cano Estendido': 5, 'Cano Básico': 10, 'Cano Pesado': 10, 'Cano Ext. Pesado': 10,
+      'Cano Curto': 15, 'Cano Leve': 20, 'Cano Crio': 20,
+      'Cano Curto Leve': 25, 'Cano Estendido Leve': 25,
+    };
+    for (const c of canos) expect(tabela[c.name]).toBe(c.cost);
+  });
+
+  it('reproduz a tela da M16A4 peça por peça', () => {
+    const m16a4 = WEAPONS_BY_ID.get('m16a4')!;
+    const esperado = {
+      'barrel-16-dissipator': ['Cano Curto', 15],
+      'barrel-18-govt': ['Cano Básico', 10],
+      'barrel-18-pencil': ['Cano Leve', 20],
+      'barrel-18-spr': ['Cano Pesado', 10],
+      'barrel-20-factory': ['Cano Estendido', 5],
+      'barrel-20-hbar': ['Cano Ext. Pesado', 10],
+      'barrel-cryogenic': ['Cano Crio', 20],
+    } as const;
+    for (const [id, [nome, custo]] of Object.entries(esperado)) {
+      const peca = ATTACHMENTS_BY_ID.get(id)!;
+      expect([id, attachmentName(peca, m16a4), peca.cost]).toEqual([id, nome, custo]);
+    }
   });
 });

@@ -181,8 +181,37 @@ export interface Attachment {
    */
   headshotOverride?: number;
   compat: Compatibility;
+  /**
+   * Nome que a peça recebe em armas específicas, quando ele não é o mesmo em
+   * todas.
+   *
+   * Vale para cano. O jogo não nomeia o cano pelo tamanho, e sim pelo papel que
+   * ele cumpre naquela arma — e o papel muda conforme a plataforma. O `20"
+   * Factory` é o `Cano Estendido` da M16A4, onde 20 polegadas é comprido, e o
+   * `Cano Básico` da M87A1, onde 20 polegadas é o de série. É a mesma peça, com
+   * dois nomes, e nenhum dos dois está errado.
+   *
+   * A chave é o id da arma. Quem não estiver aqui usa o `name`, que guarda o
+   * papel mais comum da peça. Ler sempre por `attachmentName`.
+   */
+  namePerWeapon?: Record<string, string>;
   /** Ampliação, para miras. */
   magnification?: number;
+  /**
+   * Peça cujo efeito repete o de outra, apontando para ela.
+   *
+   * Nasceu da premissa de que dois canos de mesmo comprimento são
+   * intercambiáveis, e é por isso que precisa ser lida com cuidado: a tela do
+   * jogo mostra que boa parte desses pares é de categorias distintas — o
+   * `18" SPR` é o cano Pesado da M16A4 e o `18" Govt.` é o Básico, e estão
+   * marcados aqui como se um substituísse o outro. O que os igualou foi o
+   * dataset, que deriva o efeito do cano só do comprimento e ainda não modela
+   * o perfil pesado.
+   *
+   * Ninguém lê este campo ainda. Antes de ligá-lo a qualquer filtro de tela, as
+   * marcações precisam ser conferidas uma a uma contra o jogo.
+   */
+  supersededBy?: string;
   provenance: Provenance;
 }
 

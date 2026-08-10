@@ -99,6 +99,50 @@ precisa de código se for uma família de desenho nova (`IMAGENS.md`).
 **Temporada:** entrada em `src/data/season.ts`. O tema veste o site enquanto ela
 durar e sai sozinho quando ela encerra.
 
+## Os canos, e o que ainda falta neles
+
+A tela "Selecionar cano" não nomeia a peça pela medida. Ela cruza comprimento
+com perfil, e o nome sai desse cruzamento:
+
+|            | curto        | básico     | estendido        |
+| ---------- | ------------ | ---------- | ---------------- |
+| **normal** | `Curto`      | `Básico`   | `Estendido`      |
+| **leve**   | `Curto Leve` | `Leve`     | `Estendido Leve` |
+| **pesado** | —            | `Pesado`   | `Ext. Pesado`    |
+
+Fora da matriz existe o `Crio`, que é peça própria. `Fluted` e `Pencil` são o
+`Leve` — não há "cano estriado" nem "cano fino" no jogo.
+
+A M16A4 é a régua: é a única arma com sete canos, e a tela dela bate peça por
+peça com a regra. A B36A4 confere as variantes leves.
+
+**O que falta.** Vinte e cinco grupos ainda têm duas peças com o mesmo nome na
+mesma arma — canos de comprimento e perfil iguais, com modificadores idênticos,
+como `415mm Factory` e `415mm Prototype`. Nada no dataset os separa. Some-se a
+isso que toda arma tem exatamente um cano básico montado de fábrica, e hoje
+dezesseis armas têm mais de um e a GRT-CPS não tem nenhum.
+
+Duas lacunas maiores estão por trás disso:
+
+- **O perfil pesado não é modelado.** Três dos 163 canos têm mod de controle ou
+  recuo, então o cano pesado é hoje uma cópia do básico de mesmo comprimento —
+  e é isso que produz os pares indistinguíveis.
+- **O cano de fábrica não existe no modelo.** `factoryAttachments`
+  (`src/lib/loadout.ts`) monta munição e mira, e nenhum cano. No jogo o básico
+  já vem equipado e consome pontos, então o `x/100` daqui não bate com o de lá.
+
+**Só a tela do jogo resolve.** O catálogo Convex não tem o campo, e está atrás
+do jogo: os custos divergem (na M16A4 o jogo cobra 5, 10, 15 e 20; a fonte diz
+10 em tudo) e faltam peças (há arma com oito canos na tela e nenhuma com mais
+de sete na fonte). Resumo de guia, tabela de comunidade e texto gerado por IA
+foram testados contra o dataset e reprovaram: citam peças que não existem em
+nenhum slot, armas que não são do jogo e custos que as próprias telas
+desmentem.
+
+Uma foto da tela, sem trocar nada, entrega tudo de uma vez: o rótulo de cada
+tile é a categoria, o número é o custo, a tile marcada `EQUIPADO` é o básico, e
+a contagem revela cano faltando no catálogo.
+
 ## O meta, a cada patch
 
 A tela `/meta` não vem do catálogo: ela é curadoria, guardada em

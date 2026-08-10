@@ -43,6 +43,18 @@ export const EMPTY_LOADOUT: Loadout = {
  * escopetas. Ela não altera número nenhum, porque as estatísticas da arma já
  * foram medidas com ela, mas ocupa pontos do orçamento como qualquer peça.
  */
+/**
+ * O nome da peça na arma em que ela está montada.
+ *
+ * Cano é nomeado pelo papel que cumpre, e o papel depende da arma — ver
+ * `namePerWeapon` em `Attachment`. Toda tela que mostra o nome de um acessório
+ * junto de uma arma deve passar por aqui; usar `attachment.name` direto mostra
+ * o papel mais comum da peça, que na arma errada é o nome errado.
+ */
+export function attachmentName(attachment: Attachment, weapon: Weapon | null): string {
+  return (weapon && attachment.namePerWeapon?.[weapon.id]) ?? attachment.name;
+}
+
 export function defaultAmmo(weapon: Weapon): string | null {
   if (!weapon.slots.includes('ammo')) return null;
   return weapon.category === 'shotgun' ? 'ammo-buckshot' : 'ammo-fmj';
