@@ -79,6 +79,34 @@ export function defaultSight(weapon: Weapon): string | null {
 }
 
 /**
+ * Quanto a peça custa na arma em que está montada.
+ *
+ * O preço do cano segue a categoria, e a categoria depende da arma — o mesmo
+ * `20" Factory` é o Estendido da M16A4, por cinco pontos, e o Básico da M87A1,
+ * por dez. Guardar um número só por peça deixava uma das duas errada, e é por
+ * isso que o valor sai da tabela em vez do campo.
+ *
+ * A tabela foi lida em duas telas do jogo, e é a mesma nas duas. Peça que não
+ * é cano não tem essa relatividade e responde pelo próprio `cost`.
+ */
+const CUSTO_DO_CANO: Record<string, number> = {
+  'Cano Estendido': 5,
+  'Cano Básico': 10,
+  'Cano Pesado': 10,
+  'Cano Ext. Pesado': 10,
+  'Cano Curto': 15,
+  'Cano Leve': 20,
+  'Cano Crio': 20,
+  'Cano Curto Leve': 25,
+  'Cano Estendido Leve': 25,
+};
+
+export function attachmentCost(attachment: Attachment, weapon: Weapon | null): number {
+  if (attachment.slot !== 'barrel') return attachment.cost;
+  return CUSTO_DO_CANO[attachmentName(attachment, weapon)] ?? attachment.cost;
+}
+
+/**
  * Cano que já vem na arma.
  *
  * Nenhuma arma sai de fábrica sem cano, e o que vem montado é sempre o Básico —

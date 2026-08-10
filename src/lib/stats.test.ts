@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { ATTACHMENTS, ATTACHMENTS_BY_ID, attachmentsForWeapon, isCompatible } from '@/data/attachments';
 import { WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
 import {
+  attachmentCost,
   attachmentName,
   defaultAmmo,
   defaultSight,
@@ -353,18 +354,23 @@ describe('nome do cano', () => {
   });
 
   /*
-   * O cano de fábrica custa dez pontos, e é o que o jogo cobra só por carregar
-   * a arma. Três armas ainda saem disso: a peça que faz o papel de Básico nelas
-   * cumpre outro papel na maioria das armas, e `cost` é um número só por peça —
-   * o custo é relativo à arma do mesmo jeito que o nome, e o modelo ainda não
-   * representa isso. São PP-19, GRT-CPS e M87A1.
+   * O cano de fábrica custa dez pontos em toda arma — é o que o jogo cobra só
+   * por carregá-la. Antes três armas escapavam disso, porque a peça que faz o
+   * papel de Básico nelas cumpre outro papel na maioria e o preço vinha de um
+   * campo só por peça. Agora o preço sai da categoria, que é por arma.
    */
-  it('mantém o cano de fábrica em dez pontos, salvo as três exceções conhecidas', () => {
+  it('mantém o cano de fábrica em dez pontos, em toda arma', () => {
     const fora = comCano
-      .filter((w) => ATTACHMENTS_BY_ID.get(factoryAttachments(w).barrel!)!.cost !== 10)
-      .map((w) => w.name)
-      .sort();
-    expect(fora).toEqual(['GRT-CPS', 'M87A1', 'PP-19']);
+      .filter((w) => attachmentCost(ATTACHMENTS_BY_ID.get(factoryAttachments(w).barrel!)!, w) !== 10)
+      .map((w) => w.name);
+    expect(fora).toEqual([]);
+  });
+
+  it('cobra pelo cano o papel que ele cumpre naquela arma, e não na maioria', () => {
+    // A mesma peça: Estendido na M16A4 por 5, Básico na M87A1 por 10.
+    const vinte = ATTACHMENTS_BY_ID.get('barrel-20-factory')!;
+    expect(attachmentCost(vinte, WEAPONS_BY_ID.get('m16a4')!)).toBe(5);
+    expect(attachmentCost(vinte, WEAPONS_BY_ID.get('m87a1')!)).toBe(10);
   });
 
   it('reproduz a tela da M16A4 peça por peça', () => {

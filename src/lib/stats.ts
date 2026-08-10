@@ -1,6 +1,7 @@
 import { ATTACHMENTS_BY_ID } from '@/data/attachments';
 import { POINT_BUDGET } from '@/data/classes';
 import type { Attachment, Weapon, StatKey, DamageStep, Modifier } from '@/data/types';
+import { attachmentCost } from './loadout';
 
 /**
  * Combina uma arma com os acessórios escolhidos e devolve as estatísticas
@@ -133,8 +134,13 @@ export interface Budget {
   overBudget: boolean;
 }
 
-export function calculateBudget(attachments: Attachment[], total = POINT_BUDGET): Budget {
-  const spent = attachments.reduce((sum, a) => sum + a.cost, 0);
+export function calculateBudget(
+  attachments: Attachment[],
+  total = POINT_BUDGET,
+  /* O cano cobra pelo papel que cumpre nesta arma — ver `attachmentCost`. */
+  weapon: Weapon | null = null,
+): Budget {
+  const spent = attachments.reduce((sum, a) => sum + attachmentCost(a, weapon), 0);
   return {
     spent,
     total,
@@ -151,10 +157,12 @@ export function fitsBudget(
   candidate: Attachment,
   currentAttachments: Attachment[],
   total = POINT_BUDGET,
+  weapon: Weapon | null = null,
 ): boolean {
   const replaced = currentAttachments.find((a) => a.slot === candidate.slot);
-  const spent = currentAttachments.reduce((sum, a) => sum + a.cost, 0);
-  const newSpend = spent - (replaced?.cost ?? 0) + candidate.cost;
+  const spent = currentAttachments.reduce((sum, a) => sum + attachmentCost(a, weapon), 0);
+  const newSpend =
+    spent - (replaced ? attachmentCost(replaced, weapon) : 0) + attachmentCost(candidate, weapon);
   return newSpend <= total;
 }
 
