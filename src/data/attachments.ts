@@ -3710,6 +3710,28 @@ export const ATTACHMENTS: Attachment[] = [
     compat: { weapons: ['cz3a1'] },
     provenance: 'curated',
   },
+  {
+    id: 'underbarrel-laser-light-combo-red',
+    name: 'TODO: traduzir',
+    originalName: 'Laser Light Combo Red',
+    slot: 'underbarrel',
+    cost: 20,
+    description: 'TODO: descrever em português.',
+    mods: {},
+    compat: { weapons: ['es-57', 'm45a1', 'p18'] },
+    provenance: 'game',
+  },
+  {
+    id: 'underbarrel-laser-light-combo-green',
+    name: 'TODO: traduzir',
+    originalName: 'Laser Light Combo Green',
+    slot: 'underbarrel',
+    cost: 20,
+    description: 'TODO: descrever em português.',
+    mods: {},
+    compat: { weapons: ['es-57', 'm45a1', 'p18'] },
+    provenance: 'game',
+  },
 ];
 
 export const ATTACHMENTS_BY_ID = new Map<string, Attachment>(ATTACHMENTS.map((a) => [a.id, a]));
