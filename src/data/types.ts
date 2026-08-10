@@ -183,6 +183,21 @@ export interface Attachment {
   compat: Compatibility;
   /** Ampliação, para miras. */
   magnification?: number;
+  /**
+   * Peça cujo efeito repete o de outra, apontando para ela.
+   *
+   * Nasceu da premissa de que dois canos de mesmo comprimento são
+   * intercambiáveis, e é por isso que precisa ser lida com cuidado: a tela do
+   * jogo mostra que boa parte desses pares é de categorias distintas — o
+   * `18" SPR` é o cano Pesado da M16A4 e o `18" Govt.` é o Básico, e estão
+   * marcados aqui como se um substituísse o outro. O que os igualou foi o
+   * dataset, que deriva o efeito do cano só do comprimento e ainda não modela
+   * o perfil pesado.
+   *
+   * Ninguém lê este campo ainda. Antes de ligá-lo a qualquer filtro de tela, as
+   * marcações precisam ser conferidas uma a uma contra o jogo.
+   */
+  supersededBy?: string;
   provenance: Provenance;
 }
 
