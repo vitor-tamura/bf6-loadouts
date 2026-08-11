@@ -1,6 +1,6 @@
 import { MetaScreen } from './meta-screen';
 import live from '@/data/meta-live.json';
-import type { MetaPick, MetaSource } from '@/data/meta';
+import type { MetaPick, MetaSource, TrendingPick } from '@/data/meta';
 
 /**
  * A tela do meta.
@@ -16,12 +16,14 @@ import type { MetaPick, MetaSource } from '@/data/meta';
  */
 export default function MetaPage() {
   const picks = live.picks as MetaPick[];
+  const trending = ('trending' in live ? live.trending : []) as TrendingPick[];
 
   if (!live.readAt || !picks.length) return <MetaScreen />;
 
   return (
     <MetaScreen
       picks={picks}
+      trending={trending.length ? trending : undefined}
       sources={live.sources as MetaSource[]}
       readAt={live.readAt}
       fromSearch

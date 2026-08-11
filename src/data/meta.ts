@@ -68,6 +68,11 @@ export interface MetaPick {
   sources: number[];
 }
 
+export interface TrendingPick extends MetaPick {
+  /** Rótulo curto da tendência: "subindo", "muito usada", "build nova"... */
+  trend: string;
+}
+
 export interface CategoryHighlight {
   category: WeaponCategory;
   /** A arma que a fonte aponta como melhor da categoria. */
@@ -176,6 +181,46 @@ export const HIGHLIGHTS: MetaPick[] = [
   {
     weapon: 'sg-553r',
     reason: 'A carabina mais sólida da temporada — a segunda da classe no ranking e a primeira na leitura do guia.',
+    sources: [0, 1],
+  },
+];
+
+/**
+ * Armas que estão aparecendo mais na conversa ou no uso percebido.
+ *
+ * Trending não é sinônimo de meta: entra arma que ganhou adoção, hype ou uma
+ * build nova mesmo quando ainda não há consenso de que seja a escolha mais
+ * eficiente. A busca diária substitui esta lista quando grava `meta-live.json`.
+ */
+export const TRENDING: TrendingPick[] = [
+  {
+    weapon: 'vssm',
+    trend: 'full-auto em alta',
+    reason: 'A novidade da temporada virou assunto pela combinação de supressor integrado, modo automático e força em médio alcance.',
+    sources: [0, 1, 3],
+  },
+  {
+    weapon: 'ef88',
+    trend: 'arma nova',
+    reason: 'Os guias ainda discutem se ela já passou as veteranas, mas a curiosidade e as builds de Season 4 mantêm a EF88 em evidência.',
+    sources: [2, 3],
+  },
+  {
+    weapon: 'brod-3',
+    trend: 'mobilidade',
+    reason: 'Carabina recente, citada como opção agressiva para quem quer trocar alcance por velocidade de entrada.',
+    sources: [0, 3],
+  },
+  {
+    weapon: 'drs-iar',
+    trend: 'muito usada',
+    reason: 'A leitura de temporada empurrou a DRS-IAR para o centro da conversa entre suportes por TTK curto e alcance confiável.',
+    sources: [0, 1, 3],
+  },
+  {
+    weapon: 'sg-553r',
+    trend: 'build consistente',
+    reason: 'A carabina segue subindo nas recomendações por ser fácil de encaixar em mapas e classes diferentes.',
     sources: [0, 1],
   },
 ];

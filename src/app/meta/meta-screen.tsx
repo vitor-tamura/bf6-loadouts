@@ -11,12 +11,14 @@ import { CATEGORY_NAMES, CLASSES } from '@/data/classes';
 import {
   UPDATED_AT,
   HIGHLIGHTS,
+  TRENDING,
   SOURCES,
   NOT_MULTIPLAYER,
   BY_CATEGORY,
   META_SEASON,
   type MetaPick,
   type MetaSource,
+  type TrendingPick,
 } from '@/data/meta';
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import { EMPTY_LOADOUT } from '@/lib/loadout';
@@ -52,11 +54,13 @@ const shortDate = (iso: string) =>
  */
 export function MetaScreen({
   picks = HIGHLIGHTS,
+  trending = TRENDING,
   sources = SOURCES,
   readAt,
   fromSearch = false,
 }: {
   picks?: MetaPick[];
+  trending?: TrendingPick[];
   sources?: MetaSource[];
   readAt?: string;
   fromSearch?: boolean;
@@ -149,6 +153,24 @@ export function MetaScreen({
             ))}
           </Row>
         </section>
+
+        {trending.length > 0 && (
+          <section className="mb-3">
+            <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
+              <h2 className="label">Trending agora</h2>
+              <Typography.Text className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
+                armas em alta na conversa ou no uso percebido
+              </Typography.Text>
+            </div>
+            <Row gutter={[8, 8]}>
+              {trending.map((pick, rank) => (
+                <Col key={`${pick.weapon}-${pick.trend}`} xs={24} sm={12} lg={8} xl={6}>
+                  <TrendingCard pick={pick} rank={rank + 1} />
+                </Col>
+              ))}
+            </Row>
+          </section>
+        )}
 
         <section className="mb-3">
           <h2 className="label mb-2">Por categoria</h2>
@@ -282,6 +304,60 @@ export function MetaScreen({
         <SiteFooter note="Ranking de opinião do multiplayer, mantido à mão. Os números das armas continuam vindo do dataset." />
       </main>
     </div>
+  );
+}
+
+/** Cartão de tendência: popularidade recente, hype ou build nova, sem misturar com meta. */
+function TrendingCard({ pick, rank }: { pick: TrendingPick; rank: number }) {
+  const weapon = WEAPONS_BY_ID.get(pick.weapon);
+  if (!weapon) return null;
+
+  const playerClass = CLASSES.find((c) => c.id === weapon.signatureClass);
+  const href = `${BUILDER_PATH}?l=${encodeLoadout({ ...EMPTY_LOADOUT, weapon: weapon.id })}`;
+
+  return (
+    <Link href={href} className="block h-full">
+      <Card
+        variant="outlined"
+        hoverable
+        className="card bevel h-full"
+        styles={{ body: { padding: 10 } }}
+        style={{ borderColor: 'color-mix(in oklab, var(--accent) 35%, var(--border-soft))' }}
+      >
+        <div className="flex items-start justify-between gap-2">
+          <span className="min-w-0">
+            <span className="font-display block truncate text-base font-semibold tracking-wide">
+              <span className="mr-1.5 font-mono text-[11px]" style={{ color: 'var(--accent)' }}>
+                {rank}º
+              </span>
+              {weapon.name}
+            </span>
+            <span className="mt-0.5 flex flex-wrap items-center gap-x-2 font-mono text-[10px]">
+              {playerClass && <span style={{ color: playerClass.color }}>{playerClass.name}</span>}
+              <span style={{ color: 'var(--text-dim)' }}>{CATEGORY_NAMES[weapon.category]}</span>
+            </span>
+          </span>
+          <Tag
+            className="bevel-sm m-0 max-w-[45%] whitespace-normal px-1.5 py-0 text-right text-[9px] leading-snug font-semibold uppercase"
+            style={{
+              color: 'var(--accent)',
+              border: '1px solid color-mix(in oklab, var(--accent) 45%, transparent)',
+              background: 'color-mix(in oklab, var(--accent) 10%, transparent)',
+            }}
+          >
+            {pick.trend}
+          </Tag>
+        </div>
+
+        <p className="mt-2 text-[11px] leading-snug" style={{ color: 'var(--text-soft)' }}>
+          {pick.reason}
+        </p>
+
+        <p className="mt-1.5 font-mono text-[11px]" style={{ color: 'var(--text-dim)' }}>
+          {pick.sources.map((f) => `[${f + 1}]`).join(' ')}
+        </p>
+      </Card>
+    </Link>
   );
 }
 

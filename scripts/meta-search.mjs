@@ -42,17 +42,26 @@ const DESTINO = new URL('../src/data/meta-live.json', import.meta.url);
  */
 const MODELOS = ['gpt-5-nano', 'gpt-5-mini', 'gpt-4.1-mini'];
 
-const PROMPT = `Pesquise o que a comunidade de Battlefield 6 está dizendo agora sobre as melhores armas do MULTIPLAYER na temporada em curso. Dê peso às discussões do Reddit (r/Battlefield6 e afins) e a guias publicados depois do patch mais recente.
+const PROMPT = `Pesquise o que a comunidade de Battlefield 6 está dizendo agora sobre armas do MULTIPLAYER tradicional na temporada em curso. Não considere REDSEC, battle royale, ranked REDSEC nem modos derivados.
+
+Separe:
+- META: armas atualmente mais fortes/eficientes por desempenho, TTK, controle, alcance, versatilidade e consenso.
+- TRENDING: armas que estão aumentando de popularidade, aparecendo mais nas partidas, recebendo mais recomendações ou puxando conversa recente. Uma arma pode estar trending sem ser meta.
+
+Dê peso a discussões recentes do Reddit (r/Battlefield6, r/Battlefield, r/BF6 e afins), patch notes oficiais, guias publicados depois do patch mais recente e qualquer dado público de uso/pick rate quando existir. Priorize últimos 7 dias para trending e últimos 30 dias para contexto.
 
 Responda SOMENTE com um JSON neste formato, sem cercas de código e sem texto antes ou depois:
 
-{"picks":[{"weapon":"NOME EXATO DA ARMA","reason":"uma frase curta, em português do Brasil, dizendo por que ela está forte"}]}
+{"picks":[{"weapon":"NOME EXATO DA ARMA","reason":"uma frase curta, em português do Brasil, dizendo por que ela está forte"}],"trending":[{"weapon":"NOME EXATO DA ARMA","trend":"rótulo curto da tendência","reason":"uma frase curta, em português do Brasil, dizendo por que todo mundo está usando, comentando ou testando agora"}]}
 
 Regras:
-- No máximo 8 armas, da mais citada para a menos citada.
+- No máximo 8 armas em picks, da mais forte para a menos forte.
+- No máximo 8 armas em trending, da mais quente para a menos quente.
 - O nome tem de ser o nome exato da arma no jogo, sem apelido e sem acessório junto.
 - Só multiplayer. Arma que só se destaca no REDSEC, o battle royale, fica de fora.
-- Se não achar consenso sobre alguma, deixe-a de fora em vez de chutar.`;
+- Não classifique uma arma como meta só porque ela é popular.
+- Não classifique uma arma como trending só porque ela é nova; procure sinal de adoção, discussão ou build específica.
+- Se não achar evidência suficiente sobre alguma, deixe-a de fora em vez de chutar.`;
 
 /** Sem acentos e sem pontuação: "SG 553R" e "sg553r" viram a mesma coisa. */
 const chave = (nome) =>
@@ -105,6 +114,34 @@ function extrairJson(texto) {
   }
 }
 
+function normalizarLista(lista, { max, campoPadrao, incluirTrend = false, trendPadrao = 'em alta' }) {
+  const vistas = new Set();
+  const items = [];
+  const descartadas = [];
+
+  for (const pick of lista ?? []) {
+    if (!pick || typeof pick !== 'object') continue;
+    if (items.length === max) break;
+    const arma = pick.weapon ? PORCHAVE.get(chave(pick.weapon)) : undefined;
+    if (!arma) {
+      descartadas.push(pick.weapon);
+      continue;
+    }
+    if (vistas.has(arma.id)) continue;
+    vistas.add(arma.id);
+
+    const item = {
+      weapon: arma.id,
+      reason: (pick.reason ?? '').trim() || campoPadrao,
+      sources: [items.length],
+    };
+    if (incluirTrend) item.trend = (pick.trend ?? '').trim() || trendPadrao;
+    items.push(item);
+  }
+
+  return { items, descartadas };
+}
+
 async function main() {
   if (!API_KEY) {
     console.error('Falta OPENAI_API_KEY.');
@@ -121,27 +158,22 @@ async function main() {
       const bruto = extrairJson(texto);
       if (!bruto?.picks?.length) throw new Error('resposta sem lista de armas');
 
-      const vistas = new Set();
-      const picks = [];
-      const descartadas = [];
-      for (const pick of bruto.picks) {
-        const arma = pick.weapon ? PORCHAVE.get(chave(pick.weapon)) : undefined;
-        if (!arma) {
-          descartadas.push(pick.weapon);
-          continue;
-        }
-        if (vistas.has(arma.id)) continue;
-        vistas.add(arma.id);
-        picks.push({
-          weapon: arma.id,
-          reason: (pick.reason ?? '').trim() || 'Citada entre as mais fortes da temporada.',
-          sources: [picks.length],
-        });
-      }
+      const meta = normalizarLista(bruto.picks, {
+        max: 8,
+        campoPadrao: 'Citada entre as mais fortes da temporada.',
+      });
+      const trends = normalizarLista(bruto.trending, {
+        max: 8,
+        campoPadrao: 'Aparece entre as armas que mais cresceram nas discussões recentes.',
+        incluirTrend: true,
+      });
 
+      const descartadas = [...meta.descartadas, ...trends.descartadas];
       if (descartadas.length) {
         console.warn(`Descartadas por não existirem no dataset: ${descartadas.join(', ')}`);
       }
+      const picks = meta.items;
+      const trending = trends.items;
       if (!picks.length) throw new Error('nenhuma arma reconhecida');
 
       // A mesma página costuma ser citada várias vezes, uma por trecho.
@@ -169,11 +201,15 @@ async function main() {
       for (const pick of picks) {
         if (pick.sources[0] >= sources.length) pick.sources = [0];
       }
+      for (const pick of trending) {
+        if (pick.sources[0] >= sources.length) pick.sources = [0];
+      }
 
       const conteudo = {
         readAt: new Date().toISOString().slice(0, 10),
         model: modelo,
         picks,
+        trending,
         sources,
       };
 
@@ -192,7 +228,7 @@ async function main() {
       }
 
       writeFileSync(DESTINO, novo);
-      console.log(`Gravado: ${picks.length} armas, ${sources.length} fontes.`);
+      console.log(`Gravado: ${picks.length} armas, ${trending.length} trending, ${sources.length} fontes.`);
       return;
     } catch (erro) {
       ultimoErro = erro;
