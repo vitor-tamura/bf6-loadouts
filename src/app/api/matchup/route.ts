@@ -66,10 +66,12 @@ const GOOGLE_MODELS = ['gemini-3.6-flash', 'gemini-flash-latest'];
 /**
  * De onde vem o modelo, na ordem em que se tenta.
  *
- * A chave da OpenAI ganha quando existe: é paga por uso, e nesta tarefa o uso
- * custa centavos por mês. Sem ela, valem os caminhos antigos — a chave do
- * Google AI Studio e, por último, o AI Gateway, que exige cartão cadastrado
- * na Vercel antes de liberar o crédito gratuito.
+ * A chave da OpenAI ganha quando existe — mas só em produção. Ela é paga por
+ * uso, e é o visitante que justifica o gasto: preview e dev renderizam a
+ * mesma tela com a análise por regras, sem vazar crédito em teste. Fora dela,
+ * valem os caminhos antigos — a chave do Google AI Studio e, por último, o
+ * AI Gateway, que exige cartão cadastrado na Vercel antes de liberar o
+ * crédito gratuito.
  *
  * Sem nenhuma das três, a rota falha e a tela fica com a análise por regras —
  * que é o que acontece em qualquer cópia recém-clonada do repositório.
@@ -81,7 +83,7 @@ const GOOGLE_MODELS = ['gemini-3.6-flash', 'gemini-flash-latest'];
  */
 function candidates() {
   const openaiKey = process.env.OPENAI_API_KEY;
-  if (openaiKey) {
+  if (openaiKey && process.env.VERCEL_ENV === 'production') {
     const openai = createOpenAI({ apiKey: openaiKey });
     return OPENAI_MODELS.map((name) => ({
       model: openai(name),
@@ -126,6 +128,45 @@ function candidates() {
 /** Nome de modelo errado ou fora da conta — vale tentar o próximo da fila. */
 const isModelProblem = (error: unknown) =>
   APICallError.isInstance(error) && (error.statusCode === 404 || error.statusCode === 400);
+
+/*
+ * O freio de gasto por visitante.
+ *
+ * A chave é paga por uso, e um script martelando a rota drenaria o crédito em
+ * uma tarde. Cada IP tem direito a dez leituras generativas por dia; daí em
+ * diante a resposta é 429 e a tela segue com a análise por regras, que o
+ * visitante já estava vendo.
+ *
+ * O contador vive na memória da instância, sem armazenamento externo: a
+ * instância é reaproveitada entre requisições, o que basta para segurar o uso
+ * real. Reinício zera a conta — aceitável, porque o objetivo é teto de gasto,
+ * não cota exata.
+ */
+const LEITURAS_POR_DIA = 10;
+const UM_DIA_MS = 86_400_000;
+const usoPorIp = new Map<string, { usadas: number; zeraEm: number }>();
+
+function estourouLimite(request: Request) {
+  const ip =
+    request.headers.get('x-real-ip') ??
+    (request.headers.get('x-forwarded-for') ?? 'desconhecido').split(',')[0].trim();
+
+  const agora = Date.now();
+
+  // Tira da mesa quem já pode voltar, para o mapa não crescer para sempre.
+  if (usoPorIp.size > 1000) {
+    for (const [dono, uso] of usoPorIp) if (agora >= uso.zeraEm) usoPorIp.delete(dono);
+  }
+
+  let uso = usoPorIp.get(ip);
+  if (!uso || agora >= uso.zeraEm) {
+    uso = { usadas: 0, zeraEm: agora + UM_DIA_MS };
+    usoPorIp.set(ip, uso);
+  }
+  if (uso.usadas >= LEITURAS_POR_DIA) return true;
+  uso.usadas += 1;
+  return false;
+}
 
 /** O que o modelo pode escrever, e o que ele não pode inventar. */
 const SYSTEM = `Você escreve para um site brasileiro de loadouts de Battlefield 6.
@@ -202,6 +243,11 @@ export async function POST(request: Request) {
   const weaponB = describe(b);
   if (!weaponA || !weaponB) {
     return Response.json({ error: 'arma desconhecida' }, { status: 404 });
+  }
+
+  // Só conta a leitura que chegaria ao modelo: pedido inválido não gasta cota.
+  if (estourouLimite(request)) {
+    return Response.json({ error: 'limite diário de leituras atingido' }, { status: 429 });
   }
 
   /*
