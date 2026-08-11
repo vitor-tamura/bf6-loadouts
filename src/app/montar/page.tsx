@@ -11,7 +11,7 @@ import { SlotsPanel, BudgetBar } from '@/components/slots-panel';
 import { StatsPanel } from '@/components/stats-panel';
 import { WeaponPreview } from '@/components/weapon-preview';
 import { DockablePanel, type PanelMode } from '@/components/dockable-panel';
-import { RecommendButtons } from '@/components/recommend-buttons';
+import { RecommendButton } from '@/components/recommend-button';
 import { SiteFooter } from '@/components/site-footer';
 import { WeaponFilters, WeaponList, WeaponSelector, useWeaponFilter } from '@/components/weapon-selector';
 import { WEAPONS_BY_ID, PRIMARY_CATEGORIES } from '@/data/weapons';
@@ -229,13 +229,12 @@ function BuilderPage() {
                     </Button>
                   </div>
                   {/* A montagem pronta antes da manual: quem não quer decidir
-                      slot a slot escolhe só a distância em que joga. */}
+                      slot a slot resolve num clique. */}
                   <div className="mt-2 border-t pt-2" style={{ borderColor: 'var(--border-soft)' }}>
-                    <RecommendButtons
+                    <RecommendButton
                       key={weapon.id}
                       weapon={weapon}
                       onLoadout={applyRecommendation}
-                      destaque
                     />
                   </div>
                 </Panel>

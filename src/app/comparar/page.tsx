@@ -11,7 +11,7 @@ import { SiteFooter } from '@/components/site-footer';
 import { ComparisonChart, type Series } from '@/components/charts';
 import { WeaponPreview } from '@/components/weapon-preview';
 import { WeaponSelector } from '@/components/weapon-selector';
-import { RecommendButtons } from '@/components/recommend-buttons';
+import { RecommendButton } from '@/components/recommend-button';
 import { SHORT_CATEGORY_NAMES } from '@/data/classes';
 import { CATEGORY_ORDER, WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
 import { attachmentsForWeapon } from '@/data/attachments';
@@ -385,20 +385,22 @@ export default function ComparePage() {
             <div className="space-y-2">
               <DuelCard weapon={weaponA} color={COLOR_A} side="A" onPick={() => setPicking('a')} />
               {weaponA && (
-                <RecommendButtons
+                <RecommendButton
                   key={weaponA.id}
                   weapon={weaponA}
                   onLoadout={(attachments) => openBuilder(weaponA.id, attachments)}
+                  opensBuilder
                 />
               )}
             </div>
             <div className="space-y-2">
               <DuelCard weapon={weaponB} color={COLOR_B} side="B" onPick={() => setPicking('b')} />
               {weaponB && (
-                <RecommendButtons
+                <RecommendButton
                   key={weaponB.id}
                   weapon={weaponB}
                   onLoadout={(attachments) => openBuilder(weaponB.id, attachments)}
+                  opensBuilder
                 />
               )}
             </div>
@@ -602,7 +604,11 @@ function MatchupReading({
     [statsA, statsB, nameA, nameB, mode],
   );
 
-  const { text: written, loading, failed, gerar } = useWrittenReading(idA, idB, mode);
+  const { text: written, loading, failed, generate } = useWrittenReading(idA, idB, mode);
+
+  // A leitura escrita é só do multiplayer: o modelo lê guias e discussões que
+  // descrevem esse modo, e aplicá-las ao battle royale seria inventar.
+  const aiAllowed = mode === 'multiplayer';
 
   const color =
     reading.winner === 'a' ? COLOR_A : reading.winner === 'b' ? COLOR_B : 'var(--text-soft)';
@@ -625,11 +631,18 @@ function MatchupReading({
             na tela; a escrita é upgrade de quem pede.
           */}
           {!written && (
-            <Hint label="Pedir a um modelo a leitura escrita deste confronto">
+            <Hint
+              label={
+                aiAllowed
+                  ? 'Analisar com IA — pede a um modelo a leitura escrita deste confronto.'
+                  : 'Analisar com IA — disponível só no multiplayer; o REDSEC fica com a leitura automática.'
+              }
+            >
               <Button
                 size="small"
                 loading={loading}
-                onClick={gerar}
+                disabled={!aiAllowed}
+                onClick={generate}
                 className="bevel-sm text-xs"
               >
                 Analisar com IA
@@ -694,6 +707,17 @@ function MatchupReading({
 }
 
 /**
+ * O que o modelo já escreveu, por par de armas.
+ *
+ * Vive fora do componente de propósito. A leitura custa uma das dez do dia, e
+ * sem isto ela se perdia em cada ida ao REDSEC e volta, em cada troca de par e
+ * volta ao anterior — pagando de novo, com espera de novo, para mostrar o texto
+ * que o visitante tinha acabado de ler. O modo não entra na chave porque só o
+ * multiplayer gera texto.
+ */
+const writtenReadings = new Map<string, string>();
+
+/**
  * Pede ao servidor a leitura escrita — quando alguém pedir.
  *
  * Antes o pedido saía sozinho a cada par de armas. Isso gastava a cota diária
@@ -702,67 +726,65 @@ function MatchupReading({
  * quadro. Agora quem dispara é o botão, e a falha continua barata — sem rede,
  * sem crédito ou com o modelo fora do ar, o que está na tela segue valendo.
  *
- * Trocar de arma ou de modo esquece o texto e cancela o pedido em voo, senão
- * uma resposta atrasada apareceria sob o nome da comparação seguinte.
+ * O texto é do par, não do modo: no REDSEC ele fica guardado sem aparecer, e
+ * reaparece inteiro na volta ao multiplayer.
  */
 function useWrittenReading(
   idA: string,
   idB: string,
   mode: GameMode,
-): { text: string | null; loading: boolean; failed: boolean; gerar: () => void } {
-  const key = `${idA}|${idB}|${mode}`;
-  const [answer, setAnswer] = useState<{
-    key: string;
-    text: string | null;
-    loading: boolean;
-    failed: boolean;
-  }>({ key, text: null, loading: false, failed: false });
+): { text: string | null; loading: boolean; failed: boolean; generate: () => void } {
+  const key = `${idA}|${idB}`;
+  const [status, setStatus] = useState<{ key: string; loading: boolean; failed: boolean }>({
+    key,
+    loading: false,
+    failed: false,
+  });
   const controllerRef = useRef<AbortController | null>(null);
 
-  // Trocar de arma limpa o texto na hora, ainda na renderização: um efeito
-  // faria isso depois da pintura, e por um quadro a leitura da arma anterior
-  // apareceria sob o nome da nova.
-  if (answer.key !== key) {
-    setAnswer({ key, text: null, loading: false, failed: false });
-  }
+  // Trocar de par zera o indicador na hora, ainda na renderização: um efeito
+  // faria isso depois da pintura, e por um quadro o estado do par anterior
+  // apareceria sob o nome do novo.
+  if (status.key !== key) setStatus({ key, loading: false, failed: false });
 
-  // O cancelamento é a limpeza deste efeito: ela roda quando a comparação
-  // muda e quando a tela sai, que são exatamente as duas horas de desistir.
+  // O cancelamento é a limpeza deste efeito: ela roda quando o par muda e
+  // quando a tela sai, que são exatamente as duas horas de desistir.
   useEffect(() => () => controllerRef.current?.abort(), [key]);
 
-  function gerar() {
+  function generate() {
     controllerRef.current?.abort();
     const controller = new AbortController();
     controllerRef.current = controller;
-    setAnswer({ key, text: null, loading: true, failed: false });
+    setStatus({ key, loading: true, failed: false });
 
     // A barra no fim não é enfeite: o site roda com `trailingSlash`, e sem ela
     // o pedido leva um 308 antes de chegar na rota.
     fetch('/api/matchup/', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ a: idA, b: idB, mode }),
+      body: JSON.stringify({ a: idA, b: idB, mode: 'multiplayer' }),
       signal: controller.signal,
     })
       .then((response) => (response.ok ? response.json() : null))
       .then((data: { text?: string } | null) => {
         const text = data?.text ?? null;
-        setAnswer({ key, text, loading: false, failed: !text });
+        if (text) writtenReadings.set(key, text);
+        setStatus({ key, loading: false, failed: !text });
       })
       .catch((error: unknown) => {
-        // Cancelar não é falhar: quem cancelou foi a troca de arma, e o estado
-        // dela já foi zerado na renderização.
+        // Cancelar não é falhar: quem cancelou foi a troca de par, e o estado
+        // dele já foi zerado na renderização.
         if ((error as { name?: string })?.name === 'AbortError') return;
-        setAnswer({ key, text: null, loading: false, failed: true });
+        setStatus({ key, loading: false, failed: true });
       });
   }
 
-  const current = answer.key === key ? answer : null;
+  const current = status.key === key ? status : null;
   return {
-    text: current?.text ?? null,
+    text: mode === 'multiplayer' ? (writtenReadings.get(key) ?? null) : null,
     loading: current?.loading ?? false,
     failed: current?.failed ?? false,
-    gerar,
+    generate,
   };
 }
 

@@ -18,11 +18,18 @@ export default function MetaPage() {
   const picks = live.picks as MetaPick[];
   const trending = ('trending' in live ? live.trending : []) as TrendingPick[];
 
-  if (!live.readAt || !picks.length) return <MetaScreen />;
+  /*
+   * `readAt` é a data que a tela mostra no "revisado em", e ela vale sempre que
+   * a rotina tiver rodado — inclusive quando o dia rendeu só trending, sem
+   * mexer no ranking. Exigir `picks` para aceitar a leitura jogava fora, junto,
+   * a data e o próprio trending, e o topo da tela seguia anunciando a data da
+   * curadoria escrita à mão.
+   */
+  if (!live.readAt || (!picks.length && !trending.length)) return <MetaScreen />;
 
   return (
     <MetaScreen
-      picks={picks}
+      picks={picks.length ? picks : undefined}
       trending={trending.length ? trending : undefined}
       sources={live.sources as MetaSource[]}
       readAt={live.readAt}

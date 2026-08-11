@@ -2,7 +2,7 @@
 
 import { Hint } from '@/components/hint';
 import Link from 'next/link';
-import { Alert, Card, Col, Row, Tag, Typography } from 'antd';
+import { Alert, Card, Col, Divider, Row, Tag, Typography } from 'antd';
 import { AppHeader } from '@/components/header';
 import { SeasonTag } from '@/components/season-tag';
 import { SiteFooter } from '@/components/site-footer';
@@ -156,6 +156,7 @@ export function MetaScreen({
 
         {trending.length > 0 && (
           <section className="mb-3">
+            <BlockDivider />
             <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
               <h2 className="label">Trending agora</h2>
               <Typography.Text className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
@@ -173,7 +174,8 @@ export function MetaScreen({
         )}
 
         <section className="mb-3">
-          <h2 className="label mb-2">Por categoria</h2>
+          <BlockDivider />
+          <h2 className="label mb-2">Meta por categoria</h2>
           <Row gutter={[8, 8]}>
             {BY_CATEGORY.map((group) => (
               <Col key={group.category} xs={24} lg={12} xl={8}>
@@ -201,6 +203,7 @@ export function MetaScreen({
         </section>
 
         <section className="mb-3">
+          <BlockDivider />
           <h2 className="label mb-2">Fortes no REDSEC, não aqui</h2>
           <Card
             variant="outlined"
@@ -240,6 +243,8 @@ export function MetaScreen({
             </Row>
           </Card>
         </section>
+
+        <BlockDivider />
 
         <Card
           variant="outlined"
@@ -307,6 +312,17 @@ export function MetaScreen({
   );
 }
 
+/**
+ * A linha que separa um bloco do seguinte.
+ *
+ * A tela é uma pilha de listas de arma — topo, trending, categorias, REDSEC —
+ * e sem uma régua entre elas o título de cada bloco lia-se como subtítulo do
+ * anterior, especialmente no celular, onde os cartões vêm um sob o outro.
+ */
+function BlockDivider() {
+  return <Divider style={{ margin: '20px 0', borderColor: 'var(--border-soft)' }} />;
+}
+
 /** Cartão de tendência: popularidade recente, hype ou build nova, sem misturar com meta. */
 function TrendingCard({ pick, rank }: { pick: TrendingPick; rank: number }) {
   const weapon = WEAPONS_BY_ID.get(pick.weapon);
@@ -348,6 +364,14 @@ function TrendingCard({ pick, rank }: { pick: TrendingPick; rank: number }) {
             {pick.trend}
           </Tag>
         </div>
+
+        {/*
+          A foto entra abaixo do nome, e não ao lado dele: no cartão estreito da
+          grade, uma imagem de proporção 8:3 espremida numa coluna lateral fica
+          menor que o próprio texto e deixa de cumprir o papel — que é fazer a
+          arma ser reconhecida antes de qualquer palavra ser lida.
+        */}
+        <WeaponPreview weapon={weapon} className="mt-2 w-full" />
 
         <p className="mt-2 text-[11px] leading-snug" style={{ color: 'var(--text-soft)' }}>
           {pick.reason}
