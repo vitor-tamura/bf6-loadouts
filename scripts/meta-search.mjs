@@ -28,10 +28,20 @@
  */
 
 import { readFileSync, writeFileSync } from 'node:fs';
+import { HIGHLIGHTS, SOURCES, TRENDING } from '../src/data/meta.ts';
 import { WEAPONS } from '../src/data/weapons.ts';
 
 const API_KEY = process.env.OPENAI_API_KEY;
 const DESTINO = new URL('../src/data/meta-live.json', import.meta.url);
+
+function numeroConfig(valor, padrao) {
+  const numero = Number(valor);
+  return Number.isFinite(numero) && numero > 0 ? Math.floor(numero) : padrao;
+}
+
+const MAX_OUTPUT_TOKENS = numeroConfig(process.env.OPENAI_META_MAX_OUTPUT_TOKENS, 1800);
+const MAX_TENTATIVAS = numeroConfig(process.env.OPENAI_META_RETRIES, 3);
+const FALHAR_SEM_ATUALIZAR = process.env.OPENAI_META_STRICT === '1';
 
 /*
  * A chave é paga por uso, então a fila não existe por causa de cota — ela
@@ -40,7 +50,12 @@ const DESTINO = new URL('../src/data/meta-live.json', import.meta.url);
  * vale para todos os modelos, mas o guia dela não cita os nanos — se ele
  * recusar, o mini resolve, e o `gpt-4.1-mini` fecha a fila noutra família.
  */
-const MODELOS = ['gpt-5-nano', 'gpt-5-mini', 'gpt-4.1-mini'];
+const MODELOS = (process.env.OPENAI_META_MODELS ?? 'gpt-5-nano,gpt-5-mini,gpt-4.1-mini')
+  .split(',')
+  .map((modelo) => modelo.trim())
+  .filter(Boolean);
+
+const ARMAS_PERMITIDAS = WEAPONS.map((w) => w.name).join(', ');
 
 const PROMPT = `Pesquise o que a comunidade de Battlefield 6 está dizendo agora sobre armas do MULTIPLAYER tradicional na temporada em curso. Não considere REDSEC, battle royale, ranked REDSEC nem modos derivados.
 
@@ -50,13 +65,16 @@ Separe:
 
 Dê peso a discussões recentes do Reddit (r/Battlefield6, r/Battlefield, r/BF6 e afins), patch notes oficiais, guias publicados depois do patch mais recente e qualquer dado público de uso/pick rate quando existir. Priorize últimos 7 dias para trending e últimos 30 dias para contexto.
 
+Use somente estes nomes de armas, exatamente como escritos aqui: ${ARMAS_PERMITIDAS}.
+
 Responda SOMENTE com um JSON neste formato, sem cercas de código e sem texto antes ou depois:
 
-{"picks":[{"weapon":"NOME EXATO DA ARMA","reason":"uma frase curta, em português do Brasil, dizendo por que ela está forte"}],"trending":[{"weapon":"NOME EXATO DA ARMA","trend":"rótulo curto da tendência","reason":"uma frase curta, em português do Brasil, dizendo por que todo mundo está usando, comentando ou testando agora"}]}
+{"picks":[{"weapon":"NOME EXATO DA ARMA","reason":"uma frase curta, em português do Brasil, dizendo por que ela está forte"}],"trending":[{"weapon":"NOME EXATO DA ARMA","trend":"rótulo curto da tendência","reason":"uma frase curta, em português do Brasil, dizendo por que todo mundo está usando, comentando ou testando agora"}],"sources":[{"name":"nome curto da fonte","url":"https://...","date":"YYYY-MM-DD","scope":"por que essa fonte vale para multiplayer"}]}
 
 Regras:
 - No máximo 8 armas em picks, da mais forte para a menos forte.
 - No máximo 8 armas em trending, da mais quente para a menos quente.
+- No máximo 5 fontes em sources.
 - O nome tem de ser o nome exato da arma no jogo, sem apelido e sem acessório junto.
 - Só multiplayer. Arma que só se destaca no REDSEC, o battle royale, fica de fora.
 - Não classifique uma arma como meta só porque ela é popular.
@@ -73,22 +91,53 @@ const chave = (nome) =>
 
 const PORCHAVE = new Map(WEAPONS.map((w) => [chave(w.name), w]));
 
-async function perguntar(modelo) {
+const esperar = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+function retryDepoisMs(resposta, mensagem, tentativa) {
+  const header = resposta.headers.get('retry-after');
+  if (header && !Number.isNaN(Number(header))) return Number(header) * 1000;
+
+  const match = mensagem.match(/try again in ([0-9.]+)s/i);
+  if (match) return Math.ceil(Number(match[1]) * 1000);
+
+  return Math.min(30_000, 1500 * 2 ** (tentativa - 1));
+}
+
+function payload(modelo, { jsonMode = true, reasoning = modelo.startsWith('gpt-5') } = {}) {
+  const body = {
+    model: modelo,
+    tools: [{ type: 'web_search' }],
+    input: PROMPT,
+    max_output_tokens: MAX_OUTPUT_TOKENS,
+    store: false,
+  };
+
+  if (jsonMode) {
+    body.text = { format: { type: 'json_object' } };
+    if (modelo.startsWith('gpt-5')) body.text.verbosity = 'low';
+  }
+  if (reasoning) body.reasoning = { effort: 'minimal' };
+
+  return body;
+}
+
+async function chamarOpenAI(modelo, opcoes) {
   const resposta = await fetch('https://api.openai.com/v1/responses', {
     method: 'POST',
     headers: {
       authorization: `Bearer ${API_KEY}`,
       'content-type': 'application/json',
     },
-    body: JSON.stringify({
-      model: modelo,
-      tools: [{ type: 'web_search' }],
-      input: PROMPT,
-    }),
+    body: JSON.stringify(payload(modelo, opcoes)),
   });
 
   const corpo = await resposta.json();
-  if (corpo.error) throw new Error(`${resposta.status} ${corpo.error.message}`);
+  if (!resposta.ok || corpo.error) {
+    const erro = new Error(corpo.error?.message ? `${resposta.status} ${corpo.error.message}` : `${resposta.status} ${resposta.statusText}`);
+    erro.status = resposta.status;
+    erro.retryAfterMs = retryDepoisMs(resposta, erro.message, opcoes.tentativa);
+    throw erro;
+  }
 
   // A resposta vem como uma lista de itens — raciocínio, chamadas de busca,
   // mensagem. O texto está na mensagem, e os links que a busca sustentou vêm
@@ -100,6 +149,42 @@ async function perguntar(modelo) {
     .flatMap((p) => p.annotations ?? [])
     .filter((a) => a.type === 'url_citation');
   return { texto, fontes };
+}
+
+async function perguntar(modelo) {
+  const variantes = [
+    { jsonMode: true, reasoning: modelo.startsWith('gpt-5') },
+    { jsonMode: true, reasoning: false },
+    { jsonMode: false, reasoning: false },
+  ];
+  let ultimoErro = null;
+
+  for (const variante of variantes) {
+    for (let tentativa = 1; tentativa <= MAX_TENTATIVAS; tentativa += 1) {
+      try {
+        return await chamarOpenAI(modelo, { ...variante, tentativa });
+      } catch (erro) {
+        ultimoErro = erro;
+
+        if (erro.status === 429 && tentativa < MAX_TENTATIVAS) {
+          console.warn(`${modelo}: rate limit, aguardando ${Math.ceil(erro.retryAfterMs / 1000)}s antes de tentar de novo.`);
+          await esperar(erro.retryAfterMs);
+          continue;
+        }
+
+        const mensagem = erro.message.toLowerCase();
+        const parametroIncompativel =
+          erro.status === 400 &&
+          ((variante.reasoning && mensagem.includes('reasoning')) ||
+            (variante.jsonMode && (mensagem.includes('text.format') || mensagem.includes('json_object') || mensagem.includes('verbosity'))));
+
+        if (parametroIncompativel) break;
+        throw erro;
+      }
+    }
+  }
+
+  throw ultimoErro;
 }
 
 /** Tira as cercas de código que o modelo às vezes põe em volta do JSON. */
@@ -142,6 +227,69 @@ function normalizarLista(lista, { max, campoPadrao, incluirTrend = false, trendP
   return { items, descartadas };
 }
 
+function fonteDoJson(fonte) {
+  if (!fonte || typeof fonte !== 'object' || !fonte.url) return null;
+
+  try {
+    const url = new URL(fonte.url);
+    return {
+      name: String(fonte.name || url.hostname).slice(0, 80),
+      url: url.toString(),
+      date: /^\d{4}-\d{2}-\d{2}$/.test(fonte.date) ? fonte.date : new Date().toISOString().slice(0, 10),
+      country: url.hostname.endsWith('.br') ? 'BR' : 'INT',
+      mode: 'multiplayer',
+      scope: String(fonte.scope || 'Fonte declarada pela busca que montou esta lista.').slice(0, 220),
+      timeframe: 'season-4',
+    };
+  } catch {
+    return null;
+  }
+}
+
+function normalizarFontes(fontes, bruto) {
+  const vistasUrls = new Set();
+  const sources = [];
+
+  const incluir = (source) => {
+    if (!source?.url || vistasUrls.has(source.url) || sources.length === 8) return;
+    vistasUrls.add(source.url);
+    sources.push(source);
+  };
+
+  for (const fonte of fontes) {
+    if (!fonte.url) continue;
+    incluir({
+      name: fonte.title || new URL(fonte.url).hostname,
+      url: fonte.url,
+      date: new Date().toISOString().slice(0, 10),
+      country: 'INT',
+      mode: 'multiplayer',
+      scope: 'Página consultada pela busca que montou esta lista.',
+      timeframe: 'season-4',
+    });
+  }
+
+  for (const fonte of bruto?.sources ?? []) incluir(fonteDoJson(fonte));
+
+  return sources;
+}
+
+function listasBrutas(bruto) {
+  return {
+    picks: bruto?.picks ?? bruto?.meta ?? bruto?.weapons ?? bruto?.armas ?? [],
+    trending: bruto?.trending ?? bruto?.trends ?? bruto?.emAlta ?? [],
+  };
+}
+
+function temMetaLiveValida() {
+  try {
+    const atual = JSON.parse(readFileSync(DESTINO, 'utf8'));
+    return Boolean(atual?.picks?.length || atual?.trending?.length || SOURCES.length);
+  } catch {
+    return SOURCES.length > 0;
+  }
+}
+
 async function main() {
   if (!API_KEY) {
     console.error('Falta OPENAI_API_KEY.');
@@ -156,13 +304,17 @@ async function main() {
       const { texto, fontes } = await perguntar(modelo);
 
       const bruto = extrairJson(texto);
-      if (!bruto?.picks?.length) throw new Error('resposta sem lista de armas');
+      const listas = listasBrutas(bruto);
+      if (!listas.picks.length) {
+        const amostra = texto.replace(/\s+/g, ' ').slice(0, 220);
+        throw new Error(`resposta sem lista de armas${amostra ? `: ${amostra}` : ''}`);
+      }
 
-      const meta = normalizarLista(bruto.picks, {
+      const meta = normalizarLista(listas.picks, {
         max: 8,
         campoPadrao: 'Citada entre as mais fortes da temporada.',
       });
-      const trends = normalizarLista(bruto.trending, {
+      const trends = normalizarLista(listas.trending, {
         max: 8,
         campoPadrao: 'Aparece entre as armas que mais cresceram nas discussões recentes.',
         incluirTrend: true,
@@ -177,22 +329,7 @@ async function main() {
       if (!picks.length) throw new Error('nenhuma arma reconhecida');
 
       // A mesma página costuma ser citada várias vezes, uma por trecho.
-      const vistasUrls = new Set();
-      const sources = [];
-      for (const fonte of fontes) {
-        if (!fonte.url || vistasUrls.has(fonte.url)) continue;
-        vistasUrls.add(fonte.url);
-        if (sources.length === 8) break;
-        sources.push({
-          name: fonte.title || new URL(fonte.url).hostname,
-          url: fonte.url,
-          date: new Date().toISOString().slice(0, 10),
-          country: 'INT',
-          mode: 'multiplayer',
-          scope: 'Página consultada pela busca que montou esta lista.',
-          timeframe: 'season-4',
-        });
-      }
+      const sources = normalizarFontes(fontes, bruto);
 
       if (!sources.length) throw new Error('busca não devolveu fonte nenhuma');
 
@@ -237,6 +374,14 @@ async function main() {
   }
 
   console.error(`Nenhum modelo respondeu. Último erro: ${ultimoErro?.message}`);
+
+  if (!FALHAR_SEM_ATUALIZAR && temMetaLiveValida()) {
+    console.warn(
+      `Mantendo a meta atual/fallback estático: ${HIGHLIGHTS.length} armas meta, ${TRENDING.length} trending, ${SOURCES.length} fontes.`,
+    );
+    return;
+  }
+
   process.exit(1);
 }
 
