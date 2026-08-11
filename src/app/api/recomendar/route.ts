@@ -23,13 +23,22 @@ import { cardapio, DISTANCIAS, isDistancia, validarRecomendacao } from '@/lib/re
 export const maxDuration = 60;
 
 const API_KEY = process.env.OPENAI_API_KEY;
+function numeroConfig(valor: string | undefined, padrao: number) {
+  const numero = Number(valor);
+  return Number.isFinite(numero) && numero > 0 ? Math.floor(numero) : padrao;
+}
 
 /*
  * A mesma fila do meta diário, pelo mesmo motivo: o nano é o mais barato do
  * catálogo, mas o guia da ferramenta de busca não o cita — se recusar, o mini
  * resolve, e o gpt-4.1-mini fecha a fila noutra família.
  */
-const MODELOS = ['gpt-5-nano', 'gpt-5-mini', 'gpt-4.1-mini'];
+const MODELOS = (process.env.OPENAI_RECOMMEND_MODELS ?? 'gpt-5-nano,gpt-5-mini,gpt-4.1-mini')
+  .split(',')
+  .map((modelo) => modelo.trim())
+  .filter(Boolean);
+const MAX_OUTPUT_TOKENS = numeroConfig(process.env.OPENAI_RECOMMEND_MAX_OUTPUT_TOKENS, 900);
+const MAX_TENTATIVAS = numeroConfig(process.env.OPENAI_RECOMMEND_RETRIES, 3);
 
 /*
  * O freio de gasto por visitante, idêntico ao do confronto.
@@ -72,28 +81,113 @@ interface CorpoDaResposta {
   output?: { type?: string; content?: ParteDaResposta[] }[];
 }
 
-async function perguntar(modelo: string, prompt: string): Promise<string> {
+const esperar = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+function retryDepoisMs(resposta: Response, mensagem: string, tentativa: number) {
+  const header = resposta.headers.get('retry-after');
+  if (header && !Number.isNaN(Number(header))) return Number(header) * 1000;
+
+  const match = mensagem.match(/try again in ([0-9.]+)s/i);
+  if (match) return Math.ceil(Number(match[1]) * 1000);
+
+  return Math.min(30_000, 1500 * 2 ** (tentativa - 1));
+}
+
+function corpoDaChamada(
+  modelo: string,
+  prompt: string,
+  { jsonMode = true, reasoning = modelo.startsWith('gpt-5') } = {},
+) {
+  const body: Record<string, unknown> = {
+    model: modelo,
+    tools: [{ type: 'web_search' }],
+    input: prompt,
+    max_output_tokens: MAX_OUTPUT_TOKENS,
+    store: false,
+  };
+
+  if (jsonMode) {
+    body.text = {
+      format: { type: 'json_object' },
+      ...(modelo.startsWith('gpt-5') ? { verbosity: 'low' } : {}),
+    };
+  }
+  if (reasoning) body.reasoning = { effort: 'minimal' };
+
+  return body;
+}
+
+async function chamarOpenAI(
+  modelo: string,
+  prompt: string,
+  opcoes: { jsonMode?: boolean; reasoning?: boolean; tentativa: number },
+): Promise<string> {
   const resposta = await fetch('https://api.openai.com/v1/responses', {
     method: 'POST',
     headers: {
       authorization: `Bearer ${API_KEY}`,
       'content-type': 'application/json',
     },
-    body: JSON.stringify({
-      model: modelo,
-      tools: [{ type: 'web_search' }],
-      input: prompt,
-    }),
+    body: JSON.stringify(corpoDaChamada(modelo, prompt, opcoes)),
   });
 
   const corpo = (await resposta.json()) as CorpoDaResposta;
-  if (corpo.error) throw new Error(`${resposta.status} ${corpo.error.message}`);
+  if (!resposta.ok || corpo.error) {
+    const erro = new Error(corpo.error?.message ? `${resposta.status} ${corpo.error.message}` : `${resposta.status} ${resposta.statusText}`);
+    (erro as Error & { status?: number; retryAfterMs?: number }).status = resposta.status;
+    (erro as Error & { status?: number; retryAfterMs?: number }).retryAfterMs = retryDepoisMs(
+      resposta,
+      erro.message,
+      opcoes.tentativa,
+    );
+    throw erro;
+  }
 
   const mensagem = (corpo.output ?? []).find((item) => item.type === 'message');
   return (mensagem?.content ?? [])
     .filter((p) => p.type === 'output_text')
     .map((p) => p.text ?? '')
     .join('');
+}
+
+async function perguntar(modelo: string, prompt: string): Promise<string> {
+  const variantes = [
+    { jsonMode: true, reasoning: modelo.startsWith('gpt-5') },
+    { jsonMode: true, reasoning: false },
+    { jsonMode: false, reasoning: false },
+  ];
+  let ultimoErro: unknown = null;
+
+  for (const variante of variantes) {
+    for (let tentativa = 1; tentativa <= MAX_TENTATIVAS; tentativa += 1) {
+      try {
+        return await chamarOpenAI(modelo, prompt, { ...variante, tentativa });
+      } catch (erro) {
+        ultimoErro = erro;
+        const apiErro = erro as Error & { status?: number; retryAfterMs?: number };
+
+        if (apiErro.status === 429 && tentativa < MAX_TENTATIVAS) {
+          console.warn('[recomendar] rate limit, aguardando retry', {
+            modelo,
+            segundos: Math.ceil((apiErro.retryAfterMs ?? 1000) / 1000),
+          });
+          await esperar(apiErro.retryAfterMs ?? 1000);
+          continue;
+        }
+
+        const mensagem = apiErro.message.toLowerCase();
+        const parametroIncompativel =
+          apiErro.status === 400 &&
+          ((variante.reasoning && mensagem.includes('reasoning')) ||
+            (variante.jsonMode && (mensagem.includes('text.format') || mensagem.includes('json_object') || mensagem.includes('verbosity'))));
+
+        if (parametroIncompativel) break;
+        throw erro;
+      }
+    }
+  }
+
+  throw ultimoErro;
 }
 
 /** Tira as cercas de código que o modelo às vezes põe em volta do JSON. */

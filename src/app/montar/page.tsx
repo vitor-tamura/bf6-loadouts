@@ -235,6 +235,7 @@ function BuilderPage() {
                       key={weapon.id}
                       weapon={weapon}
                       onLoadout={applyRecommendation}
+                      destaque
                     />
                   </div>
                 </Panel>

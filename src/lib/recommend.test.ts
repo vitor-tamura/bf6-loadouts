@@ -3,7 +3,7 @@ import { attachmentsForWeapon } from '@/data/attachments';
 import { budgetFor } from '@/data/classes';
 import { WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
 import { attachmentCost, attachmentName, defaultBarrel, factoryAttachments } from './loadout';
-import { cardapio, custoDaMontagem, isDistancia, validarRecomendacao } from './recommend';
+import { cardapio, custoDaMontagem, isDistancia, loadoutIdeal, validarRecomendacao } from './recommend';
 
 /**
  * O modelo que recomenda loadout escreve nomes, e nomes mentem: vêm em caixa
@@ -76,6 +76,27 @@ describe('validarRecomendacao', () => {
 
       const { attachments } = validarRecomendacao(weapon, gula);
       expect(custoDaMontagem(weapon, attachments)).toBeLessThanOrEqual(budgetFor(weapon.category));
+    }
+  });
+});
+
+describe('loadoutIdeal', () => {
+  it('gera uma montagem válida e dentro do orçamento para o arsenal inteiro', () => {
+    for (const weapon of WEAPONS.filter((w) => w.slots.length > 0)) {
+      const attachments = loadoutIdeal(weapon);
+      const porSlot = attachmentsForWeapon(weapon);
+
+      expect(custoDaMontagem(weapon, attachments)).toBeLessThanOrEqual(budgetFor(weapon.category));
+      for (const [slot, id] of Object.entries(attachments)) {
+        expect(porSlot.get(slot as keyof typeof attachments)?.some((a) => a.id === id)).toBe(true);
+      }
+    }
+  });
+
+  it('mantém as peças de fábrica quando elas existem', () => {
+    const attachments = loadoutIdeal(m16);
+    for (const slot of Object.keys(factoryAttachments(m16))) {
+      expect(attachments[slot as keyof typeof attachments]).toBeTruthy();
     }
   });
 });

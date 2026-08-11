@@ -1,7 +1,8 @@
 import { ATTACHMENTS_BY_ID, attachmentsForWeapon } from '@/data/attachments';
 import { budgetFor, SLOTS_BY_ID } from '@/data/classes';
-import type { SlotId, Weapon } from '@/data/types';
+import type { Attachment, SlotId, Weapon } from '@/data/types';
 import { attachmentCost, attachmentName, factoryAttachments } from './loadout';
+import { calculateStats, type EffectiveStats } from './stats';
 
 /**
  * A recomendação de loadout por distância de combate.
@@ -39,6 +40,42 @@ export type Distancia = (typeof DISTANCIAS)[number]['value'];
 
 export const isDistancia = (valor: unknown): valor is Distancia =>
   DISTANCIAS.some((d) => d.value === valor);
+
+const PESOS: Record<Distancia, Partial<Record<keyof EffectiveStats | 'dps' | 'range', number>>> = {
+  curta: {
+    dps: 0.9,
+    adsMs: -0.75,
+    swapMs: -0.35,
+    hipfire: 0.85,
+    mobility: 0.65,
+    control: 0.35,
+    reload: -0.3,
+    magazine: 0.2,
+  },
+  media: {
+    dps: 0.8,
+    range: 0.45,
+    velocity: 0.35,
+    accuracy: 0.7,
+    control: 0.7,
+    adsMs: -0.35,
+    reload: -0.2,
+    magazine: 0.25,
+    mobility: 0.2,
+  },
+  longa: {
+    dps: 0.45,
+    range: 0.9,
+    velocity: 0.8,
+    drag: -0.35,
+    accuracy: 0.8,
+    control: 0.75,
+    verticalRecoil: -0.65,
+    horizontalRecoil: -0.65,
+    adsMs: -0.15,
+    magazine: 0.2,
+  },
+};
 
 /** Sem acentos e sem pontuação: `14.5" Carbine` e `145 carbine` viram a mesma coisa. */
 const chave = (nome: string) =>
@@ -79,6 +116,69 @@ export function custoDaMontagem(
     const peca = id ? ATTACHMENTS_BY_ID.get(id) : undefined;
     return soma + (peca ? attachmentCost(peca, weapon) : 0);
   }, 0);
+}
+
+function valorDoScore(stats: EffectiveStats, chaveScore: keyof EffectiveStats | 'dps' | 'range') {
+  if (chaveScore === 'dps') {
+    return ((stats.damage[0]?.damage ?? 0) * stats.pellets * stats.rpm) / 60;
+  }
+  if (chaveScore === 'range') {
+    return Math.max(0, ...stats.damage.map((d) => d.distance));
+  }
+
+  const valor = stats[chaveScore];
+  return typeof valor === 'number' ? valor : 0;
+}
+
+function pontuar(stats: EffectiveStats, distancia: Distancia) {
+  const pesos = PESOS[distancia];
+  return Object.entries(pesos).reduce((total, [chaveScore, peso]) => {
+    const valor = valorDoScore(stats, chaveScore as keyof EffectiveStats | 'dps' | 'range');
+    return total + valor * (peso ?? 0);
+  }, 0);
+}
+
+/**
+ * Montagem local, sem IA, para o botão "Ideal".
+ *
+ * Ela parte do que vem de fábrica e troca uma peça por slot quando a troca
+ * melhora a pontuação daquela distância e ainda cabe no orçamento. A sugestão
+ * com IA continua existindo para capturar moda e consenso da comunidade; esta
+ * aqui é o caminho rápido e sempre disponível.
+ */
+export function loadoutIdeal(
+  weapon: Weapon,
+  distancia: Distancia = 'media',
+): Partial<Record<SlotId, string>> {
+  const porSlot = attachmentsForWeapon(weapon);
+  const total = budgetFor(weapon.category);
+  const montagem: Partial<Record<SlotId, string>> = { ...factoryAttachments(weapon) };
+
+  const candidatos: { slot: SlotId; attachment: Attachment; ganho: number }[] = [];
+  for (const slot of weapon.slots) {
+    const atual = montagem[slot];
+    const atualAttachment = atual ? ATTACHMENTS_BY_ID.get(atual) : null;
+    const baseDoSlot = atualAttachment ? pontuar(calculateStats(weapon, [atualAttachment]), distancia) : 0;
+
+    for (const attachment of porSlot.get(slot) ?? []) {
+      if (attachment.id === atual) continue;
+      const ganho = pontuar(calculateStats(weapon, [attachment]), distancia) - baseDoSlot;
+      if (ganho > 0) candidatos.push({ slot, attachment, ganho });
+    }
+  }
+
+  candidatos.sort((a, b) => b.ganho - a.ganho);
+
+  for (const { slot, attachment } of candidatos) {
+    const anterior = montagem[slot];
+    montagem[slot] = attachment.id;
+    if (custoDaMontagem(weapon, montagem) > total) {
+      if (anterior) montagem[slot] = anterior;
+      else delete montagem[slot];
+    }
+  }
+
+  return montagem;
 }
 
 export interface Recomendacao {

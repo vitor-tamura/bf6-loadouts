@@ -4,7 +4,7 @@ import { Button } from 'antd';
 import { useEffect, useRef, useState } from 'react';
 import { Hint } from '@/components/hint';
 import type { SlotId, Weapon } from '@/data/types';
-import { DISTANCIAS, type Distancia } from '@/lib/recommend';
+import { DISTANCIAS, loadoutIdeal, type Distancia } from '@/lib/recommend';
 
 /**
  * Os três botões do loadout recomendado por IA — curta, média e longa.
@@ -22,9 +22,11 @@ import { DISTANCIAS, type Distancia } from '@/lib/recommend';
 export function RecommendButtons({
   weapon,
   onLoadout,
+  destaque = false,
 }: {
   weapon: Weapon;
   onLoadout: (attachments: Partial<Record<SlotId, string>>) => void;
+  destaque?: boolean;
 }) {
   const [buscando, setBuscando] = useState<Distancia | null>(null);
   const [nota, setNota] = useState<{ erro: boolean; texto: string } | null>(null);
@@ -67,12 +69,32 @@ export function RecommendButtons({
     }
   }
 
+  function aplicarIdeal() {
+    onLoadout(loadoutIdeal(weapon));
+    setNota({
+      erro: false,
+      texto: 'Loadout ideal aplicado: montagem local equilibrada para média distância.',
+    });
+  }
+
   return (
     <div>
-      <div className="flex flex-wrap items-center gap-1.5">
+      <div className={destaque ? 'grid gap-2' : 'flex flex-wrap items-center gap-1.5'}>
         <span className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
-          Loadout por IA:
+          {destaque ? 'Loadout ideal ou sugestão:' : 'Loadout:'}
         </span>
+        <div className="flex flex-wrap items-center gap-1.5">
+          <Hint label="Aplica uma montagem local equilibrada, sem usar IA.">
+            <Button
+              size="small"
+              type={destaque ? 'primary' : 'default'}
+              disabled={buscando !== null}
+              onClick={aplicarIdeal}
+              className="bevel-sm text-xs"
+            >
+              Ideal
+            </Button>
+          </Hint>
         {DISTANCIAS.map((d) => (
           <Hint key={d.value} label={d.hint}>
             <Button
@@ -86,6 +108,7 @@ export function RecommendButtons({
             </Button>
           </Hint>
         ))}
+        </div>
       </div>
       {nota && (
         <p
