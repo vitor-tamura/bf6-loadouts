@@ -31,15 +31,16 @@ import { GAME_MODES, type GameMode } from '@/lib/matchup';
 export const maxDuration = 15;
 
 /*
- * Modelo pequeno de propósito.
+ * Modelo pequeno de propósito, também no gateway.
  *
  * A tarefa é redigir três frases a partir de números já mastigados — não há
  * raciocínio a fazer, e um modelo grande gastaria o crédito do mês em pouca
- * coisa. `models` é a fila de reserva do próprio gateway, para o caso de o
- * primeiro estar fora do ar.
+ * coisa. O nano é o mais barato do catálogo do gateway também; `models` é a
+ * fila de reserva do próprio gateway, para o caso de o primeiro estar fora do
+ * ar, e os reservas também são dos baratos.
  */
-const MODEL = 'anthropic/claude-haiku-4.5';
-const FALLBACK_MODELS = ['google/gemini-3-flash', 'openai/gpt-5.4'];
+const MODEL = 'openai/gpt-5-nano';
+const FALLBACK_MODELS = ['anthropic/claude-haiku-4.5', 'google/gemini-3-flash'];
 
 /**
  * Os modelos da OpenAI, na ordem em que se tenta.
@@ -66,14 +67,17 @@ const GOOGLE_MODELS = ['gemini-3.6-flash', 'gemini-flash-latest'];
 /**
  * De onde vem o modelo, na ordem em que se tenta.
  *
- * A chave da OpenAI ganha quando existe — mas só em produção. Ela é paga por
- * uso, e é o visitante que justifica o gasto: preview e dev renderizam a
- * mesma tela com a análise por regras, sem vazar crédito em teste. Fora dela,
- * valem os caminhos antigos — a chave do Google AI Studio e, por último, o
- * AI Gateway, que exige cartão cadastrado na Vercel antes de liberar o
- * crédito gratuito.
+ * Generativa é coisa de produção: preview e dev renderizam a mesma tela com a
+ * análise por regras, sem gastar crédito nenhum em teste.
  *
- * Sem nenhuma das três, a rota falha e a tela fica com a análise por regras —
+ * Em produção, o gateway da Vercel abre a fila porque é o único caminho de
+ * custo zero: todo time ganha US$ 5 de crédito por mês, e sem auto top-up o
+ * gasto para aí — esgotou, a resposta vira 402 e a fila desce para a chave
+ * paga da OpenAI. O Google fecha a fila por herança: a chave gratuita que o
+ * atendia morreu para contas novas, mas se um dia voltar, volta a valer sem
+ * mexer aqui.
+ *
+ * Sem nenhum dos três, a rota falha e a tela fica com a análise por regras —
  * que é o que acontece em qualquer cópia recém-clonada do repositório.
  *
  * Cada candidato carrega as próprias opções de provedor porque o jeito de
@@ -82,27 +86,12 @@ const GOOGLE_MODELS = ['gemini-3.6-flash', 'gemini-flash-latest'];
  * e o gateway leva junto a fila de reserva e o cache.
  */
 function candidates() {
-  const openaiKey = process.env.OPENAI_API_KEY;
-  if (openaiKey && process.env.VERCEL_ENV === 'production') {
-    const openai = createOpenAI({ apiKey: openaiKey });
-    return OPENAI_MODELS.map((name) => ({
-      model: openai(name),
-      name,
-      providerOptions: name.startsWith('gpt-5')
-        ? { openai: { reasoningEffort: 'minimal' } }
-        : undefined,
-    }));
-  }
+  if (process.env.VERCEL_ENV !== 'production') return [];
 
+  const openaiKey = process.env.OPENAI_API_KEY;
   const googleKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
-  if (googleKey) {
-    const google = createGoogleGenerativeAI({ apiKey: googleKey });
-    return GOOGLE_MODELS.map((name) => ({
-      model: google(name),
-      name,
-      providerOptions: { google: { thinkingConfig: { thinkingBudget: 0 } } },
-    }));
-  }
+  const openai = openaiKey ? createOpenAI({ apiKey: openaiKey }) : null;
+  const google = googleKey ? createGoogleGenerativeAI({ apiKey: googleKey }) : null;
 
   return [
     {
@@ -120,14 +109,35 @@ function candidates() {
            */
           cacheControl: 'max-age=86400',
         },
+        openai: { reasoningEffort: 'minimal' },
       },
     },
+    ...(openai
+      ? OPENAI_MODELS.map((name) => ({
+          model: openai(name),
+          name,
+          providerOptions: name.startsWith('gpt-5')
+            ? { openai: { reasoningEffort: 'minimal' } }
+            : undefined,
+        }))
+      : []),
+    ...(google
+      ? GOOGLE_MODELS.map((name) => ({
+          model: google(name),
+          name,
+          providerOptions: { google: { thinkingConfig: { thinkingBudget: 0 } } },
+        }))
+      : []),
   ];
 }
 
 /** Nome de modelo errado ou fora da conta — vale tentar o próximo da fila. */
 const isModelProblem = (error: unknown) =>
   APICallError.isInstance(error) && (error.statusCode === 404 || error.statusCode === 400);
+
+/** Crédito esgotado num provedor não esgota o outro — a fila continua. */
+const isOutOfCredit = (error: unknown) =>
+  APICallError.isInstance(error) && error.statusCode === 402;
 
 /*
  * O freio de gasto por visitante.
@@ -253,10 +263,11 @@ export async function POST(request: Request) {
   /*
    * Tenta os modelos em ordem e para no primeiro que responder.
    *
-   * Só vale insistir quando a recusa é do nome do modelo — 404 de modelo que
-   * saiu do ar, 400 de nome que a conta não conhece. Cota estourada, chave
-   * inválida ou rede fora valem para a fila inteira, e repetir só gastaria o
-   * tempo de quem está esperando na tela.
+   * Só vale insistir quando a recusa é local ao candidato — 404 de modelo que
+   * saiu do ar, 400 de nome que a conta não conhece, 402 de crédito que
+   * acabou naquele provedor (o gateway sem o crédito do mês não diz nada
+   * sobre a chave da OpenAI). Chave inválida ou rede fora valem para a fila
+   * inteira, e repetir só gastaria o tempo de quem está esperando na tela.
    */
   let lastError: unknown = new Error('nenhum modelo configurado');
 
@@ -288,6 +299,9 @@ export async function POST(request: Request) {
       const answer = text.trim();
       if (!answer) throw new Error('resposta vazia');
 
+      // Uma linha por resposta: é o que diz, no log, de qual bolso saiu.
+      console.log('[matchup] respondeu', { name });
+
       return Response.json(
         { text: answer },
         // O mesmo motivo do cache acima, agora na borda da Vercel.
@@ -295,7 +309,7 @@ export async function POST(request: Request) {
       );
     } catch (error) {
       lastError = error;
-      if (!isModelProblem(error)) break;
+      if (!isModelProblem(error) && !isOutOfCredit(error)) break;
       console.warn('[matchup] modelo recusado, tentando o próximo', { name });
     }
   }
