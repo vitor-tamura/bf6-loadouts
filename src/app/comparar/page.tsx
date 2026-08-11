@@ -214,8 +214,13 @@ const CATEGORY_OPTIONS = [
 const formatNumber = (v: number) => v.toFixed(1).replace('.', ',');
 
 export default function ComparePage() {
-  const [idA, setIdA] = useState('ak4d');
-  const [idB, setIdB] = useState('m4a1');
+  /*
+   * A tela nasce vazia de propósito: ninguém chega aqui querendo comparar a
+   * dupla que o código escolheu. Cada lado começa sem arma, e tudo que compara
+   * os dois só aparece quando os dois estiverem escolhidos.
+   */
+  const [idA, setIdA] = useState<string | null>(null);
+  const [idB, setIdB] = useState<string | null>(null);
   const [categoryFilter, setCategoryFilter] = useState<WeaponCategory | 'all'>('all');
   // O modo escolhido muda o peso de cada estatística na leitura do confronto.
   const [mode, setMode] = useState<GameMode>('multiplayer');
@@ -223,20 +228,29 @@ export default function ComparePage() {
   // Qual dos dois lados está escolhendo arma — nenhum, quando a lista está fechada.
   const [picking, setPicking] = useState<'a' | 'b' | null>(null);
 
-  const weaponA = WEAPONS_BY_ID.get(idA)!;
-  const weaponB = WEAPONS_BY_ID.get(idB)!;
-  const statsA = useMemo(() => baseStats(weaponA), [weaponA]);
-  const statsB = useMemo(() => baseStats(weaponB), [weaponB]);
+  const weaponA = idA ? WEAPONS_BY_ID.get(idA) : undefined;
+  const weaponB = idB ? WEAPONS_BY_ID.get(idB) : undefined;
+  const statsA = useMemo(() => (weaponA ? baseStats(weaponA) : null), [weaponA]);
+  const statsB = useMemo(() => (weaponB ? baseStats(weaponB) : null), [weaponB]);
 
-  const scoresA = scores(statsA);
-  const scoresB = scores(statsB);
-  const rows = duelRows(statsA, statsB);
-
-  const maxDistance = Math.max(analysisDistance(statsA), analysisDistance(statsB));
-  const series: Series[] = [
-    { name: weaponA.name, color: COLOR_A, stats: statsA },
-    { name: weaponB.name, color: COLOR_B, stats: statsB },
-  ];
+  // Um objeto só, para o JSX perguntar uma vez se o confronto existe.
+  const confronto =
+    weaponA && weaponB && statsA && statsB
+      ? {
+          weaponA,
+          weaponB,
+          statsA,
+          statsB,
+          scoresA: scores(statsA),
+          scoresB: scores(statsB),
+          rows: duelRows(statsA, statsB),
+          maxDistance: Math.max(analysisDistance(statsA), analysisDistance(statsB)),
+          series: [
+            { name: weaponA.name, color: COLOR_A, stats: statsA },
+            { name: weaponB.name, color: COLOR_B, stats: statsB },
+          ] as Series[],
+        }
+      : null;
 
   const grid = useMemo(
     () =>
@@ -247,29 +261,31 @@ export default function ComparePage() {
   );
 
   /** As três colunas do confronto: o rótulo e um valor de cada arma. */
-  const duelColumns: ColumnsType<DuelRow> = [
-    {
-      title: 'Estatística',
-      dataIndex: 'label',
-      key: 'label',
-      className: 'text-left',
-      render: (label: string) => <span style={{ color: 'var(--text-soft)' }}>{label}</span>,
-    },
-    {
-      title: <span style={{ color: COLOR_A }}>{weaponA.name}</span>,
-      dataIndex: 'a',
-      key: 'a',
-      align: 'right',
-      render: (value: string, row) => <DuelValue value={value} wins={row.advantage > 0} />,
-    },
-    {
-      title: <span style={{ color: COLOR_B }}>{weaponB.name}</span>,
-      dataIndex: 'b',
-      key: 'b',
-      align: 'right',
-      render: (value: string, row) => <DuelValue value={value} wins={row.advantage < 0} />,
-    },
-  ];
+  const duelColumns: ColumnsType<DuelRow> = confronto
+    ? [
+        {
+          title: 'Estatística',
+          dataIndex: 'label',
+          key: 'label',
+          className: 'text-left',
+          render: (label: string) => <span style={{ color: 'var(--text-soft)' }}>{label}</span>,
+        },
+        {
+          title: <span style={{ color: COLOR_A }}>{confronto.weaponA.name}</span>,
+          dataIndex: 'a',
+          key: 'a',
+          align: 'right',
+          render: (value: string, row) => <DuelValue value={value} wins={row.advantage > 0} />,
+        },
+        {
+          title: <span style={{ color: COLOR_B }}>{confronto.weaponB.name}</span>,
+          dataIndex: 'b',
+          key: 'b',
+          align: 'right',
+          render: (value: string, row) => <DuelValue value={value} wins={row.advantage < 0} />,
+        },
+      ]
+    : [];
 
   /*
    * A grade do arsenal.
@@ -357,50 +373,79 @@ export default function ComparePage() {
             <DuelCard weapon={weaponB} color={COLOR_B} side="B" onPick={() => setPicking('b')} />
           </div>
 
-          {/*
-            As barras espelhadas continuam feitas à mão: elas crescem do centro
-            para fora, uma para cada lado, e o `Progress` do antd só sabe crescer
-            da esquerda para a direita.
-          */}
-          <div className="grid gap-2.5">
-            {Object.keys(scoresA).map((key) => (
-              <MirrorRow key={key} label={key} a={scoresA[key]} b={scoresB[key]} />
-            ))}
-          </div>
+          {confronto ? (
+            <>
+              {/*
+                As barras espelhadas continuam feitas à mão: elas crescem do
+                centro para fora, uma para cada lado, e o `Progress` do antd só
+                sabe crescer da esquerda para a direita.
+              */}
+              <div className="grid gap-2.5">
+                {Object.keys(confronto.scoresA).map((key) => (
+                  <MirrorRow
+                    key={key}
+                    label={key}
+                    a={confronto.scoresA[key]}
+                    b={confronto.scoresB[key]}
+                  />
+                ))}
+              </div>
 
-          <MatchupReading
-            idA={idA}
-            idB={idB}
-            statsA={statsA}
-            statsB={statsB}
-            nameA={weaponA.name}
-            nameB={weaponB.name}
-            mode={mode}
-            onModeChange={setMode}
-          />
+              <MatchupReading
+                idA={confronto.weaponA.id}
+                idB={confronto.weaponB.id}
+                statsA={confronto.statsA}
+                statsB={confronto.statsB}
+                nameA={confronto.weaponA.name}
+                nameB={confronto.weaponB.name}
+                mode={mode}
+                onModeChange={setMode}
+              />
+            </>
+          ) : (
+            <p className="py-5 text-center text-[13px]" style={{ color: 'var(--text-dim)' }}>
+              Escolha as duas armas para ver o confronto — toque nos cartões acima ou nos
+              botões A e B do arsenal, no fim da página.
+            </p>
+          )}
         </Card>
 
-        {/* Tabela do confronto */}
-        <Card
-          variant="outlined"
-          className="card bevel mb-3"
-          styles={{ body: { padding: 0 } }}
-          style={{ borderColor: 'var(--border-soft)' }}
-        >
-          <Table<DuelRow>
-            columns={duelColumns}
-            dataSource={rows}
-            pagination={false}
-            size="small"
-            scroll={{ x: 520 }}
-          />
-        </Card>
+        {/* Tabela e curvas só existem com as duas armas na mesa. */}
+        {confronto && (
+          <>
+            {/* Tabela do confronto */}
+            <Card
+              variant="outlined"
+              className="card bevel mb-3"
+              styles={{ body: { padding: 0 } }}
+              style={{ borderColor: 'var(--border-soft)' }}
+            >
+              <Table<DuelRow>
+                columns={duelColumns}
+                dataSource={confronto.rows}
+                pagination={false}
+                size="small"
+                scroll={{ x: 520 }}
+              />
+            </Card>
 
-        {/* Curvas sobrepostas */}
-        <div className="mb-3 grid gap-3 lg:grid-cols-2">
-          <ComparisonChart title="Dano por distância" series={series} maxDistance={maxDistance} kind="damage" />
-          <ComparisonChart title="Queda da bala" series={series} maxDistance={maxDistance} kind="drop" />
-        </div>
+            {/* Curvas sobrepostas */}
+            <div className="mb-3 grid gap-3 lg:grid-cols-2">
+              <ComparisonChart
+                title="Dano por distância"
+                series={confronto.series}
+                maxDistance={confronto.maxDistance}
+                kind="damage"
+              />
+              <ComparisonChart
+                title="Queda da bala"
+                series={confronto.series}
+                maxDistance={confronto.maxDistance}
+                kind="drop"
+              />
+            </div>
+          </>
+        )}
 
         {/* Arsenal inteiro, ordenável */}
         <Card
@@ -682,6 +727,9 @@ function DuelValue({ value, wins }: { value: string; wins: boolean }) {
  * era preciso subir até o seletor, abrir a lista e ler sessenta e três nomes sem
  * imagem nenhuma. Tocar na própria arma abre a lista com as fotos ao lado, que é
  * como se reconhece uma arma de relance — pelo desenho, não pela sigla.
+ *
+ * Sem arma, o cartão vira o convite: mesmo alvo, mesma moldura, dizendo o que
+ * falta — é o primeiro botão que o visitante vê na tela recém-aberta.
  */
 function DuelCard({
   weapon,
@@ -689,7 +737,7 @@ function DuelCard({
   side,
   onPick,
 }: {
-  weapon: Weapon;
+  weapon?: Weapon;
   color: string;
   side: 'A' | 'B';
   onPick: () => void;
@@ -698,25 +746,41 @@ function DuelCard({
     <button
       type="button"
       onClick={onPick}
-      aria-label={`Trocar a arma ${side}, agora ${weapon.name}`}
+      aria-label={weapon ? `Trocar a arma ${side}, agora ${weapon.name}` : `Escolher a arma ${side}`}
       className="bevel-sm w-full p-2 text-left"
       style={{ border: `1px solid ${color}`, background: 'var(--surface-raised)' }}
     >
-      <div className="flex items-baseline gap-2">
-        <Tag className="font-display m-0 px-1.5 text-xs font-bold" style={{ background: color, color: '#fff', border: 'none' }}>
-          {side}
-        </Tag>
-        <span className="font-display truncate text-base font-semibold tracking-wide">
-          {weapon.name}
+      {weapon ? (
+        <>
+          <div className="flex items-baseline gap-2">
+            <Tag className="font-display m-0 px-1.5 text-xs font-bold" style={{ background: color, color: '#fff', border: 'none' }}>
+              {side}
+            </Tag>
+            <span className="font-display truncate text-base font-semibold tracking-wide">
+              {weapon.name}
+            </span>
+            <span className="ml-auto text-[11px]" style={{ color: 'var(--text-dim)' }}>
+              {SHORT_CATEGORY_NAMES[weapon.category]}
+            </span>
+          </div>
+          <WeaponPreview weapon={weapon} className="mx-auto w-full max-w-[420px]" />
+          <span className="mt-1 block text-center text-[11px]" style={{ color: 'var(--text-dim)' }}>
+            Toque para trocar
+          </span>
+        </>
+      ) : (
+        <span className="flex min-h-[140px] flex-col items-center justify-center gap-1.5 py-6">
+          <Tag className="font-display m-0 px-1.5 text-xs font-bold" style={{ background: color, color: '#fff', border: 'none' }}>
+            {side}
+          </Tag>
+          <span className="font-display text-base font-semibold tracking-wide">
+            Escolher a arma {side}
+          </span>
+          <span className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
+            Toque para abrir a lista
+          </span>
         </span>
-        <span className="ml-auto text-[11px]" style={{ color: 'var(--text-dim)' }}>
-          {SHORT_CATEGORY_NAMES[weapon.category]}
-        </span>
-      </div>
-      <WeaponPreview weapon={weapon} className="mx-auto w-full max-w-[420px]" />
-      <span className="mt-1 block text-center text-[11px]" style={{ color: 'var(--text-dim)' }}>
-        Toque para trocar
-      </span>
+      )}
     </button>
   );
 }
@@ -737,7 +801,7 @@ function WeaponPickerModal({
 }: {
   side: 'A' | 'B';
   color: string;
-  selected: string;
+  selected: string | null;
   onSelect: (id: string) => void;
   onClose: () => void;
 }) {
