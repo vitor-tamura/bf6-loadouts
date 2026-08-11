@@ -1,19 +1,23 @@
 'use client';
 
 import { Hint } from '@/components/hint';
-import { Card, Modal, Segmented, Spin, Table, Tag } from 'antd';
+import { Button, Card, Modal, Segmented, Table, Tag } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { AppHeader } from '@/components/header';
 import { SeasonTag } from '@/components/season-tag';
 import { SiteFooter } from '@/components/site-footer';
 import { ComparisonChart, type Series } from '@/components/charts';
 import { WeaponPreview } from '@/components/weapon-preview';
 import { WeaponSelector } from '@/components/weapon-selector';
+import { RecommendButtons } from '@/components/recommend-buttons';
 import { SHORT_CATEGORY_NAMES } from '@/data/classes';
 import { CATEGORY_ORDER, WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
 import { attachmentsForWeapon } from '@/data/attachments';
-import type { Weapon, WeaponCategory } from '@/data/types';
+import type { SlotId, Weapon, WeaponCategory } from '@/data/types';
+import { EMPTY_LOADOUT } from '@/lib/loadout';
+import { loadoutUrl } from '@/lib/share';
 import {
   analysisDistance,
   damagePerSecond,
@@ -225,8 +229,15 @@ export default function ComparePage() {
   // O modo escolhido muda o peso de cada estatística na leitura do confronto.
   const [mode, setMode] = useState<GameMode>('multiplayer');
   const desktop = useDesktop();
+  const router = useRouter();
   // Qual dos dois lados está escolhendo arma — nenhum, quando a lista está fechada.
   const [picking, setPicking] = useState<'a' | 'b' | null>(null);
+
+  // O loadout recomendado abre no montador, que é onde montagem se lê e se
+  // ajusta — esta tela compara armas de fábrica e não tem onde pendurar peças.
+  function openBuilder(weaponId: string, attachments: Partial<Record<SlotId, string>>) {
+    router.push(loadoutUrl({ ...EMPTY_LOADOUT, weapon: weaponId, attachments }, ''));
+  }
 
   const weaponA = idA ? WEAPONS_BY_ID.get(idA) : undefined;
   const weaponB = idB ? WEAPONS_BY_ID.get(idB) : undefined;
@@ -368,9 +379,29 @@ export default function ComparePage() {
         >
           <h2 className="label mb-3">Confronto direto</h2>
 
+          {/* Sob cada cartão, o atalho para sair daqui com a arma montada: a
+              recomendação abre o montador com o loadout da distância escolhida. */}
           <div className="mb-4 grid gap-3 sm:grid-cols-2">
-            <DuelCard weapon={weaponA} color={COLOR_A} side="A" onPick={() => setPicking('a')} />
-            <DuelCard weapon={weaponB} color={COLOR_B} side="B" onPick={() => setPicking('b')} />
+            <div className="space-y-2">
+              <DuelCard weapon={weaponA} color={COLOR_A} side="A" onPick={() => setPicking('a')} />
+              {weaponA && (
+                <RecommendButtons
+                  key={weaponA.id}
+                  weapon={weaponA}
+                  onLoadout={(attachments) => openBuilder(weaponA.id, attachments)}
+                />
+              )}
+            </div>
+            <div className="space-y-2">
+              <DuelCard weapon={weaponB} color={COLOR_B} side="B" onPick={() => setPicking('b')} />
+              {weaponB && (
+                <RecommendButtons
+                  key={weaponB.id}
+                  weapon={weaponB}
+                  onLoadout={(attachments) => openBuilder(weaponB.id, attachments)}
+                />
+              )}
+            </div>
           </div>
 
           {confronto ? (
@@ -571,7 +602,7 @@ function MatchupReading({
     [statsA, statsB, nameA, nameB, mode],
   );
 
-  const { text: written, loading } = useWrittenReading(idA, idB, mode);
+  const { text: written, loading, failed, gerar } = useWrittenReading(idA, idB, mode);
 
   const color =
     reading.winner === 'a' ? COLOR_A : reading.winner === 'b' ? COLOR_B : 'var(--text-soft)';
@@ -585,31 +616,34 @@ function MatchupReading({
       }}
     >
       <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
-        <h3 className="label flex items-center gap-2">
-          Leitura do confronto
+        <h3 className="label">Leitura do confronto</h3>
+        <div className="flex items-center gap-2">
           {/*
-            O indicador diz o que está acontecendo sem tirar nada da tela: a
-            leitura por regras já está escrita abaixo, e o que se espera é a
-            versão do modelo, que pode não vir. Um esqueleto piscando no lugar
-            do texto seria pior — esconderia uma resposta que já existe.
+            A análise escrita virou botão: cada visitante tem um punhado de
+            leituras por dia, e dispará-la sozinha a cada par de armas gastava
+            a cota de quem só estava passeando. A leitura por regras já está
+            na tela; a escrita é upgrade de quem pede.
           */}
-          {loading && (
-            <span
-              className="flex items-center gap-1 text-[10px] font-normal normal-case"
-              style={{ color: 'var(--text-dim)' }}
-            >
-              <Spin size="small" />
-              gerando análise…
-            </span>
+          {!written && (
+            <Hint label="Pedir a um modelo a leitura escrita deste confronto">
+              <Button
+                size="small"
+                loading={loading}
+                onClick={gerar}
+                className="bevel-sm text-xs"
+              >
+                Analisar com IA
+              </Button>
+            </Hint>
           )}
-        </h3>
-        <Segmented
-          options={GAME_MODES}
-          value={mode}
-          onChange={(v) => onModeChange(v as GameMode)}
-          size="small"
-          className="bevel-sm"
-        />
+          <Segmented
+            options={GAME_MODES}
+            value={mode}
+            onChange={(v) => onModeChange(v as GameMode)}
+            size="small"
+            className="bevel-sm"
+          />
+        </div>
       </div>
 
       {/*
@@ -645,6 +679,12 @@ function MatchupReading({
         </>
       )}
 
+      {failed && (
+        <p className="mt-2 text-[11px]" style={{ color: 'var(--color-negative)' }}>
+          A análise por IA não veio desta vez — a leitura acima é a automática.
+        </p>
+      )}
+
       <p className="mt-2 text-[11px]" style={{ color: 'var(--text-dim)' }}>
         {written ? 'Escrito por IA a partir das' : 'Leitura automática das'} estatísticas desta tela
         — sem acessórios, e sem contar acerto na cabeça.
@@ -654,33 +694,47 @@ function MatchupReading({
 }
 
 /**
- * Pede ao servidor a leitura escrita, e desiste em silêncio.
+ * Pede ao servidor a leitura escrita — quando alguém pedir.
  *
- * A tela já mostra a análise por regras, então falhar aqui não custa nada: sem
- * rede, sem crédito no gateway ou com o modelo fora do ar, o texto simplesmente
- * não chega e o que está na tela continua valendo. O pedido é cancelado quando
- * a arma ou o modo mudam, senão uma resposta atrasada sobrescreveria a
- * comparação seguinte.
+ * Antes o pedido saía sozinho a cada par de armas. Isso gastava a cota diária
+ * de quem só estava passeando pela grade, e a maior parte das leituras não era
+ * nem lida: a análise por regras já responde a pergunta desde o primeiro
+ * quadro. Agora quem dispara é o botão, e a falha continua barata — sem rede,
+ * sem crédito ou com o modelo fora do ar, o que está na tela segue valendo.
+ *
+ * Trocar de arma ou de modo esquece o texto e cancela o pedido em voo, senão
+ * uma resposta atrasada apareceria sob o nome da comparação seguinte.
  */
 function useWrittenReading(
   idA: string,
   idB: string,
   mode: GameMode,
-): { text: string | null; loading: boolean } {
+): { text: string | null; loading: boolean; failed: boolean; gerar: () => void } {
   const key = `${idA}|${idB}|${mode}`;
-  const [answer, setAnswer] = useState<{ key: string; text: string | null; done: boolean }>({
-    key,
-    text: null,
-    done: false,
-  });
+  const [answer, setAnswer] = useState<{
+    key: string;
+    text: string | null;
+    loading: boolean;
+    failed: boolean;
+  }>({ key, text: null, loading: false, failed: false });
+  const controllerRef = useRef<AbortController | null>(null);
 
   // Trocar de arma limpa o texto na hora, ainda na renderização: um efeito
   // faria isso depois da pintura, e por um quadro a leitura da arma anterior
   // apareceria sob o nome da nova.
-  if (answer.key !== key) setAnswer({ key, text: null, done: false });
+  if (answer.key !== key) {
+    setAnswer({ key, text: null, loading: false, failed: false });
+  }
 
-  useEffect(() => {
+  // O cancelamento é a limpeza deste efeito: ela roda quando a comparação
+  // muda e quando a tela sai, que são exatamente as duas horas de desistir.
+  useEffect(() => () => controllerRef.current?.abort(), [key]);
+
+  function gerar() {
+    controllerRef.current?.abort();
     const controller = new AbortController();
+    controllerRef.current = controller;
+    setAnswer({ key, text: null, loading: true, failed: false });
 
     // A barra no fim não é enfeite: o site roda com `trailingSlash`, e sem ela
     // o pedido leva um 308 antes de chegar na rota.
@@ -692,21 +746,24 @@ function useWrittenReading(
     })
       .then((response) => (response.ok ? response.json() : null))
       .then((data: { text?: string } | null) => {
-        setAnswer({ key, text: data?.text ?? null, done: true });
+        const text = data?.text ?? null;
+        setAnswer({ key, text, loading: false, failed: !text });
       })
       .catch((error: unknown) => {
-        // Cancelar não é falhar: quem cancelou foi a troca de arma, e o pedido
-        // seguinte já está a caminho — marcar `done` aqui apagaria o indicador
-        // antes da hora.
+        // Cancelar não é falhar: quem cancelou foi a troca de arma, e o estado
+        // dela já foi zerado na renderização.
         if ((error as { name?: string })?.name === 'AbortError') return;
-        setAnswer({ key, text: null, done: true });
+        setAnswer({ key, text: null, loading: false, failed: true });
       });
-
-    return () => controller.abort();
-  }, [idA, idB, mode, key]);
+  }
 
   const current = answer.key === key ? answer : null;
-  return { text: current?.text ?? null, loading: !current?.done };
+  return {
+    text: current?.text ?? null,
+    loading: current?.loading ?? false,
+    failed: current?.failed ?? false,
+    gerar,
+  };
 }
 
 function DuelValue({ value, wins }: { value: string; wins: boolean }) {

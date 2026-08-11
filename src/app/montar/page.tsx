@@ -11,6 +11,7 @@ import { SlotsPanel, BudgetBar } from '@/components/slots-panel';
 import { StatsPanel } from '@/components/stats-panel';
 import { WeaponPreview } from '@/components/weapon-preview';
 import { DockablePanel, type PanelMode } from '@/components/dockable-panel';
+import { RecommendButtons } from '@/components/recommend-buttons';
 import { SiteFooter } from '@/components/site-footer';
 import { WeaponFilters, WeaponList, WeaponSelector, useWeaponFilter } from '@/components/weapon-selector';
 import { WEAPONS_BY_ID, PRIMARY_CATEGORIES } from '@/data/weapons';
@@ -126,6 +127,13 @@ function BuilderPage() {
     setTab('montar');
   }
 
+  // A recomendação chega validada; aplicar é varrer os slots da arma — o que
+  // ela não citou volta a vazio, para a montagem ser a recomendada, inteira.
+  function applyRecommendation(recommended: Partial<Record<SlotId, string>>) {
+    if (!weapon) return;
+    for (const slot of weapon.slots) setAttachment(slot, recommended[slot] ?? null);
+  }
+
   return (
     <div className="min-h-dvh">
       <AppHeader
@@ -219,6 +227,15 @@ function BuilderPage() {
                     >
                       Limpar
                     </Button>
+                  </div>
+                  {/* A montagem pronta antes da manual: quem não quer decidir
+                      slot a slot escolhe só a distância em que joga. */}
+                  <div className="mt-2 border-t pt-2" style={{ borderColor: 'var(--border-soft)' }}>
+                    <RecommendButtons
+                      key={weapon.id}
+                      weapon={weapon}
+                      onLoadout={applyRecommendation}
+                    />
                   </div>
                 </Panel>
 
