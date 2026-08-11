@@ -1,5 +1,6 @@
 import { generateText, APICallError } from 'ai';
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
+import { createOpenAI } from '@ai-sdk/openai';
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import { SHORT_CATEGORY_NAMES } from '@/data/classes';
 import {
@@ -41,6 +42,16 @@ const MODEL = 'anthropic/claude-haiku-4.5';
 const FALLBACK_MODELS = ['google/gemini-3-flash', 'openai/gpt-5.4'];
 
 /**
+ * Os modelos da OpenAI, na ordem em que se tenta.
+ *
+ * O `gpt-5-nano` abre a fila por ser o mais barato do catálogo — US$ 0,05 por
+ * milhão de tokens de entrada, um quinto do mini — e redigir três frases a
+ * partir de números prontos é tarefa para ele. O `gpt-4.1-nano` é o plano B
+ * de outra família, para o dia em que o nome sair do ar.
+ */
+const OPENAI_MODELS = ['gpt-5-nano', 'gpt-4.1-nano'];
+
+/**
  * Os modelos gratuitos do Google, na ordem em que se tenta.
  *
  * A lista existe porque o nome do modelo é a parte que envelhece, e o log da
@@ -55,23 +66,61 @@ const GOOGLE_MODELS = ['gemini-3.6-flash', 'gemini-flash-latest'];
 /**
  * De onde vem o modelo, na ordem em que se tenta.
  *
- * O AI Gateway é o caminho preferido — uma configuração só, failover e
- * contabilidade prontos —, mas ele exige cartão cadastrado na Vercel antes de
- * liberar o crédito gratuito. Quem não quiser cadastrar cartão põe uma chave do
- * Google AI Studio em `GOOGLE_GENERATIVE_AI_API_KEY`, criada em projeto sem
- * faturamento; existindo a chave, ela ganha, porque é a única das duas que
- * funciona sem mais nada.
+ * A chave da OpenAI ganha quando existe: é paga por uso, e nesta tarefa o uso
+ * custa centavos por mês. Sem ela, valem os caminhos antigos — a chave do
+ * Google AI Studio e, por último, o AI Gateway, que exige cartão cadastrado
+ * na Vercel antes de liberar o crédito gratuito.
  *
- * Sem nenhuma das duas, a rota falha e a tela fica com a análise por regras —
+ * Sem nenhuma das três, a rota falha e a tela fica com a análise por regras —
  * que é o que acontece em qualquer cópia recém-clonada do repositório.
+ *
+ * Cada candidato carrega as próprias opções de provedor porque o jeito de
+ * desligar o raciocínio muda de casa: `reasoningEffort` na OpenAI (que o
+ * `gpt-4.1-nano`, sem raciocínio, não aceita), `thinkingBudget` no Google —
+ * e o gateway leva junto a fila de reserva e o cache.
  */
 function candidates() {
+  const openaiKey = process.env.OPENAI_API_KEY;
+  if (openaiKey) {
+    const openai = createOpenAI({ apiKey: openaiKey });
+    return OPENAI_MODELS.map((name) => ({
+      model: openai(name),
+      name,
+      providerOptions: name.startsWith('gpt-5')
+        ? { openai: { reasoningEffort: 'minimal' } }
+        : undefined,
+    }));
+  }
+
   const googleKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
   if (googleKey) {
     const google = createGoogleGenerativeAI({ apiKey: googleKey });
-    return GOOGLE_MODELS.map((name) => ({ model: google(name), name, viaGateway: false }));
+    return GOOGLE_MODELS.map((name) => ({
+      model: google(name),
+      name,
+      providerOptions: { google: { thinkingConfig: { thinkingBudget: 0 } } },
+    }));
   }
-  return [{ model: MODEL, name: MODEL, viaGateway: true }];
+
+  return [
+    {
+      model: MODEL,
+      name: MODEL,
+      providerOptions: {
+        gateway: {
+          models: FALLBACK_MODELS,
+          tags: ['feature:matchup'],
+          /*
+           * As combinações são finitas — 63 armas em dois modos — e a
+           * resposta não depende de quem perguntou. Guardar por um dia
+           * derruba o custo para perto de zero e devolve na hora quem
+           * repetir a comparação.
+           */
+          cacheControl: 'max-age=86400',
+        },
+      },
+    },
+  ];
 }
 
 /** Nome de modelo errado ou fora da conta — vale tentar o próximo da fila. */
@@ -165,7 +214,7 @@ export async function POST(request: Request) {
    */
   let lastError: unknown = new Error('nenhum modelo configurado');
 
-  for (const { model, name, viaGateway } of candidates()) {
+  for (const { model, name, providerOptions } of candidates()) {
     try {
       const { text } = await generateText({
         model,
@@ -179,28 +228,15 @@ export async function POST(request: Request) {
         /*
          * Teto alto para três frases, e por um motivo.
          *
-         * O Flash gasta parte do orçamento de saída raciocinando antes de
-         * escrever, e esses tokens contam aqui: com 220 a resposta chegava
-         * cortada no meio da primeira frase. O `thinkingBudget: 0` desliga o
-         * raciocínio, que não tem o que fazer numa tarefa de redigir a partir
-         * de números já comparados, e o teto folgado cobre o resto.
+         * Modelo que raciocina gasta parte do orçamento de saída pensando
+         * antes de escrever, e esses tokens contam aqui: com 220 a resposta
+         * chegava cortada no meio da primeira frase. As opções de cada
+         * candidato desligam o raciocínio — que não tem o que fazer numa
+         * tarefa de redigir a partir de números já comparados — e o teto
+         * folgado cobre o resto.
          */
         maxOutputTokens: 800,
-        providerOptions: viaGateway
-          ? {
-              gateway: {
-                models: FALLBACK_MODELS,
-                tags: ['feature:matchup'],
-                /*
-                 * As combinações são finitas — 63 armas em dois modos — e a
-                 * resposta não depende de quem perguntou. Guardar por um dia
-                 * derruba o custo para perto de zero e devolve na hora quem
-                 * repetir a comparação.
-                 */
-                cacheControl: 'max-age=86400',
-              },
-            }
-          : { google: { thinkingConfig: { thinkingBudget: 0 } } },
+        providerOptions,
       });
 
       const answer = text.trim();
