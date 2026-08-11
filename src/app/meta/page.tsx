@@ -1,6 +1,6 @@
 import { MetaScreen } from './meta-screen';
 import live from '@/data/meta-live.json';
-import type { MetaPick, MetaSource, TrendingPick } from '@/data/meta';
+import type { MetaPatch, MetaPick, MetaSource, TrendingPick } from '@/data/meta';
 
 /**
  * A tela do meta.
@@ -19,6 +19,13 @@ export default function MetaPage() {
   const trending = ('trending' in live ? live.trending : []) as TrendingPick[];
 
   /*
+   * A atualização do jogo que a leitura diz ter olhado. Ela vale mais que a
+   * data da leitura para quem lê a tela: uma lista relida hoje sobre um patch
+   * de duas semanas atrás é uma lista de duas semanas atrás.
+   */
+  const patch = ('patch' in live ? live.patch : null) as MetaPatch | null;
+
+  /*
    * `readAt` é a data que a tela mostra no "revisado em", e ela vale sempre que
    * a rotina tiver rodado — inclusive quando o dia rendeu só trending, sem
    * mexer no ranking. Exigir `picks` para aceitar a leitura jogava fora, junto,
@@ -33,6 +40,7 @@ export default function MetaPage() {
       trending={trending.length ? trending : undefined}
       sources={live.sources as MetaSource[]}
       readAt={live.readAt}
+      patch={patch}
       fromSearch
     />
   );

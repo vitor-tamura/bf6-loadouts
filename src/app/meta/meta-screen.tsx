@@ -16,6 +16,7 @@ import {
   NOT_MULTIPLAYER,
   BY_CATEGORY,
   META_SEASON,
+  type MetaPatch,
   type MetaPick,
   type MetaSource,
   type TrendingPick,
@@ -57,12 +58,14 @@ export function MetaScreen({
   trending = TRENDING,
   sources = SOURCES,
   readAt,
+  patch,
   fromSearch = false,
 }: {
   picks?: MetaPick[];
   trending?: TrendingPick[];
   sources?: MetaSource[];
   readAt?: string;
+  patch?: MetaPatch | null;
   fromSearch?: boolean;
 } = {}) {
   return (
@@ -94,6 +97,17 @@ export function MetaScreen({
             </h1>
             <Typography.Text className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
               revisado em {shortDate(readAt ?? UPDATED_AT)}
+              {/*
+                A data da leitura sozinha engana: ela diz quando alguém olhou,
+                não a que jogo o que se olhou se refere. Com o patch à vista, dá
+                para ver de imediato quando a lista foi relida sobre um jogo que
+                já mudou depois.
+              */}
+              {patch?.date && (
+                <Hint label={patch.name ? `Atualização ${patch.name}` : 'Última atualização do jogo'}>
+                  <span> · patch de {shortDate(patch.date)}</span>
+                </Hint>
+              )}
             </Typography.Text>
           </div>
 
@@ -377,9 +391,16 @@ function TrendingCard({ pick, rank }: { pick: TrendingPick; rank: number }) {
           {pick.reason}
         </p>
 
-        <p className="mt-1.5 font-mono text-[11px]" style={{ color: 'var(--text-dim)' }}>
-          {pick.sources.map((f) => `[${f + 1}]`).join(' ')}
-        </p>
+        {/*
+          Arma sem citação não ganha linha em branco: a leitura automática pode
+          não achar a fonte que sustenta um nome, e é melhor o card não citar
+          nada do que abrir espaço para um colchete que não veio.
+        */}
+        {pick.sources.length > 0 && (
+          <p className="mt-1.5 font-mono text-[11px]" style={{ color: 'var(--text-dim)' }}>
+            {pick.sources.map((f) => `[${f + 1}]`).join(' ')}
+          </p>
+        )}
       </Card>
     </Link>
   );

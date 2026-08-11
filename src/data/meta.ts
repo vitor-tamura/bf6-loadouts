@@ -56,7 +56,22 @@ export interface MetaSource {
    * vieram quatro temporadas e o patch que mexeu em velocidade e recuo. Ela
    * entra pelo histórico, não para decidir posição.
    */
-  timeframe: 'season-4' | 'launch';
+  timeframe: `season-${number}` | 'launch';
+}
+
+/**
+ * A atualização do jogo em que a leitura se apoia.
+ *
+ * Quem lê a busca diária precisa saber contra o que ela leu: lista relida hoje
+ * sobre guias anteriores ao último patch descreve o jogo de antes dele. A
+ * curadoria escrita à mão não preenche isto — ela já diz a data de cada fonte,
+ * uma por uma.
+ */
+export interface MetaPatch {
+  /** Nome ou número da atualização, quando a busca identifica. */
+  name: string | null;
+  /** Dia em que ela saiu, ISO. Nulo quando a busca não achou a data. */
+  date: string | null;
 }
 
 export interface MetaPick {
