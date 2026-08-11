@@ -42,7 +42,7 @@ jobs:
 
       - name: Perguntar à busca
         env:
-          GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: npm run meta:search
 
       - name: Publicar se mudou

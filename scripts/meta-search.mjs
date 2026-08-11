@@ -2,24 +2,21 @@
 /**
  * Relê o meta a partir de uma busca, uma vez por dia.
  *
- *   GOOGLE_GENERATIVE_AI_API_KEY=... node --experimental-strip-types scripts/meta-search.mjs
+ *   OPENAI_API_KEY=... node --experimental-strip-types scripts/meta-search.mjs
  *
- * Pergunta ao Gemini, com a busca do Google ligada, quais armas a comunidade
- * está apontando como as melhores do multiplayer — dando peso ao Reddit, que é
- * onde a discussão acontece e onde as ferramentas de busca comuns não chegam
- * para robôs. O resultado vai para `src/data/meta-live.json`, que a tela lê.
+ * Pergunta a um modelo da OpenAI, com a busca na web ligada, quais armas a
+ * comunidade está apontando como as melhores do multiplayer — dando peso ao
+ * Reddit, que é onde a discussão acontece e onde as ferramentas de busca
+ * comuns não chegam para robôs. O resultado vai para
+ * `src/data/meta-live.json`, que a tela lê.
  *
- * ## Por que aqui e não no site
+ * ## Por que OpenAI e não Gemini
  *
- * A primeira versão fazia esta chamada na própria página, uma vez a cada 24
- * horas. Funcionava, mas dividia a cota gratuita com a leitura do confronto —
- * são vinte requisições, e um punhado de comparações novas esgotava o dia
- * inteiro, derrubando as duas coisas de uma vez.
- *
- * Rodando aqui, é uma chamada por dia, sempre, independente de visita. A cota
- * do site fica livre para o confronto, o resultado é um arquivo versionado —
- * dá para ver no diff o que a busca respondeu e reverter se vier bobagem — e a
- * tela do meta volta a ser estática.
+ * A versão anterior perguntava ao Gemini com a busca do Google ligada, numa
+ * chave do free tier. Nunca publicou uma leitura: todas as execuções do
+ * workflow falharam na chamada. Esta versão usa uma chave paga da OpenAI, e o
+ * custo é de centavos: uma chamada por dia, com uma busca (~US$ 0,01) e um
+ * punhado de tokens de um modelo pequeno.
  *
  * ## O que impede bobagem de entrar
  *
@@ -33,24 +30,17 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { WEAPONS } from '../src/data/weapons.ts';
 
-const API_KEY = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
+const API_KEY = process.env.OPENAI_API_KEY;
 const DESTINO = new URL('../src/data/meta-live.json', import.meta.url);
 
 /*
- * A fila de modelos, e o que a conta revelou sobre ela.
- *
- * A ideia era usar aqui um modelo diferente do que o site usa na leitura do
- * confronto, para que um não gastasse a cota do outro. Ela vale pela metade: a
- * cota gratuita é mesmo contada por modelo, mas nem todo modelo tem cota. O
- * `gemini-2.0-flash` responde `limit: 0` — não há free tier nenhum nele —,
- * enquanto o `gemini-3.6-flash` traz `limit: 20`.
- *
- * Então a fila tenta primeiro os candidatos a cota própria e termina no
- * `gemini-3.6-flash`, que sabidamente tem. Na pior hipótese, este script gasta
- * uma das vinte requisições do dia — uma, porque roda uma vez —, e as outras
- * dezenove sobram para o site.
+ * A chave é paga por uso, então a fila não existe por causa de cota — ela
+ * existe porque nem todo modelo aceita a ferramenta de busca. O `gpt-5-nano`
+ * abre por ser o mais barato do catálogo; a página de preços diz que a busca
+ * vale para todos os modelos, mas o guia dela não cita os nanos — se ele
+ * recusar, o mini resolve, e o `gpt-4.1-mini` fecha a fila noutra família.
  */
-const MODELOS = ['gemini-3.5-flash', 'gemini-flash-latest', 'gemini-3.6-flash'];
+const MODELOS = ['gpt-5-nano', 'gpt-5-mini', 'gpt-4.1-mini'];
 
 const PROMPT = `Pesquise o que a comunidade de Battlefield 6 está dizendo agora sobre as melhores armas do MULTIPLAYER na temporada em curso. Dê peso às discussões do Reddit (r/Battlefield6 e afins) e a guias publicados depois do patch mais recente.
 
@@ -75,24 +65,31 @@ const chave = (nome) =>
 const PORCHAVE = new Map(WEAPONS.map((w) => [chave(w.name), w]));
 
 async function perguntar(modelo) {
-  const resposta = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent?key=${API_KEY}`,
-    {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: PROMPT }] }],
-        tools: [{ google_search: {} }],
-      }),
+  const resposta = await fetch('https://api.openai.com/v1/responses', {
+    method: 'POST',
+    headers: {
+      authorization: `Bearer ${API_KEY}`,
+      'content-type': 'application/json',
     },
-  );
+    body: JSON.stringify({
+      model: modelo,
+      tools: [{ type: 'web_search' }],
+      input: PROMPT,
+    }),
+  });
 
   const corpo = await resposta.json();
-  if (corpo.error) throw new Error(`${corpo.error.code} ${corpo.error.message}`);
+  if (corpo.error) throw new Error(`${resposta.status} ${corpo.error.message}`);
 
-  const candidato = corpo.candidates?.[0];
-  const texto = (candidato?.content?.parts ?? []).map((p) => p.text ?? '').join('');
-  const fontes = candidato?.groundingMetadata?.groundingChunks ?? [];
+  // A resposta vem como uma lista de itens — raciocínio, chamadas de busca,
+  // mensagem. O texto está na mensagem, e os links que a busca sustentou vêm
+  // como anotações `url_citation` penduradas nele.
+  const mensagem = (corpo.output ?? []).find((item) => item.type === 'message');
+  const partes = (mensagem?.content ?? []).filter((p) => p.type === 'output_text');
+  const texto = partes.map((p) => p.text ?? '').join('');
+  const fontes = partes
+    .flatMap((p) => p.annotations ?? [])
+    .filter((a) => a.type === 'url_citation');
   return { texto, fontes };
 }
 
@@ -110,7 +107,7 @@ function extrairJson(texto) {
 
 async function main() {
   if (!API_KEY) {
-    console.error('Falta GOOGLE_GENERATIVE_AI_API_KEY.');
+    console.error('Falta OPENAI_API_KEY.');
     process.exit(1);
   }
 
@@ -147,19 +144,23 @@ async function main() {
       }
       if (!picks.length) throw new Error('nenhuma arma reconhecida');
 
-      const sources = fontes
-        .map((f) => f.web)
-        .filter((web) => web?.uri)
-        .slice(0, 8)
-        .map((web) => ({
-          name: web.title ?? new URL(web.uri).hostname,
-          url: web.uri,
+      // A mesma página costuma ser citada várias vezes, uma por trecho.
+      const vistasUrls = new Set();
+      const sources = [];
+      for (const fonte of fontes) {
+        if (!fonte.url || vistasUrls.has(fonte.url)) continue;
+        vistasUrls.add(fonte.url);
+        if (sources.length === 8) break;
+        sources.push({
+          name: fonte.title || new URL(fonte.url).hostname,
+          url: fonte.url,
           date: new Date().toISOString().slice(0, 10),
           country: 'INT',
           mode: 'multiplayer',
           scope: 'Página consultada pela busca que montou esta lista.',
           timeframe: 'season-4',
-        }));
+        });
+      }
 
       if (!sources.length) throw new Error('busca não devolveu fonte nenhuma');
 
