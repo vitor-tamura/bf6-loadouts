@@ -3,7 +3,7 @@
 import { App, Button, Input, Modal, Typography } from 'antd';
 import { useMemo, useState } from 'react';
 import qrcode from 'qrcode-generator';
-import { LOADOUT_PARAM, encodeLoadout, loadoutUrl } from '@/lib/share';
+import { loadoutImageUrl, loadoutUrl } from '@/lib/share';
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import type { Loadout } from '@/lib/loadout';
 
@@ -65,9 +65,21 @@ export function ShareButton({ loadout, disabled }: { loadout: Loadout; disabled:
 
   /*
    * O cartão sai da mesma string que o link, então nunca mostra um loadout
-   * diferente do que o endereço abre.
+   * diferente do que o endereço abre. O endereço é absoluto porque ele existe
+   * para ser colado fora daqui — caminho relativo só funciona dentro do site.
    */
-  const imagemUrl = open ? `/api/loadout/imagem/?${LOADOUT_PARAM}=${encodeLoadout(loadout)}` : '';
+  const imagemUrl = open ? loadoutImageUrl(loadout) : '';
+
+  async function copiarImagem() {
+    try {
+      await navigator.clipboard.writeText(imagemUrl);
+      message.success('Link da imagem copiado');
+    } catch {
+      const field = document.getElementById('campo-imagem') as HTMLInputElement | null;
+      field?.select();
+      message.info('Copie o link selecionado');
+    }
+  }
 
   function baixarImagem() {
     const arma = loadout.weapon ? WEAPONS_BY_ID.get(loadout.weapon)?.name : null;
@@ -160,10 +172,46 @@ export function ShareButton({ loadout, disabled }: { loadout: Loadout; disabled:
         {/*
           O cartão em imagem existe para a conversa em que o link não é clicado:
           a lista de peças aparece de relance, sem ninguém precisar abrir o site.
+
+          O endereço vem antes do download. A imagem sempre foi uma rota GET com
+          o mesmo código do link — baixar o arquivo para depois anexá-lo era o
+          caminho longo para o que um endereço colado já resolve, e em celular
+          custava uma ida à galeria. Quem quiser o arquivo continua tendo o
+          botão ao lado.
         */}
-        <Button onClick={baixarImagem} className="bevel-sm touch mt-2 w-full" disabled={!imagemUrl}>
-          Baixar imagem do loadout
-        </Button>
+        <Typography.Paragraph
+          className="mt-4 mb-1 text-[11px]"
+          style={{ color: 'var(--text-dim)' }}
+        >
+          Imagem do loadout — cola direto na conversa, sem baixar nada.
+        </Typography.Paragraph>
+
+        <Input
+          id="campo-imagem"
+          readOnly
+          value={imagemUrl}
+          onFocus={(e) => e.currentTarget.select()}
+          className="bevel-sm mb-2 font-mono text-xs"
+          aria-label="Link da imagem do loadout"
+        />
+
+        <div className="flex gap-2">
+          <Button onClick={copiarImagem} className="bevel-sm touch flex-1" disabled={!imagemUrl}>
+            Copiar link da imagem
+          </Button>
+          <Button
+            href={imagemUrl || undefined}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="bevel-sm touch"
+            disabled={!imagemUrl}
+          >
+            Abrir
+          </Button>
+          <Button onClick={baixarImagem} className="bevel-sm touch" disabled={!imagemUrl}>
+            Baixar
+          </Button>
+        </div>
       </Modal>
     </>
   );

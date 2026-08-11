@@ -257,6 +257,16 @@ export async function GET(request: Request) {
         { name: 'Barlow', data: corpo, weight: 400, style: 'normal' },
         { name: 'Barlow Condensed', data: titulo, weight: 600, style: 'normal' },
       ],
+      /*
+       * O cartão é função pura do código que está no endereço: mesmo código,
+       * mesmo desenho. Agora que o link é colado em conversa, cada pessoa que
+       * vê a mensagem busca esta rota — sem cache, cada uma pagaria uma
+       * renderização do zero. A semana na borda é o teto de quanto tempo um
+       * redesenho do cartão demora a aparecer nos links já compartilhados.
+       */
+      headers: {
+        'cache-control': 'public, max-age=3600, s-maxage=604800, stale-while-revalidate=2592000',
+      },
     },
   );
 }
