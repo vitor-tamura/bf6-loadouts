@@ -102,45 +102,33 @@ function retryDelayMs(response: Response, message: string, attempt: number) {
   return Math.min(30_000, 1500 * 2 ** (attempt - 1));
 }
 
-interface CallOptions {
-  jsonMode?: boolean;
-  reasoning?: boolean;
-}
-
-function requestBody(model: string, prompt: string, options: CallOptions = {}) {
-  const { jsonMode = true, reasoning = model.startsWith('gpt-5') } = options;
-
-  const body: Record<string, unknown> = {
+/*
+ * Nada de modo JSON aqui, e nada de raciocínio.
+ *
+ * A API recusa os dois junto com a busca na web — "Web Search cannot be used
+ * with JSON mode" foi o 400 que derrubou a rota inteira em produção, e o
+ * `reasoning: minimal` tem a mesma incompatibilidade nos modelos gpt-5. Como a
+ * busca é o ponto desta rota, quem sai é o resto: o JSON vem em texto corrido
+ * e `extractJson` o recorta, que é para isso que ele existe.
+ */
+function requestBody(model: string, prompt: string) {
+  return {
     model,
     tools: [{ type: 'web_search' }],
     input: prompt,
     max_output_tokens: MAX_OUTPUT_TOKENS,
     store: false,
   };
-
-  if (jsonMode) {
-    body.text = {
-      format: { type: 'json_object' },
-      ...(model.startsWith('gpt-5') ? { verbosity: 'low' } : {}),
-    };
-  }
-  if (reasoning) body.reasoning = { effort: 'minimal' };
-
-  return body;
 }
 
-async function callOpenAI(
-  model: string,
-  prompt: string,
-  options: CallOptions & { attempt: number },
-): Promise<string> {
+async function callOpenAI(model: string, prompt: string, attempt: number): Promise<string> {
   const response = await fetch('https://api.openai.com/v1/responses', {
     method: 'POST',
     headers: {
       authorization: `Bearer ${API_KEY}`,
       'content-type': 'application/json',
     },
-    body: JSON.stringify(requestBody(model, prompt, options)),
+    body: JSON.stringify(requestBody(model, prompt)),
   });
 
   const body = (await response.json()) as ResponseBody;
@@ -151,7 +139,7 @@ async function callOpenAI(
         : `${response.status} ${response.statusText}`,
     );
     error.status = response.status;
-    error.retryAfterMs = retryDelayMs(response, error.message, options.attempt);
+    error.retryAfterMs = retryDelayMs(response, error.message, attempt);
     throw error;
   }
 
@@ -163,49 +151,31 @@ async function callOpenAI(
 }
 
 /**
- * Pergunta ao modelo, insistindo quando vale a pena.
+ * Pergunta ao modelo, insistindo só onde insistir resolve.
  *
- * Duas coisas dão errado de formas diferentes. Limite de taxa é temporário e
- * pede espera; parâmetro que o modelo não conhece é definitivo e pede outra
- * variante da chamada — daí a lista, do pedido mais rico ao mais simples.
+ * Limite de taxa é temporário e pede espera. Qualquer outra recusa é do
+ * modelo, e quem cuida dela é a fila de `MODELS` — repetir o mesmo pedido ao
+ * mesmo modelo daria o mesmo 400.
  */
 async function ask(model: string, prompt: string): Promise<string> {
-  const variants: CallOptions[] = [
-    { jsonMode: true, reasoning: model.startsWith('gpt-5') },
-    { jsonMode: true, reasoning: false },
-    { jsonMode: false, reasoning: false },
-  ];
   let lastError: unknown = null;
 
-  for (const variant of variants) {
-    for (let attempt = 1; attempt <= MAX_RETRIES; attempt += 1) {
-      try {
-        return await callOpenAI(model, prompt, { ...variant, attempt });
-      } catch (error) {
-        lastError = error;
-        const apiError = error as ApiError;
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt += 1) {
+    try {
+      return await callOpenAI(model, prompt, attempt);
+    } catch (error) {
+      lastError = error;
+      const apiError = error as ApiError;
 
-        if (apiError.status === 429 && attempt < MAX_RETRIES) {
-          console.warn('[recommend] rate limit, aguardando retry', {
-            model,
-            seconds: Math.ceil((apiError.retryAfterMs ?? 1000) / 1000),
-          });
-          await wait(apiError.retryAfterMs ?? 1000);
-          continue;
-        }
-
-        const message = apiError.message.toLowerCase();
-        const unsupportedParam =
-          apiError.status === 400 &&
-          ((variant.reasoning && message.includes('reasoning')) ||
-            (variant.jsonMode &&
-              (message.includes('text.format') ||
-                message.includes('json_object') ||
-                message.includes('verbosity'))));
-
-        if (unsupportedParam) break;
-        throw error;
+      if (apiError.status === 429 && attempt < MAX_RETRIES) {
+        console.warn('[recommend] rate limit, aguardando retry', {
+          model,
+          seconds: Math.ceil((apiError.retryAfterMs ?? 1000) / 1000),
+        });
+        await wait(apiError.retryAfterMs ?? 1000);
+        continue;
       }
+      throw error;
     }
   }
 

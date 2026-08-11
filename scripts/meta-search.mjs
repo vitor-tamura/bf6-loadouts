@@ -103,22 +103,23 @@ function retryDepoisMs(resposta, mensagem, tentativa) {
   return Math.min(30_000, 1500 * 2 ** (tentativa - 1));
 }
 
-function payload(modelo, { jsonMode = true, reasoning = modelo.startsWith('gpt-5') } = {}) {
-  const body = {
+/*
+ * Nada de modo JSON aqui, e nada de raciocínio.
+ *
+ * A API recusa os dois junto com a busca na web — "Web Search cannot be used
+ * with JSON mode" é o 400 que vinha derrubando esta rotina, e o
+ * `reasoning: minimal` tem a mesma incompatibilidade nos modelos gpt-5. Como a
+ * busca é o ponto do script, quem sai é o resto: o JSON vem em texto corrido e
+ * `extrairJson` o recorta, que é para isso que ele existe.
+ */
+function payload(modelo) {
+  return {
     model: modelo,
     tools: [{ type: 'web_search' }],
     input: PROMPT,
     max_output_tokens: MAX_OUTPUT_TOKENS,
     store: false,
   };
-
-  if (jsonMode) {
-    body.text = { format: { type: 'json_object' } };
-    if (modelo.startsWith('gpt-5')) body.text.verbosity = 'low';
-  }
-  if (reasoning) body.reasoning = { effort: 'minimal' };
-
-  return body;
 }
 
 async function chamarOpenAI(modelo, opcoes) {
@@ -128,7 +129,7 @@ async function chamarOpenAI(modelo, opcoes) {
       authorization: `Bearer ${API_KEY}`,
       'content-type': 'application/json',
     },
-    body: JSON.stringify(payload(modelo, opcoes)),
+    body: JSON.stringify(payload(modelo)),
   });
 
   const corpo = await resposta.json();
@@ -151,36 +152,30 @@ async function chamarOpenAI(modelo, opcoes) {
   return { texto, fontes };
 }
 
+/**
+ * Pergunta ao modelo, insistindo só onde insistir resolve.
+ *
+ * Limite de taxa é temporário e pede espera. Qualquer outra recusa é do
+ * modelo, e quem cuida dela é a fila de `MODELOS` — repetir o mesmo pedido ao
+ * mesmo modelo daria o mesmo 400.
+ */
 async function perguntar(modelo) {
-  const variantes = [
-    { jsonMode: true, reasoning: modelo.startsWith('gpt-5') },
-    { jsonMode: true, reasoning: false },
-    { jsonMode: false, reasoning: false },
-  ];
   let ultimoErro = null;
 
-  for (const variante of variantes) {
-    for (let tentativa = 1; tentativa <= MAX_TENTATIVAS; tentativa += 1) {
-      try {
-        return await chamarOpenAI(modelo, { ...variante, tentativa });
-      } catch (erro) {
-        ultimoErro = erro;
+  for (let tentativa = 1; tentativa <= MAX_TENTATIVAS; tentativa += 1) {
+    try {
+      return await chamarOpenAI(modelo, { tentativa });
+    } catch (erro) {
+      ultimoErro = erro;
 
-        if (erro.status === 429 && tentativa < MAX_TENTATIVAS) {
-          console.warn(`${modelo}: rate limit, aguardando ${Math.ceil(erro.retryAfterMs / 1000)}s antes de tentar de novo.`);
-          await esperar(erro.retryAfterMs);
-          continue;
-        }
-
-        const mensagem = erro.message.toLowerCase();
-        const parametroIncompativel =
-          erro.status === 400 &&
-          ((variante.reasoning && mensagem.includes('reasoning')) ||
-            (variante.jsonMode && (mensagem.includes('text.format') || mensagem.includes('json_object') || mensagem.includes('verbosity'))));
-
-        if (parametroIncompativel) break;
-        throw erro;
+      if (erro.status === 429 && tentativa < MAX_TENTATIVAS) {
+        console.warn(
+          `${modelo}: rate limit, aguardando ${Math.ceil(erro.retryAfterMs / 1000)}s antes de tentar de novo.`,
+        );
+        await esperar(erro.retryAfterMs);
+        continue;
       }
+      throw erro;
     }
   }
 
