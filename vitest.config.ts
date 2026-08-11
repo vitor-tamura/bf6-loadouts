@@ -12,6 +12,6 @@ export default defineConfig({
     // As travas da leitura diária do meta vivem em `scripts/meta`, fora de
     // `src`, e são justamente o que não pode quebrar sem ninguém ver: quando
     // elas falham, o site publica opinião inventada.
-    include: ['src/**/*.test.ts', 'scripts/**/*.test.mjs'],
+    include: ['src/**/*.test.ts', 'src/**/*.test.tsx', 'scripts/**/*.test.mjs'],
   },
 });

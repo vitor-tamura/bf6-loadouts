@@ -2,6 +2,7 @@ import { ATTACHMENTS_BY_ID, attachmentsForWeapon } from '@/data/attachments';
 import { budgetFor, SLOTS_BY_ID } from '@/data/classes';
 import type { Attachment, SlotId, Weapon } from '@/data/types';
 import { attachmentCost, attachmentName, factoryAttachments } from './loadout';
+import type { CitedSource } from './sources';
 import { calculateStats, type EffectiveStats } from './stats';
 
 /**
@@ -232,6 +233,53 @@ export interface Recommendation {
   attachments: Partial<Record<SlotId, string>>;
   /** O que o modelo pediu e não entrou, com o motivo — vai para o log da rota. */
   discarded: string[];
+}
+
+/**
+ * Onde a arma está hoje. Popularidade não é força: arma muito levada e mediana
+ * é `POPULAR`, não `META` — a distinção existe para a tela não chamar de meta o
+ * que é só hábito.
+ */
+export const RECOMMENDATION_STATUSES = [
+  'META',
+  'STRONG',
+  'TRENDING',
+  'POPULAR',
+  'NICHE',
+  'OFF-META',
+] as const;
+
+/** Quanto a leitura se sustenta: fontes concordando e dado junto, ou opinião solta. */
+export const RECOMMENDATION_CONFIDENCES = ['HIGH', 'MEDIUM', 'LOW'] as const;
+
+export type RecommendationStatus = (typeof RECOMMENDATION_STATUSES)[number];
+export type RecommendationConfidence = (typeof RECOMMENDATION_CONFIDENCES)[number];
+
+/**
+ * A sugestão da comunidade como a tela a recebe.
+ *
+ * Tudo que não é a montagem em si pode faltar: a resposta é de um modelo, e
+ * campo sem evidência é melhor vazio que preenchido no chute. Só `attachments`
+ * e `reason` são garantidos — o resto a tela mostra quando vier.
+ */
+export interface LoadoutAdvice {
+  attachments: Partial<Record<SlotId, string>>;
+  /** Uma frase por slot: o que aquela peça resolve nesta arma. */
+  why: Partial<Record<SlotId, string>>;
+  reason: string;
+  playstyle: string | null;
+  range: { main: string | null; secondary: string | null };
+  status: RecommendationStatus | null;
+  confidence: RecommendationConfidence | null;
+  /** Uma outra montagem, para uma situação diferente — aplicável com um clique. */
+  alternative: {
+    label: string;
+    when: string | null;
+    attachments: Partial<Record<SlotId, string>>;
+  } | null;
+  consensus: string | null;
+  changes: string | null;
+  sources: CitedSource[];
 }
 
 /**

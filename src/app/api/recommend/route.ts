@@ -1,13 +1,19 @@
 import { WEAPONS_BY_ID } from '@/data/weapons';
-import { budgetFor } from '@/data/classes';
-import type { SlotId } from '@/data/types';
+import { budgetFor, CATEGORY_NAMES, CLASSES } from '@/data/classes';
+import live from '@/data/meta-live.json';
+import type { MetaPatch } from '@/data/meta';
+import { SEASONS, phaseOn, seasonOn } from '@/data/season';
+import type { SlotId, Weapon } from '@/data/types';
 import { factoryAttachments } from '@/lib/loadout';
 import {
   attachmentMenu,
   COMBAT_RANGES,
   isCombatRange,
+  RECOMMENDATION_CONFIDENCES as CONFIDENCES,
+  RECOMMENDATION_STATUSES as STATUSES,
   validateRecommendation,
 } from '@/lib/recommend';
+import { dedupeCitations, type CitedSource } from '@/lib/sources';
 
 /**
  * O loadout recomendado de uma arma, escolhido por um modelo com busca na web.
@@ -16,7 +22,9 @@ import {
  * pergunta ao modelo o que a comunidade — Reddit e guias recentes — está
  * montando nela para esse alcance. A resposta só cita peças do cardápio que a
  * rota mesma envia, e ainda assim passa pelo funil de `validateRecommendation`:
- * nome que não existe na arma cai fora, peça que estoura o orçamento também.
+ * nome que não existe na arma cai fora, peça que estoura o orçamento também. As
+ * páginas que a busca abriu voltam junto, em `sources`: a montagem chega à tela
+ * com o de onde saiu, não só com o quê.
  *
  * É GET de propósito: as combinações são finitas — 63 armas × 3 alcances — e a
  * resposta não depende de quem perguntou, então a borda guarda cada uma por uma
@@ -35,15 +43,32 @@ function positiveInt(value: string | undefined, fallback: number) {
 }
 
 /*
- * A mesma fila do meta diário, pelo mesmo motivo: o nano é o mais barato do
- * catálogo, mas o guia da ferramenta de busca não o cita — se recusar, o mini
- * resolve, e o gpt-4.1-mini fecha a fila noutra família.
+ * O `gpt-5-nano` saiu da fila.
+ *
+ * Ele abria as duas rotinas por ser o mais barato do catálogo, mas o guia da
+ * ferramenta de busca nunca o citou, e a execução do meta de 11/08 confirmou a
+ * suspeita: quem acabou respondendo foi o último da fila, ou seja, o nano e o
+ * mini recusaram. Modelo que só sabe recusar não é barato — é uma chamada
+ * perdida antes de cada resposta.
+ *
+ * A fila daqui é mais curta que a do meta de propósito. O meta paga um modelo
+ * maior porque é uma pergunta por dia; esta rota é pública, e mesmo com a borda
+ * guardando cada combinação por uma semana ela se mantém nos baratos.
  */
-const MODELS = (process.env.OPENAI_RECOMMEND_MODELS ?? 'gpt-5-nano,gpt-5-mini,gpt-4.1-mini')
+const MODELS = (process.env.OPENAI_RECOMMEND_MODELS ?? 'gpt-5-mini,gpt-4.1-mini')
   .split(',')
   .map((model) => model.trim())
   .filter(Boolean);
-const MAX_OUTPUT_TOKENS = positiveInt(process.env.OPENAI_RECOMMEND_MAX_OUTPUT_TOKENS, 900);
+/*
+ * A resposta deixou de ser uma frase.
+ *
+ * Além da montagem, ela traz uma linha por peça, o porquê da build, o modo de
+ * jogar, o alcance, o consenso da comunidade, o que o patch mudou e uma build
+ * alternativa inteira. Resposta cortada no meio é JSON inválido — a sugestão se
+ * perderia por economia de fração de centavo, e a combinação ainda fica uma
+ * semana na borda.
+ */
+const MAX_OUTPUT_TOKENS = positiveInt(process.env.OPENAI_RECOMMEND_MAX_OUTPUT_TOKENS, 2500);
 const MAX_RETRIES = positiveInt(process.env.OPENAI_RECOMMEND_RETRIES, 3);
 
 /*
@@ -80,6 +105,8 @@ function overDailyLimit(request: Request) {
 interface ResponsePart {
   type?: string;
   text?: string;
+  /** Os links que a busca abriu, pendurados no texto que ela sustentou. */
+  annotations?: { type?: string; url?: string; title?: string }[];
 }
 
 interface ResponseBody {
@@ -121,7 +148,11 @@ function requestBody(model: string, prompt: string) {
   };
 }
 
-async function callOpenAI(model: string, prompt: string, attempt: number): Promise<string> {
+async function callOpenAI(
+  model: string,
+  prompt: string,
+  attempt: number,
+): Promise<{ text: string; sources: CitedSource[] }> {
   const response = await fetch('https://api.openai.com/v1/responses', {
     method: 'POST',
     headers: {
@@ -144,10 +175,16 @@ async function callOpenAI(model: string, prompt: string, attempt: number): Promi
   }
 
   const message = (body.output ?? []).find((item) => item.type === 'message');
-  return (message?.content ?? [])
-    .filter((part) => part.type === 'output_text')
-    .map((part) => part.text ?? '')
-    .join('');
+  const parts = (message?.content ?? []).filter((part) => part.type === 'output_text');
+
+  return {
+    text: parts.map((part) => part.text ?? '').join(''),
+    sources: dedupeCitations(
+      parts
+        .flatMap((part) => part.annotations ?? [])
+        .filter((annotation) => annotation.type === 'url_citation'),
+    ),
+  };
 }
 
 /**
@@ -157,7 +194,7 @@ async function callOpenAI(model: string, prompt: string, attempt: number): Promi
  * modelo, e quem cuida dela é a fila de `MODELS` — repetir o mesmo pedido ao
  * mesmo modelo daria o mesmo 400.
  */
-async function ask(model: string, prompt: string): Promise<string> {
+async function ask(model: string, prompt: string) {
   let lastError: unknown = null;
 
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt += 1) {
@@ -182,16 +219,91 @@ async function ask(model: string, prompt: string): Promise<string> {
   throw lastError;
 }
 
+/** O que o modelo devolve, antes de qualquer trava. */
+interface RawAnswer {
+  picks?: unknown;
+  why?: unknown;
+  reason?: unknown;
+  playstyle?: unknown;
+  range?: { main?: unknown; secondary?: unknown };
+  status?: unknown;
+  confidence?: unknown;
+  alternative?: { label?: unknown; when?: unknown; picks?: unknown };
+  consensus?: unknown;
+  changes?: unknown;
+}
+
 /** Tira as cercas de código que o modelo às vezes põe em volta do JSON. */
-function extractJson(text: string): { picks?: unknown; reason?: unknown } | null {
+function extractJson(text: string): RawAnswer | null {
   const start = text.indexOf('{');
   const end = text.lastIndexOf('}');
   if (start === -1 || end === -1) return null;
   try {
-    return JSON.parse(text.slice(start, end + 1)) as { picks?: unknown; reason?: unknown };
+    return JSON.parse(text.slice(start, end + 1)) as RawAnswer;
   } catch {
     return null;
   }
+}
+
+/**
+ * Texto do modelo, aparado.
+ *
+ * O limite não é decoração: o painel tem tamanho, e uma resposta que resolveu
+ * escrever um guia inteiro num campo de duas frases quebraria o desenho da
+ * tela em vez de informar mais.
+ */
+function text(value: unknown, max: number): string | null {
+  if (typeof value !== 'string') return null;
+  const clean = value.trim().replace(/\s+/g, ' ');
+  return clean ? clean.slice(0, max) : null;
+}
+
+/** Vocabulário fechado: rótulo fora da lista é rótulo inventado. */
+function oneOf<T extends string>(value: unknown, allowed: readonly T[]): T | null {
+  if (typeof value !== 'string') return null;
+  const upper = value.trim().toUpperCase();
+  return allowed.find((item) => item === upper) ?? null;
+}
+
+/** A classe que a arma representa, para o modelo saber de que papel se fala. */
+function weaponClass(weapon: Weapon): string {
+  const owner = CLASSES.find((item) => item.id === weapon.signatureClass);
+  return owner ? `classe ${owner.name}` : 'sem classe assinada';
+}
+
+/**
+ * Quando é "agora", para quem vai pesquisar.
+ *
+ * Sem data e sem patch, "melhor build atual" quer dizer o que o índice de busca
+ * tiver à mão — foi assim que a leitura do meta saiu apoiada em guias de duas
+ * semanas antes. A temporada vem do calendário do site; o patch, da leitura
+ * diária do meta, que já pergunta isso todo dia. Quando ela ainda não achou o
+ * patch, o modelo é mandado descobrir em vez de fingir que sabe.
+ */
+function gameState(): string {
+  const today = new Date().toISOString().slice(0, 10);
+  const season = seasonOn(new Date(`${today}T12:00:00Z`)) ?? SEASONS.at(-1)!;
+  const phase = phaseOn(new Date(`${today}T12:00:00Z`), season);
+  const patch = ('patch' in live ? live.patch : null) as MetaPatch | null;
+
+  const patchLine =
+    patch?.date || patch?.name
+      ? `Último patch conhecido: ${patch.name ?? 'atualização sem nome registrado'}${patch.date ? `, de ${patch.date}` : ''} — confirme na busca se veio outro depois dele.`
+      : 'O último patch não está registrado aqui: descubra na busca qual é o mais recente e de quando é, antes de julgar qualquer build.';
+
+  return `Hoje é ${today}. O jogo está na Temporada ${season.number} — ${season.name}, fase "${phase.name}" desde ${phase.startsOn}. ${patchLine}`;
+}
+
+/** A frase de cada peça, só para os slots que sobreviveram ao funil. */
+function whyBySlot(raw: unknown, build: Partial<Record<SlotId, string>>) {
+  if (!raw || typeof raw !== 'object') return {};
+
+  const why: Partial<Record<SlotId, string>> = {};
+  for (const slot of Object.keys(build) as SlotId[]) {
+    const phrase = text((raw as Record<string, unknown>)[slot], 140);
+    if (phrase) why[slot] = phrase;
+  }
+  return why;
 }
 
 export async function GET(request: Request) {
@@ -217,27 +329,62 @@ export async function GET(request: Request) {
   }
 
   const profile = COMBAT_RANGES.find((item) => item.value === range)!;
-  const prompt = `Pesquise no Reddit (r/Battlefield6 e afins) e em guias recentes qual é o melhor conjunto de acessórios para a ${weapon.name} no MULTIPLAYER de Battlefield 6, montado para combate a ${profile.label.toLowerCase()} distância: ${profile.hint}
+  const prompt = `Você é especialista em Battlefield 6 MULTIPLAYER. Monte o loadout que a comunidade recomenda hoje para a ${weapon.name} — ${weaponClass(weapon)}, ${CATEGORY_NAMES[weapon.category]} —, para combate a ${profile.label.toLowerCase()} distância: ${profile.hint}
 
-Escolha SOMENTE dentre os acessórios desta lista — cada linha é um slot, no formato "id do slot (nome): peças com o custo em pontos":
+${gameState()}
+
+## 1. Pesquise antes de escolher
+
+Nesta ordem de prioridade:
+1. Patch notes oficiais da EA/DICE: buff, nerf, dano, recuo, cadência, munição, TTK, acessórios.
+2. Reddit recente — r/Battlefield6, r/Battlefield, r/BF6 —, buscando "${weapon.name} loadout", "${weapon.name} best attachments", "${weapon.name} build", "${weapon.name} meta".
+3. Trackers e comparadores com pick rate, K/D, KPM ou TTK.
+4. Guias e criadores de conteúdo, só quando houver evidência recente.
+
+Priorize os últimos 7 dias; até 30 dias vale como contexto. Build de antes do patch mais recente só entra se algo posterior a confirmar.
+
+Não copie uma única build encontrada: compare as fontes e fique com a que tem mais apoio. Se elas divergirem de verdade, diga no campo "consensus" em que ponto divergem, e escolha a melhor configuração geral.
+
+## 2. Entenda a arma antes dos acessórios
+
+Determine a função dela (CQB, agressiva, all-around, médio alcance, precisão, suporte, stealth…), a distância em que ela vive — CQB 0–15 m, curta 15–30 m, média 30–60 m, longa 60 m+ —, os pontos fortes e as fraquezas.
+
+## 3. Escolha os acessórios
+
+Use SOMENTE os desta lista. Cada linha é um slot, no formato "id do slot (nome): peças com o custo em pontos":
 
 ${attachmentMenu(weapon)}
 
-Responda SOMENTE com um JSON neste formato, sem cercas de código e sem texto antes ou depois:
+Ordem de prioridade: corrigir uma fraqueza crítica; melhorar o desempenho na distância principal; melhorar o TTK efetivo; controle; consistência; ergonomia; vantagem situacional. Não sacrifique uma característica importante por uma melhoria pequena.
 
-{"picks":{"id do slot":"NOME EXATO DA PEÇA"},"reason":"uma frase curta, em português do Brasil, explicando a montagem"}
+Não preencha um slot só porque ele existe: peça que não traz benefício claro fica de fora.
 
-Regras:
-- No máximo uma peça por slot, e não precisa preencher todos: siga o que a comunidade monta, não a vontade de encher a arma.
-- O orçamento total é de ${budgetFor(weapon.category)} pontos, e os custos estão na lista.
-- Use o id do slot exatamente como aparece antes do parêntese, e o nome da peça exatamente como está na lista.
-- Só multiplayer. Montagem que só faz sentido no REDSEC, o battle royale, fica de fora.`;
+Uma peça por slot. O orçamento é de ${budgetFor(weapon.category)} pontos, com os custos na lista, e a build alternativa obedece ao mesmo teto.
+
+Só multiplayer: montagem que só faz sentido no REDSEC, o battle royale, fica de fora. Fonte que mistura os dois modos só vale depois de você separar o que é de cada um.
+
+## 4. Não invente
+
+Nada de acessório fora da lista, TTK, pick rate, post de Reddit, patch note ou tendência inventados. Sem evidência, escreva menos e baixe a confiança — "LOW" é uma resposta honesta.
+
+## 5. Resposta
+
+Responda SOMENTE com este JSON, sem cercas de código e sem texto antes ou depois. Escreva em português do Brasil; só os nomes das peças vão exatamente como estão na lista.
+
+{"picks":{"id do slot":"NOME EXATO DA PEÇA"},"why":{"id do slot":"uma frase dizendo o que essa peça resolve NESTA arma"},"reason":"2 a 4 frases explicando por que esta é a configuração recomendada agora","playstyle":"até 4 linhas de como jogar com ela","range":{"main":"30–60 m","secondary":"15–30 m"},"status":"META, STRONG, TRENDING, POPULAR, NICHE ou OFF-META","confidence":"HIGH, MEDIUM ou LOW","alternative":{"label":"para que serve, em duas ou três palavras","when":"uma frase dizendo quando trocar para ela","picks":{"id do slot":"NOME EXATO DA PEÇA"}},"consensus":"2 a 4 frases do que a comunidade está dizendo, inclusive onde ela discorda","changes":"o que o último patch mudou nesta arma, ou: Nenhuma mudança recente relevante encontrada."}
+
+Regras do JSON:
+- "status" não é popularidade: arma muito usada e mediana é POPULAR, não META.
+- "confidence": HIGH com várias fontes concordando e dado estatístico junto; MEDIUM com boa evidência e comunidade dividida; LOW com pouca fonte, informação velha ou opinião conflitante.
+- "alternative" é uma só, para uma situação diferente da principal. Se não houver alternativa que se sustente, devolva null.
+- Use o id do slot exatamente como aparece antes do parêntese.`;
 
   let lastError: unknown = null;
 
   for (const model of MODELS) {
     try {
-      const parsed = extractJson(await ask(model, prompt));
+      const { text: answer, sources } = await ask(model, prompt);
+      const parsed = extractJson(answer);
       const picks = parsed?.picks;
       if (!picks || typeof picks !== 'object') throw new Error('resposta sem escolhas');
 
@@ -259,12 +406,57 @@ Regras:
       console.log('[recommend] respondeu', { weaponId, range, model });
 
       const reason =
-        typeof parsed.reason === 'string' && parsed.reason.trim()
-          ? parsed.reason.trim()
-          : 'Montagem citada pela comunidade para este alcance.';
+        text(parsed.reason, 600) ?? 'Montagem citada pela comunidade para este alcance.';
 
+      /*
+       * A alternativa passa pelo mesmo funil da principal.
+       *
+       * Ela aplica no montador com um clique, então uma peça inventada ou fora
+       * do orçamento estragaria a build de quem clicasse — e o funil é a única
+       * coisa entre o palpite do modelo e o que o jogo aceita. Alternativa que
+       * chega igual à principal não é alternativa: vira nada.
+       */
+      const alternative = (() => {
+        const raw = parsed.alternative;
+        if (!raw?.picks || typeof raw.picks !== 'object') return null;
+
+        const built = validateRecommendation(weapon, raw.picks as Partial<Record<SlotId, unknown>>);
+        const same = JSON.stringify(built.attachments) === JSON.stringify(attachments);
+        if (same) return null;
+
+        return {
+          label: text(raw.label, 40) ?? 'outra situação',
+          when: text(raw.when, 200),
+          attachments: built.attachments,
+        };
+      })();
+
+      /*
+       * Os links vão junto da montagem.
+       *
+       * A tela do meta sempre disse de onde a leitura saiu; esta rota lia as
+       * mesmas anotações da busca e as jogava fora, então a sugestão chegava
+       * como palavra de honra — e, depois do fato, não havia como saber em que
+       * página ela se apoiou. Agora o card mostra as páginas abertas, e quem
+       * quiser conferir a montagem tem por onde começar.
+       */
       return Response.json(
-        { attachments, reason },
+        {
+          attachments,
+          why: whyBySlot(parsed.why, attachments),
+          reason,
+          playstyle: text(parsed.playstyle, 500),
+          range: {
+            main: text(parsed.range?.main, 40),
+            secondary: text(parsed.range?.secondary, 40),
+          },
+          status: oneOf(parsed.status, STATUSES),
+          confidence: oneOf(parsed.confidence, CONFIDENCES),
+          alternative,
+          consensus: text(parsed.consensus, 600),
+          changes: text(parsed.changes, 400),
+          sources,
+        },
         {
           headers: {
             // Cada combinação paga uma busca por semana, não por visitante.

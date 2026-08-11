@@ -22,6 +22,7 @@
  */
 
 import { WEAPONS } from '../../src/data/weapons.ts';
+import { pageKey } from '../../src/lib/sources.ts';
 
 /** No máximo, o que a tela mostra. */
 const MAX_PICKS = 8;
@@ -80,12 +81,6 @@ const TREND_VAZIO = new Set([
   'rising',
 ]);
 
-/** Prefixo de idioma no caminho: `/pt/meta` e `/es/meta` são a mesma página. */
-const IDIOMAS = new Set([
-  'ar', 'de', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'nl', 'pl', 'pt', 'ru', 'tr', 'zh',
-  'en-us', 'en-gb', 'es-es', 'es-mx', 'pt-br', 'zh-cn', 'zh-tw',
-]);
-
 /** Sem acentos e sem pontuação: "SG 553R" e "sg553r" viram a mesma coisa. */
 export const chave = (nome) =>
   String(nome ?? '')
@@ -127,14 +122,12 @@ export function extrairJson(bruto) {
  * `/pt`: a mesma tier list em três idiomas, contada como três leituras
  * independentes. Uma lista sustentada por "cinco fontes" que são três é pior
  * que uma sustentada por três, porque mente sobre o próprio lastro.
+ *
+ * A regra vive em `src/lib/sources.ts` porque a sugestão de montagem cita
+ * páginas pelo mesmo critério — e duas cópias divergem no primeiro idioma que
+ * alguém acrescentar de um lado só.
  */
-export function chavePagina(url) {
-  const endereco = new URL(String(url));
-  const host = endereco.hostname.replace(/^www\./, '');
-  const partes = endereco.pathname.split('/').filter(Boolean);
-  if (partes.length && IDIOMAS.has(partes[0].toLowerCase())) partes.shift();
-  return `${host}/${partes.join('/')}`.replace(/\/+$/, '');
-}
+export const chavePagina = pageKey;
 
 const ehData = (valor) => /^\d{4}-\d{2}-\d{2}$/.test(String(valor ?? ''));
 
