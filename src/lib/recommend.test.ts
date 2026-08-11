@@ -201,12 +201,24 @@ describe('buildAdvice', () => {
     expect(discarded).toHaveLength(1);
   });
 
-  it('cobra a alternativa pelo mesmo funil da principal', () => {
-    const { discarded } = buildAdvice(m16, resposta({
+  /**
+   * A regressão que a TR-7 mostrou em produção.
+   *
+   * A build principal veio impecável duas vezes seguidas, e as duas respostas
+   * foram recusadas porque a alternativa pedia a "Mini Reflex 1.00x" — que na
+   * TR-7 se chama "Mini Flex 1.00x". O visitante clicou no botão e recebeu a
+   * montagem calculada por estatística, com o aviso de que a comunidade não
+   * respondeu. Ela tinha respondido.
+   */
+  it('tira a alternativa que não se sustenta, sem derrubar a principal', () => {
+    const { advice, discarded, alternativeDiscarded } = buildAdvice(m16, resposta({
       alternative: { label: 'longo alcance', picks: { barrel: 'Cano Que Não Existe' } },
     }), sources);
 
-    expect(discarded.some((item) => item.includes('na alternativa'))).toBe(true);
+    expect(discarded).toEqual([]);
+    expect(alternativeDiscarded).toHaveLength(1);
+    expect(advice.alternative).toBeNull();
+    expect(advice.attachments.barrel).not.toBe(defaultBarrel(m16));
   });
 
   it('rebaixa a confiança quando a busca não citou nada', () => {
@@ -223,5 +235,57 @@ describe('buildAdvice', () => {
     expect(() => buildAdvice(m16, { picks: {}, reason: 'Vai assim mesmo.' }, sources)).toThrow(
       /fábrica/,
     );
+  });
+});
+
+/**
+ * O nome que o modelo escreve de memória.
+ *
+ * Ele lê a lista e reescreve, e às vezes reescreve torto — "Mini Reflex 1.00x"
+ * por "Mini Flex 1.00x". Recusar por duas letras custava a resposta inteira;
+ * aceitar qualquer parecido montaria a arma errada. O meio-termo tem regra:
+ * nome exato manda, o parecido só entra sozinho, e número tem de bater.
+ */
+describe('nome aproximado da peça', () => {
+  const tr7 = WEAPONS_BY_ID.get('tr-7')!;
+
+  /** Uma letra a mais no meio: o deslize típico de quem escreve de memória. */
+  const comDeslize = (name: string) => `${name.slice(0, 3)}${name[2]}${name.slice(3)}`;
+
+  it('aceita o nome com uma letra trocada quando só uma peça fica perto', () => {
+    for (const weapon of [m16, tr7]) {
+      for (const slot of weapon.slots) {
+        const parts = attachmentsForWeapon(weapon).get(slot) ?? [];
+        const part = parts.find((a) => attachmentName(a, weapon).length >= 10);
+        if (!part) continue;
+
+        const nome = attachmentName(part, weapon);
+        const { attachments, discarded } = validateRecommendation(weapon, {
+          [slot]: comDeslize(nome),
+        });
+
+        // Ou a peça certa entrou, ou o deslize deixou dois candidatos igualmente
+        // perto — e aí recusar é o comportamento combinado.
+        if (!discarded.length) expect(attachments[slot]).toBe(part.id);
+      }
+    }
+  });
+
+  it('não confunde peças que se distinguem pelo número', () => {
+    const canos = (attachmentsForWeapon(m16).get('barrel') ?? []).map((a) => attachmentName(a, m16));
+    const comNumero = canos.find((nome) => /\d/.test(nome));
+    if (!comNumero) return;
+
+    // Mesmo nome, outro número: é outra peça, não um erro de digitação.
+    const outro = comNumero.replace(/\d/, (d) => (d === '9' ? '8' : String(Number(d) + 1)));
+    if (canos.includes(outro)) return;
+
+    const { discarded } = validateRecommendation(m16, { barrel: outro });
+    expect(discarded).toHaveLength(1);
+  });
+
+  it('recusa o nome que não lembra nenhuma peça', () => {
+    const { discarded } = validateRecommendation(m16, { barrel: 'Cano de Plasma Sideral' });
+    expect(discarded).toHaveLength(1);
   });
 });

@@ -105,6 +105,58 @@ const normalizeKey = (name: string) =>
     .toLowerCase()
     .replace(/[^a-z0-9]/g, '');
 
+/** Quantas letras separam duas palavras. Levenshtein, sem economia: os nomes são curtos. */
+function editDistance(a: string, b: string): number {
+  const previous = Array.from({ length: b.length + 1 }, (_, i) => i);
+
+  for (let i = 1; i <= a.length; i += 1) {
+    let diagonal = previous[0];
+    previous[0] = i;
+
+    for (let j = 1; j <= b.length; j += 1) {
+      const current = previous[j];
+      previous[j] = Math.min(
+        previous[j] + 1,
+        previous[j - 1] + 1,
+        diagonal + (a[i - 1] === b[j - 1] ? 0 : 1),
+      );
+      diagonal = current;
+    }
+  }
+
+  return previous[b.length];
+}
+
+/**
+ * A peça daquele slot com esse nome, aceitando o erro de uma sílaba.
+ *
+ * O modelo lê a lista e reescreve o nome de memória, e às vezes reescreve
+ * torto: pediu "Mini Reflex 1.00x" onde a TR-7 tem "Mini Flex 1.00x", e a
+ * resposta inteira foi para o lixo por duas letras. O nome exato manda; só se
+ * ele não existir é que a peça mais próxima entra, e apenas quando é a única
+ * perto o bastante — em dúvida entre duas, recusar é mais seguro que sortear.
+ *
+ * O limiar é apertado de propósito. Nomes de acessório se distinguem por
+ * pouco — "Cano de 46 cm" e "Cano de 41 cm" estão a uma letra —, então nomes
+ * curtos só toleram um deslize, e nenhum tolera diferença em dígito.
+ */
+function findPart(parts: Attachment[], weapon: Weapon, wanted: string): Attachment | undefined {
+  const target = normalizeKey(wanted);
+  const exact = parts.find((part) => normalizeKey(attachmentName(part, weapon)) === target);
+  if (exact) return exact;
+
+  const digits = (value: string) => value.replace(/\D/g, '');
+  const limit = target.length >= 8 ? 2 : 1;
+
+  const near = parts.filter((part) => {
+    const key = normalizeKey(attachmentName(part, weapon));
+    if (digits(key) !== digits(target)) return false;
+    return editDistance(key, target) <= limit;
+  });
+
+  return near.length === 1 ? near[0] : undefined;
+}
+
 /**
  * O cardápio da arma, slot a slot, no formato que entra no prompt.
  *
@@ -334,6 +386,11 @@ function oneOf<T extends string>(value: unknown, allowed: readonly T[]): T | nul
  * inteira, e um resto de build ainda vem acompanhado de um texto que descreve a
  * build completa que o modelo imaginou. Quem chama refaz o pedido.
  *
+ * A alternativa é contada à parte, e por experiência: uma resposta com a build
+ * principal impecável foi recusada duas vezes porque a alternativa pedia uma
+ * mira com o nome trocado. Ela é um extra da tela — quando não se sustenta, sai
+ * de cena sozinha, e o que o visitante pediu continua de pé.
+ *
  * Lança quando não sobra montagem nenhuma — o sinal para tentar outro modelo em
  * vez de entregar o que a arma já vinha de fábrica.
  */
@@ -341,7 +398,7 @@ export function buildAdvice(
   weapon: Weapon,
   raw: RawAdvice,
   sources: CitedSource[],
-): { advice: LoadoutAdvice; discarded: string[] } {
+): { advice: LoadoutAdvice; discarded: string[]; alternativeDiscarded: string[] } {
   if (!raw.picks || typeof raw.picks !== 'object') throw new Error('resposta sem escolhas');
 
   const { attachments, discarded, accepted } = validateRecommendation(
@@ -381,7 +438,10 @@ export function buildAdvice(
     if (!other?.picks || typeof other.picks !== 'object') return null;
 
     const built = validateRecommendation(weapon, other.picks as Partial<Record<SlotId, unknown>>);
-    alternativeDiscarded.push(...built.discarded.map((item) => `${item}, na alternativa`));
+    if (built.discarded.length) {
+      alternativeDiscarded.push(...built.discarded);
+      return null;
+    }
     if (JSON.stringify(built.attachments) === JSON.stringify(attachments)) return null;
 
     return {
@@ -420,7 +480,8 @@ export function buildAdvice(
       sources,
       unsourced,
     },
-    discarded: [...discarded, ...alternativeDiscarded],
+    discarded,
+    alternativeDiscarded,
   };
 }
 
@@ -447,9 +508,7 @@ export function validateRecommendation(
     const wanted = choices[slot];
     if (typeof wanted !== 'string' || !wanted.trim()) continue;
 
-    const match = (bySlot.get(slot) ?? []).find(
-      (part) => normalizeKey(attachmentName(part, weapon)) === normalizeKey(wanted),
-    );
+    const match = findPart(bySlot.get(slot) ?? [], weapon, wanted);
     if (!match) {
       discarded.push(`${wanted} (não existe no slot ${slot} desta arma)`);
       continue;

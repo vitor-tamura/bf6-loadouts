@@ -73,11 +73,13 @@ const MODELS = (process.env.OPENAI_RECOMMEND_MODELS ?? 'gpt-5-mini,gpt-4.1-mini'
  *
  * Além da montagem, ela traz uma linha por peça, o porquê da build, o modo de
  * jogar, o alcance, o consenso da comunidade, o que o patch mudou e uma build
- * alternativa inteira. Resposta cortada no meio é JSON inválido — a sugestão se
- * perderia por economia de fração de centavo, e a combinação ainda fica uma
- * semana na borda.
+ * alternativa inteira. E, nos modelos gpt-5, este teto conta junto o raciocínio
+ * — foi ele que engoliu os 2500 do `gpt-5-mini`, que respondia com a mensagem
+ * vazia depois de pensar e buscar. Só se paga o que for gerado, e a combinação
+ * fica uma semana na borda: apertar aqui é economizar fração de centavo para
+ * perder a sugestão inteira.
  */
-const MAX_OUTPUT_TOKENS = positiveInt(process.env.OPENAI_RECOMMEND_MAX_OUTPUT_TOKENS, 2500);
+const MAX_OUTPUT_TOKENS = positiveInt(process.env.OPENAI_RECOMMEND_MAX_OUTPUT_TOKENS, 6000);
 const MAX_RETRIES = positiveInt(process.env.OPENAI_RECOMMEND_RETRIES, 3);
 
 /*
@@ -121,6 +123,8 @@ interface ResponsePart {
 interface ResponseBody {
   error?: { message?: string };
   output?: { type?: string; content?: ResponsePart[] }[];
+  status?: string;
+  incomplete_details?: { reason?: string };
 }
 
 type ApiError = Error & { status?: number; retryAfterMs?: number };
@@ -185,6 +189,18 @@ async function callOpenAI(
 
   const message = (body.output ?? []).find((item) => item.type === 'message');
   const parts = (message?.content ?? []).filter((part) => part.type === 'output_text');
+
+  /*
+   * Resposta cortada não é resposta.
+   *
+   * Nos modelos gpt-5 o teto de saída conta também os tokens de raciocínio, e o
+   * `gpt-5-mini` vinha estourando o teto durante a busca: chegava aqui uma
+   * mensagem vazia, que o extrator reportava como "resposta sem JSON" — erro
+   * que manda procurar no lugar errado. Agora ele se identifica.
+   */
+  if (body.status === 'incomplete') {
+    throw new Error(`resposta cortada (${body.incomplete_details?.reason ?? 'motivo não informado'})`);
+  }
 
   return {
     text: parts.map((part) => part.text ?? '').join(''),
@@ -296,7 +312,25 @@ async function adviceFrom(model: string, prompt: string, weapon: Weapon): Promis
       throw new Error(`resposta sem JSON${sample ? `: ${sample}` : ''}`);
     }
 
-    const { advice, discarded } = buildAdvice(weapon, parsed, sources);
+    const { advice, discarded, alternativeDiscarded } = buildAdvice(weapon, parsed, sources);
+
+    /*
+     * A alternativa não custa uma rodada nem derruba a resposta.
+     *
+     * Foi o que aconteceu com a TR-7: a build principal veio impecável duas
+     * vezes seguidas e a resposta foi recusada nas duas porque a alternativa
+     * pedia a "Mini Reflex 1.00x", que na TR-7 se chama "Mini Flex 1.00x". Ela
+     * é um extra do painel; quando não se sustenta, sai de cena e o visitante
+     * fica com o que veio pedir.
+     */
+    if (alternativeDiscarded.length) {
+      console.warn('[recommend] alternativa fora', {
+        weapon: weapon.id,
+        model,
+        discarded: alternativeDiscarded,
+      });
+    }
+
     if (!discarded.length) return advice;
 
     if (round === ROUNDS) {
