@@ -140,6 +140,20 @@ export function RecommendPanel({
         <Pecas weapon={weapon} attachments={advice.attachments} why={advice.why} />
       </Bloco>
 
+      {/*
+        Busca é ferramenta que o modelo pode não usar, e quando ele não usa a
+        resposta sai da memória dele — com a mesma cara segura de sempre. Já
+        veio um "status META, confiança HIGH" sem uma página aberta. A confiança
+        já cai para LOW na rota; o aviso diz por quê, porque "sugestão da
+        comunidade" sem fonte nenhuma não é o que o botão promete.
+      */}
+      {advice.unsourced && (
+        <p className="mt-2 text-[11px] leading-snug" style={{ color: 'var(--text-dim)' }}>
+          A busca não citou nenhuma página desta vez: isto é o que o modelo já sabia, não uma
+          leitura de discussões recentes.
+        </p>
+      )}
+
       <Bloco title="Por que esta build">
         <Paragrafo>{advice.reason}</Paragrafo>
       </Bloco>

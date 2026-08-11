@@ -5,11 +5,13 @@ import { WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
 import { attachmentCost, attachmentName, defaultBarrel, factoryAttachments } from './loadout';
 import {
   attachmentMenu,
+  buildAdvice,
   buildCost,
   COMBAT_RANGES,
   isCombatRange,
   idealLoadout,
   attachmentScore,
+  type RawAdvice,
   validateRecommendation,
 } from './recommend';
 
@@ -137,5 +139,89 @@ describe('idealLoadout', () => {
         expect(scoreOf({ id })).toBeCloseTo(best, 5);
       }
     }
+  });
+});
+
+/**
+ * O que a rota entrega para a tela.
+ *
+ * Uma resposta real do modelo mostrou os três buracos de uma vez: aplicou a
+ * munição FMJ e explicou a Hollow Point logo abaixo dela; descreveu, no "como
+ * jogar", um supressor e um carregador rápido que o funil tinha tirado; e se
+ * declarou "META, confiança HIGH" sem a busca ter aberto uma única página.
+ *
+ * Texto que descreve uma arma diferente da que está montada é pior que texto
+ * nenhum — some com a razão de existir do painel, que é explicar o que está na
+ * tela. Daí as três travas testadas aqui.
+ */
+describe('buildAdvice', () => {
+  const sources = [{ name: 'reddit.com', url: 'https://reddit.com/r/Battlefield6/comments/abc' }];
+
+  const resposta = (extra: Partial<RawAdvice> = {}): RawAdvice => ({
+    picks: { barrel: 'Cano Estendido' },
+    reason: 'A comunidade converge nesta montagem desde o último ajuste de recuo.',
+    ...extra,
+  });
+
+  it('monta o conselho a partir de uma resposta que se sustenta', () => {
+    const { advice, discarded } = buildAdvice(m16, resposta({
+      why: { barrel: 'Segura o coice nas rajadas longas.' },
+      status: 'trending',
+      confidence: 'high',
+    }), sources);
+
+    expect(discarded).toEqual([]);
+    expect(advice.why.barrel).toBe('Segura o coice nas rajadas longas.');
+    // Vocabulário fechado, em caixa alta, venha o modelo como vier.
+    expect(advice.status).toBe('TRENDING');
+    expect(advice.confidence).toBe('HIGH');
+    expect(advice.unsourced).toBe(false);
+  });
+
+  it('não deixa a explicação de uma peça embaixo de outra', () => {
+    // Uma mira que não é a de fábrica, para a montagem ter o que mostrar mesmo
+    // com o cano recusado.
+    const sight = (attachmentsForWeapon(m16).get('sight') ?? []).find(
+      (a) => a.id !== factoryAttachments(m16).sight,
+    )!;
+
+    const { advice, discarded } = buildAdvice(m16, resposta({
+      picks: { barrel: 'Cano Inventado 9000', sight: attachmentName(sight, m16) },
+      // O funil recusa o cano e a peça de fábrica fica no lugar; esta frase,
+      // que fala do cano pedido, não pode aparecer descrevendo o que ficou.
+      why: {
+        barrel: 'O cano inventado estica o alcance efetivo.',
+        sight: 'Leitura limpa do alvo a média distância.',
+      },
+    }), sources);
+
+    expect(advice.attachments.barrel).toBe(defaultBarrel(m16));
+    expect(advice.why.barrel).toBeUndefined();
+    expect(advice.why.sight).toBe('Leitura limpa do alvo a média distância.');
+    expect(discarded).toHaveLength(1);
+  });
+
+  it('cobra a alternativa pelo mesmo funil da principal', () => {
+    const { discarded } = buildAdvice(m16, resposta({
+      alternative: { label: 'longo alcance', picks: { barrel: 'Cano Que Não Existe' } },
+    }), sources);
+
+    expect(discarded.some((item) => item.includes('na alternativa'))).toBe(true);
+  });
+
+  it('rebaixa a confiança quando a busca não citou nada', () => {
+    const { advice } = buildAdvice(m16, resposta({ status: 'META', confidence: 'HIGH' }), []);
+
+    expect(advice.unsourced).toBe(true);
+    expect(advice.confidence).toBe('LOW');
+    // O status continua sendo o que o modelo disse: quem perde peso é a
+    // confiança, que é justamente o campo que mede o lastro.
+    expect(advice.status).toBe('META');
+  });
+
+  it('recusa a resposta que não muda nada além da fábrica', () => {
+    expect(() => buildAdvice(m16, { picks: {}, reason: 'Vai assim mesmo.' }, sources)).toThrow(
+      /fábrica/,
+    );
   });
 });

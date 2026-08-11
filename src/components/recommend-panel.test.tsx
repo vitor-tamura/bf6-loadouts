@@ -29,6 +29,7 @@ const magro: LoadoutAdvice = {
   consensus: null,
   changes: null,
   sources: [],
+  unsourced: true,
 };
 
 describe('painel da sugestão', () => {

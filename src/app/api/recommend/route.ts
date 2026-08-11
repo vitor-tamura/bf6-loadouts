@@ -3,15 +3,14 @@ import { budgetFor, CATEGORY_NAMES, CLASSES } from '@/data/classes';
 import live from '@/data/meta-live.json';
 import type { MetaPatch } from '@/data/meta';
 import { SEASONS, phaseOn, seasonOn } from '@/data/season';
-import type { SlotId, Weapon } from '@/data/types';
-import { factoryAttachments } from '@/lib/loadout';
+import type { Weapon } from '@/data/types';
 import {
   attachmentMenu,
+  buildAdvice,
   COMBAT_RANGES,
   isCombatRange,
-  RECOMMENDATION_CONFIDENCES as CONFIDENCES,
-  RECOMMENDATION_STATUSES as STATUSES,
-  validateRecommendation,
+  type LoadoutAdvice,
+  type RawAdvice,
 } from '@/lib/recommend';
 import { dedupeCitations, type CitedSource } from '@/lib/sources';
 
@@ -32,8 +31,18 @@ import { dedupeCitations, type CitedSource } from '@/lib/sources';
  * não por visitante.
  */
 
-/** A busca na web leva o tempo dela; o texto que vem depois é rápido. */
-export const maxDuration = 60;
+/*
+ * A busca leva o tempo dela, e agora pode haver duas rodadas.
+ *
+ * Uma resposta com busca e painel inteiro já mediu quase um minuto sozinha; com
+ * a rodada de correção, o teto de 60 s estourava no meio e a sugestão se perdia
+ * depois de paga. Quem espera é uma combinação por semana — as demais visitas
+ * são servidas pela borda.
+ */
+export const maxDuration = 300;
+
+/** Uma chance de corrigir. A terceira rodada seria o mesmo erro mais caro. */
+const ROUNDS = 2;
 
 const API_KEY = process.env.OPENAI_API_KEY;
 
@@ -219,50 +228,16 @@ async function ask(model: string, prompt: string) {
   throw lastError;
 }
 
-/** O que o modelo devolve, antes de qualquer trava. */
-interface RawAnswer {
-  picks?: unknown;
-  why?: unknown;
-  reason?: unknown;
-  playstyle?: unknown;
-  range?: { main?: unknown; secondary?: unknown };
-  status?: unknown;
-  confidence?: unknown;
-  alternative?: { label?: unknown; when?: unknown; picks?: unknown };
-  consensus?: unknown;
-  changes?: unknown;
-}
-
 /** Tira as cercas de código que o modelo às vezes põe em volta do JSON. */
-function extractJson(text: string): RawAnswer | null {
+function extractJson(text: string): RawAdvice | null {
   const start = text.indexOf('{');
   const end = text.lastIndexOf('}');
   if (start === -1 || end === -1) return null;
   try {
-    return JSON.parse(text.slice(start, end + 1)) as RawAnswer;
+    return JSON.parse(text.slice(start, end + 1)) as RawAdvice;
   } catch {
     return null;
   }
-}
-
-/**
- * Texto do modelo, aparado.
- *
- * O limite não é decoração: o painel tem tamanho, e uma resposta que resolveu
- * escrever um guia inteiro num campo de duas frases quebraria o desenho da
- * tela em vez de informar mais.
- */
-function text(value: unknown, max: number): string | null {
-  if (typeof value !== 'string') return null;
-  const clean = value.trim().replace(/\s+/g, ' ');
-  return clean ? clean.slice(0, max) : null;
-}
-
-/** Vocabulário fechado: rótulo fora da lista é rótulo inventado. */
-function oneOf<T extends string>(value: unknown, allowed: readonly T[]): T | null {
-  if (typeof value !== 'string') return null;
-  const upper = value.trim().toUpperCase();
-  return allowed.find((item) => item === upper) ?? null;
 }
 
 /** A classe que a arma representa, para o modelo saber de que papel se fala. */
@@ -294,16 +269,48 @@ function gameState(): string {
   return `Hoje é ${today}. O jogo está na Temporada ${season.number} — ${season.name}, fase "${phase.name}" desde ${phase.startsOn}. ${patchLine}`;
 }
 
-/** A frase de cada peça, só para os slots que sobreviveram ao funil. */
-function whyBySlot(raw: unknown, build: Partial<Record<SlotId, string>>) {
-  if (!raw || typeof raw !== 'object') return {};
+/** Sete dias na borda, um mês servindo o antigo enquanto revalida. */
+const CACHE = 'public, s-maxage=604800, stale-while-revalidate=2592000';
 
-  const why: Partial<Record<SlotId, string>> = {};
-  for (const slot of Object.keys(build) as SlotId[]) {
-    const phrase = text((raw as Record<string, unknown>)[slot], 140);
-    if (phrase) why[slot] = phrase;
+/**
+ * A montagem que o modelo entrega tem de ser montável no jogo, inteira.
+ *
+ * O funil sabe recusar peça que não existe na arma e peça que estoura o
+ * orçamento, mas entregar o que sobrou seria pior que não entregar: a lista
+ * ficaria com três peças e o texto ao lado continuaria explicando o supressor e
+ * o carregador rápido que o funil tirou. Build pela metade com legenda de build
+ * inteira não é sugestão, é ruído.
+ *
+ * Então o erro volta para quem o cometeu, com o nome de cada peça recusada e o
+ * motivo. Um modelo que leu a lista errado costuma acertar quando a lista é
+ * relida com o erro apontado; o que insiste perde a vez para o próximo da fila.
+ */
+async function adviceFrom(model: string, prompt: string, weapon: Weapon): Promise<LoadoutAdvice> {
+  let critique = '';
+
+  for (let round = 1; round <= ROUNDS; round += 1) {
+    const { text, sources } = await ask(model, critique ? `${prompt}\n\n${critique}` : prompt);
+    const parsed = extractJson(text);
+    if (!parsed) {
+      const sample = text.replace(/\s+/g, ' ').slice(0, 180);
+      throw new Error(`resposta sem JSON${sample ? `: ${sample}` : ''}`);
+    }
+
+    const { advice, discarded } = buildAdvice(weapon, parsed, sources);
+    if (!discarded.length) return advice;
+
+    if (round === ROUNDS) {
+      throw new Error(`peças recusadas até o fim: ${discarded.join('; ')}`);
+    }
+
+    console.warn('[recommend] pedindo correção', { weapon: weapon.id, model, discarded });
+    critique = `A resposta anterior não pôde ser usada. Estas escolhas foram recusadas:
+${discarded.map((item) => `- ${item}`).join('\n')}
+
+Refaça o JSON inteiro. Só valem peças copiadas exatamente da lista de slots acima, e a soma dos custos das peças escolhidas — na build principal e na alternativa, cada uma por si — não pode passar de ${budgetFor(weapon.category)} pontos. Some antes de responder; se passar do teto, tire a peça menos importante em vez de trocar o teto. Os textos têm de descrever as peças que ficaram.`;
   }
-  return why;
+
+  throw new Error('sem resposta utilizável');
 }
 
 export async function GET(request: Request) {
@@ -359,7 +366,9 @@ Ordem de prioridade: corrigir uma fraqueza crítica; melhorar o desempenho na di
 
 Não preencha um slot só porque ele existe: peça que não traz benefício claro fica de fora.
 
-Uma peça por slot. O orçamento é de ${budgetFor(weapon.category)} pontos, com os custos na lista, e a build alternativa obedece ao mesmo teto.
+Uma peça por slot. O orçamento é de ${budgetFor(weapon.category)} pontos, com os custos na lista, e a build alternativa obedece ao mesmo teto, contada por si.
+
+Antes de responder, some os custos das peças que escolheu e confira contra o teto — as duas builds, cada uma por si. Se passou, tire a peça menos importante; não arredonde o teto nem troque o custo que está na lista. Peça com nome diferente do que está na lista, ou soma acima do teto, faz a resposta inteira ser devolvida para você refazer.
 
 Só multiplayer: montagem que só faz sentido no REDSEC, o battle royale, fica de fora. Fonte que mistura os dois modos só vale depois de você separar o que é de cada um.
 
@@ -383,53 +392,8 @@ Regras do JSON:
 
   for (const model of MODELS) {
     try {
-      const { text: answer, sources } = await ask(model, prompt);
-      const parsed = extractJson(answer);
-      const picks = parsed?.picks;
-      if (!picks || typeof picks !== 'object') throw new Error('resposta sem escolhas');
-
-      const { attachments, discarded } = validateRecommendation(
-        weapon,
-        picks as Partial<Record<SlotId, unknown>>,
-      );
-
-      // Recomendação que não muda nada além da fábrica não vale publicar.
-      const factory = factoryAttachments(weapon);
-      const realChoices = Object.entries(attachments).filter(
-        ([slot, id]) => factory[slot as keyof typeof factory] !== id,
-      );
-      if (!realChoices.length) throw new Error('nenhuma peça reconhecida além da fábrica');
-
-      if (discarded.length) {
-        console.warn('[recommend] descartados', { weaponId, range, discarded });
-      }
-      console.log('[recommend] respondeu', { weaponId, range, model });
-
-      const reason =
-        text(parsed.reason, 600) ?? 'Montagem citada pela comunidade para este alcance.';
-
-      /*
-       * A alternativa passa pelo mesmo funil da principal.
-       *
-       * Ela aplica no montador com um clique, então uma peça inventada ou fora
-       * do orçamento estragaria a build de quem clicasse — e o funil é a única
-       * coisa entre o palpite do modelo e o que o jogo aceita. Alternativa que
-       * chega igual à principal não é alternativa: vira nada.
-       */
-      const alternative = (() => {
-        const raw = parsed.alternative;
-        if (!raw?.picks || typeof raw.picks !== 'object') return null;
-
-        const built = validateRecommendation(weapon, raw.picks as Partial<Record<SlotId, unknown>>);
-        const same = JSON.stringify(built.attachments) === JSON.stringify(attachments);
-        if (same) return null;
-
-        return {
-          label: text(raw.label, 40) ?? 'outra situação',
-          when: text(raw.when, 200),
-          attachments: built.attachments,
-        };
-      })();
+      const advice = await adviceFrom(model, prompt, weapon);
+      console.log('[recommend] respondeu', { weaponId, range, model, unsourced: advice.unsourced });
 
       /*
        * Os links vão junto da montagem.
@@ -437,33 +401,11 @@ Regras do JSON:
        * A tela do meta sempre disse de onde a leitura saiu; esta rota lia as
        * mesmas anotações da busca e as jogava fora, então a sugestão chegava
        * como palavra de honra — e, depois do fato, não havia como saber em que
-       * página ela se apoiou. Agora o card mostra as páginas abertas, e quem
+       * página ela se apoiou. Agora o painel mostra as páginas abertas, e quem
        * quiser conferir a montagem tem por onde começar.
        */
-      return Response.json(
-        {
-          attachments,
-          why: whyBySlot(parsed.why, attachments),
-          reason,
-          playstyle: text(parsed.playstyle, 500),
-          range: {
-            main: text(parsed.range?.main, 40),
-            secondary: text(parsed.range?.secondary, 40),
-          },
-          status: oneOf(parsed.status, STATUSES),
-          confidence: oneOf(parsed.confidence, CONFIDENCES),
-          alternative,
-          consensus: text(parsed.consensus, 600),
-          changes: text(parsed.changes, 400),
-          sources,
-        },
-        {
-          headers: {
-            // Cada combinação paga uma busca por semana, não por visitante.
-            'cache-control': 'public, s-maxage=604800, stale-while-revalidate=2592000',
-          },
-        },
-      );
+      // Cada combinação paga uma busca por semana, não por visitante.
+      return Response.json(advice, { headers: { 'cache-control': CACHE } });
     } catch (error) {
       lastError = error;
       console.warn('[recommend] modelo recusado, tentando o próximo', {

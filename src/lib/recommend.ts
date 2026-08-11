@@ -233,6 +233,14 @@ export interface Recommendation {
   attachments: Partial<Record<SlotId, string>>;
   /** O que o modelo pediu e não entrou, com o motivo — vai para o log da rota. */
   discarded: string[];
+  /**
+   * Os slots em que a peça pedida é a peça que ficou.
+   *
+   * Slot que não está aqui ou não foi escolhido, ou teve a escolha recusada e
+   * voltou para a de fábrica — e a explicação que o modelo escreveu para ele
+   * fala de uma peça que não está montada.
+   */
+  accepted: SlotId[];
 }
 
 /**
@@ -280,6 +288,140 @@ export interface LoadoutAdvice {
   consensus: string | null;
   changes: string | null;
   sources: CitedSource[];
+  /** A busca não citou uma página sequer: isto é memória do modelo, não leitura. */
+  unsourced: boolean;
+}
+
+/** A resposta do modelo, crua, antes de qualquer trava. */
+export interface RawAdvice {
+  picks?: unknown;
+  why?: unknown;
+  reason?: unknown;
+  playstyle?: unknown;
+  range?: { main?: unknown; secondary?: unknown };
+  status?: unknown;
+  confidence?: unknown;
+  alternative?: { label?: unknown; when?: unknown; picks?: unknown };
+  consensus?: unknown;
+  changes?: unknown;
+}
+
+/**
+ * Texto do modelo, aparado.
+ *
+ * O limite não é decoração: o painel tem tamanho, e uma resposta que resolveu
+ * escrever um guia inteiro num campo de duas frases quebraria o desenho da tela
+ * em vez de informar mais.
+ */
+function trimmedText(value: unknown, max: number): string | null {
+  if (typeof value !== 'string') return null;
+  const clean = value.trim().replace(/\s+/g, ' ');
+  return clean ? clean.slice(0, max) : null;
+}
+
+/** Vocabulário fechado: rótulo fora da lista é rótulo inventado. */
+function oneOf<T extends string>(value: unknown, allowed: readonly T[]): T | null {
+  if (typeof value !== 'string') return null;
+  const upper = value.trim().toUpperCase();
+  return allowed.find((item) => item === upper) ?? null;
+}
+
+/**
+ * A resposta do modelo virada conselho publicável.
+ *
+ * `discarded` sai junto porque a política de quem chama é não entregar build
+ * com peça recusada: a montagem que aparece na tela é para ser montável no jogo
+ * inteira, e um resto de build ainda vem acompanhado de um texto que descreve a
+ * build completa que o modelo imaginou. Quem chama refaz o pedido.
+ *
+ * Lança quando não sobra montagem nenhuma — o sinal para tentar outro modelo em
+ * vez de entregar o que a arma já vinha de fábrica.
+ */
+export function buildAdvice(
+  weapon: Weapon,
+  raw: RawAdvice,
+  sources: CitedSource[],
+): { advice: LoadoutAdvice; discarded: string[] } {
+  if (!raw.picks || typeof raw.picks !== 'object') throw new Error('resposta sem escolhas');
+
+  const { attachments, discarded, accepted } = validateRecommendation(
+    weapon,
+    raw.picks as Partial<Record<SlotId, unknown>>,
+  );
+
+  // Recomendação que não muda nada além da fábrica não vale publicar.
+  const factory = factoryAttachments(weapon);
+  const changedSomething = Object.entries(attachments).some(
+    ([slot, id]) => factory[slot as SlotId] !== id,
+  );
+  if (!changedSomething) throw new Error('nenhuma peça reconhecida além da fábrica');
+
+  /*
+   * A frase de cada peça só vale para o slot em que a peça pedida é a que
+   * ficou. Sem esta trava, a explicação da munição Hollow Point aparecia
+   * embaixo da FMJ que o funil manteve — o texto descrevendo uma arma e a
+   * lista mostrando outra.
+   */
+  const why: Partial<Record<SlotId, string>> = {};
+  if (raw.why && typeof raw.why === 'object') {
+    for (const slot of accepted) {
+      const phrase = trimmedText((raw.why as Record<string, unknown>)[slot], 140);
+      if (phrase) why[slot] = phrase;
+    }
+  }
+
+  /*
+   * A alternativa passa pelo mesmo funil da principal: ela aplica com um
+   * clique, e peça inventada ou fora do orçamento estragaria a build de quem
+   * clicasse. Alternativa que chega igual à principal não é alternativa.
+   */
+  const alternativeDiscarded: string[] = [];
+  const alternative = (() => {
+    const other = raw.alternative;
+    if (!other?.picks || typeof other.picks !== 'object') return null;
+
+    const built = validateRecommendation(weapon, other.picks as Partial<Record<SlotId, unknown>>);
+    alternativeDiscarded.push(...built.discarded.map((item) => `${item}, na alternativa`));
+    if (JSON.stringify(built.attachments) === JSON.stringify(attachments)) return null;
+
+    return {
+      label: trimmedText(other.label, 40) ?? 'outra situação',
+      when: trimmedText(other.when, 200),
+      attachments: built.attachments,
+    };
+  })();
+
+  /*
+   * Confiança alta exige lastro.
+   *
+   * A busca é uma ferramenta que o modelo pode simplesmente não usar, e quando
+   * ele não usa a resposta sai da memória dele — com a mesma cara segura de
+   * sempre. Já veio um "status META, confiança HIGH" sem uma única página
+   * aberta. Sem fonte, o teto é LOW.
+   */
+  const unsourced = sources.length === 0;
+  const declared = oneOf(raw.confidence, RECOMMENDATION_CONFIDENCES);
+
+  return {
+    advice: {
+      attachments,
+      why,
+      reason: trimmedText(raw.reason, 600) ?? 'Montagem citada pela comunidade para este alcance.',
+      playstyle: trimmedText(raw.playstyle, 500),
+      range: {
+        main: trimmedText(raw.range?.main, 40),
+        secondary: trimmedText(raw.range?.secondary, 40),
+      },
+      status: oneOf(raw.status, RECOMMENDATION_STATUSES),
+      confidence: unsourced ? 'LOW' : declared,
+      alternative,
+      consensus: trimmedText(raw.consensus, 600),
+      changes: trimmedText(raw.changes, 400),
+      sources,
+      unsourced,
+    },
+    discarded: [...discarded, ...alternativeDiscarded],
+  };
 }
 
 /**
@@ -299,6 +441,7 @@ export function validateRecommendation(
   const budget = budgetFor(weapon.category);
   const build: Partial<Record<SlotId, string>> = { ...factoryAttachments(weapon) };
   const discarded: string[] = [];
+  const accepted: SlotId[] = [];
 
   for (const slot of weapon.slots) {
     const wanted = choices[slot];
@@ -318,8 +461,10 @@ export function validateRecommendation(
       if (previous === undefined) delete build[slot];
       else build[slot] = previous;
       discarded.push(`${attachmentName(match, weapon)} (não coube no orçamento)`);
+      continue;
     }
+    accepted.push(slot);
   }
 
-  return { attachments: build, discarded };
+  return { attachments: build, discarded, accepted };
 }
