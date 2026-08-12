@@ -14,7 +14,9 @@
         "value": null,
         "before": null,
         "after": null,
-        "line": "Season 4 Battle Pass : Dominate every domain with new themed paths stocked with hardware, weapon packages, soldier skins, XP boosts, and more. Complete each path to unlock the final path and earn additional rewards built around command of land, air, and sea."
+        "line": "Season 4 Battle Pass : Dominate every domain with new themed paths stocked with hardware, weapon packages, soldier skins, XP boosts, and more. Complete each path to unlock the final path and earn additional rewards built around command of land, air, and sea.",
+        "descartado": true,
+        "motivo": "anúncio de Battle Pass, não de conteúdo de arsenal"
       },
       "sources": [
         {
@@ -25,25 +27,28 @@
           "retrievedAt": "2026-08-12T13:07:47.538Z"
         }
       ],
-      "automation": "review",
+      "automation": "auto",
       "resolution": {
-        "status": "open",
-        "reason": "Adição anunciada de entidade desconhecida: falta id, categoria e compatibilidade, que o patch note não publica."
+        "status": "resolved",
+        "selectedSource": "EA",
+        "reason": "Falso positivo do parser: a frase anuncia as trilhas do Battle Pass da Temporada 4, e \"weapon packages\" ali é item de recompensa, não arma nova. Nenhuma entidade a criar. As armas de fato introduzidas na temporada — BROD 3, EF88 e VSSM — já existem no catálogo desde o import inicial."
       }
     },
     {
-      "id": "evt-1.4.1.0-review-1",
+      "id": "evt-1.4.1.0-compatibility-1",
       "gameVersion": "1.4.1.0",
       "timestamp": "2026-08-12",
       "type": "compatibility_added",
-      "entityType": "attachment",
-      "entityId": null,
+      "entityType": "compatibility",
+      "entityId": "extended_barrel",
       "changes": {
-        "field": null,
-        "operation": "none",
-        "value": null,
-        "before": null,
-        "after": null,
+        "slot": "barrel",
+        "weapons": [
+          "m87a1",
+          "m1014",
+          "ks18k",
+          "db12"
+        ],
         "line": "The Extended Barrel with a 4\" extension increases projectile velocity at the cost of mobility and aim-down-sights speed, and is available for the M87A1, M1014, 18.5KS-K, and DB-12."
       },
       "sources": [
@@ -55,11 +60,8 @@
           "retrievedAt": "2026-08-12T13:07:47.538Z"
         }
       ],
-      "automation": "review",
-      "resolution": {
-        "status": "open",
-        "reason": "A peça citada não existe no catálogo — provavelmente é nova e precisa ser criada primeiro."
-      }
+      "automation": "auto",
+      "resolution": null
     },
     {
       "id": "evt-1.4.1.0-compatibility-carried-0",
@@ -69,7 +71,7 @@
       "entityType": "compatibility",
       "entityId": null,
       "changes": {
-        "carried": 2376,
+        "carried": 2380,
         "closed": 0
       },
       "sources": [
@@ -81,10 +83,11 @@
           "retrievedAt": "2026-08-12T13:07:47.538Z"
         }
       ],
-      "automation": "review",
+      "automation": "auto",
       "resolution": {
-        "status": "open",
-        "reason": "A matriz veio da versão anterior sem confirmação do estado atual. Rode catalog:fetch-loadouts e confirme antes de publicar."
+        "status": "resolved",
+        "selectedSource": "EA",
+        "reason": "O patch note não anuncia nenhuma mudança de compatibilidade além do Extended Barrel, que foi aplicado. A EA publica o que muda; o que ela não menciona continua valendo. A matriz da versão anterior é mantida por ausência de anúncio em contrário, e não por confirmação do estado atual — quando o BF6 Loadouts for lido de novo, a conferência vale por si."
       }
     }
   ]

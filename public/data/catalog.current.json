@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "gameVersion": "1.4.1.5",
-  "generatedAt": "2026-08-12T13:27:02.465Z",
+  "generatedAt": "2026-08-12T13:32:31.614Z",
   "capabilities": {
     "weapons": true,
     "attachments": true,
@@ -9,7 +9,7 @@
     "magazines": true,
     "ammo": true,
     "costs": false,
-    "effects": true,
+    "effects": false,
     "ballistics": true,
     "damageCurves": true,
     "velocity": true,
@@ -1920,6 +1920,32 @@
       }
     },
     {
+      "id": "1p86_lpvo",
+      "sourceId": "1p86_lpvo",
+      "name": "1P86 LPVO",
+      "slot": "sight",
+      "scope": "global",
+      "group": "SIGHTS",
+      "weaponScope": null,
+      "status": "active",
+      "introducedIn": "1.4.1.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "EA",
+        "type": "official",
+        "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-1-0",
+        "dataset": "patch notes 1.4.1.0",
+        "commit": null,
+        "version": "1.4.1.0",
+        "retrievedAt": "2026-08-12",
+        "snapshot": null
+      },
+      "originalName": "1P86 LPVO",
+      "cost": null,
+      "effects": {}
+    },
+    {
       "id": "50mw_blue",
       "sourceId": "50mw_blue",
       "name": "Laser Azul de 50 MW",
@@ -3615,6 +3641,32 @@
         "velMult": 1.25,
         "velTierMod": 1
       }
+    },
+    {
+      "id": "extended_barrel",
+      "sourceId": "extended_barrel",
+      "name": "Cano Estendido 4\"",
+      "slot": "barrel",
+      "scope": "global",
+      "group": "BARRELS",
+      "weaponScope": null,
+      "status": "active",
+      "introducedIn": "1.4.1.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "EA",
+        "type": "official",
+        "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-1-0",
+        "dataset": "patch notes 1.4.1.0",
+        "commit": null,
+        "version": "1.4.1.0",
+        "retrievedAt": "2026-08-12",
+        "snapshot": null
+      },
+      "originalName": "Extended Barrel",
+      "cost": null,
+      "effects": {}
     },
     {
       "id": "factory_angled_db12",
@@ -15749,6 +15801,11 @@
     },
     {
       "weaponId": "db12",
+      "attachmentId": "extended_barrel",
+      "slot": "barrel"
+    },
+    {
+      "weaponId": "db12",
       "attachmentId": "120mw_blue",
       "slot": "laser"
     },
@@ -17224,6 +17281,11 @@
     },
     {
       "weaponId": "ks18k",
+      "attachmentId": "extended_barrel",
+      "slot": "barrel"
+    },
+    {
+      "weaponId": "ks18k",
       "attachmentId": "120mw_blue",
       "slot": "laser"
     },
@@ -18655,6 +18717,11 @@
     {
       "weaponId": "m1014",
       "attachmentId": "extended",
+      "slot": "barrel"
+    },
+    {
+      "weaponId": "m1014",
+      "attachmentId": "extended_barrel",
       "slot": "barrel"
     },
     {
@@ -21625,6 +21692,11 @@
     {
       "weaponId": "m87a1",
       "attachmentId": "extended",
+      "slot": "barrel"
+    },
+    {
+      "weaponId": "m87a1",
+      "attachmentId": "extended_barrel",
       "slot": "barrel"
     },
     {
@@ -39910,7 +39982,7 @@
   ],
   "indexes": {
     "gameVersion": "1.4.1.5",
-    "generatedAt": "2026-08-12T13:27:02.465Z",
+    "generatedAt": "2026-08-12T13:32:31.614Z",
     "attachmentsByWeapon": {
       "ak205": [
         "120mw_blue",
@@ -40165,6 +40237,7 @@
         "classic_vert_db12",
         "cqb_supp",
         "extended",
+        "extended_barrel",
         "factory_angled_db12",
         "flash_hider",
         "flashlight",
@@ -40476,6 +40549,7 @@
         "compensator",
         "cqb_supp",
         "extended",
+        "extended_barrel",
         "flash_hider",
         "flashlight",
         "fold_stubby",
@@ -40778,6 +40852,7 @@
         "compensator",
         "cqb_supp",
         "extended",
+        "extended_barrel",
         "flashlight",
         "fold_stubby",
         "fold_vert",
@@ -41404,6 +41479,7 @@
         "compensator",
         "cqb_supp",
         "extended",
+        "extended_barrel",
         "flashlight",
         "fold_stubby",
         "fold_vert",
@@ -43475,6 +43551,12 @@
         "tr7",
         "umg40",
         "vcr2"
+      ],
+      "extended_barrel": [
+        "db12",
+        "ks18k",
+        "m1014",
+        "m87a1"
       ],
       "factory_angled_db12": [
         "db12"
@@ -45831,7 +45913,8 @@
       "db12": {
         "barrel": [
           "basic",
-          "extended"
+          "extended",
+          "extended_barrel"
         ],
         "laser": [
           "120mw_blue",
@@ -46238,7 +46321,8 @@
       "ks18k": {
         "barrel": [
           "basic",
-          "extended"
+          "extended",
+          "extended_barrel"
         ],
         "laser": [
           "120mw_blue",
@@ -46623,7 +46707,8 @@
       "m1014": {
         "barrel": [
           "basic",
-          "extended"
+          "extended",
+          "extended_barrel"
         ],
         "laser": [
           "120mw_blue",
@@ -47435,7 +47520,8 @@
       "m87a1": {
         "barrel": [
           "basic",
-          "extended"
+          "extended",
+          "extended_barrel"
         ],
         "laser": [
           "120mw_blue",
@@ -48800,7 +48886,7 @@
   },
   "pending": {
     "compatibilityNeedsReview": 5,
-    "attachmentsWithoutWeapon": 31,
+    "attachmentsWithoutWeapon": 32,
     "attachmentsWithoutCost": 15,
     "attachmentsWithoutTranslation": 0
   }

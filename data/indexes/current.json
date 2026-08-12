@@ -1,6 +1,6 @@
 {
   "gameVersion": "1.4.1.5",
-  "generatedAt": "2026-08-12T13:27:02.264Z",
+  "generatedAt": "2026-08-12T13:32:31.342Z",
   "attachmentsByWeapon": {
     "ak205": [
       "120mw_blue",
@@ -255,6 +255,7 @@
       "classic_vert_db12",
       "cqb_supp",
       "extended",
+      "extended_barrel",
       "factory_angled_db12",
       "flash_hider",
       "flashlight",
@@ -566,6 +567,7 @@
       "compensator",
       "cqb_supp",
       "extended",
+      "extended_barrel",
       "flash_hider",
       "flashlight",
       "fold_stubby",
@@ -868,6 +870,7 @@
       "compensator",
       "cqb_supp",
       "extended",
+      "extended_barrel",
       "flashlight",
       "fold_stubby",
       "fold_vert",
@@ -1494,6 +1497,7 @@
       "compensator",
       "cqb_supp",
       "extended",
+      "extended_barrel",
       "flashlight",
       "fold_stubby",
       "fold_vert",
@@ -3565,6 +3569,12 @@
       "tr7",
       "umg40",
       "vcr2"
+    ],
+    "extended_barrel": [
+      "db12",
+      "ks18k",
+      "m1014",
+      "m87a1"
     ],
     "factory_angled_db12": [
       "db12"
@@ -5921,7 +5931,8 @@
     "db12": {
       "barrel": [
         "basic",
-        "extended"
+        "extended",
+        "extended_barrel"
       ],
       "laser": [
         "120mw_blue",
@@ -6328,7 +6339,8 @@
     "ks18k": {
       "barrel": [
         "basic",
-        "extended"
+        "extended",
+        "extended_barrel"
       ],
       "laser": [
         "120mw_blue",
@@ -6713,7 +6725,8 @@
     "m1014": {
       "barrel": [
         "basic",
-        "extended"
+        "extended",
+        "extended_barrel"
       ],
       "laser": [
         "120mw_blue",
@@ -7525,7 +7538,8 @@
     "m87a1": {
       "barrel": [
         "basic",
-        "extended"
+        "extended",
+        "extended_barrel"
       ],
       "laser": [
         "120mw_blue",

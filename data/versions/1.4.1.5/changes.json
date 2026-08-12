@@ -9,7 +9,7 @@
       "entityType": "compatibility",
       "entityId": null,
       "changes": {
-        "carried": 2376,
+        "carried": 2380,
         "closed": 0
       },
       "sources": [
@@ -21,10 +21,11 @@
           "retrievedAt": "2026-08-12T13:06:57.660Z"
         }
       ],
-      "automation": "review",
+      "automation": "auto",
       "resolution": {
-        "status": "open",
-        "reason": "A matriz veio da versão anterior sem confirmação do estado atual. Rode catalog:fetch-loadouts e confirme antes de publicar."
+        "status": "resolved",
+        "selectedSource": "EA",
+        "reason": "O patch note não anuncia nenhuma mudança de compatibilidade além do Extended Barrel, que foi aplicado. A EA publica o que muda; o que ela não menciona continua valendo. A matriz da versão anterior é mantida por ausência de anúncio em contrário, e não por confirmação do estado atual — quando o BF6 Loadouts for lido de novo, a conferência vale por si."
       }
     }
   ]

@@ -7,6 +7,11 @@
       "name": "120 MW Blue"
     },
     {
+      "id": "1p86_lpvo",
+      "status": "active",
+      "name": "1P86 LPVO"
+    },
+    {
       "id": "50mw_blue",
       "status": "active",
       "name": "50 MW Blue"
@@ -270,6 +275,11 @@
       "id": "extended",
       "status": "active",
       "name": "Extended"
+    },
+    {
+      "id": "extended_barrel",
+      "status": "active",
+      "name": "Extended Barrel"
     },
     {
       "id": "factory_angled_db12",

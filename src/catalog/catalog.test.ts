@@ -55,7 +55,34 @@ describe('a versão publicada', () => {
 
   it('traz o arsenal inteiro', () => {
     expect(getWeapons()).toHaveLength(62);
-    expect(catalog.attachments).toHaveLength(400);
+    // 400 do import inicial + as duas peças que a Temporada 4 anunciou.
+    expect(catalog.attachments).toHaveLength(402);
+  });
+
+  it('incorporou as peças anunciadas no patch note da Temporada 4', () => {
+    /*
+     * O Extended Barrel entrou com a compatibilidade que a EA listou — quatro
+     * escopetas, nomeadas no texto. O 1P86 LPVO entrou sem arma nenhuma: o
+     * patch note diz "across supported weapons" e não lista, então não há o que
+     * registrar sem inventar.
+     */
+    const cano = getAttachment('extended_barrel')!;
+    expect(cano.slot).toBe('barrel');
+    expect(cano.introducedIn).toBe('1.4.1.0');
+    expect(getAttachmentWeapons('extended_barrel').map((a) => a.id).sort()).toEqual([
+      'db12',
+      'ks18k',
+      'm1014',
+      'm87a1',
+    ]);
+
+    const mira = getAttachment('1p86_lpvo')!;
+    expect(mira.slot).toBe('sight');
+    expect(getAttachmentWeapons('1p86_lpvo')).toHaveLength(0);
+
+    // Nenhuma das duas teve custo publicado pela EA.
+    expect(cano.cost).toBeNull();
+    expect(mira.cost).toBeNull();
   });
 });
 

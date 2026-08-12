@@ -178,6 +178,25 @@ function matchesName(line: string, key: string): boolean {
  * Procura do nome mais longo para o mais curto, senão "M4" casaria antes de
  * "M4A1" e a mudança iria para a arma errada.
  */
+function search(line: string, map: Map<string, string>) {
+  const candidates = [...map.keys()]
+    .filter((key) => key.length >= 3 && matchesName(line, key))
+    .sort((a, b) => b.length - a.length);
+  return candidates.length ? { key: candidates[0], id: map.get(candidates[0])! } : null;
+}
+
+/**
+ * A peça citada numa frase, ignorando as armas.
+ *
+ * `findEntity` devolve o que achar primeiro e procura armas antes — numa frase
+ * como "The Extended Barrel ... is available for the M87A1, M1014, 18.5KS-K,
+ * and DB-12" ele acha a M87A1 e para. Quem pergunta "que peça é esta?" precisa
+ * procurar só entre peças, senão a resposta é sempre a primeira arma da lista.
+ */
+export function findAttachment(line: string, known: Known) {
+  return search(line, known.attachments);
+}
+
 function findEntity(line: string, known: Known) {
   const search = (map: Map<string, string>) => {
     const candidates = [...map.keys()]
@@ -424,17 +443,9 @@ export function parseAnnouncements(body: string, known: Known): PatchChange[] {
     const available = clean.match(AVAILABLE_FOR);
     if (!available) continue;
 
-    /*
-     * A peça precisa ser peça.
-     *
-     * `findEntity` devolve o que achar primeiro, e numa frase que lista quatro
-     * armas ele acha uma arma. Tomar isso como "entidade encontrada" fazia a
-     * relação sair como automática sem que a peça tivesse sido identificada —
-     * quatro compatibilidades apontando para um `null`.
-     */
-    const found = findEntity(clean, known);
-    const attachment = found?.entityType === 'attachment' ? found : null;
-
+    // Só entre peças: a frase lista armas, e procurar "a primeira entidade"
+    // devolveria uma delas.
+    const attachment = findAttachment(clean, known);
     const { ids, unresolved } = weaponsIn(available[1], known);
     if (!ids.length) continue;
 

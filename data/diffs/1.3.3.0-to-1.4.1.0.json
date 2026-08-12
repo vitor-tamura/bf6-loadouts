@@ -1,19 +1,27 @@
 {
   "from": "1.3.3.0",
   "to": "1.4.1.0",
-  "generatedAt": "2026-08-12T13:27:01.925Z",
+  "generatedAt": "2026-08-12T13:31:43.356Z",
   "weapons": {
     "added": [],
     "removed": [],
     "renamed": []
   },
   "attachments": {
-    "added": [],
+    "added": [
+      "1p86_lpvo",
+      "extended_barrel"
+    ],
     "removed": [],
     "renamed": []
   },
   "compatibility": {
-    "added": [],
+    "added": [
+      "db12|extended_barrel",
+      "ks18k|extended_barrel",
+      "m1014|extended_barrel",
+      "m87a1|extended_barrel"
+    ],
     "removed": []
   },
   "stats": [],

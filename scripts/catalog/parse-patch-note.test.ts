@@ -166,15 +166,27 @@ describe('compatibilidade anunciada em prosa', () => {
     expect(change.weaponIds).toEqual(['m87a1', 'm1014', 'ks18k', 'db12']);
   });
 
-  it('exige que a peça seja peça, e não a primeira entidade da frase', () => {
+  it('procura a peça entre as peças, e não a primeira entidade da frase', () => {
     /*
-     * A frase cita quatro armas; sem esta trava, a arma era tomada como a
-     * entidade da relação e quatro compatibilidades saíam apontando para nada.
+     * A frase cita quatro armas antes de qualquer coisa. Procurar "a primeira
+     * entidade" devolvia a M87A1 como se fosse a peça, e a relação saía
+     * apontando para nada — ou, pior, marcada como automática.
      */
     const [change] = parseAnnouncements(frase, known);
 
+    expect(change.entityId).toBe('extended_barrel');
+    expect(change.automation).toBe('auto');
+  });
+
+  it('deixa para revisão enquanto a peça não existir no catálogo', () => {
+    const [change] = parseAnnouncements(
+      'The Quantum Grip is available for the M87A1 and the M1014.',
+      known,
+    );
+
     expect(change.entityId).toBeNull();
     expect(change.automation).toBe('review');
+    expect(change.reason).toContain('não existe no catálogo');
   });
 
   it('não inventa relação quando nenhuma arma resolve', () => {

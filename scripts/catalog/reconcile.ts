@@ -298,15 +298,37 @@ function main(): void {
   writeJson(join(ENTITIES, 'weapons.json'), { schemaVersion: 1, weapons: nextWeapons });
   writeJson(join(ENTITIES, 'attachments.json'), { schemaVersion: 1, attachments: nextAttachments });
 
-  const weaponRefs: VersionedEntityRef[] = versionWeapons(previous).map((ref) => {
-    const entity = weaponById.get(ref.id);
-    return { id: ref.id, status: entity?.status ?? ref.status, name: entity?.name ?? ref.name };
-  });
+  /**
+   * O instantâneo herda o anterior e recebe quem estreia nesta versão.
+   *
+   * Uma entidade com `introducedIn` igual à versão que está sendo criada é uma
+   * peça ou arma que a EA anunciou agora e alguém já cadastrou em
+   * `data/entities` com o que o patch note publicou. Sem esta segunda parte,
+   * ela existiria como entidade e não apareceria em versão nenhuma — presente
+   * no catálogo e invisível no jogo.
+   */
+  function snapshotOf<T extends { id: string; status: string; name: string; introducedIn: string }>(
+    inherited: VersionedEntityRef[],
+    entities: Map<string, T>,
+  ): VersionedEntityRef[] {
+    const refs = inherited.map((ref) => {
+      const entity = entities.get(ref.id);
+      return { id: ref.id, status: entity?.status ?? ref.status, name: entity?.name ?? ref.name };
+    });
 
-  const attachmentRefs: VersionedEntityRef[] = versionAttachments(previous).map((ref) => {
-    const entity = attachmentById.get(ref.id);
-    return { id: ref.id, status: entity?.status ?? ref.status, name: entity?.name ?? ref.name };
-  });
+    const present = new Set(refs.map((ref) => ref.id));
+    const debuts = [...entities.values()]
+      .filter((entity) => entity.introducedIn === version && !present.has(entity.id))
+      .map((entity) => ({ id: entity.id, status: entity.status, name: entity.name }));
+
+    return [...refs, ...debuts].sort((a, b) => a.id.localeCompare(b.id)) as VersionedEntityRef[];
+  }
+
+  const weaponRefs = snapshotOf(versionWeapons(previous), weaponById);
+  const attachmentRefs = snapshotOf(versionAttachments(previous), attachmentById);
+
+  const debuts = attachmentRefs.length - versionAttachments(previous).length;
+  if (debuts > 0) log('entidades que estreiam nesta versão', debuts);
 
   /*
    * A matriz de compatibilidade é copiada, não recalculada.

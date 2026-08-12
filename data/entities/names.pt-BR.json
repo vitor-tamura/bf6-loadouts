@@ -45,6 +45,12 @@
       "original": "120 MW Blue",
       "from": "dataset"
     },
+    "1p86_lpvo": {
+      "pt": "1P86 LPVO",
+      "original": "1P86 LPVO",
+      "from": "dataset",
+      "note": "Mesmo nome no dataset curado; é sigla, não se traduz."
+    },
     "50mw_blue": {
       "pt": "Laser Azul de 50 MW",
       "original": "50 MW Blue",
@@ -310,6 +316,12 @@
       "pt": "Cano Estendido",
       "original": "Extended",
       "from": "matriz"
+    },
+    "extended_barrel": {
+      "pt": "Cano Estendido 4\"",
+      "original": "Extended Barrel",
+      "from": "curadoria",
+      "note": "Peça da Temporada 4, distinta do Cano Estendido da matriz. Conferir o nome na tela quando houver print."
     },
     "factory_angled_db12": {
       "pt": "Angular de Fábrica",

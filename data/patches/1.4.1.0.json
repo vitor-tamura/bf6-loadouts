@@ -28,7 +28,7 @@
     {
       "kind": "compatibility_added",
       "entityType": "attachment",
-      "entityId": null,
+      "entityId": "extended_barrel",
       "weaponIds": [
         "m87a1",
         "m1014",
@@ -41,8 +41,8 @@
       "value": null,
       "before": null,
       "after": null,
-      "automation": "review",
-      "reason": "A peça citada não existe no catálogo — provavelmente é nova e precisa ser criada primeiro.",
+      "automation": "auto",
+      "reason": null,
       "line": "The Extended Barrel with a 4\" extension increases projectile velocity at the cost of mobility and aim-down-sights speed, and is available for the M87A1, M1014, 18.5KS-K, and DB-12."
     }
   ]
