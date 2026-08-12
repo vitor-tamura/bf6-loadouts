@@ -565,6 +565,43 @@
         "status": "open",
         "reason": "Dois coeficientes circulam e nenhuma fonte oficial arbitra. O catálogo usa o do Analyzer por ser o do dataset importado; a queda de bala calculada com ele é aproximada, e a tela deve dizer isso."
       }
+    },
+    {
+      "id": "evt-2026-08-12-ergonomia-m16a4",
+      "gameVersion": "1.3.3.0",
+      "timestamp": "2026-08-12",
+      "type": "compatibility_added",
+      "entityType": "compatibility",
+      "entityId": "m16a4",
+      "changes": {
+        "slot": "ergonomics",
+        "attachments": [
+          "mag_flare",
+          "match_trigger",
+          "rail_cover",
+          "buffer",
+          "full_auto"
+        ],
+        "note": "A tela do jogo mostra a lista fechada de ergonomia da M16A4, com custos. É a primeira confirmação de compatibilidade de ergonomia — o v5 não trazia nenhuma."
+      },
+      "sources": [
+        {
+          "provider": "jogo",
+          "type": "verified",
+          "url": null,
+          "dataset": "tela Selecionar ergonomia (M16A4)",
+          "commit": null,
+          "version": "1.3.3.0",
+          "retrievedAt": "2026-08-12",
+          "snapshot": null
+        }
+      ],
+      "automation": "auto",
+      "resolution": {
+        "status": "resolved",
+        "selectedSource": "jogo",
+        "reason": "Print da tela de seleção, que é a fonte mais confiável para compatibilidade e custo."
+      }
     }
   ]
 }

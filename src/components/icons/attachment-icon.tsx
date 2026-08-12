@@ -586,6 +586,36 @@ const receiver = (
   </>
 );
 
+/**
+ * O seletor de disparo, apontado para automático.
+ *
+ * É o ícone do "Auto" — a peça que o dataset chamava de receiver e desenhava
+ * como uma caixa. O que ela faz é virar a chave para o fogo contínuo, e um
+ * seletor com a agulha na última posição diz isso; uma caixa não diz nada.
+ */
+const fireSelector = (
+  <>
+    <circle cx="12" cy="13" r="3.5" />
+    <path d="M12 13l3.6-3.6" />
+    <path d="M5.5 13H8M12 6.5V9M18.5 13H16" />
+  </>
+);
+
+/**
+ * O tubo amortecedor, com a mola dentro.
+ *
+ * Precisa se distinguir do ferrolho, que também é um cilindro deitado — daí a
+ * mola em ziguezague, que é o que se vê quando o buffer é aberto.
+ */
+const buffer = (
+  <>
+    <path d="M3 8.5h3v7H3z" />
+    <path d="M6.5 9.5l2.2 5 2.2-5 2.2 5 2.2-5 2.2 5" />
+    <path d="M18 8.5v7" />
+    <path d="M18 12h3" />
+  </>
+);
+
 /* ----------------------------- Acessório óptico ----------------------------- */
 
 const magnifier = (
@@ -757,6 +787,13 @@ function glyphFor(attachment: Attachment): React.ReactNode {
       if (n.includes('mag catch')) return magCatch;
       if (n.includes('magwell')) return magwell;
       if (n.includes('rail cover')) return railCover;
+      if (n.includes('buffer')) return buffer;
+      /*
+       * O "A3 Receiver" é o Auto da tela do jogo: ele converte a arma para
+       * disparo totalmente automático. O ícone segue a função, não a peça
+       * física — quem escolhe está escolhendo o modo de tiro.
+       */
+      if (n.includes('a3 receiver')) return fireSelector;
       if (n.includes('receiver')) return receiver;
       return trigger;
 

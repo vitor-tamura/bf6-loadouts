@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "gameVersion": "1.3.3.0",
-  "generatedAt": "2026-08-12T12:42:13.119Z",
+  "generatedAt": "2026-08-12T12:50:49.648Z",
   "capabilities": {
     "weapons": true,
     "attachments": true,
@@ -2974,7 +2974,7 @@
     {
       "id": "buffer",
       "sourceId": "buffer",
-      "name": "Amortecedor Aprimorado",
+      "name": "Amortecedor",
       "slot": "ergonomics",
       "scope": "global",
       "group": "ERGOS",
@@ -3977,7 +3977,7 @@
     {
       "id": "full_auto",
       "sourceId": "full_auto",
-      "name": "Receptor A3",
+      "name": "Auto",
       "slot": "ergonomics",
       "scope": "global",
       "group": "ERGOS",
@@ -4533,7 +4533,7 @@
     {
       "id": "mag_flare",
       "sourceId": "mag_flare",
-      "name": "Funil de Carregador",
+      "name": "Pente Expandido",
       "slot": "ergonomics",
       "scope": "global",
       "group": "ERGOS",
@@ -13628,7 +13628,7 @@
     {
       "id": "match_trigger",
       "sourceId": "match_trigger",
-      "name": "Gatilho de Competição",
+      "name": "Gatilho",
       "slot": "ergonomics",
       "scope": "global",
       "group": "ERGOS",
@@ -13746,7 +13746,7 @@
     {
       "id": "rail_cover",
       "sourceId": "rail_cover",
-      "name": "Capa de Trilho",
+      "name": "Cobertura de Trilho",
       "slot": "ergonomics",
       "scope": "global",
       "group": "ERGOS",
@@ -19236,6 +19236,31 @@
       "weaponId": "m16a4",
       "attachmentId": "short",
       "slot": "barrel"
+    },
+    {
+      "weaponId": "m16a4",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m16a4",
+      "attachmentId": "full_auto",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m16a4",
+      "attachmentId": "mag_flare",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m16a4",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m16a4",
+      "attachmentId": "rail_cover",
+      "slot": "ergonomics"
     },
     {
       "weaponId": "m16a4",
@@ -39575,7 +39600,7 @@
   ],
   "indexes": {
     "gameVersion": "1.3.3.0",
-    "generatedAt": "2026-08-12T12:42:13.119Z",
+    "generatedAt": "2026-08-12T12:50:49.648Z",
     "attachmentsByWeapon": {
       "ak205": [
         "120mw_blue",
@@ -40556,6 +40581,7 @@
         "alloy_vert",
         "basic",
         "bipod",
+        "buffer",
         "canted_stubby",
         "classic_grip_pod",
         "classic_vert",
@@ -40571,6 +40597,7 @@
         "fold_stubby",
         "fold_vert",
         "full_angled",
+        "full_auto",
         "heavy",
         "heavy_ext",
         "hip_taclight",
@@ -40579,6 +40606,7 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_flare",
         "magazine:m16a4:20_fast",
         "magazine:m16a4:20_rnd",
         "magazine:m16a4:30_fast",
@@ -40586,8 +40614,10 @@
         "magazine:m16a4:36_rnd",
         "magazine:m16a4:40_fast",
         "magazine:m16a4:40_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
+        "rail_cover",
         "ribbed_stubby",
         "ribbed_vert",
         "short",
@@ -42674,6 +42704,9 @@
         "svdm",
         "svk86"
       ],
+      "buffer": [
+        "m16a4"
+      ],
       "canted_stubby": [
         "ak205",
         "ak4d",
@@ -43451,6 +43484,9 @@
         "psr",
         "sv98"
       ],
+      "full_auto": [
+        "m16a4"
+      ],
       "heavy": [
         "ak205",
         "ak4d",
@@ -43816,6 +43852,9 @@
       ],
       "lp_stubby_svk86": [
         "svk86"
+      ],
+      "mag_flare": [
+        "m16a4"
       ],
       "magazine:ak205:30_fast": [
         "ak205"
@@ -44666,6 +44705,9 @@
       "magazine:vz61:20_rnd": [
         "vz61"
       ],
+      "match_trigger": [
+        "m16a4"
+      ],
       "ptt_grip_pod": [
         "ak4d",
         "b36a4",
@@ -44740,6 +44782,9 @@
         "miniscout",
         "psr",
         "sv98"
+      ],
+      "rail_cover": [
+        "m16a4"
       ],
       "range_finder": [
         "grtcps",
@@ -46427,6 +46472,13 @@
           "heavy_ext",
           "light",
           "short"
+        ],
+        "ergonomics": [
+          "buffer",
+          "full_auto",
+          "mag_flare",
+          "match_trigger",
+          "rail_cover"
         ],
         "laser": [
           "120mw_blue",
@@ -48438,7 +48490,7 @@
   },
   "pending": {
     "compatibilityNeedsReview": 5,
-    "attachmentsWithoutWeapon": 36,
+    "attachmentsWithoutWeapon": 31,
     "attachmentsWithoutCost": 15,
     "attachmentsWithoutTranslation": 0
   }

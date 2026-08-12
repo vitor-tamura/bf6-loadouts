@@ -1,6 +1,6 @@
 {
   "gameVersion": "1.3.3.0",
-  "generatedAt": "2026-08-12T12:42:12.871Z",
+  "generatedAt": "2026-08-12T12:50:49.416Z",
   "attachmentsByWeapon": {
     "ak205": [
       "120mw_blue",
@@ -981,6 +981,7 @@
       "alloy_vert",
       "basic",
       "bipod",
+      "buffer",
       "canted_stubby",
       "classic_grip_pod",
       "classic_vert",
@@ -996,6 +997,7 @@
       "fold_stubby",
       "fold_vert",
       "full_angled",
+      "full_auto",
       "heavy",
       "heavy_ext",
       "hip_taclight",
@@ -1004,6 +1006,7 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_flare",
       "magazine:m16a4:20_fast",
       "magazine:m16a4:20_rnd",
       "magazine:m16a4:30_fast",
@@ -1011,8 +1014,10 @@
       "magazine:m16a4:36_rnd",
       "magazine:m16a4:40_fast",
       "magazine:m16a4:40_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
+      "rail_cover",
       "ribbed_stubby",
       "ribbed_vert",
       "short",
@@ -3099,6 +3104,9 @@
       "svdm",
       "svk86"
     ],
+    "buffer": [
+      "m16a4"
+    ],
     "canted_stubby": [
       "ak205",
       "ak4d",
@@ -3876,6 +3884,9 @@
       "psr",
       "sv98"
     ],
+    "full_auto": [
+      "m16a4"
+    ],
     "heavy": [
       "ak205",
       "ak4d",
@@ -4241,6 +4252,9 @@
     ],
     "lp_stubby_svk86": [
       "svk86"
+    ],
+    "mag_flare": [
+      "m16a4"
     ],
     "magazine:ak205:30_fast": [
       "ak205"
@@ -5091,6 +5105,9 @@
     "magazine:vz61:20_rnd": [
       "vz61"
     ],
+    "match_trigger": [
+      "m16a4"
+    ],
     "ptt_grip_pod": [
       "ak4d",
       "b36a4",
@@ -5165,6 +5182,9 @@
       "miniscout",
       "psr",
       "sv98"
+    ],
+    "rail_cover": [
+      "m16a4"
     ],
     "range_finder": [
       "grtcps",
@@ -6852,6 +6872,13 @@
         "heavy_ext",
         "light",
         "short"
+      ],
+      "ergonomics": [
+        "buffer",
+        "full_auto",
+        "mag_flare",
+        "match_trigger",
+        "rail_cover"
       ],
       "laser": [
         "120mw_blue",

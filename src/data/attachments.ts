@@ -2714,13 +2714,41 @@ export const ATTACHMENTS: Attachment[] = [
     provenance: 'game',
   },
   {
+    id: 'ergonomics-aftermarket-buffer',
+    name: 'Amortecedor',
+    originalName: 'Aftermarket Buffer',
+    slot: 'ergonomics',
+    cost: 5,
+    description: 'Amortece o ciclo do ferrolho: a arma treme menos ao disparar.',
+    // O catálogo registra `visualRecoil: -1`, que é tremor de tela e não
+    // dispersão. Sem escala publicada, entra sem mods em vez de virar palpite.
+    mods: {},
+    compat: { weapons: ['m16a4'] },
+    provenance: 'game',
+  },
+  {
     id: 'ergonomics-a3-receiver',
-    name: 'Receptor A3',
+    name: 'Auto',
     originalName: 'A3 Receiver',
     slot: 'ergonomics',
-    cost: 10,
+    cost: 25,
     description: 'Converte a arma para totalmente automática: mais cadência, menos controle.',
-    mods: { control: { add: 5 }, verticalRecoil: { mult: 0.93 } },
+    /*
+     * Sem mods, e não é esquecimento.
+     *
+     * A peça estava cadastrada como um receiver "aprimorado", somando controle
+     * e firmando o recuo — o oposto do que a tela do jogo diz, que é ligar o
+     * automático em troca de controle. Corrigir o sinal exigiria saber a
+     * magnitude, e ela não está publicada: a única print que existe mostra a
+     * arma com o loadout inteiro montado, onde o efeito desta peça não se
+     * separa dos outros.
+     *
+     * O que a peça faz de fato — converter a arma para totalmente automática —
+     * não cabe em `mods`, que só sabe somar e multiplicar estatística. O
+     * catálogo novo registra isso como `setsFireModeAuto`, e é de lá que a
+     * versão migrada vai ler.
+     */
+    mods: {},
     compat: { weapons: ['m16a4'] },
     provenance: 'game',
   },
@@ -2748,7 +2776,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'ergonomics-magwell-flare',
-    name: 'Funil de Carregador',
+    name: 'Pente Expandido',
     originalName: 'Magwell Flare',
     slot: 'ergonomics',
     cost: 10,
@@ -2759,7 +2787,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'ergonomics-match-trigger',
-    name: 'Gatilho de Competição',
+    name: 'Gatilho',
     originalName: 'Match Trigger',
     slot: 'ergonomics',
     cost: 15,
@@ -2770,10 +2798,10 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'ergonomics-rail-cover',
-    name: 'Capa de Trilho',
+    name: 'Cobertura de Trilho',
     originalName: 'Rail Cover',
     slot: 'ergonomics',
-    cost: 10,
+    cost: 5,
     description: 'Protege o trilho e melhora o manuseio.',
     mods: { hipfire: { add: 4 }, mobility: { add: 2 } },
     compat: { weapons: ['m16a4'] },

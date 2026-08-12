@@ -206,9 +206,10 @@
       "from": "dataset"
     },
     "buffer": {
-      "pt": "Amortecedor Aprimorado",
+      "pt": "Amortecedor",
       "original": "Aftermarket Buffer",
-      "from": "curadoria"
+      "from": "jogo",
+      "note": "Tela \"Selecionar ergonomia\" da M16A4."
     },
     "burst_mode": {
       "pt": "Modo Rajada",
@@ -371,10 +372,10 @@
       "from": "dataset"
     },
     "full_auto": {
-      "pt": "Receptor A3",
+      "pt": "Auto",
       "original": "A3 Receiver",
       "from": "jogo",
-      "note": "Tela \"Selecionar ergonomia\" da M16A4. Converte a arma para totalmente automática."
+      "note": "Tela \"Selecionar ergonomia\" da M16A4. O card diz AUTO; não existe \"Receptor A3\" nem \"Receiver A3\" no jogo."
     },
     "full_auto_vssm": {
       "pt": "Coronha Dobrável",
@@ -463,14 +464,16 @@
       "from": "dataset"
     },
     "mag_flare": {
-      "pt": "Funil de Carregador",
+      "pt": "Pente Expandido",
       "original": "Magwell Flare",
-      "from": "dataset"
+      "from": "jogo",
+      "note": "Tela \"Selecionar ergonomia\" da M16A4."
     },
     "match_trigger": {
-      "pt": "Gatilho de Competição",
+      "pt": "Gatilho",
       "original": "Match Trigger",
-      "from": "dataset"
+      "from": "jogo",
+      "note": "Tela \"Selecionar ergonomia\" da M16A4."
     },
     "ptt_grip_pod": {
       "pt": "Empunhadura com Bipé PTT",
@@ -488,9 +491,10 @@
       "from": "dataset"
     },
     "rail_cover": {
-      "pt": "Capa de Trilho",
+      "pt": "Cobertura de Trilho",
       "original": "Rail Cover",
-      "from": "dataset"
+      "from": "jogo",
+      "note": "Tela \"Selecionar ergonomia\" da M16A4."
     },
     "range_finder": {
       "pt": "Telêmetro",

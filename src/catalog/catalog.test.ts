@@ -146,14 +146,35 @@ describe('nomes das peças', () => {
 
   it('usam o nome que está na tela do jogo, e não a tradução do dataset', () => {
     /*
-     * Os dois casos em que a nomenclatura curada estava errada, conferidos em
-     * print: a M16A4 chama a peça de ergonomia de "Receptor A3" — não
-     * "Receiver A3" — e o supressor de 30 pontos é "Supressor Leve", não
-     * "Supressor Aliviado". Print do jogo manda sobre catálogo e sobre
-     * tradução; estes testes existem para as duas não voltarem.
+     * A tela "Selecionar ergonomia" da M16A4 desmentiu a nomenclatura curada em
+     * cinco peças de uma vez — e o dataset ainda inventava um nome que não
+     * existe no jogo, "Receiver A3", para a peça que a tela chama de Auto.
+     * Print manda sobre catálogo e sobre tradução.
      */
-    expect(getAttachment('full_auto')!.name).toBe('Receptor A3');
-    expect(getAttachment('light_supp')!.name).toBe('Supressor Leve');
+    const nomes = Object.fromEntries(
+      catalog.attachments.map((peça) => [peça.id, `${peça.name}|${peça.cost}`]),
+    );
+
+    expect(nomes.full_auto).toBe('Auto|25');
+    expect(nomes.mag_flare).toBe('Pente Expandido|10');
+    expect(nomes.match_trigger).toBe('Gatilho|15');
+    expect(nomes.rail_cover).toBe('Cobertura de Trilho|5');
+    expect(nomes.buffer).toBe('Amortecedor|5');
+    expect(nomes.light_supp).toBe('Supressor Leve|30');
+  });
+
+  it('reproduz a lista de ergonomia da M16A4 como ela aparece na tela', () => {
+    // A print mostra a lista fechada, com custo: é a única compatibilidade de
+    // ergonomia que alguma fonte confirma até agora.
+    const ergonomia = getWeaponAttachmentsBySlot('m16a4').get('ergonomics') ?? [];
+
+    expect(ergonomia.map((peça) => `${peça.name} ${peça.cost}`)).toEqual([
+      'Amortecedor 5',
+      'Cobertura de Trilho 5',
+      'Pente Expandido 10',
+      'Gatilho 15',
+      'Auto 25',
+    ]);
   });
 
   it('não deixam nenhuma peça ativa em inglês', () => {

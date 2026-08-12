@@ -16708,6 +16708,96 @@
     {
       "gameVersion": "1.3.3.0",
       "weaponId": "m16a4",
+      "attachmentId": "buffer",
+      "slot": "ergonomics",
+      "status": "active",
+      "source": {
+        "provider": "jogo",
+        "type": "verified",
+        "url": null,
+        "dataset": "tela Selecionar ergonomia (M16A4)",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12",
+        "snapshot": null
+      },
+      "note": null
+    },
+    {
+      "gameVersion": "1.3.3.0",
+      "weaponId": "m16a4",
+      "attachmentId": "full_auto",
+      "slot": "ergonomics",
+      "status": "active",
+      "source": {
+        "provider": "jogo",
+        "type": "verified",
+        "url": null,
+        "dataset": "tela Selecionar ergonomia (M16A4)",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12",
+        "snapshot": null
+      },
+      "note": null
+    },
+    {
+      "gameVersion": "1.3.3.0",
+      "weaponId": "m16a4",
+      "attachmentId": "mag_flare",
+      "slot": "ergonomics",
+      "status": "active",
+      "source": {
+        "provider": "jogo",
+        "type": "verified",
+        "url": null,
+        "dataset": "tela Selecionar ergonomia (M16A4)",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12",
+        "snapshot": null
+      },
+      "note": null
+    },
+    {
+      "gameVersion": "1.3.3.0",
+      "weaponId": "m16a4",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics",
+      "status": "active",
+      "source": {
+        "provider": "jogo",
+        "type": "verified",
+        "url": null,
+        "dataset": "tela Selecionar ergonomia (M16A4)",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12",
+        "snapshot": null
+      },
+      "note": null
+    },
+    {
+      "gameVersion": "1.3.3.0",
+      "weaponId": "m16a4",
+      "attachmentId": "rail_cover",
+      "slot": "ergonomics",
+      "status": "active",
+      "source": {
+        "provider": "jogo",
+        "type": "verified",
+        "url": null,
+        "dataset": "tela Selecionar ergonomia (M16A4)",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12",
+        "snapshot": null
+      },
+      "note": null
+    },
+    {
+      "gameVersion": "1.3.3.0",
+      "weaponId": "m16a4",
       "attachmentId": "120mw_blue",
       "slot": "laser",
       "status": "active",
