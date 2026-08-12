@@ -9,6 +9,14 @@
       "retrievedAt": "2026-08-11",
       "via": "BF6_Catalogo_ESCALAVEL_v5.json",
       "note": "Confirmação do estado atual embutida no import inicial."
+    },
+    {
+      "snapshot": "bf6loadouts-weapons-2026-08-12",
+      "retrievedAt": "2026-08-12T14:50:32.376Z",
+      "weapons": 27,
+      "relations": 1810,
+      "failed": 35,
+      "file": "data/sources/imports/bf6loadouts-weapons-2026-08-12.json"
     }
   ]
 }

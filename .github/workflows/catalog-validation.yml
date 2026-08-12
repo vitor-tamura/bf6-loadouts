@@ -52,9 +52,14 @@ jobs:
       # Índice e artefato são derivados: se o que está commitado diferir do que
       # o pipeline gera, o repositório tem duas versões dos fatos. A do commit
       # perde — mas a divergência precisa aparecer, e não ser corrigida calada.
+      #
+      # `generatedAt` fica de fora da comparação: ele guarda o instante da
+      # geração e muda a cada execução, mesmo sem nenhum dado mudar. Sem esta
+      # exclusão, a conferência acusaria defasagem em todo Pull Request e o
+      # workflow viraria um alarme que ninguém pode desligar nem atender.
       - name: Conferir se os arquivos gerados estão atualizados
         run: |
-          if ! git diff --quiet -- data/indexes public/data; then
+          if ! git diff --quiet -I '"generatedAt"' -- data/indexes public/data; then
             echo "::error::Os arquivos gerados estão defasados. Rode 'npm run catalog' e commite o resultado."
             git diff --stat -- data/indexes public/data
             exit 1
