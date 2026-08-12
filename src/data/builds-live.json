@@ -1,6 +1,250 @@
 {
-  "readAt": null,
-  "builds": [],
-  "sources": [],
-  "withoutEvidence": []
+  "readAt": "2026-08-12",
+  "builds": [
+    {
+      "weapon": "ggh-22",
+      "advice": "Muzzle suppressor or flash hider, short/stock barrel, light underbarrel (ergonomics/handling), iron or tiny reflex sight, FMJ/standard ammo — comunidade monta para reduzir flash/recoil e acelerar ADS/handling, compensando baixa capacidade de dano e tornando-a viável em curto-médio alcance.",
+      "source": "https://battlefield6.gg/weapon/ggh-22/"
+    },
+    {
+      "weapon": "m357-trait",
+      "advice": "Muzzle compensator or flash hider, short precision barrel, quick-draw grip (handling/ads speed), small reflex sight or iron, hollow-point/standard ammo — comunidade foca em reduzir recoil e tempo de ADS para aproveitar alto dano por tiro e transformar em secundária consistente para 1–2 tiros em curto alcance.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1sj7598/the_m357_trait_is_the_best_sidearm_for_most_people/"
+    },
+    {
+      "weapon": "vz-61",
+      "advice": "Muzzle flash hider or suppressor, extended/short barrel depending se quer estabilidade ou mobilidade, underbarrel for hipfire control, 20‑round magazine, no/mini sight (hipfire build) — comunidade trata o vz.61 como pocket‑SMG: aumenta capacidade e controle de tiro/hipfire para compensar espalhamento e torná‑lo letal em CQB.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1s0l4r4/best_vz_61_build/"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Reddit r/Battlefield6 (L85A3 / AK4D discussion)",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1vdm83z/l85a3_user_trying_to_understand_the_ak4d/",
+      "date": "2026-08-02"
+    },
+    {
+      "name": "Battlefield Meta (SOR-556 MK2 guide)",
+      "url": "https://battlefieldmeta.gg/best-loadouts/sor-556-mk2",
+      "date": "2026-07-28"
+    },
+    {
+      "name": "Reddit LowSodiumBattlefield (M433 builds thread)",
+      "url": "https://www.reddit.com/r/LowSodiumBattlefield/comments/1vi65la/m433_builds/",
+      "date": "2026-08-07"
+    },
+    {
+      "name": "Boostmatch (Season 4 meta loadouts mentioning B36A4)",
+      "url": "https://boostmatch.gg/blog/battlefield-6/articles/bf6-season-4-meta-loadouts",
+      "date": "2026-07-22"
+    },
+    {
+      "name": "BattlefieldMeta / community posts aggregated (B36A4 and general meta)",
+      "url": "https://bf6loadouts.com/",
+      "date": "2026-07-20"
+    },
+    {
+      "name": "r/Battlefield6 (post sobre EF88)",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1vc51m6/what_attachments_do_u_guys_use_on_the_ef88/",
+      "date": "2026-08-01"
+    },
+    {
+      "name": "r/Battlefield6 (NVO-228E vs SG553R)",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1v5bffa/nvo228e_or_sg553r_as_an_aggressive_assault/",
+      "date": "2026-07-24"
+    },
+    {
+      "name": "r/Battlefield (M16A4 build)",
+      "url": "https://www.reddit.com/r/Battlefield/comments/1v04lde/best_m16a4_build_for_bf6/",
+      "date": "2026-08-01"
+    },
+    {
+      "name": "Battlefield Meta (M4A1 builds)",
+      "url": "https://battlefieldmeta.gg/best-loadouts/m4a1",
+      "date": "2026-07-29"
+    },
+    {
+      "name": "Battlefield Meta (KORD 6P67)",
+      "url": "https://battlefieldmeta.gg/best-loadouts/kord-6p67",
+      "date": "2026-07-29"
+    },
+    {
+      "name": "r/Battlefield6 - post AK-205 discussion",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1vh3pfh/they_need_to_buff_the_ak205/",
+      "date": "2026-08-06"
+    },
+    {
+      "name": "r/Battlefield - M417 A2 hot-take",
+      "url": "https://www.reddit.com/r/Battlefield/comments/1vf86rn/hot_take_the_m417_a2_might_be_the_best_carbine_in/",
+      "date": "2026-08-04"
+    },
+    {
+      "name": "BattlefieldMeta – GRT-BC builds",
+      "url": "https://battlefieldmeta.gg/best-loadouts/grt-bc",
+      "date": "2026-07-29"
+    },
+    {
+      "name": "BattlefieldMeta – QBZ-192 builds",
+      "url": "https://battlefieldmeta.gg/best-loadouts/qbz-192",
+      "date": "2026-07-30"
+    },
+    {
+      "name": "r/Battlefield6 – SG 553R community threads",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1vgg3c5/best_weapon/",
+      "date": "2026-08-05"
+    },
+    {
+      "name": "BattlefieldMeta – SOR-300SC builds",
+      "url": "https://battlefieldmeta.gg/best-loadouts/sor-300sc",
+      "date": "2026-07-29"
+    },
+    {
+      "name": "r/Battlefield6 - M277 discussion",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1v7wige/the_m277_is_completely_become_trash_now/",
+      "date": "2026-07-27"
+    },
+    {
+      "name": "r/Battlefield - BROD-3 builds",
+      "url": "https://www.reddit.com/r/Battlefield/comments/1vdh8xh/brod3_builds_that_you_need_to_try_out/",
+      "date": "2026-08-02"
+    },
+    {
+      "name": "FPSMeta - PW7A2 loadout",
+      "url": "https://fpsmeta.gg/battlefield-6-meta/pw7a2-loadout",
+      "date": "2026-07-22"
+    },
+    {
+      "name": "FPSMeta (SGX)",
+      "url": "https://fpsmeta.gg/battlefield-6-meta/sgx-loadout",
+      "date": "2026-08-12"
+    },
+    {
+      "name": "Battlefield Meta (UMG-40)",
+      "url": "https://battlefieldmeta.gg/best-loadouts/umg-40",
+      "date": "2026-07-06"
+    },
+    {
+      "name": "Battlefield Meta (USG-90)",
+      "url": "https://battlefieldmeta.gg/best-loadouts/usg-90",
+      "date": "2026-08-12"
+    },
+    {
+      "name": "Battlefield Meta (CZ3A1)",
+      "url": "https://battlefieldmeta.gg/fr/meilleurs-equipements/cz3a1",
+      "date": "2026-07-27"
+    },
+    {
+      "name": "Battlefield Meta (PP-19)",
+      "url": "https://battlefieldmeta.gg/it/migliori-configurazioni/pp-19",
+      "date": "2026-07-18"
+    },
+    {
+      "name": "BattlefieldMeta - RPKM",
+      "url": "https://battlefieldmeta.gg/best-loadouts/rpkm",
+      "date": "2026-07-30"
+    },
+    {
+      "name": "Reddit r/Battlefield6 - M123K thread",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1upph8a/iam_sad_because_of_the_m123k",
+      "date": "2026-07-07"
+    },
+    {
+      "name": "BattlefieldMeta - M250",
+      "url": "https://battlefieldmeta.gg/best-loadouts/m250",
+      "date": "2026-07-30"
+    },
+    {
+      "name": "ZillionGamer - L110 guide",
+      "url": "https://zilliongamer.com/battlefield-6/c/weapons/best-l110-build-battlefield-6",
+      "date": "2026-07-25"
+    },
+    {
+      "name": "Battlefield Meta — M60 build",
+      "url": "https://battlefieldmeta.gg/best-loadouts/m60",
+      "date": "2026-07-24"
+    },
+    {
+      "name": "Reddit r/Battlefield6 — RPK-74M discussion",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1vep8p6/anyone_come_up_with_any_fun_weapon_conversions/",
+      "date": "2026-08-03"
+    },
+    {
+      "name": "Battlefield Meta / LMR27 builds",
+      "url": "https://battlefieldmeta.gg/mejores-configuraciones/lmr27",
+      "date": "2026-07-24"
+    },
+    {
+      "name": "Reddit r/Battlefield — M39 EMR thread",
+      "url": "https://www.reddit.com/r/Battlefield/comments/1uvxar5/the_m39_emr_is_such_a_fun_weapon/",
+      "date": "2026-07-14"
+    },
+    {
+      "name": "r/Battlefield6 - PSR thread",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1ulawtj/love_the_psr/",
+      "date": "2026-07-12"
+    },
+    {
+      "name": "Battlefield Meta - Mini Scout page",
+      "url": "https://battlefieldmeta.gg/best-loadouts/mini-scout",
+      "date": "2026-07-29"
+    },
+    {
+      "name": "DotEsports - L115 guide",
+      "url": "https://dotesports.com/battlefield/news/best-l115-loadout-bf6",
+      "date": "2026-05-12"
+    },
+    {
+      "name": "Battlefield Meta - M1014 page",
+      "url": "https://battlefieldmeta.gg/best-loadouts/m1014",
+      "date": "2026-07-29"
+    },
+    {
+      "name": "r/Battlefield6 - 18.5KS-K discussion",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1so5zpo/185ksk_could_be_kinda_handy_actually/",
+      "date": "2026-05-12"
+    },
+    {
+      "name": "Battlefield Meta — M87A1",
+      "url": "https://battlefieldmeta.gg/best-loadouts/m87a1",
+      "date": "2026-07-29"
+    },
+    {
+      "name": "Battlefield Meta — DB-12",
+      "url": "https://battlefieldmeta.gg/best-loadouts/db-12",
+      "date": "2026-07-29"
+    },
+    {
+      "name": "Battlefinity — Pistols overview",
+      "url": "https://battlefinity.gg/best-weapons/pistol",
+      "date": "2026-07-29"
+    },
+    {
+      "name": "WZStats — Best secondaries (P18, M44 etc.)",
+      "url": "https://wzstats.gg/battlefield-6/multiplayer/best-gun/best-secondaries-in-battlefield",
+      "date": "2026-07-29"
+    },
+    {
+      "name": "r/Battlefield6 — M357 Trait discussion",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1sj7598/the_m357_trait_is_the_best_sidearm_for_most_people/",
+      "date": "2026-04-12"
+    },
+    {
+      "name": "r/Battlefield6 — VZ.61 builds",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1s0l4r4/best_vz_61_build/",
+      "date": "2026-03-22"
+    },
+    {
+      "name": "Battlefield6.gg — GGH-22 page",
+      "url": "https://battlefield6.gg/weapon/ggh-22/",
+      "date": "2026-07-29"
+    }
+  ],
+  "withoutEvidence": [
+    "svdm",
+    "svk-86",
+    "vssm",
+    "grt-cps",
+    "m2010-esr",
+    "sv-98"
+  ]
 }

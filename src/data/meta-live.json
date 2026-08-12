@@ -2,141 +2,123 @@
   "readAt": "2026-08-12",
   "model": "gpt-5-mini",
   "patch": {
-    "name": "Battlefield 6 Game Update 1.4.1.0",
-    "date": "2026-07-21"
+    "name": "Battlefield 6 Game Update 1.4.1.5",
+    "date": "2026-08-03"
   },
   "picks": [
     {
-      "weapon": "scw-10",
-      "reason": "Após o lançamento da Season 4 (Game Update 1.4.1.0) análises/guia de armas e discussões de jogadores apontam o SCW-10 como o SMG com menor TTK e alto controle em curtas-distâncias, e o patch 1.4.1.0 não alterou suas estatísticas de arma.",
+      "weapon": "vssm",
+      "reason": "arma nova introduzida na atualização 1.4.1.0 (Season 4) com supressor embutido e munição subsônica listada como conteúdo novo, trazendo opções de marcação/assassinato silencioso no multiplayer tradicional.",
       "sources": [
-        1
+        0
       ]
     },
     {
-      "weapon": "sg-553r",
-      "reason": "Relatos e listas de meta publicadas depois do patch identificam a SG 553R como a carabina de referência para média/curta distância graças ao equilíbrio entre dano, precisão e controle, e o changelog 1.4.1.0 não lista mudanças de balanceamento para ela.",
-      "sources": []
-    },
-    {
-      "weapon": "tr-7",
-      "reason": "Comunidade e guias de armas pós-1.4.1.0 continuam a classificar o TR-7 entre os melhores rifles para curta/média distância por seu TTK competitivo e manejo; o patch 1.4.1.0 não incluiu nerfs/buffs estatísticos a ele.",
+      "weapon": "brod-3",
+      "reason": "nova carabina lançada na atualização 1.4.1.0 (Season 4) descrita pela EA como 'agressiva e versátil', colocada como arma de linha de frente para combate móvel no multiplayer tradicional.",
       "sources": [
-        2
+        0
       ]
     },
     {
-      "weapon": "nvo-228e",
-      "reason": "Discussões e comparadores de armas após a atualização listam a NVO-228E como opção dominante em curtas-distâncias por sua combinação de dano e cadência, sem mudanças mencionadas no changelog de 1.4.1.0.",
-      "sources": []
+      "weapon": "ef88",
+      "reason": "novo rifle bullpup anunciado na atualização 1.4.1.0 (Season 4) pela EA para mid–long range, o que o coloca como opção de alto desempenho de precisão em multiplayer tradicional.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "m4a1",
+      "reason": "comentários da comunidade pós-patch indicam que, após ajustes recentes (1.3.x → 1.4.x) o comportamento do M4A1 voltou ao perfil de 'favorito' em combate direto, com jogadores apontando recuperação/controle melhores na prática depois dos patches de julho.",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "weapon": "rpkm",
+      "reason": "relatos de jogadores pós-patch indicam que o carregamento com Synthetic Rounds melhorou a sensação e uso do RPKM depois das mudanças de projeto de projétil em patches anteriores, sendo citado como opção renovada para medium–long sustained fire.",
+      "sources": [
+        3
+      ]
     },
     {
       "weapon": "m277",
-      "reason": "Guias e posts de meta publicados após o patch apontam o M277 como um dos ARs com melhor desempenho agregado (TTK/controle) no multiplayer tradicional; o patch 1.4.1.0 não traz alterações de estatísticas para o M277.",
-      "sources": []
-    },
-    {
-      "weapon": "db-12",
-      "reason": "Relatos e posts de análise depois da Season 4 destacam o DB-12 como referência em curta-média distância para jogadores que usam shotguns devido a performance de TTK em objetivos próximos; changelog 1.4.1.0 não altera stats de armas que afetem essa conclusão.",
-      "sources": []
-    },
-    {
-      "weapon": "cz3a1",
-      "reason": "Trackers, guias e discussões pós-patch colocam a CZ3A1 entre as armas com melhor combinação de TTK e controle (especialmente para jogadores agressivos), e ela não foi modificada em 1.4.1.0.",
+      "reason": "discussões da comunidade registradas em agosto apontam que alterações recentes removeram características anteriores (4 BTK) e mudaram a identidade do M277, mantendo-o relevante na conversa sobre equilíbrio entre MMGs no multiplayer tradicional.",
       "sources": [
-        1
+        4
       ]
-    },
-    {
-      "weapon": "kv9",
-      "reason": "Análises e comparadores citam o KV9 como uma das armas com maior letalidade efetiva quando se balanceia TTK e controle; o changelog da atualização 1.4.1.0 não registra mudanças de atributos que afetem o KV9.",
-      "sources": []
     }
   ],
   "trending": [
     {
-      "weapon": "vssm",
-      "reason": "A arma foi introduzida pela Season 4 (Game Update 1.4.1.0) como DMR/DMR-full-auto com supressor integrado, gerando discussões imediatas sobre viabilidade em curtas-distâncias nas postagens pós-launch.",
-      "sources": [
-        0
-      ],
-      "trend": "chegou no patch"
-    },
-    {
-      "weapon": "ef88",
-      "reason": "Incluída oficialmente na Season 4 (Game Update 1.4.1.0) como bullpup de médio-longo alcance; guias e posts iniciais da comunidade passaram a testar e comentar seu desempenho desde a chegada.",
-      "sources": [
-        0
-      ],
-      "trend": "chegou no patch"
-    },
-    {
       "weapon": "brod-3",
-      "reason": "Anunciada na mesma atualização 1.4.1.0 como carabina agressiva para combate próximo; discussões e primeiras builds apareceram imediatamente após o patch.",
+      "reason": "inclusão oficial na atualização 1.4.1.0 (Season 4) e forte volume de menções iniciais nas comunidades como arma nova para builds móveis no multiplayer tradicional.",
       "sources": [
         0
       ],
       "trend": "chegou no patch"
     },
     {
-      "weapon": "scw-10",
-      "reason": "Apesar de não ter recebido mudanças diretas em 1.4.1.0, discussões recentes e guias pós-patch reafirmaram o domínio do SCW-10 em curtas-distâncias, sinalizando migração de jogadores para ele após Season 4 por desempenho percebido em partidas recentes.",
+      "weapon": "vssm",
+      "reason": "arremetida de atenção por ser um marksman com supressor/munição subsônica anunciado na 1.4.1.0; comunidade discutindo usos stealth em partidas tradicionais.",
       "sources": [
-        1
+        0
       ],
-      "trend": "buff indireto (sem patch de arma)"
+      "trend": "chegou no patch"
     },
     {
-      "weapon": "sg-553r",
-      "reason": "Listas e threads feitas após o lançamento da Season 4 continuam citando a SG 553R entre as armas-padrão do meta, mantendo sua presença mesmo sem alterações no patch 1.4.1.0.",
-      "sources": [],
-      "trend": "persistência de meta"
+      "weapon": "m250",
+      "reason": "comunidade apontando que mudanças no equilíbrio (patches recentes) alteraram a 'identidade' do M250, provocando debates sobre seu papel atual em MMG/veículos de assalto no multiplayer tradicional.",
+      "sources": [
+        4
+      ],
+      "trend": "discussão de identidade (gimmick)"
     }
   ],
   "sources": [
     {
-      "name": "EA / patch notes 1.4.1.0",
+      "name": "EA — Game Update 1.4.1.0 (Season 4)",
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-1-0",
       "date": "2026-07-16",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "página oficial de changelog e anúncio da Season 4 (contém o histórico de mudanças aplicáveis ao multiplayer tradicional; confirma que 1.4.1.0 introduziu novas armas mas não listou correções de estatísticas para as armas ",
+      "scope": "página oficial de notas da equipa (lista de novas armas e mudanças relevantes aplicáveis ao multiplayer tradicional, usada para confirmar quais armas entraram na Temporada 4)",
       "timeframe": "season-4"
     },
     {
-      "name": "Battlefield Meta (guia)",
-      "url": "https://battlefieldmeta.gg/best-loadouts/scw-10",
-      "date": "2026-07-31",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "análises de armas e builds usadas no multiplayer tradicional; usado para aferir performance prática e recomendações pós-patch",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Reddit r/Battlefield6 (threads meta e discussões)",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1v745rt/getting_back_to_bf6_after_season_4_what_are_the/",
-      "date": "2026-08-01",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "coletânea de percepção e discussão da comunidade multiplayer tradicional nas últimas semanas após a Season 4; útil para identificar armas citadas como desempenho dominante ou migrações de jogadores",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "New Game Network (tier analysis)",
-      "url": "https://www.newgamenetwork.com/battlefield-6-weapon-tier-list/",
-      "date": "2026-07-20",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "análises e tier lists independentes com foco no multiplayer tradicional que sintetizam métricas e testes pós-atualização",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "WZStats / battlefield meta trackers",
-      "url": "https://wzstats.gg/battlefield-6/big-maps/best-gun/best-smg-in-battlefield",
+      "name": "EA — Battlefield news index",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news",
       "date": "2026-07-15",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "comparadores/trackers com dados de build e recomendações aplicáveis ao multiplayer tradicional; usados para corroborar presença de armas em guias metas",
+      "scope": "índice oficial de notícias/patches da EA usado para confirmar cronologia de atualizações do jogo aplicáveis ao multiplayer tradicional",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "PC Gamer — 1.4.1.5 (qualidade de vida)",
+      "url": "https://www.pcgamer.com/hardware/graphics-cards/ea-has-fixed-a-niche-battlefield-6-issue-where-some-nvidia-gpus-were-crashing-while-changing-attachments-or-playing-on-maps-with-large-bodies-of-water/",
+      "date": "2026-08-03",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "reportagem sobre o patch 1.4.1.5 confirmando que a atualização mais recente (2026-08-03) foi pequena e focada em estabilidade/QoL, sem mudanças massivas de balanceamento de armas para multiplayer tradicional",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit — comunidade (discussões pós-patch sobre armas)",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1ukghj1/any_guns_that_benefitted_greatly_after_the_update/",
+      "date": "2026-07-01",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "threads de comunidade que documentam percepções de jogadores sobre quais armas sentiam diferenças (ex.: M4A1, RPKM) após patches recentes — útil como percepção e para sinalizar builds/uso em multiplayer tradicional",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit — discussão M277/M250",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1v9i7ri/give_the_m277_and_m250_their_gimmicks_back/",
+      "date": "2026-07-29",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "thread de comunidade onde jogadores debatem que mudanças recentes afetaram identidade de M277 e M250 no multiplayer tradicional",
       "timeframe": "season-4"
     }
   ]
