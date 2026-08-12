@@ -379,10 +379,25 @@ function main(): void {
   /* --------------------------------- eventos --------------------------------- */
 
   const changesPath = join(dir, 'changes.json');
-  const changes = readJson<{ gameVersion: string; events: unknown[] }>(changesPath);
+  const changes = readJson<{ gameVersion: string; events: { id: string }[] }>(changesPath);
+
+  /*
+   * Reimportar substitui, não empilha.
+   *
+   * Este script é idempotente por natureza — roda de novo quando o dataset da
+   * comunidade muda — e a lista de eventos cresce por acréscimo. Sem tirar os
+   * anteriores, quatro execuções deixaram quatro cópias do mesmo conflito de
+   * arrasto, com o mesmo id. Um id repetido faz "três conflitos abertos" virar
+   * uma contagem que não corresponde a nada.
+   */
+  const rewritten = new Set([
+    `evt-${TODAY}-analyzer-import`,
+    `evt-${TODAY}-conflict-drag`,
+    `evt-${TODAY}-conflict-stats`,
+  ]);
 
   changes.events = [
-    ...changes.events,
+    ...changes.events.filter((event) => !rewritten.has(event.id)),
     {
       id: `evt-${TODAY}-analyzer-import`,
       gameVersion: version,
