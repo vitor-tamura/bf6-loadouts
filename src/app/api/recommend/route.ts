@@ -59,19 +59,46 @@ function positiveInt(value: string | undefined, fallback: number) {
 }
 
 /*
- * O `gpt-5-nano` saiu da fila.
+/*
+ * A busca na web é o que custa o tempo.
  *
- * Ele abria as duas rotinas por ser o mais barato do catálogo, mas o guia da
- * ferramenta de busca nunca o citou, e a execução do meta de 11/08 confirmou a
- * suspeita: quem acabou respondendo foi o último da fila, ou seja, o nano e o
- * mini recusaram. Modelo que só sabe recusar não é barato — é uma chamada
+ * Ela é o ponto do botão — "sugestão da comunidade" quer dizer que alguém foi
+ * ler o que a comunidade monta —, e também o passo que sozinho leva mais tempo
+ * que o orçamento inteiro de dez segundos. Manter ligada é apostar que a busca
+ * cabe; desligar troca a leitura de hoje pelo que o modelo já sabe.
+ *
+ * Ela vem desligada por padrão, e a razão é medida: com a busca, a resposta não
+ * fechava dentro do relógio — voltava cortada ou não voltava. Sem ela, o modelo
+ * responde em poucos segundos e a montagem sai inteira.
+ *
+ * O que se perde está dito na tela: `unsourced` continua verdadeiro quando
+ * nenhuma página é citada, e o painel avisa que aquilo é o que o modelo já
+ * sabia, não leitura de discussão recente. Ligar de volta é
+ * `OPENAI_RECOMMEND_WEB_SEARCH=on`, sem publicar versão nova.
+ */
+const WEB_SEARCH = process.env.OPENAI_RECOMMEND_WEB_SEARCH === 'on';
+
+/**
+ * A fila começa pelo mais barato que dá conta.
+ *
+ * O `gpt-5-nano` já esteve fora daqui, e o motivo era a busca: o guia da
+ * ferramenta nunca o citou, e a execução do meta de 11/08 confirmou que ele
+ * recusava a chamada — modelo que só sabe recusar não é barato, é uma chamada
  * perdida antes de cada resposta.
  *
- * A fila daqui é mais curta que a do meta de propósito. O meta paga um modelo
- * maior porque é uma pergunta por dia; esta rota é pública, e mesmo com a borda
- * guardando cada combinação por uma semana ela se mantém nos baratos.
+ * Com a busca desligada, esse motivo deixou de valer: o que se pede agora é
+ * escolher peças de uma lista dada e devolver um JSON de uma linha, que é
+ * trabalho de modelo pequeno. Por isso os `nano` voltam à frente, e os `mini`
+ * ficam de reserva para quando eles recusarem.
+ *
+ * Com a busca ligada, a fila volta a ser a dos `mini` — não adianta pôr na
+ * frente quem não usa a ferramenta.
  */
-const MODELS = (process.env.OPENAI_RECOMMEND_MODELS ?? 'gpt-5-mini,gpt-4.1-mini')
+const DEFAULT_MODELS = WEB_SEARCH
+  ? 'gpt-5-mini,gpt-4.1-mini'
+  : 'gpt-5-nano,gpt-4.1-nano,gpt-5-mini';
+
+const MODELS = (process.env.OPENAI_RECOMMEND_MODELS ?? DEFAULT_MODELS)
   .split(',')
   .map((model) => model.trim())
   .filter(Boolean);
@@ -193,24 +220,7 @@ function retryDelayMs(response: Response, message: string, attempt: number) {
  * busca é o ponto desta rota, quem sai é o resto: o JSON vem em texto corrido
  * e `extractJson` o recorta, que é para isso que ele existe.
  */
-/*
- * A busca na web é o que custa o tempo.
- *
- * Ela é o ponto do botão — "sugestão da comunidade" quer dizer que alguém foi
- * ler o que a comunidade monta —, e também o passo que sozinho leva mais tempo
- * que o orçamento inteiro de dez segundos. Manter ligada é apostar que a busca
- * cabe; desligar troca a leitura de hoje pelo que o modelo já sabe.
- *
- * Ela vem desligada por padrão, e a razão é medida: com a busca, a resposta não
- * fechava dentro do relógio — voltava cortada ou não voltava. Sem ela, o modelo
- * responde em poucos segundos e a montagem sai inteira.
- *
- * O que se perde está dito na tela: `unsourced` continua verdadeiro quando
- * nenhuma página é citada, e o painel avisa que aquilo é o que o modelo já
- * sabia, não leitura de discussão recente. Ligar de volta é
- * `OPENAI_RECOMMEND_WEB_SEARCH=on`, sem publicar versão nova.
- */
-const WEB_SEARCH = process.env.OPENAI_RECOMMEND_WEB_SEARCH === 'on';
+
 
 function requestBody(model: string, prompt: string) {
   return {
