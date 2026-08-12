@@ -83,6 +83,28 @@ const MAX_OUTPUT_TOKENS = positiveInt(process.env.OPENAI_RECOMMEND_MAX_OUTPUT_TO
 const MAX_RETRIES = positiveInt(process.env.OPENAI_RECOMMEND_RETRIES, 3);
 
 /*
+ * O relógio da rota.
+ *
+ * `maxDuration` é o teto da plataforma, não um plano: chegar nele é a função
+ * ser cortada no meio de uma chamada já paga, e quem pediu fica com a tela
+ * girando até o navegador desistir. Estes dois números são o plano.
+ *
+ * `REQUEST_TIMEOUT_MS` é quanto uma única ida ao modelo pode durar — sem ele,
+ * uma conexão pendurada segura a rota inteira sem nunca responder.
+ *
+ * `TIME_BUDGET_MS` é o tempo total: a rodada de correção, a espera do limite de
+ * taxa e o próximo modelo da fila só começam se couberem nele. Um pedido que já
+ * gastou dois minutos e meio não melhora insistindo — melhora devolvendo,
+ * porque do outro lado a arma está montada pelas estatísticas desde o clique e
+ * o que falta é só a leitura da comunidade.
+ */
+const REQUEST_TIMEOUT_MS = positiveInt(process.env.OPENAI_RECOMMEND_REQUEST_TIMEOUT_MS, 90_000);
+const TIME_BUDGET_MS = positiveInt(process.env.OPENAI_RECOMMEND_TIME_BUDGET_MS, 150_000);
+
+/** O erro de quem ficou sem tempo — reconhecível no log e no fim da fila. */
+const timeout = (message: string) => Object.assign(new Error(message), { timedOut: true });
+
+/*
  * O freio de gasto por visitante, idêntico ao do confronto.
  *
  * A borda absorve as repetições — combinação já vista nem chega aqui —, então
@@ -165,17 +187,42 @@ async function callOpenAI(
   model: string,
   prompt: string,
   attempt: number,
+  deadline: number,
 ): Promise<{ text: string; sources: CitedSource[] }> {
-  const response = await fetch('https://api.openai.com/v1/responses', {
-    method: 'POST',
-    headers: {
-      authorization: `Bearer ${API_KEY}`,
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify(requestBody(model, prompt)),
-  });
+  /*
+   * Cada chamada tem o menor entre o teto dela e o que sobrou do total: perto
+   * do fim do orçamento não adianta dar noventa segundos a uma busca que só
+   * pode usar dez.
+   */
+  const allowance = Math.min(REQUEST_TIMEOUT_MS, deadline - Date.now());
+  if (allowance <= 0) throw timeout('tempo esgotado antes da chamada');
 
-  const body = (await response.json()) as ResponseBody;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), allowance);
+
+  let response: Response;
+  let body: ResponseBody;
+  try {
+    response = await fetch('https://api.openai.com/v1/responses', {
+      method: 'POST',
+      headers: {
+        authorization: `Bearer ${API_KEY}`,
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(requestBody(model, prompt)),
+      signal: controller.signal,
+    });
+
+    body = (await response.json()) as ResponseBody;
+  } catch (error) {
+    if (controller.signal.aborted) {
+      throw timeout(`sem resposta em ${Math.round(allowance / 1000)} s`);
+    }
+    throw error;
+  } finally {
+    clearTimeout(timer);
+  }
+
   if (!response.ok || body.error) {
     const error: ApiError = new Error(
       body.error?.message
@@ -219,22 +266,30 @@ async function callOpenAI(
  * modelo, e quem cuida dela é a fila de `MODELS` — repetir o mesmo pedido ao
  * mesmo modelo daria o mesmo 400.
  */
-async function ask(model: string, prompt: string) {
+async function ask(model: string, prompt: string, deadline: number) {
   let lastError: unknown = null;
 
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt += 1) {
     try {
-      return await callOpenAI(model, prompt, attempt);
+      return await callOpenAI(model, prompt, attempt, deadline);
     } catch (error) {
       lastError = error;
       const apiError = error as ApiError;
 
       if (apiError.status === 429 && attempt < MAX_RETRIES) {
+        const delay = apiError.retryAfterMs ?? 1000;
+
+        // Esperar o limite de taxa só compensa se ainda sobrar tempo para a
+        // resposta depois da espera. Senão é gastar o orçamento parado.
+        if (Date.now() + delay >= deadline) {
+          throw timeout(`limite de taxa e tempo esgotado (${model})`);
+        }
+
         console.warn('[recommend] rate limit, aguardando retry', {
           model,
-          seconds: Math.ceil((apiError.retryAfterMs ?? 1000) / 1000),
+          seconds: Math.ceil(delay / 1000),
         });
-        await wait(apiError.retryAfterMs ?? 1000);
+        await wait(delay);
         continue;
       }
       throw error;
@@ -301,11 +356,20 @@ const CACHE = 'public, s-maxage=604800, stale-while-revalidate=2592000';
  * motivo. Um modelo que leu a lista errado costuma acertar quando a lista é
  * relida com o erro apontado; o que insiste perde a vez para o próximo da fila.
  */
-async function adviceFrom(model: string, prompt: string, weapon: Weapon): Promise<LoadoutAdvice> {
+async function adviceFrom(
+  model: string,
+  prompt: string,
+  weapon: Weapon,
+  deadline: number,
+): Promise<LoadoutAdvice> {
   let critique = '';
 
   for (let round = 1; round <= ROUNDS; round += 1) {
-    const { text, sources } = await ask(model, critique ? `${prompt}\n\n${critique}` : prompt);
+    const { text, sources } = await ask(
+      model,
+      critique ? `${prompt}\n\n${critique}` : prompt,
+      deadline,
+    );
     const parsed = extractJson(text);
     if (!parsed) {
       const sample = text.replace(/\s+/g, ' ').slice(0, 180);
@@ -335,6 +399,12 @@ async function adviceFrom(model: string, prompt: string, weapon: Weapon): Promis
 
     if (round === ROUNDS) {
       throw new Error(`peças recusadas até o fim: ${discarded.join('; ')}`);
+    }
+
+    // A rodada de correção é outra busca inteira: começar uma sem tempo para
+    // terminá-la é pagar por uma resposta que ninguém vai receber.
+    if (Date.now() + REQUEST_TIMEOUT_MS / 2 >= deadline) {
+      throw timeout('sem tempo para a rodada de correção');
     }
 
     console.warn('[recommend] pedindo correção', { weapon: weapon.id, model, discarded });
@@ -423,10 +493,18 @@ Regras do JSON:
 - Use o id do slot exatamente como aparece antes do parêntese.`;
 
   let lastError: unknown = null;
+  const deadline = Date.now() + TIME_BUDGET_MS;
 
   for (const model of MODELS) {
+    // O próximo da fila é outra busca do zero. Sem tempo para ela, a fila
+    // acaba aqui: melhor devolver agora do que ser cortado no meio.
+    if (Date.now() + REQUEST_TIMEOUT_MS / 2 >= deadline) {
+      console.warn('[recommend] fila interrompida por tempo', { weaponId, range, model });
+      break;
+    }
+
     try {
-      const advice = await adviceFrom(model, prompt, weapon);
+      const advice = await adviceFrom(model, prompt, weapon, deadline);
       console.log('[recommend] respondeu', { weaponId, range, model, unsourced: advice.unsourced });
 
       /*

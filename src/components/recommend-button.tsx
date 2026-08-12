@@ -17,10 +17,17 @@ import { DEFAULT_RANGE, idealLoadout, type LoadoutAdvice } from '@/lib/recommend
  * falhando não deixa ninguém a pé — entra a montagem local de `idealLoadout`,
  * calculada pelas mesmas estatísticas que a tela mostra.
  *
- * A build é aplicada na hora do clique; o painel abre junto, com o porquê de
- * cada peça, o alcance, o consenso, o que o patch mudou e uma montagem
- * alternativa. Fechar o painel não desfaz nada: a arma continua montada, e o
- * painel volta pelo mesmo botão, sem custar outra busca.
+ * A arma monta no clique, não no fim da busca. Antes o botão girava calado
+ * enquanto o modelo lia a internet — quarenta, sessenta segundos de tela
+ * parada, que quem estava do outro lado leu como travamento. Agora a montagem
+ * local entra na hora, com os slots preenchidos e o orçamento fechado, e a
+ * busca continua por baixo: quando a sugestão da comunidade chega, ela toma o
+ * lugar e abre o painel. Quem não quiser esperar já saiu daqui com a arma
+ * montada — e pode cancelar a espera sem perder nada.
+ *
+ * O painel traz o porquê de cada peça, o alcance, o consenso, o que o patch
+ * mudou e uma montagem alternativa. Fechar não desfaz nada: a arma continua
+ * montada, e o painel volta pelo mesmo botão, sem custar outra busca.
  *
  * O que fazer com a montagem é decisão de quem usa o componente: o montador
  * aplica nos slots, a comparação abre o montador com tudo pronto — e é por isso
@@ -30,6 +37,25 @@ import { DEFAULT_RANGE, idealLoadout, type LoadoutAdvice } from '@/lib/recommend
  * apagando a leitura da arma anterior — e o pedido em voo é cancelado na saída,
  * senão uma resposta atrasada aplicaria a montagem de uma arma na outra.
  */
+
+/**
+ * O que a espera diz de si mesma.
+ *
+ * Spinner mudo não informa: aos vinte segundos ele é indistinguível de uma tela
+ * quebrada. Cada faixa nomeia a etapa que o modelo está cumprindo naquele
+ * momento — pesquisa, leitura, fechamento —, e a última assume a demora em vez
+ * de fingir que está tudo dentro do previsto. Os tempos são a ordem de grandeza
+ * observada nesta rota: a busca com o painel inteiro mede perto de um minuto.
+ */
+const STAGES = [
+  { after: 0, text: 'Lendo os patch notes e os guias recentes…' },
+  { after: 10, text: 'Vendo o que a comunidade está montando nesta arma…' },
+  { after: 25, text: 'Comparando as fontes e fechando a montagem…' },
+  { after: 45, text: 'Está demorando mais que o normal — a busca continua.' },
+];
+
+const stageText = (seconds: number) => STAGES.filter((stage) => seconds >= stage.after).at(-1)!.text;
+
 export function RecommendButton({
   weapon,
   onLoadout,
@@ -40,6 +66,8 @@ export function RecommendButton({
   opensBuilder?: boolean;
 }) {
   const [fetching, setFetching] = useState(false);
+  // Quanto tempo a busca já levou. É o número que prova que a tela está viva.
+  const [seconds, setSeconds] = useState(0);
   // Só depois do clique o botão fica destacado — antes ele é mais um na tela.
   const [used, setUsed] = useState(false);
   const [advice, setAdvice] = useState<LoadoutAdvice | null>(null);
@@ -49,9 +77,23 @@ export function RecommendButton({
 
   useEffect(() => () => controllerRef.current?.abort(), []);
 
+  // O relógio da espera anda de segundo em segundo, e só enquanto há espera.
+  useEffect(() => {
+    if (!fetching) return;
+    const timer = setInterval(() => setSeconds((value) => value + 1), 1000);
+    return () => clearInterval(timer);
+  }, [fetching]);
+
+  /** Desistir da busca. A montagem local já está aplicada e continua valendo. */
+  function cancel() {
+    controllerRef.current?.abort();
+    setFetching(false);
+    setFailure('Busca cancelada. Ficou a montagem calculada pelas estatísticas desta arma.');
+  }
+
   async function suggest() {
     // Segunda visita à mesma arma: o painel reabre sem pagar outra busca.
-    if (advice || failure) {
+    if (advice) {
       setOpen(true);
       return;
     }
@@ -59,7 +101,21 @@ export function RecommendButton({
     controllerRef.current?.abort();
     const controller = new AbortController();
     controllerRef.current = controller;
+    setFailure(null);
+    setSeconds(0);
     setFetching(true);
+
+    /*
+     * A arma monta agora, antes de qualquer resposta.
+     *
+     * `idealLoadout` é cálculo local sobre as estatísticas que a tela já tem:
+     * custa milissegundos e devolve uma build inteira, dentro do orçamento. Ela
+     * entra como montagem de partida para o clique ter efeito visível na hora;
+     * a da comunidade substitui quando chegar. O caso em que a busca falha
+     * deixou de ser especial — a rede de segurança já está na tela.
+     */
+    setUsed(true);
+    onLoadout(idealLoadout(weapon));
 
     try {
       const response = await fetch(`/api/recommend/?weapon=${weapon.id}&range=${DEFAULT_RANGE}`, {
@@ -68,25 +124,20 @@ export function RecommendButton({
       if (!response.ok) throw new Error(String(response.status));
 
       const data = (await response.json()) as LoadoutAdvice;
-      setUsed(true);
       onLoadout(data.attachments);
       setAdvice(data);
       setOpen(true);
     } catch (error) {
+      // Cancelar não é falhar: quem cancelou já escreveu o próprio aviso.
       if ((error as { name?: string })?.name === 'AbortError') return;
 
       /*
-       * A busca falhou, e mesmo assim sai montagem.
-       *
-       * Sem crédito, sem rede ou fora de produção, o botão entregaria um erro e
-       * nada mais — e o visitante veio aqui para montar a arma. A montagem
-       * local resolve isso com os números que a tela já tem; o aviso diz que
-       * ela não passou pela comunidade, para ninguém confundir as duas. Aqui
-       * não há painel: não existe leitura para mostrar.
+       * A busca falhou, e mesmo assim a arma está montada — a montagem local
+       * entrou no clique. O aviso diz que ela não passou pela comunidade, para
+       * ninguém confundir as duas, e o botão vira convite a tentar de novo.
+       * Aqui não há painel: não existe leitura para mostrar.
        */
-      setUsed(true);
-      onLoadout(idealLoadout(weapon));
-      setFailure('A busca na comunidade não veio agora — esta montagem saiu das estatísticas da arma.');
+      setFailure('A busca na comunidade não veio agora. Ficou a montagem calculada pelas estatísticas desta arma.');
     } finally {
       if (controllerRef.current === controller) setFetching(false);
     }
@@ -108,12 +159,39 @@ export function RecommendButton({
           onClick={suggest}
           className="bevel-sm inline-flex items-center gap-1.5 text-xs"
         >
-          Sugestão da comunidade
+          {failure && !fetching ? 'Buscar de novo na comunidade' : 'Sugestão da comunidade'}
           {opensBuilder && !fetching && <GotoIcon />}
         </Button>
       </Hint>
 
-      {failure && (
+      {/*
+        A espera contada em voz alta: a etapa, o relógio e a saída. As três
+        juntas respondem as perguntas de quem olha uma tela que não terminou —
+        o que está acontecendo, há quanto tempo, e o que eu perco se desistir.
+      */}
+      {fetching && (
+        <p className="mt-1.5 text-[11px] leading-snug" style={{ color: 'var(--text-soft)' }}>
+          <span aria-live="polite">{stageText(seconds)}</span>{' '}
+          <span className="font-mono" style={{ color: 'var(--text-dim)' }}>
+            {seconds}s
+          </span>
+          {' · '}
+          <button
+            type="button"
+            onClick={cancel}
+            className="underline underline-offset-2"
+            style={{ color: 'var(--accent)' }}
+          >
+            cancelar
+          </button>
+          <span className="mt-0.5 block" style={{ color: 'var(--text-dim)' }}>
+            A arma já está montada pelas estatísticas — a da comunidade entra por cima quando
+            chegar.
+          </span>
+        </p>
+      )}
+
+      {failure && !fetching && (
         <p className="mt-1.5 text-[11px] leading-snug" style={{ color: 'var(--text-dim)' }}>
           {failure}
         </p>
