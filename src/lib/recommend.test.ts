@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { ATTACHMENTS_BY_ID, attachmentsForWeapon } from '@/data/attachments';
+import { ATTACHMENTS, ATTACHMENTS_BY_ID, attachmentsForWeapon } from '@/data/attachments';
 import { budgetFor } from '@/data/classes';
 import { WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
 import { attachmentCost, attachmentName, defaultBarrel, factoryAttachments } from './loadout';
@@ -168,6 +168,41 @@ describe('idealLoadout', () => {
         const intrusa = montadas.find((id) => id && cosmeticos.has(id));
         expect(intrusa, `${weapon.name} em ${range} montou ${intrusa}`).toBeUndefined();
       }
+    }
+  });
+
+  /*
+   * O bipé corta 30% do recuo **apoiado** — a própria descrição diz isso —, mas
+   * `mods` não sabe dizer "quando", então o desconto entrava sempre. Enquanto o
+   * recuo pesava pouco ninguém notava; quando passou a pesar, o bipé virou a
+   * melhor empunhadura de toda arma de assalto, onde ninguém o monta.
+   */
+  it('desconta o ganho que só vale apoiado', () => {
+    const bipe = ATTACHMENTS_BY_ID.get('underbarrel-bipod')!;
+    expect(bipe.conditional).toContain('verticalRecoil');
+
+    // A mesma peça sem a marcação é a régua: o desconto tem de valer para
+    // menos, e valer só nas estatísticas marcadas.
+    const semMarca = { ...bipe, conditional: undefined };
+
+    for (const id of ['m433', 'm250']) {
+      const weapon = WEAPONS_BY_ID.get(id)!;
+      for (const range of COMBAT_RANGES.map((item) => item.value)) {
+        expect(attachmentScore(weapon, bipe, range)).toBeLessThan(
+          attachmentScore(weapon, semMarca, range),
+        );
+      }
+    }
+  });
+
+  it('não monta bipé em arma que se joga em movimento', () => {
+    const bipes = new Set(
+      ATTACHMENTS.filter((part) => part.conditional?.length).map((part) => part.id),
+    );
+
+    for (const weapon of WEAPONS.filter((w) => ['ar', 'carbine', 'smg'].includes(w.category))) {
+      const montada = Object.values(idealLoadout(weapon, 'media')).find((id) => id && bipes.has(id));
+      expect(montada, `${weapon.name} montou ${montada}`).toBeUndefined();
     }
   });
 

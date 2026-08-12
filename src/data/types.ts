@@ -180,6 +180,23 @@ export interface Attachment {
    * um ganho sobre o multiplicador de origem.
    */
   headshotOverride?: number;
+  /**
+   * Estatísticas cujo ganho só existe numa condição que a peça não garante.
+   *
+   * O bipé é o caso: ele corta 30% do recuo **apoiado**, e a própria descrição
+   * diz isso — mas `mods` não tem como dizer "quando", então o desconto entra
+   * sempre, em qualquer situação. Enquanto o recuo pesava pouco na montagem
+   * automática isso não aparecia; assim que passou a pesar, o bipé virou a
+   * melhor empunhadura de toda arma de assalto, o que não é o que se joga nem o
+   * que a comunidade monta.
+   *
+   * Aqui não se corrige o número — ele veio da planilha e continua valendo
+   * apoiado. O que se registra é que ele não vale o tempo todo, e quem decide
+   * quanto disso conta é a montagem local (`attachmentScore`). As penalidades
+   * ficam de fora da lista de propósito: peso e tempo de mira o bipé cobra em
+   * pé, deitado e correndo.
+   */
+  conditional?: (keyof StatMods)[];
   compat: Compatibility;
   /**
    * Nome que a peça recebe em armas específicas, quando ele não é o mesmo em

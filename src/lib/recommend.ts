@@ -127,6 +127,16 @@ const WEIGHTS: Record<CombatRange, Partial<Record<keyof EffectiveStats | 'dps' |
     },
   };
 
+/**
+ * Quanto do tempo a arma passa na condição que o bipé pede.
+ *
+ * Um quarto é estimativa, e não medição — ninguém publica esse número. Serve
+ * para o ganho condicional entrar na conta sem dominá-la: com ele o bipé volta
+ * a ser peça de LMG e de arma de apoio, que é onde a comunidade o monta, e sai
+ * das armas de assalto, onde a partida se joga em movimento.
+ */
+const DEPLOYED_UPTIME = 0.25;
+
 /** Sem acentos e sem pontuação: `14.5" Carbine` e `145 carbine` viram a mesma coisa. */
 const normalizeKey = (name: string) =>
   name
@@ -294,7 +304,36 @@ export function attachmentScore(
   attachment: Attachment,
   range: CombatRange,
 ): number {
-  return score(calculateStats(weapon, [attachment]), range, calculateStats(weapon, []));
+  const naked = calculateStats(weapon, []);
+  const fitted = calculateStats(weapon, [attachment]);
+
+  if (!attachment.conditional?.length) return score(fitted, range, naked);
+
+  /*
+   * Ganho que depende de condição conta pelo tempo em que a condição vale.
+   *
+   * O bipé só corta recuo apoiado, e quem clica no botão joga a partida
+   * inteira — a maior parte dela em pé ou correndo. Contar o corte como se
+   * valesse sempre fazia dele a melhor empunhadura de toda arma de assalto,
+   * onde ninguém o monta.
+   *
+   * A conta mistura os dois mundos: nas estatísticas marcadas, a peça vale um
+   * quarto do que promete; nas demais — peso, tempo de mira — vale inteiro,
+   * porque a penalidade o jogador carrega em pé também.
+   */
+  const blended: Record<string, unknown> = { ...fitted };
+  for (const key of attachment.conditional) {
+    // `StatMods` tem chaves que `EffectiveStats` não tem — alcance, por
+    // exemplo, que sai da escada de dano. Só interpola o que é número dos dois
+    // lados; o resto fica como veio.
+    const from = (naked as unknown as Record<string, unknown>)[key];
+    const to = (fitted as unknown as Record<string, unknown>)[key];
+    if (typeof from === 'number' && typeof to === 'number') {
+      blended[key] = from + (to - from) * DEPLOYED_UPTIME;
+    }
+  }
+
+  return score(blended as unknown as EffectiveStats, range, naked);
 }
 
 /**
