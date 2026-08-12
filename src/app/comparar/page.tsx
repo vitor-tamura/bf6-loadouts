@@ -1,23 +1,19 @@
 'use client';
 
 import { Hint } from '@/components/hint';
-import { Button, Card, Modal, Segmented, Table, Tag } from 'antd';
+import { Card, Modal, Segmented, Table, Tag } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useMemo, useState } from 'react';
 import { AppHeader } from '@/components/header';
 import { SeasonTag } from '@/components/season-tag';
 import { SiteFooter } from '@/components/site-footer';
 import { ComparisonChart, type Series } from '@/components/charts';
 import { WeaponPreview } from '@/components/weapon-preview';
 import { WeaponSelector } from '@/components/weapon-selector';
-import { RecommendButton } from '@/components/recommend-button';
 import { SHORT_CATEGORY_NAMES } from '@/data/classes';
 import { CATEGORY_ORDER, WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
 import { attachmentsForWeapon } from '@/data/attachments';
-import type { SlotId, Weapon, WeaponCategory } from '@/data/types';
-import { EMPTY_LOADOUT } from '@/lib/loadout';
-import { loadoutUrl } from '@/lib/share';
+import type { Weapon, WeaponCategory } from '@/data/types';
 import {
   analysisDistance,
   damagePerSecond,
@@ -229,15 +225,8 @@ export default function ComparePage() {
   // O modo escolhido muda o peso de cada estatística na leitura do confronto.
   const [mode, setMode] = useState<GameMode>('multiplayer');
   const desktop = useDesktop();
-  const router = useRouter();
   // Qual dos dois lados está escolhendo arma — nenhum, quando a lista está fechada.
   const [picking, setPicking] = useState<'a' | 'b' | null>(null);
-
-  // O loadout recomendado abre no montador, que é onde montagem se lê e se
-  // ajusta — esta tela compara armas de fábrica e não tem onde pendurar peças.
-  function openBuilder(weaponId: string, attachments: Partial<Record<SlotId, string>>) {
-    router.push(loadoutUrl({ ...EMPTY_LOADOUT, weapon: weaponId, attachments }, ''));
-  }
 
   const weaponA = idA ? WEAPONS_BY_ID.get(idA) : undefined;
   const weaponB = idB ? WEAPONS_BY_ID.get(idB) : undefined;
@@ -379,31 +368,11 @@ export default function ComparePage() {
         >
           <h2 className="label mb-3">Confronto direto</h2>
 
-          {/* Sob cada cartão, o atalho para sair daqui com a arma montada: a
-              recomendação abre o montador com o loadout da distância escolhida. */}
+          {/* Os dois cartões, um por lado: a foto da arma é o botão de trocá-la.
+              Montagem é assunto do montador; aqui se compara arma de fábrica. */}
           <div className="mb-4 grid gap-3 sm:grid-cols-2">
-            <div className="space-y-2">
-              <DuelCard weapon={weaponA} color={COLOR_A} side="A" onPick={() => setPicking('a')} />
-              {weaponA && (
-                <RecommendButton
-                  key={weaponA.id}
-                  weapon={weaponA}
-                  onLoadout={(attachments) => openBuilder(weaponA.id, attachments)}
-                  opensBuilder
-                />
-              )}
-            </div>
-            <div className="space-y-2">
-              <DuelCard weapon={weaponB} color={COLOR_B} side="B" onPick={() => setPicking('b')} />
-              {weaponB && (
-                <RecommendButton
-                  key={weaponB.id}
-                  weapon={weaponB}
-                  onLoadout={(attachments) => openBuilder(weaponB.id, attachments)}
-                  opensBuilder
-                />
-              )}
-            </div>
+            <DuelCard weapon={weaponA} color={COLOR_A} side="A" onPick={() => setPicking('a')} />
+            <DuelCard weapon={weaponB} color={COLOR_B} side="B" onPick={() => setPicking('b')} />
           </div>
 
           {confronto ? (
@@ -425,8 +394,6 @@ export default function ComparePage() {
               </div>
 
               <MatchupReading
-                idA={confronto.weaponA.id}
-                idB={confronto.weaponB.id}
                 statsA={confronto.statsA}
                 statsB={confronto.statsB}
                 nameA={confronto.weaponA.name}
@@ -581,8 +548,6 @@ function numericColumn(
  * mais rápido; no REDSEC, quem alcança longe e aguenta a briga com um pente.
  */
 function MatchupReading({
-  idA,
-  idB,
   statsA,
   statsB,
   nameA,
@@ -590,8 +555,6 @@ function MatchupReading({
   mode,
   onModeChange,
 }: {
-  idA: string;
-  idB: string;
   statsA: EffectiveStats;
   statsB: EffectiveStats;
   nameA: string;
@@ -603,12 +566,6 @@ function MatchupReading({
     () => analyzeMatchup(statsA, statsB, nameA, nameB, mode),
     [statsA, statsB, nameA, nameB, mode],
   );
-
-  const { text: written, loading, failed, generate } = useWrittenReading(idA, idB, mode);
-
-  // A leitura escrita é só do multiplayer: o modelo lê guias e discussões que
-  // descrevem esse modo, e aplicá-las ao battle royale seria inventar.
-  const aiAllowed = mode === 'multiplayer';
 
   const color =
     reading.winner === 'a' ? COLOR_A : reading.winner === 'b' ? COLOR_B : 'var(--text-soft)';
@@ -623,169 +580,40 @@ function MatchupReading({
     >
       <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
         <h3 className="label">Leitura do confronto</h3>
-        <div className="flex items-center gap-2">
-          {/*
-            A análise escrita virou botão: cada visitante tem um punhado de
-            leituras por dia, e dispará-la sozinha a cada par de armas gastava
-            a cota de quem só estava passeando. A leitura por regras já está
-            na tela; a escrita é upgrade de quem pede.
-          */}
-          {!written && (
-            <Hint
-              label={
-                aiAllowed
-                  ? 'Analisar com IA — pede a um modelo a leitura escrita deste confronto.'
-                  : 'Analisar com IA — disponível só no multiplayer; o REDSEC fica com a leitura automática.'
-              }
-            >
-              <Button
-                size="small"
-                loading={loading}
-                disabled={!aiAllowed}
-                onClick={generate}
-                className="bevel-sm text-xs"
-              >
-                Analisar com IA
-              </Button>
-            </Hint>
-          )}
-          <Segmented
-            options={GAME_MODES}
-            value={mode}
-            onChange={(v) => onModeChange(v as GameMode)}
-            size="small"
-            className="bevel-sm"
-          />
-        </div>
+        <Segmented
+          options={GAME_MODES}
+          value={mode}
+          onChange={(v) => onModeChange(v as GameMode)}
+          size="small"
+          className="bevel-sm"
+        />
       </div>
 
-      {/*
-        O texto do modelo entra no lugar da análise por regras quando chega, e
-        não antes. Assim a seção nunca aparece vazia nem com um esqueleto
-        piscando: o que está na tela desde o primeiro quadro já responde a
-        pergunta, e a versão escrita só a substitui se vier melhor.
-      */}
-      {written ? (
-        <p className="text-[13px] leading-relaxed" style={{ color: 'var(--text)' }}>
-          {written}
-        </p>
-      ) : (
-        <>
-          <p className="text-[13px] leading-snug font-semibold" style={{ color }}>
-            {reading.headline}
-          </p>
+      <p className="text-[13px] leading-snug font-semibold" style={{ color }}>
+        {reading.headline}
+      </p>
 
-          <ul className="mt-1.5 space-y-1">
-            {reading.points.map((point) => (
-              <li
-                key={point}
-                className="flex gap-1.5 text-[12px] leading-snug"
-                style={{ color: 'var(--text-soft)' }}
-              >
-                <span aria-hidden style={{ color: 'var(--text-dim)' }}>
-                  ·
-                </span>
-                {point}
-              </li>
-            ))}
-          </ul>
-        </>
-      )}
-
-      {failed && (
-        <p className="mt-2 text-[11px]" style={{ color: 'var(--color-negative)' }}>
-          A análise por IA não veio desta vez — a leitura acima é a automática.
-        </p>
-      )}
+      <ul className="mt-1.5 space-y-1">
+        {reading.points.map((point) => (
+          <li
+            key={point}
+            className="flex gap-1.5 text-[12px] leading-snug"
+            style={{ color: 'var(--text-soft)' }}
+          >
+            <span aria-hidden style={{ color: 'var(--text-dim)' }}>
+              ·
+            </span>
+            {point}
+          </li>
+        ))}
+      </ul>
 
       <p className="mt-2 text-[11px]" style={{ color: 'var(--text-dim)' }}>
-        {written ? 'Escrito por IA a partir das' : 'Leitura automática das'} estatísticas desta tela
-        — sem acessórios, e sem contar acerto na cabeça.
+        Leitura automática das estatísticas desta tela — sem acessórios, e sem contar acerto na
+        cabeça.
       </p>
     </section>
   );
-}
-
-/**
- * O que o modelo já escreveu, por par de armas.
- *
- * Vive fora do componente de propósito. A leitura custa uma das dez do dia, e
- * sem isto ela se perdia em cada ida ao REDSEC e volta, em cada troca de par e
- * volta ao anterior — pagando de novo, com espera de novo, para mostrar o texto
- * que o visitante tinha acabado de ler. O modo não entra na chave porque só o
- * multiplayer gera texto.
- */
-const writtenReadings = new Map<string, string>();
-
-/**
- * Pede ao servidor a leitura escrita — quando alguém pedir.
- *
- * Antes o pedido saía sozinho a cada par de armas. Isso gastava a cota diária
- * de quem só estava passeando pela grade, e a maior parte das leituras não era
- * nem lida: a análise por regras já responde a pergunta desde o primeiro
- * quadro. Agora quem dispara é o botão, e a falha continua barata — sem rede,
- * sem crédito ou com o modelo fora do ar, o que está na tela segue valendo.
- *
- * O texto é do par, não do modo: no REDSEC ele fica guardado sem aparecer, e
- * reaparece inteiro na volta ao multiplayer.
- */
-function useWrittenReading(
-  idA: string,
-  idB: string,
-  mode: GameMode,
-): { text: string | null; loading: boolean; failed: boolean; generate: () => void } {
-  const key = `${idA}|${idB}`;
-  const [status, setStatus] = useState<{ key: string; loading: boolean; failed: boolean }>({
-    key,
-    loading: false,
-    failed: false,
-  });
-  const controllerRef = useRef<AbortController | null>(null);
-
-  // Trocar de par zera o indicador na hora, ainda na renderização: um efeito
-  // faria isso depois da pintura, e por um quadro o estado do par anterior
-  // apareceria sob o nome do novo.
-  if (status.key !== key) setStatus({ key, loading: false, failed: false });
-
-  // O cancelamento é a limpeza deste efeito: ela roda quando o par muda e
-  // quando a tela sai, que são exatamente as duas horas de desistir.
-  useEffect(() => () => controllerRef.current?.abort(), [key]);
-
-  function generate() {
-    controllerRef.current?.abort();
-    const controller = new AbortController();
-    controllerRef.current = controller;
-    setStatus({ key, loading: true, failed: false });
-
-    // A barra no fim não é enfeite: o site roda com `trailingSlash`, e sem ela
-    // o pedido leva um 308 antes de chegar na rota.
-    fetch('/api/matchup/', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ a: idA, b: idB, mode: 'multiplayer' }),
-      signal: controller.signal,
-    })
-      .then((response) => (response.ok ? response.json() : null))
-      .then((data: { text?: string } | null) => {
-        const text = data?.text ?? null;
-        if (text) writtenReadings.set(key, text);
-        setStatus({ key, loading: false, failed: !text });
-      })
-      .catch((error: unknown) => {
-        // Cancelar não é falhar: quem cancelou foi a troca de par, e o estado
-        // dele já foi zerado na renderização.
-        if ((error as { name?: string })?.name === 'AbortError') return;
-        setStatus({ key, loading: false, failed: true });
-      });
-  }
-
-  const current = status.key === key ? status : null;
-  return {
-    text: mode === 'multiplayer' ? (writtenReadings.get(key) ?? null) : null,
-    loading: current?.loading ?? false,
-    failed: current?.failed ?? false,
-    generate,
-  };
 }
 
 function DuelValue({ value, wins }: { value: string; wins: boolean }) {
