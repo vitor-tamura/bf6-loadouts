@@ -587,17 +587,23 @@ const receiver = (
 );
 
 /**
- * O seletor de disparo, apontado para automático.
+ * O corpo inferior da arma — o desenho que o jogo usa para o "Auto".
  *
- * É o ícone do "Auto" — a peça que o dataset chamava de receiver e desenhava
- * como uma caixa. O que ela faz é virar a chave para o fogo contínuo, e um
- * seletor com a agulha na última posição diz isso; uma caixa não diz nada.
+ * A peça é o lower receiver, e é assim que ela aparece na tela de seleção:
+ * corpo, poço do carregador, guarda-mato e punho. A primeira tentativa aqui foi
+ * um seletor de disparo, que descrevia a *função* — ligar o fogo contínuo — e
+ * não a peça. Quem procura na grade reconhece a silhueta, não a metáfora.
  */
-const fireSelector = (
+const lowerReceiver = (
   <>
-    <circle cx="12" cy="13" r="3.5" />
-    <path d="M12 13l3.6-3.6" />
-    <path d="M5.5 13H8M12 6.5V9M18.5 13H16" />
+    <path d="M3 7.5h15v4H3z" />
+    <path d="M4.5 11.5v5.5h3v-5.5" />
+    {/* Guarda-mato, com o gatilho dentro. */}
+    <path d="M10 12.5c0 3 4.4 3 4.4 0" />
+    <path d="M12.2 12.6v1.6" />
+    <path d="M14.6 11.5l2 6h-2.6l-1-3.6" />
+    {/* Encaixe da coronha, atrás. */}
+    <path d="M18 8l3-1.5v4l-3-1" />
   </>
 );
 
@@ -788,12 +794,9 @@ function glyphFor(attachment: Attachment): React.ReactNode {
       if (n.includes('magwell')) return magwell;
       if (n.includes('rail cover')) return railCover;
       if (n.includes('buffer')) return buffer;
-      /*
-       * O "A3 Receiver" é o Auto da tela do jogo: ele converte a arma para
-       * disparo totalmente automático. O ícone segue a função, não a peça
-       * física — quem escolhe está escolhendo o modo de tiro.
-       */
-      if (n.includes('a3 receiver')) return fireSelector;
+      // O "A3 Receiver" é o Auto da tela, e o jogo o desenha como o corpo
+      // inferior da arma — é por essa silhueta que ele é reconhecido na grade.
+      if (n.includes('a3 receiver')) return lowerReceiver;
       if (n.includes('receiver')) return receiver;
       return trigger;
 
