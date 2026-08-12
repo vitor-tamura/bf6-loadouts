@@ -28,6 +28,11 @@ on:
     # 10:00 UTC, todo dia — manhã no Brasil, depois do pico de discussão da noite.
     - cron: '0 10 * * *'
   workflow_dispatch:
+    inputs:
+      apenasFaltantes:
+        description: 'Montagens: ler só as armas que ainda não têm leitura'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -65,11 +70,17 @@ jobs:
       # Roda mesmo que a leitura do meta falhe: são perguntas independentes, e
       # perder as duas porque uma não voltou desperdiça a execução inteira. O
       # próprio script preserva o arquivo anterior quando nada é utilizável.
+      #
+      # `--faltantes` pergunta só pelo que ainda não tem leitura: a varredura
+      # inteira são onze buscas, e repeti-las para preencher meia dúzia de armas
+      # gasta dez à toa. Serve para a rodada avulsa logo depois de um lote ter
+      # falhado; o agendamento diário continua varrendo tudo, que é como a
+      # leitura envelhece e se renova.
       - name: Ler as montagens da comunidade
         if: ${{ !cancelled() }}
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: npm run builds:search
+        run: npm run builds:search ${{ inputs.apenasFaltantes && '-- --faltantes' || '' }}
 
       - name: Publicar em main se mudou
         if: ${{ !cancelled() }}

@@ -191,16 +191,48 @@ async function perguntar(prompt) {
   throw ultimoErro ?? new Error('sem resposta');
 }
 
+/** A leitura da rodada anterior, ou o arquivo vazio se ainda não houver. */
+function leituraAnterior() {
+  try {
+    return JSON.parse(readFileSync(DESTINO, 'utf8'));
+  } catch {
+    return { readAt: null, builds: [], sources: [], withoutEvidence: [] };
+  }
+}
+
 async function main() {
   if (!API_KEY) {
     console.error('OPENAI_API_KEY não definida.');
     process.exit(1);
   }
 
-  const armas = WEAPONS.filter((arma) => arma.category !== 'melee');
+  const anterior = leituraAnterior();
+  const jaLidas = new Set((anterior.builds ?? []).map((item) => item.weapon));
+  const soFaltantes = process.argv.includes('--faltantes');
+
+  const arsenal = WEAPONS.filter((arma) => arma.category !== 'melee');
+  /*
+   * `--faltantes` pergunta só pelo que ainda não tem leitura.
+   *
+   * A varredura inteira são onze buscas, e repeti-las para preencher meia dúzia
+   * de armas é gastar dez à toa. O workflow diário continua varrendo tudo, que é
+   * como a leitura envelhece e se renova; este modo existe para a rodada avulsa,
+   * logo depois de um lote ter falhado.
+   */
+  const armas = soFaltantes ? arsenal.filter((arma) => !jaLidas.has(arma.id)) : arsenal;
+
+  if (!armas.length) {
+    console.log('[builds] todas as armas já têm leitura.');
+    return;
+  }
+
+  if (soFaltantes) {
+    console.log(`[builds] só as que faltam: ${armas.length} de ${arsenal.length}`);
+  }
   const builds = [];
   const fontes = new Map();
-  const semEvidencia = [];
+  /** Armas cujo lote não voltou nesta rodada — falha de busca, não ausência de evidência. */
+  const naoPerguntadas = [];
   const descartes = [];
   /** Arma já lida num lote anterior — o modelo às vezes repete a vizinha. */
   const vistas = new Set();
@@ -214,7 +246,7 @@ async function main() {
       const dados = extrairJson(texto);
 
       if (!dados?.builds?.length) {
-        semEvidencia.push(...lote.map((arma) => arma.id));
+        naoPerguntadas.push(...lote.map((arma) => arma.id));
         console.warn(`[builds] sem leitura para ${rotulo}`);
         continue;
       }
@@ -255,9 +287,16 @@ async function main() {
         `[builds] ${rotulo} → ${aceitas} de ${dados.builds.length} (${modelo})`,
       );
     } catch (erro) {
-      semEvidencia.push(...lote.map((arma) => arma.id));
+      naoPerguntadas.push(...lote.map((arma) => arma.id));
       console.warn(`[builds] falhou em ${rotulo}: ${erro.message}`);
     }
+  }
+
+  // Lote que não voltou é diferente de arma sem evidência: a primeira pode ter
+  // leitura na próxima rodada, a segunda a comunidade simplesmente não discute.
+  const perdidas = naoPerguntadas.filter((id) => !vistas.has(id) && !jaLidas.has(id));
+  if (perdidas.length) {
+    console.warn(`[builds] ${perdidas.length} ficaram sem leitura por falha de busca: ${perdidas.join(', ')}`);
   }
 
   if (descartes.length) {
@@ -270,21 +309,41 @@ async function main() {
     /*
      * Nenhuma arma lida: o arquivo anterior continua valendo.
      *
-     * Sobrescrever com uma lista vazia apagaria a leitura da semana passada em
+     * Sobrescrever com uma lista vazia apagaria a leitura da rodada passada em
      * troca de nada — e o botão perderia o contexto que já tinha.
      */
     console.error('[builds] nenhuma leitura utilizável; o arquivo anterior fica como está.');
     process.exit(1);
   }
 
+  /*
+   * A leitura nova se soma à anterior, não a substitui.
+   *
+   * Cada rodada relê o arsenal inteiro, e um lote que falhe leva junto as seis
+   * armas dele. Gravando só o que voltou, uma rodada ruim apagaria a leitura
+   * boa da véspera — a cobertura andaria para trás sozinha, sem ninguém pedir.
+   * Quem foi relida hoje entra com o texto de hoje; quem não foi mantém o que
+   * já tinha, e é assim que as armas que faltam vão sendo preenchidas ao longo
+   * dos dias em vez de exigirem uma varredura perfeita.
+   */
+  const porArma = new Map((anterior.builds ?? []).map((item) => [item.weapon, item]));
+  for (const item of builds) porArma.set(item.weapon, item);
+
+  const mantidas = [...porArma.values()];
+  const comLeitura = new Set(mantidas.map((item) => item.weapon));
+
   const conteudo = {
     readAt: new Date().toISOString().slice(0, 10),
-    builds,
-    sources: [...fontes.values()],
-    withoutEvidence: semEvidencia,
+    builds: mantidas,
+    // As fontes da rodada vêm primeiro; as antigas completam até o teto, porque
+    // sustentam as leituras que sobreviveram.
+    sources: [...fontes.values(), ...(anterior.sources ?? [])]
+      .filter((fonte, i, todas) => todas.findIndex((f) => f.url === fonte.url) === i)
+      .slice(0, MAX_FONTES),
+    withoutEvidence: arsenal.map((arma) => arma.id).filter((id) => !comLeitura.has(id)),
   };
 
-  const anterior = (() => {
+  const anteriorBruto = (() => {
     try {
       return readFileSync(DESTINO, 'utf8');
     } catch {
@@ -293,14 +352,16 @@ async function main() {
   })();
 
   const proximo = `${JSON.stringify(conteudo, null, 2)}\n`;
-  if (anterior === proximo) {
+  if (anteriorBruto === proximo) {
     console.log('[builds] nada mudou.');
     return;
   }
 
   writeFileSync(DESTINO, proximo, 'utf8');
   console.log(
-    `[builds] gravado: ${builds.length} armas com leitura, ${conteudo.sources.length} fontes, ${semEvidencia.length} sem evidência.`,
+    `[builds] gravado: ${mantidas.length} armas com leitura ` +
+      `(${builds.length} desta rodada, ${mantidas.length - builds.length} preservadas), ` +
+      `${conteudo.sources.length} fontes, ${conteudo.withoutEvidence.length} sem leitura.`,
   );
 }
 
