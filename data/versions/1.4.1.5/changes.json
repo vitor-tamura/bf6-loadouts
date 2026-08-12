@@ -198,6 +198,95 @@
         "selectedSource": "bf6loadouts",
         "reason": "O custo em Attachment Points é estado atual do jogo, e quem observa o estado atual é o BF6 Loadouts. As peças que não casam são as que o catálogo modela de outra forma — decisão de unificação fica para revisão humana."
       }
+    },
+    {
+      "id": "evt-2026-08-12-master-import",
+      "gameVersion": "1.4.1.5",
+      "timestamp": "2026-08-12",
+      "type": "initial_import",
+      "entityType": "catalog",
+      "entityId": null,
+      "changes": {
+        "armas": 62,
+        "curvas": 62,
+        "peças": 108,
+        "relações": 2753,
+        "custosAplicados": 43,
+        "divergênciasDeSlot": [
+          {
+            "weaponId": "vz61",
+            "attachmentId": "fold_stubby",
+            "matrix": "laser",
+            "declared": "underbarrel"
+          },
+          {
+            "weaponId": "vz61",
+            "attachmentId": "ribbed_stubby",
+            "matrix": "laser",
+            "declared": "underbarrel"
+          },
+          {
+            "weaponId": "vz61",
+            "attachmentId": "canted_stubby",
+            "matrix": "laser",
+            "declared": "underbarrel"
+          },
+          {
+            "weaponId": "vz61",
+            "attachmentId": "stipp_stubby",
+            "matrix": "laser",
+            "declared": "underbarrel"
+          },
+          {
+            "weaponId": "vz61",
+            "attachmentId": "cmpct_handstop",
+            "matrix": "laser",
+            "declared": "underbarrel"
+          }
+        ],
+        "opçõesVaziasIgnoradas": 8,
+        "sobrescritosSobreAPrint": [],
+        "pendências": [
+          {
+            "item": "1P86 LPVO — estatísticas numéricas completas",
+            "status": "needs_review",
+            "reason": "EA publica a existência e a faixa 1,50x–4,50x, mas o snapshot técnico fornecido é 1.3.3.0."
+          },
+          {
+            "item": "Extended Barrel — valores numéricos completos",
+            "status": "needs_review",
+            "reason": "EA confirma aumento de velocidade e penalidades, mas não publica neste patch todos os coeficientes numéricos."
+          },
+          {
+            "item": "Drag coefficients",
+            "status": "open_conflict",
+            "reason": "Fontes divergentes; não inventar."
+          },
+          {
+            "item": "TTK",
+            "status": "calculated",
+            "reason": "Deve ser calculado a partir de curva + cadência + tempo de voo."
+          }
+        ]
+      },
+      "sources": [
+        {
+          "provider": "BF6 MASTER (planilha)",
+          "type": "verified",
+          "url": null,
+          "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+          "commit": null,
+          "version": null,
+          "retrievedAt": "2026-08-12T15:12:57.415Z",
+          "snapshot": "master-2026-08-12"
+        }
+      ],
+      "automation": "auto",
+      "resolution": {
+        "status": "resolved",
+        "selectedSource": "BF6 MASTER (planilha)",
+        "reason": "A planilha reúne estatísticas, curvas, custos e compatibilidade num arquivo só, com custo em todas as relações e as 326 de munição que nenhuma outra fonte publicava. Vira a fonte primária desses campos; o que a tela do jogo confirmou continua acima dela."
+      }
     }
   ]
 }

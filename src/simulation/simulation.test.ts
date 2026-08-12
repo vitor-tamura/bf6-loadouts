@@ -26,25 +26,25 @@ const m433 = getWeaponDamageModel('m433');
 
 describe('a regra do degrau', () => {
   /*
-   * A curva da M433, pela planilha de TTK: 25 até 35 m, 20 até 80 m, 16,7
-   * depois. Nas distâncias repetidas vale o degrau que TERMINA ali, e não o
+   * A curva da M433, pela planilha MASTER: 26,05 até 21 m, 20,67 até 75 m,
+   * 17,13 depois. Nas distâncias repetidas vale o degrau que TERMINA ali, e não o
    * que começa. Ler ao contrário desloca o TTK de toda arma exatamente onde a
    * queda acontece, que é onde as pessoas comparam.
    */
   it('mantém o degrau que termina na distância exata da queda', () => {
-    expect(damageAtRange(m433, 35)).toBeCloseTo(25);
-    expect(damageAtRange(m433, 80)).toBeCloseTo(20);
+    expect(damageAtRange(m433, 21)).toBeCloseTo(26.05);
+    expect(damageAtRange(m433, 75)).toBeCloseTo(20.67);
   });
 
   it('passa para o degrau seguinte logo depois', () => {
-    expect(damageAtRange(m433, 35.5)).toBeCloseTo(20);
-    expect(damageAtRange(m433, 80.5)).toBeCloseTo(16.7);
+    expect(damageAtRange(m433, 21.5)).toBeCloseTo(20.67);
+    expect(damageAtRange(m433, 75.5)).toBeCloseTo(17.13);
   });
 
   it('trava nas pontas em vez de extrapolar', () => {
-    expect(damageAtRange(m433, 0)).toBeCloseTo(25);
-    expect(damageAtRange(m433, -10)).toBeCloseTo(25);
-    expect(damageAtRange(m433, 500)).toBeCloseTo(16.7);
+    expect(damageAtRange(m433, 0)).toBeCloseTo(26.05);
+    expect(damageAtRange(m433, -10)).toBeCloseTo(26.05);
+    expect(damageAtRange(m433, 500)).toBeCloseTo(17.13);
   });
 
   it('devolve nulo sem curva, nunca zero', () => {
@@ -52,17 +52,12 @@ describe('a regra do degrau', () => {
     expect(damagePerShot(undefined, 10)).toBeNull();
   });
 
-  it('lê a queda da NVO-228E nos pontos que a planilha mede', () => {
-    /*
-     * A NVO-228E cai cedo: 33,4 até 10 m, 27,3 até 35 m. A planilha mede em
-     * sete distâncias fixas, então a queda fica no ponto medido seguinte — a
-     * curva descreve a mesma arma com menos resolução que a do Analyzer, e é
-     * por isso que ela entra marcada como provisória.
-     */
+  it('confere com o exemplo documentado pela fonte', () => {
+    // A NVO-228E lê 35,22 em 9 m e 27,48 em 10 m — o exemplo que o
+    // levantamento original usa para descrever a regra do degrau.
     const nvo = getWeaponDamageModel('nvo228e');
-    expect(damageAtRange(nvo, 9)).toBeCloseTo(33.4, 2);
-    expect(damageAtRange(nvo, 10)).toBeCloseTo(33.4, 2);
-    expect(damageAtRange(nvo, 10.5)).toBeCloseTo(27.3, 2);
+    expect(damageAtRange(nvo, 9)).toBeCloseTo(35.22, 2);
+    expect(damageAtRange(nvo, 10)).toBeCloseTo(27.48, 2);
   });
 });
 

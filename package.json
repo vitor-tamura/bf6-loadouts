@@ -36,7 +36,8 @@
     "catalog:update": "node --experimental-strip-types scripts/catalog/update.ts",
     "catalog:import-ttk": "node --experimental-strip-types scripts/catalog/import-ttk-sheet.ts",
     "catalog:import-loadouts": "node --experimental-strip-types scripts/catalog/import-loadouts-page.ts",
-    "catalog:fetch-weapons": "node --experimental-strip-types scripts/catalog/fetch-loadouts-weapons.ts"
+    "catalog:fetch-weapons": "node --experimental-strip-types scripts/catalog/fetch-loadouts-weapons.ts",
+    "catalog:import-master": "node --experimental-strip-types scripts/catalog/import-master.ts"
   },
   "dependencies": {
     "@ai-sdk/google": "^4.0.39",

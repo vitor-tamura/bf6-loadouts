@@ -1,16 +1,23 @@
 {
   "gameVersion": "1.4.1.5",
-  "generatedAt": "2026-08-12T14:43:18.225Z",
+  "generatedAt": "2026-08-12T15:12:57.682Z",
   "attachmentsByWeapon": {
     "ak205": [
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:synthetic",
       "basic",
       "canted_stubby",
       "classic_vert",
@@ -51,12 +58,18 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
       "basic",
       "bipod",
       "canted_stubby",
@@ -100,12 +113,19 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:synthetic",
       "basic",
       "bipod",
       "canted_stubby",
@@ -155,11 +175,17 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
       "basic",
       "canted_stubby",
       "classic_grip_pod",
@@ -209,6 +235,12 @@
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:subsonic",
+      "ammo:subsonic_hp",
       "basic",
       "canted_stubby",
       "classic_vert",
@@ -250,12 +282,15 @@
       "6h64_vert_db12",
       "ads_taclight",
       "alloy_vert",
+      "ammo:buckshot",
+      "ammo:buckshot_00",
+      "ammo:flechette",
+      "ammo:slugs",
       "basic",
       "canted_stubby",
       "classic_vert_db12",
       "cqb_supp",
       "extended",
-      "extended_barrel",
       "factory_angled_db12",
       "flash_hider",
       "flashlight",
@@ -274,12 +309,19 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:synthetic",
       "basic",
       "bipod",
       "canted_stubby",
@@ -328,11 +370,18 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:synthetic",
       "basic",
       "bipod",
       "canted_stubby",
@@ -378,6 +427,12 @@
       "5mw_green",
       "5mw_red",
       "ads_taclight",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:subsonic",
+      "ammo:subsonic_hp",
       "basic",
       "combo_green",
       "combo_red",
@@ -398,6 +453,12 @@
       "5mw_green",
       "5mw_red",
       "ads_taclight",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:subsonic",
+      "ammo:subsonic_hp",
       "basic",
       "combo_green",
       "combo_red",
@@ -418,11 +479,17 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
       "basic",
       "canted_stubby",
       "classic_vert",
@@ -460,11 +527,18 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:synthetic",
       "basic",
       "bipod",
       "canted_stubby",
@@ -507,11 +581,17 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
       "basic",
       "bipod",
       "canted_stubby",
@@ -556,18 +636,22 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert_ks18k",
       "ads_taclight",
       "alloy_vert",
+      "ammo:buckshot",
+      "ammo:buckshot_00",
+      "ammo:flechette",
+      "ammo:slugs",
       "basic",
       "canted_stubby",
       "classic_vert_ks18k",
       "compensator",
       "cqb_supp",
       "extended",
-      "extended_barrel",
       "flash_hider",
       "flashlight",
       "fold_stubby",
@@ -591,11 +675,18 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:synthetic",
       "bipod",
       "canted_stubby",
       "classic_grip_pod",
@@ -640,11 +731,18 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:subsonic",
+      "ammo:subsonic_hp",
       "basic",
       "canted_stubby",
       "classic_vert",
@@ -679,11 +777,16 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:penetration",
+      "ammo:standard",
       "bipod",
       "canted_stubby",
       "classic_grip_pod",
@@ -722,9 +825,14 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "ads_taclight",
+      "ammo:frangible",
+      "ammo:long_range",
+      "ammo:penetration",
+      "ammo:standard",
       "basic",
       "bipod_sr",
       "classic_grip_pod_sr",
@@ -753,12 +861,19 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:synthetic",
       "basic",
       "bipod",
       "canted_stubby",
@@ -809,12 +924,18 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:synthetic",
       "basic",
       "bipod",
       "canted_stubby",
@@ -858,19 +979,23 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:buckshot",
+      "ammo:buckshot_00",
+      "ammo:flechette",
+      "ammo:slugs",
       "basic",
       "canted_stubby",
       "classic_vert",
       "compensator",
       "cqb_supp",
       "extended",
-      "extended_barrel",
       "flashlight",
       "fold_stubby",
       "fold_vert",
@@ -897,6 +1022,11 @@
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
       "bipod",
       "canted_stubby",
       "classic_grip_pod",
@@ -935,11 +1065,16 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:penetration",
+      "ammo:standard",
       "bipod",
       "canted_stubby",
       "classic_grip_pod",
@@ -976,15 +1111,20 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
       "basic",
       "bipod",
-      "buffer",
       "canted_stubby",
       "classic_grip_pod",
       "classic_vert",
@@ -1000,7 +1140,6 @@
       "fold_stubby",
       "fold_vert",
       "full_angled",
-      "full_auto",
       "heavy",
       "heavy_ext",
       "hip_taclight",
@@ -1009,7 +1148,6 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
-      "mag_flare",
       "magazine:m16a4:20_fast",
       "magazine:m16a4:20_rnd",
       "magazine:m16a4:30_fast",
@@ -1017,10 +1155,8 @@
       "magazine:m16a4:36_rnd",
       "magazine:m16a4:40_fast",
       "magazine:m16a4:40_rnd",
-      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
-      "rail_cover",
       "ribbed_stubby",
       "ribbed_vert",
       "short",
@@ -1035,9 +1171,14 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "ads_taclight",
+      "ammo:frangible",
+      "ammo:long_range",
+      "ammo:penetration",
+      "ammo:standard",
       "basic",
       "bipod_sr",
       "classic_grip_pod_sr",
@@ -1067,11 +1208,17 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
       "bipod",
       "canted_stubby",
       "classic_grip_pod",
@@ -1108,12 +1255,17 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:penetration",
+      "ammo:standard",
       "bipod",
       "canted_stubby",
       "classic_grip_pod",
@@ -1151,12 +1303,17 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:penetration",
+      "ammo:standard",
       "basic",
       "bipod",
       "canted_stubby",
@@ -1204,6 +1361,8 @@
       "5mw_green",
       "5mw_red",
       "ads_taclight",
+      "ammo:hollow_pt",
+      "ammo:standard",
       "basic",
       "combo_green",
       "combo_red",
@@ -1217,12 +1376,19 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:long_range",
+      "ammo:penetration",
+      "ammo:standard",
       "basic",
       "bipod",
       "canted_stubby",
@@ -1265,12 +1431,20 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:subsonic",
+      "ammo:subsonic_hp",
       "basic",
       "bipod",
       "canted_stubby",
@@ -1312,12 +1486,18 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
       "basic",
       "bipod",
       "canted_stubby",
@@ -1359,6 +1539,10 @@
       "underslung_mount"
     ],
     "m44": [
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:penetration",
+      "ammo:standard",
       "basic",
       "extended",
       "iron",
@@ -1371,6 +1555,10 @@
       "5mw_green",
       "5mw_red",
       "ads_taclight",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:penetration",
+      "ammo:standard",
       "basic",
       "combo_green",
       "combo_red",
@@ -1390,12 +1578,18 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
       "basic",
       "bipod",
       "canted_stubby",
@@ -1441,12 +1635,18 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
       "bipod",
       "canted_stubby",
       "classic_grip_pod",
@@ -1485,19 +1685,23 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:buckshot",
+      "ammo:buckshot_00",
+      "ammo:flechette",
+      "ammo:slugs",
       "basic",
       "canted_stubby",
       "classic_vert",
       "compensator",
       "cqb_supp",
       "extended",
-      "extended_barrel",
       "flashlight",
       "fold_stubby",
       "fold_vert",
@@ -1519,9 +1723,13 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "ads_taclight",
+      "ammo:frangible",
+      "ammo:penetration",
+      "ammo:standard",
       "basic",
       "bipod_sr",
       "classic_grip_pod_sr",
@@ -1556,11 +1764,17 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
       "basic",
       "bipod",
       "canted_stubby",
@@ -1607,6 +1821,12 @@
       "5mw_green",
       "5mw_red",
       "ads_taclight",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:subsonic",
+      "ammo:subsonic_hp",
       "basic",
       "combo_green",
       "combo_red",
@@ -1626,11 +1846,19 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:subsonic",
+      "ammo:subsonic_hp",
+      "ammo:synthetic",
       "basic",
       "canted_stubby",
       "classic_vert",
@@ -1663,9 +1891,14 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "ads_taclight",
+      "ammo:frangible",
+      "ammo:long_range",
+      "ammo:penetration",
+      "ammo:standard",
       "basic",
       "bipod_sr",
       "classic_grip_pod_sr",
@@ -1692,11 +1925,19 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:subsonic",
+      "ammo:subsonic_hp",
+      "ammo:synthetic",
       "basic",
       "canted_stubby",
       "classic_vert",
@@ -1731,11 +1972,18 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:subsonic_pen",
+      "ammo:synthetic",
       "basic",
       "canted_stubby",
       "classic_vert",
@@ -1770,12 +2018,19 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:synthetic",
       "basic",
       "canted_stubby",
       "classic_grip_pod",
@@ -1814,6 +2069,12 @@
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:synthetic",
       "basic",
       "bipod",
       "canted_stubby",
@@ -1858,12 +2119,19 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:synthetic",
       "basic",
       "bipod",
       "canted_stubby",
@@ -1908,11 +2176,18 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:subsonic",
+      "ammo:subsonic_hp",
       "basic",
       "canted_stubby",
       "classic_vert",
@@ -1947,11 +2222,19 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:subsonic",
+      "ammo:subsonic_hp",
       "basic",
       "canted_stubby",
       "classic_vert",
@@ -1991,11 +2274,18 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:subsonic",
+      "ammo:subsonic_hp",
       "basic",
       "canted_stubby",
       "classic_vert",
@@ -2031,11 +2321,19 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:subsonic",
+      "ammo:subsonic_hp",
+      "ammo:synthetic",
       "basic",
       "canted_stubby",
       "classic_vert",
@@ -2073,12 +2371,20 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:subsonic",
+      "ammo:subsonic_hp",
       "basic",
       "canted_stubby",
       "classic_vert",
@@ -2121,12 +2427,19 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:synthetic",
       "basic",
       "bipod",
       "canted_stubby",
@@ -2176,9 +2489,14 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "ads_taclight",
+      "ammo:frangible",
+      "ammo:long_range",
+      "ammo:penetration",
+      "ammo:standard",
       "basic",
       "bipod_sr",
       "classic_grip_pod_sr",
@@ -2203,12 +2521,18 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:long_range",
+      "ammo:penetration",
+      "ammo:standard",
       "basic",
       "bipod_sr",
       "canted_stubby",
@@ -2249,12 +2573,18 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert_svk86",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:long_range",
+      "ammo:penetration",
+      "ammo:standard",
       "basic",
       "bipod_sr",
       "canted_stubby",
@@ -2292,11 +2622,17 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
       "basic",
       "bipod",
       "canted_stubby",
@@ -2338,11 +2674,19 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:subsonic",
+      "ammo:subsonic_hp",
+      "ammo:synthetic",
       "basic",
       "canted_stubby",
       "classic_vert",
@@ -2381,9 +2725,17 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "ads_taclight",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:subsonic",
+      "ammo:subsonic_hp",
       "basic",
       "comp_brake",
       "compensator",
@@ -2408,12 +2760,18 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "adj_angled",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:lightweight",
+      "ammo:penetration",
+      "ammo:standard",
       "basic",
       "bipod",
       "canted_stubby",
@@ -2458,11 +2816,16 @@
       "120mw_blue",
       "50mw_blue",
       "50mw_green",
+      "50mw_violet",
       "5mw_green",
       "5mw_red",
       "6h64_vert",
       "ads_taclight",
       "alloy_vert",
+      "ammo:frangible",
+      "ammo:long_range",
+      "ammo:penetration",
+      "ammo:range_pen",
       "bipod",
       "canted_stubby",
       "classic_grip_pod",
@@ -2493,6 +2856,11 @@
       "5mw_green",
       "5mw_red",
       "ads_taclight",
+      "ammo:frangible",
+      "ammo:hollow_pt",
+      "ammo:penetration",
+      "ammo:standard",
+      "ammo:synthetic",
       "basic",
       "combo_green",
       "combo_red",
@@ -2686,10 +3054,61 @@
       "vz61"
     ],
     "50mw_violet": [
+      "ak205",
+      "ak4d",
+      "b36a4",
+      "brod3",
       "cz3a1",
       "db12",
+      "drsiar",
+      "ef88",
+      "grtbc",
+      "grtcps",
+      "kord6p67",
+      "ks18k",
+      "kts100",
+      "kv9",
+      "l110",
+      "l115",
+      "l85a3",
+      "lmr27",
+      "m1014",
       "m121a2",
-      "rpk74m"
+      "m123k",
+      "m16a4",
+      "m2010esr",
+      "m240l",
+      "m250",
+      "m277",
+      "m39emr",
+      "m417a2",
+      "m433",
+      "m4a1",
+      "m60",
+      "m87a1",
+      "miniscout",
+      "nvo228e",
+      "pp19",
+      "psr",
+      "pw5a3",
+      "pw7a2",
+      "qbz192",
+      "rpk74m",
+      "rpkm",
+      "scw10",
+      "sg553r",
+      "sgx",
+      "sl9",
+      "sor300sc",
+      "sor556",
+      "sv98",
+      "svdm",
+      "svk86",
+      "tr7",
+      "umg40",
+      "usg90",
+      "vcr2",
+      "vssm"
     ],
     "5mw_green": [
       "ak205",
@@ -3013,6 +3432,362 @@
       "vcr2",
       "vssm"
     ],
+    "ammo:buckshot": [
+      "db12",
+      "ks18k",
+      "m1014",
+      "m87a1"
+    ],
+    "ammo:buckshot_00": [
+      "db12",
+      "ks18k",
+      "m1014",
+      "m87a1"
+    ],
+    "ammo:flechette": [
+      "db12",
+      "ks18k",
+      "m1014",
+      "m87a1"
+    ],
+    "ammo:frangible": [
+      "ak205",
+      "ak4d",
+      "b36a4",
+      "brod3",
+      "cz3a1",
+      "drsiar",
+      "ef88",
+      "es57",
+      "ggh22",
+      "grtbc",
+      "grtcps",
+      "kord6p67",
+      "kts100",
+      "kv9",
+      "l110",
+      "l115",
+      "l85a3",
+      "lmr27",
+      "m121a2",
+      "m123k",
+      "m16a4",
+      "m2010esr",
+      "m240l",
+      "m250",
+      "m277",
+      "m39emr",
+      "m417a2",
+      "m433",
+      "m44",
+      "m45a1",
+      "m4a1",
+      "m60",
+      "miniscout",
+      "nvo228e",
+      "p18",
+      "pp19",
+      "psr",
+      "pw5a3",
+      "pw7a2",
+      "qbz192",
+      "rpk74m",
+      "rpkm",
+      "scw10",
+      "sg553r",
+      "sgx",
+      "sl9",
+      "sor300sc",
+      "sor556",
+      "sv98",
+      "svdm",
+      "svk86",
+      "tr7",
+      "umg40",
+      "usg90",
+      "vcr2",
+      "vssm",
+      "vz61"
+    ],
+    "ammo:hollow_pt": [
+      "ak205",
+      "ak4d",
+      "b36a4",
+      "brod3",
+      "cz3a1",
+      "drsiar",
+      "ef88",
+      "es57",
+      "ggh22",
+      "grtbc",
+      "grtcps",
+      "kord6p67",
+      "kts100",
+      "kv9",
+      "l110",
+      "l85a3",
+      "lmr27",
+      "m121a2",
+      "m123k",
+      "m16a4",
+      "m240l",
+      "m250",
+      "m277",
+      "m357trait",
+      "m39emr",
+      "m417a2",
+      "m433",
+      "m44",
+      "m45a1",
+      "m4a1",
+      "m60",
+      "nvo228e",
+      "p18",
+      "pp19",
+      "pw5a3",
+      "pw7a2",
+      "qbz192",
+      "rpk74m",
+      "rpkm",
+      "scw10",
+      "sg553r",
+      "sgx",
+      "sl9",
+      "sor300sc",
+      "sor556",
+      "svdm",
+      "svk86",
+      "tr7",
+      "umg40",
+      "usg90",
+      "vcr2",
+      "vz61"
+    ],
+    "ammo:lightweight": [
+      "ak205",
+      "ak4d",
+      "b36a4",
+      "brod3",
+      "drsiar",
+      "ef88",
+      "grtbc",
+      "grtcps",
+      "kord6p67",
+      "kts100",
+      "l85a3",
+      "m121a2",
+      "m16a4",
+      "m240l",
+      "m39emr",
+      "m417a2",
+      "m433",
+      "m4a1",
+      "m60",
+      "nvo228e",
+      "qbz192",
+      "rpk74m",
+      "rpkm",
+      "sg553r",
+      "sor300sc",
+      "sor556",
+      "tr7",
+      "usg90",
+      "vcr2"
+    ],
+    "ammo:long_range": [
+      "l115",
+      "m2010esr",
+      "m39emr",
+      "psr",
+      "sv98",
+      "svdm",
+      "svk86",
+      "vssm"
+    ],
+    "ammo:penetration": [
+      "ak205",
+      "ak4d",
+      "b36a4",
+      "brod3",
+      "cz3a1",
+      "drsiar",
+      "ef88",
+      "es57",
+      "ggh22",
+      "grtbc",
+      "grtcps",
+      "kord6p67",
+      "kts100",
+      "kv9",
+      "l110",
+      "l115",
+      "l85a3",
+      "lmr27",
+      "m121a2",
+      "m123k",
+      "m16a4",
+      "m2010esr",
+      "m240l",
+      "m250",
+      "m277",
+      "m39emr",
+      "m417a2",
+      "m433",
+      "m44",
+      "m45a1",
+      "m4a1",
+      "m60",
+      "miniscout",
+      "nvo228e",
+      "p18",
+      "pp19",
+      "psr",
+      "pw5a3",
+      "pw7a2",
+      "qbz192",
+      "rpk74m",
+      "rpkm",
+      "scw10",
+      "sg553r",
+      "sgx",
+      "sl9",
+      "sor300sc",
+      "sor556",
+      "sv98",
+      "svdm",
+      "svk86",
+      "tr7",
+      "umg40",
+      "usg90",
+      "vcr2",
+      "vssm",
+      "vz61"
+    ],
+    "ammo:range_pen": [
+      "vssm"
+    ],
+    "ammo:slugs": [
+      "db12",
+      "ks18k",
+      "m1014",
+      "m87a1"
+    ],
+    "ammo:standard": [
+      "ak205",
+      "ak4d",
+      "b36a4",
+      "brod3",
+      "cz3a1",
+      "drsiar",
+      "ef88",
+      "es57",
+      "ggh22",
+      "grtbc",
+      "grtcps",
+      "kord6p67",
+      "kts100",
+      "kv9",
+      "l110",
+      "l115",
+      "l85a3",
+      "lmr27",
+      "m121a2",
+      "m123k",
+      "m16a4",
+      "m2010esr",
+      "m240l",
+      "m250",
+      "m277",
+      "m357trait",
+      "m39emr",
+      "m417a2",
+      "m433",
+      "m44",
+      "m45a1",
+      "m4a1",
+      "m60",
+      "miniscout",
+      "nvo228e",
+      "p18",
+      "pp19",
+      "psr",
+      "pw5a3",
+      "pw7a2",
+      "qbz192",
+      "rpk74m",
+      "rpkm",
+      "scw10",
+      "sg553r",
+      "sgx",
+      "sl9",
+      "sor300sc",
+      "sor556",
+      "sv98",
+      "svdm",
+      "svk86",
+      "tr7",
+      "umg40",
+      "usg90",
+      "vcr2",
+      "vz61"
+    ],
+    "ammo:subsonic": [
+      "cz3a1",
+      "es57",
+      "ggh22",
+      "kv9",
+      "m417a2",
+      "p18",
+      "pp19",
+      "pw5a3",
+      "scw10",
+      "sg553r",
+      "sgx",
+      "sl9",
+      "sor300sc",
+      "umg40",
+      "usg90"
+    ],
+    "ammo:subsonic_hp": [
+      "cz3a1",
+      "es57",
+      "ggh22",
+      "kv9",
+      "m417a2",
+      "p18",
+      "pp19",
+      "pw5a3",
+      "scw10",
+      "sg553r",
+      "sgx",
+      "sl9",
+      "sor300sc",
+      "umg40",
+      "usg90"
+    ],
+    "ammo:subsonic_pen": [
+      "pw7a2"
+    ],
+    "ammo:synthetic": [
+      "ak205",
+      "b36a4",
+      "drsiar",
+      "ef88",
+      "grtcps",
+      "kts100",
+      "l85a3",
+      "lmr27",
+      "pp19",
+      "pw5a3",
+      "pw7a2",
+      "qbz192",
+      "rpk74m",
+      "rpkm",
+      "sl9",
+      "sor556",
+      "umg40",
+      "vz61"
+    ],
     "basic": [
       "ak205",
       "ak4d",
@@ -3107,9 +3882,6 @@
       "sv98",
       "svdm",
       "svk86"
-    ],
-    "buffer": [
-      "m16a4"
     ],
     "canted_stubby": [
       "ak205",
@@ -3570,12 +4342,6 @@
       "umg40",
       "vcr2"
     ],
-    "extended_barrel": [
-      "db12",
-      "ks18k",
-      "m1014",
-      "m87a1"
-    ],
     "factory_angled_db12": [
       "db12"
     ],
@@ -3893,9 +4659,6 @@
       "miniscout",
       "psr",
       "sv98"
-    ],
-    "full_auto": [
-      "m16a4"
     ],
     "heavy": [
       "ak205",
@@ -4262,9 +5025,6 @@
     ],
     "lp_stubby_svk86": [
       "svk86"
-    ],
-    "mag_flare": [
-      "m16a4"
     ],
     "magazine:ak205:30_fast": [
       "ak205"
@@ -5115,9 +5875,6 @@
     "magazine:vz61:20_rnd": [
       "vz61"
     ],
-    "match_trigger": [
-      "m16a4"
-    ],
     "ptt_grip_pod": [
       "ak4d",
       "b36a4",
@@ -5192,9 +5949,6 @@
       "miniscout",
       "psr",
       "sv98"
-    ],
-    "rail_cover": [
-      "m16a4"
     ],
     "range_finder": [
       "grtcps",
@@ -5631,6 +6385,14 @@
   },
   "attachmentsByWeaponSlot": {
     "ak205": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:synthetic"
+      ],
       "barrel": [
         "basic",
         "cryo",
@@ -5641,6 +6403,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -5688,6 +6451,13 @@
       ]
     },
     "ak4d": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic",
         "cryo",
@@ -5700,6 +6470,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -5749,6 +6520,14 @@
       ]
     },
     "b36a4": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:synthetic"
+      ],
       "barrel": [
         "basic",
         "cryo",
@@ -5762,6 +6541,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -5816,6 +6596,13 @@
       ]
     },
     "brod3": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -5826,6 +6613,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -5876,6 +6664,14 @@
       ]
     },
     "cz3a1": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:subsonic",
+        "ammo:subsonic_hp"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -5929,10 +6725,15 @@
       ]
     },
     "db12": {
+      "ammo": [
+        "ammo:buckshot",
+        "ammo:buckshot_00",
+        "ammo:flechette",
+        "ammo:slugs"
+      ],
       "barrel": [
         "basic",
-        "extended",
-        "extended_barrel"
+        "extended"
       ],
       "laser": [
         "120mw_blue",
@@ -5971,6 +6772,14 @@
       ]
     },
     "drsiar": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:synthetic"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -5983,6 +6792,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -6037,6 +6847,14 @@
       ]
     },
     "ef88": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:synthetic"
+      ],
       "barrel": [
         "basic",
         "cryo",
@@ -6051,6 +6869,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -6098,6 +6917,14 @@
       ]
     },
     "es57": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:subsonic",
+        "ammo:subsonic_hp"
+      ],
       "barrel": [
         "basic",
         "light"
@@ -6130,6 +6957,14 @@
       ]
     },
     "ggh22": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:subsonic",
+        "ammo:subsonic_hp"
+      ],
       "barrel": [
         "basic",
         "light"
@@ -6163,6 +6998,13 @@
       ]
     },
     "grtbc": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -6172,6 +7014,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red",
         "combo_green",
@@ -6217,6 +7060,14 @@
       ]
     },
     "grtcps": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:synthetic"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -6227,6 +7078,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -6276,6 +7128,13 @@
       ]
     },
     "kord6p67": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic",
         "cryo",
@@ -6286,6 +7145,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red",
         "combo_green"
@@ -6337,15 +7197,21 @@
       ]
     },
     "ks18k": {
+      "ammo": [
+        "ammo:buckshot",
+        "ammo:buckshot_00",
+        "ammo:flechette",
+        "ammo:slugs"
+      ],
       "barrel": [
         "basic",
-        "extended",
-        "extended_barrel"
+        "extended"
       ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -6384,6 +7250,14 @@
       ]
     },
     "kts100": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:synthetic"
+      ],
       "barrel": [
         "heavy",
         "heavy_ext",
@@ -6393,6 +7267,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red",
         "combo_green",
@@ -6445,6 +7320,14 @@
       ]
     },
     "kv9": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:subsonic",
+        "ammo:subsonic_hp"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -6454,6 +7337,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -6496,6 +7380,12 @@
       ]
     },
     "l110": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "heavy",
         "heavy_ext",
@@ -6505,6 +7395,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -6551,6 +7442,12 @@
       ]
     },
     "l115": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:long_range",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -6561,6 +7458,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -6594,6 +7492,14 @@
       ]
     },
     "l85a3": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:synthetic"
+      ],
       "barrel": [
         "basic",
         "cryo",
@@ -6607,6 +7513,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -6662,6 +7569,13 @@
       ]
     },
     "lmr27": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:synthetic"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -6671,6 +7585,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -6723,15 +7638,21 @@
       ]
     },
     "m1014": {
+      "ammo": [
+        "ammo:buckshot",
+        "ammo:buckshot_00",
+        "ammo:flechette",
+        "ammo:slugs"
+      ],
       "barrel": [
         "basic",
-        "extended",
-        "extended_barrel"
+        "extended"
       ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -6768,6 +7689,13 @@
       ]
     },
     "m121a2": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "heavy",
         "heavy_ext",
@@ -6824,6 +7752,12 @@
       ]
     },
     "m123k": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "heavy",
         "heavy_ext",
@@ -6833,6 +7767,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -6877,6 +7812,13 @@
       ]
     },
     "m16a4": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic",
         "cryo",
@@ -6886,17 +7828,11 @@
         "light",
         "short"
       ],
-      "ergonomics": [
-        "buffer",
-        "full_auto",
-        "mag_flare",
-        "match_trigger",
-        "rail_cover"
-      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -6950,6 +7886,12 @@
       ]
     },
     "m2010esr": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:long_range",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -6959,6 +7901,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -6994,6 +7937,13 @@
       ]
     },
     "m240l": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "heavy",
         "heavy_ext",
@@ -7003,6 +7953,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -7047,6 +7998,12 @@
       ]
     },
     "m250": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "heavy",
         "heavy_ext"
@@ -7055,6 +8012,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -7102,6 +8060,12 @@
       ]
     },
     "m277": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic",
         "cryo",
@@ -7114,6 +8078,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -7166,6 +8131,10 @@
       ]
     },
     "m357trait": {
+      "ammo": [
+        "ammo:hollow_pt",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic"
       ],
@@ -7190,6 +8159,14 @@
       ]
     },
     "m39emr": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:long_range",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -7199,6 +8176,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -7250,6 +8228,15 @@
       ]
     },
     "m417a2": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:subsonic",
+        "ammo:subsonic_hp"
+      ],
       "barrel": [
         "basic",
         "cryo",
@@ -7260,6 +8247,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -7309,6 +8297,13 @@
       ]
     },
     "m433": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -7319,6 +8314,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -7371,6 +8367,12 @@
       ]
     },
     "m44": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -7385,6 +8387,12 @@
       ]
     },
     "m45a1": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic",
         "light"
@@ -7417,6 +8425,13 @@
       ]
     },
     "m4a1": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -7427,6 +8442,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -7480,6 +8496,13 @@
       ]
     },
     "m60": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "heavy",
         "heavy_ext",
@@ -7489,6 +8512,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -7536,15 +8560,21 @@
       ]
     },
     "m87a1": {
+      "ammo": [
+        "ammo:buckshot",
+        "ammo:buckshot_00",
+        "ammo:flechette",
+        "ammo:slugs"
+      ],
       "barrel": [
         "basic",
-        "extended",
-        "extended_barrel"
+        "extended"
       ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -7582,6 +8612,11 @@
       ]
     },
     "miniscout": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -7592,6 +8627,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -7631,6 +8667,13 @@
       ]
     },
     "nvo228e": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic",
         "cryo",
@@ -7642,6 +8685,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -7693,6 +8737,14 @@
       ]
     },
     "p18": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:subsonic",
+        "ammo:subsonic_hp"
+      ],
       "barrel": [
         "basic",
         "light"
@@ -7725,6 +8777,15 @@
       ]
     },
     "pp19": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:subsonic",
+        "ammo:subsonic_hp",
+        "ammo:synthetic"
+      ],
       "barrel": [
         "basic",
         "cryo",
@@ -7735,6 +8796,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -7774,6 +8836,12 @@
       ]
     },
     "psr": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:long_range",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic",
         "extended"
@@ -7782,6 +8850,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -7815,6 +8884,15 @@
       ]
     },
     "pw5a3": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:subsonic",
+        "ammo:subsonic_hp",
+        "ammo:synthetic"
+      ],
       "barrel": [
         "basic",
         "cryo",
@@ -7824,6 +8902,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -7866,6 +8945,14 @@
       ]
     },
     "pw7a2": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:subsonic_pen",
+        "ammo:synthetic"
+      ],
       "barrel": [
         "basic",
         "cryo",
@@ -7875,6 +8962,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -7917,6 +9005,14 @@
       ]
     },
     "qbz192": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:synthetic"
+      ],
       "barrel": [
         "basic",
         "cryo",
@@ -7926,6 +9022,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -7966,6 +9063,14 @@
       ]
     },
     "rpk74m": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:synthetic"
+      ],
       "barrel": [
         "basic",
         "heavy",
@@ -8029,6 +9134,14 @@
       ]
     },
     "rpkm": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:synthetic"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -8040,6 +9153,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -8091,6 +9205,14 @@
       ]
     },
     "scw10": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:subsonic",
+        "ammo:subsonic_hp"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -8100,6 +9222,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -8142,6 +9265,15 @@
       ]
     },
     "sg553r": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:subsonic",
+        "ammo:subsonic_hp"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -8151,6 +9283,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -8198,6 +9331,14 @@
       ]
     },
     "sgx": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:subsonic",
+        "ammo:subsonic_hp"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -8208,6 +9349,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -8250,6 +9392,15 @@
       ]
     },
     "sl9": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:subsonic",
+        "ammo:subsonic_hp",
+        "ammo:synthetic"
+      ],
       "barrel": [
         "basic",
         "cryo",
@@ -8262,6 +9413,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red",
         "combo_green",
@@ -8304,6 +9456,15 @@
       ]
     },
     "sor300sc": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:subsonic",
+        "ammo:subsonic_hp"
+      ],
       "barrel": [
         "basic",
         "cryo",
@@ -8315,6 +9476,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -8364,6 +9526,14 @@
       ]
     },
     "sor556": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:synthetic"
+      ],
       "barrel": [
         "basic",
         "cryo",
@@ -8376,6 +9546,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -8431,6 +9602,12 @@
       ]
     },
     "sv98": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:long_range",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -8441,6 +9618,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -8470,6 +9648,13 @@
       ]
     },
     "svdm": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:long_range",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -8480,6 +9665,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -8528,6 +9714,13 @@
       ]
     },
     "svk86": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:long_range",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -8537,6 +9730,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -8583,6 +9777,13 @@
       ]
     },
     "tr7": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -8593,6 +9794,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -8641,6 +9843,15 @@
       ]
     },
     "umg40": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:subsonic",
+        "ammo:subsonic_hp",
+        "ammo:synthetic"
+      ],
       "barrel": [
         "basic",
         "cryo",
@@ -8653,6 +9864,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -8696,6 +9908,15 @@
       ]
     },
     "usg90": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:subsonic",
+        "ammo:subsonic_hp"
+      ],
       "barrel": [
         "basic",
         "cryo",
@@ -8707,6 +9928,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -8733,6 +9955,13 @@
       ]
     },
     "vcr2": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:lightweight",
+        "ammo:penetration",
+        "ammo:standard"
+      ],
       "barrel": [
         "basic",
         "extended",
@@ -8743,6 +9972,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -8795,6 +10025,12 @@
       ]
     },
     "vssm": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:long_range",
+        "ammo:penetration",
+        "ammo:range_pen"
+      ],
       "barrel": [
         "vssm_suppressed",
         "vssm_suppressed_asm"
@@ -8803,6 +10039,7 @@
         "120mw_blue",
         "50mw_blue",
         "50mw_green",
+        "50mw_violet",
         "5mw_green",
         "5mw_red"
       ],
@@ -8839,6 +10076,13 @@
       ]
     },
     "vz61": {
+      "ammo": [
+        "ammo:frangible",
+        "ammo:hollow_pt",
+        "ammo:penetration",
+        "ammo:standard",
+        "ammo:synthetic"
+      ],
       "barrel": [
         "basic"
       ],

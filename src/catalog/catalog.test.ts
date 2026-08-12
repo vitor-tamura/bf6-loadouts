@@ -59,22 +59,18 @@ describe('a versão publicada', () => {
     expect(catalog.attachments).toHaveLength(402);
   });
 
-  it('incorporou as peças anunciadas no patch note da Temporada 4', () => {
+  it('mantém as peças da Temporada 4 como entidades, sem compatibilidade', () => {
     /*
-     * O Extended Barrel entrou com a compatibilidade que a EA listou — quatro
-     * escopetas, nomeadas no texto. O 1P86 LPVO entrou sem arma nenhuma: o
-     * patch note diz "across supported weapons" e não lista, então não há o que
-     * registrar sem inventar.
+     * As duas peças que o patch note anunciou continuam no catálogo, mas sem
+     * relação nenhuma: a matriz vem da planilha MASTER, cuja base é 1.3.3.0 —
+     * anterior à Temporada 4 —, e ela não as lista. As quatro relações do
+     * Extended Barrel que a EA havia anunciado saíram junto com a substituição
+     * da matriz.
      */
     const cano = getAttachment('extended_barrel')!;
     expect(cano.slot).toBe('barrel');
     expect(cano.introducedIn).toBe('1.4.1.0');
-    expect(getAttachmentWeapons('extended_barrel').map((a) => a.id).sort()).toEqual([
-      'db12',
-      'ks18k',
-      'm1014',
-      'm87a1',
-    ]);
+    expect(getAttachmentWeapons('extended_barrel')).toHaveLength(0);
 
     const mira = getAttachment('1p86_lpvo')!;
     expect(mira.slot).toBe('sight');
@@ -129,9 +125,16 @@ describe('o 50 MW Violet', () => {
     expect(peça!.originalName).toBe('50 MW Violet');
   });
 
-  it('está nas quatro armas confirmadas, e só nelas', () => {
+  it('segue a matriz da planilha, e não a lista curta anterior', () => {
+    /*
+     * A escolha mudou por decisão de quem mantém o catálogo: a planilha MASTER
+     * é a fonte, e ela traz a matriz longa. As quatro armas que o estado atual
+     * do jogo mostrava (`m121a2`, `rpk74m`, `cz3a1`, `db12`) continuam na
+     * lista, agora acompanhadas das demais.
+     */
     const armas = getAttachmentWeapons('50mw_violet').map((arma) => arma.id);
-    expect(armas.sort()).toEqual(confirmadas);
+    expect(armas.length).toBeGreaterThan(50);
+    for (const id of confirmadas) expect(armas).toContain(id);
   });
 
   it('responde igual pelos dois lados da relação', () => {
@@ -198,18 +201,24 @@ describe('nomes das peças', () => {
     expect(nomes.light_supp).toBe('Supressor Leve|30');
   });
 
-  it('reproduz a lista de ergonomia da M16A4 como ela aparece na tela', () => {
-    // A print mostra a lista fechada, com custo: é a única compatibilidade de
-    // ergonomia que alguma fonte confirma até agora.
-    const ergonomia = getWeaponAttachmentsBySlot('m16a4').get('ergonomics') ?? [];
+  it('mantém os custos de ergonomia que a tela do jogo mostra', () => {
+    /*
+     * A compatibilidade de ergonomia saiu do catálogo: a matriz da planilha tem
+     * sete slots e `ergonomics` não é um deles, e as cinco relações que a print
+     * da M16A4 havia confirmado não sobreviveram à substituição.
+     *
+     * Os custos, esses continuam certos — a planilha traz os mesmos números da
+     * tela, o que é uma confirmação independente deles.
+     */
+    const porId = Object.fromEntries(catalog.attachments.map((peça) => [peça.id, peça.cost]));
 
-    expect(ergonomia.map((peça) => `${peça.name} ${peça.cost}`)).toEqual([
-      'Amortecedor 5',
-      'Cobertura de Trilho 5',
-      'Pente Expandido 10',
-      'Gatilho 15',
-      'Auto 25',
-    ]);
+    expect(porId.buffer).toBe(5);
+    expect(porId.rail_cover).toBe(5);
+    expect(porId.mag_flare).toBe(10);
+    expect(porId.match_trigger).toBe(15);
+    expect(porId.full_auto).toBe(25);
+
+    expect(getWeaponAttachmentsBySlot('m16a4').get('ergonomics') ?? []).toHaveLength(0);
   });
 
   it('não deixam nenhuma peça ativa em inglês', () => {
@@ -269,14 +278,18 @@ describe('munição', () => {
     for (const munição of munições) expect(munição.id.startsWith('ammo:')).toBe(true);
   });
 
-  it('continua sem arma nenhuma enquanto nenhuma fonte a confirmar', () => {
+  it('tem compatibilidade e custo, vindos da planilha MASTER', () => {
     /*
-     * O v5 lista as munições e não as liga a arma alguma. A tentação é dizer
-     * "toda arma aceita munição padrão" — e é justamente o que não se faz aqui.
-     * Quando uma fonte confirmar, este teste muda junto com o dado.
+     * O v5 listava as munições sem ligá-las a arma nenhuma, e a regra era
+     * deixá-las assim em vez de supor que toda arma aceita munição padrão. A
+     * planilha MASTER publica as 326 relações, e a suposição deixou de ser
+     * necessária — o dado apareceu.
      */
+    expect(getAttachmentWeapons('ammo:standard').length).toBeGreaterThan(50);
+    expect(getAttachment('ammo:standard')!.cost).toBe(5);
+
     for (const munição of catalog.attachments.filter((peça) => peça.slot === 'ammo')) {
-      expect(getAttachmentWeapons(munição.id)).toHaveLength(0);
+      expect(munição.cost, munição.id).not.toBeNull();
     }
   });
 });
@@ -458,16 +471,19 @@ describe('efeitos e estatísticas', () => {
     expect(typeof stats.magazineCapacity).toBe('number');
   });
 
-  it('deixam o custo nulo quando nenhuma fonte o publica', () => {
+  it('deixam o custo nulo só onde nenhuma fonte o publica', () => {
     /*
-     * As páginas salvas do BF6 Loadouts trouxeram o preço de nove das quinze
-     * munições. As seis que sobram — as duas variantes de chumbo grosso e as
-     * subsônicas — o site não lista, e ficam nulas em vez de herdar o preço da
-     * munição parecida.
+     * As duas peças que a Temporada 4 anunciou. A EA publicou nome e slot, não
+     * preço — e é por isso que a capacidade `costs` continua falsa: ela exige
+     * cobertura completa, e duas peças sem preço bastam para derrubá-la.
      */
-    expect(getPending().attachmentsWithoutCost).toBe(6);
-    expect(getAttachment('ammo:standard')!.cost).toBe(5);
-    expect(getAttachment('ammo:subsonic')!.cost).toBeNull();
+    expect(getAttachment('extended_barrel')!.cost).toBeNull();
+    expect(getAttachment('1p86_lpvo')!.cost).toBeNull();
+    expect(supports('costs')).toBe(false);
+
+    // Todas as demais têm preço.
+    const semCusto = catalog.attachments.filter((peça) => peça.cost === null).map((p) => p.id);
+    expect(semCusto.sort()).toEqual(['1p86_lpvo', 'extended_barrel']);
   });
 
   it('mantém o custo que a tela do jogo confirmou, contra o do site', () => {

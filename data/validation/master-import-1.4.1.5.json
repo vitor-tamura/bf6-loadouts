@@ -1,0 +1,74 @@
+{
+  "gameVersion": "1.4.1.5",
+  "checkedAt": "2026-08-12",
+  "source": {
+    "provider": "BF6 MASTER (planilha)",
+    "type": "verified",
+    "url": null,
+    "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+    "commit": null,
+    "version": null,
+    "retrievedAt": "2026-08-12T15:12:57.415Z",
+    "snapshot": "master-2026-08-12"
+  },
+  "weapons": 62,
+  "curves": 62,
+  "attachments": 108,
+  "relations": 2753,
+  "costsApplied": 43,
+  "overriddenGame": [],
+  "slotMismatch": [
+    {
+      "weaponId": "vz61",
+      "attachmentId": "fold_stubby",
+      "matrix": "laser",
+      "declared": "underbarrel"
+    },
+    {
+      "weaponId": "vz61",
+      "attachmentId": "ribbed_stubby",
+      "matrix": "laser",
+      "declared": "underbarrel"
+    },
+    {
+      "weaponId": "vz61",
+      "attachmentId": "canted_stubby",
+      "matrix": "laser",
+      "declared": "underbarrel"
+    },
+    {
+      "weaponId": "vz61",
+      "attachmentId": "stipp_stubby",
+      "matrix": "laser",
+      "declared": "underbarrel"
+    },
+    {
+      "weaponId": "vz61",
+      "attachmentId": "cmpct_handstop",
+      "matrix": "laser",
+      "declared": "underbarrel"
+    }
+  ],
+  "pending": [
+    {
+      "item": "1P86 LPVO — estatísticas numéricas completas",
+      "status": "needs_review",
+      "reason": "EA publica a existência e a faixa 1,50x–4,50x, mas o snapshot técnico fornecido é 1.3.3.0."
+    },
+    {
+      "item": "Extended Barrel — valores numéricos completos",
+      "status": "needs_review",
+      "reason": "EA confirma aumento de velocidade e penalidades, mas não publica neste patch todos os coeficientes numéricos."
+    },
+    {
+      "item": "Drag coefficients",
+      "status": "open_conflict",
+      "reason": "Fontes divergentes; não inventar."
+    },
+    {
+      "item": "TTK",
+      "status": "calculated",
+      "reason": "Deve ser calculado a partir de curva + cadência + tempo de voo."
+    }
+  ]
+}
