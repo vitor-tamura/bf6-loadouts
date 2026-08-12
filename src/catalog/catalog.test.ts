@@ -90,7 +90,8 @@ describe('o 50 MW Violet', () => {
     const peça = getAttachment('50mw_violet');
     expect(peça).toBeDefined();
     expect(peça!.slot).toBe('laser');
-    expect(peça!.name).toBe('50 MW Violet');
+    expect(peça!.name).toBe('Laser Violeta de 50 MW');
+    expect(peça!.originalName).toBe('50 MW Violet');
   });
 
   it('está nas quatro armas confirmadas, e só nelas', () => {
@@ -103,6 +104,72 @@ describe('o 50 MW Violet', () => {
       expect(isCompatible(id, '50mw_violet')).toBe(true);
       expect(getWeaponAttachments(id).map((peça) => peça.id)).toContain('50mw_violet');
     }
+  });
+});
+
+describe('nomes das peças', () => {
+  it('vêm em português, com o nome de origem ao lado', () => {
+    const violeta = getAttachment('50mw_violet')!;
+    expect(violeta.name).toBe('Laser Violeta de 50 MW');
+    expect(violeta.originalName).toBe('50 MW Violet');
+  });
+
+  it('seguem a matriz de cano do jogo: comprimento × perfil', () => {
+    /*
+     * A tela "Selecionar cano" nomeia pelo cruzamento de comprimento com
+     * perfil, não pela medida em polegadas. Fora da matriz existe só o Crio.
+     */
+    const canos = Object.fromEntries(
+      catalog.attachments
+        .filter((peça) => peça.slot === 'barrel')
+        .map((peça) => [peça.originalName, peça.name]),
+    );
+
+    expect(canos['Basic']).toBe('Cano Básico');
+    expect(canos['Short']).toBe('Cano Curto');
+    expect(canos['Extended']).toBe('Cano Estendido');
+    expect(canos['Light']).toBe('Cano Leve');
+    expect(canos['Short Light']).toBe('Cano Curto Leve');
+    expect(canos['Extended Light']).toBe('Cano Estendido Leve');
+    expect(canos['Heavy']).toBe('Cano Pesado');
+    expect(canos['Heavy Extended']).toBe('Cano Ext. Pesado');
+    expect(canos['Cryogenic']).toBe('Crio');
+  });
+
+  it('nomeiam carregador pela capacidade, como o dataset curado', () => {
+    const porOriginal = new Map(
+      catalog.attachments.filter((p) => p.slot === 'magazine').map((p) => [p.originalName, p.name]),
+    );
+    expect(porOriginal.get('30 Rnd')).toBe('Carregador de 30');
+    expect(porOriginal.get('30 Fast')).toBe('Carregador Rápido de 30');
+  });
+
+  it('não deixam nenhuma peça ativa em inglês', () => {
+    expect(getPending().attachmentsWithoutTranslation).toBe(0);
+
+    for (const peça of catalog.attachments) {
+      expect(peça.name, peça.id).toBeTruthy();
+      expect(peça.originalName, peça.id).toBeTruthy();
+    }
+  });
+
+  it('traduzem slots e categorias com o vocabulário do site', () => {
+    const slots = Object.fromEntries(catalog.slots.map((s) => [s.id, s.name]));
+    expect(slots.barrel).toBe('Cano');
+    expect(slots.muzzle).toBe('Boca');
+    expect(slots.underbarrel).toBe('Acoplamento Inferior');
+
+    const categorias = Object.fromEntries(catalog.categories.map((c) => [c.id, c.name]));
+    expect(categorias.assault_rifle).toBe('Assalto');
+    expect(categorias.sniper_rifle).toBe('Sniper');
+  });
+
+  it('guardam o nome de origem como apelido de slot e categoria', () => {
+    // A busca precisa achar por "Barrel" também.
+    expect(catalog.slots.find((s) => s.id === 'barrel')!.aliases).toContain('Barrel');
+    expect(catalog.categories.find((c) => c.id === 'assault_rifle')!.aliases).toContain(
+      'Assault Rifle',
+    );
   });
 });
 

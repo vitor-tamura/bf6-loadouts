@@ -1,0 +1,629 @@
+{
+  "schemaVersion": 1,
+  "locale": "pt-BR",
+  "note": "Camada de idioma do catálogo. As entidades guardam o nome da fonte, em inglês; aqui fica o nome que o jogo usa em português. `from` diz de onde cada tradução veio: dataset (nomenclatura já curada em src/data/attachments.ts), matriz (tela Selecionar cano do jogo, comprimento x perfil) ou curadoria (traduzido seguindo o vocabulário das outras duas). Peça sem entrada aqui aparece com o nome de origem, e o validador avisa.",
+  "rules": [
+    {
+      "slot": "magazine",
+      "pattern": "^(\\d+) Rnd$",
+      "template": "Carregador de $1",
+      "from": "dataset",
+      "note": "O dataset curado chama '30RND Magazine' de 'Carregador de 30'."
+    },
+    {
+      "slot": "magazine",
+      "pattern": "^(\\d+) Fast$",
+      "template": "Carregador Rápido de $1",
+      "from": "dataset",
+      "note": "'10RND Fast Mag' é 'Carregador Rápido de 10'."
+    }
+  ],
+  "slots": {
+    "sight": "Mira",
+    "muzzle": "Boca",
+    "barrel": "Cano",
+    "underbarrel": "Acoplamento Inferior",
+    "magazine": "Carregador",
+    "ammo": "Munição",
+    "ergonomics": "Ergonomia",
+    "laser": "Laser",
+    "light": "Lanterna"
+  },
+  "categories": {
+    "assault_rifle": "Assalto",
+    "carbine": "Carabina",
+    "smg": "SMG",
+    "lmg": "LMG",
+    "dmr": "DMR",
+    "sniper_rifle": "Sniper",
+    "shotgun": "Escopeta",
+    "sidearm": "Pistola"
+  },
+  "attachments": {
+    "120mw_blue": {
+      "pt": "Laser Azul de 120 MW",
+      "original": "120 MW Blue",
+      "from": "dataset"
+    },
+    "50mw_blue": {
+      "pt": "Laser Azul de 50 MW",
+      "original": "50 MW Blue",
+      "from": "dataset"
+    },
+    "50mw_green": {
+      "pt": "Laser Verde de 50 MW",
+      "original": "50 MW Green",
+      "from": "dataset"
+    },
+    "50mw_violet": {
+      "pt": "Laser Violeta de 50 MW",
+      "original": "50 MW Violet",
+      "from": "dataset"
+    },
+    "5mw_green": {
+      "pt": "Laser Verde de 5 MW",
+      "original": "5 MW Green",
+      "from": "dataset"
+    },
+    "5mw_red": {
+      "pt": "Laser Vermelho de 5 MW",
+      "original": "5 MW Red",
+      "from": "dataset"
+    },
+    "6h64_vert": {
+      "pt": "Vertical 6H64",
+      "original": "6H64 Vertical",
+      "from": "dataset"
+    },
+    "6h64_vert_db12": {
+      "pt": "Vertical 6H64",
+      "original": "6H64 Vertical",
+      "from": "dataset"
+    },
+    "6h64_vert_ks18k": {
+      "pt": "Vertical 6H64",
+      "original": "6H64 Vertical",
+      "from": "dataset"
+    },
+    "6h64_vert_svk86": {
+      "pt": "Vertical 6H64",
+      "original": "6H64 Vertical",
+      "from": "dataset"
+    },
+    "6h64_vert_vssm": {
+      "pt": "Vertical 6H64",
+      "original": "6H64 Vertical",
+      "from": "dataset"
+    },
+    "adj_angled": {
+      "pt": "Angular Ajustável",
+      "original": "Adjustable Angled",
+      "from": "dataset"
+    },
+    "ads_bolt": {
+      "pt": "Ferrolho Revestido",
+      "original": "DLC Bolt",
+      "from": "dataset"
+    },
+    "ads_taclight": {
+      "pt": "Lanterna Tática (Mira)",
+      "original": "Taclight - Aimed",
+      "from": "curadoria"
+    },
+    "alloy_vert": {
+      "pt": "Vertical de Liga",
+      "original": "Alloy Vertical",
+      "from": "dataset"
+    },
+    "ammo:buckshot": {
+      "pt": "Chumbo Grosso #01",
+      "original": "#01 BUCK",
+      "from": "curadoria"
+    },
+    "ammo:buckshot_00": {
+      "pt": "Chumbo Grosso #00",
+      "original": "#00 BUCK",
+      "from": "curadoria"
+    },
+    "ammo:flechette": {
+      "pt": "Flechette",
+      "original": "Flechette",
+      "from": "dataset"
+    },
+    "ammo:frangible": {
+      "pt": "Fragmentável",
+      "original": "Frangible",
+      "from": "dataset"
+    },
+    "ammo:hollow_pt": {
+      "pt": "Ponta Oca",
+      "original": "Hollow Point",
+      "from": "dataset"
+    },
+    "ammo:lightweight": {
+      "pt": "Leve",
+      "original": "Lightweight",
+      "from": "curadoria"
+    },
+    "ammo:long_range": {
+      "pt": "Longo Alcance",
+      "original": "Long-Range",
+      "from": "curadoria"
+    },
+    "ammo:penetration": {
+      "pt": "Penetração",
+      "original": "Penetration",
+      "from": "curadoria"
+    },
+    "ammo:range_pen": {
+      "pt": "Penetração de Longo Alcance",
+      "original": "Range Pen",
+      "from": "curadoria"
+    },
+    "ammo:slugs": {
+      "pt": "Projétil Único",
+      "original": "Slugs",
+      "from": "dataset"
+    },
+    "ammo:standard": {
+      "pt": "Padrão",
+      "original": "Standard",
+      "from": "curadoria"
+    },
+    "ammo:subsonic": {
+      "pt": "Subsônica",
+      "original": "Subsonic",
+      "from": "curadoria"
+    },
+    "ammo:subsonic_hp": {
+      "pt": "Subsônica Ponta Oca",
+      "original": "Sub HP",
+      "from": "curadoria"
+    },
+    "ammo:subsonic_pen": {
+      "pt": "Subsônica de Penetração",
+      "original": "Sub Pen",
+      "from": "curadoria"
+    },
+    "ammo:synthetic": {
+      "pt": "Ponta Sintética",
+      "original": "Synthetic",
+      "from": "curadoria"
+    },
+    "basic": {
+      "pt": "Cano Básico",
+      "original": "Basic",
+      "from": "matriz"
+    },
+    "bipod": {
+      "pt": "Bipé",
+      "original": "Bipod",
+      "from": "dataset"
+    },
+    "bipod_sr": {
+      "pt": "Bipé",
+      "original": "Bipod",
+      "from": "dataset"
+    },
+    "buffer": {
+      "pt": "Amortecedor Aprimorado",
+      "original": "Aftermarket Buffer",
+      "from": "curadoria"
+    },
+    "burst_mode": {
+      "pt": "Modo Rajada",
+      "original": "Burst Mode",
+      "from": "curadoria"
+    },
+    "burst_training": {
+      "pt": "Treino de Rajada",
+      "original": "Burst Training",
+      "from": "curadoria"
+    },
+    "canted_stubby": {
+      "pt": "Curta Inclinada",
+      "original": "Canted Stubby",
+      "from": "dataset"
+    },
+    "classic_grip_pod": {
+      "pt": "Empunhadura com Bipé",
+      "original": "Classic Grip Pod",
+      "from": "dataset"
+    },
+    "classic_grip_pod_sr": {
+      "pt": "Empunhadura com Bipé",
+      "original": "Classic Grip Pod",
+      "from": "dataset"
+    },
+    "classic_vert": {
+      "pt": "Vertical Clássica",
+      "original": "Classic Vertical",
+      "from": "dataset"
+    },
+    "classic_vert_db12": {
+      "pt": "Vertical Clássica",
+      "original": "Classic Vertical",
+      "from": "dataset"
+    },
+    "classic_vert_ks18k": {
+      "pt": "Vertical Clássica",
+      "original": "Classic Vertical",
+      "from": "dataset"
+    },
+    "classic_vert_svk86": {
+      "pt": "Vertical Clássica",
+      "original": "Classic Vertical",
+      "from": "dataset"
+    },
+    "classic_vert_vssm": {
+      "pt": "Vertical Clássica",
+      "original": "Classic Vertical",
+      "from": "dataset"
+    },
+    "cmpct_handstop": {
+      "pt": "Apoio de Mão Compacto",
+      "original": "Compact Handstop",
+      "from": "dataset"
+    },
+    "combo_green": {
+      "pt": "Combo Verde",
+      "original": "Combo Green",
+      "from": "curadoria"
+    },
+    "combo_red": {
+      "pt": "Combo Vermelho",
+      "original": "Combo Red",
+      "from": "curadoria"
+    },
+    "comp_brake": {
+      "pt": "Freio Compensado",
+      "original": "Compensated Brake",
+      "from": "dataset"
+    },
+    "compensator": {
+      "pt": "Compensador",
+      "original": "Compensator",
+      "from": "curadoria"
+    },
+    "cqb_supp": {
+      "pt": "Supressor para Curta Distância",
+      "original": "CQB Suppressor",
+      "from": "dataset"
+    },
+    "cryo": {
+      "pt": "Crio",
+      "original": "Cryogenic",
+      "from": "matriz"
+    },
+    "dp_brake": {
+      "pt": "Freio de Porta Dupla",
+      "original": "Double-Port Brake",
+      "from": "dataset"
+    },
+    "ext_light": {
+      "pt": "Cano Estendido Leve",
+      "original": "Extended Light",
+      "from": "matriz"
+    },
+    "extended": {
+      "pt": "Cano Estendido",
+      "original": "Extended",
+      "from": "matriz"
+    },
+    "factory_angled_db12": {
+      "pt": "Angular de Fábrica",
+      "original": "Factory Angled",
+      "from": "dataset"
+    },
+    "factory_angled_lmr27": {
+      "pt": "Angular de Fábrica",
+      "original": "Factory Angled",
+      "from": "dataset"
+    },
+    "factory_angled_sl9": {
+      "pt": "Angular de Fábrica",
+      "original": "Factory Angled",
+      "from": "dataset"
+    },
+    "fast_deploy": {
+      "pt": "Coldre Rápido",
+      "original": "Speed Holster",
+      "from": "curadoria"
+    },
+    "fast_deploy_10": {
+      "pt": "Pistoleiro",
+      "original": "Gunslinger",
+      "from": "curadoria"
+    },
+    "flash_comp": {
+      "pt": "Compensador com Quebra-Chamas",
+      "original": "Flash Comp",
+      "from": "dataset"
+    },
+    "flash_hider": {
+      "pt": "Quebra-Chamas",
+      "original": "Flash Hider",
+      "from": "dataset"
+    },
+    "flashlight": {
+      "pt": "Lanterna Tática",
+      "original": "Flashlight",
+      "from": "dataset"
+    },
+    "fold_stubby": {
+      "pt": "Curta Dobrável",
+      "original": "Folding Stubby",
+      "from": "dataset"
+    },
+    "fold_vert": {
+      "pt": "Vertical Dobrável",
+      "original": "Folding Vertical",
+      "from": "dataset"
+    },
+    "full_angled": {
+      "pt": "Angular Completa",
+      "original": "Full Angled",
+      "from": "dataset"
+    },
+    "full_angled_sr": {
+      "pt": "Angular Completa",
+      "original": "Full Angled",
+      "from": "dataset"
+    },
+    "full_auto": {
+      "pt": "Receiver A3",
+      "original": "A3 Receiver",
+      "from": "dataset"
+    },
+    "full_auto_vssm": {
+      "pt": "Coronha Dobrável",
+      "original": "Folding Stock",
+      "from": "curadoria"
+    },
+    "grtbc_burst_mode": {
+      "pt": "Treino de Rajada",
+      "original": "Burst Training",
+      "from": "curadoria"
+    },
+    "heavy": {
+      "pt": "Cano Pesado",
+      "original": "Heavy",
+      "from": "matriz"
+    },
+    "heavy_ext": {
+      "pt": "Cano Ext. Pesado",
+      "original": "Heavy Extended",
+      "from": "matriz"
+    },
+    "hip_taclight": {
+      "pt": "Lanterna Tática (Sem Visada)",
+      "original": "Taclight - Hipfire",
+      "from": "curadoria"
+    },
+    "iron": {
+      "pt": "Alça de Ferro",
+      "original": "Iron Sights",
+      "from": "dataset"
+    },
+    "light": {
+      "pt": "Cano Leve",
+      "original": "Light",
+      "from": "matriz"
+    },
+    "light_supp": {
+      "pt": "Supressor Aliviado",
+      "original": "Lightened Suppressor",
+      "from": "dataset"
+    },
+    "linear_comp": {
+      "pt": "Compensador Linear",
+      "original": "Linear Comp",
+      "from": "dataset"
+    },
+    "long_supp": {
+      "pt": "Supressor Longo",
+      "original": "Long Suppressor",
+      "from": "dataset"
+    },
+    "lp_stubby": {
+      "pt": "Curta de Perfil Baixo",
+      "original": "Low-Profile Stubby",
+      "from": "dataset"
+    },
+    "lp_stubby_db12": {
+      "pt": "Curta de Perfil Baixo",
+      "original": "Low-Profile Stubby",
+      "from": "dataset"
+    },
+    "lp_stubby_ks18k": {
+      "pt": "Curta de Perfil Baixo",
+      "original": "Low-Profile Stubby",
+      "from": "dataset"
+    },
+    "lp_stubby_sr": {
+      "pt": "Curta de Perfil Baixo",
+      "original": "Low-Profile Stubby",
+      "from": "dataset"
+    },
+    "lp_stubby_svk86": {
+      "pt": "Curta de Perfil Baixo",
+      "original": "Low-Profile Stubby",
+      "from": "dataset"
+    },
+    "lp_stubby_vssm": {
+      "pt": "Curta de Perfil Baixo",
+      "original": "Low-Profile Stubby",
+      "from": "dataset"
+    },
+    "mag_catch": {
+      "pt": "Retentor de Carregador Aprimorado",
+      "original": "Improved Mag Catch",
+      "from": "dataset"
+    },
+    "mag_flare": {
+      "pt": "Funil de Carregador",
+      "original": "Magwell Flare",
+      "from": "dataset"
+    },
+    "match_trigger": {
+      "pt": "Gatilho de Competição",
+      "original": "Match Trigger",
+      "from": "dataset"
+    },
+    "ptt_grip_pod": {
+      "pt": "Empunhadura com Bipé PTT",
+      "original": "PTT Grip Pod",
+      "from": "dataset"
+    },
+    "qd_grip_pod": {
+      "pt": "Empunhadura com Bipé QD",
+      "original": "QD Grip Pod",
+      "from": "dataset"
+    },
+    "qd_grip_pod_sr": {
+      "pt": "Empunhadura com Bipé QD",
+      "original": "QD Grip Pod",
+      "from": "dataset"
+    },
+    "rail_cover": {
+      "pt": "Capa de Trilho",
+      "original": "Rail Cover",
+      "from": "dataset"
+    },
+    "range_finder": {
+      "pt": "Telêmetro",
+      "original": "Range Finder",
+      "from": "dataset"
+    },
+    "ribbed_stubby": {
+      "pt": "Curta Estriada",
+      "original": "Ribbed Stubby",
+      "from": "dataset"
+    },
+    "ribbed_vert": {
+      "pt": "Vertical Estriada",
+      "original": "Ribbed Vertical",
+      "from": "dataset"
+    },
+    "short": {
+      "pt": "Cano Curto",
+      "original": "Short",
+      "from": "matriz"
+    },
+    "short_light": {
+      "pt": "Cano Curto Leve",
+      "original": "Short Light",
+      "from": "matriz"
+    },
+    "slant_brake": {
+      "pt": "Freio Inclinado",
+      "original": "Slant Brake",
+      "from": "dataset"
+    },
+    "slim_angled": {
+      "pt": "Angular Fina",
+      "original": "Slim Angled",
+      "from": "dataset"
+    },
+    "slim_angled_smg": {
+      "pt": "Angular Fina",
+      "original": "Slim Angled",
+      "from": "dataset"
+    },
+    "slim_angled_sr": {
+      "pt": "Angular Fina",
+      "original": "Slim Angled",
+      "from": "dataset"
+    },
+    "slim_handstop": {
+      "pt": "Apoio de Mão Fino",
+      "original": "Slim Handstop",
+      "from": "dataset"
+    },
+    "sp_brake": {
+      "pt": "Freio de Porta Única",
+      "original": "Single-Port Brake",
+      "from": "dataset"
+    },
+    "std_optic": {
+      "pt": "Óptica Padrão",
+      "original": "Standard Optic",
+      "from": "curadoria"
+    },
+    "std_supp": {
+      "pt": "Supressor Padrão",
+      "original": "Standard Suppressor",
+      "from": "dataset"
+    },
+    "stipp_stubby": {
+      "pt": "Curta Texturizada",
+      "original": "Stippled Stubby",
+      "from": "dataset"
+    },
+    "stipp_stubby_db12": {
+      "pt": "Curta Texturizada",
+      "original": "Stippled Stubby",
+      "from": "dataset"
+    },
+    "stipp_stubby_ks18k": {
+      "pt": "Curta Texturizada",
+      "original": "Stippled Stubby",
+      "from": "dataset"
+    },
+    "stipp_stubby_svk86": {
+      "pt": "Curta Texturizada",
+      "original": "Stippled Stubby",
+      "from": "dataset"
+    },
+    "stipp_stubby_vssm": {
+      "pt": "Curta Texturizada",
+      "original": "Stippled Stubby",
+      "from": "dataset"
+    },
+    "therm_hyb": {
+      "pt": "Térmica Híbrida",
+      "original": "Thermal Hybrid",
+      "from": "curadoria"
+    },
+    "thermal": {
+      "pt": "Térmica",
+      "original": "Thermal",
+      "from": "curadoria"
+    },
+    "thread_prot": {
+      "pt": "Protetor de Rosca",
+      "original": "Thread Protector",
+      "from": "dataset"
+    },
+    "tp_brake": {
+      "pt": "Freio de Porta Tripla",
+      "original": "Triple-Port Brake",
+      "from": "dataset"
+    },
+    "underslung_mount": {
+      "pt": "Lança-Granadas",
+      "original": "Underslung Mount",
+      "from": "dataset"
+    },
+    "var_high": {
+      "pt": "Variável Alta",
+      "original": "Variable High",
+      "from": "curadoria"
+    },
+    "var_low": {
+      "pt": "Variável Baixa",
+      "original": "Variable Low",
+      "from": "curadoria"
+    },
+    "vssm_suppressed": {
+      "pt": "Cano Suprimido",
+      "original": "Suppressed",
+      "from": "matriz"
+    },
+    "vssm_suppressed_asm": {
+      "pt": "Cano Suprimido",
+      "original": "Suppressed",
+      "from": "matriz"
+    }
+  }
+}

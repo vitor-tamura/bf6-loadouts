@@ -18,6 +18,7 @@
 
 import type { RelationStatus } from '../../src/catalog/catalog.types.ts';
 import {
+  ENTITIES,
   INDEXES,
   isGameVersion,
   compareVersions,
@@ -149,6 +150,39 @@ function main(): void {
     'erro',
     'removedIn com status ativo',
     lifecycle.filter((e) => e.removedIn && e.status === 'active').map((e) => e.id),
+  );
+
+  /* --------------------------------- idioma --------------------------------- */
+
+  /*
+   * Peça sem nome em português aparece na tela com o nome de origem.
+   *
+   * Não é erro — o site continua funcionando, e é melhor mostrar "Folding
+   * Stubby" do que uma tradução inventada na hora. Mas é uma peça em inglês no
+   * meio de uma tela em português, e isso precisa ser visto: patch novo traz
+   * peça nova, e a tradução é o passo que se esquece.
+   */
+  const dictionary = readJsonIf<{
+    rules: { slot: string; pattern: string }[];
+    attachments: Record<string, { pt: string }>;
+  }>(join(ENTITIES, 'names.pt-BR.json'), { rules: [], attachments: {} });
+
+  const translated = (attachment: { id: string; name: string; slot: string }) =>
+    Boolean(dictionary.attachments[attachment.id]) ||
+    dictionary.rules.some(
+      (rule) => rule.slot === attachment.slot && new RegExp(rule.pattern).test(attachment.name),
+    );
+
+  report(
+    'aviso',
+    'acessório sem nome em português',
+    attachmentList.filter((a) => a.status === 'active' && !translated(a)).map((a) => `${a.id} (${a.name})`),
+  );
+
+  report(
+    'erro',
+    'tradução para acessório que não existe',
+    Object.keys(dictionary.attachments).filter((id) => !attachmentIds.has(id)),
   );
 
   /* --------------------------------- fontes --------------------------------- */

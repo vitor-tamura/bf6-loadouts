@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "gameVersion": "1.3.3.0",
-  "generatedAt": "2026-08-12T12:27:21.606Z",
+  "generatedAt": "2026-08-12T12:37:03.896Z",
   "capabilities": {
     "weapons": true,
     "attachments": true,
@@ -21,14 +21,14 @@
   "categories": [
     {
       "id": "assault_rifle",
-      "name": "Assault Rifle",
+      "name": "Assalto",
       "aliases": [
         "Assault Rifle"
       ]
     },
     {
       "id": "carbine",
-      "name": "Carbine",
+      "name": "Carabina",
       "aliases": [
         "Carbine"
       ]
@@ -56,21 +56,21 @@
     },
     {
       "id": "shotgun",
-      "name": "Shotgun",
+      "name": "Escopeta",
       "aliases": [
         "Shotgun"
       ]
     },
     {
       "id": "sidearm",
-      "name": "Sidearm",
+      "name": "Pistola",
       "aliases": [
         "Sidearm"
       ]
     },
     {
       "id": "sniper_rifle",
-      "name": "Sniper Rifle",
+      "name": "Sniper",
       "aliases": [
         "Sniper Rifle"
       ]
@@ -79,56 +79,74 @@
   "slots": [
     {
       "id": "ammo",
-      "name": "Ammo",
-      "aliases": [],
+      "name": "Munição",
+      "aliases": [
+        "Ammo"
+      ],
       "order": null
     },
     {
       "id": "barrel",
-      "name": "Barrel",
-      "aliases": [],
+      "name": "Cano",
+      "aliases": [
+        "Barrel"
+      ],
       "order": null
     },
     {
       "id": "ergonomics",
-      "name": "Ergonomics",
-      "aliases": [],
+      "name": "Ergonomia",
+      "aliases": [
+        "Ergonomics"
+      ],
       "order": null
     },
     {
       "id": "laser",
       "name": "Laser",
-      "aliases": [],
+      "aliases": [
+        "Laser"
+      ],
       "order": null
     },
     {
       "id": "light",
-      "name": "Light",
-      "aliases": [],
+      "name": "Lanterna",
+      "aliases": [
+        "Light"
+      ],
       "order": null
     },
     {
       "id": "magazine",
-      "name": "Magazine",
-      "aliases": [],
+      "name": "Carregador",
+      "aliases": [
+        "Magazine"
+      ],
       "order": null
     },
     {
       "id": "muzzle",
-      "name": "Muzzle",
-      "aliases": [],
+      "name": "Boca",
+      "aliases": [
+        "Muzzle"
+      ],
       "order": null
     },
     {
       "id": "sight",
-      "name": "Sight",
-      "aliases": [],
+      "name": "Mira",
+      "aliases": [
+        "Sight"
+      ],
       "order": null
     },
     {
       "id": "underbarrel",
-      "name": "Underbarrel",
-      "aliases": [],
+      "name": "Acoplamento Inferior",
+      "aliases": [
+        "Underbarrel"
+      ],
       "order": null
     }
   ],
@@ -1874,7 +1892,7 @@
     {
       "id": "120mw_blue",
       "sourceId": "120mw_blue",
-      "name": "120 MW Blue",
+      "name": "Laser Azul de 120 MW",
       "slot": "laser",
       "scope": "global",
       "group": "LASERS",
@@ -1893,6 +1911,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "120 MW Blue",
       "cost": 30,
       "effects": {
         "movingAdsSpreadTierMod": 1,
@@ -1903,7 +1922,7 @@
     {
       "id": "50mw_blue",
       "sourceId": "50mw_blue",
-      "name": "50 MW Blue",
+      "name": "Laser Azul de 50 MW",
       "slot": "laser",
       "scope": "global",
       "group": "LASERS",
@@ -1922,6 +1941,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "50 MW Blue",
       "cost": 20,
       "effects": {
         "movingAdsSpreadTierMod": 1,
@@ -1932,7 +1952,7 @@
     {
       "id": "50mw_green",
       "sourceId": "50mw_green",
-      "name": "50 MW Green",
+      "name": "Laser Verde de 50 MW",
       "slot": "laser",
       "scope": "global",
       "group": "LASERS",
@@ -1951,6 +1971,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "50 MW Green",
       "cost": 20,
       "effects": {
         "movingAdsSpreadTierMod": 0,
@@ -1961,7 +1982,7 @@
     {
       "id": "50mw_violet",
       "sourceId": "50mw_violet",
-      "name": "50 MW Violet",
+      "name": "Laser Violeta de 50 MW",
       "slot": "laser",
       "scope": "global",
       "group": "LASERS",
@@ -1980,6 +2001,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "50 MW Violet",
       "cost": 10,
       "effects": {
         "movingAdsSpreadTierMod": 1,
@@ -1989,7 +2011,7 @@
     {
       "id": "5mw_green",
       "sourceId": "5mw_green",
-      "name": "5 MW Green",
+      "name": "Laser Verde de 5 MW",
       "slot": "laser",
       "scope": "global",
       "group": "LASERS",
@@ -2008,6 +2030,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "5 MW Green",
       "cost": 10,
       "effects": {
         "movingAdsSpreadTierMod": 0,
@@ -2018,7 +2041,7 @@
     {
       "id": "5mw_red",
       "sourceId": "5mw_red",
-      "name": "5 MW Red",
+      "name": "Laser Vermelho de 5 MW",
       "slot": "laser",
       "scope": "global",
       "group": "LASERS",
@@ -2037,6 +2060,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "5 MW Red",
       "cost": 10,
       "effects": {
         "movingAdsSpreadTierMod": 0,
@@ -2047,7 +2071,7 @@
     {
       "id": "6h64_vert",
       "sourceId": "6h64_vert",
-      "name": "6H64 Vertical",
+      "name": "Vertical 6H64",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -2066,6 +2090,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "6H64 Vertical",
       "cost": 25,
       "effects": {
         "adsRecoilTierMod": 4,
@@ -2077,7 +2102,7 @@
     {
       "id": "6h64_vert_db12",
       "sourceId": "6h64_vert_db12",
-      "name": "6H64 Vertical",
+      "name": "Vertical 6H64",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -2096,6 +2121,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "6H64 Vertical",
       "cost": 25,
       "effects": {
         "adsRecoilTierMod": 4,
@@ -2106,7 +2132,7 @@
     {
       "id": "6h64_vert_ks18k",
       "sourceId": "6h64_vert_ks18k",
-      "name": "6H64 Vertical",
+      "name": "Vertical 6H64",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -2125,6 +2151,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "6H64 Vertical",
       "cost": 25,
       "effects": {
         "adsRecoilTierMod": 4,
@@ -2135,7 +2162,7 @@
     {
       "id": "6h64_vert_svk86",
       "sourceId": "6h64_vert_svk86",
-      "name": "6H64 Vertical",
+      "name": "Vertical 6H64",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -2154,6 +2181,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "6H64 Vertical",
       "cost": 25,
       "effects": {
         "adsRecoilTierMod": 4,
@@ -2164,7 +2192,7 @@
     {
       "id": "6h64_vert_vssm",
       "sourceId": "6h64_vert_vssm",
-      "name": "6H64 Vertical",
+      "name": "Vertical 6H64",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -2183,6 +2211,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "6H64 Vertical",
       "cost": 25,
       "effects": {
         "adsRecoilTierMod": 4,
@@ -2193,7 +2222,7 @@
     {
       "id": "adj_angled",
       "sourceId": "adj_angled",
-      "name": "Adjustable Angled",
+      "name": "Angular Ajustável",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -2212,6 +2241,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Adjustable Angled",
       "cost": 15,
       "effects": {
         "adsRecoilTierMod": 1,
@@ -2223,7 +2253,7 @@
     {
       "id": "ads_bolt",
       "sourceId": "ads_bolt",
-      "name": "DLC Bolt",
+      "name": "Ferrolho Revestido",
       "slot": "ergonomics",
       "scope": "global",
       "group": "ERGOS",
@@ -2242,6 +2272,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "DLC Bolt",
       "cost": 30,
       "effects": {
         "noEffect": true
@@ -2250,7 +2281,7 @@
     {
       "id": "ads_taclight",
       "sourceId": "ads_taclight",
-      "name": "Taclight - Aimed",
+      "name": "Lanterna Tática (Mira)",
       "slot": "light",
       "scope": "global",
       "group": "LIGHTS",
@@ -2269,6 +2300,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Taclight - Aimed",
       "cost": 5,
       "effects": {
         "noEffect": true
@@ -2277,7 +2309,7 @@
     {
       "id": "alloy_vert",
       "sourceId": "alloy_vert",
-      "name": "Alloy Vertical",
+      "name": "Vertical de Liga",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -2296,6 +2328,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Alloy Vertical",
       "cost": 20,
       "effects": {
         "adsRecoilTierMod": 2,
@@ -2306,7 +2339,7 @@
     {
       "id": "ammo:buckshot",
       "sourceId": "buckshot",
-      "name": "#01 BUCK",
+      "name": "Chumbo Grosso #01",
       "slot": "ammo",
       "scope": "global",
       "group": "AMMO",
@@ -2325,6 +2358,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "#01 BUCK",
       "cost": null,
       "effects": {
         "hsMult": 1,
@@ -2336,7 +2370,7 @@
     {
       "id": "ammo:buckshot_00",
       "sourceId": "buckshot_00",
-      "name": "#00 BUCK",
+      "name": "Chumbo Grosso #00",
       "slot": "ammo",
       "scope": "global",
       "group": "AMMO",
@@ -2355,6 +2389,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "#00 BUCK",
       "cost": null,
       "effects": {
         "hsMult": 1,
@@ -2385,6 +2420,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Flechette",
       "cost": null,
       "effects": {
         "hsMult": 1,
@@ -2396,7 +2432,7 @@
     {
       "id": "ammo:frangible",
       "sourceId": "frangible",
-      "name": "Frangible",
+      "name": "Fragmentável",
       "slot": "ammo",
       "scope": "global",
       "group": "AMMO",
@@ -2415,6 +2451,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Frangible",
       "cost": null,
       "effects": {
         "hsMult": null,
@@ -2433,7 +2470,7 @@
     {
       "id": "ammo:hollow_pt",
       "sourceId": "hollow_pt",
-      "name": "Hollow Point",
+      "name": "Ponta Oca",
       "slot": "ammo",
       "scope": "global",
       "group": "AMMO",
@@ -2452,6 +2489,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Hollow Point",
       "cost": null,
       "effects": {
         "hsMult": "hp",
@@ -2469,7 +2507,7 @@
     {
       "id": "ammo:lightweight",
       "sourceId": "lightweight",
-      "name": "Lightweight",
+      "name": "Leve",
       "slot": "ammo",
       "scope": "global",
       "group": "AMMO",
@@ -2488,6 +2526,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Lightweight",
       "cost": null,
       "effects": {
         "hsMult": null,
@@ -2504,7 +2543,7 @@
     {
       "id": "ammo:long_range",
       "sourceId": "long_range",
-      "name": "Long-Range",
+      "name": "Longo Alcance",
       "slot": "ammo",
       "scope": "global",
       "group": "AMMO",
@@ -2523,6 +2562,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Long-Range",
       "cost": null,
       "effects": {
         "hsMult": null,
@@ -2538,7 +2578,7 @@
     {
       "id": "ammo:penetration",
       "sourceId": "penetration",
-      "name": "Penetration",
+      "name": "Penetração",
       "slot": "ammo",
       "scope": "global",
       "group": "AMMO",
@@ -2557,6 +2597,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Penetration",
       "cost": null,
       "effects": {
         "hsMult": null,
@@ -2575,7 +2616,7 @@
     {
       "id": "ammo:range_pen",
       "sourceId": "range_pen",
-      "name": "Range Pen",
+      "name": "Penetração de Longo Alcance",
       "slot": "ammo",
       "scope": "global",
       "group": "AMMO",
@@ -2594,6 +2635,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Range Pen",
       "cost": null,
       "effects": {
         "hsMult": null,
@@ -2612,7 +2654,7 @@
     {
       "id": "ammo:slugs",
       "sourceId": "slugs",
-      "name": "Slugs",
+      "name": "Projétil Único",
       "slot": "ammo",
       "scope": "global",
       "group": "AMMO",
@@ -2631,6 +2673,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Slugs",
       "cost": null,
       "effects": {
         "hsMult": 1.34,
@@ -2642,7 +2685,7 @@
     {
       "id": "ammo:standard",
       "sourceId": "standard",
-      "name": "Standard",
+      "name": "Padrão",
       "slot": "ammo",
       "scope": "global",
       "group": "AMMO",
@@ -2661,6 +2704,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Standard",
       "cost": null,
       "effects": {
         "hsMult": null,
@@ -2678,7 +2722,7 @@
     {
       "id": "ammo:subsonic",
       "sourceId": "subsonic",
-      "name": "Subsonic",
+      "name": "Subsônica",
       "slot": "ammo",
       "scope": "global",
       "group": "AMMO",
@@ -2697,6 +2741,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Subsonic",
       "cost": null,
       "effects": {
         "hsMult": null,
@@ -2717,7 +2762,7 @@
     {
       "id": "ammo:subsonic_hp",
       "sourceId": "subsonic_hp",
-      "name": "Sub HP",
+      "name": "Subsônica Ponta Oca",
       "slot": "ammo",
       "scope": "global",
       "group": "AMMO",
@@ -2736,6 +2781,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Sub HP",
       "cost": null,
       "effects": {
         "hsMult": "hp",
@@ -2756,7 +2802,7 @@
     {
       "id": "ammo:subsonic_pen",
       "sourceId": "subsonic_pen",
-      "name": "Sub Pen",
+      "name": "Subsônica de Penetração",
       "slot": "ammo",
       "scope": "global",
       "group": "AMMO",
@@ -2775,6 +2821,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Sub Pen",
       "cost": null,
       "effects": {
         "hsMult": null,
@@ -2796,7 +2843,7 @@
     {
       "id": "ammo:synthetic",
       "sourceId": "synthetic",
-      "name": "Synthetic",
+      "name": "Ponta Sintética",
       "slot": "ammo",
       "scope": "global",
       "group": "AMMO",
@@ -2815,6 +2862,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Synthetic",
       "cost": null,
       "effects": {
         "hsMult": 1.75,
@@ -2832,7 +2880,7 @@
     {
       "id": "basic",
       "sourceId": "basic",
-      "name": "Basic",
+      "name": "Cano Básico",
       "slot": "barrel",
       "scope": "global",
       "group": "BARRELS",
@@ -2851,6 +2899,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Basic",
       "cost": 10,
       "effects": {
         "adsTimeTierMod": 1,
@@ -2863,7 +2912,7 @@
     {
       "id": "bipod",
       "sourceId": "bipod",
-      "name": "Bipod",
+      "name": "Bipé",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -2882,6 +2931,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Bipod",
       "cost": 10,
       "effects": {
         "adsRecoilTierMod": 0,
@@ -2893,7 +2943,7 @@
     {
       "id": "bipod_sr",
       "sourceId": "bipod_sr",
-      "name": "Bipod",
+      "name": "Bipé",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -2912,6 +2962,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Bipod",
       "cost": 10,
       "effects": {
         "adsRecoilTierMod": 0,
@@ -2923,7 +2974,7 @@
     {
       "id": "buffer",
       "sourceId": "buffer",
-      "name": "Aftermarket Buffer",
+      "name": "Amortecedor Aprimorado",
       "slot": "ergonomics",
       "scope": "global",
       "group": "ERGOS",
@@ -2942,6 +2993,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Aftermarket Buffer",
       "cost": 5,
       "effects": {
         "visualRecoil": -1
@@ -2950,7 +3002,7 @@
     {
       "id": "burst_mode",
       "sourceId": "burst_mode",
-      "name": "Burst Mode",
+      "name": "Modo Rajada",
       "slot": "ergonomics",
       "scope": "global",
       "group": "ERGOS",
@@ -2969,6 +3021,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Burst Mode",
       "cost": 10,
       "effects": {
         "adsRecoilVariationTierMod": 3,
@@ -2979,7 +3032,7 @@
     {
       "id": "burst_training",
       "sourceId": "burst_training",
-      "name": "Burst Training",
+      "name": "Treino de Rajada",
       "slot": "ergonomics",
       "scope": "global",
       "group": "ERGOS",
@@ -2998,6 +3051,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Burst Training",
       "cost": 15,
       "effects": {
         "adsRecoilVariationTierMod": 3,
@@ -3008,7 +3062,7 @@
     {
       "id": "canted_stubby",
       "sourceId": "canted_stubby",
-      "name": "Canted Stubby",
+      "name": "Curta Inclinada",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -3027,6 +3081,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Canted Stubby",
       "cost": 30,
       "effects": {
         "adsRecoilTierMod": 3,
@@ -3037,7 +3092,7 @@
     {
       "id": "classic_grip_pod",
       "sourceId": "classic_grip_pod",
-      "name": "Classic Grip Pod",
+      "name": "Empunhadura com Bipé",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -3056,6 +3111,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Classic Grip Pod",
       "cost": 30,
       "effects": {
         "adsRecoilTierMod": 2,
@@ -3066,7 +3122,7 @@
     {
       "id": "classic_grip_pod_sr",
       "sourceId": "classic_grip_pod_sr",
-      "name": "Classic Grip Pod",
+      "name": "Empunhadura com Bipé",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -3085,6 +3141,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Classic Grip Pod",
       "cost": 20,
       "effects": {
         "adsRecoilTierMod": 0,
@@ -3095,7 +3152,7 @@
     {
       "id": "classic_vert",
       "sourceId": "classic_vert",
-      "name": "Classic Vertical",
+      "name": "Vertical Clássica",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -3114,6 +3171,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Classic Vertical",
       "cost": 35,
       "effects": {
         "adsRecoilTierMod": 5,
@@ -3125,7 +3183,7 @@
     {
       "id": "classic_vert_db12",
       "sourceId": "classic_vert_db12",
-      "name": "Classic Vertical",
+      "name": "Vertical Clássica",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -3144,6 +3202,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Classic Vertical",
       "cost": 35,
       "effects": {
         "adsRecoilTierMod": 5,
@@ -3154,7 +3213,7 @@
     {
       "id": "classic_vert_ks18k",
       "sourceId": "classic_vert_ks18k",
-      "name": "Classic Vertical",
+      "name": "Vertical Clássica",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -3173,6 +3232,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Classic Vertical",
       "cost": 35,
       "effects": {
         "adsRecoilTierMod": 5,
@@ -3183,7 +3243,7 @@
     {
       "id": "classic_vert_svk86",
       "sourceId": "classic_vert_svk86",
-      "name": "Classic Vertical",
+      "name": "Vertical Clássica",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -3202,6 +3262,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Classic Vertical",
       "cost": 35,
       "effects": {
         "adsRecoilTierMod": 5,
@@ -3212,7 +3273,7 @@
     {
       "id": "classic_vert_vssm",
       "sourceId": "classic_vert_vssm",
-      "name": "Classic Vertical",
+      "name": "Vertical Clássica",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -3231,6 +3292,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Classic Vertical",
       "cost": 35,
       "effects": {
         "adsRecoilTierMod": 5,
@@ -3241,7 +3303,7 @@
     {
       "id": "cmpct_handstop",
       "sourceId": "cmpct_handstop",
-      "name": "Compact Handstop",
+      "name": "Apoio de Mão Compacto",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -3260,6 +3322,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Compact Handstop",
       "cost": 10,
       "effects": {
         "adsRecoilTierMod": 0,
@@ -3271,7 +3334,7 @@
     {
       "id": "combo_green",
       "sourceId": "combo_green",
-      "name": "Combo Green",
+      "name": "Combo Verde",
       "slot": "laser",
       "scope": "global",
       "group": "LASERS",
@@ -3290,6 +3353,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Combo Green",
       "cost": 20,
       "effects": {
         "movingAdsSpreadTierMod": 0,
@@ -3301,7 +3365,7 @@
     {
       "id": "combo_red",
       "sourceId": "combo_red",
-      "name": "Combo Red",
+      "name": "Combo Vermelho",
       "slot": "laser",
       "scope": "global",
       "group": "LASERS",
@@ -3320,6 +3384,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Combo Red",
       "cost": 20,
       "effects": {
         "movingAdsSpreadTierMod": 0,
@@ -3331,7 +3396,7 @@
     {
       "id": "comp_brake",
       "sourceId": "comp_brake",
-      "name": "Compensated Brake",
+      "name": "Freio Compensado",
       "slot": "muzzle",
       "scope": "global",
       "group": "MUZZLES",
@@ -3350,6 +3415,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Compensated Brake",
       "cost": 20,
       "effects": {
         "adsRecoilTierMod": 1,
@@ -3361,7 +3427,7 @@
     {
       "id": "compensator",
       "sourceId": "compensator",
-      "name": "Compensator",
+      "name": "Compensador",
       "slot": "muzzle",
       "scope": "global",
       "group": "MUZZLES",
@@ -3380,6 +3446,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Compensator",
       "cost": 10,
       "effects": {
         "adsRecoilTierMod": 0,
@@ -3391,7 +3458,7 @@
     {
       "id": "cqb_supp",
       "sourceId": "cqb_supp",
-      "name": "CQB Suppressor",
+      "name": "Supressor para Curta Distância",
       "slot": "muzzle",
       "scope": "global",
       "group": "MUZZLES",
@@ -3410,6 +3477,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "CQB Suppressor",
       "cost": 30,
       "effects": {
         "suppressor": true,
@@ -3422,7 +3490,7 @@
     {
       "id": "cryo",
       "sourceId": "cryo",
-      "name": "Cryogenic",
+      "name": "Crio",
       "slot": "barrel",
       "scope": "global",
       "group": "BARRELS",
@@ -3441,6 +3509,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Cryogenic",
       "cost": 20,
       "effects": {
         "adsTimeTierMod": 1,
@@ -3455,7 +3524,7 @@
     {
       "id": "dp_brake",
       "sourceId": "dp_brake",
-      "name": "Double-Port Brake",
+      "name": "Freio de Porta Dupla",
       "slot": "muzzle",
       "scope": "global",
       "group": "MUZZLES",
@@ -3474,6 +3543,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Double-Port Brake",
       "cost": 10,
       "effects": {
         "adsRecoilTierMod": 1,
@@ -3485,7 +3555,7 @@
     {
       "id": "ext_light",
       "sourceId": "ext_light",
-      "name": "Extended Light",
+      "name": "Cano Estendido Leve",
       "slot": "barrel",
       "scope": "global",
       "group": "BARRELS",
@@ -3504,6 +3574,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Extended Light",
       "cost": 25,
       "effects": {
         "adsTimeTierMod": 1,
@@ -3516,7 +3587,7 @@
     {
       "id": "extended",
       "sourceId": "extended",
-      "name": "Extended",
+      "name": "Cano Estendido",
       "slot": "barrel",
       "scope": "global",
       "group": "BARRELS",
@@ -3535,6 +3606,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Extended",
       "cost": 5,
       "effects": {
         "adsTimeTierMod": 0,
@@ -3547,7 +3619,7 @@
     {
       "id": "factory_angled_db12",
       "sourceId": "factory_angled_db12",
-      "name": "Factory Angled",
+      "name": "Angular de Fábrica",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -3566,6 +3638,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Factory Angled",
       "cost": 15,
       "effects": {
         "adsRecoilTierMod": 1,
@@ -3576,7 +3649,7 @@
     {
       "id": "factory_angled_lmr27",
       "sourceId": "factory_angled_lmr27",
-      "name": "Factory Angled",
+      "name": "Angular de Fábrica",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -3595,6 +3668,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Factory Angled",
       "cost": 25,
       "effects": {
         "adsRecoilTierMod": 1,
@@ -3606,7 +3680,7 @@
     {
       "id": "factory_angled_sl9",
       "sourceId": "factory_angled_sl9",
-      "name": "Factory Angled",
+      "name": "Angular de Fábrica",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -3625,6 +3699,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Factory Angled",
       "cost": 20,
       "effects": {
         "adsRecoilTierMod": 1,
@@ -3635,7 +3710,7 @@
     {
       "id": "fast_deploy",
       "sourceId": "fast_deploy",
-      "name": "Speed Holster",
+      "name": "Coldre Rápido",
       "slot": "ergonomics",
       "scope": "global",
       "group": "ERGOS",
@@ -3654,6 +3729,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Speed Holster",
       "cost": 5,
       "effects": {
         "sprintRecoveryTierShift": -1
@@ -3662,7 +3738,7 @@
     {
       "id": "fast_deploy_10",
       "sourceId": "fast_deploy_10",
-      "name": "Gunslinger",
+      "name": "Pistoleiro",
       "slot": "ergonomics",
       "scope": "global",
       "group": "ERGOS",
@@ -3681,6 +3757,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Gunslinger",
       "cost": 10,
       "effects": {
         "sprintRecoveryTierShift": -2
@@ -3689,7 +3766,7 @@
     {
       "id": "flash_comp",
       "sourceId": "flash_comp",
-      "name": "Flash Comp",
+      "name": "Compensador com Quebra-Chamas",
       "slot": "muzzle",
       "scope": "global",
       "group": "MUZZLES",
@@ -3708,6 +3785,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Flash Comp",
       "cost": 20,
       "effects": {
         "adsRecoilTierMod": 0,
@@ -3719,7 +3797,7 @@
     {
       "id": "flash_hider",
       "sourceId": "flash_hider",
-      "name": "Flash Hider",
+      "name": "Quebra-Chamas",
       "slot": "muzzle",
       "scope": "global",
       "group": "MUZZLES",
@@ -3738,6 +3816,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Flash Hider",
       "cost": 10,
       "effects": {
         "adsRecoilTierMod": 0,
@@ -3749,7 +3828,7 @@
     {
       "id": "flashlight",
       "sourceId": "flashlight",
-      "name": "Flashlight",
+      "name": "Lanterna Tática",
       "slot": "light",
       "scope": "global",
       "group": "LIGHTS",
@@ -3768,6 +3847,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Flashlight",
       "cost": 10,
       "effects": {
         "hipSpreadDecayBoost": 0.15
@@ -3776,7 +3856,7 @@
     {
       "id": "fold_stubby",
       "sourceId": "fold_stubby",
-      "name": "Folding Stubby",
+      "name": "Curta Dobrável",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -3795,6 +3875,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Folding Stubby",
       "cost": 20,
       "effects": {
         "adsRecoilTierMod": 2,
@@ -3805,7 +3886,7 @@
     {
       "id": "fold_vert",
       "sourceId": "fold_vert",
-      "name": "Folding Vertical",
+      "name": "Vertical Dobrável",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -3824,6 +3905,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Folding Vertical",
       "cost": 10,
       "effects": {
         "adsRecoilTierMod": 2,
@@ -3834,7 +3916,7 @@
     {
       "id": "full_angled",
       "sourceId": "full_angled",
-      "name": "Full Angled",
+      "name": "Angular Completa",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -3853,6 +3935,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Full Angled",
       "cost": 25,
       "effects": {
         "adsRecoilTierMod": 2,
@@ -3864,7 +3947,7 @@
     {
       "id": "full_angled_sr",
       "sourceId": "full_angled_sr",
-      "name": "Full Angled",
+      "name": "Angular Completa",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -3883,6 +3966,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Full Angled",
       "cost": 5,
       "effects": {
         "adsRecoilTierMod": 0,
@@ -3893,7 +3977,7 @@
     {
       "id": "full_auto",
       "sourceId": "full_auto",
-      "name": "A3 Receiver",
+      "name": "Receiver A3",
       "slot": "ergonomics",
       "scope": "global",
       "group": "ERGOS",
@@ -3912,6 +3996,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "A3 Receiver",
       "cost": 25,
       "effects": {
         "adsRecoilTierMod": -1,
@@ -3921,7 +4006,7 @@
     {
       "id": "full_auto_vssm",
       "sourceId": "full_auto_vssm",
-      "name": "Folding Stock",
+      "name": "Coronha Dobrável",
       "slot": "ergonomics",
       "scope": "global",
       "group": "ERGOS",
@@ -3940,6 +4025,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Folding Stock",
       "cost": 40,
       "effects": {
         "adsRecoilVariationTierMod": -20,
@@ -3950,7 +4036,7 @@
     {
       "id": "grtbc_burst_mode",
       "sourceId": "grtbc_burst_mode",
-      "name": "Burst Training",
+      "name": "Treino de Rajada",
       "slot": "ergonomics",
       "scope": "global",
       "group": "ERGOS",
@@ -3969,6 +4055,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Burst Training",
       "cost": 10,
       "effects": {
         "adsRecoilTierMod": 1,
@@ -3980,7 +4067,7 @@
     {
       "id": "heavy",
       "sourceId": "heavy",
-      "name": "Heavy",
+      "name": "Cano Pesado",
       "slot": "barrel",
       "scope": "global",
       "group": "BARRELS",
@@ -3999,6 +4086,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Heavy",
       "cost": 10,
       "effects": {
         "adsTimeTierMod": 0,
@@ -4013,7 +4101,7 @@
     {
       "id": "heavy_ext",
       "sourceId": "heavy_ext",
-      "name": "Heavy Extended",
+      "name": "Cano Ext. Pesado",
       "slot": "barrel",
       "scope": "global",
       "group": "BARRELS",
@@ -4032,6 +4120,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Heavy Extended",
       "cost": 10,
       "effects": {
         "adsTimeTierMod": 0,
@@ -4047,7 +4136,7 @@
     {
       "id": "hip_taclight",
       "sourceId": "hip_taclight",
-      "name": "Taclight - Hipfire",
+      "name": "Lanterna Tática (Sem Visada)",
       "slot": "light",
       "scope": "global",
       "group": "LIGHTS",
@@ -4066,6 +4155,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Taclight - Hipfire",
       "cost": 15,
       "effects": {
         "hipSpreadDecayBoost": 0.15
@@ -4074,7 +4164,7 @@
     {
       "id": "iron",
       "sourceId": "iron",
-      "name": "Iron Sights",
+      "name": "Alça de Ferro",
       "slot": "sight",
       "scope": "global",
       "group": "SIGHTS",
@@ -4093,6 +4183,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Iron Sights",
       "cost": 5,
       "effects": {
         "sway": -1
@@ -4101,7 +4192,7 @@
     {
       "id": "light",
       "sourceId": "light",
-      "name": "Light",
+      "name": "Cano Leve",
       "slot": "barrel",
       "scope": "global",
       "group": "BARRELS",
@@ -4120,6 +4211,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Light",
       "cost": 20,
       "effects": {
         "adsTimeTierMod": 1,
@@ -4132,7 +4224,7 @@
     {
       "id": "light_supp",
       "sourceId": "light_supp",
-      "name": "Lightened Suppressor",
+      "name": "Supressor Aliviado",
       "slot": "muzzle",
       "scope": "global",
       "group": "MUZZLES",
@@ -4151,6 +4243,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Lightened Suppressor",
       "cost": 30,
       "effects": {
         "suppressor": true,
@@ -4164,7 +4257,7 @@
     {
       "id": "linear_comp",
       "sourceId": "linear_comp",
-      "name": "Linear Comp",
+      "name": "Compensador Linear",
       "slot": "muzzle",
       "scope": "global",
       "group": "MUZZLES",
@@ -4183,6 +4276,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Linear Comp",
       "cost": 10,
       "effects": {
         "adsRecoilTierMod": -1,
@@ -4196,7 +4290,7 @@
     {
       "id": "long_supp",
       "sourceId": "long_supp",
-      "name": "Long Suppressor",
+      "name": "Supressor Longo",
       "slot": "muzzle",
       "scope": "global",
       "group": "MUZZLES",
@@ -4215,6 +4309,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Long Suppressor",
       "cost": 25,
       "effects": {
         "suppressor": true,
@@ -4229,7 +4324,7 @@
     {
       "id": "lp_stubby",
       "sourceId": "lp_stubby",
-      "name": "Low-Profile Stubby",
+      "name": "Curta de Perfil Baixo",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -4248,6 +4343,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Low-Profile Stubby",
       "cost": 45,
       "effects": {
         "adsRecoilTierMod": 5,
@@ -4259,7 +4355,7 @@
     {
       "id": "lp_stubby_db12",
       "sourceId": "lp_stubby_db12",
-      "name": "Low-Profile Stubby",
+      "name": "Curta de Perfil Baixo",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -4278,6 +4374,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Low-Profile Stubby",
       "cost": 45,
       "effects": {
         "adsRecoilTierMod": 5,
@@ -4288,7 +4385,7 @@
     {
       "id": "lp_stubby_ks18k",
       "sourceId": "lp_stubby_ks18k",
-      "name": "Low-Profile Stubby",
+      "name": "Curta de Perfil Baixo",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -4307,6 +4404,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Low-Profile Stubby",
       "cost": 45,
       "effects": {
         "adsRecoilTierMod": 5,
@@ -4317,7 +4415,7 @@
     {
       "id": "lp_stubby_sr",
       "sourceId": "lp_stubby_sr",
-      "name": "Low-Profile Stubby",
+      "name": "Curta de Perfil Baixo",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -4336,6 +4434,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Low-Profile Stubby",
       "cost": 10,
       "effects": {
         "adsRecoilTierMod": 0,
@@ -4346,7 +4445,7 @@
     {
       "id": "lp_stubby_svk86",
       "sourceId": "lp_stubby_svk86",
-      "name": "Low-Profile Stubby",
+      "name": "Curta de Perfil Baixo",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -4365,6 +4464,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Low-Profile Stubby",
       "cost": 45,
       "effects": {
         "adsRecoilTierMod": 5,
@@ -4375,7 +4475,7 @@
     {
       "id": "lp_stubby_vssm",
       "sourceId": "lp_stubby_vssm",
-      "name": "Low-Profile Stubby",
+      "name": "Curta de Perfil Baixo",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -4394,6 +4494,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Low-Profile Stubby",
       "cost": 45,
       "effects": {
         "adsRecoilTierMod": 5,
@@ -4404,7 +4505,7 @@
     {
       "id": "mag_catch",
       "sourceId": "mag_catch",
-      "name": "Improved Mag Catch",
+      "name": "Retentor de Carregador Aprimorado",
       "slot": "ergonomics",
       "scope": "global",
       "group": "ERGOS",
@@ -4423,6 +4524,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Improved Mag Catch",
       "cost": 5,
       "effects": {
         "reloadSpeedMult": 1.063
@@ -4431,7 +4533,7 @@
     {
       "id": "mag_flare",
       "sourceId": "mag_flare",
-      "name": "Magwell Flare",
+      "name": "Funil de Carregador",
       "slot": "ergonomics",
       "scope": "global",
       "group": "ERGOS",
@@ -4450,6 +4552,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Magwell Flare",
       "cost": 10,
       "effects": {
         "noEffect": true
@@ -4458,7 +4561,7 @@
     {
       "id": "magazine:ak205:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -4477,6 +4580,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -4489,7 +4593,7 @@
     {
       "id": "magazine:ak205:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -4508,6 +4612,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -4520,7 +4625,7 @@
     {
       "id": "magazine:ak205:36_rnd",
       "sourceId": "36_rnd",
-      "name": "36 Rnd",
+      "name": "Carregador de 36",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -4539,6 +4644,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "36 Rnd",
       "cost": 15,
       "effects": {
         "mag": 36,
@@ -4551,7 +4657,7 @@
     {
       "id": "magazine:ak205:40_fast",
       "sourceId": "40_fast",
-      "name": "40 Fast",
+      "name": "Carregador Rápido de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -4570,6 +4676,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Fast",
       "cost": 30,
       "effects": {
         "mag": 40,
@@ -4582,7 +4689,7 @@
     {
       "id": "magazine:ak205:40_rnd",
       "sourceId": "40_rnd",
-      "name": "40 Rnd",
+      "name": "Carregador de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -4601,6 +4708,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Rnd",
       "cost": 25,
       "effects": {
         "mag": 40,
@@ -4613,7 +4721,7 @@
     {
       "id": "magazine:ak205:45_fast",
       "sourceId": "45_fast",
-      "name": "45 Fast",
+      "name": "Carregador Rápido de 45",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -4632,6 +4740,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "45 Fast",
       "cost": 40,
       "effects": {
         "mag": 45,
@@ -4644,7 +4753,7 @@
     {
       "id": "magazine:ak205:45_rnd",
       "sourceId": "45_rnd",
-      "name": "45 Rnd",
+      "name": "Carregador de 45",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -4663,6 +4772,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "45 Rnd",
       "cost": 35,
       "effects": {
         "mag": 45,
@@ -4675,7 +4785,7 @@
     {
       "id": "magazine:ak205:50_rnd",
       "sourceId": "50_rnd",
-      "name": "50 Rnd",
+      "name": "Carregador de 50",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -4694,6 +4804,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "50 Rnd",
       "cost": 45,
       "effects": {
         "mag": 50,
@@ -4706,7 +4817,7 @@
     {
       "id": "magazine:ak4d:15_fast",
       "sourceId": "15_fast",
-      "name": "15 Fast",
+      "name": "Carregador Rápido de 15",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -4725,6 +4836,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "15 Fast",
       "cost": 10,
       "effects": {
         "mag": 15,
@@ -4737,7 +4849,7 @@
     {
       "id": "magazine:ak4d:15_rnd",
       "sourceId": "15_rnd",
-      "name": "15 Rnd",
+      "name": "Carregador de 15",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -4756,6 +4868,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "15 Rnd",
       "cost": 5,
       "effects": {
         "mag": 15,
@@ -4768,7 +4881,7 @@
     {
       "id": "magazine:ak4d:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -4787,6 +4900,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 10,
       "effects": {
         "mag": 20,
@@ -4799,7 +4913,7 @@
     {
       "id": "magazine:ak4d:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -4818,6 +4932,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -4830,7 +4945,7 @@
     {
       "id": "magazine:ak4d:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -4849,6 +4964,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 40,
       "effects": {
         "mag": 30,
@@ -4861,7 +4977,7 @@
     {
       "id": "magazine:b36a4:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -4880,6 +4996,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -4892,7 +5009,7 @@
     {
       "id": "magazine:b36a4:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -4911,6 +5028,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -4923,7 +5041,7 @@
     {
       "id": "magazine:b36a4:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -4942,6 +5060,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -4954,7 +5073,7 @@
     {
       "id": "magazine:b36a4:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -4973,6 +5092,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -4985,7 +5105,7 @@
     {
       "id": "magazine:b36a4:36_rnd",
       "sourceId": "36_rnd",
-      "name": "36 Rnd",
+      "name": "Carregador de 36",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5004,6 +5124,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "36 Rnd",
       "cost": 15,
       "effects": {
         "mag": 36,
@@ -5016,7 +5137,7 @@
     {
       "id": "magazine:b36a4:40_fast",
       "sourceId": "40_fast",
-      "name": "40 Fast",
+      "name": "Carregador Rápido de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5035,6 +5156,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Fast",
       "cost": 30,
       "effects": {
         "mag": 40,
@@ -5047,7 +5169,7 @@
     {
       "id": "magazine:b36a4:40_rnd",
       "sourceId": "40_rnd",
-      "name": "40 Rnd",
+      "name": "Carregador de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5066,6 +5188,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Rnd",
       "cost": 25,
       "effects": {
         "mag": 40,
@@ -5078,7 +5201,7 @@
     {
       "id": "magazine:b36a4:45_fast",
       "sourceId": "45_fast",
-      "name": "45 Fast",
+      "name": "Carregador Rápido de 45",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5097,6 +5220,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "45 Fast",
       "cost": 40,
       "effects": {
         "mag": 45,
@@ -5109,7 +5233,7 @@
     {
       "id": "magazine:b36a4:45_rnd",
       "sourceId": "45_rnd",
-      "name": "45 Rnd",
+      "name": "Carregador de 45",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5128,6 +5252,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "45 Rnd",
       "cost": 35,
       "effects": {
         "mag": 45,
@@ -5140,7 +5265,7 @@
     {
       "id": "magazine:brod3:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5159,6 +5284,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -5171,7 +5297,7 @@
     {
       "id": "magazine:brod3:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5190,6 +5316,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -5202,7 +5329,7 @@
     {
       "id": "magazine:brod3:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5221,6 +5348,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -5233,7 +5361,7 @@
     {
       "id": "magazine:brod3:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5252,6 +5380,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -5264,7 +5393,7 @@
     {
       "id": "magazine:brod3:36_rnd",
       "sourceId": "36_rnd",
-      "name": "36 Rnd",
+      "name": "Carregador de 36",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5283,6 +5412,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "36 Rnd",
       "cost": 15,
       "effects": {
         "mag": 36,
@@ -5295,7 +5425,7 @@
     {
       "id": "magazine:brod3:40_fast",
       "sourceId": "40_fast",
-      "name": "40 Fast",
+      "name": "Carregador Rápido de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5314,6 +5444,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Fast",
       "cost": 30,
       "effects": {
         "mag": 40,
@@ -5326,7 +5457,7 @@
     {
       "id": "magazine:brod3:40_rnd",
       "sourceId": "40_rnd",
-      "name": "40 Rnd",
+      "name": "Carregador de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5345,6 +5476,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Rnd",
       "cost": 25,
       "effects": {
         "mag": 40,
@@ -5357,7 +5489,7 @@
     {
       "id": "magazine:cz3a1:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5376,6 +5508,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -5388,7 +5521,7 @@
     {
       "id": "magazine:cz3a1:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5407,6 +5540,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -5419,7 +5553,7 @@
     {
       "id": "magazine:cz3a1:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5438,6 +5572,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -5450,7 +5585,7 @@
     {
       "id": "magazine:cz3a1:35_fast",
       "sourceId": "35_fast",
-      "name": "35 Fast",
+      "name": "Carregador Rápido de 35",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5469,6 +5604,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "35 Fast",
       "cost": 20,
       "effects": {
         "mag": 35,
@@ -5481,7 +5617,7 @@
     {
       "id": "magazine:cz3a1:35_rnd",
       "sourceId": "35_rnd",
-      "name": "35 Rnd",
+      "name": "Carregador de 35",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5500,6 +5636,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "35 Rnd",
       "cost": 15,
       "effects": {
         "mag": 35,
@@ -5512,7 +5649,7 @@
     {
       "id": "magazine:db12:7_rnd",
       "sourceId": "7_rnd",
-      "name": "14 Rnd",
+      "name": "Carregador de 14",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5531,6 +5668,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "14 Rnd",
       "cost": 5,
       "effects": {
         "mag": 14,
@@ -5543,7 +5681,7 @@
     {
       "id": "magazine:drsiar:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5562,6 +5700,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -5574,7 +5713,7 @@
     {
       "id": "magazine:drsiar:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5593,6 +5732,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -5605,7 +5745,7 @@
     {
       "id": "magazine:drsiar:36_rnd",
       "sourceId": "36_rnd",
-      "name": "36 Rnd",
+      "name": "Carregador de 36",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5624,6 +5764,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "36 Rnd",
       "cost": 15,
       "effects": {
         "mag": 36,
@@ -5636,7 +5777,7 @@
     {
       "id": "magazine:drsiar:40_fast",
       "sourceId": "40_fast",
-      "name": "40 Fast",
+      "name": "Carregador Rápido de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5655,6 +5796,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Fast",
       "cost": 30,
       "effects": {
         "mag": 40,
@@ -5667,7 +5809,7 @@
     {
       "id": "magazine:drsiar:40_rnd",
       "sourceId": "40_rnd",
-      "name": "40 Rnd",
+      "name": "Carregador de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5686,6 +5828,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Rnd",
       "cost": 25,
       "effects": {
         "mag": 40,
@@ -5698,7 +5841,7 @@
     {
       "id": "magazine:drsiar:45_fast",
       "sourceId": "45_fast",
-      "name": "45 Fast",
+      "name": "Carregador Rápido de 45",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5717,6 +5860,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "45 Fast",
       "cost": 40,
       "effects": {
         "mag": 45,
@@ -5729,7 +5873,7 @@
     {
       "id": "magazine:drsiar:45_rnd",
       "sourceId": "45_rnd",
-      "name": "45 Rnd",
+      "name": "Carregador de 45",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5748,6 +5892,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "45 Rnd",
       "cost": 35,
       "effects": {
         "mag": 45,
@@ -5760,7 +5905,7 @@
     {
       "id": "magazine:drsiar:50_rnd",
       "sourceId": "50_rnd",
-      "name": "50 Rnd",
+      "name": "Carregador de 50",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5779,6 +5924,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "50 Rnd",
       "cost": 45,
       "effects": {
         "mag": 50,
@@ -5791,7 +5937,7 @@
     {
       "id": "magazine:drsiar:60_rnd",
       "sourceId": "60_rnd",
-      "name": "60 Rnd",
+      "name": "Carregador de 60",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5810,6 +5956,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "60 Rnd",
       "cost": 55,
       "effects": {
         "mag": 60,
@@ -5822,7 +5969,7 @@
     {
       "id": "magazine:ef88:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5841,6 +5988,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -5853,7 +6001,7 @@
     {
       "id": "magazine:ef88:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5872,6 +6020,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -5884,7 +6033,7 @@
     {
       "id": "magazine:ef88:36_rnd",
       "sourceId": "36_rnd",
-      "name": "36 Rnd",
+      "name": "Carregador de 36",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5903,6 +6052,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "36 Rnd",
       "cost": 15,
       "effects": {
         "mag": 36,
@@ -5915,7 +6065,7 @@
     {
       "id": "magazine:ef88:42_fast",
       "sourceId": "42_fast",
-      "name": "42 Fast",
+      "name": "Carregador Rápido de 42",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5934,6 +6084,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "42 Fast",
       "cost": 30,
       "effects": {
         "mag": 42,
@@ -5946,7 +6097,7 @@
     {
       "id": "magazine:ef88:42_rnd",
       "sourceId": "42_rnd",
-      "name": "42 Rnd",
+      "name": "Carregador de 42",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5965,6 +6116,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "42 Rnd",
       "cost": 25,
       "effects": {
         "mag": 42,
@@ -5977,7 +6129,7 @@
     {
       "id": "magazine:es57:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -5996,6 +6148,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -6008,7 +6161,7 @@
     {
       "id": "magazine:es57:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6027,6 +6180,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 40,
       "effects": {
         "mag": 30,
@@ -6039,7 +6193,7 @@
     {
       "id": "magazine:ggh22:15_rnd",
       "sourceId": "15_rnd",
-      "name": "15 Rnd",
+      "name": "Carregador de 15",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6058,6 +6212,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "15 Rnd",
       "cost": 5,
       "effects": {
         "mag": 15,
@@ -6070,7 +6225,7 @@
     {
       "id": "magazine:ggh22:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6089,6 +6244,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 20,
       "effects": {
         "mag": 20,
@@ -6101,7 +6257,7 @@
     {
       "id": "magazine:ggh22:22_rnd",
       "sourceId": "22_rnd",
-      "name": "22 Rnd",
+      "name": "Carregador de 22",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6120,6 +6276,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "22 Rnd",
       "cost": 30,
       "effects": {
         "mag": 22,
@@ -6132,7 +6289,7 @@
     {
       "id": "magazine:grtbc:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6151,6 +6308,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -6163,7 +6321,7 @@
     {
       "id": "magazine:grtbc:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6182,6 +6340,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -6194,7 +6353,7 @@
     {
       "id": "magazine:grtbc:36_rnd",
       "sourceId": "36_rnd",
-      "name": "36 Rnd",
+      "name": "Carregador de 36",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6213,6 +6372,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "36 Rnd",
       "cost": 15,
       "effects": {
         "mag": 36,
@@ -6225,7 +6385,7 @@
     {
       "id": "magazine:grtbc:45_fast",
       "sourceId": "45_fast",
-      "name": "45 Fast",
+      "name": "Carregador Rápido de 45",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6244,6 +6404,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "45 Fast",
       "cost": 40,
       "effects": {
         "mag": 45,
@@ -6256,7 +6417,7 @@
     {
       "id": "magazine:grtbc:45_rnd",
       "sourceId": "45_rnd",
-      "name": "45 Rnd",
+      "name": "Carregador de 45",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6275,6 +6436,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "45 Rnd",
       "cost": 35,
       "effects": {
         "mag": 45,
@@ -6287,7 +6449,7 @@
     {
       "id": "magazine:grtcps:15_rnd",
       "sourceId": "15_rnd",
-      "name": "15 Rnd",
+      "name": "Carregador de 15",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6306,6 +6468,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "15 Rnd",
       "cost": 5,
       "effects": {
         "mag": 15,
@@ -6318,7 +6481,7 @@
     {
       "id": "magazine:grtcps:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6337,6 +6500,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 10,
       "effects": {
         "mag": 20,
@@ -6349,7 +6513,7 @@
     {
       "id": "magazine:grtcps:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6368,6 +6532,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -6380,7 +6545,7 @@
     {
       "id": "magazine:grtcps:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6399,6 +6564,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 40,
       "effects": {
         "mag": 30,
@@ -6411,7 +6577,7 @@
     {
       "id": "magazine:kord6p67:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6430,6 +6596,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -6442,7 +6609,7 @@
     {
       "id": "magazine:kord6p67:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6461,6 +6628,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -6473,7 +6641,7 @@
     {
       "id": "magazine:kord6p67:36_rnd",
       "sourceId": "36_rnd",
-      "name": "36 Rnd",
+      "name": "Carregador de 36",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6492,6 +6660,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "36 Rnd",
       "cost": 15,
       "effects": {
         "mag": 36,
@@ -6504,7 +6673,7 @@
     {
       "id": "magazine:kord6p67:40_fast",
       "sourceId": "40_fast",
-      "name": "40 Fast",
+      "name": "Carregador Rápido de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6523,6 +6692,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Fast",
       "cost": 30,
       "effects": {
         "mag": 40,
@@ -6535,7 +6705,7 @@
     {
       "id": "magazine:kord6p67:40_rnd",
       "sourceId": "40_rnd",
-      "name": "40 Rnd",
+      "name": "Carregador de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6554,6 +6724,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Rnd",
       "cost": 25,
       "effects": {
         "mag": 40,
@@ -6566,7 +6737,7 @@
     {
       "id": "magazine:kord6p67:45_fast",
       "sourceId": "45_fast",
-      "name": "45 Fast",
+      "name": "Carregador Rápido de 45",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6585,6 +6756,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "45 Fast",
       "cost": 40,
       "effects": {
         "mag": 45,
@@ -6597,7 +6769,7 @@
     {
       "id": "magazine:kord6p67:45_rnd",
       "sourceId": "45_rnd",
-      "name": "45 Rnd",
+      "name": "Carregador de 45",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6616,6 +6788,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "45 Rnd",
       "cost": 35,
       "effects": {
         "mag": 45,
@@ -6628,7 +6801,7 @@
     {
       "id": "magazine:ks18k:4_fast",
       "sourceId": "4_fast",
-      "name": "4 Fast",
+      "name": "Carregador Rápido de 4",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6647,6 +6820,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "4 Fast",
       "cost": 10,
       "effects": {
         "mag": 4,
@@ -6659,7 +6833,7 @@
     {
       "id": "magazine:ks18k:4_rnd",
       "sourceId": "4_rnd",
-      "name": "4 Rnd",
+      "name": "Carregador de 4",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6678,6 +6852,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "4 Rnd",
       "cost": 5,
       "effects": {
         "mag": 4,
@@ -6690,7 +6865,7 @@
     {
       "id": "magazine:ks18k:8_fast",
       "sourceId": "8_fast",
-      "name": "8 Fast",
+      "name": "Carregador Rápido de 8",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6709,6 +6884,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "8 Fast",
       "cost": 10,
       "effects": {
         "mag": 8,
@@ -6721,7 +6897,7 @@
     {
       "id": "magazine:ks18k:8_rnd",
       "sourceId": "8_rnd",
-      "name": "8 Rnd",
+      "name": "Carregador de 8",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6740,6 +6916,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "8 Rnd",
       "cost": 5,
       "effects": {
         "mag": 8,
@@ -6752,7 +6929,7 @@
     {
       "id": "magazine:kts100:100_rnd",
       "sourceId": "100_rnd",
-      "name": "100 Rnd",
+      "name": "Carregador de 100",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6771,6 +6948,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "100 Rnd",
       "cost": 45,
       "effects": {
         "mag": 100,
@@ -6783,7 +6961,7 @@
     {
       "id": "magazine:kts100:45_fast",
       "sourceId": "45_fast",
-      "name": "45 Fast",
+      "name": "Carregador Rápido de 45",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6802,6 +6980,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "45 Fast",
       "cost": 10,
       "effects": {
         "mag": 45,
@@ -6814,7 +6993,7 @@
     {
       "id": "magazine:kts100:45_rnd",
       "sourceId": "45_rnd",
-      "name": "45 Rnd",
+      "name": "Carregador de 45",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6833,6 +7012,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "45 Rnd",
       "cost": 5,
       "effects": {
         "mag": 45,
@@ -6845,7 +7025,7 @@
     {
       "id": "magazine:kts100:50_rnd",
       "sourceId": "50_rnd",
-      "name": "50 Rnd",
+      "name": "Carregador de 50",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6864,6 +7044,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "50 Rnd",
       "cost": 5,
       "effects": {
         "mag": 50,
@@ -6876,7 +7057,7 @@
     {
       "id": "magazine:kts100:60_fast",
       "sourceId": "60_fast",
-      "name": "60 Fast",
+      "name": "Carregador Rápido de 60",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6895,6 +7076,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "60 Fast",
       "cost": 10,
       "effects": {
         "mag": 60,
@@ -6907,7 +7089,7 @@
     {
       "id": "magazine:kts100:60_rnd",
       "sourceId": "60_rnd",
-      "name": "60 Rnd",
+      "name": "Carregador de 60",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6926,6 +7108,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "60 Rnd",
       "cost": 5,
       "effects": {
         "mag": 60,
@@ -6938,7 +7121,7 @@
     {
       "id": "magazine:kv9:17_fast",
       "sourceId": "17_fast",
-      "name": "17 Fast",
+      "name": "Carregador Rápido de 17",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6957,6 +7140,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "17 Fast",
       "cost": 10,
       "effects": {
         "mag": 17,
@@ -6969,7 +7153,7 @@
     {
       "id": "magazine:kv9:17_rnd",
       "sourceId": "17_rnd",
-      "name": "17 Rnd",
+      "name": "Carregador de 17",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -6988,6 +7172,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "17 Rnd",
       "cost": 5,
       "effects": {
         "mag": 17,
@@ -7000,7 +7185,7 @@
     {
       "id": "magazine:kv9:23_rnd",
       "sourceId": "23_rnd",
-      "name": "23 Rnd",
+      "name": "Carregador de 23",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7019,6 +7204,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "23 Rnd",
       "cost": 25,
       "effects": {
         "mag": 23,
@@ -7031,7 +7217,7 @@
     {
       "id": "magazine:kv9:27_rnd",
       "sourceId": "27_rnd",
-      "name": "27 Rnd",
+      "name": "Carregador de 27",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7050,6 +7236,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "27 Rnd",
       "cost": 45,
       "effects": {
         "mag": 27,
@@ -7062,7 +7249,7 @@
     {
       "id": "magazine:l110:100_rnd",
       "sourceId": "100_rnd",
-      "name": "100 Rnd",
+      "name": "Carregador de 100",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7081,6 +7268,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "100 Rnd",
       "cost": 5,
       "effects": {
         "mag": 100,
@@ -7093,7 +7281,7 @@
     {
       "id": "magazine:l110:200_rnd",
       "sourceId": "200_rnd",
-      "name": "200 Rnd",
+      "name": "Carregador de 200",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7112,6 +7300,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "200 Rnd",
       "cost": 50,
       "effects": {
         "mag": 200,
@@ -7125,7 +7314,7 @@
     {
       "id": "magazine:l115:5_rnd",
       "sourceId": "5_rnd",
-      "name": "5 Rnd",
+      "name": "Carregador de 5",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7144,6 +7333,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "5 Rnd",
       "cost": 5,
       "effects": {
         "mag": 5,
@@ -7156,7 +7346,7 @@
     {
       "id": "magazine:l115:7_fast",
       "sourceId": "7_fast",
-      "name": "7 Fast",
+      "name": "Carregador Rápido de 7",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7175,6 +7365,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "7 Fast",
       "cost": 20,
       "effects": {
         "mag": 7,
@@ -7187,7 +7378,7 @@
     {
       "id": "magazine:l115:7_rnd",
       "sourceId": "7_rnd",
-      "name": "7 Rnd",
+      "name": "Carregador de 7",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7206,6 +7397,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "7 Rnd",
       "cost": 15,
       "effects": {
         "mag": 7,
@@ -7218,7 +7410,7 @@
     {
       "id": "magazine:l85a3:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7237,6 +7429,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -7249,7 +7442,7 @@
     {
       "id": "magazine:l85a3:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7268,6 +7461,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -7280,7 +7474,7 @@
     {
       "id": "magazine:l85a3:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7299,6 +7493,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -7311,7 +7506,7 @@
     {
       "id": "magazine:l85a3:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7330,6 +7525,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -7342,7 +7538,7 @@
     {
       "id": "magazine:l85a3:36_rnd",
       "sourceId": "36_rnd",
-      "name": "36 Rnd",
+      "name": "Carregador de 36",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7361,6 +7557,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "36 Rnd",
       "cost": 15,
       "effects": {
         "mag": 36,
@@ -7373,7 +7570,7 @@
     {
       "id": "magazine:l85a3:40_fast",
       "sourceId": "40_fast",
-      "name": "40 Fast",
+      "name": "Carregador Rápido de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7392,6 +7589,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Fast",
       "cost": 30,
       "effects": {
         "mag": 40,
@@ -7404,7 +7602,7 @@
     {
       "id": "magazine:l85a3:40_rnd",
       "sourceId": "40_rnd",
-      "name": "40 Rnd",
+      "name": "Carregador de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7423,6 +7621,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Rnd",
       "cost": 25,
       "effects": {
         "mag": 40,
@@ -7435,7 +7634,7 @@
     {
       "id": "magazine:l85a3:45_fast",
       "sourceId": "45_fast",
-      "name": "45 Fast",
+      "name": "Carregador Rápido de 45",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7454,6 +7653,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "45 Fast",
       "cost": 40,
       "effects": {
         "mag": 45,
@@ -7466,7 +7666,7 @@
     {
       "id": "magazine:l85a3:45_rnd",
       "sourceId": "45_rnd",
-      "name": "45 Rnd",
+      "name": "Carregador de 45",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7485,6 +7685,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "45 Rnd",
       "cost": 35,
       "effects": {
         "mag": 45,
@@ -7497,7 +7698,7 @@
     {
       "id": "magazine:lmr27:10_fast",
       "sourceId": "10_fast",
-      "name": "10 Fast",
+      "name": "Carregador Rápido de 10",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7516,6 +7717,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "10 Fast",
       "cost": 10,
       "effects": {
         "mag": 10,
@@ -7528,7 +7730,7 @@
     {
       "id": "magazine:lmr27:10_rnd",
       "sourceId": "10_rnd",
-      "name": "10 Rnd",
+      "name": "Carregador de 10",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7547,6 +7749,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "10 Rnd",
       "cost": 5,
       "effects": {
         "mag": 10,
@@ -7559,7 +7762,7 @@
     {
       "id": "magazine:lmr27:15_fast",
       "sourceId": "15_fast",
-      "name": "15 Fast",
+      "name": "Carregador Rápido de 15",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7578,6 +7781,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "15 Fast",
       "cost": 25,
       "effects": {
         "mag": 15,
@@ -7590,7 +7794,7 @@
     {
       "id": "magazine:lmr27:15_rnd",
       "sourceId": "15_rnd",
-      "name": "15 Rnd",
+      "name": "Carregador de 15",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7609,6 +7813,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "15 Rnd",
       "cost": 20,
       "effects": {
         "mag": 15,
@@ -7621,7 +7826,7 @@
     {
       "id": "magazine:lmr27:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7640,6 +7845,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 50,
       "effects": {
         "mag": 20,
@@ -7652,7 +7858,7 @@
     {
       "id": "magazine:lmr27:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7671,6 +7877,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 45,
       "effects": {
         "mag": 20,
@@ -7683,7 +7890,7 @@
     {
       "id": "magazine:m1014:4_fast",
       "sourceId": "4_fast",
-      "name": "4 Fast",
+      "name": "Carregador Rápido de 4",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7702,6 +7909,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "4 Fast",
       "cost": 10,
       "effects": {
         "mag": 4,
@@ -7714,7 +7922,7 @@
     {
       "id": "magazine:m1014:4_rnd",
       "sourceId": "4_rnd",
-      "name": "4 Rnd",
+      "name": "Carregador de 4",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7733,6 +7941,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "4 Rnd",
       "cost": 5,
       "effects": {
         "mag": 4,
@@ -7745,7 +7954,7 @@
     {
       "id": "magazine:m1014:6_rnd",
       "sourceId": "6_rnd",
-      "name": "6 Rnd",
+      "name": "Carregador de 6",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7764,6 +7973,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "6 Rnd",
       "cost": 5,
       "effects": {
         "mag": 6,
@@ -7776,7 +7986,7 @@
     {
       "id": "magazine:m121a2:100_rnd",
       "sourceId": "100_rnd",
-      "name": "100 Rnd",
+      "name": "Carregador de 100",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7795,6 +8005,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "100 Rnd",
       "cost": 55,
       "effects": {
         "mag": 100,
@@ -7807,7 +8018,7 @@
     {
       "id": "magazine:m121a2:50_fast",
       "sourceId": "50_fast",
-      "name": "50 Fast",
+      "name": "Carregador Rápido de 50",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7826,6 +8037,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "50 Fast",
       "cost": 10,
       "effects": {
         "mag": 50,
@@ -7838,7 +8050,7 @@
     {
       "id": "magazine:m121a2:50_rnd",
       "sourceId": "50_rnd",
-      "name": "50 Rnd",
+      "name": "Carregador de 50",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7857,6 +8069,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "50 Rnd",
       "cost": 5,
       "effects": {
         "mag": 50,
@@ -7869,7 +8082,7 @@
     {
       "id": "magazine:m123k:100_rnd",
       "sourceId": "100_rnd",
-      "name": "100 Rnd",
+      "name": "Carregador de 100",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7888,6 +8101,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "100 Rnd",
       "cost": 5,
       "effects": {
         "mag": 100,
@@ -7900,7 +8114,7 @@
     {
       "id": "magazine:m123k:200_rnd",
       "sourceId": "200_rnd",
-      "name": "200 Rnd",
+      "name": "Carregador de 200",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7919,6 +8133,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "200 Rnd",
       "cost": 50,
       "effects": {
         "mag": 200,
@@ -7932,7 +8147,7 @@
     {
       "id": "magazine:m16a4:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7951,6 +8166,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -7963,7 +8179,7 @@
     {
       "id": "magazine:m16a4:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -7982,6 +8198,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -7994,7 +8211,7 @@
     {
       "id": "magazine:m16a4:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8013,6 +8230,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -8025,7 +8243,7 @@
     {
       "id": "magazine:m16a4:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8044,6 +8262,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -8056,7 +8275,7 @@
     {
       "id": "magazine:m16a4:36_rnd",
       "sourceId": "36_rnd",
-      "name": "36 Rnd",
+      "name": "Carregador de 36",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8075,6 +8294,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "36 Rnd",
       "cost": 15,
       "effects": {
         "mag": 36,
@@ -8087,7 +8307,7 @@
     {
       "id": "magazine:m16a4:40_fast",
       "sourceId": "40_fast",
-      "name": "40 Fast",
+      "name": "Carregador Rápido de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8106,6 +8326,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Fast",
       "cost": 30,
       "effects": {
         "mag": 40,
@@ -8118,7 +8339,7 @@
     {
       "id": "magazine:m16a4:40_rnd",
       "sourceId": "40_rnd",
-      "name": "40 Rnd",
+      "name": "Carregador de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8137,6 +8358,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Rnd",
       "cost": 25,
       "effects": {
         "mag": 40,
@@ -8149,7 +8371,7 @@
     {
       "id": "magazine:m2010esr:5_fast",
       "sourceId": "5_fast",
-      "name": "5 Fast",
+      "name": "Carregador Rápido de 5",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8168,6 +8390,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "5 Fast",
       "cost": 10,
       "effects": {
         "mag": 5,
@@ -8180,7 +8403,7 @@
     {
       "id": "magazine:m2010esr:5_rnd",
       "sourceId": "5_rnd",
-      "name": "5 Rnd",
+      "name": "Carregador de 5",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8199,6 +8422,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "5 Rnd",
       "cost": 5,
       "effects": {
         "mag": 5,
@@ -8211,7 +8435,7 @@
     {
       "id": "magazine:m2010esr:8_rnd",
       "sourceId": "8_rnd",
-      "name": "8 Rnd",
+      "name": "Carregador de 8",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8230,6 +8454,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "8 Rnd",
       "cost": 25,
       "effects": {
         "mag": 8,
@@ -8242,7 +8467,7 @@
     {
       "id": "magazine:m240l:100_rnd",
       "sourceId": "100_rnd",
-      "name": "100 Rnd",
+      "name": "Carregador de 100",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8261,6 +8486,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "100 Rnd",
       "cost": 25,
       "effects": {
         "mag": 100,
@@ -8273,7 +8499,7 @@
     {
       "id": "magazine:m240l:50_rnd",
       "sourceId": "50_rnd",
-      "name": "50 Rnd",
+      "name": "Carregador de 50",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8292,6 +8518,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "50 Rnd",
       "cost": 5,
       "effects": {
         "mag": 50,
@@ -8304,7 +8531,7 @@
     {
       "id": "magazine:m240l:75_rnd",
       "sourceId": "75_rnd",
-      "name": "75 Rnd",
+      "name": "Carregador de 75",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8323,6 +8550,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "75 Rnd",
       "cost": 10,
       "effects": {
         "mag": 75,
@@ -8336,7 +8564,7 @@
     {
       "id": "magazine:m250:100_rnd",
       "sourceId": "100_rnd",
-      "name": "100 Rnd",
+      "name": "Carregador de 100",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8355,6 +8583,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "100 Rnd",
       "cost": 55,
       "effects": {
         "mag": 100,
@@ -8367,7 +8596,7 @@
     {
       "id": "magazine:m250:50_rnd",
       "sourceId": "50_rnd",
-      "name": "50 Rnd",
+      "name": "Carregador de 50",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8386,6 +8615,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "50 Rnd",
       "cost": 5,
       "effects": {
         "mag": 50,
@@ -8398,7 +8628,7 @@
     {
       "id": "magazine:m277:15_rnd",
       "sourceId": "15_rnd",
-      "name": "15 Rnd",
+      "name": "Carregador de 15",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8417,6 +8647,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "15 Rnd",
       "cost": 5,
       "effects": {
         "mag": 15,
@@ -8429,7 +8660,7 @@
     {
       "id": "magazine:m277:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8448,6 +8679,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 10,
       "effects": {
         "mag": 20,
@@ -8460,7 +8692,7 @@
     {
       "id": "magazine:m277:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8479,6 +8711,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -8491,7 +8724,7 @@
     {
       "id": "magazine:m277:25_fast",
       "sourceId": "25_fast",
-      "name": "25 Fast",
+      "name": "Carregador Rápido de 25",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8510,6 +8743,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "25 Fast",
       "cost": 25,
       "effects": {
         "mag": 25,
@@ -8522,7 +8756,7 @@
     {
       "id": "magazine:m277:25_rnd",
       "sourceId": "25_rnd",
-      "name": "25 Rnd",
+      "name": "Carregador de 25",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8541,6 +8775,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "25 Rnd",
       "cost": 20,
       "effects": {
         "mag": 25,
@@ -8553,7 +8788,7 @@
     {
       "id": "magazine:m277:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8572,6 +8807,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 40,
       "effects": {
         "mag": 30,
@@ -8584,7 +8820,7 @@
     {
       "id": "magazine:m357trait:8_fast",
       "sourceId": "8_fast",
-      "name": "8 Fast",
+      "name": "Carregador Rápido de 8",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8603,6 +8839,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "8 Fast",
       "cost": 10,
       "effects": {
         "mag": 8,
@@ -8615,7 +8852,7 @@
     {
       "id": "magazine:m357trait:8_rnd",
       "sourceId": "8_rnd",
-      "name": "8 Rnd",
+      "name": "Carregador de 8",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8634,6 +8871,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "8 Rnd",
       "cost": 5,
       "effects": {
         "mag": 8,
@@ -8646,7 +8884,7 @@
     {
       "id": "magazine:m39emr:15_fast",
       "sourceId": "15_fast",
-      "name": "15 Fast",
+      "name": "Carregador Rápido de 15",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8665,6 +8903,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "15 Fast",
       "cost": 10,
       "effects": {
         "mag": 15,
@@ -8677,7 +8916,7 @@
     {
       "id": "magazine:m39emr:15_rnd",
       "sourceId": "15_rnd",
-      "name": "15 Rnd",
+      "name": "Carregador de 15",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8696,6 +8935,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "15 Rnd",
       "cost": 5,
       "effects": {
         "mag": 15,
@@ -8708,7 +8948,7 @@
     {
       "id": "magazine:m39emr:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8727,6 +8967,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 10,
       "effects": {
         "mag": 20,
@@ -8739,7 +8980,7 @@
     {
       "id": "magazine:m39emr:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8758,6 +8999,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -8770,7 +9012,7 @@
     {
       "id": "magazine:m39emr:25_rnd",
       "sourceId": "25_rnd",
-      "name": "25 Rnd",
+      "name": "Carregador de 25",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8789,6 +9031,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "25 Rnd",
       "cost": 20,
       "effects": {
         "mag": 25,
@@ -8801,7 +9044,7 @@
     {
       "id": "magazine:m417a2:10_rnd",
       "sourceId": "10_rnd",
-      "name": "10 Rnd",
+      "name": "Carregador de 10",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8820,6 +9063,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "10 Rnd",
       "cost": 5,
       "effects": {
         "mag": 10,
@@ -8832,7 +9076,7 @@
     {
       "id": "magazine:m417a2:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8851,6 +9095,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 10,
       "effects": {
         "mag": 20,
@@ -8863,7 +9108,7 @@
     {
       "id": "magazine:m417a2:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8882,6 +9127,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -8894,7 +9140,7 @@
     {
       "id": "magazine:m417a2:25_rnd",
       "sourceId": "25_rnd",
-      "name": "25 Rnd",
+      "name": "Carregador de 25",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8913,6 +9159,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "25 Rnd",
       "cost": 20,
       "effects": {
         "mag": 25,
@@ -8925,7 +9172,7 @@
     {
       "id": "magazine:m433:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8944,6 +9191,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -8956,7 +9204,7 @@
     {
       "id": "magazine:m433:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -8975,6 +9223,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -8987,7 +9236,7 @@
     {
       "id": "magazine:m433:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9006,6 +9255,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -9018,7 +9268,7 @@
     {
       "id": "magazine:m433:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9037,6 +9287,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -9049,7 +9300,7 @@
     {
       "id": "magazine:m433:36_rnd",
       "sourceId": "36_rnd",
-      "name": "36 Rnd",
+      "name": "Carregador de 36",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9068,6 +9319,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "36 Rnd",
       "cost": 15,
       "effects": {
         "mag": 36,
@@ -9080,7 +9332,7 @@
     {
       "id": "magazine:m433:40_fast",
       "sourceId": "40_fast",
-      "name": "40 Fast",
+      "name": "Carregador Rápido de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9099,6 +9351,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Fast",
       "cost": 30,
       "effects": {
         "mag": 40,
@@ -9111,7 +9364,7 @@
     {
       "id": "magazine:m433:40_rnd",
       "sourceId": "40_rnd",
-      "name": "40 Rnd",
+      "name": "Carregador de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9130,6 +9383,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Rnd",
       "cost": 25,
       "effects": {
         "mag": 40,
@@ -9142,7 +9396,7 @@
     {
       "id": "magazine:m44:6_rnd",
       "sourceId": "6_rnd",
-      "name": "6 Rnd",
+      "name": "Carregador de 6",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9161,6 +9415,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "6 Rnd",
       "cost": 5,
       "effects": {
         "mag": 6,
@@ -9173,7 +9428,7 @@
     {
       "id": "magazine:m45a1:11_rnd",
       "sourceId": "11_rnd",
-      "name": "11 Rnd",
+      "name": "Carregador de 11",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9192,6 +9447,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "11 Rnd",
       "cost": 25,
       "effects": {
         "mag": 11,
@@ -9204,7 +9460,7 @@
     {
       "id": "magazine:m45a1:7_rnd",
       "sourceId": "7_rnd",
-      "name": "7 Rnd",
+      "name": "Carregador de 7",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9223,6 +9479,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "7 Rnd",
       "cost": 5,
       "effects": {
         "mag": 7,
@@ -9235,7 +9492,7 @@
     {
       "id": "magazine:m4a1:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9254,6 +9511,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -9266,7 +9524,7 @@
     {
       "id": "magazine:m4a1:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9285,6 +9543,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -9297,7 +9556,7 @@
     {
       "id": "magazine:m4a1:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9316,6 +9575,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -9328,7 +9588,7 @@
     {
       "id": "magazine:m4a1:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9347,6 +9607,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -9359,7 +9620,7 @@
     {
       "id": "magazine:m4a1:36_rnd",
       "sourceId": "36_rnd",
-      "name": "36 Rnd",
+      "name": "Carregador de 36",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9378,6 +9639,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "36 Rnd",
       "cost": 15,
       "effects": {
         "mag": 36,
@@ -9390,7 +9652,7 @@
     {
       "id": "magazine:m4a1:40_fast",
       "sourceId": "40_fast",
-      "name": "40 Fast",
+      "name": "Carregador Rápido de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9409,6 +9671,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Fast",
       "cost": 30,
       "effects": {
         "mag": 40,
@@ -9421,7 +9684,7 @@
     {
       "id": "magazine:m4a1:40_rnd",
       "sourceId": "40_rnd",
-      "name": "40 Rnd",
+      "name": "Carregador de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9440,6 +9703,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Rnd",
       "cost": 25,
       "effects": {
         "mag": 40,
@@ -9452,7 +9716,7 @@
     {
       "id": "magazine:m60:100_rnd",
       "sourceId": "100_rnd",
-      "name": "100 Rnd",
+      "name": "Carregador de 100",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9471,6 +9735,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "100 Rnd",
       "cost": 5,
       "effects": {
         "mag": 100,
@@ -9483,7 +9748,7 @@
     {
       "id": "magazine:m60:50_rnd",
       "sourceId": "50_rnd",
-      "name": "50 Rnd",
+      "name": "Carregador de 50",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9502,6 +9767,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "50 Rnd",
       "cost": 5,
       "effects": {
         "mag": 50,
@@ -9514,7 +9780,7 @@
     {
       "id": "magazine:m87a1:5_fast",
       "sourceId": "5_fast",
-      "name": "5 Fast",
+      "name": "Carregador Rápido de 5",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9533,6 +9799,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "5 Fast",
       "cost": 20,
       "effects": {
         "mag": 5,
@@ -9545,7 +9812,7 @@
     {
       "id": "magazine:m87a1:5_rnd",
       "sourceId": "5_rnd",
-      "name": "5 Rnd",
+      "name": "Carregador de 5",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9564,6 +9831,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "5 Rnd",
       "cost": 5,
       "effects": {
         "mag": 5,
@@ -9576,7 +9844,7 @@
     {
       "id": "magazine:m87a1:6_rnd",
       "sourceId": "6_rnd",
-      "name": "6 Rnd",
+      "name": "Carregador de 6",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9595,6 +9863,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "6 Rnd",
       "cost": 5,
       "effects": {
         "mag": 6,
@@ -9607,7 +9876,7 @@
     {
       "id": "magazine:m87a1:7_rnd",
       "sourceId": "7_rnd",
-      "name": "7 Rnd",
+      "name": "Carregador de 7",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9626,6 +9895,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "7 Rnd",
       "cost": 5,
       "effects": {
         "mag": 7,
@@ -9638,7 +9908,7 @@
     {
       "id": "magazine:miniscout:10_fast",
       "sourceId": "10_fast",
-      "name": "10 Fast",
+      "name": "Carregador Rápido de 10",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9657,6 +9927,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "10 Fast",
       "cost": 10,
       "effects": {
         "mag": 10,
@@ -9669,7 +9940,7 @@
     {
       "id": "magazine:miniscout:10_rnd",
       "sourceId": "10_rnd",
-      "name": "10 Rnd",
+      "name": "Carregador de 10",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9688,6 +9959,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "10 Rnd",
       "cost": 5,
       "effects": {
         "mag": 10,
@@ -9700,7 +9972,7 @@
     {
       "id": "magazine:miniscout:15_fast",
       "sourceId": "15_fast",
-      "name": "15 Fast",
+      "name": "Carregador Rápido de 15",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9719,6 +9991,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "15 Fast",
       "cost": 35,
       "effects": {
         "mag": 15,
@@ -9731,7 +10004,7 @@
     {
       "id": "magazine:miniscout:15_rnd",
       "sourceId": "15_rnd",
-      "name": "15 Rnd",
+      "name": "Carregador de 15",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9750,6 +10023,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "15 Rnd",
       "cost": 30,
       "effects": {
         "mag": 15,
@@ -9762,7 +10036,7 @@
     {
       "id": "magazine:miniscout:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9781,6 +10055,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 60,
       "effects": {
         "mag": 20,
@@ -9793,7 +10068,7 @@
     {
       "id": "magazine:miniscout:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9812,6 +10087,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 55,
       "effects": {
         "mag": 20,
@@ -9824,7 +10100,7 @@
     {
       "id": "magazine:nvo228e:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9843,6 +10119,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -9855,7 +10132,7 @@
     {
       "id": "magazine:nvo228e:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9874,6 +10151,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -9886,7 +10164,7 @@
     {
       "id": "magazine:nvo228e:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9905,6 +10183,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -9917,7 +10196,7 @@
     {
       "id": "magazine:nvo228e:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9936,6 +10215,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -9948,7 +10228,7 @@
     {
       "id": "magazine:nvo228e:36_rnd",
       "sourceId": "36_rnd",
-      "name": "36 Rnd",
+      "name": "Carregador de 36",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9967,6 +10247,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "36 Rnd",
       "cost": 15,
       "effects": {
         "mag": 36,
@@ -9979,7 +10260,7 @@
     {
       "id": "magazine:nvo228e:40_fast",
       "sourceId": "40_fast",
-      "name": "40 Fast",
+      "name": "Carregador Rápido de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -9998,6 +10279,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Fast",
       "cost": 30,
       "effects": {
         "mag": 40,
@@ -10010,7 +10292,7 @@
     {
       "id": "magazine:nvo228e:40_rnd",
       "sourceId": "40_rnd",
-      "name": "40 Rnd",
+      "name": "Carregador de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10029,6 +10311,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Rnd",
       "cost": 25,
       "effects": {
         "mag": 40,
@@ -10041,7 +10324,7 @@
     {
       "id": "magazine:p18:17_rnd",
       "sourceId": "17_rnd",
-      "name": "17 Rnd",
+      "name": "Carregador de 17",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10060,6 +10343,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "17 Rnd",
       "cost": 5,
       "effects": {
         "mag": 17,
@@ -10072,7 +10356,7 @@
     {
       "id": "magazine:p18:21_rnd",
       "sourceId": "21_rnd",
-      "name": "21 Rnd",
+      "name": "Carregador de 21",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10091,6 +10375,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "21 Rnd",
       "cost": 15,
       "effects": {
         "mag": 21,
@@ -10103,7 +10388,7 @@
     {
       "id": "magazine:pp19:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10122,6 +10407,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -10142,7 +10428,7 @@
     {
       "id": "magazine:pp19:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10161,6 +10447,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -10173,7 +10460,7 @@
     {
       "id": "magazine:pp19:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10192,6 +10479,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -10204,7 +10492,7 @@
     {
       "id": "magazine:pp19:35_rnd",
       "sourceId": "35_rnd",
-      "name": "35 Rnd",
+      "name": "Carregador de 35",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10223,6 +10511,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "35 Rnd",
       "cost": 15,
       "effects": {
         "mag": 35,
@@ -10235,7 +10524,7 @@
     {
       "id": "magazine:pp19:53_rnd",
       "sourceId": "53_rnd",
-      "name": "53 Rnd",
+      "name": "Carregador de 53",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10254,6 +10543,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "53 Rnd",
       "cost": 45,
       "effects": {
         "mag": 53,
@@ -10266,7 +10556,7 @@
     {
       "id": "magazine:psr:10_rnd",
       "sourceId": "10_rnd",
-      "name": "10 Rnd",
+      "name": "Carregador de 10",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10285,6 +10575,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "10 Rnd",
       "cost": 5,
       "effects": {
         "mag": 10,
@@ -10297,7 +10588,7 @@
     {
       "id": "magazine:psr:7_rnd",
       "sourceId": "7_rnd",
-      "name": "7 Rnd",
+      "name": "Carregador de 7",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10316,6 +10607,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "7 Rnd",
       "cost": 5,
       "effects": {
         "mag": 7,
@@ -10328,7 +10620,7 @@
     {
       "id": "magazine:pw5a3:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10347,6 +10639,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -10359,7 +10652,7 @@
     {
       "id": "magazine:pw5a3:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10378,6 +10671,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -10390,7 +10684,7 @@
     {
       "id": "magazine:pw5a3:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10409,6 +10703,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -10421,7 +10716,7 @@
     {
       "id": "magazine:pw5a3:40_rnd",
       "sourceId": "40_rnd",
-      "name": "40 Rnd",
+      "name": "Carregador de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10440,6 +10735,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Rnd",
       "cost": 25,
       "effects": {
         "mag": 40,
@@ -10452,7 +10748,7 @@
     {
       "id": "magazine:pw7a2:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10471,6 +10767,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -10483,7 +10780,7 @@
     {
       "id": "magazine:pw7a2:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10502,6 +10799,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -10514,7 +10812,7 @@
     {
       "id": "magazine:pw7a2:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10533,6 +10831,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -10545,7 +10844,7 @@
     {
       "id": "magazine:pw7a2:40_rnd",
       "sourceId": "40_rnd",
-      "name": "40 Rnd",
+      "name": "Carregador de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10564,6 +10863,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Rnd",
       "cost": 25,
       "effects": {
         "mag": 40,
@@ -10576,7 +10876,7 @@
     {
       "id": "magazine:qbz192:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10595,6 +10895,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -10607,7 +10908,7 @@
     {
       "id": "magazine:qbz192:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10626,6 +10927,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -10638,7 +10940,7 @@
     {
       "id": "magazine:qbz192:36_rnd",
       "sourceId": "36_rnd",
-      "name": "36 Rnd",
+      "name": "Carregador de 36",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10657,6 +10959,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "36 Rnd",
       "cost": 15,
       "effects": {
         "mag": 36,
@@ -10669,7 +10972,7 @@
     {
       "id": "magazine:qbz192:40_rnd",
       "sourceId": "40_rnd",
-      "name": "40 Rnd",
+      "name": "Carregador de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10688,6 +10991,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Rnd",
       "cost": 25,
       "effects": {
         "mag": 40,
@@ -10700,7 +11004,7 @@
     {
       "id": "magazine:rpk74m:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10719,6 +11023,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -10731,7 +11036,7 @@
     {
       "id": "magazine:rpk74m:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10750,6 +11055,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -10762,7 +11068,7 @@
     {
       "id": "magazine:rpk74m:36_rnd",
       "sourceId": "36_rnd",
-      "name": "36 Rnd",
+      "name": "Carregador de 36",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10781,6 +11087,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "36 Rnd",
       "cost": 5,
       "effects": {
         "mag": 36,
@@ -10793,7 +11100,7 @@
     {
       "id": "magazine:rpk74m:45_fast",
       "sourceId": "45_fast",
-      "name": "45 Fast",
+      "name": "Carregador Rápido de 45",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10812,6 +11119,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "45 Fast",
       "cost": 10,
       "effects": {
         "mag": 45,
@@ -10824,7 +11132,7 @@
     {
       "id": "magazine:rpk74m:45_rnd",
       "sourceId": "45_rnd",
-      "name": "45 Rnd",
+      "name": "Carregador de 45",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10843,6 +11151,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "45 Rnd",
       "cost": 5,
       "effects": {
         "mag": 45,
@@ -10855,7 +11164,7 @@
     {
       "id": "magazine:rpk74m:50_rnd",
       "sourceId": "50_rnd",
-      "name": "50 Rnd",
+      "name": "Carregador de 50",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10874,6 +11183,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "50 Rnd",
       "cost": 10,
       "effects": {
         "mag": 50,
@@ -10886,7 +11196,7 @@
     {
       "id": "magazine:rpk74m:60_rnd",
       "sourceId": "60_rnd",
-      "name": "60 Rnd",
+      "name": "Carregador de 60",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10905,6 +11215,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "60 Rnd",
       "cost": 20,
       "effects": {
         "mag": 60,
@@ -10917,7 +11228,7 @@
     {
       "id": "magazine:rpk74m:95_rnd",
       "sourceId": "95_rnd",
-      "name": "95 Rnd",
+      "name": "Carregador de 95",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10936,6 +11247,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "95 Rnd",
       "cost": 25,
       "effects": {
         "mag": 95,
@@ -10948,7 +11260,7 @@
     {
       "id": "magazine:rpkm:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10967,6 +11279,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -10979,7 +11292,7 @@
     {
       "id": "magazine:rpkm:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -10998,6 +11311,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -11010,7 +11324,7 @@
     {
       "id": "magazine:rpkm:36_rnd",
       "sourceId": "36_rnd",
-      "name": "36 Rnd",
+      "name": "Carregador de 36",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11029,6 +11343,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "36 Rnd",
       "cost": 15,
       "effects": {
         "mag": 36,
@@ -11041,7 +11356,7 @@
     {
       "id": "magazine:rpkm:40_fast",
       "sourceId": "40_fast",
-      "name": "40 Fast",
+      "name": "Carregador Rápido de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11060,6 +11375,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Fast",
       "cost": 10,
       "effects": {
         "mag": 40,
@@ -11072,7 +11388,7 @@
     {
       "id": "magazine:rpkm:40_rnd",
       "sourceId": "40_rnd",
-      "name": "40 Rnd",
+      "name": "Carregador de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11091,6 +11407,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Rnd",
       "cost": 5,
       "effects": {
         "mag": 40,
@@ -11103,7 +11420,7 @@
     {
       "id": "magazine:rpkm:60_rnd",
       "sourceId": "60_rnd",
-      "name": "60 Rnd",
+      "name": "Carregador de 60",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11122,6 +11439,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "60 Rnd",
       "cost": 30,
       "effects": {
         "mag": 60,
@@ -11134,7 +11452,7 @@
     {
       "id": "magazine:rpkm:75_rnd",
       "sourceId": "75_rnd",
-      "name": "75 Rnd",
+      "name": "Carregador de 75",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11153,6 +11471,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "75 Rnd",
       "cost": 50,
       "effects": {
         "mag": 75,
@@ -11165,7 +11484,7 @@
     {
       "id": "magazine:scw10:15_fast",
       "sourceId": "15_fast",
-      "name": "15 Fast",
+      "name": "Carregador Rápido de 15",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11184,6 +11503,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "15 Fast",
       "cost": 10,
       "effects": {
         "mag": 15,
@@ -11196,7 +11516,7 @@
     {
       "id": "magazine:scw10:15_rnd",
       "sourceId": "15_rnd",
-      "name": "15 Rnd",
+      "name": "Carregador de 15",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11215,6 +11535,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "15 Rnd",
       "cost": 5,
       "effects": {
         "mag": 15,
@@ -11227,7 +11548,7 @@
     {
       "id": "magazine:scw10:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11246,6 +11567,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 20,
       "effects": {
         "mag": 20,
@@ -11258,7 +11580,7 @@
     {
       "id": "magazine:scw10:25_rnd",
       "sourceId": "25_rnd",
-      "name": "25 Rnd",
+      "name": "Carregador de 25",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11277,6 +11599,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "25 Rnd",
       "cost": 45,
       "effects": {
         "mag": 25,
@@ -11289,7 +11612,7 @@
     {
       "id": "magazine:sg553r:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11308,6 +11631,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -11320,7 +11644,7 @@
     {
       "id": "magazine:sg553r:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11339,6 +11663,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -11351,7 +11676,7 @@
     {
       "id": "magazine:sg553r:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11370,6 +11695,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -11382,7 +11708,7 @@
     {
       "id": "magazine:sg553r:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11401,6 +11727,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -11413,7 +11740,7 @@
     {
       "id": "magazine:sg553r:36_rnd",
       "sourceId": "36_rnd",
-      "name": "36 Rnd",
+      "name": "Carregador de 36",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11432,6 +11759,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "36 Rnd",
       "cost": 15,
       "effects": {
         "mag": 36,
@@ -11444,7 +11772,7 @@
     {
       "id": "magazine:sg553r:40_fast",
       "sourceId": "40_fast",
-      "name": "40 Fast",
+      "name": "Carregador Rápido de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11463,6 +11791,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Fast",
       "cost": 30,
       "effects": {
         "mag": 40,
@@ -11475,7 +11804,7 @@
     {
       "id": "magazine:sg553r:40_rnd",
       "sourceId": "40_rnd",
-      "name": "40 Rnd",
+      "name": "Carregador de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11494,6 +11823,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Rnd",
       "cost": 25,
       "effects": {
         "mag": 40,
@@ -11506,7 +11836,7 @@
     {
       "id": "magazine:sgx:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11525,6 +11855,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -11537,7 +11868,7 @@
     {
       "id": "magazine:sgx:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11556,6 +11887,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -11568,7 +11900,7 @@
     {
       "id": "magazine:sgx:36_rnd",
       "sourceId": "36_rnd",
-      "name": "36 Rnd",
+      "name": "Carregador de 36",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11587,6 +11919,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "36 Rnd",
       "cost": 15,
       "effects": {
         "mag": 36,
@@ -11599,7 +11932,7 @@
     {
       "id": "magazine:sgx:41_rnd",
       "sourceId": "41_rnd",
-      "name": "41 Rnd",
+      "name": "Carregador de 41",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11618,6 +11951,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "41 Rnd",
       "cost": 25,
       "effects": {
         "mag": 41,
@@ -11630,7 +11964,7 @@
     {
       "id": "magazine:sl9:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11649,6 +11983,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -11661,7 +11996,7 @@
     {
       "id": "magazine:sl9:60_rnd",
       "sourceId": "60_rnd",
-      "name": "60 Rnd",
+      "name": "Carregador de 60",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11680,6 +12015,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "60 Rnd",
       "cost": 55,
       "effects": {
         "mag": 60,
@@ -11692,7 +12028,7 @@
     {
       "id": "magazine:sor300sc:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11711,6 +12047,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -11723,7 +12060,7 @@
     {
       "id": "magazine:sor300sc:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11742,6 +12079,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -11754,7 +12092,7 @@
     {
       "id": "magazine:sor300sc:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11773,6 +12111,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -11785,7 +12124,7 @@
     {
       "id": "magazine:sor300sc:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11804,6 +12143,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -11816,7 +12156,7 @@
     {
       "id": "magazine:sor300sc:36_rnd",
       "sourceId": "36_rnd",
-      "name": "36 Rnd",
+      "name": "Carregador de 36",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11835,6 +12175,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "36 Rnd",
       "cost": 15,
       "effects": {
         "mag": 36,
@@ -11847,7 +12188,7 @@
     {
       "id": "magazine:sor300sc:40_fast",
       "sourceId": "40_fast",
-      "name": "40 Fast",
+      "name": "Carregador Rápido de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11866,6 +12207,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Fast",
       "cost": 30,
       "effects": {
         "mag": 40,
@@ -11878,7 +12220,7 @@
     {
       "id": "magazine:sor300sc:40_rnd",
       "sourceId": "40_rnd",
-      "name": "40 Rnd",
+      "name": "Carregador de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11897,6 +12239,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Rnd",
       "cost": 25,
       "effects": {
         "mag": 40,
@@ -11909,7 +12252,7 @@
     {
       "id": "magazine:sor556:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11928,6 +12271,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -11940,7 +12284,7 @@
     {
       "id": "magazine:sor556:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11959,6 +12303,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -11971,7 +12316,7 @@
     {
       "id": "magazine:sor556:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -11990,6 +12335,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -12002,7 +12348,7 @@
     {
       "id": "magazine:sor556:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12021,6 +12367,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -12033,7 +12380,7 @@
     {
       "id": "magazine:sor556:36_rnd",
       "sourceId": "36_rnd",
-      "name": "36 Rnd",
+      "name": "Carregador de 36",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12052,6 +12399,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "36 Rnd",
       "cost": 15,
       "effects": {
         "mag": 36,
@@ -12064,7 +12412,7 @@
     {
       "id": "magazine:sor556:40_fast",
       "sourceId": "40_fast",
-      "name": "40 Fast",
+      "name": "Carregador Rápido de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12083,6 +12431,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Fast",
       "cost": 30,
       "effects": {
         "mag": 40,
@@ -12095,7 +12444,7 @@
     {
       "id": "magazine:sor556:40_rnd",
       "sourceId": "40_rnd",
-      "name": "40 Rnd",
+      "name": "Carregador de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12114,6 +12463,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Rnd",
       "cost": 25,
       "effects": {
         "mag": 40,
@@ -12126,7 +12476,7 @@
     {
       "id": "magazine:sor556:45_fast",
       "sourceId": "45_fast",
-      "name": "45 Fast",
+      "name": "Carregador Rápido de 45",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12145,6 +12495,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "45 Fast",
       "cost": 40,
       "effects": {
         "mag": 45,
@@ -12157,7 +12508,7 @@
     {
       "id": "magazine:sor556:45_rnd",
       "sourceId": "45_rnd",
-      "name": "45 Rnd",
+      "name": "Carregador de 45",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12176,6 +12527,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "45 Rnd",
       "cost": 35,
       "effects": {
         "mag": 45,
@@ -12188,7 +12540,7 @@
     {
       "id": "magazine:sv98:10_rnd",
       "sourceId": "10_rnd",
-      "name": "10 Rnd",
+      "name": "Carregador de 10",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12207,6 +12559,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "10 Rnd",
       "cost": 5,
       "effects": {
         "mag": 10,
@@ -12219,7 +12572,7 @@
     {
       "id": "magazine:svdm:10_fast",
       "sourceId": "10_fast",
-      "name": "10 Fast",
+      "name": "Carregador Rápido de 10",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12238,6 +12591,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "10 Fast",
       "cost": 10,
       "effects": {
         "mag": 10,
@@ -12250,7 +12604,7 @@
     {
       "id": "magazine:svdm:10_rnd",
       "sourceId": "10_rnd",
-      "name": "10 Rnd",
+      "name": "Carregador de 10",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12269,6 +12623,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "10 Rnd",
       "cost": 5,
       "effects": {
         "mag": 10,
@@ -12281,7 +12636,7 @@
     {
       "id": "magazine:svdm:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12300,6 +12655,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 45,
       "effects": {
         "mag": 20,
@@ -12312,7 +12668,7 @@
     {
       "id": "magazine:svdm:5_rnd",
       "sourceId": "5_rnd",
-      "name": "5 Rnd",
+      "name": "Carregador de 5",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12331,6 +12687,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "5 Rnd",
       "cost": 5,
       "effects": {
         "mag": 5,
@@ -12343,7 +12700,7 @@
     {
       "id": "magazine:svk86:10_fast",
       "sourceId": "10_fast",
-      "name": "10 Fast",
+      "name": "Carregador Rápido de 10",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12362,6 +12719,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "10 Fast",
       "cost": 10,
       "effects": {
         "mag": 10,
@@ -12374,7 +12732,7 @@
     {
       "id": "magazine:svk86:10_rnd",
       "sourceId": "10_rnd",
-      "name": "10 Rnd",
+      "name": "Carregador de 10",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12393,6 +12751,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "10 Rnd",
       "cost": 5,
       "effects": {
         "mag": 10,
@@ -12405,7 +12764,7 @@
     {
       "id": "magazine:tr7:10_fast",
       "sourceId": "10_fast",
-      "name": "10 Fast",
+      "name": "Carregador Rápido de 10",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12424,6 +12783,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "10 Fast",
       "cost": 5,
       "effects": {
         "mag": 10,
@@ -12436,7 +12796,7 @@
     {
       "id": "magazine:tr7:15_rnd",
       "sourceId": "15_rnd",
-      "name": "15 Rnd",
+      "name": "Carregador de 15",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12455,6 +12815,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "15 Rnd",
       "cost": 5,
       "effects": {
         "mag": 15,
@@ -12467,7 +12828,7 @@
     {
       "id": "magazine:tr7:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12486,6 +12847,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 10,
       "effects": {
         "mag": 20,
@@ -12498,7 +12860,7 @@
     {
       "id": "magazine:tr7:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12517,6 +12879,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -12529,7 +12892,7 @@
     {
       "id": "magazine:tr7:25_fast",
       "sourceId": "25_fast",
-      "name": "25 Fast",
+      "name": "Carregador Rápido de 25",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12548,6 +12911,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "25 Fast",
       "cost": 25,
       "effects": {
         "mag": 25,
@@ -12560,7 +12924,7 @@
     {
       "id": "magazine:tr7:25_rnd",
       "sourceId": "25_rnd",
-      "name": "25 Rnd",
+      "name": "Carregador de 25",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12579,6 +12943,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "25 Rnd",
       "cost": 20,
       "effects": {
         "mag": 25,
@@ -12591,7 +12956,7 @@
     {
       "id": "magazine:tr7:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12610,6 +12975,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 40,
       "effects": {
         "mag": 30,
@@ -12622,7 +12988,7 @@
     {
       "id": "magazine:umg40:25_fast",
       "sourceId": "25_fast",
-      "name": "25 Fast",
+      "name": "Carregador Rápido de 25",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12641,6 +13007,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "25 Fast",
       "cost": 10,
       "effects": {
         "mag": 25,
@@ -12653,7 +13020,7 @@
     {
       "id": "magazine:umg40:25_rnd",
       "sourceId": "25_rnd",
-      "name": "25 Rnd",
+      "name": "Carregador de 25",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12672,6 +13039,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "25 Rnd",
       "cost": 5,
       "effects": {
         "mag": 25,
@@ -12684,7 +13052,7 @@
     {
       "id": "magazine:umg40:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12703,6 +13071,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -12715,7 +13084,7 @@
     {
       "id": "magazine:umg40:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12734,6 +13103,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -12746,7 +13116,7 @@
     {
       "id": "magazine:umg40:36_rnd",
       "sourceId": "36_rnd",
-      "name": "36 Rnd",
+      "name": "Carregador de 36",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12765,6 +13135,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "36 Rnd",
       "cost": 15,
       "effects": {
         "mag": 36,
@@ -12777,7 +13148,7 @@
     {
       "id": "magazine:usg90:50_rnd",
       "sourceId": "50_rnd",
-      "name": "50 Rnd",
+      "name": "Carregador de 50",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12796,6 +13167,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "50 Rnd",
       "cost": 5,
       "effects": {
         "mag": 50,
@@ -12808,7 +13180,7 @@
     {
       "id": "magazine:vcr2:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12827,6 +13199,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -12839,7 +13212,7 @@
     {
       "id": "magazine:vcr2:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12858,6 +13231,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -12870,7 +13244,7 @@
     {
       "id": "magazine:vcr2:30_fast",
       "sourceId": "30_fast",
-      "name": "30 Fast",
+      "name": "Carregador Rápido de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12889,6 +13263,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Fast",
       "cost": 10,
       "effects": {
         "mag": 30,
@@ -12901,7 +13276,7 @@
     {
       "id": "magazine:vcr2:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12920,6 +13295,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 5,
       "effects": {
         "mag": 30,
@@ -12932,7 +13308,7 @@
     {
       "id": "magazine:vcr2:36_rnd",
       "sourceId": "36_rnd",
-      "name": "36 Rnd",
+      "name": "Carregador de 36",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12951,6 +13327,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "36 Rnd",
       "cost": 15,
       "effects": {
         "mag": 36,
@@ -12963,7 +13340,7 @@
     {
       "id": "magazine:vcr2:40_fast",
       "sourceId": "40_fast",
-      "name": "40 Fast",
+      "name": "Carregador Rápido de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -12982,6 +13359,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Fast",
       "cost": 30,
       "effects": {
         "mag": 40,
@@ -12994,7 +13372,7 @@
     {
       "id": "magazine:vcr2:40_rnd",
       "sourceId": "40_rnd",
-      "name": "40 Rnd",
+      "name": "Carregador de 40",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -13013,6 +13391,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "40 Rnd",
       "cost": 25,
       "effects": {
         "mag": 40,
@@ -13025,7 +13404,7 @@
     {
       "id": "magazine:vssm:10_fast",
       "sourceId": "10_fast",
-      "name": "10 Fast",
+      "name": "Carregador Rápido de 10",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -13044,6 +13423,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "10 Fast",
       "cost": 10,
       "effects": {
         "mag": 10,
@@ -13056,7 +13436,7 @@
     {
       "id": "magazine:vssm:10_rnd",
       "sourceId": "10_rnd",
-      "name": "10 Rnd",
+      "name": "Carregador de 10",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -13075,6 +13455,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "10 Rnd",
       "cost": 5,
       "effects": {
         "mag": 10,
@@ -13087,7 +13468,7 @@
     {
       "id": "magazine:vssm:20_fast",
       "sourceId": "20_fast",
-      "name": "20 Fast",
+      "name": "Carregador Rápido de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -13106,6 +13487,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Fast",
       "cost": 10,
       "effects": {
         "mag": 20,
@@ -13118,7 +13500,7 @@
     {
       "id": "magazine:vssm:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -13137,6 +13519,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 5,
       "effects": {
         "mag": 20,
@@ -13149,7 +13532,7 @@
     {
       "id": "magazine:vssm:30_rnd",
       "sourceId": "30_rnd",
-      "name": "30 Rnd",
+      "name": "Carregador de 30",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -13168,6 +13551,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "30 Rnd",
       "cost": 40,
       "effects": {
         "mag": 30,
@@ -13180,7 +13564,7 @@
     {
       "id": "magazine:vz61:10_rnd",
       "sourceId": "10_rnd",
-      "name": "10 Rnd",
+      "name": "Carregador de 10",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -13199,6 +13583,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "10 Rnd",
       "cost": 5,
       "effects": {
         "mag": 10,
@@ -13211,7 +13596,7 @@
     {
       "id": "magazine:vz61:20_rnd",
       "sourceId": "20_rnd",
-      "name": "20 Rnd",
+      "name": "Carregador de 20",
       "slot": "magazine",
       "scope": "weapon",
       "group": "WEAPON_MAG",
@@ -13230,6 +13615,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "20 Rnd",
       "cost": 40,
       "effects": {
         "mag": 20,
@@ -13242,7 +13628,7 @@
     {
       "id": "match_trigger",
       "sourceId": "match_trigger",
-      "name": "Match Trigger",
+      "name": "Gatilho de Competição",
       "slot": "ergonomics",
       "scope": "global",
       "group": "ERGOS",
@@ -13261,6 +13647,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Match Trigger",
       "cost": 15,
       "effects": {
         "noEffect": true
@@ -13269,7 +13656,7 @@
     {
       "id": "ptt_grip_pod",
       "sourceId": "ptt_grip_pod",
-      "name": "PTT Grip Pod",
+      "name": "Empunhadura com Bipé PTT",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -13288,6 +13675,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "PTT Grip Pod",
       "cost": 20,
       "effects": {
         "adsRecoilTierMod": 2,
@@ -13298,7 +13686,7 @@
     {
       "id": "qd_grip_pod",
       "sourceId": "qd_grip_pod",
-      "name": "QD Grip Pod",
+      "name": "Empunhadura com Bipé QD",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -13317,6 +13705,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "QD Grip Pod",
       "cost": 30,
       "effects": {
         "adsRecoilTierMod": 2,
@@ -13327,7 +13716,7 @@
     {
       "id": "qd_grip_pod_sr",
       "sourceId": "qd_grip_pod_sr",
-      "name": "QD Grip Pod",
+      "name": "Empunhadura com Bipé QD",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -13346,6 +13735,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "QD Grip Pod",
       "cost": 10,
       "effects": {
         "adsRecoilTierMod": 0,
@@ -13356,7 +13746,7 @@
     {
       "id": "rail_cover",
       "sourceId": "rail_cover",
-      "name": "Rail Cover",
+      "name": "Capa de Trilho",
       "slot": "ergonomics",
       "scope": "global",
       "group": "ERGOS",
@@ -13375,6 +13765,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Rail Cover",
       "cost": 5,
       "effects": {
         "sprintRecoveryTierShift": -1
@@ -13383,7 +13774,7 @@
     {
       "id": "range_finder",
       "sourceId": "range_finder",
-      "name": "Range Finder",
+      "name": "Telêmetro",
       "slot": "light",
       "scope": "global",
       "group": "LIGHTS",
@@ -13402,6 +13793,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Range Finder",
       "cost": 15,
       "effects": {
         "noEffect": true
@@ -13410,7 +13802,7 @@
     {
       "id": "ribbed_stubby",
       "sourceId": "ribbed_stubby",
-      "name": "Ribbed Stubby",
+      "name": "Curta Estriada",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -13429,6 +13821,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Ribbed Stubby",
       "cost": 30,
       "effects": {
         "adsRecoilTierMod": 2,
@@ -13439,7 +13832,7 @@
     {
       "id": "ribbed_vert",
       "sourceId": "ribbed_vert",
-      "name": "Ribbed Vertical",
+      "name": "Vertical Estriada",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -13458,6 +13851,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Ribbed Vertical",
       "cost": 20,
       "effects": {
         "adsRecoilTierMod": 3,
@@ -13468,7 +13862,7 @@
     {
       "id": "short",
       "sourceId": "short",
-      "name": "Short",
+      "name": "Cano Curto",
       "slot": "barrel",
       "scope": "global",
       "group": "BARRELS",
@@ -13487,6 +13881,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Short",
       "cost": 15,
       "effects": {
         "adsTimeTierMod": 1,
@@ -13500,7 +13895,7 @@
     {
       "id": "short_light",
       "sourceId": "short_light",
-      "name": "Short Light",
+      "name": "Cano Curto Leve",
       "slot": "barrel",
       "scope": "global",
       "group": "BARRELS",
@@ -13519,6 +13914,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Short Light",
       "cost": 25,
       "effects": {
         "adsTimeTierMod": 1,
@@ -13532,7 +13928,7 @@
     {
       "id": "slant_brake",
       "sourceId": "slant_brake",
-      "name": "Slant Brake",
+      "name": "Freio Inclinado",
       "slot": "muzzle",
       "scope": "global",
       "group": "MUZZLES",
@@ -13551,6 +13947,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Slant Brake",
       "cost": 5,
       "effects": {
         "adsRecoilTierMod": 1,
@@ -13563,7 +13960,7 @@
     {
       "id": "slim_angled",
       "sourceId": "slim_angled",
-      "name": "Slim Angled",
+      "name": "Angular Fina",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -13582,6 +13979,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Slim Angled",
       "cost": 25,
       "effects": {
         "adsRecoilTierMod": 1,
@@ -13593,7 +13991,7 @@
     {
       "id": "slim_angled_smg",
       "sourceId": "slim_angled_smg",
-      "name": "Slim Angled",
+      "name": "Angular Fina",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -13612,6 +14010,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Slim Angled",
       "cost": 20,
       "effects": {
         "adsRecoilTierMod": 1,
@@ -13623,7 +14022,7 @@
     {
       "id": "slim_angled_sr",
       "sourceId": "slim_angled_sr",
-      "name": "Slim Angled",
+      "name": "Angular Fina",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -13642,6 +14041,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Slim Angled",
       "cost": 15,
       "effects": {
         "adsRecoilTierMod": 0,
@@ -13653,7 +14053,7 @@
     {
       "id": "slim_handstop",
       "sourceId": "slim_handstop",
-      "name": "Slim Handstop",
+      "name": "Apoio de Mão Fino",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -13672,6 +14072,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Slim Handstop",
       "cost": 15,
       "effects": {
         "adsRecoilTierMod": 0,
@@ -13683,7 +14084,7 @@
     {
       "id": "sp_brake",
       "sourceId": "sp_brake",
-      "name": "Single-Port Brake",
+      "name": "Freio de Porta Única",
       "slot": "muzzle",
       "scope": "global",
       "group": "MUZZLES",
@@ -13702,6 +14103,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Single-Port Brake",
       "cost": 5,
       "effects": {
         "adsRecoilTierMod": 1,
@@ -13714,7 +14116,7 @@
     {
       "id": "std_optic",
       "sourceId": "std_optic",
-      "name": "Standard Optic",
+      "name": "Óptica Padrão",
       "slot": "sight",
       "scope": "global",
       "group": "SIGHTS",
@@ -13733,6 +14135,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Standard Optic",
       "cost": 10,
       "effects": {
         "noEffect": true
@@ -13741,7 +14144,7 @@
     {
       "id": "std_supp",
       "sourceId": "std_supp",
-      "name": "Standard Suppressor",
+      "name": "Supressor Padrão",
       "slot": "muzzle",
       "scope": "global",
       "group": "MUZZLES",
@@ -13760,6 +14163,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Standard Suppressor",
       "cost": 20,
       "effects": {
         "suppressor": true,
@@ -13773,7 +14177,7 @@
     {
       "id": "stipp_stubby",
       "sourceId": "stipp_stubby",
-      "name": "Stippled Stubby",
+      "name": "Curta Texturizada",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -13792,6 +14196,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Stippled Stubby",
       "cost": 35,
       "effects": {
         "adsRecoilTierMod": 4,
@@ -13803,7 +14208,7 @@
     {
       "id": "stipp_stubby_db12",
       "sourceId": "stipp_stubby_db12",
-      "name": "Stippled Stubby",
+      "name": "Curta Texturizada",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -13822,6 +14227,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Stippled Stubby",
       "cost": 35,
       "effects": {
         "adsRecoilTierMod": 4,
@@ -13832,7 +14238,7 @@
     {
       "id": "stipp_stubby_ks18k",
       "sourceId": "stipp_stubby_ks18k",
-      "name": "Stippled Stubby",
+      "name": "Curta Texturizada",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -13851,6 +14257,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Stippled Stubby",
       "cost": 35,
       "effects": {
         "adsRecoilTierMod": 4,
@@ -13861,7 +14268,7 @@
     {
       "id": "stipp_stubby_svk86",
       "sourceId": "stipp_stubby_svk86",
-      "name": "Stippled Stubby",
+      "name": "Curta Texturizada",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -13880,6 +14287,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Stippled Stubby",
       "cost": 35,
       "effects": {
         "adsRecoilTierMod": 4,
@@ -13890,7 +14298,7 @@
     {
       "id": "stipp_stubby_vssm",
       "sourceId": "stipp_stubby_vssm",
-      "name": "Stippled Stubby",
+      "name": "Curta Texturizada",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -13909,6 +14317,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Stippled Stubby",
       "cost": 35,
       "effects": {
         "adsRecoilTierMod": 4,
@@ -13919,7 +14328,7 @@
     {
       "id": "therm_hyb",
       "sourceId": "therm_hyb",
-      "name": "Thermal Hybrid",
+      "name": "Térmica Híbrida",
       "slot": "sight",
       "scope": "global",
       "group": "SIGHTS",
@@ -13938,6 +14347,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Thermal Hybrid",
       "cost": 35,
       "effects": {
         "noEffect": true
@@ -13946,7 +14356,7 @@
     {
       "id": "thermal",
       "sourceId": "thermal",
-      "name": "Thermal",
+      "name": "Térmica",
       "slot": "sight",
       "scope": "global",
       "group": "SIGHTS",
@@ -13965,6 +14375,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Thermal",
       "cost": 25,
       "effects": {
         "noEffect": true
@@ -13973,7 +14384,7 @@
     {
       "id": "thread_prot",
       "sourceId": "thread_prot",
-      "name": "Thread Protector",
+      "name": "Protetor de Rosca",
       "slot": "muzzle",
       "scope": "global",
       "group": "MUZZLES",
@@ -13992,6 +14403,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Thread Protector",
       "cost": 5,
       "effects": {
         "adsRecoilTierMod": 1,
@@ -14004,7 +14416,7 @@
     {
       "id": "tp_brake",
       "sourceId": "tp_brake",
-      "name": "Triple-Port Brake",
+      "name": "Freio de Porta Tripla",
       "slot": "muzzle",
       "scope": "global",
       "group": "MUZZLES",
@@ -14023,6 +14435,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Triple-Port Brake",
       "cost": 10,
       "effects": {
         "adsRecoilTierMod": 1,
@@ -14034,7 +14447,7 @@
     {
       "id": "underslung_mount",
       "sourceId": "underslung_mount",
-      "name": "Underslung Mount",
+      "name": "Lança-Granadas",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -14053,6 +14466,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Underslung Mount",
       "cost": 10,
       "effects": {
         "adsRecoilTierMod": 0,
@@ -14064,7 +14478,7 @@
     {
       "id": "var_high",
       "sourceId": "var_high",
-      "name": "Variable High",
+      "name": "Variável Alta",
       "slot": "sight",
       "scope": "global",
       "group": "SIGHTS",
@@ -14083,6 +14497,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Variable High",
       "cost": 25,
       "effects": {
         "noEffect": true
@@ -14091,7 +14506,7 @@
     {
       "id": "var_low",
       "sourceId": "var_low",
-      "name": "Variable Low",
+      "name": "Variável Baixa",
       "slot": "sight",
       "scope": "global",
       "group": "SIGHTS",
@@ -14110,6 +14525,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Variable Low",
       "cost": 20,
       "effects": {
         "noEffect": true
@@ -14118,7 +14534,7 @@
     {
       "id": "vssm_suppressed",
       "sourceId": "vssm_suppressed",
-      "name": "Suppressed",
+      "name": "Cano Suprimido",
       "slot": "barrel",
       "scope": "global",
       "group": "BARRELS",
@@ -14137,6 +14553,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Suppressed",
       "cost": 30,
       "effects": {
         "adsTimeTierMod": 0,
@@ -14149,7 +14566,7 @@
     {
       "id": "vssm_suppressed_asm",
       "sourceId": "vssm_suppressed_asm",
-      "name": "Suppressed",
+      "name": "Cano Suprimido",
       "slot": "barrel",
       "scope": "global",
       "group": "BARRELS",
@@ -14168,6 +14585,7 @@
         "retrievedAt": null,
         "snapshot": "bf6-1.3.3.0-2026-08-11"
       },
+      "originalName": "Suppressed",
       "cost": 20,
       "effects": {
         "adsTimeTierMod": 0,
@@ -39157,7 +39575,7 @@
   ],
   "indexes": {
     "gameVersion": "1.3.3.0",
-    "generatedAt": "2026-08-12T12:27:21.606Z",
+    "generatedAt": "2026-08-12T12:37:03.896Z",
     "attachmentsByWeapon": {
       "ak205": [
         "120mw_blue",
@@ -48021,6 +48439,7 @@
   "pending": {
     "compatibilityNeedsReview": 5,
     "attachmentsWithoutWeapon": 36,
-    "attachmentsWithoutCost": 15
+    "attachmentsWithoutCost": 15,
+    "attachmentsWithoutTranslation": 0
   }
 }

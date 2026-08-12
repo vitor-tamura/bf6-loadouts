@@ -454,6 +454,14 @@ export interface CurrentCatalog {
   slots: SlotEntity[];
   weapons: (WeaponEntity & { stats: Record<string, number | null> })[];
   attachments: (AttachmentEntity & {
+    /**
+     * O nome da peça no jogo em inglês.
+     *
+     * `name` é o nome em português; este é o da fonte. Os dois viajam juntos
+     * porque quem joga em inglês reconhece a peça por este, e a busca precisa
+     * achar pelos dois.
+     */
+    originalName: string;
     cost: number | null;
     effects: Record<string, unknown>;
   })[];

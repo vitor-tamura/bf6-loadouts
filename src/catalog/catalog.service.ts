@@ -23,6 +23,8 @@ import type {
 
 export type CatalogWeapon = WeaponEntity & { stats: Record<string, number | null> };
 export type CatalogAttachment = AttachmentEntity & {
+  /** O nome no jogo em inglês; `name` é o em português. */
+  originalName: string;
   cost: number | null;
   effects: Record<string, unknown>;
 };

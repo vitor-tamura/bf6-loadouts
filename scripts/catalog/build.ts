@@ -34,7 +34,7 @@ import type {
   WeaponReload,
   WeaponSpread,
 } from '../../src/catalog/catalog.types.ts';
-import { readJsonIf, versionDir } from './lib/io.ts';
+import { ENTITIES, readJsonIf, versionDir } from './lib/io.ts';
 import { NOW, PUBLIC_CATALOG, log, writeJson } from './lib/io.ts';
 import { buildIndexes } from './lib/indexes.ts';
 import {
@@ -51,6 +51,49 @@ import {
 } from './lib/store.ts';
 
 const SCHEMA_VERSION = 1;
+
+/**
+ * A camada de idioma.
+ *
+ * As entidades guardam o nome da fonte, em inglês — é o dado importado, e
+ * reescrevê-lo faria o catálogo deixar de bater com o que a fonte publica. O
+ * nome que o jogo usa em português vive à parte, em `names.pt-BR.json`, e é
+ * aplicado aqui na montagem do artefato.
+ *
+ * Os dois viajam juntos: `name` é o do jogo em português, `originalName` é o da
+ * fonte. Quem joga em inglês reconhece a peça pelo segundo, e a busca acha pelos
+ * dois.
+ */
+interface NameDictionary {
+  rules: { slot: string; pattern: string; template: string }[];
+  slots: Record<string, string>;
+  categories: Record<string, string>;
+  attachments: Record<string, { pt: string; original: string; from: string }>;
+}
+
+/**
+ * O nome em português de uma peça.
+ *
+ * Primeiro o dicionário, que é entrada a entrada e revisada. Depois as regras,
+ * que existem para os 283 carregadores: eles seguem um padrão fechado — "30
+ * Rnd" e "30 Fast" — e escrever 283 linhas à mão só criaria 283 lugares para
+ * errar. Sem nenhum dos dois, fica o nome da fonte, e o validador avisa.
+ */
+function translate(
+  dictionary: NameDictionary,
+  attachment: { id: string; name: string; slot: string },
+): string | null {
+  const entry = dictionary.attachments[attachment.id];
+  if (entry) return entry.pt;
+
+  for (const rule of dictionary.rules) {
+    if (rule.slot !== attachment.slot) continue;
+    const match = attachment.name.match(new RegExp(rule.pattern));
+    if (match) return rule.template.replace(/\$(\d+)/g, (_, index) => match[Number(index)] ?? '');
+  }
+
+  return null;
+}
 
 /**
  * As capacidades saem da conferência dos dados, não de uma lista escrita à mão.
@@ -112,6 +155,13 @@ function capabilities(catalog: {
 
 function main(): void {
   const version = currentVersion();
+
+  const dictionary = readJsonIf<NameDictionary>(join(ENTITIES, 'names.pt-BR.json'), {
+    rules: [],
+    slots: {},
+    categories: {},
+    attachments: {},
+  });
 
   /*
    * O instantâneo da versão manda no que aparece.
@@ -190,8 +240,18 @@ function main(): void {
       recoil: false,
       ttk: false,
     },
-    categories: categories(),
-    slots: slots(),
+    categories: categories().map((category) => ({
+      ...category,
+      name: dictionary.categories[category.id] ?? category.name,
+      // O nome da fonte desce para os apelidos: a busca continua achando por ele.
+      aliases: [...new Set([...category.aliases, category.name])],
+    })),
+
+    slots: slots().map((slot) => ({
+      ...slot,
+      name: dictionary.slots[slot.id] ?? slot.name,
+      aliases: [...new Set([...slot.aliases, slot.name])],
+    })),
 
     weapons: weapons()
       .filter((weapon) => liveWeapons.get(weapon.id)?.status !== 'removed')
@@ -206,12 +266,16 @@ function main(): void {
     attachments: attachments()
       .filter((attachment) => liveAttachments.get(attachment.id)?.status !== 'removed')
       .filter((attachment) => liveAttachments.has(attachment.id))
-      .map((attachment) => ({
-        ...attachment,
-        name: liveAttachments.get(attachment.id)?.name ?? attachment.name,
-        cost: effectsOf.get(attachment.id)?.cost ?? null,
-        effects: effectsOf.get(attachment.id)?.effects ?? {},
-      })),
+      .map((attachment) => {
+        const original = liveAttachments.get(attachment.id)?.name ?? attachment.name;
+        return {
+          ...attachment,
+          name: translate(dictionary, { ...attachment, name: original }) ?? original,
+          originalName: original,
+          cost: effectsOf.get(attachment.id)?.cost ?? null,
+          effects: effectsOf.get(attachment.id)?.effects ?? {},
+        };
+      }),
 
     compatibility: active.map((row) => ({
       weaponId: row.weaponId,
@@ -244,6 +308,11 @@ function main(): void {
           !active.some((row) => row.attachmentId === attachment.id),
       ).length,
       attachmentsWithoutCost: effects(version).filter((effect) => effect.cost === null).length,
+      attachmentsWithoutTranslation: attachments().filter(
+        (attachment) =>
+          liveAttachments.has(attachment.id) &&
+          translate(dictionary, attachment) === null,
+      ).length,
     },
   };
 

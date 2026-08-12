@@ -77,6 +77,50 @@ Igual, com duas diferenças:
 - efeitos e custo vão em `effects.json`, não na entidade. Custo que a fonte não
   publica é `null`.
 
+## Nomes em português
+
+As entidades guardam o nome da **fonte**, em inglês — é o dado importado, e
+reescrevê-lo faria o catálogo deixar de bater com o que a fonte publica. O nome
+que o jogo usa em português vive em `data/entities/names.pt-BR.json`, e o build
+compõe os dois: `name` em português, `originalName` em inglês.
+
+```json
+{
+  "50mw_violet": { "pt": "Laser Violeta de 50 MW", "original": "50 MW Violet", "from": "dataset" }
+}
+```
+
+`from` diz de onde a tradução veio:
+
+| Origem | Significado |
+| --- | --- |
+| `dataset` | nomenclatura já curada em `src/data/attachments.ts` |
+| `matriz` | tela "Selecionar cano" do jogo — comprimento × perfil |
+| `curadoria` | traduzido seguindo o vocabulário das outras duas |
+
+Os 283 carregadores não estão listados um a um: eles seguem padrão fechado
+(`30 Rnd`, `30 Fast`) e são resolvidos pelas `rules` do mesmo arquivo. Escrever
+283 linhas à mão só criaria 283 lugares para errar.
+
+### Canos seguem a matriz do jogo
+
+O BF6 nomeia cano pelo cruzamento de comprimento com perfil, não pela medida:
+
+| | curto | básico | estendido |
+| --- | --- | --- | --- |
+| normal | Cano Curto | Cano Básico | Cano Estendido |
+| leve | Cano Curto Leve | Cano Leve | Cano Estendido Leve |
+| pesado | — | Cano Pesado | Cano Ext. Pesado |
+
+Fora da matriz existe o **Crio**. A fonte de verdade é a print do jogo — não o
+sym.gg, não texto de IA. Há teste fixando essa matriz.
+
+### Peça nova sem tradução
+
+Aparece na tela com o nome de origem, e `catalog:validate` avisa. Não é erro: é
+melhor mostrar "Folding Stubby" do que uma tradução inventada na hora. Mas é o
+passo que se esquece quando um patch traz peça nova.
+
 ## Renomear
 
 Mude `name`, empurre o nome antigo para `aliases`, mantenha o id e registre
