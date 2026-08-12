@@ -342,7 +342,7 @@ export function normalizarPatch(bruto, hoje) {
  * Lança quando a resposta não se sustenta — é o sinal para `meta-search.mjs`
  * tentar o próximo modelo da fila em vez de gravar.
  */
-export function montarLeitura({ bruto, anotacoes = [], modelo, hoje, timeframe }) {
+export function montarLeitura({ bruto, anotacoes = [], buscou = null, modelo, hoje, timeframe }) {
   const listas = listasBrutas(bruto);
   const enviadosPicks = Array.isArray(listas.picks) ? listas.picks.length : 0;
   const enviadosTrending = Array.isArray(listas.trending) ? listas.trending.length : 0;
@@ -350,12 +350,23 @@ export function montarLeitura({ bruto, anotacoes = [], modelo, hoje, timeframe }
   if (!enviadosPicks) throw new Error('resposta sem lista de armas');
 
   /*
-   * Sem página aberta não houve busca, e sem busca a resposta é memória do
-   * modelo — exatamente o que esta rotina existe para não publicar.
+   * A pergunta é "pesquisou?", e não "citou?".
+   *
+   * A trava antiga exigia anotação `url_citation` e rejeitava a resposta sem
+   * ela. Só que citar é hábito do modelo, não garantia da API: gpt-4.1 abria
+   * páginas e respondia sem marcar nenhuma, e a leitura caía como se fosse
+   * memória. Quem responde de verdade é `buscou` — a presença de um
+   * `web_search_call` na resposta.
+   *
+   * `buscou = null` significa que quem chamou não sabe (é o caso dos testes,
+   * que montam a leitura direto); aí a anotação volta a ser a prova.
    */
-  if (!anotacoes.length) throw new Error('a busca não abriu página nenhuma');
+  if (buscou === false) throw new Error('o modelo não chamou a busca');
+  if (buscou === null && !anotacoes.length) throw new Error('a busca não abriu página nenhuma');
 
   const sources = normalizarFontes(anotacoes, bruto, { hoje, timeframe });
+  // Sem anotação, valem as fontes que o modelo declarou no JSON. Sem nenhuma
+  // das duas, não há o que mostrar embaixo do card — e aí a leitura não serve.
   if (!sources.length) throw new Error('busca não devolveu fonte nenhuma');
 
   const resolverFonte = resolvedorDeFonte(sources);

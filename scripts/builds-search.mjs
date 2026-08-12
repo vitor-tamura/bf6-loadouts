@@ -49,18 +49,28 @@ function numeroConfig(valor, padrao) {
 const LOTE = numeroConfig(process.env.OPENAI_BUILDS_LOTE, 6);
 /* O teto cobre raciocínio, busca e texto — não só o texto. Seis armas com
    pesquisa em cada uma não cabem em dois mil tokens. */
-const MAX_OUTPUT_TOKENS = numeroConfig(process.env.OPENAI_BUILDS_MAX_OUTPUT_TOKENS, 6000);
+const MAX_OUTPUT_TOKENS = numeroConfig(process.env.OPENAI_BUILDS_MAX_OUTPUT_TOKENS, 8000);
 const MAX_TENTATIVAS = numeroConfig(process.env.OPENAI_BUILDS_RETRIES, 3);
 
-/* A busca é o ponto desta rotina, então nada de modo JSON nem de raciocínio —
-   a API recusa os dois junto com ela. O JSON vem em texto e `extrairJson` o
-   recorta, como no meta. */
+/* A busca é o ponto desta rotina, então nada de modo JSON — a API recusa os
+   dois juntos. O JSON vem em texto e `extrairJson` o recorta, como no meta. */
 const MODELOS = (process.env.OPENAI_BUILDS_MODELS ?? 'gpt-5-mini,gpt-4.1-mini')
   .split(',')
   .map((modelo) => modelo.trim())
   .filter(Boolean);
 
 const espera = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/* Mesmos ajustes do meta, pelos mesmos motivos: os modelos gpt-4.1 só conhecem
+   a busca pelo nome antigo, e o raciocínio disputa o teto de tokens com o
+   texto. Ver o cabeçalho de `payload` em scripts/meta-search.mjs. */
+const ferramentaDeBusca = (modelo) =>
+  modelo.startsWith('gpt-5') || modelo.startsWith('o')
+    ? { type: 'web_search' }
+    : { type: 'web_search_preview' };
+
+const raciocinio = (modelo) =>
+  modelo.startsWith('gpt-5') ? { reasoning: { effort: 'low' } } : {};
 
 function promptDoLote(armas) {
   const lista = armas
@@ -94,7 +104,8 @@ async function chamar(modelo, prompt, tentativa) {
     headers: { authorization: `Bearer ${API_KEY}`, 'content-type': 'application/json' },
     body: JSON.stringify({
       model: modelo,
-      tools: [{ type: 'web_search' }],
+      tools: [ferramentaDeBusca(modelo)],
+      ...raciocinio(modelo),
       // Obrigatória, não opcional: com o padrão `auto` o modelo responde de
       // memória e o arquivo passa a guardar palpite com cara de leitura.
       tool_choice: 'required',
@@ -125,13 +136,16 @@ async function chamar(modelo, prompt, tentativa) {
     );
   }
 
-  const mensagem = (corpo.output ?? []).find((item) => item.type === 'message');
+  const itens = corpo.output ?? [];
+  const mensagem = itens.find((item) => item.type === 'message');
   const partes = (mensagem?.content ?? []).filter((p) => p.type === 'output_text');
 
-  // Sem página aberta não houve leitura, e sim memória do modelo. O lote cai e
-  // o próximo modelo da fila tenta — a mesma trava do meta.
-  const citou = partes.some((p) => (p.annotations ?? []).some((a) => a.type === 'url_citation'));
-  if (!citou) throw new Error('a busca não abriu página nenhuma');
+  // Sem busca não houve leitura, e sim memória do modelo. O lote cai e o
+  // próximo modelo da fila tenta — a mesma trava do meta, e pela mesma prova:
+  // o `web_search_call`, não a citação, que o modelo pode simplesmente omitir.
+  if (!itens.some((item) => item.type === 'web_search_call')) {
+    throw new Error(`o modelo não chamou a busca (${[...new Set(itens.map((i) => i.type))].join(', ') || 'resposta vazia'})`);
+  }
 
   return partes.map((p) => p.text ?? '').join('');
 }

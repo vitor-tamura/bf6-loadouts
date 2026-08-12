@@ -54,11 +54,14 @@ function numeroConfig(valor, padrao) {
  * O teto cobre raciocínio, chamadas de busca **e** o texto final.
  *
  * Com 2500 o gpt-5-mini gastava tudo antes de escrever a mensagem e devolvia
- * uma resposta vazia — que aqui aparecia como "resposta sem JSON", sem amostra
- * nenhuma, porque não havia texto para amostrar. Buscar em várias páginas e
- * depois resumir 8 armas não cabe nesse orçamento.
+ * uma resposta vazia; com 8000 ainda cortava. Buscar em várias páginas e depois
+ * resumir 8 armas não cabe num orçamento apertado.
+ *
+ * É teto, não reserva: quem responde em 3 mil tokens paga 3 mil. O número alto
+ * não encarece a rodada boa — evita a rodada perdida, que custa a chamada
+ * inteira e não entrega nada.
  */
-const MAX_OUTPUT_TOKENS = numeroConfig(process.env.OPENAI_META_MAX_OUTPUT_TOKENS, 8000);
+const MAX_OUTPUT_TOKENS = numeroConfig(process.env.OPENAI_META_MAX_OUTPUT_TOKENS, 12_000);
 const MAX_TENTATIVAS = numeroConfig(process.env.OPENAI_META_RETRIES, 3);
 const FALHAR_SEM_ATUALIZAR = process.env.OPENAI_META_STRICT === '1';
 
@@ -162,25 +165,51 @@ function retryDepoisMs(resposta, mensagem, tentativa) {
 }
 
 /*
- * Nada de modo JSON aqui, e nada de raciocínio.
+ * Nada de modo JSON aqui.
  *
- * A API recusa os dois junto com a busca na web — "Web Search cannot be used
- * with JSON mode" é o 400 que vinha derrubando esta rotina, e o
- * `reasoning: minimal` tem a mesma incompatibilidade nos modelos gpt-5. Como a
- * busca é o ponto do script, quem sai é o resto: o JSON vem em texto corrido e
+ * A API recusa o modo JSON junto com a busca — "Web Search cannot be used with
+ * JSON mode" é o 400 que vinha derrubando esta rotina. Como a busca é o ponto
+ * do script, quem sai é o modo JSON: o objeto vem em texto corrido e
  * `extrairJson` o recorta, que é para isso que ele existe.
+ *
+ * Raciocínio, esse convive com a busca — o comentário anterior dizia o
+ * contrário e estava velho. Ele volta no ajuste mais baixo, e por economia:
+ * `max_output_tokens` cobre raciocínio, busca e texto no mesmo bolo, e era o
+ * raciocínio solto que consumia o orçamento do gpt-5-mini antes de sobrar
+ * linha para a resposta.
  */
+
+/**
+ * A ferramenta de busca tem dois nomes, e o certo depende da geração.
+ *
+ * `web_search` é o atual; os modelos gpt-4.1 conhecem a versão anterior,
+ * `web_search_preview`, e diante do nome novo não chamavam ferramenta nenhuma
+ * — respondiam de memória, que é como os dois caíam na trava do outro lado
+ * mesmo com a busca marcada como obrigatória.
+ */
+const ferramentaDeBusca = (modelo) =>
+  modelo.startsWith('gpt-5') || modelo.startsWith('o')
+    ? { type: 'web_search' }
+    : { type: 'web_search_preview' };
+
+const raciocinio = (modelo) =>
+  modelo.startsWith('gpt-5') ? { reasoning: { effort: 'low' } } : {};
+
 function payload(modelo) {
   return {
     model: modelo,
-    tools: [{ type: 'web_search' }],
+    tools: [ferramentaDeBusca(modelo)],
+    ...raciocinio(modelo),
     /*
      * A busca é obrigatória, não uma opção.
      *
-     * Com o padrão `auto`, o modelo decide se pesquisa — e gpt-4.1 e
-     * gpt-4.1-mini decidiam que não: respondiam de memória, com a mesma cara
-     * segura, e caíam na trava de "a busca não abriu página nenhuma" já do
-     * outro lado. Uma leitura do meta sem página aberta não é leitura do meta.
+     * Com o padrão `auto`, o modelo decide se pesquisa — e decidia que não:
+     * respondia de memória, com a mesma cara segura. Uma leitura do meta sem
+     * página aberta não é leitura do meta.
+     *
+     * `'required'` e não `{ type: 'web_search' }`: a forma nomeada precisa
+     * bater com o nome da ferramenta na lista, e como esse nome muda conforme
+     * o modelo, ela erraria em metade da fila.
      */
     tool_choice: 'required',
     input: PROMPT,
@@ -220,13 +249,19 @@ async function chamarOpenAI(modelo, opcoes) {
     );
   }
 
-  const mensagem = (corpo.output ?? []).find((item) => item.type === 'message');
+  const itens = corpo.output ?? [];
+  const mensagem = itens.find((item) => item.type === 'message');
   const partes = (mensagem?.content ?? []).filter((p) => p.type === 'output_text');
   const texto = partes.map((p) => p.text ?? '').join('');
   const anotacoes = partes
     .flatMap((p) => p.annotations ?? [])
     .filter((a) => a.type === 'url_citation');
-  return { texto, anotacoes };
+
+  // A prova de que a busca rodou é o item `web_search_call` na resposta, e não
+  // a citação no texto. Os tipos vão junto: quando algo falha, é por eles que
+  // se vê o que o modelo fez em vez de adivinhar pelo texto que não veio.
+  const buscou = itens.some((item) => item.type === 'web_search_call');
+  return { texto, anotacoes, buscou, tipos: [...new Set(itens.map((i) => i.type))] };
 }
 
 /**
@@ -286,7 +321,8 @@ async function main() {
   for (const modelo of MODELOS) {
     try {
       console.log(`Perguntando ao ${modelo}…`);
-      const { texto, anotacoes } = await perguntar(modelo);
+      const { texto, anotacoes, buscou, tipos } = await perguntar(modelo);
+      console.log(`  ${modelo}: ${tipos.join(', ') || 'resposta vazia'}${buscou ? '' : ' — sem busca'}`);
 
       const bruto = extrairJson(texto);
       if (!bruto) {
@@ -297,6 +333,7 @@ async function main() {
       const { conteudo, descartes } = montarLeitura({
         bruto,
         anotacoes,
+        buscou,
         modelo,
         hoje: HOJE,
         timeframe: TIMEFRAME,
