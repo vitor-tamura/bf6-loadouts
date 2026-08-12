@@ -44,14 +44,14 @@ import { DEFAULT_RANGE, idealLoadout, type LoadoutAdvice } from '@/lib/recommend
  * Spinner mudo não informa: aos vinte segundos ele é indistinguível de uma tela
  * quebrada. Cada faixa nomeia a etapa que o modelo está cumprindo naquele
  * momento, e a última assume o estouro em vez de fingir que está tudo dentro do
- * previsto. Os tempos seguem o orçamento da rota, que é de quinze segundos:
- * depois disso ela desiste e o que fica é a montagem local, aplicada desde o
- * clique.
+ * previsto. Os tempos seguem o orçamento da rota, que é de vinte e dois
+ * segundos: depois disso ela desiste e o que fica é a montagem local, aplicada
+ * desde o clique.
  */
 const STAGES = [
   { after: 0, text: 'Montando o que a comunidade recomenda…' },
   { after: 5, text: 'Fechando a montagem…' },
-  { after: 14, text: 'Passou do tempo — em instantes fica a montagem local.' },
+  { after: 20, text: 'Passou do tempo — em instantes fica a montagem local.' },
 ];
 
 const stageText = (seconds: number) => STAGES.filter((stage) => seconds >= stage.after).at(-1)!.text;

@@ -145,8 +145,8 @@ const MAX_RETRIES = positiveInt(process.env.OPENAI_RECOMMEND_RETRIES, 3);
  * desde o clique, e o que falta é só a leitura da comunidade. Estourar o
  * relógio custa a leitura, não a build.
  */
-const REQUEST_TIMEOUT_MS = positiveInt(process.env.OPENAI_RECOMMEND_REQUEST_TIMEOUT_MS, 14_000);
-const TIME_BUDGET_MS = positiveInt(process.env.OPENAI_RECOMMEND_TIME_BUDGET_MS, 15_000);
+const REQUEST_TIMEOUT_MS = positiveInt(process.env.OPENAI_RECOMMEND_REQUEST_TIMEOUT_MS, 20_000);
+const TIME_BUDGET_MS = positiveInt(process.env.OPENAI_RECOMMEND_TIME_BUDGET_MS, 22_000);
 
 /** O erro de quem ficou sem tempo — reconhecível no log e no fim da fila. */
 const timeout = (message: string) => Object.assign(new Error(message), { timedOut: true });
@@ -212,20 +212,30 @@ function retryDelayMs(response: Response, message: string, attempt: number) {
 }
 
 /*
- * Nada de modo JSON aqui, e nada de raciocínio.
+ * O raciocínio volta quando a busca sai.
  *
- * A API recusa os dois junto com a busca na web — "Web Search cannot be used
- * with JSON mode" foi o 400 que derrubou a rota inteira em produção, e o
- * `reasoning: minimal` tem a mesma incompatibilidade nos modelos gpt-5. Como a
- * busca é o ponto desta rota, quem sai é o resto: o JSON vem em texto corrido
- * e `extractJson` o recorta, que é para isso que ele existe.
+ * `reasoning` e modo JSON foram removidos daqui porque a API os recusa junto
+ * com a busca na web — "Web Search cannot be used with JSON mode" foi o 400 que
+ * derrubou a rota em produção. Com a busca desligada, a incompatibilidade
+ * deixou de existir.
+ *
+ * E era ela que estava custando a espera: o `gpt-5-nano` gastava os catorze
+ * segundos pensando antes de escrever a primeira linha, e a rota desistia com
+ * "sem resposta em 14 s". Escolher peças de uma lista dada não precisa de
+ * deliberação longa — `minimal` é o esforço à altura da tarefa.
+ *
+ * Só vale para a família gpt-5, que é a que aceita o parâmetro. Com a busca
+ * ligada, nada disso é enviado, e o JSON continua vindo em texto corrido para
+ * `extractJson` recortar.
  */
-
+const reasoningFor = (model: string) =>
+  !WEB_SEARCH && model.startsWith('gpt-5') ? { reasoning: { effort: 'minimal' } } : {};
 
 function requestBody(model: string, prompt: string) {
   return {
     model,
     ...(WEB_SEARCH ? { tools: [{ type: 'web_search' }] } : {}),
+    ...reasoningFor(model),
     input: prompt,
     max_output_tokens: MAX_OUTPUT_TOKENS,
     store: false,
