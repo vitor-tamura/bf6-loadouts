@@ -235,76 +235,146 @@
       "weapon": "vz-61",
       "advice": "supressor na boca para permanecer furtivo em CQB; cano curto ou padrão para preservar mobilidade; carregador estendido (mais capacidade) e empunhadura vertical para controlar o recuo — comunidade recomenda focar em cadência e capacidade porque é uma machine-pistol voltada para curtíssimo alcance.",
       "source": "https://www.reddit.com/r/Battlefield6/comments/1vcdbzz/pistol_rankings_use_cases/"
+    },
+    {
+      "weapon": "b36a4",
+      "advice": "mira baixa/ padrão (1–2x) ou iron sights, compensador leve ou flash comp para controlar saída de tiro; cano estendido para estabilidade e alcance médio; empunhadura vertical para reduzir recoil — comunidade usa isso para transformar a B36A4 numa AR estável e confiável em médio alcance.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1v89bob/what_is_your_goto_weapons_and_loadouts/"
+    },
+    {
+      "weapon": "l85a3",
+      "advice": "compensador/flash comp para reduzir recuo horizontal, cano de fábrica/518mm para preservar precisão e alcance, empunhadura tipo handstop/vertical e mira 1.5–3x para tirar proveito da alta precisão — comunidade monta assim para maximizar headshot e controle em médio-longo alcance.",
+      "source": "https://battlefieldmeta.gg/best-loadouts/l85a3"
+    },
+    {
+      "weapon": "drs-iar",
+      "advice": "mira 1–2x ou 3x leve, cano pesado/extenso para reduzir recoils verticais, empunhadura vertical e munição sintética/padrão para consistência — comunidade foca em acessórios que zerem o recuo e tornem o DRS-IAR um LMG com comportamento de AR para mid‑range.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1v2rtun/new_best_weapon_for_support_in_s4_/"
+    },
+    {
+      "weapon": "kts100-mk8",
+      "advice": "cano longo (508mm/estendido) e supressor leve para manter velocidade e controle de bala, empunhadura vertical clássica e pente grande (45+ rounds) — comunidade prefere essa combinação para aproveitar o recoil baixíssimo e vencer em médio-longo alcance.",
+      "source": "https://battlefinity.gg/weapon/BF6/kts100-mk8"
+    },
+    {
+      "weapon": "rpkm",
+      "advice": "mira baixa ou iron sights, cano curto e supressor para jogadas mais agressivas em suporte; pouca ou nenhuma outra modificação além de empunhadura simples — comentários recentes mostram jogadores preferindo setup curto+silenciador para ser mais previsível em CQB.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1v89bob/what_is_your_goto_weapons_and_loadouts/"
+    },
+    {
+      "weapon": "l110",
+      "advice": "Compensador na boca para reduzir recuo vertical, cano longo para aumentar estabilidade e alcance efetivo, empunhadura vertical para controlar o recuo horizontal e mira 2–3x para engagements médios; isso transforma o L110 numa LMG versátil com bom DPS e precisão a 50–100m.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1ur9s74/best_guns_and_attachments_just_got_the_game_og_bf/"
+    },
+    {
+      "weapon": "m60",
+      "advice": "Boca com compensador/flash compensator para diminuir subida nas rajadas, cano intermediário para equilíbrio entre velocidade de projétil e controle, empunhadura curta/estipulada para agilizar ADS e mira reflex para combates agressivos; a comunidade foca em mobility-control para aproveitar o dano alto sem ficar lento demais.",
+      "source": "https://www.aayyy.com/topic/e/view-L2JhdHRsZWZpZWxkLTYtYmVzdC1tNjAtbG9hZG91dC13ZWFwb24tYnVpbGQv"
+    },
+    {
+      "weapon": "m240l",
+      "advice": "Muzzle que priorize controle de recuo, cano pesado/longo para alcance e estabilidade em supressão, bipé/estabilizador quando disponível e mira 1.5–2.5x para suporte a média distância; a comunidade usa o M240L como arma de supressão consistente com foco em precisão e estabilidade a média distância.",
+      "source": "https://battlefieldmeta.gg/best-loadouts/m240l"
+    },
+    {
+      "weapon": "m121-a2",
+      "advice": "Compensador leve na boca para recuo, cano longo/estendido para melhorar alcance e estabilidade, pente de caixa/50+ para sustain e mira 2–3x; jogadores montam ele para fogo sustentado e alcance estendido, corrigindo espalhamento e tornando-o utilizável além de curtas distâncias.",
+      "source": "https://battlefinity.gg/weapon/BF6/m121-a2"
+    },
+    {
+      "weapon": "rpk-74m",
+      "advice": "Mira 4–5x para mediolongo alcance, cano pesado/estendido para manter estabilidade a distância, compensador para lidar com subida e munição de ponta oca/penetrante quando querer perfurar cobertura; comunidade recomenda builds de médio–longo alcance para explorar precisão e DPS da arma.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1v4ejxa/season_4_what_are_the_best_weapons_right_now/"
+    },
+    {
+      "weapon": "lmr27",
+      "advice": "Cano longo/heavy para maximizar estabilidade em tiros de precisão, mira 6–10x (ou ACOG/3–6x para mid-range), empunhadura que melhora ADS e compensador para recuo; players usam o LMR27 como DMR de alto controle, priorizando precisão em tiros únicos/rápidos.",
+      "source": "https://battlefinity.gg/weapon/BF6/lmr27"
+    },
+    {
+      "weapon": "m39-emr",
+      "advice": "compensador na boca para reduzir recuos verticais, cano médio/estendido para aumentar velocidade e estabilidade do projétil, empunhadura vertical para controlar recoil horizontal e mira de médio alcance; isso transforma o DMR num tiro mais estável e consistente a distâncias médias onde o M39 é usado pela comunidade.",
+      "source": "https://www.reddit.com/r/Battlefield/comments/1vjfjos/trying_to_level_up_m39_emr_looking_for_tips_cuz/"
+    },
+    {
+      "weapon": "m2010-esr",
+      "advice": "frequentemente montam compensador ou 'break' para recuperação de mira mais rápida, cano longo para maximizar velocidade do projétil e alcance efetivo, mira de longo alcance e buffer/estabilizador na empunhadura para reduzir o recuo visual; objetivo é aumentar velocidade e recuperação entre tiros para garantir one‑shot/one‑hit mais confiáveis em multiplayer.",
+      "source": "https://zilliongamer.com/battlefield-6/c/weapons/best-m2010esr-build-battlefield-6"
+    },
+    {
+      "weapon": "sv-98",
+      "advice": "compensador/compensador leve que melhora recuperação da mira, cano longo para velocidade de munição e estabilidade, empunhadura que diminui recoil para tiros rápidos e mira de alto zoom; comunidade prioriza precisão e menor flutuação ao trocar para tiros de longo alcance com o SV‑98.",
+      "source": "https://battlefieldmeta.gg/best-loadouts/sv-98"
+    },
+    {
+      "weapon": "m357-trait",
+      "advice": "boca com compensador pequeno para domar recuo, cano curto para mobilidade quando necessário, empunhadura que melhora controle de recuo e munição de ponta oca quando a comunidade quer maior dano/stop‑power; montagem foca em tornar o revólver mais confiável em duelos curtos como sidearm.",
+      "source": "https://forums.ea.com/discussions/battlefield-6-general-discussion-en/buff-sidearms/13582268"
     }
   ],
   "sources": [
     {
-      "name": "r/Battlefield6 - AK4D discussion",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1vdm83z/",
-      "date": "2026-08-02"
+      "name": "r/Battlefield6 (DRS-IAR discussion)",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1v2rtun/new_best_weapon_for_support_in_s4_/",
+      "date": "2026-08-06"
     },
     {
-      "name": "r/Battlefield6 - TR-7 build (Luck-Based)",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1vd7txd/",
-      "date": "2026-08-02"
+      "name": "Battlefield Meta — L85A3 page",
+      "url": "https://battlefieldmeta.gg/best-loadouts/l85a3",
+      "date": "2026-08-12"
     },
     {
-      "name": "r/Battlefield6 - SOR-556 Mk2 build thread",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1v6h6fr/",
-      "date": "2026-07-25"
-    },
-    {
-      "name": "BattlefieldMeta - M433 loadouts",
-      "url": "https://battlefieldmeta.gg/best-loadouts/m433",
+      "name": "r/Battlefield6 — loadouts thread (B36A4 & RPKM mentions)",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1v89bob/what_is_your_goto_weapons_and_loadouts/",
       "date": "2026-07-29"
     },
     {
-      "name": "WZStats KORD 6P67",
-      "url": "https://wzstats.gg/battlefield-6/best-loadouts/kord-6p67",
-      "date": "2026-07-29"
-    },
-    {
-      "name": "BattlefieldMeta NVO-228E",
-      "url": "https://battlefieldmeta.gg/best-loadouts/nvo-228e",
-      "date": "2026-07-29"
-    },
-    {
-      "name": "Reddit EF88 discussion",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1v4as5t/ef88_best_loadout/",
-      "date": "2026-07-23"
-    },
-    {
-      "name": "BattlefieldMeta VCR-2",
-      "url": "https://battlefieldmeta.gg/best-loadouts/vcr-2",
-      "date": "2026-07-06"
-    },
-    {
-      "name": "DotEsports M16A4 guide",
-      "url": "https://dotesports.com/battlefield/news/best-m16a4-loadout-bf6",
+      "name": "Battlefinity — KTS100 MK8 guide",
+      "url": "https://battlefinity.gg/weapon/BF6/kts100-mk8",
       "date": "2026-06-12"
     },
     {
-      "name": "ZillionGamer M4A1 guide",
-      "url": "https://zilliongamer.com/battlefield-6/c/weapons/best-m4a1-build-battlefield-6",
+      "name": "r/Battlefield6 - best guns thread",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1ur9s74/best_guns_and_attachments_just_got_the_game_og_bf/",
+      "date": "2026-07-09"
+    },
+    {
+      "name": "AAYYY M/60 guide",
+      "url": "https://www.aayyy.com/topic/e/view-L2JhdHRsZWZpZWxkLTYtYmVzdC1tNjAtbG9hZG91dC13ZWFwb24tYnVpbGQv",
       "date": "2026-07-25"
     },
     {
-      "name": "r/Battlefield6 - AK-205 discussion",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1vehzhc/worst_gun/",
-      "date": "2026-08-03"
+      "name": "BattlefieldMeta - M240L",
+      "url": "https://battlefieldmeta.gg/best-loadouts/m240l",
+      "date": "2026-07-06"
     },
     {
-      "name": "r/Battlefield - M417 A2 discussion",
-      "url": "https://www.reddit.com/r/Battlefield/comments/1vf86rn/hot_take_the_m417_a2_might_be_the_best_carbine_in/",
-      "date": "2026-08-05"
+      "name": "Battlefinity - M121 A2",
+      "url": "https://battlefinity.gg/weapon/BF6/m121-a2",
+      "date": "2026-07-06"
+    },
+    {
+      "name": "r/Battlefield6 - Season 4 weapons discussion",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1v4ejxa/season_4_what_are_the_best_weapons_right_now/",
+      "date": "2026-07-23"
+    },
+    {
+      "name": "Battlefinity - LMR27",
+      "url": "https://battlefinity.gg/weapon/BF6/lmr27",
+      "date": "2026-07-06"
+    },
+    {
+      "name": "Reddit - M39 EMR thread",
+      "url": "https://www.reddit.com/r/Battlefield/comments/1vjfjos/trying_to_level_up_m39_emr_looking_for_tips_cuz/",
+      "date": "2026-08-09"
+    },
+    {
+      "name": "ZillionGamer - M2010 ESR guide",
+      "url": "https://zilliongamer.com/battlefield-6/c/weapons/best-m2010esr-build-battlefield-6",
+      "date": "2026-07-22"
     }
   ],
   "withoutEvidence": [
-    "m60",
-    "m240l",
-    "m121-a2",
-    "rpk-74m",
-    "lmr27",
-    "m39-emr"
+    "grt-bc"
   ]
 }

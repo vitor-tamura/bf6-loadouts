@@ -2,177 +2,118 @@
   "readAt": "2026-08-12",
   "model": "gpt-5-mini",
   "patch": {
-    "name": "BATTLEFIELD 6 GAME UPDATE 1.4.1.5",
-    "date": "2026-08-03"
+    "name": "Game Update 1.4.1.0 (Season 4: Pacific Front)",
+    "date": "2026-07-21"
   },
   "picks": [
     {
-      "weapon": "nvo-228e",
-      "reason": "Perfil de dano e cadência que permitem 4 tiros ao corpo em curta distância e TTK entre os menores do jogo, colocado como S‑Tier em análises atuais de meta.",
+      "weapon": "ef88",
+      "reason": "arma adicionada no patch 1.4.1.0 (Season 4) como bullpup de assalto para médio-longo alcance; listada nas notas oficiais como uma das três armas novas do patch.",
       "sources": [
-        2
+        0
       ]
     },
     {
-      "weapon": "ak4d",
-      "reason": "Equilíbrio entre recuo controlável e dano puro que o posiciona como um dos rifles de assalto S‑Tier nas listas de armas recentes.",
+      "weapon": "vssm",
+      "reason": "VSSM entrou no jogo com 1.4.1.0 como Designated Marksman Rifle com supressor integrado e munição subsônica (mencionada explicitamente nas notas do patch entre as novas armas).",
       "sources": [
-        2
+        0
       ]
     },
     {
-      "weapon": "drs-iar",
-      "reason": "Híbrido AR/LMG com alta velocidade de projétil e TTK competitivo em médias/longas, classificado S‑Tier por reviews de meta.",
+      "weapon": "brod-3",
+      "reason": "BROD 3 foi adicionada no mesmo patch como carabina agressiva (collapsible stock) voltada para combate curto-médio, citada nas notas oficiais entre as novas armas.",
       "sources": [
-        2
-      ]
-    },
-    {
-      "weapon": "pw7a2",
-      "reason": "Avaliada como S‑Tier por sua letalidade e eficiência em vários alcances nas tier lists recentes.",
-      "sources": [
-        2
-      ]
-    },
-    {
-      "weapon": "l110",
-      "reason": "Alvo consistente nas análises como LMG com alta presença no meta por sustain e TTK, listada em S‑Tier.",
-      "sources": [
-        2
-      ]
-    },
-    {
-      "weapon": "ak-205",
-      "reason": "Consta entre as S‑Tier listadas por terem bom equilíbrio entre precisão e manuseio para estilos carbine.",
-      "sources": [
-        2
-      ]
-    },
-    {
-      "weapon": "svk-86",
-      "reason": "Classificada em S‑Tier nas compilações de armas atuais por combinar dano e alcance efetivo para engajamentos médios/longos.",
-      "sources": [
-        2
-      ]
-    },
-    {
-      "weapon": "psr",
-      "reason": "Incluída em S‑Tier por análises por seu desempenho em alcance e capacidade de one‑shot em janelas de dano ideais para Recon.",
-      "sources": [
-        2
+        0
       ]
     }
   ],
   "trending": [
     {
       "weapon": "brod-3",
-      "reason": "Arma nova introduzida na atualização 1.4.1.0 da Temporada 4 (21‑07‑2026) e apontada na comunicação oficial como carabina aggressiva e versátil.",
+      "reason": "lançada em 1.4.1.0 como nova carabina na Season 4 (motivo datável para aumento de menções/uso desde 2026-07-21).",
       "sources": [
-        1
+        0
       ],
       "trend": "chegou no patch"
     },
     {
       "weapon": "ef88",
-      "reason": "Arma nova (rifle bullpup) adicionada na 1.4.1.0 e mencionada nas notas oficiais da Temporada 4 como dedicada a médio/longo alcance.",
-      "sources": [
-        1
-      ],
-      "trend": "chegou no patch"
-    },
-    {
-      "weapon": "vssm",
-      "reason": "Rifle designado com supressor integrado e munição subsónica incluído na 1.4.1.0, gerando destaque imediato por stealth e capacidade automática nas notas oficiais.",
-      "sources": [
-        1
-      ],
-      "trend": "chegou no patch"
-    },
-    {
-      "weapon": "sor-300sc",
-      "reason": "A correção em 1.4.1.5 mitiga travamentos relacionados a mudanças de acessórios no SOR-300SC (fix de driver/NVIDIA reportado nas notas).",
+      "reason": "lançada em 1.4.1.0 como novo bullpup para médio-longo alcance; presença nas notas do patch impulsiona discussão na comunidade desde 2026-07-21.",
       "sources": [
         0
       ],
-      "trend": "bugfix de estabilidade"
-    },
-    {
-      "weapon": "m123k",
-      "reason": "1.4.1.5 corrigiu atualização incorreta do modelo de anexos underbarrel na M123K, documentado nas notas oficiais.",
-      "sources": [
-        0
-      ],
-      "trend": "correção de visual de acessório"
+      "trend": "chegou no patch"
     },
     {
       "weapon": "umg-40",
-      "reason": "Notas da 1.4.1.0/1.4.1.5 reportam alinhamento de efeitos visuais da boca ao usar Compensador na UMG-40, ressaltando atenção a bugs de apresentação que afetavam percepção de recuo.",
+      "reason": "notas do patch 1.4.1.0 mencionam alinhamento correto do efeito visual do muzzle quando usando Compensator na UMG-40 (mudança documentada nas notas oficiais).",
       "sources": [
-        1
+        0
       ],
-      "trend": "ajuste visual de compensador"
+      "trend": "ajuste visual de cano/muzzle"
     },
     {
       "weapon": "scw-10",
-      "reason": "Apontada por análises recentes como uma das armas com menor TTK em curta distância (referida em tier lists e guias de meta).",
+      "reason": "notas do patch 1.4.1.0 mencionam alinhamento correto do efeito visual do muzzle quando usando Compensator na SCW-10 (mudança documentada nas notas oficiais).",
       "sources": [
-        2
+        0
       ],
-      "trend": "build/uso consolidado"
+      "trend": "ajuste visual de cano/muzzle"
     },
     {
-      "weapon": "nvo-228e",
-      "reason": "Mesmo sem mudança direta no patch mais recente, análises e tier lists de julho colocam a NVO-228E no topo do meta, sustentando seu destaque nas últimas semanas.",
+      "weapon": "pw5a3",
+      "reason": "notas do patch 1.4.1.0 mencionam alinhamento correto do efeito visual do muzzle quando usando Compensator na PW5A3 (mudança documentada nas notas oficiais).",
       "sources": [
-        2
+        0
       ],
-      "trend": "consolidação em listas"
+      "trend": "ajuste visual de cano/muzzle"
     }
   ],
   "sources": [
     {
-      "name": "EA - Game Update 1.4.1.5",
-      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-1-5",
-      "date": "2026-08-03",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "notas oficiais de correções e mudanças aplicáveis ao multiplayer (fixes de armas, anexos e estabilidade)",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "EA - Game Update 1.4.1.0",
-      "url": "https://careers.ea.com/es-mx/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-1-0",
+      "name": "EA / Battlefield - Update 1.4.1.0 (notas oficiais)",
+      "url": "https://forums.ea.com/blog/battlefield-game-info-hub-en/battlefield-6-update-1-4-1-0/13563635/replies/13568551",
       "date": "2026-07-21",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "lançamento da Temporada 4 (Pacific Front) — novas armas e acessórios descritos oficialmente para multiplayer tradicional",
+      "scope": "notas oficiais do patch 1.4.1.0 — lista de armas novas, ajustes de armas/munições/efeitos e mudanças no comportamento de projéteis na água; fonte primária para multiplayer tradicional",
       "timeframe": "season-4"
     },
     {
-      "name": "NewGameNetwork - BF6 Weapon Tier List",
-      "url": "https://www.newgamenetwork.com/battlefield-6-weapon-tier-list/",
-      "date": "2026-07-09",
+      "name": "Battlefield Season 4 Roadmap (EA)",
+      "url": "https://www.ea.com/games/battlefield/redsec/news/season-4-roadmap-everything-you-need-to-know",
+      "date": "2026-07-17",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "análises e tier list com métricas de TTK/dano/cadência usadas como referência de quais armas performam melhor no multiplayer",
+      "scope": "comunica o início da Season 4 (Pacific Front) e confirma timing e foco multiplayer tradicional da temporada",
       "timeframe": "season-4"
     },
     {
-      "name": "MP1st - Update 1.000.025 / Season 4 coverage",
-      "url": "https://mp1st.com/title-updates-and-patches/battlefield-6-update-1-000-025-fires-out-july-21-season-4",
+      "name": "GfinityEsports — resumo das notas do patch 1.4.1.0",
+      "url": "https://www.gfinityesports.com/article/battlefield-6-season-4-update-notes-all-content-gameplay-changes-and-fixes",
+      "date": "2026-07-16",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "resumo jornalístico das notas do patch 1.4.1.0, útil para contextualizar mudanças e confirmar inclusão das três armas novas no patch",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Boostmatch — guia Season 4 (Tsuru Reef)",
+      "url": "https://boostmatch.gg/blog/battlefield-6/articles/battlefield-6-season-4-tsuru-reef-guide",
       "date": "2026-07-21",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "reportagem de cobertura do patch e resumo de conteúdo da Temporada 4 (foco em multiplayer tradicional e novas armas)",
+      "scope": "guia de lançamento da Season 4 que confirma data de disponibilidade e lista de conteúdo multiplayer do patch (mapa, armas e veículos)",
       "timeframe": "season-4"
     },
     {
-      "name": "Reddit r/Battlefield - community tier discussion",
-      "url": "https://www.reddit.com/r/Battlefield/comments/1rode1r/bf6_weapon_tier_list/",
-      "date": "2026-08-12",
+      "name": "Steam announcements (Battlefield 6)",
+      "url": "https://steamcommunity.com/app/2807960/announcements/",
+      "date": "2026-07-21",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "percepção e discussão comunitária sobre quais armas compõem o meta no multiplayer (usado como termômetro de consenso, não como medição absoluta)",
+      "scope": "anúncio de lançamento do update 1.4.1.0 na plataforma Steam; confirma rollout do patch e disponibilidade do conteúdo multiplayer",
       "timeframe": "season-4"
     }
   ]
