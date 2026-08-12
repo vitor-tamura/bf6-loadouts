@@ -703,9 +703,19 @@ Use SOMENTE os desta lista. Cada linha é um slot, no formato "id do slot (nome)
 
 ${attachmentMenu(weapon)}
 
-Prioridade: corrigir a fraqueza crítica da arma; melhorar o desempenho na distância pedida; controle e consistência. Não preencha um slot só porque ele existe — peça sem benefício claro fica de fora.
+Ordem de prioridade, que é a que a comunidade segue no Pick 100:
+
+1. **Boca e empunhadura primeiro.** Compensador ou freio, e empunhadura vertical ou angular. Controle de recuo é o primeiro gasto de quase toda build discutida em guia ou no Reddit.
+2. **Cano.** Velocidade de bala para média e longa; cano leve ou curto quando a arma vive de manejo.
+3. **Munição.** É o gasto mais barato com efeito real — ponta oca por multiplicador de tiro na cabeça, penetração contra cobertura.
+4. **Carregador**, quando a arma precisa da rajada inteira ou recarrega devagar.
+5. **Mira**, casada com a distância: ponto vermelho ou 1x–2x para curta e média, ampliação maior só quando o duelo começa longe.
+
+Trilho esquerdo, trilho direito e acessório de mira ficam por último e quase sempre de fora: lanterna, laser e alça inclinada mexem em tiro de quadril e denunciam posição, e ninguém gasta pontos neles enquanto boca, cano ou munição estiverem em aberto.
 
 Uma peça por slot. O orçamento é de ${budgetFor(weapon.category)} pontos, com os custos que estão na lista. Some antes de responder: se passou do teto, tire a peça menos importante. Nome diferente do da lista, ou soma acima do teto, faz a resposta ser recusada.
+
+Sobrar ponto é melhor que gastar mal. Não preencha um slot só porque ele existe — peça sem benefício claro fica de fora, e uma build de 80 pontos bem escolhidos vale mais que uma de 100 com enchimento.
 
 Só multiplayer: montagem que só faz sentido no REDSEC fica de fora.
 

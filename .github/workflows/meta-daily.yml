@@ -1,11 +1,23 @@
-# Relê o meta uma vez por dia e publica o resultado.
+# Relê a comunidade uma vez por dia e publica as duas leituras.
 #
-# Diferente do `sync-data.yml`, este precisa publicar direto em `main`: o que ele
-# grava é uma leitura de opinião pública, já filtrada contra o dataset — só entra
-# arma que existe no jogo —, e a tela diz na cara que a lista é automática.
-# Segurar isso atrás de um clique diário faria a tela congelar no último dia em
-# que alguém lembrou de aprovar, que é justamente o problema que esta automação
-# existe para resolver.
+# São duas perguntas diferentes, e as duas ficam gravadas no repositório:
+#
+# - `meta:search` — quais armas estão fortes agora, com evidência e fonte. É o
+#   que alimenta a tela de meta.
+# - `builds:search` — o que se monta em cada uma das 62, em lotes. É o contexto
+#   que o botão "sugestão da comunidade" lê no clique, e que dentro da chamada
+#   custava mais que o orçamento inteiro de espera.
+#
+# A segunda existe aqui, e não numa rotina própria, porque duas automações
+# escrevendo em `main` disputam o push e a perdedora some sem aviso. Uma
+# execução por dia, os dois arquivos no mesmo commit.
+#
+# Diferente do `sync-data.yml`, este publica direto em `main`: o que ele grava é
+# leitura de opinião pública, já filtrada contra o dataset — só entra arma que
+# existe no jogo —, e a tela diz na cara que a lista é automática. Segurar isso
+# atrás de um clique diário faria a tela congelar no último dia em que alguém
+# lembrou de aprovar, que é justamente o problema que esta automação existe para
+# resolver.
 #
 # Se vier bobagem, o diff mostra o que mudou e um `git revert` desfaz.
 
@@ -20,7 +32,7 @@ on:
 permissions:
   contents: write
 
-# Duas execuções ao mesmo tempo escreveriam o mesmo arquivo e uma perderia.
+# Duas execuções ao mesmo tempo escreveriam os mesmos arquivos e uma perderia.
 concurrency:
   group: meta-daily
   cancel-in-progress: false
@@ -28,6 +40,10 @@ concurrency:
 jobs:
   meta:
     runs-on: ubuntu-latest
+    # A varredura de montagens são ~11 buscas em lote, com espera entre
+    # tentativas quando a API limita o ritmo. O teto padrão de 6 h deixaria uma
+    # rodada travada segurando a fila; 40 min cobre as duas leituras com folga.
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
         with:
@@ -41,12 +57,22 @@ jobs:
 
       - run: npm ci
 
-      - name: Perguntar à busca
+      - name: Ler o meta do dia
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: npm run meta:search
 
+      # Roda mesmo que a leitura do meta falhe: são perguntas independentes, e
+      # perder as duas porque uma não voltou desperdiça a execução inteira. O
+      # próprio script preserva o arquivo anterior quando nada é utilizável.
+      - name: Ler as montagens da comunidade
+        if: ${{ !cancelled() }}
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: npm run builds:search
+
       - name: Publicar em main se mudou
+        if: ${{ !cancelled() }}
         env:
           MAIN_PUSH_TOKEN: ${{ secrets.MAIN_PUSH_TOKEN }}
         run: |
@@ -55,14 +81,16 @@ jobs:
             exit 1
           fi
 
-          if git diff --quiet -- src/data/meta-live.json; then
+          arquivos="src/data/meta-live.json src/data/builds-live.json"
+
+          if git diff --quiet -- $arquivos; then
             echo "Sem alterações para publicar."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/meta-live.json
-          git commit -m "Atualiza o meta com a leitura do dia"
+          git add $arquivos
+          git commit -m "Atualiza a leitura da comunidade do dia"
           git remote set-url origin "https://x-access-token:${MAIN_PUSH_TOKEN}@github.com/${{ github.repository }}.git"
           git push origin HEAD:main
