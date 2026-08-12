@@ -1,0 +1,211 @@
+# Processa uma versão nova e abre Pull Request.
+#
+# O caminho inteiro: baixa o patch note, lê o que ele afirma, consulta o estado
+# atual do jogo e o dataset da comunidade, concilia, valida, gera o diff, monta
+# o catálogo público e abre um Pull Request com tudo isso no corpo.
+#
+# ## O que ele nunca faz
+#
+# Escrever em `main`. Nem quando a mudança é óbvia, nem quando a validação passa
+# limpa. O que sai daqui é sempre um branch `data/update/<versão>` e um PR — o
+# catálogo alimenta um site que diz às pessoas o que montar, e uma leitura errada
+# publicada sozinha é uma recomendação errada dada em nome do projeto.
+#
+# ## Quando alguma fonte falha
+#
+# O passo segue, marcado. Falta de patch note interrompe — sem ele não há o que
+# conciliar. Falta do estado atual ou do dataset da comunidade não interrompe:
+# a conciliação registra que a matriz não foi reconfirmada, e isso aparece no
+# corpo do PR como pendência, em vez de virar silêncio.
+
+name: Processar atualização do BF6
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Versão do jogo, no formato 1.4.2.0'
+        required: true
+        type: string
+      patch_url:
+        description: 'URL do patch note, se o endereço padrão não servir'
+        required: false
+        type: string
+
+concurrency:
+  group: bf6-update-${{ inputs.version }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  processar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Conferir o formato da versão
+        run: |
+          if ! echo '${{ inputs.version }}' | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "::error::'${{ inputs.version }}' não é uma versão no formato da EA."
+            exit 1
+          fi
+
+      - name: A versão já existe?
+        run: |
+          if [ -d "data/versions/${{ inputs.version }}" ]; then
+            echo "::notice::Versão ${{ inputs.version }} já processada. Nada a fazer."
+            echo "JA_EXISTE=1" >> "$GITHUB_ENV"
+          fi
+
+      - name: Versão anterior
+        if: env.JA_EXISTE != '1'
+        run: echo "ANTERIOR=$(ls data/versions | sort -V | tail -1)" >> "$GITHUB_ENV"
+
+      - name: Baixar o patch note
+        if: env.JA_EXISTE != '1'
+        run: npm run catalog:fetch-patch -- '${{ inputs.version }}' ${{ inputs.patch_url }}
+
+      - name: Ler o patch note
+        if: env.JA_EXISTE != '1'
+        id: parse
+        continue-on-error: true
+        run: npm run catalog:parse-patch -- '${{ inputs.version }}'
+
+      # Patch note ilegível é o caso `blocked` do protocolo: nada é alterado e
+      # uma pessoa é chamada. Abrir um PR vazio seria pior — ele seria aprovado.
+      - name: Abrir issue quando o patch não foi legível
+        if: env.JA_EXISTE != '1' && steps.parse.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --title "[CATALOG] Revisão manual necessária na versão ${{ inputs.version }}" \
+            --body "O parser não reconheceu nenhuma mudança no patch note da versão \`${{ inputs.version }}\`.
+
+          O texto foi baixado e está em \`data/patches/${{ inputs.version }}.json\`; o catálogo não foi alterado.
+
+          Verifique se o formato do patch note mudou e ajuste \`scripts/catalog/parse-patch-note.ts\`."
+          exit 1
+
+      - name: Consultar o estado atual do jogo
+        if: env.JA_EXISTE != '1'
+        id: loadouts
+        continue-on-error: true
+        run: npm run catalog:fetch-loadouts
+
+      - name: Consultar o dataset da comunidade
+        if: env.JA_EXISTE != '1'
+        id: github_data
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run catalog:fetch-github
+
+      - name: Conciliar
+        if: env.JA_EXISTE != '1'
+        run: npm run catalog:reconcile -- '${{ inputs.version }}'
+
+      # A balística vem do dataset da comunidade e não do patch note. Falhar
+      # aqui não derruba o patch: a versão nova herda os números da anterior, e
+      # o corpo do PR diz que eles não foram reconfirmados.
+      - name: Atualizar balística, dano e recuo
+        if: env.JA_EXISTE != '1' && steps.github_data.outcome == 'success'
+        id: analyzer
+        continue-on-error: true
+        run: npm run catalog:import-analyzer
+
+      - name: Regerar índices
+        if: env.JA_EXISTE != '1'
+        run: npm run catalog:indexes
+
+      - name: Validar
+        if: env.JA_EXISTE != '1'
+        run: npm run catalog:validate
+
+      - name: Diff da versão anterior
+        if: env.JA_EXISTE != '1'
+        run: npm run catalog:diff -- "$ANTERIOR" '${{ inputs.version }}' | tee /tmp/diff.txt
+
+      - name: Gerar o catálogo público
+        if: env.JA_EXISTE != '1'
+        run: npm run catalog:build
+
+      # Quais domínios do site o catálogo passou a sustentar. Vai para o log do
+      # workflow: é a informação que decide a próxima etapa da migração.
+      - name: Cobertura por domínio
+        if: env.JA_EXISTE != '1'
+        continue-on-error: true
+        run: npm run catalog:coverage
+
+      - name: Testes
+        if: env.JA_EXISTE != '1'
+        continue-on-error: true
+        id: testes
+        run: npm test
+
+      - name: Abrir o Pull Request
+        if: env.JA_EXISTE != '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          branch="data/update/${{ inputs.version }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add data public/data
+          git commit -m "feat(data): update Battlefield 6 to ${{ inputs.version }}"
+          git push --set-upstream origin "$branch"
+
+          revisao=$(node -e '
+            const fs = require("node:fs");
+            const eventos = JSON.parse(fs.readFileSync("data/versions/${{ inputs.version }}/changes.json", "utf8")).events;
+            const conta = (nivel) => eventos.filter((e) => e.automation === nivel).length;
+            process.stdout.write(`auto: ${conta("auto")}\nreview: ${conta("review")}\nblocked: ${conta("blocked")}`);
+          ')
+
+          gh pr create \
+            --title "feat(data): update Battlefield 6 to ${{ inputs.version }}" \
+            --body "## Detected update
+
+          Version: \`${{ inputs.version }}\` (anterior: \`$ANTERIOR\`)
+
+          ## Changes
+
+          \`\`\`
+          $(cat /tmp/diff.txt)
+          \`\`\`
+
+          ## Automação
+
+          \`\`\`
+          $revisao
+          \`\`\`
+
+          ## Sources
+
+          - EA Patch Notes — ${{ steps.parse.outcome == 'success' && 'lido' || 'FALHOU' }}
+          - BF6 Loadouts — ${{ steps.loadouts.outcome == 'success' && 'lido' || 'NÃO CONFIRMOU o estado atual' }}
+          - GitHub dataset — ${{ steps.github_data.outcome == 'success' && 'lido' || 'não lido' }}
+
+          ## Testes
+
+          ${{ steps.testes.outcome == 'success' && 'Passaram.' || '**Falharam** — os testes do catálogo fixam relações confirmadas à mão (o 50 MW Violet, entre outras). Uma falha aqui significa que este patch mudou uma delas: confirme no jogo antes de atualizar o teste.' }}
+
+          ## Revisão
+
+          Tudo marcado como \`review\` precisa de confirmação humana antes do merge. Percentuais de patch note **não** foram aplicados como número — eles estão registrados como operação em \`changes.json\`.
+
+          🤖 Aberto por \`bf6-update-process.yml\`"

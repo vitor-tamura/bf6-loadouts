@@ -1,0 +1,1245 @@
+{
+  "schemaVersion": 1,
+  "weapons": [
+    {
+      "id": "ak205",
+      "name": "AK-205",
+      "category": "carbine",
+      "caliber": "5.45×39mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "ak4d",
+      "name": "AK4D",
+      "category": "assault_rifle",
+      "caliber": "7.62×51mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "b36a4",
+      "name": "B36A4",
+      "category": "assault_rifle",
+      "caliber": "5.56×45mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "brod3",
+      "name": "BROD 3",
+      "category": "carbine",
+      "caliber": "5.56×45mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "cz3a1",
+      "name": "CZ3A1",
+      "category": "smg",
+      "caliber": "9×19mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "db12",
+      "name": "DB-12",
+      "category": "shotgun",
+      "caliber": "12ga (00 Buck)",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "drsiar",
+      "name": "DRS-IAR",
+      "category": "lmg",
+      "caliber": "5.56×45mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "ef88",
+      "name": "EF88",
+      "category": "assault_rifle",
+      "caliber": "5.56×45mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "es57",
+      "name": "ES 5.7",
+      "category": "sidearm",
+      "caliber": "5.7×28mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "ggh22",
+      "name": "GGH-22",
+      "category": "sidearm",
+      "caliber": "9×19mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "grtbc",
+      "name": "GRT-BC",
+      "category": "carbine",
+      "caliber": "5.56×45mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "grtcps",
+      "name": "GRT-CPS",
+      "category": "dmr",
+      "caliber": "5.56×45mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "kord6p67",
+      "name": "KORD 6P67",
+      "category": "assault_rifle",
+      "caliber": "5.45×39mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "ks18k",
+      "name": "18.5KS-K",
+      "category": "shotgun",
+      "caliber": "12ga (00 Buck)",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "kts100",
+      "name": "KTS100 MK8",
+      "category": "lmg",
+      "caliber": "5.56×45mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "kv9",
+      "name": "KV9",
+      "category": "smg",
+      "caliber": "9×19mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "l110",
+      "name": "L110",
+      "category": "lmg",
+      "caliber": "5.56×45mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "l115",
+      "name": "L115",
+      "category": "sniper_rifle",
+      "caliber": ".338 Lapua Magnum",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "l85a3",
+      "name": "L85A3",
+      "category": "assault_rifle",
+      "caliber": "5.56×45mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "lmr27",
+      "name": "LMR27",
+      "category": "dmr",
+      "caliber": "5.56×45mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "m1014",
+      "name": "M1014",
+      "category": "shotgun",
+      "caliber": "12ga (00 Buck)",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "m121a2",
+      "name": "M121 A2",
+      "category": "lmg",
+      "caliber": "7.62×51mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "m123k",
+      "name": "M123K",
+      "category": "lmg",
+      "caliber": "5.56×45mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "m16a4",
+      "name": "M16A4",
+      "category": "assault_rifle",
+      "caliber": "5.56x45mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "m2010esr",
+      "name": "M2010 ESR",
+      "category": "sniper_rifle",
+      "caliber": ".300 Win Mag",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "m240l",
+      "name": "M240L",
+      "category": "lmg",
+      "caliber": "7.62×51mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "m250",
+      "name": "M250",
+      "category": "lmg",
+      "caliber": "6.8×51mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "m277",
+      "name": "M277",
+      "category": "carbine",
+      "caliber": "6.8×51mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "m357trait",
+      "name": "M357 Trait",
+      "category": "sidearm",
+      "caliber": ".357 Magnum",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "m39emr",
+      "name": "M39 EMR",
+      "category": "dmr",
+      "caliber": "7.62×51mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "m417a2",
+      "name": "M417 A2",
+      "category": "carbine",
+      "caliber": "7.62×51mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "m433",
+      "name": "M433",
+      "category": "assault_rifle",
+      "caliber": "5.56×45mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "m44",
+      "name": "M44",
+      "category": "sidearm",
+      "caliber": ".44 Magnum",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "m45a1",
+      "name": "M45A1",
+      "category": "sidearm",
+      "caliber": ".45 ACP",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "m4a1",
+      "name": "M4A1",
+      "category": "carbine",
+      "caliber": "5.56×45mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "m60",
+      "name": "M/60",
+      "category": "lmg",
+      "caliber": "7.62×51mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "m87a1",
+      "name": "M87A1",
+      "category": "shotgun",
+      "caliber": "12ga (00 Buck)",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "miniscout",
+      "name": "Mini Scout",
+      "category": "sniper_rifle",
+      "caliber": "5.56×45mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "nvo228e",
+      "name": "NVO-228E",
+      "category": "assault_rifle",
+      "caliber": "7.62×39mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "p18",
+      "name": "P18",
+      "category": "sidearm",
+      "caliber": "9×19mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "pp19",
+      "name": "PP-19",
+      "category": "smg",
+      "caliber": "9×19mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "psr",
+      "name": "PSR",
+      "category": "sniper_rifle",
+      "caliber": ".338 Norma Mag",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "pw5a3",
+      "name": "PW5A3",
+      "category": "smg",
+      "caliber": "9×19mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "pw7a2",
+      "name": "PW7A2",
+      "category": "smg",
+      "caliber": "4.6×30mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "qbz192",
+      "name": "QBZ-192",
+      "category": "carbine",
+      "caliber": "5.8×42mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "rpk74m",
+      "name": "RPK-74M",
+      "category": "lmg",
+      "caliber": "5.45x39mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "rpkm",
+      "name": "RPKM",
+      "category": "lmg",
+      "caliber": "7.62×39mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "scw10",
+      "name": "SCW-10",
+      "category": "smg",
+      "caliber": "10×25mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "sg553r",
+      "name": "SG 553R",
+      "category": "carbine",
+      "caliber": "7.62×39mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "sgx",
+      "name": "SGX",
+      "category": "smg",
+      "caliber": "9×19mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "sl9",
+      "name": "SL9",
+      "category": "smg",
+      "caliber": "9×19mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "sor300sc",
+      "name": "SOR-300SC",
+      "category": "carbine",
+      "caliber": ".300 BLK",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "sor556",
+      "name": "SOR-556 MK2",
+      "category": "assault_rifle",
+      "caliber": "5.56×45mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "sv98",
+      "name": "SV-98",
+      "category": "sniper_rifle",
+      "caliber": "7.62×54mmR",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "svdm",
+      "name": "SVDM",
+      "category": "dmr",
+      "caliber": "7.62×54mmR",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "svk86",
+      "name": "SVK-8.6",
+      "category": "dmr",
+      "caliber": ".338 Lapua Mag",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "tr7",
+      "name": "TR7",
+      "category": "assault_rifle",
+      "caliber": "7.62×51mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "umg40",
+      "name": "UMG-40",
+      "category": "smg",
+      "caliber": ".40 S&W",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "usg90",
+      "name": "USG-90",
+      "category": "smg",
+      "caliber": "5.7×28mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "vcr2",
+      "name": "VCR-2",
+      "category": "assault_rifle",
+      "caliber": "5.56×45mm NATO",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "vssm",
+      "name": "VSSM",
+      "category": "dmr",
+      "caliber": "9×39mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "id": "vz61",
+      "name": "VZ. 61",
+      "category": "sidearm",
+      "caliber": "7.65×17mm",
+      "status": "active",
+      "introducedIn": "1.3.3.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    }
+  ]
+}

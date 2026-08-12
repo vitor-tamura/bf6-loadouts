@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "categories": [
+    {
+      "id": "assault_rifle",
+      "name": "Assault Rifle",
+      "aliases": [
+        "Assault Rifle"
+      ]
+    },
+    {
+      "id": "carbine",
+      "name": "Carbine",
+      "aliases": [
+        "Carbine"
+      ]
+    },
+    {
+      "id": "dmr",
+      "name": "DMR",
+      "aliases": [
+        "DMR"
+      ]
+    },
+    {
+      "id": "lmg",
+      "name": "LMG",
+      "aliases": [
+        "LMG"
+      ]
+    },
+    {
+      "id": "smg",
+      "name": "SMG",
+      "aliases": [
+        "SMG"
+      ]
+    },
+    {
+      "id": "shotgun",
+      "name": "Shotgun",
+      "aliases": [
+        "Shotgun"
+      ]
+    },
+    {
+      "id": "sidearm",
+      "name": "Sidearm",
+      "aliases": [
+        "Sidearm"
+      ]
+    },
+    {
+      "id": "sniper_rifle",
+      "name": "Sniper Rifle",
+      "aliases": [
+        "Sniper Rifle"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,315 @@
+{
+  "gameVersion": "1.3.3.0",
+  "weapons": [
+    {
+      "id": "ak205",
+      "status": "active",
+      "name": "AK-205"
+    },
+    {
+      "id": "ak4d",
+      "status": "active",
+      "name": "AK4D"
+    },
+    {
+      "id": "b36a4",
+      "status": "active",
+      "name": "B36A4"
+    },
+    {
+      "id": "brod3",
+      "status": "active",
+      "name": "BROD 3"
+    },
+    {
+      "id": "cz3a1",
+      "status": "active",
+      "name": "CZ3A1"
+    },
+    {
+      "id": "db12",
+      "status": "active",
+      "name": "DB-12"
+    },
+    {
+      "id": "drsiar",
+      "status": "active",
+      "name": "DRS-IAR"
+    },
+    {
+      "id": "ef88",
+      "status": "active",
+      "name": "EF88"
+    },
+    {
+      "id": "es57",
+      "status": "active",
+      "name": "ES 5.7"
+    },
+    {
+      "id": "ggh22",
+      "status": "active",
+      "name": "GGH-22"
+    },
+    {
+      "id": "grtbc",
+      "status": "active",
+      "name": "GRT-BC"
+    },
+    {
+      "id": "grtcps",
+      "status": "active",
+      "name": "GRT-CPS"
+    },
+    {
+      "id": "kord6p67",
+      "status": "active",
+      "name": "KORD 6P67"
+    },
+    {
+      "id": "ks18k",
+      "status": "active",
+      "name": "18.5KS-K"
+    },
+    {
+      "id": "kts100",
+      "status": "active",
+      "name": "KTS100 MK8"
+    },
+    {
+      "id": "kv9",
+      "status": "active",
+      "name": "KV9"
+    },
+    {
+      "id": "l110",
+      "status": "active",
+      "name": "L110"
+    },
+    {
+      "id": "l115",
+      "status": "active",
+      "name": "L115"
+    },
+    {
+      "id": "l85a3",
+      "status": "active",
+      "name": "L85A3"
+    },
+    {
+      "id": "lmr27",
+      "status": "active",
+      "name": "LMR27"
+    },
+    {
+      "id": "m1014",
+      "status": "active",
+      "name": "M1014"
+    },
+    {
+      "id": "m121a2",
+      "status": "active",
+      "name": "M121 A2"
+    },
+    {
+      "id": "m123k",
+      "status": "active",
+      "name": "M123K"
+    },
+    {
+      "id": "m16a4",
+      "status": "active",
+      "name": "M16A4"
+    },
+    {
+      "id": "m2010esr",
+      "status": "active",
+      "name": "M2010 ESR"
+    },
+    {
+      "id": "m240l",
+      "status": "active",
+      "name": "M240L"
+    },
+    {
+      "id": "m250",
+      "status": "active",
+      "name": "M250"
+    },
+    {
+      "id": "m277",
+      "status": "active",
+      "name": "M277"
+    },
+    {
+      "id": "m357trait",
+      "status": "active",
+      "name": "M357 Trait"
+    },
+    {
+      "id": "m39emr",
+      "status": "active",
+      "name": "M39 EMR"
+    },
+    {
+      "id": "m417a2",
+      "status": "active",
+      "name": "M417 A2"
+    },
+    {
+      "id": "m433",
+      "status": "active",
+      "name": "M433"
+    },
+    {
+      "id": "m44",
+      "status": "active",
+      "name": "M44"
+    },
+    {
+      "id": "m45a1",
+      "status": "active",
+      "name": "M45A1"
+    },
+    {
+      "id": "m4a1",
+      "status": "active",
+      "name": "M4A1"
+    },
+    {
+      "id": "m60",
+      "status": "active",
+      "name": "M/60"
+    },
+    {
+      "id": "m87a1",
+      "status": "active",
+      "name": "M87A1"
+    },
+    {
+      "id": "miniscout",
+      "status": "active",
+      "name": "Mini Scout"
+    },
+    {
+      "id": "nvo228e",
+      "status": "active",
+      "name": "NVO-228E"
+    },
+    {
+      "id": "p18",
+      "status": "active",
+      "name": "P18"
+    },
+    {
+      "id": "pp19",
+      "status": "active",
+      "name": "PP-19"
+    },
+    {
+      "id": "psr",
+      "status": "active",
+      "name": "PSR"
+    },
+    {
+      "id": "pw5a3",
+      "status": "active",
+      "name": "PW5A3"
+    },
+    {
+      "id": "pw7a2",
+      "status": "active",
+      "name": "PW7A2"
+    },
+    {
+      "id": "qbz192",
+      "status": "active",
+      "name": "QBZ-192"
+    },
+    {
+      "id": "rpk74m",
+      "status": "active",
+      "name": "RPK-74M"
+    },
+    {
+      "id": "rpkm",
+      "status": "active",
+      "name": "RPKM"
+    },
+    {
+      "id": "scw10",
+      "status": "active",
+      "name": "SCW-10"
+    },
+    {
+      "id": "sg553r",
+      "status": "active",
+      "name": "SG 553R"
+    },
+    {
+      "id": "sgx",
+      "status": "active",
+      "name": "SGX"
+    },
+    {
+      "id": "sl9",
+      "status": "active",
+      "name": "SL9"
+    },
+    {
+      "id": "sor300sc",
+      "status": "active",
+      "name": "SOR-300SC"
+    },
+    {
+      "id": "sor556",
+      "status": "active",
+      "name": "SOR-556 MK2"
+    },
+    {
+      "id": "sv98",
+      "status": "active",
+      "name": "SV-98"
+    },
+    {
+      "id": "svdm",
+      "status": "active",
+      "name": "SVDM"
+    },
+    {
+      "id": "svk86",
+      "status": "active",
+      "name": "SVK-8.6"
+    },
+    {
+      "id": "tr7",
+      "status": "active",
+      "name": "TR7"
+    },
+    {
+      "id": "umg40",
+      "status": "active",
+      "name": "UMG-40"
+    },
+    {
+      "id": "usg90",
+      "status": "active",
+      "name": "USG-90"
+    },
+    {
+      "id": "vcr2",
+      "status": "active",
+      "name": "VCR-2"
+    },
+    {
+      "id": "vssm",
+      "status": "active",
+      "name": "VSSM"
+    },
+    {
+      "id": "vz61",
+      "status": "active",
+      "name": "VZ. 61"
+    }
+  ]
+}

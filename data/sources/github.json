@@ -1,0 +1,25 @@
+{
+  "provider": "raymdl/BF6-Weapon-Analyzer",
+  "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+  "type": "community",
+  "snapshots": [
+    {
+      "snapshot": "bf6-1.3.3.0-2026-08-11",
+      "version": "1.3.3.0",
+      "dataset": "main/data",
+      "commit": null,
+      "retrievedAt": "2026-08-11",
+      "via": "BF6_Catalogo_ESCALAVEL_v5.json",
+      "note": "Importação inicial. O commit de origem não veio no arquivo v5; execuções futuras devem registrar o SHA."
+    },
+    {
+      "snapshot": "github-7907352",
+      "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+      "committedAt": "2026-08-09T18:02:12Z",
+      "retrievedAt": "2026-08-12T12:26:59.681Z",
+      "files": 11,
+      "skipped": 48,
+      "file": "data/sources/imports/github-7907352.json"
+    }
+  ]
+}

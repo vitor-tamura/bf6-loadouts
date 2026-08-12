@@ -1,0 +1,63 @@
+# Saiu patch novo?
+#
+# Roda de seis em seis horas e pergunta uma coisa só à página de novidades da
+# EA: apareceu algum número de versão que `data/versions` ainda não tem. Na
+# esmagadora maioria das execuções a resposta é não, e o workflow termina em
+# segundos sem tocar em nada — patch de Battlefield não sai toda tarde.
+#
+# Quando a resposta é sim, ele chama o workflow de processamento uma vez por
+# versão encontrada, da mais antiga para a mais nova. A ordem importa: processar
+# 1.4.2.0 antes de 1.4.1.0 faria o estado novo ser reescrito pelo velho.
+#
+# Este workflow não escreve nada no repositório. Quem escreve é o de
+# processamento, e mesmo ele só escreve em branch.
+
+name: Verificar atualização do BF6
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+# Duas verificações ao mesmo tempo abririam dois Pull Requests para o mesmo
+# patch. A segunda espera; ela vai encontrar a versão já processada e sair.
+concurrency:
+  group: bf6-update-check
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    outputs:
+      missing: ${{ steps.discover.outputs.missing }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Perguntar à EA
+        id: discover
+        run: |
+          set -o pipefail
+          resultado=$(npm run --silent catalog:discover -- --json)
+          echo "$resultado"
+          echo "missing=$(echo "$resultado" | node -e 'process.stdin.on("data",d=>process.stdout.write(JSON.stringify(JSON.parse(d.toString()).missing)))')" >> "$GITHUB_OUTPUT"
+
+      - name: Disparar o processamento de cada versão nova
+        if: steps.discover.outputs.missing != '[]'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for versao in $(echo '${{ steps.discover.outputs.missing }}' | node -e 'process.stdin.on("data",d=>process.stdout.write(JSON.parse(d.toString()).join(" ")))'); do
+            echo "Disparando processamento de $versao"
+            gh workflow run bf6-update-process.yml -f version="$versao"
+          done

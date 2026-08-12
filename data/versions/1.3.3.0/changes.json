@@ -1,0 +1,570 @@
+{
+  "gameVersion": "1.3.3.0",
+  "events": [
+    {
+      "id": "evt-2026-08-12-initial-import",
+      "gameVersion": "1.3.3.0",
+      "timestamp": "2026-08-12",
+      "type": "initial_import",
+      "entityType": "catalog",
+      "entityId": null,
+      "changes": {
+        "weapons": 62,
+        "attachments": 400,
+        "compatibility": 2376,
+        "stats": 62,
+        "effects": 400,
+        "attachmentsWithoutCompatibility": {
+          "total": 36,
+          "bySlot": {
+            "underbarrel": 4,
+            "ergonomics": 13,
+            "ammo": 15,
+            "sight": 4
+          },
+          "ids": [
+            "6h64_vert_vssm",
+            "ads_bolt",
+            "ammo:buckshot",
+            "ammo:buckshot_00",
+            "ammo:flechette",
+            "ammo:frangible",
+            "ammo:hollow_pt",
+            "ammo:lightweight",
+            "ammo:long_range",
+            "ammo:penetration",
+            "ammo:range_pen",
+            "ammo:slugs",
+            "ammo:standard",
+            "ammo:subsonic",
+            "ammo:subsonic_hp",
+            "ammo:subsonic_pen",
+            "ammo:synthetic",
+            "buffer",
+            "burst_mode",
+            "burst_training",
+            "classic_vert_vssm",
+            "fast_deploy",
+            "fast_deploy_10",
+            "full_auto",
+            "full_auto_vssm",
+            "grtbc_burst_mode",
+            "lp_stubby_vssm",
+            "mag_catch",
+            "mag_flare",
+            "match_trigger",
+            "rail_cover",
+            "stipp_stubby_vssm",
+            "therm_hyb",
+            "thermal",
+            "var_high",
+            "var_low"
+          ]
+        }
+      },
+      "sources": [
+        {
+          "provider": "raymdl/BF6-Weapon-Analyzer",
+          "type": "community",
+          "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+          "dataset": "main/data",
+          "commit": null,
+          "version": "1.3.3.0",
+          "retrievedAt": null,
+          "snapshot": "bf6-1.3.3.0-2026-08-11"
+        },
+        {
+          "provider": "bf6loadouts",
+          "type": "current_state",
+          "url": "https://bf6loadouts.com",
+          "dataset": "weapon compatibility",
+          "commit": null,
+          "version": "1.3.3.0",
+          "retrievedAt": null,
+          "snapshot": "bf6-1.3.3.0-2026-08-11"
+        }
+      ],
+      "automation": "auto",
+      "resolution": null
+    },
+    {
+      "id": "evt-2026-08-12-conflict-slot-mismatch",
+      "gameVersion": "1.3.3.0",
+      "timestamp": "2026-08-12",
+      "type": "source_conflict",
+      "entityType": "compatibility",
+      "entityId": null,
+      "changes": {
+        "rows": [
+          {
+            "weaponId": "vz61",
+            "attachmentId": "fold_stubby",
+            "slotNaMatriz": "laser",
+            "slotNaPeça": "underbarrel"
+          },
+          {
+            "weaponId": "vz61",
+            "attachmentId": "ribbed_stubby",
+            "slotNaMatriz": "laser",
+            "slotNaPeça": "underbarrel"
+          },
+          {
+            "weaponId": "vz61",
+            "attachmentId": "canted_stubby",
+            "slotNaMatriz": "laser",
+            "slotNaPeça": "underbarrel"
+          },
+          {
+            "weaponId": "vz61",
+            "attachmentId": "stipp_stubby",
+            "slotNaMatriz": "laser",
+            "slotNaPeça": "underbarrel"
+          },
+          {
+            "weaponId": "vz61",
+            "attachmentId": "cmpct_handstop",
+            "slotNaMatriz": "laser",
+            "slotNaPeça": "underbarrel"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "provider": "raymdl/BF6-Weapon-Analyzer",
+          "type": "community",
+          "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+          "dataset": "main/data",
+          "commit": null,
+          "version": "1.3.3.0",
+          "retrievedAt": null,
+          "snapshot": "bf6-1.3.3.0-2026-08-11"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "A mesma fonte se contradiz: a peça declara um slot e a matriz a lista em outro. Nenhuma segunda fonte foi consultada ainda; as relações ficam como needs_review até alguém conferir no jogo."
+      }
+    },
+    {
+      "id": "evt-2026-08-12-conflict-50mw-violet",
+      "gameVersion": "1.3.3.0",
+      "timestamp": "2026-08-12",
+      "type": "source_conflict_resolved",
+      "entityType": "attachment",
+      "entityId": "50mw_violet",
+      "changes": {
+        "selected": [
+          "cz3a1",
+          "db12",
+          "m121a2",
+          "rpk74m"
+        ],
+        "github": {
+          "status": "not_captured",
+          "note": "A matriz do repositório liga o laser a um conjunto maior de armas. O import v5 já veio resolvido e não preservou a lista; recuperar com fetch-github-data antes de reabrir o conflito."
+        }
+      },
+      "sources": [
+        {
+          "provider": "bf6loadouts",
+          "type": "current_state",
+          "url": "https://bf6loadouts.com",
+          "dataset": "weapon compatibility",
+          "commit": null,
+          "version": "1.3.3.0",
+          "retrievedAt": null,
+          "snapshot": "bf6-1.3.3.0-2026-08-11"
+        },
+        {
+          "provider": "raymdl/BF6-Weapon-Analyzer",
+          "type": "community",
+          "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+          "dataset": "main/data",
+          "commit": null,
+          "version": "1.3.3.0",
+          "retrievedAt": null,
+          "snapshot": "bf6-1.3.3.0-2026-08-11"
+        }
+      ],
+      "automation": "auto",
+      "resolution": {
+        "status": "resolved",
+        "selectedSource": "bf6loadouts",
+        "reason": "Compatibilidade atual é decidida pelo estado do jogo, e quem observa o estado do jogo é o BF6 Loadouts. A matriz da comunidade vale como histórico, não como confirmação do que existe hoje."
+      }
+    },
+    {
+      "id": "evt-2026-08-12-analyzer-import",
+      "gameVersion": "1.3.3.0",
+      "timestamp": "2026-08-12",
+      "type": "initial_import",
+      "entityType": "catalog",
+      "entityId": null,
+      "changes": {
+        "armas": 62,
+        "curvasDeDano": 62,
+        "provisionais": 62,
+        "semRecargaTática": [
+          "db12",
+          "m1014",
+          "m87a1"
+        ],
+        "semRecargaVazia": [
+          "db12",
+          "m1014",
+          "m357trait",
+          "m44",
+          "m87a1",
+          "vssm"
+        ],
+        "semTempoDeMira": [
+          "l115",
+          "m16a4",
+          "pp19",
+          "rpk74m"
+        ],
+        "ignoradas": []
+      },
+      "sources": [
+        {
+          "provider": "raymdl/BF6-Weapon-Analyzer",
+          "type": "community",
+          "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+          "dataset": "data/weapons.json",
+          "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+          "version": "1.3.3.0",
+          "retrievedAt": "2026-08-12T12:02:03.578Z",
+          "snapshot": "github-7907352"
+        }
+      ],
+      "automation": "auto",
+      "resolution": null
+    },
+    {
+      "id": "evt-2026-08-12-conflict-drag",
+      "gameVersion": "1.3.3.0",
+      "timestamp": "2026-08-12",
+      "type": "source_conflict",
+      "entityType": "catalog",
+      "entityId": null,
+      "changes": {
+        "campo": "coeficiente de arrasto",
+        "analyzer": {
+          "base": 0.0035,
+          "longRange": 0.002,
+          "fonte": "raymdl/BF6-Weapon-Analyzer@7907352"
+        },
+        "comunidade": {
+          "base": 0.0025,
+          "longRange": 0.001,
+          "fonte": "planilha interativa de armas (r/Battlefield), comentário do autor"
+        },
+        "ea": "Confirma que existe arrasto e que ele pesa mais a longa distância; não publica o coeficiente."
+      },
+      "sources": [
+        {
+          "provider": "raymdl/BF6-Weapon-Analyzer",
+          "type": "community",
+          "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+          "dataset": "data/weapons.json",
+          "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+          "version": "1.3.3.0",
+          "retrievedAt": "2026-08-12T12:02:03.578Z",
+          "snapshot": "github-7907352"
+        },
+        {
+          "provider": "r/Battlefield — planilha da comunidade",
+          "type": "community",
+          "url": "https://www.reddit.com/r/Battlefield/comments/1pjw7ha/",
+          "version": "1.3.3.0",
+          "retrievedAt": null
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Dois coeficientes circulam e nenhuma fonte oficial arbitra. O catálogo usa o do Analyzer por ser o do dataset importado; a queda de bala calculada com ele é aproximada, e a tela deve dizer isso."
+      }
+    },
+    {
+      "id": "evt-2026-08-12-analyzer-import",
+      "gameVersion": "1.3.3.0",
+      "timestamp": "2026-08-12",
+      "type": "initial_import",
+      "entityType": "catalog",
+      "entityId": null,
+      "changes": {
+        "armas": 62,
+        "curvasDeDano": 62,
+        "provisionais": 62,
+        "semRecargaTática": [
+          "db12",
+          "m1014",
+          "m87a1"
+        ],
+        "semRecargaVazia": [
+          "db12",
+          "m1014",
+          "m357trait",
+          "m44",
+          "m87a1",
+          "vssm"
+        ],
+        "semTempoDeMira": [
+          "l115",
+          "m16a4",
+          "pp19",
+          "rpk74m"
+        ],
+        "ignoradas": []
+      },
+      "sources": [
+        {
+          "provider": "raymdl/BF6-Weapon-Analyzer",
+          "type": "community",
+          "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+          "dataset": "data/weapons.json",
+          "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+          "version": "1.3.3.0",
+          "retrievedAt": "2026-08-12T12:14:53.564Z",
+          "snapshot": "github-7907352"
+        }
+      ],
+      "automation": "auto",
+      "resolution": null
+    },
+    {
+      "id": "evt-2026-08-12-conflict-drag",
+      "gameVersion": "1.3.3.0",
+      "timestamp": "2026-08-12",
+      "type": "source_conflict",
+      "entityType": "catalog",
+      "entityId": null,
+      "changes": {
+        "campo": "coeficiente de arrasto",
+        "analyzer": {
+          "base": 0.0035,
+          "longRange": 0.002,
+          "fonte": "raymdl/BF6-Weapon-Analyzer@7907352"
+        },
+        "comunidade": {
+          "base": 0.0025,
+          "longRange": 0.001,
+          "fonte": "planilha interativa de armas (r/Battlefield), comentário do autor"
+        },
+        "ea": "Confirma que existe arrasto e que ele pesa mais a longa distância; não publica o coeficiente."
+      },
+      "sources": [
+        {
+          "provider": "raymdl/BF6-Weapon-Analyzer",
+          "type": "community",
+          "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+          "dataset": "data/weapons.json",
+          "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+          "version": "1.3.3.0",
+          "retrievedAt": "2026-08-12T12:14:53.564Z",
+          "snapshot": "github-7907352"
+        },
+        {
+          "provider": "r/Battlefield — planilha da comunidade",
+          "type": "community",
+          "url": "https://www.reddit.com/r/Battlefield/comments/1pjw7ha/",
+          "version": "1.3.3.0",
+          "retrievedAt": null
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Dois coeficientes circulam e nenhuma fonte oficial arbitra. O catálogo usa o do Analyzer por ser o do dataset importado; a queda de bala calculada com ele é aproximada, e a tela deve dizer isso."
+      }
+    },
+    {
+      "id": "evt-2026-08-12-analyzer-import",
+      "gameVersion": "1.3.3.0",
+      "timestamp": "2026-08-12",
+      "type": "initial_import",
+      "entityType": "catalog",
+      "entityId": null,
+      "changes": {
+        "armas": 62,
+        "curvasDeDano": 62,
+        "provisionais": 62,
+        "semRecargaTática": [
+          "db12",
+          "m1014",
+          "m87a1"
+        ],
+        "semRecargaVazia": [
+          "db12",
+          "m1014",
+          "m357trait",
+          "m44",
+          "m87a1",
+          "vssm"
+        ],
+        "semTempoDeMira": [
+          "l115",
+          "m16a4",
+          "pp19",
+          "rpk74m"
+        ],
+        "ignoradas": []
+      },
+      "sources": [
+        {
+          "provider": "raymdl/BF6-Weapon-Analyzer",
+          "type": "community",
+          "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+          "dataset": "data/weapons.json",
+          "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+          "version": "1.3.3.0",
+          "retrievedAt": "2026-08-12T12:18:38.664Z",
+          "snapshot": "github-7907352"
+        }
+      ],
+      "automation": "auto",
+      "resolution": null
+    },
+    {
+      "id": "evt-2026-08-12-conflict-drag",
+      "gameVersion": "1.3.3.0",
+      "timestamp": "2026-08-12",
+      "type": "source_conflict",
+      "entityType": "catalog",
+      "entityId": null,
+      "changes": {
+        "campo": "coeficiente de arrasto",
+        "analyzer": {
+          "base": 0.0035,
+          "longRange": 0.002,
+          "fonte": "raymdl/BF6-Weapon-Analyzer@7907352"
+        },
+        "comunidade": {
+          "base": 0.0025,
+          "longRange": 0.001,
+          "fonte": "planilha interativa de armas (r/Battlefield), comentário do autor"
+        },
+        "ea": "Confirma que existe arrasto e que ele pesa mais a longa distância; não publica o coeficiente."
+      },
+      "sources": [
+        {
+          "provider": "raymdl/BF6-Weapon-Analyzer",
+          "type": "community",
+          "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+          "dataset": "data/weapons.json",
+          "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+          "version": "1.3.3.0",
+          "retrievedAt": "2026-08-12T12:18:38.664Z",
+          "snapshot": "github-7907352"
+        },
+        {
+          "provider": "r/Battlefield — planilha da comunidade",
+          "type": "community",
+          "url": "https://www.reddit.com/r/Battlefield/comments/1pjw7ha/",
+          "version": "1.3.3.0",
+          "retrievedAt": null
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Dois coeficientes circulam e nenhuma fonte oficial arbitra. O catálogo usa o do Analyzer por ser o do dataset importado; a queda de bala calculada com ele é aproximada, e a tela deve dizer isso."
+      }
+    },
+    {
+      "id": "evt-2026-08-12-analyzer-import",
+      "gameVersion": "1.3.3.0",
+      "timestamp": "2026-08-12",
+      "type": "initial_import",
+      "entityType": "catalog",
+      "entityId": null,
+      "changes": {
+        "armas": 62,
+        "curvasDeDano": 62,
+        "provisionais": 62,
+        "semRecargaTática": [
+          "db12",
+          "m1014",
+          "m87a1"
+        ],
+        "semRecargaVazia": [
+          "db12",
+          "m1014",
+          "m357trait",
+          "m44",
+          "m87a1",
+          "vssm"
+        ],
+        "semTempoDeMira": [
+          "l115",
+          "m16a4",
+          "pp19",
+          "rpk74m"
+        ],
+        "ignoradas": []
+      },
+      "sources": [
+        {
+          "provider": "raymdl/BF6-Weapon-Analyzer",
+          "type": "community",
+          "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+          "dataset": "data/weapons.json",
+          "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+          "version": "1.3.3.0",
+          "retrievedAt": "2026-08-12T12:27:21.184Z",
+          "snapshot": "github-7907352"
+        }
+      ],
+      "automation": "auto",
+      "resolution": null
+    },
+    {
+      "id": "evt-2026-08-12-conflict-drag",
+      "gameVersion": "1.3.3.0",
+      "timestamp": "2026-08-12",
+      "type": "source_conflict",
+      "entityType": "catalog",
+      "entityId": null,
+      "changes": {
+        "campo": "coeficiente de arrasto",
+        "analyzer": {
+          "base": 0.0035,
+          "longRange": 0.002,
+          "fonte": "raymdl/BF6-Weapon-Analyzer@7907352"
+        },
+        "comunidade": {
+          "base": 0.0025,
+          "longRange": 0.001,
+          "fonte": "planilha interativa de armas (r/Battlefield), comentário do autor"
+        },
+        "ea": "Confirma que existe arrasto e que ele pesa mais a longa distância; não publica o coeficiente."
+      },
+      "sources": [
+        {
+          "provider": "raymdl/BF6-Weapon-Analyzer",
+          "type": "community",
+          "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+          "dataset": "data/weapons.json",
+          "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+          "version": "1.3.3.0",
+          "retrievedAt": "2026-08-12T12:27:21.184Z",
+          "snapshot": "github-7907352"
+        },
+        {
+          "provider": "r/Battlefield — planilha da comunidade",
+          "type": "community",
+          "url": "https://www.reddit.com/r/Battlefield/comments/1pjw7ha/",
+          "version": "1.3.3.0",
+          "retrievedAt": null
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Dois coeficientes circulam e nenhuma fonte oficial arbitra. O catálogo usa o do Analyzer por ser o do dataset importado; a queda de bala calculada com ele é aproximada, e a tela deve dizer isso."
+      }
+    }
+  ]
+}

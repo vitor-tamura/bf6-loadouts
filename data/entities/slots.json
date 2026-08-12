@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "slots": [
+    {
+      "id": "ammo",
+      "name": "Ammo",
+      "aliases": [],
+      "order": null
+    },
+    {
+      "id": "barrel",
+      "name": "Barrel",
+      "aliases": [],
+      "order": null
+    },
+    {
+      "id": "ergonomics",
+      "name": "Ergonomics",
+      "aliases": [],
+      "order": null
+    },
+    {
+      "id": "laser",
+      "name": "Laser",
+      "aliases": [],
+      "order": null
+    },
+    {
+      "id": "light",
+      "name": "Light",
+      "aliases": [],
+      "order": null
+    },
+    {
+      "id": "magazine",
+      "name": "Magazine",
+      "aliases": [],
+      "order": null
+    },
+    {
+      "id": "muzzle",
+      "name": "Muzzle",
+      "aliases": [],
+      "order": null
+    },
+    {
+      "id": "sight",
+      "name": "Sight",
+      "aliases": [],
+      "order": null
+    },
+    {
+      "id": "underbarrel",
+      "name": "Underbarrel",
+      "aliases": [],
+      "order": null
+    }
+  ]
+}
