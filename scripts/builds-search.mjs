@@ -104,6 +104,7 @@ ${lista}
 ## Regras
 
 - Uma a três frases por arma, dizendo o que se monta nela e por quê: que tipo de boca, cano, empunhadura, mira ou munição a comunidade prefere, e o que isso corrige na arma.
+- **Escreva em português do Brasil.** A pesquisa é em inglês, a resposta não: diga "compensador", "cano curto", "empunhadura vertical", "munição de ponta oca" — nunca "muzzle compensator" ou "short barrel". Meia frase em cada idioma é o pior dos dois.
 - Fale por tipo de peça, não por nome exato de acessório: quem escolhe o nome é outra etapa, com a lista da arma em mãos.
 - Priorize os últimos 30 dias.
 - Arma sem evidência recente fica de fora da resposta. Não escreva nada genérico para preencher: quatro armas sustentadas valem mais que doze inventadas.
