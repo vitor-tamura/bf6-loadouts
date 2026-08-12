@@ -1,6 +1,7 @@
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import { budgetFor, CATEGORY_NAMES, CLASSES } from '@/data/classes';
 import live from '@/data/meta-live.json';
+import buildsFile from '@/data/builds-live.json';
 import {
   HIGHLIGHTS,
   SOURCES,
@@ -441,6 +442,23 @@ function gameState(): string {
 }
 
 /**
+ * A leitura semanal de builds, tipada.
+ *
+ * O arquivo nasce vazio — `builds-search` o preenche —, e um JSON de listas
+ * vazias faz o TypeScript inferir `never[]`: qualquer acesso a campo vira erro
+ * de compilação. O tipo explícito diz o que o arquivo vai conter quando a
+ * rotina rodar.
+ */
+interface BuildsFile {
+  readAt: string | null;
+  builds: { weapon: string; advice: string; source: string | null }[];
+  sources: { name: string; url: string; date: string | null }[];
+  withoutEvidence: string[];
+}
+
+const builds = buildsFile as BuildsFile;
+
+/**
  * O que a comunidade já disse sobre esta arma.
  *
  * A pesquisa em sites e comunidades especializadas existe neste projeto, e
@@ -458,6 +476,28 @@ function gameState(): string {
  * escolher, e é assim que ela entra no prompt.
  */
 function communityRead(weapon: Weapon): { text: string; sources: CitedSource[] } | null {
+  /*
+   * A leitura de build vem primeiro, quando existe.
+   *
+   * `builds-search` pergunta o que a comunidade **monta** em cada arma, para as
+   * 62, uma vez por semana. É contexto mais próximo do que o botão faz do que a
+   * leitura do meta, que diz quais armas estão fortes — útil, mas sobre outra
+   * pergunta. Quando a semanal não cobre a arma, a diária responde.
+   */
+  const build = builds.builds.find((entry) => entry.weapon === weapon.id);
+  if (build) {
+    const cited = builds.sources
+      .filter((source) => !build.source || source.url === build.source)
+      .map((source) => ({ name: source.name, url: source.url }));
+
+    return {
+      text: build.advice,
+      sources: cited.length
+        ? cited
+        : builds.sources.slice(0, 2).map((source) => ({ name: source.name, url: source.url })),
+    };
+  }
+
   const fromLive = [...(live.picks ?? []), ...(live.trending ?? [])] as MetaPick[];
   const fallback = [...HIGHLIGHTS, ...TRENDING];
 

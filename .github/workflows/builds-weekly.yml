@@ -1,0 +1,79 @@
+# Relê o que a comunidade monta em cada arma, uma vez por semana.
+#
+# O `meta-daily.yml` responde quais armas estão fortes, oito por dia. Este
+# responde o que se põe nelas, nas 62 — que é o contexto de que o botão
+# "sugestão da comunidade" precisa e que, dentro da chamada, custava mais que o
+# orçamento inteiro de espera do clique.
+#
+# Publica direto em `main` pelo mesmo motivo do meta: o que ele grava é leitura
+# de opinião pública já filtrada contra o arsenal — arma que não existe no jogo
+# não entra —, e a tela avisa que a leitura é automática. Se vier bobagem, o
+# diff mostra e um `git revert` desfaz.
+#
+# Semanal, e não diário, porque montagem muda com patch, não com o dia: são
+# ~11 buscas por rodada, e repeti-las toda manhã gastaria a chave para reescrever
+# o mesmo texto.
+
+name: Atualizar montagens da comunidade
+
+on:
+  schedule:
+    # Quinta, 11:00 UTC. Longe da sincronização de dados (segunda, 09:00) e da
+    # leitura do meta (todo dia, 10:00): três rotinas escrevendo em `main` na
+    # mesma hora disputariam o push, e a perdedora sumiria sem aviso.
+    - cron: '0 11 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Duas execuções ao mesmo tempo escreveriam o mesmo arquivo e uma perderia.
+concurrency:
+  group: builds-weekly
+  cancel-in-progress: false
+
+jobs:
+  builds:
+    runs-on: ubuntu-latest
+    # A varredura é feita em lotes, com espera entre tentativas quando a API
+    # limita o ritmo. O teto padrão de 6 h serviria para uma rodada travada
+    # segurar a fila; 30 min cobre com folga o que a rotina leva.
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Perguntar à busca
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: npm run builds:search
+
+      - name: Publicar em main se mudou
+        env:
+          MAIN_PUSH_TOKEN: ${{ secrets.MAIN_PUSH_TOKEN }}
+        run: |
+          if [ -z "${MAIN_PUSH_TOKEN}" ]; then
+            echo "Secret MAIN_PUSH_TOKEN não configurado."
+            exit 1
+          fi
+
+          if git diff --quiet -- src/data/builds-live.json; then
+            echo "Sem alterações para publicar."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/builds-live.json
+          git commit -m "Atualiza as montagens lidas da comunidade"
+          git remote set-url origin "https://x-access-token:${MAIN_PUSH_TOKEN}@github.com/${{ github.repository }}.git"
+          git push origin HEAD:main
