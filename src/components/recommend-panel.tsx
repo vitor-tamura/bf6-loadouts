@@ -85,7 +85,9 @@ function Pecas({
     .map((slot) => {
       const id = attachments[slot];
       const part = id ? ATTACHMENTS_BY_ID.get(id) : undefined;
-      return part ? { slot, name: attachmentName(part, weapon), note: why[slot] } : null;
+      return part
+        ? { slot, name: attachmentName(part, weapon), original: part.originalName, note: why[slot] }
+        : null;
     })
     .filter((linha) => linha !== null);
 
@@ -100,6 +102,11 @@ function Pecas({
             {SLOTS_BY_ID.get(linha.slot)?.name ?? linha.slot}
           </span>
           <span className="font-semibold">{linha.name}</span>
+          {/* O nome em inglês, ao lado e apagado: é por ele que a peça é
+              reconhecida em guia e discussão de fora. */}
+          <span className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
+            {linha.original}
+          </span>
           {linha.note && (
             <span className="basis-full pl-20 text-[11px]" style={{ color: 'var(--text-dim)' }}>
               {linha.note}

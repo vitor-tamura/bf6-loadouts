@@ -43,15 +43,14 @@ import { DEFAULT_RANGE, idealLoadout, type LoadoutAdvice } from '@/lib/recommend
  *
  * Spinner mudo não informa: aos vinte segundos ele é indistinguível de uma tela
  * quebrada. Cada faixa nomeia a etapa que o modelo está cumprindo naquele
- * momento — pesquisa, leitura, fechamento —, e a última assume a demora em vez
- * de fingir que está tudo dentro do previsto. Os tempos são a ordem de grandeza
- * observada nesta rota: a busca com o painel inteiro mede perto de um minuto.
+ * momento, e a última assume o estouro em vez de fingir que está tudo dentro do
+ * previsto. Os tempos seguem o orçamento da rota, que é de dez segundos: depois
+ * disso ela desiste e o que fica é a montagem local, aplicada desde o clique.
  */
 const STAGES = [
-  { after: 0, text: 'Lendo os patch notes e os guias recentes…' },
-  { after: 10, text: 'Vendo o que a comunidade está montando nesta arma…' },
-  { after: 25, text: 'Comparando as fontes e fechando a montagem…' },
-  { after: 45, text: 'Está demorando mais que o normal — a busca continua.' },
+  { after: 0, text: 'Vendo o que a comunidade monta nesta arma…' },
+  { after: 4, text: 'Fechando a montagem…' },
+  { after: 10, text: 'Passou do tempo — em instantes fica a montagem local.' },
 ];
 
 const stageText = (seconds: number) => STAGES.filter((stage) => seconds >= stage.after).at(-1)!.text;

@@ -108,14 +108,14 @@ const MAX_RETRIES = positiveInt(process.env.OPENAI_RECOMMEND_RETRIES, 3);
  * `REQUEST_TIMEOUT_MS` é quanto uma única ida ao modelo pode durar — sem ele,
  * uma conexão pendurada segura a rota inteira sem nunca responder.
  *
- * `TIME_BUDGET_MS` é o tempo total: a rodada de correção, a espera do limite de
- * taxa e o próximo modelo da fila só começam se couberem nele. Um pedido que já
- * gastou dois minutos e meio não melhora insistindo — melhora devolvendo,
- * porque do outro lado a arma está montada pelas estatísticas desde o clique e
- * o que falta é só a leitura da comunidade.
+ * `TIME_BUDGET_MS` é o tempo total: a espera do limite de taxa e o próximo
+ * modelo da fila só começam se couberem nele. O alvo é dez segundos, e ele é
+ * curto de propósito — do outro lado a arma já está montada pelas estatísticas
+ * desde o clique, e o que falta é só a leitura da comunidade. Estourar o
+ * relógio custa a leitura, não a build.
  */
-const REQUEST_TIMEOUT_MS = positiveInt(process.env.OPENAI_RECOMMEND_REQUEST_TIMEOUT_MS, 18_000);
-const TIME_BUDGET_MS = positiveInt(process.env.OPENAI_RECOMMEND_TIME_BUDGET_MS, 20_000);
+const REQUEST_TIMEOUT_MS = positiveInt(process.env.OPENAI_RECOMMEND_REQUEST_TIMEOUT_MS, 9_000);
+const TIME_BUDGET_MS = positiveInt(process.env.OPENAI_RECOMMEND_TIME_BUDGET_MS, 10_000);
 
 /** O erro de quem ficou sem tempo — reconhecível no log e no fim da fila. */
 const timeout = (message: string) => Object.assign(new Error(message), { timedOut: true });
@@ -189,10 +189,25 @@ function retryDelayMs(response: Response, message: string, attempt: number) {
  * busca é o ponto desta rota, quem sai é o resto: o JSON vem em texto corrido
  * e `extractJson` o recorta, que é para isso que ele existe.
  */
+/*
+ * A busca na web é o que custa o tempo.
+ *
+ * Ela é o ponto do botão — "sugestão da comunidade" quer dizer que alguém foi
+ * ler o que a comunidade monta —, e também o passo que sozinho leva mais tempo
+ * que o orçamento inteiro de dez segundos. Manter ligada é apostar que a busca
+ * cabe; desligar troca a leitura de hoje pelo que o modelo já sabe.
+ *
+ * A escolha fica em variável de ambiente porque ela é de operação, não de
+ * código: dá para medir com ela ligada, ver quantas respostas estouram o
+ * relógio, e desligar sem publicar versão nova. Com a busca desligada, o painel
+ * avisa — `unsourced` continua sendo verdade quando não há página citada.
+ */
+const WEB_SEARCH = process.env.OPENAI_RECOMMEND_WEB_SEARCH !== 'off';
+
 function requestBody(model: string, prompt: string) {
   return {
     model,
-    tools: [{ type: 'web_search' }],
+    ...(WEB_SEARCH ? { tools: [{ type: 'web_search' }] } : {}),
     input: prompt,
     max_output_tokens: MAX_OUTPUT_TOKENS,
     store: false,

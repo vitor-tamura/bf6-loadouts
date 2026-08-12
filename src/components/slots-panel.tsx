@@ -290,6 +290,17 @@ export function SlotsPanel({
                 {current ? attachmentName(current, weapon) : 'Vazio'}
               </span>
 
+              {/* O nome em inglês só cabe no cartão inteiro; no compacto, o
+                  espaço mal comporta o nome principal. */}
+              {!compact && current && (
+                <span
+                  className="line-clamp-1 w-full text-[10px] leading-tight"
+                  style={{ color: 'var(--text-dim)' }}
+                >
+                  {current.originalName}
+                </span>
+              )}
+
               {!compact && (
                 <span className="font-mono text-[11px]" style={{ color: 'var(--text-dim)' }}>
                   {current ? `${attachmentCost(current, weapon)} pts` : '—'}
@@ -390,6 +401,17 @@ function SlotOptions({
         <h4 className="font-display text-lg leading-tight font-semibold tracking-wide">
           {preview ? attachmentName(preview, weapon) : 'Sem acessório'}
         </h4>
+        {/*
+          O nome em inglês, embaixo e apagado.
+          Metade das discussões sobre build está em inglês, e quem joga com o
+          jogo em inglês reconhece a peça por este nome. Ele fica abaixo e sem
+          destaque para não competir com o nome que a tela usa.
+        */}
+        {preview && (
+          <p className="text-[11px] leading-tight" style={{ color: 'var(--text-dim)' }}>
+            {preview.originalName}
+          </p>
+        )}
         <p className="mt-0.5 text-[12px] leading-snug" style={{ color: 'var(--text-soft)' }}>
           {preview ? preview.description : definition.description}
         </p>
@@ -405,7 +427,6 @@ function SlotOptions({
                 {effect.text}
               </span>
             ))}
-            <span style={{ color: 'var(--text-dim)' }}>{preview.originalName}</span>
             {preview.provenance === 'curated' && (
               <Hint label="Efeito aproximado">
                 <span style={{ color: 'var(--accent)' }}>≈ aproximado</span>
@@ -553,6 +574,15 @@ function OptionTile({
         >
           {attachment ? attachmentName(attachment, weapon) : 'Vazio'}
         </span>
+
+        {attachment && (
+          <span
+            className="line-clamp-1 w-full text-[9px] leading-tight"
+            style={{ color: 'var(--text-dim)' }}
+          >
+            {attachment.originalName}
+          </span>
+        )}
       </button>
     </Hint>
   );
