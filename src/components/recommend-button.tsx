@@ -121,7 +121,20 @@ export function RecommendButton({
       const response = await fetch(`/api/recommend/?weapon=${weapon.id}&range=${DEFAULT_RANGE}`, {
         signal: controller.signal,
       });
-      if (!response.ok) throw new Error(String(response.status));
+
+      if (!response.ok) {
+        /*
+         * O motivo da recusa sobe junto.
+         *
+         * A rota devolve `reason` no corpo — chave ausente, ambiente errado,
+         * modelo fora do ar, resposta cortada. Sem isso a tela dizia sempre a
+         * mesma frase, e "não veio agora" cobria desde falta de crédito até um
+         * modelo que não existe: quem fosse consertar não tinha por onde
+         * começar.
+         */
+        const body = (await response.json().catch(() => null)) as { reason?: string } | null;
+        throw new Error(body?.reason ?? `HTTP ${response.status}`);
+      }
 
       const data = (await response.json()) as LoadoutAdvice;
       onLoadout(data.attachments);
@@ -137,7 +150,10 @@ export function RecommendButton({
        * ninguém confundir as duas, e o botão vira convite a tentar de novo.
        * Aqui não há painel: não existe leitura para mostrar.
        */
-      setFailure('A busca na comunidade não veio agora. Ficou a montagem calculada pelas estatísticas desta arma.');
+      const detail = error instanceof Error ? error.message : String(error);
+      setFailure(
+        `A busca na comunidade não veio agora. Ficou a montagem calculada pelas estatísticas desta arma. (${detail})`,
+      );
     } finally {
       if (controllerRef.current === controller) setFetching(false);
     }

@@ -479,9 +479,34 @@ export async function GET(request: Request) {
     return Response.json({ error: 'arma desconhecida' }, { status: 404 });
   }
 
-  // A mesma regra do confronto: IA generativa é coisa de produção.
-  if (!API_KEY || process.env.VERCEL_ENV !== 'production') {
-    return Response.json({ error: 'modelo indisponível' }, { status: 502 });
+  /*
+   * Onde a rota funciona, e por quê ela dizia que não.
+   *
+   * A regra era "só em produção", e ela transformava todo teste em preview num
+   * 502 mudo: o botão caía na montagem local e a tela dizia que a busca não
+   * veio, sem que nada estivesse quebrado. Preview é justamente onde se
+   * confere se a sugestão funciona antes de publicar.
+   *
+   * O que continua barrado é a máquina de desenvolvimento sem chave, e o gasto
+   * segue contido pelo limite diário por IP e pelo cache de uma semana na borda.
+   *
+   * O motivo da recusa vai no corpo. Sem ele, "modelo indisponível" cobre chave
+   * ausente, ambiente errado e modelo fora do ar com a mesma frase — e quem
+   * está depurando não tem por onde começar.
+   */
+  if (!API_KEY) {
+    return Response.json(
+      { error: 'modelo indisponível', reason: 'OPENAI_API_KEY não configurada neste ambiente' },
+      { status: 502 },
+    );
+  }
+
+  const environment = process.env.VERCEL_ENV;
+  if (environment !== 'production' && environment !== 'preview') {
+    return Response.json(
+      { error: 'modelo indisponível', reason: `a rota não roda em "${environment ?? 'local'}"` },
+      { status: 502 },
+    );
   }
 
   if (overDailyLimit(request)) {
@@ -568,10 +593,15 @@ Regras:
     }
   }
 
-  console.error('[recommend] falha no modelo', {
-    weaponId,
-    range,
-    message: lastError instanceof Error ? lastError.message : String(lastError),
-  });
-  return Response.json({ error: 'modelo indisponível' }, { status: 502 });
+  const message = lastError instanceof Error ? lastError.message : String(lastError);
+  console.error('[recommend] falha no modelo', { weaponId, range, models: MODELS, message });
+
+  /*
+   * A razão vai junto, e é a razão de verdade.
+   *
+   * Toda a fila recusou, e sem saber o que ela disse — modelo inexistente,
+   * resposta cortada, peça fora da lista — a única saída é adivinhar. O texto
+   * vem da API e não carrega chave nem dado de quem pediu.
+   */
+  return Response.json({ error: 'modelo indisponível', reason: message }, { status: 502 });
 }
