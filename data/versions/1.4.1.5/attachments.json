@@ -1,0 +1,2005 @@
+{
+  "gameVersion": "1.4.1.5",
+  "attachments": [
+    {
+      "id": "120mw_blue",
+      "status": "active",
+      "name": "120 MW Blue"
+    },
+    {
+      "id": "50mw_blue",
+      "status": "active",
+      "name": "50 MW Blue"
+    },
+    {
+      "id": "50mw_green",
+      "status": "active",
+      "name": "50 MW Green"
+    },
+    {
+      "id": "50mw_violet",
+      "status": "active",
+      "name": "50 MW Violet"
+    },
+    {
+      "id": "5mw_green",
+      "status": "active",
+      "name": "5 MW Green"
+    },
+    {
+      "id": "5mw_red",
+      "status": "active",
+      "name": "5 MW Red"
+    },
+    {
+      "id": "6h64_vert",
+      "status": "active",
+      "name": "6H64 Vertical"
+    },
+    {
+      "id": "6h64_vert_db12",
+      "status": "active",
+      "name": "6H64 Vertical"
+    },
+    {
+      "id": "6h64_vert_ks18k",
+      "status": "active",
+      "name": "6H64 Vertical"
+    },
+    {
+      "id": "6h64_vert_svk86",
+      "status": "active",
+      "name": "6H64 Vertical"
+    },
+    {
+      "id": "6h64_vert_vssm",
+      "status": "active",
+      "name": "6H64 Vertical"
+    },
+    {
+      "id": "adj_angled",
+      "status": "active",
+      "name": "Adjustable Angled"
+    },
+    {
+      "id": "ads_bolt",
+      "status": "active",
+      "name": "DLC Bolt"
+    },
+    {
+      "id": "ads_taclight",
+      "status": "active",
+      "name": "Taclight - Aimed"
+    },
+    {
+      "id": "alloy_vert",
+      "status": "active",
+      "name": "Alloy Vertical"
+    },
+    {
+      "id": "ammo:buckshot",
+      "status": "active",
+      "name": "#01 BUCK"
+    },
+    {
+      "id": "ammo:buckshot_00",
+      "status": "active",
+      "name": "#00 BUCK"
+    },
+    {
+      "id": "ammo:flechette",
+      "status": "active",
+      "name": "Flechette"
+    },
+    {
+      "id": "ammo:frangible",
+      "status": "active",
+      "name": "Frangible"
+    },
+    {
+      "id": "ammo:hollow_pt",
+      "status": "active",
+      "name": "Hollow Point"
+    },
+    {
+      "id": "ammo:lightweight",
+      "status": "active",
+      "name": "Lightweight"
+    },
+    {
+      "id": "ammo:long_range",
+      "status": "active",
+      "name": "Long-Range"
+    },
+    {
+      "id": "ammo:penetration",
+      "status": "active",
+      "name": "Penetration"
+    },
+    {
+      "id": "ammo:range_pen",
+      "status": "active",
+      "name": "Range Pen"
+    },
+    {
+      "id": "ammo:slugs",
+      "status": "active",
+      "name": "Slugs"
+    },
+    {
+      "id": "ammo:standard",
+      "status": "active",
+      "name": "Standard"
+    },
+    {
+      "id": "ammo:subsonic",
+      "status": "active",
+      "name": "Subsonic"
+    },
+    {
+      "id": "ammo:subsonic_hp",
+      "status": "active",
+      "name": "Sub HP"
+    },
+    {
+      "id": "ammo:subsonic_pen",
+      "status": "active",
+      "name": "Sub Pen"
+    },
+    {
+      "id": "ammo:synthetic",
+      "status": "active",
+      "name": "Synthetic"
+    },
+    {
+      "id": "basic",
+      "status": "active",
+      "name": "Basic"
+    },
+    {
+      "id": "bipod",
+      "status": "active",
+      "name": "Bipod"
+    },
+    {
+      "id": "bipod_sr",
+      "status": "active",
+      "name": "Bipod"
+    },
+    {
+      "id": "buffer",
+      "status": "active",
+      "name": "Aftermarket Buffer"
+    },
+    {
+      "id": "burst_mode",
+      "status": "active",
+      "name": "Burst Mode"
+    },
+    {
+      "id": "burst_training",
+      "status": "active",
+      "name": "Burst Training"
+    },
+    {
+      "id": "canted_stubby",
+      "status": "active",
+      "name": "Canted Stubby"
+    },
+    {
+      "id": "classic_grip_pod",
+      "status": "active",
+      "name": "Classic Grip Pod"
+    },
+    {
+      "id": "classic_grip_pod_sr",
+      "status": "active",
+      "name": "Classic Grip Pod"
+    },
+    {
+      "id": "classic_vert",
+      "status": "active",
+      "name": "Classic Vertical"
+    },
+    {
+      "id": "classic_vert_db12",
+      "status": "active",
+      "name": "Classic Vertical"
+    },
+    {
+      "id": "classic_vert_ks18k",
+      "status": "active",
+      "name": "Classic Vertical"
+    },
+    {
+      "id": "classic_vert_svk86",
+      "status": "active",
+      "name": "Classic Vertical"
+    },
+    {
+      "id": "classic_vert_vssm",
+      "status": "active",
+      "name": "Classic Vertical"
+    },
+    {
+      "id": "cmpct_handstop",
+      "status": "active",
+      "name": "Compact Handstop"
+    },
+    {
+      "id": "combo_green",
+      "status": "active",
+      "name": "Combo Green"
+    },
+    {
+      "id": "combo_red",
+      "status": "active",
+      "name": "Combo Red"
+    },
+    {
+      "id": "comp_brake",
+      "status": "active",
+      "name": "Compensated Brake"
+    },
+    {
+      "id": "compensator",
+      "status": "active",
+      "name": "Compensator"
+    },
+    {
+      "id": "cqb_supp",
+      "status": "active",
+      "name": "CQB Suppressor"
+    },
+    {
+      "id": "cryo",
+      "status": "active",
+      "name": "Cryogenic"
+    },
+    {
+      "id": "dp_brake",
+      "status": "active",
+      "name": "Double-Port Brake"
+    },
+    {
+      "id": "ext_light",
+      "status": "active",
+      "name": "Extended Light"
+    },
+    {
+      "id": "extended",
+      "status": "active",
+      "name": "Extended"
+    },
+    {
+      "id": "factory_angled_db12",
+      "status": "active",
+      "name": "Factory Angled"
+    },
+    {
+      "id": "factory_angled_lmr27",
+      "status": "active",
+      "name": "Factory Angled"
+    },
+    {
+      "id": "factory_angled_sl9",
+      "status": "active",
+      "name": "Factory Angled"
+    },
+    {
+      "id": "fast_deploy",
+      "status": "active",
+      "name": "Speed Holster"
+    },
+    {
+      "id": "fast_deploy_10",
+      "status": "active",
+      "name": "Gunslinger"
+    },
+    {
+      "id": "flash_comp",
+      "status": "active",
+      "name": "Flash Comp"
+    },
+    {
+      "id": "flash_hider",
+      "status": "active",
+      "name": "Flash Hider"
+    },
+    {
+      "id": "flashlight",
+      "status": "active",
+      "name": "Flashlight"
+    },
+    {
+      "id": "fold_stubby",
+      "status": "active",
+      "name": "Folding Stubby"
+    },
+    {
+      "id": "fold_vert",
+      "status": "active",
+      "name": "Folding Vertical"
+    },
+    {
+      "id": "full_angled",
+      "status": "active",
+      "name": "Full Angled"
+    },
+    {
+      "id": "full_angled_sr",
+      "status": "active",
+      "name": "Full Angled"
+    },
+    {
+      "id": "full_auto",
+      "status": "active",
+      "name": "A3 Receiver"
+    },
+    {
+      "id": "full_auto_vssm",
+      "status": "active",
+      "name": "Folding Stock"
+    },
+    {
+      "id": "grtbc_burst_mode",
+      "status": "active",
+      "name": "Burst Training"
+    },
+    {
+      "id": "heavy",
+      "status": "active",
+      "name": "Heavy"
+    },
+    {
+      "id": "heavy_ext",
+      "status": "active",
+      "name": "Heavy Extended"
+    },
+    {
+      "id": "hip_taclight",
+      "status": "active",
+      "name": "Taclight - Hipfire"
+    },
+    {
+      "id": "iron",
+      "status": "active",
+      "name": "Iron Sights"
+    },
+    {
+      "id": "light",
+      "status": "active",
+      "name": "Light"
+    },
+    {
+      "id": "light_supp",
+      "status": "active",
+      "name": "Lightened Suppressor"
+    },
+    {
+      "id": "linear_comp",
+      "status": "active",
+      "name": "Linear Comp"
+    },
+    {
+      "id": "long_supp",
+      "status": "active",
+      "name": "Long Suppressor"
+    },
+    {
+      "id": "lp_stubby",
+      "status": "active",
+      "name": "Low-Profile Stubby"
+    },
+    {
+      "id": "lp_stubby_db12",
+      "status": "active",
+      "name": "Low-Profile Stubby"
+    },
+    {
+      "id": "lp_stubby_ks18k",
+      "status": "active",
+      "name": "Low-Profile Stubby"
+    },
+    {
+      "id": "lp_stubby_sr",
+      "status": "active",
+      "name": "Low-Profile Stubby"
+    },
+    {
+      "id": "lp_stubby_svk86",
+      "status": "active",
+      "name": "Low-Profile Stubby"
+    },
+    {
+      "id": "lp_stubby_vssm",
+      "status": "active",
+      "name": "Low-Profile Stubby"
+    },
+    {
+      "id": "mag_catch",
+      "status": "active",
+      "name": "Improved Mag Catch"
+    },
+    {
+      "id": "mag_flare",
+      "status": "active",
+      "name": "Magwell Flare"
+    },
+    {
+      "id": "magazine:ak205:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:ak205:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:ak205:36_rnd",
+      "status": "active",
+      "name": "36 Rnd"
+    },
+    {
+      "id": "magazine:ak205:40_fast",
+      "status": "active",
+      "name": "40 Fast"
+    },
+    {
+      "id": "magazine:ak205:40_rnd",
+      "status": "active",
+      "name": "40 Rnd"
+    },
+    {
+      "id": "magazine:ak205:45_fast",
+      "status": "active",
+      "name": "45 Fast"
+    },
+    {
+      "id": "magazine:ak205:45_rnd",
+      "status": "active",
+      "name": "45 Rnd"
+    },
+    {
+      "id": "magazine:ak205:50_rnd",
+      "status": "active",
+      "name": "50 Rnd"
+    },
+    {
+      "id": "magazine:ak4d:15_fast",
+      "status": "active",
+      "name": "15 Fast"
+    },
+    {
+      "id": "magazine:ak4d:15_rnd",
+      "status": "active",
+      "name": "15 Rnd"
+    },
+    {
+      "id": "magazine:ak4d:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:ak4d:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:ak4d:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:b36a4:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:b36a4:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:b36a4:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:b36a4:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:b36a4:36_rnd",
+      "status": "active",
+      "name": "36 Rnd"
+    },
+    {
+      "id": "magazine:b36a4:40_fast",
+      "status": "active",
+      "name": "40 Fast"
+    },
+    {
+      "id": "magazine:b36a4:40_rnd",
+      "status": "active",
+      "name": "40 Rnd"
+    },
+    {
+      "id": "magazine:b36a4:45_fast",
+      "status": "active",
+      "name": "45 Fast"
+    },
+    {
+      "id": "magazine:b36a4:45_rnd",
+      "status": "active",
+      "name": "45 Rnd"
+    },
+    {
+      "id": "magazine:brod3:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:brod3:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:brod3:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:brod3:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:brod3:36_rnd",
+      "status": "active",
+      "name": "36 Rnd"
+    },
+    {
+      "id": "magazine:brod3:40_fast",
+      "status": "active",
+      "name": "40 Fast"
+    },
+    {
+      "id": "magazine:brod3:40_rnd",
+      "status": "active",
+      "name": "40 Rnd"
+    },
+    {
+      "id": "magazine:cz3a1:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:cz3a1:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:cz3a1:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:cz3a1:35_fast",
+      "status": "active",
+      "name": "35 Fast"
+    },
+    {
+      "id": "magazine:cz3a1:35_rnd",
+      "status": "active",
+      "name": "35 Rnd"
+    },
+    {
+      "id": "magazine:db12:7_rnd",
+      "status": "active",
+      "name": "14 Rnd"
+    },
+    {
+      "id": "magazine:drsiar:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:drsiar:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:drsiar:36_rnd",
+      "status": "active",
+      "name": "36 Rnd"
+    },
+    {
+      "id": "magazine:drsiar:40_fast",
+      "status": "active",
+      "name": "40 Fast"
+    },
+    {
+      "id": "magazine:drsiar:40_rnd",
+      "status": "active",
+      "name": "40 Rnd"
+    },
+    {
+      "id": "magazine:drsiar:45_fast",
+      "status": "active",
+      "name": "45 Fast"
+    },
+    {
+      "id": "magazine:drsiar:45_rnd",
+      "status": "active",
+      "name": "45 Rnd"
+    },
+    {
+      "id": "magazine:drsiar:50_rnd",
+      "status": "active",
+      "name": "50 Rnd"
+    },
+    {
+      "id": "magazine:drsiar:60_rnd",
+      "status": "active",
+      "name": "60 Rnd"
+    },
+    {
+      "id": "magazine:ef88:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:ef88:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:ef88:36_rnd",
+      "status": "active",
+      "name": "36 Rnd"
+    },
+    {
+      "id": "magazine:ef88:42_fast",
+      "status": "active",
+      "name": "42 Fast"
+    },
+    {
+      "id": "magazine:ef88:42_rnd",
+      "status": "active",
+      "name": "42 Rnd"
+    },
+    {
+      "id": "magazine:es57:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:es57:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:ggh22:15_rnd",
+      "status": "active",
+      "name": "15 Rnd"
+    },
+    {
+      "id": "magazine:ggh22:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:ggh22:22_rnd",
+      "status": "active",
+      "name": "22 Rnd"
+    },
+    {
+      "id": "magazine:grtbc:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:grtbc:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:grtbc:36_rnd",
+      "status": "active",
+      "name": "36 Rnd"
+    },
+    {
+      "id": "magazine:grtbc:45_fast",
+      "status": "active",
+      "name": "45 Fast"
+    },
+    {
+      "id": "magazine:grtbc:45_rnd",
+      "status": "active",
+      "name": "45 Rnd"
+    },
+    {
+      "id": "magazine:grtcps:15_rnd",
+      "status": "active",
+      "name": "15 Rnd"
+    },
+    {
+      "id": "magazine:grtcps:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:grtcps:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:grtcps:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:kord6p67:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:kord6p67:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:kord6p67:36_rnd",
+      "status": "active",
+      "name": "36 Rnd"
+    },
+    {
+      "id": "magazine:kord6p67:40_fast",
+      "status": "active",
+      "name": "40 Fast"
+    },
+    {
+      "id": "magazine:kord6p67:40_rnd",
+      "status": "active",
+      "name": "40 Rnd"
+    },
+    {
+      "id": "magazine:kord6p67:45_fast",
+      "status": "active",
+      "name": "45 Fast"
+    },
+    {
+      "id": "magazine:kord6p67:45_rnd",
+      "status": "active",
+      "name": "45 Rnd"
+    },
+    {
+      "id": "magazine:ks18k:4_fast",
+      "status": "active",
+      "name": "4 Fast"
+    },
+    {
+      "id": "magazine:ks18k:4_rnd",
+      "status": "active",
+      "name": "4 Rnd"
+    },
+    {
+      "id": "magazine:ks18k:8_fast",
+      "status": "active",
+      "name": "8 Fast"
+    },
+    {
+      "id": "magazine:ks18k:8_rnd",
+      "status": "active",
+      "name": "8 Rnd"
+    },
+    {
+      "id": "magazine:kts100:100_rnd",
+      "status": "active",
+      "name": "100 Rnd"
+    },
+    {
+      "id": "magazine:kts100:45_fast",
+      "status": "active",
+      "name": "45 Fast"
+    },
+    {
+      "id": "magazine:kts100:45_rnd",
+      "status": "active",
+      "name": "45 Rnd"
+    },
+    {
+      "id": "magazine:kts100:50_rnd",
+      "status": "active",
+      "name": "50 Rnd"
+    },
+    {
+      "id": "magazine:kts100:60_fast",
+      "status": "active",
+      "name": "60 Fast"
+    },
+    {
+      "id": "magazine:kts100:60_rnd",
+      "status": "active",
+      "name": "60 Rnd"
+    },
+    {
+      "id": "magazine:kv9:17_fast",
+      "status": "active",
+      "name": "17 Fast"
+    },
+    {
+      "id": "magazine:kv9:17_rnd",
+      "status": "active",
+      "name": "17 Rnd"
+    },
+    {
+      "id": "magazine:kv9:23_rnd",
+      "status": "active",
+      "name": "23 Rnd"
+    },
+    {
+      "id": "magazine:kv9:27_rnd",
+      "status": "active",
+      "name": "27 Rnd"
+    },
+    {
+      "id": "magazine:l110:100_rnd",
+      "status": "active",
+      "name": "100 Rnd"
+    },
+    {
+      "id": "magazine:l110:200_rnd",
+      "status": "active",
+      "name": "200 Rnd"
+    },
+    {
+      "id": "magazine:l115:5_rnd",
+      "status": "active",
+      "name": "5 Rnd"
+    },
+    {
+      "id": "magazine:l115:7_fast",
+      "status": "active",
+      "name": "7 Fast"
+    },
+    {
+      "id": "magazine:l115:7_rnd",
+      "status": "active",
+      "name": "7 Rnd"
+    },
+    {
+      "id": "magazine:l85a3:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:l85a3:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:l85a3:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:l85a3:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:l85a3:36_rnd",
+      "status": "active",
+      "name": "36 Rnd"
+    },
+    {
+      "id": "magazine:l85a3:40_fast",
+      "status": "active",
+      "name": "40 Fast"
+    },
+    {
+      "id": "magazine:l85a3:40_rnd",
+      "status": "active",
+      "name": "40 Rnd"
+    },
+    {
+      "id": "magazine:l85a3:45_fast",
+      "status": "active",
+      "name": "45 Fast"
+    },
+    {
+      "id": "magazine:l85a3:45_rnd",
+      "status": "active",
+      "name": "45 Rnd"
+    },
+    {
+      "id": "magazine:lmr27:10_fast",
+      "status": "active",
+      "name": "10 Fast"
+    },
+    {
+      "id": "magazine:lmr27:10_rnd",
+      "status": "active",
+      "name": "10 Rnd"
+    },
+    {
+      "id": "magazine:lmr27:15_fast",
+      "status": "active",
+      "name": "15 Fast"
+    },
+    {
+      "id": "magazine:lmr27:15_rnd",
+      "status": "active",
+      "name": "15 Rnd"
+    },
+    {
+      "id": "magazine:lmr27:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:lmr27:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:m1014:4_fast",
+      "status": "active",
+      "name": "4 Fast"
+    },
+    {
+      "id": "magazine:m1014:4_rnd",
+      "status": "active",
+      "name": "4 Rnd"
+    },
+    {
+      "id": "magazine:m1014:6_rnd",
+      "status": "active",
+      "name": "6 Rnd"
+    },
+    {
+      "id": "magazine:m121a2:100_rnd",
+      "status": "active",
+      "name": "100 Rnd"
+    },
+    {
+      "id": "magazine:m121a2:50_fast",
+      "status": "active",
+      "name": "50 Fast"
+    },
+    {
+      "id": "magazine:m121a2:50_rnd",
+      "status": "active",
+      "name": "50 Rnd"
+    },
+    {
+      "id": "magazine:m123k:100_rnd",
+      "status": "active",
+      "name": "100 Rnd"
+    },
+    {
+      "id": "magazine:m123k:200_rnd",
+      "status": "active",
+      "name": "200 Rnd"
+    },
+    {
+      "id": "magazine:m16a4:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:m16a4:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:m16a4:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:m16a4:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:m16a4:36_rnd",
+      "status": "active",
+      "name": "36 Rnd"
+    },
+    {
+      "id": "magazine:m16a4:40_fast",
+      "status": "active",
+      "name": "40 Fast"
+    },
+    {
+      "id": "magazine:m16a4:40_rnd",
+      "status": "active",
+      "name": "40 Rnd"
+    },
+    {
+      "id": "magazine:m2010esr:5_fast",
+      "status": "active",
+      "name": "5 Fast"
+    },
+    {
+      "id": "magazine:m2010esr:5_rnd",
+      "status": "active",
+      "name": "5 Rnd"
+    },
+    {
+      "id": "magazine:m2010esr:8_rnd",
+      "status": "active",
+      "name": "8 Rnd"
+    },
+    {
+      "id": "magazine:m240l:100_rnd",
+      "status": "active",
+      "name": "100 Rnd"
+    },
+    {
+      "id": "magazine:m240l:50_rnd",
+      "status": "active",
+      "name": "50 Rnd"
+    },
+    {
+      "id": "magazine:m240l:75_rnd",
+      "status": "active",
+      "name": "75 Rnd"
+    },
+    {
+      "id": "magazine:m250:100_rnd",
+      "status": "active",
+      "name": "100 Rnd"
+    },
+    {
+      "id": "magazine:m250:50_rnd",
+      "status": "active",
+      "name": "50 Rnd"
+    },
+    {
+      "id": "magazine:m277:15_rnd",
+      "status": "active",
+      "name": "15 Rnd"
+    },
+    {
+      "id": "magazine:m277:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:m277:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:m277:25_fast",
+      "status": "active",
+      "name": "25 Fast"
+    },
+    {
+      "id": "magazine:m277:25_rnd",
+      "status": "active",
+      "name": "25 Rnd"
+    },
+    {
+      "id": "magazine:m277:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:m357trait:8_fast",
+      "status": "active",
+      "name": "8 Fast"
+    },
+    {
+      "id": "magazine:m357trait:8_rnd",
+      "status": "active",
+      "name": "8 Rnd"
+    },
+    {
+      "id": "magazine:m39emr:15_fast",
+      "status": "active",
+      "name": "15 Fast"
+    },
+    {
+      "id": "magazine:m39emr:15_rnd",
+      "status": "active",
+      "name": "15 Rnd"
+    },
+    {
+      "id": "magazine:m39emr:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:m39emr:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:m39emr:25_rnd",
+      "status": "active",
+      "name": "25 Rnd"
+    },
+    {
+      "id": "magazine:m417a2:10_rnd",
+      "status": "active",
+      "name": "10 Rnd"
+    },
+    {
+      "id": "magazine:m417a2:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:m417a2:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:m417a2:25_rnd",
+      "status": "active",
+      "name": "25 Rnd"
+    },
+    {
+      "id": "magazine:m433:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:m433:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:m433:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:m433:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:m433:36_rnd",
+      "status": "active",
+      "name": "36 Rnd"
+    },
+    {
+      "id": "magazine:m433:40_fast",
+      "status": "active",
+      "name": "40 Fast"
+    },
+    {
+      "id": "magazine:m433:40_rnd",
+      "status": "active",
+      "name": "40 Rnd"
+    },
+    {
+      "id": "magazine:m44:6_rnd",
+      "status": "active",
+      "name": "6 Rnd"
+    },
+    {
+      "id": "magazine:m45a1:11_rnd",
+      "status": "active",
+      "name": "11 Rnd"
+    },
+    {
+      "id": "magazine:m45a1:7_rnd",
+      "status": "active",
+      "name": "7 Rnd"
+    },
+    {
+      "id": "magazine:m4a1:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:m4a1:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:m4a1:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:m4a1:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:m4a1:36_rnd",
+      "status": "active",
+      "name": "36 Rnd"
+    },
+    {
+      "id": "magazine:m4a1:40_fast",
+      "status": "active",
+      "name": "40 Fast"
+    },
+    {
+      "id": "magazine:m4a1:40_rnd",
+      "status": "active",
+      "name": "40 Rnd"
+    },
+    {
+      "id": "magazine:m60:100_rnd",
+      "status": "active",
+      "name": "100 Rnd"
+    },
+    {
+      "id": "magazine:m60:50_rnd",
+      "status": "active",
+      "name": "50 Rnd"
+    },
+    {
+      "id": "magazine:m87a1:5_fast",
+      "status": "active",
+      "name": "5 Fast"
+    },
+    {
+      "id": "magazine:m87a1:5_rnd",
+      "status": "active",
+      "name": "5 Rnd"
+    },
+    {
+      "id": "magazine:m87a1:6_rnd",
+      "status": "active",
+      "name": "6 Rnd"
+    },
+    {
+      "id": "magazine:m87a1:7_rnd",
+      "status": "active",
+      "name": "7 Rnd"
+    },
+    {
+      "id": "magazine:miniscout:10_fast",
+      "status": "active",
+      "name": "10 Fast"
+    },
+    {
+      "id": "magazine:miniscout:10_rnd",
+      "status": "active",
+      "name": "10 Rnd"
+    },
+    {
+      "id": "magazine:miniscout:15_fast",
+      "status": "active",
+      "name": "15 Fast"
+    },
+    {
+      "id": "magazine:miniscout:15_rnd",
+      "status": "active",
+      "name": "15 Rnd"
+    },
+    {
+      "id": "magazine:miniscout:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:miniscout:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:nvo228e:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:nvo228e:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:nvo228e:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:nvo228e:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:nvo228e:36_rnd",
+      "status": "active",
+      "name": "36 Rnd"
+    },
+    {
+      "id": "magazine:nvo228e:40_fast",
+      "status": "active",
+      "name": "40 Fast"
+    },
+    {
+      "id": "magazine:nvo228e:40_rnd",
+      "status": "active",
+      "name": "40 Rnd"
+    },
+    {
+      "id": "magazine:p18:17_rnd",
+      "status": "active",
+      "name": "17 Rnd"
+    },
+    {
+      "id": "magazine:p18:21_rnd",
+      "status": "active",
+      "name": "21 Rnd"
+    },
+    {
+      "id": "magazine:pp19:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:pp19:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:pp19:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:pp19:35_rnd",
+      "status": "active",
+      "name": "35 Rnd"
+    },
+    {
+      "id": "magazine:pp19:53_rnd",
+      "status": "active",
+      "name": "53 Rnd"
+    },
+    {
+      "id": "magazine:psr:10_rnd",
+      "status": "active",
+      "name": "10 Rnd"
+    },
+    {
+      "id": "magazine:psr:7_rnd",
+      "status": "active",
+      "name": "7 Rnd"
+    },
+    {
+      "id": "magazine:pw5a3:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:pw5a3:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:pw5a3:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:pw5a3:40_rnd",
+      "status": "active",
+      "name": "40 Rnd"
+    },
+    {
+      "id": "magazine:pw7a2:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:pw7a2:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:pw7a2:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:pw7a2:40_rnd",
+      "status": "active",
+      "name": "40 Rnd"
+    },
+    {
+      "id": "magazine:qbz192:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:qbz192:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:qbz192:36_rnd",
+      "status": "active",
+      "name": "36 Rnd"
+    },
+    {
+      "id": "magazine:qbz192:40_rnd",
+      "status": "active",
+      "name": "40 Rnd"
+    },
+    {
+      "id": "magazine:rpk74m:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:rpk74m:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:rpk74m:36_rnd",
+      "status": "active",
+      "name": "36 Rnd"
+    },
+    {
+      "id": "magazine:rpk74m:45_fast",
+      "status": "active",
+      "name": "45 Fast"
+    },
+    {
+      "id": "magazine:rpk74m:45_rnd",
+      "status": "active",
+      "name": "45 Rnd"
+    },
+    {
+      "id": "magazine:rpk74m:50_rnd",
+      "status": "active",
+      "name": "50 Rnd"
+    },
+    {
+      "id": "magazine:rpk74m:60_rnd",
+      "status": "active",
+      "name": "60 Rnd"
+    },
+    {
+      "id": "magazine:rpk74m:95_rnd",
+      "status": "active",
+      "name": "95 Rnd"
+    },
+    {
+      "id": "magazine:rpkm:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:rpkm:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:rpkm:36_rnd",
+      "status": "active",
+      "name": "36 Rnd"
+    },
+    {
+      "id": "magazine:rpkm:40_fast",
+      "status": "active",
+      "name": "40 Fast"
+    },
+    {
+      "id": "magazine:rpkm:40_rnd",
+      "status": "active",
+      "name": "40 Rnd"
+    },
+    {
+      "id": "magazine:rpkm:60_rnd",
+      "status": "active",
+      "name": "60 Rnd"
+    },
+    {
+      "id": "magazine:rpkm:75_rnd",
+      "status": "active",
+      "name": "75 Rnd"
+    },
+    {
+      "id": "magazine:scw10:15_fast",
+      "status": "active",
+      "name": "15 Fast"
+    },
+    {
+      "id": "magazine:scw10:15_rnd",
+      "status": "active",
+      "name": "15 Rnd"
+    },
+    {
+      "id": "magazine:scw10:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:scw10:25_rnd",
+      "status": "active",
+      "name": "25 Rnd"
+    },
+    {
+      "id": "magazine:sg553r:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:sg553r:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:sg553r:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:sg553r:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:sg553r:36_rnd",
+      "status": "active",
+      "name": "36 Rnd"
+    },
+    {
+      "id": "magazine:sg553r:40_fast",
+      "status": "active",
+      "name": "40 Fast"
+    },
+    {
+      "id": "magazine:sg553r:40_rnd",
+      "status": "active",
+      "name": "40 Rnd"
+    },
+    {
+      "id": "magazine:sgx:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:sgx:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:sgx:36_rnd",
+      "status": "active",
+      "name": "36 Rnd"
+    },
+    {
+      "id": "magazine:sgx:41_rnd",
+      "status": "active",
+      "name": "41 Rnd"
+    },
+    {
+      "id": "magazine:sl9:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:sl9:60_rnd",
+      "status": "active",
+      "name": "60 Rnd"
+    },
+    {
+      "id": "magazine:sor300sc:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:sor300sc:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:sor300sc:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:sor300sc:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:sor300sc:36_rnd",
+      "status": "active",
+      "name": "36 Rnd"
+    },
+    {
+      "id": "magazine:sor300sc:40_fast",
+      "status": "active",
+      "name": "40 Fast"
+    },
+    {
+      "id": "magazine:sor300sc:40_rnd",
+      "status": "active",
+      "name": "40 Rnd"
+    },
+    {
+      "id": "magazine:sor556:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:sor556:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:sor556:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:sor556:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:sor556:36_rnd",
+      "status": "active",
+      "name": "36 Rnd"
+    },
+    {
+      "id": "magazine:sor556:40_fast",
+      "status": "active",
+      "name": "40 Fast"
+    },
+    {
+      "id": "magazine:sor556:40_rnd",
+      "status": "active",
+      "name": "40 Rnd"
+    },
+    {
+      "id": "magazine:sor556:45_fast",
+      "status": "active",
+      "name": "45 Fast"
+    },
+    {
+      "id": "magazine:sor556:45_rnd",
+      "status": "active",
+      "name": "45 Rnd"
+    },
+    {
+      "id": "magazine:sv98:10_rnd",
+      "status": "active",
+      "name": "10 Rnd"
+    },
+    {
+      "id": "magazine:svdm:10_fast",
+      "status": "active",
+      "name": "10 Fast"
+    },
+    {
+      "id": "magazine:svdm:10_rnd",
+      "status": "active",
+      "name": "10 Rnd"
+    },
+    {
+      "id": "magazine:svdm:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:svdm:5_rnd",
+      "status": "active",
+      "name": "5 Rnd"
+    },
+    {
+      "id": "magazine:svk86:10_fast",
+      "status": "active",
+      "name": "10 Fast"
+    },
+    {
+      "id": "magazine:svk86:10_rnd",
+      "status": "active",
+      "name": "10 Rnd"
+    },
+    {
+      "id": "magazine:tr7:10_fast",
+      "status": "active",
+      "name": "10 Fast"
+    },
+    {
+      "id": "magazine:tr7:15_rnd",
+      "status": "active",
+      "name": "15 Rnd"
+    },
+    {
+      "id": "magazine:tr7:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:tr7:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:tr7:25_fast",
+      "status": "active",
+      "name": "25 Fast"
+    },
+    {
+      "id": "magazine:tr7:25_rnd",
+      "status": "active",
+      "name": "25 Rnd"
+    },
+    {
+      "id": "magazine:tr7:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:umg40:25_fast",
+      "status": "active",
+      "name": "25 Fast"
+    },
+    {
+      "id": "magazine:umg40:25_rnd",
+      "status": "active",
+      "name": "25 Rnd"
+    },
+    {
+      "id": "magazine:umg40:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:umg40:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:umg40:36_rnd",
+      "status": "active",
+      "name": "36 Rnd"
+    },
+    {
+      "id": "magazine:usg90:50_rnd",
+      "status": "active",
+      "name": "50 Rnd"
+    },
+    {
+      "id": "magazine:vcr2:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:vcr2:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:vcr2:30_fast",
+      "status": "active",
+      "name": "30 Fast"
+    },
+    {
+      "id": "magazine:vcr2:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:vcr2:36_rnd",
+      "status": "active",
+      "name": "36 Rnd"
+    },
+    {
+      "id": "magazine:vcr2:40_fast",
+      "status": "active",
+      "name": "40 Fast"
+    },
+    {
+      "id": "magazine:vcr2:40_rnd",
+      "status": "active",
+      "name": "40 Rnd"
+    },
+    {
+      "id": "magazine:vssm:10_fast",
+      "status": "active",
+      "name": "10 Fast"
+    },
+    {
+      "id": "magazine:vssm:10_rnd",
+      "status": "active",
+      "name": "10 Rnd"
+    },
+    {
+      "id": "magazine:vssm:20_fast",
+      "status": "active",
+      "name": "20 Fast"
+    },
+    {
+      "id": "magazine:vssm:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "magazine:vssm:30_rnd",
+      "status": "active",
+      "name": "30 Rnd"
+    },
+    {
+      "id": "magazine:vz61:10_rnd",
+      "status": "active",
+      "name": "10 Rnd"
+    },
+    {
+      "id": "magazine:vz61:20_rnd",
+      "status": "active",
+      "name": "20 Rnd"
+    },
+    {
+      "id": "match_trigger",
+      "status": "active",
+      "name": "Match Trigger"
+    },
+    {
+      "id": "ptt_grip_pod",
+      "status": "active",
+      "name": "PTT Grip Pod"
+    },
+    {
+      "id": "qd_grip_pod",
+      "status": "active",
+      "name": "QD Grip Pod"
+    },
+    {
+      "id": "qd_grip_pod_sr",
+      "status": "active",
+      "name": "QD Grip Pod"
+    },
+    {
+      "id": "rail_cover",
+      "status": "active",
+      "name": "Rail Cover"
+    },
+    {
+      "id": "range_finder",
+      "status": "active",
+      "name": "Range Finder"
+    },
+    {
+      "id": "ribbed_stubby",
+      "status": "active",
+      "name": "Ribbed Stubby"
+    },
+    {
+      "id": "ribbed_vert",
+      "status": "active",
+      "name": "Ribbed Vertical"
+    },
+    {
+      "id": "short",
+      "status": "active",
+      "name": "Short"
+    },
+    {
+      "id": "short_light",
+      "status": "active",
+      "name": "Short Light"
+    },
+    {
+      "id": "slant_brake",
+      "status": "active",
+      "name": "Slant Brake"
+    },
+    {
+      "id": "slim_angled",
+      "status": "active",
+      "name": "Slim Angled"
+    },
+    {
+      "id": "slim_angled_smg",
+      "status": "active",
+      "name": "Slim Angled"
+    },
+    {
+      "id": "slim_angled_sr",
+      "status": "active",
+      "name": "Slim Angled"
+    },
+    {
+      "id": "slim_handstop",
+      "status": "active",
+      "name": "Slim Handstop"
+    },
+    {
+      "id": "sp_brake",
+      "status": "active",
+      "name": "Single-Port Brake"
+    },
+    {
+      "id": "std_optic",
+      "status": "active",
+      "name": "Standard Optic"
+    },
+    {
+      "id": "std_supp",
+      "status": "active",
+      "name": "Standard Suppressor"
+    },
+    {
+      "id": "stipp_stubby",
+      "status": "active",
+      "name": "Stippled Stubby"
+    },
+    {
+      "id": "stipp_stubby_db12",
+      "status": "active",
+      "name": "Stippled Stubby"
+    },
+    {
+      "id": "stipp_stubby_ks18k",
+      "status": "active",
+      "name": "Stippled Stubby"
+    },
+    {
+      "id": "stipp_stubby_svk86",
+      "status": "active",
+      "name": "Stippled Stubby"
+    },
+    {
+      "id": "stipp_stubby_vssm",
+      "status": "active",
+      "name": "Stippled Stubby"
+    },
+    {
+      "id": "therm_hyb",
+      "status": "active",
+      "name": "Thermal Hybrid"
+    },
+    {
+      "id": "thermal",
+      "status": "active",
+      "name": "Thermal"
+    },
+    {
+      "id": "thread_prot",
+      "status": "active",
+      "name": "Thread Protector"
+    },
+    {
+      "id": "tp_brake",
+      "status": "active",
+      "name": "Triple-Port Brake"
+    },
+    {
+      "id": "underslung_mount",
+      "status": "active",
+      "name": "Underslung Mount"
+    },
+    {
+      "id": "var_high",
+      "status": "active",
+      "name": "Variable High"
+    },
+    {
+      "id": "var_low",
+      "status": "active",
+      "name": "Variable Low"
+    },
+    {
+      "id": "vssm_suppressed",
+      "status": "active",
+      "name": "Suppressed"
+    },
+    {
+      "id": "vssm_suppressed_asm",
+      "status": "active",
+      "name": "Suppressed"
+    }
+  ]
+}

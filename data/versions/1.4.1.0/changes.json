@@ -1,0 +1,91 @@
+{
+  "gameVersion": "1.4.1.0",
+  "events": [
+    {
+      "id": "evt-1.4.1.0-review-0",
+      "gameVersion": "1.4.1.0",
+      "timestamp": "2026-08-12",
+      "type": "weapon_added",
+      "entityType": "catalog",
+      "entityId": null,
+      "changes": {
+        "field": null,
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "line": "Season 4 Battle Pass : Dominate every domain with new themed paths stocked with hardware, weapon packages, soldier skins, XP boosts, and more. Complete each path to unlock the final path and earn additional rewards built around command of land, air, and sea."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-1-0",
+          "version": "1.4.1.0",
+          "retrievedAt": "2026-08-12T13:07:47.538Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Adição anunciada de entidade desconhecida: falta id, categoria e compatibilidade, que o patch note não publica."
+      }
+    },
+    {
+      "id": "evt-1.4.1.0-review-1",
+      "gameVersion": "1.4.1.0",
+      "timestamp": "2026-08-12",
+      "type": "compatibility_added",
+      "entityType": "attachment",
+      "entityId": null,
+      "changes": {
+        "field": null,
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "line": "The Extended Barrel with a 4\" extension increases projectile velocity at the cost of mobility and aim-down-sights speed, and is available for the M87A1, M1014, 18.5KS-K, and DB-12."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-1-0",
+          "version": "1.4.1.0",
+          "retrievedAt": "2026-08-12T13:07:47.538Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "A peça citada não existe no catálogo — provavelmente é nova e precisa ser criada primeiro."
+      }
+    },
+    {
+      "id": "evt-1.4.1.0-compatibility-carried-0",
+      "gameVersion": "1.4.1.0",
+      "timestamp": "2026-08-12",
+      "type": "source_conflict",
+      "entityType": "compatibility",
+      "entityId": null,
+      "changes": {
+        "carried": 2376,
+        "closed": 0
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-1-0",
+          "version": "1.4.1.0",
+          "retrievedAt": "2026-08-12T13:07:47.538Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "A matriz veio da versão anterior sem confirmação do estado atual. Rode catalog:fetch-loadouts e confirme antes de publicar."
+      }
+    }
+  ]
+}

@@ -1,0 +1,3105 @@
+{
+  "gameVersion": "1.4.1.5",
+  "recoil": [
+    {
+      "weaponId": "ak205",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 6,
+          "amount": 0.4078,
+          "amountMult": 0.9292,
+          "amountExp": -3,
+          "dirVar": 7.4,
+          "dirVarMult": 0.906545,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.905,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 48,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 6,
+          "amount": 0.4078,
+          "amountMult": 0.9292,
+          "amountExp": -3,
+          "dirVar": 7.4,
+          "dirVarMult": 0.906545,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.905,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 48,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "ak4d",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -18,
+          "amount": 0.7022,
+          "amountMult": 0.9375,
+          "amountExp": -3,
+          "dirVar": 20,
+          "dirVarMult": 0.916278,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.459,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 104,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -18,
+          "amount": 0.7022,
+          "amountMult": 0.9375,
+          "amountExp": -3,
+          "dirVar": 20,
+          "dirVarMult": 0.916278,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.459,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 104,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "b36a4",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -15,
+          "amount": 0.6034,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 28,
+          "dirVarMult": 0.918362,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -15,
+          "amount": 0.6034,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 28,
+          "dirVarMult": 0.918362,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "brod3",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -16,
+          "amount": 0.6939,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 24.3,
+          "dirVarMult": 0.918979,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.045,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 57,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -16,
+          "amount": 0.6939,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 24.3,
+          "dirVarMult": 0.918979,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.045,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 57,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "cz3a1",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -15,
+          "amount": 0.5765,
+          "amountMult": 0.9442,
+          "amountExp": -3,
+          "dirVar": 50.8,
+          "dirVarMult": 0.918141,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.023,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 55,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -15,
+          "amount": 0.5765,
+          "amountMult": 0.9442,
+          "amountExp": -3,
+          "dirVar": 50.8,
+          "dirVarMult": 0.918141,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.023,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 55,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "db12",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 0,
+          "amount": 2.25,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 15,
+          "dirVarMult": 0.920121,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 0.6,
+          "decTimeExp": 4,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 70,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 0,
+          "amount": 2.25,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 15,
+          "dirVarMult": 0.920121,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 0.6,
+          "decTimeExp": 4,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 70,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "drsiar",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -14,
+          "amount": 0.5923,
+          "amountMult": 0.9425,
+          "amountExp": -3,
+          "dirVar": 29.3,
+          "dirVarMult": 0.921469,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -14,
+          "amount": 0.5923,
+          "amountMult": 0.9425,
+          "amountExp": -3,
+          "dirVar": 29.3,
+          "dirVarMult": 0.921469,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "ef88",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 11,
+          "amount": 0.59065,
+          "amountMult": 0.9579,
+          "amountExp": -3,
+          "dirVar": 20.3,
+          "dirVarMult": 0.89864,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 11,
+          "amount": 0.59065,
+          "amountMult": 0.9579,
+          "amountExp": -3,
+          "dirVar": 20.3,
+          "dirVarMult": 0.9160025,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "es57",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 5,
+          "amount": 1,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 15,
+          "dirVarMult": 0.920121,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.398,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 12,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 5,
+          "amount": 1,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 15,
+          "dirVarMult": 0.920121,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.398,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 12,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "ggh22",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -7,
+          "amount": 1.5,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 12,
+          "dirVarMult": 0.920371,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.5555,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 13.7,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -7,
+          "amount": 1.5,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 12,
+          "dirVarMult": 0.920371,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.5555,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 13.7,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "grtbc",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 16,
+          "amount": 0.6703,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 26.1,
+          "dirVarMult": 0.918691,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.045,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 57,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 16,
+          "amount": 0.6703,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 26.1,
+          "dirVarMult": 0.918691,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.045,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 57,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "grtcps",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -5,
+          "amount": 0.88,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 8,
+          "dirVarMult": 0.920616,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.5555,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 13.7,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -5,
+          "amount": 0.88,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 8,
+          "dirVarMult": 0.920616,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.5555,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 13.7,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "kord6p67",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 18,
+          "amount": 0.4494,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 28.9,
+          "dirVarMult": 0.918198,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.023,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 55,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 18,
+          "amount": 0.4494,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 28.9,
+          "dirVarMult": 0.918198,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.023,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 55,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "ks18k",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 8,
+          "amount": 1.4,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 12,
+          "dirVarMult": 0.920371,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.333,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 21.5,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 8,
+          "amount": 1.4,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 12,
+          "dirVarMult": 0.920371,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.333,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 21.5,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "kts100",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 8,
+          "amount": 0.4199,
+          "amountMult": 0.9283,
+          "amountExp": -3,
+          "dirVar": 9.5,
+          "dirVarMult": 0.90525,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 8,
+          "amount": 0.4199,
+          "amountMult": 0.9283,
+          "amountExp": -3,
+          "dirVar": 9.5,
+          "dirVarMult": 0.90525,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "kv9",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 22,
+          "amount": 0.4577,
+          "amountMult": 0.9475,
+          "amountExp": -3,
+          "dirVar": 50,
+          "dirVarMult": 0.923064,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.023,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 55,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 22,
+          "amount": 0.4577,
+          "amountMult": 0.9475,
+          "amountExp": -3,
+          "dirVar": 50,
+          "dirVarMult": 0.923064,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.023,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 55,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "l110",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 0,
+          "amount": 0.47,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 31,
+          "dirVarMult": 0.917792,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 0,
+          "amount": 0.47,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 31,
+          "dirVarMult": 0.917792,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "l115",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -8,
+          "amount": 2,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 4,
+          "dirVarMult": 0.920506,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 0.6,
+          "decTimeExp": 4,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 70,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -8,
+          "amount": 5.2,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 4,
+          "dirVarMult": 0.920506,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 0.6,
+          "decTimeExp": 4,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 70,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "l85a3",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 12,
+          "amount": 0.5524,
+          "amountMult": 0.9358,
+          "amountExp": -3,
+          "dirVar": 22.8,
+          "dirVarMult": 0.913643,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 12,
+          "amount": 0.5524,
+          "amountMult": 0.9358,
+          "amountExp": -3,
+          "dirVar": 22.8,
+          "dirVarMult": 0.913643,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "lmr27",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 10,
+          "amount": 0.76,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 11,
+          "dirVarMult": 0.920441,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.5555,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 13.7,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 10,
+          "amount": 0.76,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 11,
+          "dirVarMult": 0.920441,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.5555,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 13.7,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m1014",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -5,
+          "amount": 2,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 15,
+          "dirVarMult": 0.920121,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.333,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 21.5,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -5,
+          "amount": 2,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 15,
+          "dirVarMult": 0.920121,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.333,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 21.5,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m121a2",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -7,
+          "amount": 0.6819,
+          "amountMult": 0.9458,
+          "amountExp": -3,
+          "dirVar": 31.8,
+          "dirVarMult": 0.925433,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.459,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 104,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -7,
+          "amount": 0.6819,
+          "amountMult": 0.9458,
+          "amountExp": -3,
+          "dirVar": 31.8,
+          "dirVarMult": 0.925433,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.459,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 104,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m123k",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -10,
+          "amount": 0.5154,
+          "amountMult": 0.945,
+          "amountExp": -3,
+          "dirVar": 47.7,
+          "dirVarMult": 0.920302,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -10,
+          "amount": 0.5154,
+          "amountMult": 0.945,
+          "amountExp": -3,
+          "dirVar": 47.7,
+          "dirVarMult": 0.920302,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m16a4",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -21,
+          "amount": 0.6487,
+          "amountMult": 0.9425,
+          "amountExp": -2,
+          "dirVar": 37.5,
+          "dirVarMult": 0.919722,
+          "dirVarExp": 3,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -21,
+          "amount": 0.6487,
+          "amountMult": 0.9425,
+          "amountExp": -2,
+          "dirVar": 37.5,
+          "dirVarMult": 0.919722,
+          "dirVarExp": 3,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m2010esr",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -5,
+          "amount": 1.5,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 10,
+          "dirVarMult": 0.920506,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 0.6,
+          "decTimeExp": 4,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 70,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -5,
+          "amount": 4,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 10,
+          "dirVarMult": 0.920506,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 0.6,
+          "decTimeExp": 4,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 70,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m240l",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 5,
+          "amount": 0.6769,
+          "amountMult": 0.9433,
+          "amountExp": -3,
+          "dirVar": 34.5,
+          "dirVarMult": 0.921501,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.459,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 104,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 5,
+          "amount": 0.6769,
+          "amountMult": 0.9433,
+          "amountExp": -3,
+          "dirVar": 34.5,
+          "dirVarMult": 0.921501,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.459,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 104,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m250",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -14,
+          "amount": 0.6084,
+          "amountMult": 0.9425,
+          "amountExp": -3,
+          "dirVar": 35.9,
+          "dirVarMult": 0.920102,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.24,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 76,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -14,
+          "amount": 0.6084,
+          "amountMult": 0.9425,
+          "amountExp": -3,
+          "dirVar": 35.9,
+          "dirVarMult": 0.920102,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.24,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 76,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m277",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -22,
+          "amount": 0.801,
+          "amountMult": 0.9433,
+          "amountExp": -3,
+          "dirVar": 34.4,
+          "dirVarMult": 0.921523,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.24,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 76,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -22,
+          "amount": 0.801,
+          "amountMult": 0.9433,
+          "amountExp": -3,
+          "dirVar": 34.4,
+          "dirVarMult": 0.921523,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.24,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 76,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m357trait",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -10,
+          "amount": 3,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 15,
+          "dirVarMult": 0.920121,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.333,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 21.5,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -10,
+          "amount": 3,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 15,
+          "dirVarMult": 0.920121,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.333,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 21.5,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m39emr",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -12,
+          "amount": 1.45,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 8,
+          "dirVarMult": 0.920616,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.75,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 16,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -12,
+          "amount": 1.45,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 8,
+          "dirVarMult": 0.920616,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.75,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 16,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m417a2",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -16,
+          "amount": 0.775,
+          "amountMult": 0.9392,
+          "amountExp": -3,
+          "dirVar": 15.4,
+          "dirVarMult": 0.919032,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.24,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 76,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -16,
+          "amount": 0.775,
+          "amountMult": 0.9392,
+          "amountExp": -3,
+          "dirVar": 15.4,
+          "dirVarMult": 0.919032,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.24,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 76,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m433",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -22,
+          "amount": 0.6695,
+          "amountMult": 0.945,
+          "amountExp": -3,
+          "dirVar": 41.4,
+          "dirVarMult": 0.922146,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -22,
+          "amount": 0.6695,
+          "amountMult": 0.945,
+          "amountExp": -3,
+          "dirVar": 41.4,
+          "dirVarMult": 0.922146,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m44",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -8,
+          "amount": 6,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 12,
+          "dirVarMult": 0.920371,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.333,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 21.5,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -8,
+          "amount": 6,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 12,
+          "dirVarMult": 0.920371,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.333,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 21.5,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m45a1",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 0,
+          "amount": 1.67,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 12,
+          "dirVarMult": 0.920371,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.75,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 16,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 0,
+          "amount": 1.67,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 12,
+          "dirVarMult": 0.920371,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.75,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 16,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m4a1",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -18,
+          "amount": 0.7102,
+          "amountMult": 0.9425,
+          "amountExp": -3,
+          "dirVar": 30.7,
+          "dirVarMult": 0.921205,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.045,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 57,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -18,
+          "amount": 0.7102,
+          "amountMult": 0.9425,
+          "amountExp": -3,
+          "dirVar": 30.7,
+          "dirVarMult": 0.921205,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.045,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 57,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m60",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 0,
+          "amount": 0.6066,
+          "amountMult": 0.9375,
+          "amountExp": -3,
+          "dirVar": 29.9,
+          "dirVarMult": 0.914665,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.459,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 104,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 0,
+          "amount": 0.6066,
+          "amountMult": 0.9375,
+          "amountExp": -3,
+          "dirVar": 29.9,
+          "dirVarMult": 0.914665,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.459,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 104,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m87a1",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -10,
+          "amount": 3,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 12,
+          "dirVarMult": 0.920371,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 0.6,
+          "decTimeExp": 4,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 70,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -10,
+          "amount": 3,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 12,
+          "dirVarMult": 0.920371,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 0.6,
+          "decTimeExp": 4,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 70,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "miniscout",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -5,
+          "amount": 1,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 5,
+          "dirVarMult": 0.920735,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 0.6,
+          "decTimeExp": 4,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 70,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -5,
+          "amount": 2.5,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 5,
+          "dirVarMult": 0.920735,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 0.6,
+          "decTimeExp": 4,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 70,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "nvo228e",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -12,
+          "amount": 0.607,
+          "amountMult": 0.9392,
+          "amountExp": -3,
+          "dirVar": 28.9,
+          "dirVarMult": 0.917129,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.24,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 76,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -12,
+          "amount": 0.607,
+          "amountMult": 0.9392,
+          "amountExp": -3,
+          "dirVar": 28.9,
+          "dirVarMult": 0.917129,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.24,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 76,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "p18",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -5,
+          "amount": 1.2,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 15,
+          "dirVarMult": 0.920121,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.5555,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 13.7,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -5,
+          "amount": 1.2,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 15,
+          "dirVarMult": 0.920121,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.5555,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 13.7,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "pp19",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 6,
+          "amount": 0.4418,
+          "amountMult": 0.9333,
+          "amountExp": -3,
+          "dirVar": 18,
+          "dirVarMult": 0.910998,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.023,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 55,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 6,
+          "amount": 0.4418,
+          "amountMult": 0.9333,
+          "amountExp": -3,
+          "dirVar": 18,
+          "dirVarMult": 0.910998,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.023,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 55,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "psr",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -4,
+          "amount": 1.8,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 12,
+          "dirVarMult": 0.920371,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 0.6,
+          "decTimeExp": 4,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 70,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -4,
+          "amount": 5,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 12,
+          "dirVarMult": 0.920371,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 0.6,
+          "decTimeExp": 4,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 70,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "pw5a3",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -10,
+          "amount": 0.4618,
+          "amountMult": 0.9358,
+          "amountExp": -3,
+          "dirVar": 28.3,
+          "dirVarMult": 0.912707,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.023,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 55,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -10,
+          "amount": 0.4618,
+          "amountMult": 0.9358,
+          "amountExp": -3,
+          "dirVar": 28.3,
+          "dirVarMult": 0.912707,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.023,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 55,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "pw7a2",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -10,
+          "amount": 0.4195,
+          "amountMult": 0.9375,
+          "amountExp": -3,
+          "dirVar": 27.8,
+          "dirVarMult": 0.915065,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.919,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 46,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -10,
+          "amount": 0.4195,
+          "amountMult": 0.9375,
+          "amountExp": -3,
+          "dirVar": 27.8,
+          "dirVarMult": 0.915065,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.919,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 46,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "qbz192",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -10,
+          "amount": 0.6358,
+          "amountMult": 0.9375,
+          "amountExp": -3,
+          "dirVar": 19.9,
+          "dirVarMult": 0.916291,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.045,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 57,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -10,
+          "amount": 0.6358,
+          "amountMult": 0.9375,
+          "amountExp": -3,
+          "dirVar": 19.9,
+          "dirVarMult": 0.916291,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.045,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 57,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "rpk74m",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 6,
+          "amount": 0.3844,
+          "amountMult": 0.9317,
+          "amountExp": -3,
+          "dirVar": 16.1,
+          "dirVarMult": 0.909117,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.023,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 55,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 6,
+          "amount": 0.3844,
+          "amountMult": 0.9317,
+          "amountExp": -3,
+          "dirVar": 16.1,
+          "dirVarMult": 0.909117,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.023,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 55,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "rpkm",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 5,
+          "amount": 0.5327,
+          "amountMult": 0.9333,
+          "amountExp": -3,
+          "dirVar": 17.5,
+          "dirVarMult": 0.911058,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.24,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 76,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 5,
+          "amount": 0.5327,
+          "amountMult": 0.9333,
+          "amountExp": -3,
+          "dirVar": 17.5,
+          "dirVarMult": 0.911058,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.24,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 76,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "scw10",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -18,
+          "amount": 0.5997,
+          "amountMult": 0.9442,
+          "amountExp": -3,
+          "dirVar": 33.5,
+          "dirVarMult": 0.922931,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -18,
+          "amount": 0.5997,
+          "amountMult": 0.9442,
+          "amountExp": -3,
+          "dirVar": 33.5,
+          "dirVarMult": 0.922931,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "sg553r",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -20,
+          "amount": 0.6866,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 35.8,
+          "dirVarMult": 0.91674,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -20,
+          "amount": 0.6866,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 35.8,
+          "dirVarMult": 0.91674,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "sgx",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -18,
+          "amount": 0.4966,
+          "amountMult": 0.9383,
+          "amountExp": -3,
+          "dirVar": 31.7,
+          "dirVarMult": 0.915368,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.023,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 55,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -18,
+          "amount": 0.4966,
+          "amountMult": 0.9383,
+          "amountExp": -3,
+          "dirVar": 31.7,
+          "dirVarMult": 0.915368,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.023,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 55,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "sl9",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 0,
+          "amount": 0.4238,
+          "amountMult": 0.9317,
+          "amountExp": -3,
+          "dirVar": 13,
+          "dirVarMult": 0.909421,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.023,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 55,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 0,
+          "amount": 0.4238,
+          "amountMult": 0.9317,
+          "amountExp": -3,
+          "dirVar": 13,
+          "dirVarMult": 0.909421,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.023,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 55,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "sor300sc",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -12,
+          "amount": 0.6047,
+          "amountMult": 0.9342,
+          "amountExp": -3,
+          "dirVar": 15.8,
+          "dirVarMult": 0.912427,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -12,
+          "amount": 0.6047,
+          "amountMult": 0.9342,
+          "amountExp": -3,
+          "dirVar": 15.8,
+          "dirVarMult": 0.912427,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "sor556",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -9,
+          "amount": 0.5041,
+          "amountMult": 0.9317,
+          "amountExp": -3,
+          "dirVar": 12.7,
+          "dirVarMult": 0.909447,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -9,
+          "amount": 0.5041,
+          "amountMult": 0.9317,
+          "amountExp": -3,
+          "dirVar": 12.7,
+          "dirVarMult": 0.909447,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "sv98",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -5,
+          "amount": 1.25,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 10,
+          "dirVarMult": 0.920506,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 0.6,
+          "decTimeExp": 4,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 70,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -5,
+          "amount": 3,
+          "amountMult": 0.94,
+          "amountExp": 0,
+          "dirVar": 10,
+          "dirVarMult": 0.920506,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 0.6,
+          "decTimeExp": 4,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 70,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "svdm",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 4,
+          "amount": 1.3,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 10,
+          "dirVarMult": 0.920506,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.75,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 16,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 4,
+          "amount": 1.3,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 10,
+          "dirVarMult": 0.920506,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.75,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 16,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "svk86",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -7,
+          "amount": 2.5,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 20,
+          "dirVarMult": 0.919578,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.333,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 21.5,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -7,
+          "amount": 2.5,
+          "amountMult": 0.94,
+          "amountExp": -3,
+          "dirVar": 20,
+          "dirVarMult": 0.919578,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.333,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 21.5,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "tr7",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 20,
+          "amount": 0.9917,
+          "amountMult": 0.9492,
+          "amountExp": -3,
+          "dirVar": 40.8,
+          "dirVarMult": 0.928083,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.459,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 104,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 20,
+          "amount": 0.9917,
+          "amountMult": 0.9492,
+          "amountExp": -3,
+          "dirVar": 40.8,
+          "dirVarMult": 0.928083,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.459,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 104,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "umg40",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -16,
+          "amount": 0.4857,
+          "amountMult": 0.9308,
+          "amountExp": -3,
+          "dirVar": 13,
+          "dirVarMult": 0.908244,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.045,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 57,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -16,
+          "amount": 0.4857,
+          "amountMult": 0.9308,
+          "amountExp": -3,
+          "dirVar": 13,
+          "dirVarMult": 0.908244,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.045,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 57,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "usg90",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 10,
+          "amount": 0.4497,
+          "amountMult": 0.9367,
+          "amountExp": -3,
+          "dirVar": 35.5,
+          "dirVarMult": 0.912355,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.905,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 48,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 10,
+          "amount": 0.4497,
+          "amountMult": 0.9367,
+          "amountExp": -3,
+          "dirVar": 35.5,
+          "dirVarMult": 0.912355,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.905,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 48,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "vcr2",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": 18,
+          "amount": 0.698,
+          "amountMult": 0.9475,
+          "amountExp": -3,
+          "dirVar": 50.3,
+          "dirVarMult": 0.922964,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": 18,
+          "amount": 0.698,
+          "amountMult": 0.9475,
+          "amountExp": -3,
+          "dirVar": 50.3,
+          "dirVarMult": 0.922964,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 1.2,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 72,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "vssm",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -13,
+          "amount": 0.6787,
+          "amountMult": 0.9467,
+          "amountExp": -3,
+          "dirVar": 45,
+          "dirVarMult": 0.923377,
+          "dirVarExp": 20,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.5555,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 13.7,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -13,
+          "amount": 0.6787,
+          "amountMult": 0.9467,
+          "amountExp": -3,
+          "dirVar": 45.4,
+          "dirVarMult": 0.923377,
+          "dirVarExp": 20,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.5555,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 13.7,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "vz61",
+      "model": "polar",
+      "recoil": {
+        "ads": {
+          "dir": -10,
+          "amount": 0.4059,
+          "amountMult": 0.9283,
+          "amountExp": -3,
+          "dirVar": 18.4,
+          "dirVarMult": 0.904386,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.84,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 40,
+          "shootingDecScale": 1
+        },
+        "hip": {
+          "dir": -10,
+          "amount": 0.4059,
+          "amountMult": 0.9283,
+          "amountExp": -3,
+          "dirVar": 18.4,
+          "dirVarMult": 0.904386,
+          "dirVarExp": 0,
+          "decNorm": 1,
+          "decExp": 1,
+          "decTimeExp": 0.84,
+          "decOffset": 0.06,
+          "duration": 0.025,
+          "decFactor": 40,
+          "shootingDecScale": 1
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    }
+  ]
+}

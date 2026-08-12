@@ -41,8 +41,16 @@ import {
 const catalog = getCurrentCatalog();
 
 describe('a versão publicada', () => {
-  it('é a que o import trouxe', () => {
-    expect(getVersion()).toBe('1.3.3.0');
+  /*
+   * O número não é fixado aqui de propósito.
+   *
+   * Ele muda a cada patch, e o pipeline roda esta suíte antes de abrir o Pull
+   * Request: um teste preso a "1.3.3.0" falharia em toda atualização por
+   * motivo burocrático, e o hábito de ajustá-lo sem ler acabaria encobrindo as
+   * falhas que importam — as relações confirmadas à mão, logo abaixo.
+   */
+  it('declara a versão do jogo que descreve', () => {
+    expect(getVersion()).toMatch(/^\d+\.\d+\.\d+\.\d+$/);
   });
 
   it('traz o arsenal inteiro', () => {

@@ -1,0 +1,1369 @@
+{
+  "gameVersion": "1.4.1.5",
+  "stats": [
+    {
+      "weaponId": "ak205",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 719.999,
+        "magazineCapacity": 31,
+        "adsMs": 200,
+        "reload": 2.484,
+        "emptyReload": 2.917,
+        "velocity": 708
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "ak4d",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 514.285,
+        "magazineCapacity": 21,
+        "adsMs": 270,
+        "reload": 2.467,
+        "emptyReload": 3.3,
+        "velocity": 680
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "b36a4",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 719.999,
+        "magazineCapacity": 31,
+        "adsMs": 250,
+        "reload": 2.384,
+        "emptyReload": 2.95,
+        "velocity": 740
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "brod3",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 830.7692307692307,
+        "magazineCapacity": 31,
+        "adsMs": 200,
+        "reload": 2.217,
+        "emptyReload": 3.35,
+        "velocity": 580
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "cz3a1",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 981.818,
+        "magazineCapacity": 31,
+        "adsMs": 170,
+        "reload": 2.217,
+        "emptyReload": 2.95,
+        "velocity": 336
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "db12",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 359.999,
+        "magazineCapacity": 16,
+        "adsMs": 240,
+        "reload": null,
+        "emptyReload": null,
+        "velocity": 400
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "drsiar",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 771.428,
+        "magazineCapacity": 31,
+        "adsMs": 280,
+        "reload": 2.467,
+        "emptyReload": 2.95,
+        "velocity": 680
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "ef88",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 675,
+        "magazineCapacity": 31,
+        "adsMs": 250,
+        "reload": 2.416,
+        "emptyReload": 2.8415,
+        "velocity": 670
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "es57",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 449.999,
+        "magazineCapacity": 21,
+        "adsMs": 175,
+        "reload": 2.017,
+        "emptyReload": 2.2,
+        "velocity": 510
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "ggh22",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 359.999,
+        "magazineCapacity": 16,
+        "adsMs": 175,
+        "reload": 1.934,
+        "emptyReload": 2.25,
+        "velocity": 400
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "grtbc",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 830.769,
+        "magazineCapacity": 31,
+        "adsMs": 195,
+        "reload": 2.5,
+        "emptyReload": 3.35,
+        "velocity": 563
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "grtcps",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 359.999,
+        "magazineCapacity": 21,
+        "adsMs": 330,
+        "reload": 2.75,
+        "emptyReload": 3.284,
+        "velocity": 760
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "kord6p67",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 899.999,
+        "magazineCapacity": 31,
+        "adsMs": 240,
+        "reload": 2.45,
+        "emptyReload": 3.017,
+        "velocity": 724
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "ks18k",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 299.999,
+        "magazineCapacity": 9,
+        "adsMs": 270,
+        "reload": 2.75,
+        "emptyReload": 3.7,
+        "velocity": 400
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "kts100",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 514.285,
+        "magazineCapacity": 60,
+        "adsMs": 320,
+        "reload": 3.25,
+        "emptyReload": 3.984,
+        "velocity": 808
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "kv9",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 1079.999,
+        "magazineCapacity": 18,
+        "adsMs": 165,
+        "reload": 2.384,
+        "emptyReload": 2.9,
+        "velocity": 362
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "l110",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 719.999,
+        "magazineCapacity": 100,
+        "adsMs": 380,
+        "reload": 6.5,
+        "emptyReload": 7.734,
+        "velocity": 740
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "l115",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 46.349953649969095,
+        "magazineCapacity": 6,
+        "adsMs": null,
+        "reload": 2.75,
+        "emptyReload": 4.233,
+        "velocity": 664
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "l85a3",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 635.294,
+        "magazineCapacity": 31,
+        "adsMs": 230,
+        "reload": 2.767,
+        "emptyReload": 2.733,
+        "velocity": 778
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "lmr27",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 449.999,
+        "magazineCapacity": 11,
+        "adsMs": 340,
+        "reload": 3.034,
+        "emptyReload": 3.067,
+        "velocity": 800
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "m1014",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 199.999,
+        "magazineCapacity": 7,
+        "adsMs": 260,
+        "reload": null,
+        "emptyReload": null,
+        "velocity": 400
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "m121a2",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 654.545,
+        "magazineCapacity": 50,
+        "adsMs": 390,
+        "reload": 6.267,
+        "emptyReload": 7.25,
+        "velocity": 560
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "m123k",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 830.769,
+        "magazineCapacity": 100,
+        "adsMs": 400,
+        "reload": 6.65,
+        "emptyReload": 7.434,
+        "velocity": 630
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "m16a4",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 771.428,
+        "magazineCapacity": 31,
+        "adsMs": null,
+        "reload": 2.2,
+        "emptyReload": 2.634,
+        "velocity": 680
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "m2010esr",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 44.0816018658339,
+        "magazineCapacity": 6,
+        "adsMs": 500,
+        "reload": 3.234,
+        "emptyReload": 3.934,
+        "velocity": 760
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "m240l",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 599.999,
+        "magazineCapacity": 50,
+        "adsMs": 410,
+        "reload": 4.25,
+        "emptyReload": 5.9,
+        "velocity": 590
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "m250",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 674.999,
+        "magazineCapacity": 50,
+        "adsMs": 360,
+        "reload": 5.75,
+        "emptyReload": 6.134,
+        "velocity": 724
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "m277",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 719.999,
+        "magazineCapacity": 21,
+        "adsMs": 210,
+        "reload": 2.384,
+        "emptyReload": 2.554,
+        "velocity": 592
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "m357trait",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 224.999,
+        "magazineCapacity": 8,
+        "adsMs": 225,
+        "reload": 3.067,
+        "emptyReload": null,
+        "velocity": 410
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "m39emr",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 257.142,
+        "magazineCapacity": 21,
+        "adsMs": 320,
+        "reload": 2.534,
+        "emptyReload": 2.85,
+        "velocity": 760
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "m417a2",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 654.545,
+        "magazineCapacity": 21,
+        "adsMs": 230,
+        "reload": 2.467,
+        "emptyReload": 2.567,
+        "velocity": 560
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "m433",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 830.769,
+        "magazineCapacity": 31,
+        "adsMs": 250,
+        "reload": 2.384,
+        "emptyReload": 2.967,
+        "velocity": 630
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "m44",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 163.636,
+        "magazineCapacity": 6,
+        "adsMs": 225,
+        "reload": 3.4,
+        "emptyReload": null,
+        "velocity": 440
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "m45a1",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 327.272,
+        "magazineCapacity": 8,
+        "adsMs": 200,
+        "reload": 1.867,
+        "emptyReload": 2,
+        "velocity": 336
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "m4a1",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 899.999,
+        "magazineCapacity": 31,
+        "adsMs": 200,
+        "reload": 2.2,
+        "emptyReload": 2.695,
+        "velocity": 590
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "m60",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 514.285,
+        "magazineCapacity": 100,
+        "adsMs": 420,
+        "reload": 7.35,
+        "emptyReload": 8.123,
+        "velocity": 680
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "m87a1",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 1799.999,
+        "magazineCapacity": 8,
+        "adsMs": 250,
+        "reload": null,
+        "emptyReload": null,
+        "velocity": 400
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "miniscout",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 51,
+        "magazineCapacity": 11,
+        "adsMs": 430,
+        "reload": 2.334,
+        "emptyReload": 3.9,
+        "velocity": 760
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "nvo228e",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 654.545,
+        "magazineCapacity": 31,
+        "adsMs": 260,
+        "reload": 2.5,
+        "emptyReload": 2.979,
+        "velocity": 626
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "p18",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 399.999,
+        "magazineCapacity": 18,
+        "adsMs": 175,
+        "reload": 1.934,
+        "emptyReload": 2.167,
+        "velocity": 350
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "pp19",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 719.999,
+        "magazineCapacity": 31,
+        "adsMs": null,
+        "reload": 2.467,
+        "emptyReload": 3.028,
+        "velocity": 444
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "psr",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 38.11762015220833,
+        "magazineCapacity": 11,
+        "adsMs": 550,
+        "reload": 3.35,
+        "emptyReload": 4.35,
+        "velocity": 680
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "pw5a3",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 771.428,
+        "magazineCapacity": 31,
+        "adsMs": 175,
+        "reload": 2.517,
+        "emptyReload": 2.9,
+        "velocity": 408
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "pw7a2",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 947.368,
+        "magazineCapacity": 31,
+        "adsMs": 165,
+        "reload": 2.184,
+        "emptyReload": 3.086,
+        "velocity": 576
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "qbz192",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 771.428,
+        "magazineCapacity": 31,
+        "adsMs": 200,
+        "reload": 2.567,
+        "emptyReload": 2.784,
+        "velocity": 608
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "rpk74m",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 685.714,
+        "magazineCapacity": 46,
+        "adsMs": null,
+        "reload": 2.784,
+        "emptyReload": 3.1,
+        "velocity": 808
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "rpkm",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 553.846,
+        "magazineCapacity": 41,
+        "adsMs": 310,
+        "reload": 2.8,
+        "emptyReload": 3.284,
+        "velocity": 630
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "scw10",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 799.999,
+        "magazineCapacity": 16,
+        "adsMs": 185,
+        "reload": 2.6,
+        "emptyReload": 3.11,
+        "velocity": 398
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "sg553r",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 719.999,
+        "magazineCapacity": 31,
+        "adsMs": 205,
+        "reload": 2.5,
+        "emptyReload": 2.926,
+        "velocity": 483
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "sgx",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 830.769,
+        "magazineCapacity": 31,
+        "adsMs": 175,
+        "reload": 2.517,
+        "emptyReload": 2.917,
+        "velocity": 378
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "sl9",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 674.999,
+        "magazineCapacity": 31,
+        "adsMs": 180,
+        "reload": 2.65,
+        "emptyReload": 3.183,
+        "velocity": 486
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "sor300sc",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 599.999,
+        "magazineCapacity": 31,
+        "adsMs": 195,
+        "reload": 2.25,
+        "emptyReload": 3.284,
+        "velocity": 528
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "sor556",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 568.421,
+        "magazineCapacity": 31,
+        "adsMs": 260,
+        "reload": 2.384,
+        "emptyReload": 2.667,
+        "velocity": 768
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "sv98",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 37.67438355865456,
+        "magazineCapacity": 11,
+        "adsMs": 520,
+        "reload": 2.984,
+        "emptyReload": 3.967,
+        "velocity": 680
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "svdm",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 299.999,
+        "magazineCapacity": 11,
+        "adsMs": 360,
+        "reload": 2.5,
+        "emptyReload": 3.45,
+        "velocity": 760
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "svk86",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 149.999,
+        "magazineCapacity": 11,
+        "adsMs": 380,
+        "reload": 2.967,
+        "emptyReload": 4.217,
+        "velocity": 680
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "tr7",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 719.999,
+        "magazineCapacity": 21,
+        "adsMs": 255,
+        "reload": 2.4,
+        "emptyReload": 3.37,
+        "velocity": 604
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "umg40",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 635.294,
+        "magazineCapacity": 31,
+        "adsMs": 175,
+        "reload": 2.517,
+        "emptyReload": 2.917,
+        "velocity": 467
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "usg90",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 899.999,
+        "magazineCapacity": 51,
+        "adsMs": 185,
+        "reload": 3,
+        "emptyReload": 3.314,
+        "velocity": 543
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "vcr2",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 899.999,
+        "magazineCapacity": 31,
+        "adsMs": 255,
+        "reload": 2.434,
+        "emptyReload": 3.129,
+        "velocity": 660
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "vssm",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 449.999,
+        "magazineCapacity": 21,
+        "adsMs": 250,
+        "reload": 2.467,
+        "emptyReload": null,
+        "velocity": 303
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    },
+    {
+      "weaponId": "vz61",
+      "gameVersion": "1.4.1.5",
+      "stats": {
+        "rpm": 818.181,
+        "magazineCapacity": 11,
+        "adsMs": 175,
+        "reload": 2.134,
+        "emptyReload": 2.833,
+        "velocity": 313
+      },
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "main/data",
+        "commit": null,
+        "version": "1.3.3.0",
+        "retrievedAt": null,
+        "snapshot": "bf6-1.3.3.0-2026-08-11"
+      }
+    }
+  ]
+}

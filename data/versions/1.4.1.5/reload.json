@@ -1,0 +1,1121 @@
+{
+  "gameVersion": "1.4.1.5",
+  "reload": [
+    {
+      "weaponId": "ak205",
+      "tactical": 2.484,
+      "empty": 2.917,
+      "speed": 0.959742,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "ak4d",
+      "tactical": 2.467,
+      "empty": 3.3,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "b36a4",
+      "tactical": 2.384,
+      "empty": 2.95,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "brod3",
+      "tactical": 2.217,
+      "empty": 3.35,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "cz3a1",
+      "tactical": 2.217,
+      "empty": 2.95,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "db12",
+      "tactical": null,
+      "empty": null,
+      "speed": 1,
+      "status": "unavailable",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "drsiar",
+      "tactical": 2.467,
+      "empty": 2.95,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "ef88",
+      "tactical": 2.416,
+      "empty": 2.8415,
+      "speed": 0.987893,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "es57",
+      "tactical": 2.017,
+      "empty": 2.2,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "ggh22",
+      "tactical": 1.934,
+      "empty": 2.25,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "grtbc",
+      "tactical": 2.5,
+      "empty": 3.35,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "grtcps",
+      "tactical": 2.75,
+      "empty": 3.284,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "kord6p67",
+      "tactical": 2.45,
+      "empty": 3.017,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "ks18k",
+      "tactical": 2.75,
+      "empty": 3.7,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "kts100",
+      "tactical": 3.25,
+      "empty": 3.984,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "kv9",
+      "tactical": 2.384,
+      "empty": 2.9,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "l110",
+      "tactical": 6.5,
+      "empty": 7.734,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "l115",
+      "tactical": 2.75,
+      "empty": 4.233,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "l85a3",
+      "tactical": 2.767,
+      "empty": 2.733,
+      "speed": 0.975786,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "lmr27",
+      "tactical": 3.034,
+      "empty": 3.067,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m1014",
+      "tactical": null,
+      "empty": null,
+      "speed": 1,
+      "status": "unavailable",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m121a2",
+      "tactical": 6.267,
+      "empty": 7.25,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m123k",
+      "tactical": 6.65,
+      "empty": 7.434,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m16a4",
+      "tactical": 2.2,
+      "empty": 2.634,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m2010esr",
+      "tactical": 3.234,
+      "empty": 3.934,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m240l",
+      "tactical": 4.25,
+      "empty": 5.9,
+      "speed": 0.949176,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m250",
+      "tactical": 5.75,
+      "empty": 6.134,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m277",
+      "tactical": 2.384,
+      "empty": 2.554,
+      "speed": 0.979026,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m357trait",
+      "tactical": 3.067,
+      "empty": null,
+      "speed": 1,
+      "status": "unavailable",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m39emr",
+      "tactical": 2.534,
+      "empty": 2.85,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m417a2",
+      "tactical": 2.467,
+      "empty": 2.567,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m433",
+      "tactical": 2.384,
+      "empty": 2.967,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m44",
+      "tactical": 3.4,
+      "empty": null,
+      "speed": 1,
+      "status": "unavailable",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m45a1",
+      "tactical": 1.867,
+      "empty": 2,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m4a1",
+      "tactical": 2.2,
+      "empty": 2.695,
+      "speed": 0.977272,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m60",
+      "tactical": 7.35,
+      "empty": 8.123,
+      "speed": 0.99102,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "m87a1",
+      "tactical": null,
+      "empty": null,
+      "speed": 1,
+      "status": "unavailable",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "miniscout",
+      "tactical": 2.334,
+      "empty": 3.9,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "nvo228e",
+      "tactical": 2.5,
+      "empty": 2.979,
+      "speed": 0.973599,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "p18",
+      "tactical": 1.934,
+      "empty": 2.167,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "pp19",
+      "tactical": 2.467,
+      "empty": 3.028,
+      "speed": 0.979732,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "psr",
+      "tactical": 3.35,
+      "empty": 4.35,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "pw5a3",
+      "tactical": 2.517,
+      "empty": 2.9,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "pw7a2",
+      "tactical": 2.184,
+      "empty": 3.086,
+      "speed": 0.961538,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "qbz192",
+      "tactical": 2.567,
+      "empty": 2.784,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "rpk74m",
+      "tactical": 2.784,
+      "empty": 3.1,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "rpkm",
+      "tactical": 2.8,
+      "empty": 3.284,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "scw10",
+      "tactical": 2.6,
+      "empty": 3.11,
+      "speed": 0.980769,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "sg553r",
+      "tactical": 2.5,
+      "empty": 2.926,
+      "speed": 0.979999,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "sgx",
+      "tactical": 2.517,
+      "empty": 2.917,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "sl9",
+      "tactical": 2.65,
+      "empty": 3.183,
+      "speed": 1.031698,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "sor300sc",
+      "tactical": 2.25,
+      "empty": 3.284,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "sor556",
+      "tactical": 2.384,
+      "empty": 2.667,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "sv98",
+      "tactical": 2.984,
+      "empty": 3.967,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "svdm",
+      "tactical": 2.5,
+      "empty": 3.45,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "svk86",
+      "tactical": 2.967,
+      "empty": 4.217,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "tr7",
+      "tactical": 2.4,
+      "empty": 3.37,
+      "speed": 0.979166,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "umg40",
+      "tactical": 2.517,
+      "empty": 2.917,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "usg90",
+      "tactical": 3,
+      "empty": 3.314,
+      "speed": 0.955666,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "vcr2",
+      "tactical": 2.434,
+      "empty": 3.129,
+      "speed": 0.958915,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "vssm",
+      "tactical": 2.467,
+      "empty": null,
+      "speed": 1,
+      "status": "unavailable",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    },
+    {
+      "weaponId": "vz61",
+      "tactical": 2.134,
+      "empty": 2.833,
+      "speed": 1,
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.3.3.0",
+        "retrievedAt": "2026-08-12T12:27:21.184Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.1.5"
+    }
+  ]
+}
