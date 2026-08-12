@@ -162,7 +162,24 @@ function findPart(parts: Attachment[], weapon: Weapon, wanted: string): Attachme
     return editDistance(key, target) <= limit;
   });
 
-  return near.length === 1 ? near[0] : undefined;
+  if (near.length === 1) return near[0];
+
+  /*
+   * O nome abreviado, quando ele só pode ser um.
+   *
+   * O modelo escreveu "RO-M" para a "RO-M 1.00x" — cortou a ampliação, que é o
+   * que distingue uma mira da outra na lista. A distância de edição não salva
+   * esse caso: faltam seis caracteres e os dígitos não batem.
+   *
+   * O prefixo salva, com uma condição: ele precisa apontar para uma peça só. Se
+   * "RO-M" servisse para duas miras, escolher uma seria adivinhar qual — e o
+   * descarte, com o nome no log, é a resposta honesta.
+   */
+  const prefixed = parts.filter((part) =>
+    normalizeKey(attachmentName(part, weapon)).startsWith(target),
+  );
+
+  return prefixed.length === 1 ? prefixed[0] : undefined;
 }
 
 /**

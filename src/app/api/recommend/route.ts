@@ -490,8 +490,22 @@ async function adviceFrom(
 
     if (!discarded.length) return advice;
 
+    /*
+     * Peça recusada não derruba mais a build inteira.
+     *
+     * A regra do tudo ou nada existia porque a resposta trazia texto: o painel
+     * explicava o supressor e o carregador rápido que o funil havia tirado, e a
+     * lista mostrava outra coisa. Build pela metade com legenda de build
+     * inteira não era sugestão, era ruído.
+     *
+     * A resposta agora é só as peças. Sem texto para contradizer, nove slots
+     * montados valem mais que a recusa dos nove por causa do décimo — o
+     * visitante veio montar a arma. O que caiu vai para o log com o motivo, e
+     * `buildAdvice` já garante que sobrou alguma coisa além da fábrica.
+     */
     if (round === ROUNDS) {
-      throw new Error(`peças recusadas até o fim: ${discarded.join('; ')}`);
+      console.warn('[recommend] peças fora da build', { weapon: weapon.id, model, discarded });
+      return advice;
     }
 
     // A rodada de correção é outra busca inteira: começar uma sem tempo para

@@ -289,6 +289,30 @@ describe('nome aproximado da peça', () => {
     expect(discarded).toHaveLength(1);
   });
 
+  it('aceita o nome abreviado quando ele só pode ser uma peça', () => {
+    /*
+     * O modelo escreveu "RO-M" para a "RO-M 1.00x": cortou a ampliação, que é
+     * o que distingue uma mira da outra. Quando o prefixo aponta para uma peça
+     * só, ele basta; quando serve para duas, escolher seria adivinhar.
+     */
+    const miras = (attachmentsForWeapon(m16).get('sight') ?? []).map((a) => attachmentName(a, m16));
+    const comAmpliacao = miras.find((nome) => / \d[.,]\d\dx$/.test(nome));
+    if (!comAmpliacao) return;
+
+    const base = comAmpliacao.replace(/ \d[.,]\d\dx$/, '');
+    const irmas = miras.filter((nome) => nome.startsWith(base));
+
+    const { attachments, discarded } = validateRecommendation(m16, { sight: base });
+
+    if (irmas.length === 1) {
+      expect(discarded).toHaveLength(0);
+      expect(attachments.sight).toBeTruthy();
+    } else {
+      // Prefixo ambíguo: recusar é a resposta honesta.
+      expect(discarded).toHaveLength(1);
+    }
+  });
+
   it('aceita o nome com o custo colado, que é como o modelo o devolve', () => {
     /*
      * O cardápio do prompt lista "Cano Estendido (10 pts)", porque o preço é o
