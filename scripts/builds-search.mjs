@@ -47,7 +47,9 @@ function numeroConfig(valor, padrao) {
  * varredura em pouco mais de dez chamadas.
  */
 const LOTE = numeroConfig(process.env.OPENAI_BUILDS_LOTE, 6);
-const MAX_OUTPUT_TOKENS = numeroConfig(process.env.OPENAI_BUILDS_MAX_OUTPUT_TOKENS, 2000);
+/* O teto cobre raciocínio, busca e texto — não só o texto. Seis armas com
+   pesquisa em cada uma não cabem em dois mil tokens. */
+const MAX_OUTPUT_TOKENS = numeroConfig(process.env.OPENAI_BUILDS_MAX_OUTPUT_TOKENS, 6000);
 const MAX_TENTATIVAS = numeroConfig(process.env.OPENAI_BUILDS_RETRIES, 3);
 
 /* A busca é o ponto desta rotina, então nada de modo JSON nem de raciocínio —
@@ -93,6 +95,9 @@ async function chamar(modelo, prompt, tentativa) {
     body: JSON.stringify({
       model: modelo,
       tools: [{ type: 'web_search' }],
+      // Obrigatória, não opcional: com o padrão `auto` o modelo responde de
+      // memória e o arquivo passa a guardar palpite com cara de leitura.
+      tool_choice: 'required',
       input: prompt,
       max_output_tokens: MAX_OUTPUT_TOKENS,
       store: false,
@@ -113,12 +118,20 @@ async function chamar(modelo, prompt, tentativa) {
     throw erro;
   }
 
+  if (corpo.status === 'incomplete') {
+    throw new Error(
+      `resposta cortada (${corpo.incomplete_details?.reason ?? 'motivo não informado'}) — ` +
+        `o teto é ${MAX_OUTPUT_TOKENS} tokens`,
+    );
+  }
+
   const mensagem = (corpo.output ?? []).find((item) => item.type === 'message');
   const partes = (mensagem?.content ?? []).filter((p) => p.type === 'output_text');
 
-  if (corpo.status === 'incomplete') {
-    throw new Error(`resposta cortada (${corpo.incomplete_details?.reason ?? 'sem motivo'})`);
-  }
+  // Sem página aberta não houve leitura, e sim memória do modelo. O lote cai e
+  // o próximo modelo da fila tenta — a mesma trava do meta.
+  const citou = partes.some((p) => (p.annotations ?? []).some((a) => a.type === 'url_citation'));
+  if (!citou) throw new Error('a busca não abriu página nenhuma');
 
   return partes.map((p) => p.text ?? '').join('');
 }

@@ -50,7 +50,15 @@ function numeroConfig(valor, padrao) {
  * fontes com data e escopo, passam de mil tokens, e resposta cortada no meio é
  * JSON inválido — a leitura do dia se perde por economia de fração de centavo.
  */
-const MAX_OUTPUT_TOKENS = numeroConfig(process.env.OPENAI_META_MAX_OUTPUT_TOKENS, 2500);
+/*
+ * O teto cobre raciocínio, chamadas de busca **e** o texto final.
+ *
+ * Com 2500 o gpt-5-mini gastava tudo antes de escrever a mensagem e devolvia
+ * uma resposta vazia — que aqui aparecia como "resposta sem JSON", sem amostra
+ * nenhuma, porque não havia texto para amostrar. Buscar em várias páginas e
+ * depois resumir 8 armas não cabe nesse orçamento.
+ */
+const MAX_OUTPUT_TOKENS = numeroConfig(process.env.OPENAI_META_MAX_OUTPUT_TOKENS, 8000);
 const MAX_TENTATIVAS = numeroConfig(process.env.OPENAI_META_RETRIES, 3);
 const FALHAR_SEM_ATUALIZAR = process.env.OPENAI_META_STRICT === '1';
 
@@ -166,6 +174,15 @@ function payload(modelo) {
   return {
     model: modelo,
     tools: [{ type: 'web_search' }],
+    /*
+     * A busca é obrigatória, não uma opção.
+     *
+     * Com o padrão `auto`, o modelo decide se pesquisa — e gpt-4.1 e
+     * gpt-4.1-mini decidiam que não: respondiam de memória, com a mesma cara
+     * segura, e caíam na trava de "a busca não abriu página nenhuma" já do
+     * outro lado. Uma leitura do meta sem página aberta não é leitura do meta.
+     */
+    tool_choice: 'required',
     input: PROMPT,
     max_output_tokens: MAX_OUTPUT_TOKENS,
     store: false,
@@ -193,6 +210,16 @@ async function chamarOpenAI(modelo, opcoes) {
   // A resposta vem como uma lista de itens — raciocínio, chamadas de busca,
   // mensagem. O texto está na mensagem, e os links que a busca abriu vêm como
   // anotações `url_citation` penduradas nele.
+  // Resposta cortada tem diagnóstico próprio: o texto vem vazio ou pela metade,
+  // e sem esta checagem o erro que sobe é "resposta sem JSON" — que manda
+  // procurar defeito no prompt quando o que faltou foi orçamento.
+  if (corpo.status === 'incomplete') {
+    throw new Error(
+      `resposta cortada (${corpo.incomplete_details?.reason ?? 'motivo não informado'}) — ` +
+        `o teto é ${MAX_OUTPUT_TOKENS} tokens`,
+    );
+  }
+
   const mensagem = (corpo.output ?? []).find((item) => item.type === 'message');
   const partes = (mensagem?.content ?? []).filter((p) => p.type === 'output_text');
   const texto = partes.map((p) => p.text ?? '').join('');
