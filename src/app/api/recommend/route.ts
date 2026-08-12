@@ -41,8 +41,15 @@ import { dedupeCitations, type CitedSource } from '@/lib/sources';
  */
 export const maxDuration = 300;
 
-/** Uma chance de corrigir. A terceira rodada seria o mesmo erro mais caro. */
-const ROUNDS = 2;
+/**
+ * Uma rodada só.
+ *
+ * A rodada de correção dobrava o tempo de espera para salvar a resposta em que
+ * o modelo citou uma peça inexistente. Com a resposta curta — só as peças — o
+ * erro ficou raro, e quando acontece o botão já entregou a montagem local no
+ * clique. Esperar o dobro para talvez melhorar não vale a espera.
+ */
+const ROUNDS = 1;
 
 const API_KEY = process.env.OPENAI_API_KEY;
 
@@ -79,7 +86,16 @@ const MODELS = (process.env.OPENAI_RECOMMEND_MODELS ?? 'gpt-5-mini,gpt-4.1-mini'
  * fica uma semana na borda: apertar aqui é economizar fração de centavo para
  * perder a sugestão inteira.
  */
-const MAX_OUTPUT_TOKENS = positiveInt(process.env.OPENAI_RECOMMEND_MAX_OUTPUT_TOKENS, 6000);
+/*
+ * A resposta encolheu, e o teto com ela.
+ *
+ * Antes o modelo escrevia o painel inteiro — porquê, modo de jogar, consenso,
+ * o que o patch mudou e uma build alternativa —, e isso levava perto de um
+ * minuto. Agora ele devolve só as peças, que é o que o botão promete. O teto
+ * conta o raciocínio junto nos modelos gpt-5, então sobra folga para ele
+ * pensar e ainda assim caber no orçamento de vinte segundos.
+ */
+const MAX_OUTPUT_TOKENS = positiveInt(process.env.OPENAI_RECOMMEND_MAX_OUTPUT_TOKENS, 1200);
 const MAX_RETRIES = positiveInt(process.env.OPENAI_RECOMMEND_RETRIES, 3);
 
 /*
@@ -98,8 +114,8 @@ const MAX_RETRIES = positiveInt(process.env.OPENAI_RECOMMEND_RETRIES, 3);
  * porque do outro lado a arma está montada pelas estatísticas desde o clique e
  * o que falta é só a leitura da comunidade.
  */
-const REQUEST_TIMEOUT_MS = positiveInt(process.env.OPENAI_RECOMMEND_REQUEST_TIMEOUT_MS, 90_000);
-const TIME_BUDGET_MS = positiveInt(process.env.OPENAI_RECOMMEND_TIME_BUDGET_MS, 150_000);
+const REQUEST_TIMEOUT_MS = positiveInt(process.env.OPENAI_RECOMMEND_REQUEST_TIMEOUT_MS, 18_000);
+const TIME_BUDGET_MS = positiveInt(process.env.OPENAI_RECOMMEND_TIME_BUDGET_MS, 20_000);
 
 /** O erro de quem ficou sem tempo — reconhecível no log e no fim da fila. */
 const timeout = (message: string) => Object.assign(new Error(message), { timedOut: true });
@@ -444,53 +460,37 @@ export async function GET(request: Request) {
 
 ${gameState()}
 
-## 1. Pesquise antes de escolher
+## 1. Pesquise rápido
 
-Nesta ordem de prioridade:
-1. Patch notes oficiais da EA/DICE: buff, nerf, dano, recuo, cadência, munição, TTK, acessórios.
-2. Reddit recente — r/Battlefield6, r/Battlefield, r/BF6 —, buscando "${weapon.name} loadout", "${weapon.name} best attachments", "${weapon.name} build", "${weapon.name} meta".
-3. Trackers e comparadores com pick rate, K/D, KPM ou TTK.
-4. Guias e criadores de conteúdo, só quando houver evidência recente.
+Uma busca só, curta: "${weapon.name} best attachments" ou "${weapon.name} loadout". Prefira Reddit recente (r/Battlefield6, r/Battlefield) e patch notes da EA. Priorize os últimos 30 dias. Não abra dezenas de páginas — duas ou três bastam para saber o que a comunidade monta.
 
-Priorize os últimos 7 dias; até 30 dias vale como contexto. Build de antes do patch mais recente só entra se algo posterior a confirmar.
-
-Não copie uma única build encontrada: compare as fontes e fique com a que tem mais apoio. Se elas divergirem de verdade, diga no campo "consensus" em que ponto divergem, e escolha a melhor configuração geral.
-
-## 2. Entenda a arma antes dos acessórios
-
-Determine a função dela (CQB, agressiva, all-around, médio alcance, precisão, suporte, stealth…), a distância em que ela vive — CQB 0–15 m, curta 15–30 m, média 30–60 m, longa 60 m+ —, os pontos fortes e as fraquezas.
-
-## 3. Escolha os acessórios
+## 2. Escolha os acessórios
 
 Use SOMENTE os desta lista. Cada linha é um slot, no formato "id do slot (nome): peças com o custo em pontos":
 
 ${attachmentMenu(weapon)}
 
-Ordem de prioridade: corrigir uma fraqueza crítica; melhorar o desempenho na distância principal; melhorar o TTK efetivo; controle; consistência; ergonomia; vantagem situacional. Não sacrifique uma característica importante por uma melhoria pequena.
+Prioridade: corrigir a fraqueza crítica da arma; melhorar o desempenho na distância pedida; controle e consistência. Não preencha um slot só porque ele existe — peça sem benefício claro fica de fora.
 
-Não preencha um slot só porque ele existe: peça que não traz benefício claro fica de fora.
+Uma peça por slot. O orçamento é de ${budgetFor(weapon.category)} pontos, com os custos que estão na lista. Some antes de responder: se passou do teto, tire a peça menos importante. Nome diferente do da lista, ou soma acima do teto, faz a resposta ser recusada.
 
-Uma peça por slot. O orçamento é de ${budgetFor(weapon.category)} pontos, com os custos na lista, e a build alternativa obedece ao mesmo teto, contada por si.
+Só multiplayer: montagem que só faz sentido no REDSEC fica de fora.
 
-Antes de responder, some os custos das peças que escolheu e confira contra o teto — as duas builds, cada uma por si. Se passou, tire a peça menos importante; não arredonde o teto nem troque o custo que está na lista. Peça com nome diferente do que está na lista, ou soma acima do teto, faz a resposta inteira ser devolvida para você refazer.
+## 3. Não invente
 
-Só multiplayer: montagem que só faz sentido no REDSEC, o battle royale, fica de fora. Fonte que mistura os dois modos só vale depois de você separar o que é de cada um.
+Nada de acessório fora da lista. Sem evidência clara, escolha o que a lista oferece de mais sólido para a distância pedida.
 
-## 4. Não invente
+## 4. Resposta
 
-Nada de acessório fora da lista, TTK, pick rate, post de Reddit, patch note ou tendência inventados. Sem evidência, escreva menos e baixe a confiança — "LOW" é uma resposta honesta.
+Responda SOMENTE com este JSON, sem cercas de código e sem texto antes ou depois:
 
-## 5. Resposta
+{"picks":{"id do slot":"NOME EXATO DA PEÇA"}}
 
-Responda SOMENTE com este JSON, sem cercas de código e sem texto antes ou depois. Escreva em português do Brasil; só os nomes das peças vão exatamente como estão na lista.
-
-{"picks":{"id do slot":"NOME EXATO DA PEÇA"},"why":{"id do slot":"uma frase dizendo o que essa peça resolve NESTA arma"},"reason":"2 a 4 frases explicando por que esta é a configuração recomendada agora","playstyle":"até 4 linhas de como jogar com ela","range":{"main":"30–60 m","secondary":"15–30 m"},"status":"META, STRONG, TRENDING, POPULAR, NICHE ou OFF-META","confidence":"HIGH, MEDIUM ou LOW","alternative":{"label":"para que serve, em duas ou três palavras","when":"uma frase dizendo quando trocar para ela","picks":{"id do slot":"NOME EXATO DA PEÇA"}},"consensus":"2 a 4 frases do que a comunidade está dizendo, inclusive onde ela discorda","changes":"o que o último patch mudou nesta arma, ou: Nenhuma mudança recente relevante encontrada."}
-
-Regras do JSON:
-- "status" não é popularidade: arma muito usada e mediana é POPULAR, não META.
-- "confidence": HIGH com várias fontes concordando e dado estatístico junto; MEDIUM com boa evidência e comunidade dividida; LOW com pouca fonte, informação velha ou opinião conflitante.
-- "alternative" é uma só, para uma situação diferente da principal. Se não houver alternativa que se sustente, devolva null.
-- Use o id do slot exatamente como aparece antes do parêntese.`;
+Regras:
+- Só peças copiadas exatamente da lista acima, uma por slot.
+- Use o id do slot exatamente como aparece antes do parêntese.
+- Nada além de "picks": nem explicação, nem alternativa, nem comentário. Quem
+  clicou quer a arma montada, e cada frase a mais é um segundo a mais de espera.`;
 
   let lastError: unknown = null;
   const deadline = Date.now() + TIME_BUDGET_MS;

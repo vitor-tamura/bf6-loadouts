@@ -154,9 +154,17 @@ export function RecommendPanel({
         </p>
       )}
 
-      <Bloco title="Por que esta build">
-        <Paragrafo>{advice.reason}</Paragrafo>
-      </Bloco>
+      {/*
+        O painel encolheu junto com a resposta.
+        O modelo passou a devolver só as peças, para a espera caber em vinte
+        segundos, e os blocos de texto aparecem apenas quando houver texto —
+        em vez de um cabeçalho seguido de uma frase genérica.
+      */}
+      {advice.reason && (
+        <Bloco title="Por que esta build">
+          <Paragrafo>{advice.reason}</Paragrafo>
+        </Bloco>
+      )}
 
       {advice.playstyle && (
         <Bloco title="Como jogar">

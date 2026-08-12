@@ -466,6 +466,11 @@ export function buildAdvice(
     advice: {
       attachments,
       why,
+      /*
+       * A resposta encolheu para caber em vinte segundos: o modelo devolve só
+       * as peças. Quando ele mesmo assim escrever um porquê, ele é aproveitado;
+       * quando não, fica a frase que descreve o que a montagem é.
+       */
       reason: trimmedText(raw.reason, 600) ?? 'Montagem citada pela comunidade para este alcance.',
       playstyle: trimmedText(raw.playstyle, 500),
       range: {

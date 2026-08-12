@@ -200,20 +200,21 @@ export function RecommendButton({
       {advice && (
         <>
           {/*
-            Embaixo do botão fica a primeira frase, não o texto inteiro: o
-            porquê da build agora tem parágrafo, e derramá-lo no montador
-            empurraria os slots para fora da tela. O resto está a um clique, e o
-            clique não custa outra busca.
+            Uma linha só embaixo do botão.
+            A resposta do modelo passou a ser só as peças — é o que o botão
+            promete e o que cabe em vinte segundos de espera. O painel continua
+            existindo para mostrar a build montada e as páginas que a busca
+            abriu, e abre sem custar outra busca.
           */}
           <p className="mt-1.5 text-[11px] leading-snug" style={{ color: 'var(--text-soft)' }}>
-            {advice.reason.split(/(?<=\.)\s/)[0]}{' '}
+            {Object.keys(advice.attachments).length} peças aplicadas{' '}
             <button
               type="button"
               onClick={() => setOpen(true)}
               className="underline underline-offset-2"
               style={{ color: 'var(--accent)' }}
             >
-              ver a leitura
+              ver a build
             </button>
           </p>
 
