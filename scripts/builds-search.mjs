@@ -1,21 +1,21 @@
 #!/usr/bin/env node
 /**
- * O que a comunidade monta em cada arma, lido uma vez por semana.
+ * O que a comunidade monta em cada arma, lido uma vez por dia.
  *
  *   OPENAI_API_KEY=... node --experimental-strip-types scripts/builds-search.mjs
  *
- * A leitura diária do meta (`meta-search.mjs`) responde que armas estão fortes
- * — oito por dia, com evidência. Esta rotina responde outra pergunta: **o que
- * se põe nelas**, para as 62, e é o contexto que faltava ao botão "sugestão da
- * comunidade".
+ * A leitura do meta (`meta-search.mjs`) responde que armas estão fortes — oito
+ * por dia, com evidência. Esta rotina responde outra pergunta: **o que se põe
+ * nelas**, para as 63, e é o contexto que faltava ao botão "sugestão da
+ * comunidade". As duas saem do mesmo workflow (`meta-daily.yml`).
  *
  * ## Por que fora da rota
  *
  * Porque a busca não cabe num clique. Dentro da chamada ela custava mais que o
  * orçamento inteiro e ainda impedia o raciocínio mínimo, e a resposta não
- * fechava. Aqui ela roda uma vez por semana, em lote, e o resultado fica no
- * disco: quando alguém clica, o contexto já está lá, e o modelo só escolhe as
- * peças dentro do cardápio da arma.
+ * fechava. Aqui ela roda em lote, junto da leitura do meta, e o resultado fica
+ * no disco: quando alguém clica, o contexto já está lá, e o modelo só escolhe
+ * as peças dentro do cardápio da arma.
  *
  * ## O que entra no arquivo
  *
@@ -59,7 +59,25 @@ const MODELOS = (process.env.OPENAI_BUILDS_MODELS ?? 'gpt-5-mini,gpt-4.1-mini')
   .map((modelo) => modelo.trim())
   .filter(Boolean);
 
+/*
+ * Quantas fontes o arquivo guarda.
+ *
+ * Onze lotes devolvendo meia dúzia de links cada dão 44 fontes, e ninguém lê
+ * 44 links embaixo de um card. O arquivo é contexto do botão, não bibliografia.
+ */
+const MAX_FONTES = 12;
+
 const espera = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/**
+ * O nome da arma sem o rótulo que a própria pergunta pôs ali.
+ *
+ * O prompt lista "AK4D (FA)" — o nome e a categoria — e o modelo devolve os
+ * dois juntos, o que é a leitura literal do que ele viu. `armaPorNome` compara
+ * sem pontuação, então "ak4dfa" não bate com nenhuma arma e a leitura era
+ * recusada. Foi assim que 46 armas lidas viraram 3 gravadas.
+ */
+const nomeDeArma = (bruto) => String(bruto ?? '').replace(/\s*\([^)]*\)\s*$/, '').trim();
 
 /* Mesmos ajustes do meta, pelos mesmos motivos: os modelos gpt-4.1 só conhecem
    a busca pelo nome antigo, e o raciocínio disputa o teto de tokens com o
@@ -90,12 +108,13 @@ ${lista}
 - Priorize os últimos 30 dias.
 - Arma sem evidência recente fica de fora da resposta. Não escreva nada genérico para preencher: quatro armas sustentadas valem mais que doze inventadas.
 - Só multiplayer. O que vale só no REDSEC fica de fora.
+- Em "weapon", escreva só o nome: "AK4D", nunca "AK4D (FA)". O que está entre parênteses na lista acima é a categoria, e não faz parte do nome.
 
 ## Resposta
 
 Responda SOMENTE com este JSON, sem cercas de código:
 
-{"builds":[{"weapon":"NOME EXATO DA ARMA","advice":"o que a comunidade monta nela e por quê","source":"https://..."}],"sources":[{"name":"nome curto da fonte","url":"https://...","date":"YYYY-MM-DD"}]}`;
+{"builds":[{"weapon":"NOME DA ARMA, sem o rótulo entre parênteses","advice":"o que a comunidade monta nela e por quê","source":"https://..."}],"sources":[{"name":"nome curto da fonte","url":"https://...","date":"YYYY-MM-DD"}]}`;
 }
 
 async function chamar(modelo, prompt, tentativa) {
@@ -181,6 +200,9 @@ async function main() {
   const builds = [];
   const fontes = new Map();
   const semEvidencia = [];
+  const descartes = [];
+  /** Arma já lida num lote anterior — o modelo às vezes repete a vizinha. */
+  const vistas = new Set();
 
   for (let inicio = 0; inicio < armas.length; inicio += LOTE) {
     const lote = armas.slice(inicio, inicio + LOTE);
@@ -196,27 +218,51 @@ async function main() {
         continue;
       }
 
+      let aceitas = 0;
+
       for (const item of dados.builds) {
-        const arma = armaPorNome(item.weapon);
+        const arma = armaPorNome(nomeDeArma(item.weapon));
         const conselho = String(item.advice ?? '').trim();
 
         // Arma que não existe no arsenal, ou conselho vazio, não entra: o
         // arquivo alimenta o prompt do botão, e ali um nome errado vira
-        // contexto errado.
-        if (!arma || conselho.length < 20) continue;
+        // contexto errado. Mas o descarte vai para o log, sempre — foi o
+        // silêncio daqui que escondeu, por uma rodada inteira, 43 leituras
+        // recusadas por causa do rótulo entre parênteses.
+        if (!arma) {
+          descartes.push(`${item.weapon}: não é arma do arsenal`);
+          continue;
+        }
+        if (conselho.length < 20) {
+          descartes.push(`${arma.name}: sem conselho`);
+          continue;
+        }
+        if (vistas.has(arma.id)) continue;
 
+        vistas.add(arma.id);
+        aceitas += 1;
         builds.push({ weapon: arma.id, advice: conselho.slice(0, 400), source: item.source ?? null });
       }
 
       for (const fonte of dados.sources ?? []) {
-        if (fonte?.url) fontes.set(fonte.url, { name: fonte.name ?? fonte.url, url: fonte.url, date: fonte.date ?? null });
+        if (fonte?.url && fontes.size < MAX_FONTES) {
+          fontes.set(fonte.url, { name: fonte.name ?? fonte.url, url: fonte.url, date: fonte.date ?? null });
+        }
       }
 
-      console.log(`[builds] ${rotulo} → ${dados.builds.length} (${modelo})`);
+      console.log(
+        `[builds] ${rotulo} → ${aceitas} de ${dados.builds.length} (${modelo})`,
+      );
     } catch (erro) {
       semEvidencia.push(...lote.map((arma) => arma.id));
       console.warn(`[builds] falhou em ${rotulo}: ${erro.message}`);
     }
+  }
+
+  if (descartes.length) {
+    console.warn(`[builds] ${descartes.length} descartadas:`);
+    for (const motivo of descartes.slice(0, 20)) console.warn(`  ${motivo}`);
+    if (descartes.length > 20) console.warn(`  … e mais ${descartes.length - 20}`);
   }
 
   if (!builds.length) {
