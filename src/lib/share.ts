@@ -183,3 +183,19 @@ export function loadoutUrl(loadout: Loadout, origin?: string): string {
   const base = origin ?? (typeof window !== 'undefined' ? window.location.origin : '');
   return `${base}${BUILDER_PATH}?${LOADOUT_PARAM}=${encodeLoadout(loadout)}`;
 }
+
+/** Onde o cartão em imagem é desenhado. */
+export const IMAGE_PATH = '/api/loadout/imagem/';
+
+/**
+ * URL da imagem do loadout, pronta para colar.
+ *
+ * O cartão sempre teve endereço próprio — é uma rota GET com o mesmo código do
+ * link —, mas a única forma de chegar nele era o botão de baixar, que gastava
+ * um arquivo no aparelho para mostrar o que um endereço já mostra. Quem cola em
+ * conversa, fórum ou aba nova quer isto aqui.
+ */
+export function loadoutImageUrl(loadout: Loadout, origin?: string): string {
+  const base = origin ?? (typeof window !== 'undefined' ? window.location.origin : '');
+  return `${base}${IMAGE_PATH}?${LOADOUT_PARAM}=${encodeLoadout(loadout)}`;
+}

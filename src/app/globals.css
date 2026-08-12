@@ -318,6 +318,19 @@
   }
 
   /*
+   * Título de bloco é maior que rótulo solto.
+   *
+   * A mesma classe serve os dois: a legenda ao lado de um número e o título que
+   * abre uma seção inteira. No tamanho único, o título não vencia o conteúdo
+   * que anunciava — em tela cheia de cartão, ele passava por mais uma legenda.
+   * Quem manda no peso aqui é a marcação: `h2` é bloco, `span` é rótulo.
+   */
+  h2.label {
+    font-size: 0.8125rem;
+    color: var(--text-soft);
+  }
+
+  /*
    * Cartão.
    *
    * O fundo é levemente translúcido e desfocado — a trama do fundo da página
@@ -671,4 +684,26 @@ figure canvas {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/*
+ * O item do menu inteiro é clicável, não só a palavra.
+ *
+ * O `Menu` do antd monta `<li>` com preenchimento próprio e põe o link dentro,
+ * envolvendo apenas o texto: a faixa entre a borda do item e a primeira letra
+ * ficava morta, e o clique só valia se caísse em cima do rótulo. Num alvo de
+ * toque de celular isso erra com frequência.
+ *
+ * A correção é o link esticar até as bordas do item. `::after` cobrindo o `<li>`
+ * resolve sem mexer no fluxo do texto — o sublinhado do item ativo continua
+ * sendo o `::after` do próprio `<li>`, que é outro elemento.
+ */
+.ant-menu-horizontal .ant-menu-item {
+  position: relative;
+}
+
+.ant-menu-horizontal .ant-menu-item a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
 }

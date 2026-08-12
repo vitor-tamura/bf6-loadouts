@@ -1,5 +1,6 @@
 import { generateText, APICallError } from 'ai';
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
+import { createOpenAI } from '@ai-sdk/openai';
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import { SHORT_CATEGORY_NAMES } from '@/data/classes';
 import {
@@ -30,15 +31,26 @@ import { GAME_MODES, type GameMode } from '@/lib/matchup';
 export const maxDuration = 15;
 
 /*
- * Modelo pequeno de propósito.
+ * Modelo pequeno de propósito, também no gateway.
  *
  * A tarefa é redigir três frases a partir de números já mastigados — não há
  * raciocínio a fazer, e um modelo grande gastaria o crédito do mês em pouca
- * coisa. `models` é a fila de reserva do próprio gateway, para o caso de o
- * primeiro estar fora do ar.
+ * coisa. O nano é o mais barato do catálogo do gateway também; `models` é a
+ * fila de reserva do próprio gateway, para o caso de o primeiro estar fora do
+ * ar, e os reservas também são dos baratos.
  */
-const MODEL = 'anthropic/claude-haiku-4.5';
-const FALLBACK_MODELS = ['google/gemini-3-flash', 'openai/gpt-5.4'];
+const MODEL = 'openai/gpt-5-nano';
+const FALLBACK_MODELS = ['anthropic/claude-haiku-4.5', 'google/gemini-3-flash'];
+
+/**
+ * Os modelos da OpenAI, na ordem em que se tenta.
+ *
+ * O `gpt-5-nano` abre a fila por ser o mais barato do catálogo — US$ 0,05 por
+ * milhão de tokens de entrada, um quinto do mini — e redigir três frases a
+ * partir de números prontos é tarefa para ele. O `gpt-4.1-nano` é o plano B
+ * de outra família, para o dia em que o nome sair do ar.
+ */
+const OPENAI_MODELS = ['gpt-5-nano', 'gpt-4.1-nano'];
 
 /**
  * Os modelos gratuitos do Google, na ordem em que se tenta.
@@ -55,28 +67,116 @@ const GOOGLE_MODELS = ['gemini-3.6-flash', 'gemini-flash-latest'];
 /**
  * De onde vem o modelo, na ordem em que se tenta.
  *
- * O AI Gateway é o caminho preferido — uma configuração só, failover e
- * contabilidade prontos —, mas ele exige cartão cadastrado na Vercel antes de
- * liberar o crédito gratuito. Quem não quiser cadastrar cartão põe uma chave do
- * Google AI Studio em `GOOGLE_GENERATIVE_AI_API_KEY`, criada em projeto sem
- * faturamento; existindo a chave, ela ganha, porque é a única das duas que
- * funciona sem mais nada.
+ * Generativa é coisa de produção: preview e dev renderizam a mesma tela com a
+ * análise por regras, sem gastar crédito nenhum em teste.
  *
- * Sem nenhuma das duas, a rota falha e a tela fica com a análise por regras —
+ * Em produção, o gateway da Vercel abre a fila porque é o único caminho de
+ * custo zero: todo time ganha US$ 5 de crédito por mês, e sem auto top-up o
+ * gasto para aí — esgotou, a resposta vira 402 e a fila desce para a chave
+ * paga da OpenAI. O Google fecha a fila por herança: a chave gratuita que o
+ * atendia morreu para contas novas, mas se um dia voltar, volta a valer sem
+ * mexer aqui.
+ *
+ * Sem nenhum dos três, a rota falha e a tela fica com a análise por regras —
  * que é o que acontece em qualquer cópia recém-clonada do repositório.
+ *
+ * Cada candidato carrega as próprias opções de provedor porque o jeito de
+ * desligar o raciocínio muda de casa: `reasoningEffort` na OpenAI (que o
+ * `gpt-4.1-nano`, sem raciocínio, não aceita), `thinkingBudget` no Google —
+ * e o gateway leva junto a fila de reserva e o cache.
  */
 function candidates() {
+  if (process.env.VERCEL_ENV !== 'production') return [];
+
+  const openaiKey = process.env.OPENAI_API_KEY;
   const googleKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
-  if (googleKey) {
-    const google = createGoogleGenerativeAI({ apiKey: googleKey });
-    return GOOGLE_MODELS.map((name) => ({ model: google(name), name, viaGateway: false }));
-  }
-  return [{ model: MODEL, name: MODEL, viaGateway: true }];
+  const openai = openaiKey ? createOpenAI({ apiKey: openaiKey }) : null;
+  const google = googleKey ? createGoogleGenerativeAI({ apiKey: googleKey }) : null;
+
+  return [
+    {
+      model: MODEL,
+      name: MODEL,
+      providerOptions: {
+        gateway: {
+          models: FALLBACK_MODELS,
+          tags: ['feature:matchup'],
+          /*
+           * As combinações são finitas — 63 armas em dois modos — e a
+           * resposta não depende de quem perguntou. Guardar por um dia
+           * derruba o custo para perto de zero e devolve na hora quem
+           * repetir a comparação.
+           */
+          cacheControl: 'max-age=86400',
+        },
+        openai: { reasoningEffort: 'minimal' },
+      },
+    },
+    ...(openai
+      ? OPENAI_MODELS.map((name) => ({
+          model: openai(name),
+          name,
+          providerOptions: name.startsWith('gpt-5')
+            ? { openai: { reasoningEffort: 'minimal' } }
+            : undefined,
+        }))
+      : []),
+    ...(google
+      ? GOOGLE_MODELS.map((name) => ({
+          model: google(name),
+          name,
+          providerOptions: { google: { thinkingConfig: { thinkingBudget: 0 } } },
+        }))
+      : []),
+  ];
 }
 
 /** Nome de modelo errado ou fora da conta — vale tentar o próximo da fila. */
 const isModelProblem = (error: unknown) =>
   APICallError.isInstance(error) && (error.statusCode === 404 || error.statusCode === 400);
+
+/** Crédito esgotado num provedor não esgota o outro — a fila continua. */
+const isOutOfCredit = (error: unknown) =>
+  APICallError.isInstance(error) && error.statusCode === 402;
+
+/*
+ * O freio de gasto por visitante.
+ *
+ * A chave é paga por uso, e um script martelando a rota drenaria o crédito em
+ * uma tarde. Cada IP tem direito a dez leituras generativas por dia; daí em
+ * diante a resposta é 429 e a tela segue com a análise por regras, que o
+ * visitante já estava vendo.
+ *
+ * O contador vive na memória da instância, sem armazenamento externo: a
+ * instância é reaproveitada entre requisições, o que basta para segurar o uso
+ * real. Reinício zera a conta — aceitável, porque o objetivo é teto de gasto,
+ * não cota exata.
+ */
+const LEITURAS_POR_DIA = 10;
+const UM_DIA_MS = 86_400_000;
+const usoPorIp = new Map<string, { usadas: number; zeraEm: number }>();
+
+function estourouLimite(request: Request) {
+  const ip =
+    request.headers.get('x-real-ip') ??
+    (request.headers.get('x-forwarded-for') ?? 'desconhecido').split(',')[0].trim();
+
+  const agora = Date.now();
+
+  // Tira da mesa quem já pode voltar, para o mapa não crescer para sempre.
+  if (usoPorIp.size > 1000) {
+    for (const [dono, uso] of usoPorIp) if (agora >= uso.zeraEm) usoPorIp.delete(dono);
+  }
+
+  let uso = usoPorIp.get(ip);
+  if (!uso || agora >= uso.zeraEm) {
+    uso = { usadas: 0, zeraEm: agora + UM_DIA_MS };
+    usoPorIp.set(ip, uso);
+  }
+  if (uso.usadas >= LEITURAS_POR_DIA) return true;
+  uso.usadas += 1;
+  return false;
+}
 
 /** O que o modelo pode escrever, e o que ele não pode inventar. */
 const SYSTEM = `Você escreve para um site brasileiro de loadouts de Battlefield 6.
@@ -155,17 +255,23 @@ export async function POST(request: Request) {
     return Response.json({ error: 'arma desconhecida' }, { status: 404 });
   }
 
+  // Só conta a leitura que chegaria ao modelo: pedido inválido não gasta cota.
+  if (estourouLimite(request)) {
+    return Response.json({ error: 'limite diário de leituras atingido' }, { status: 429 });
+  }
+
   /*
    * Tenta os modelos em ordem e para no primeiro que responder.
    *
-   * Só vale insistir quando a recusa é do nome do modelo — 404 de modelo que
-   * saiu do ar, 400 de nome que a conta não conhece. Cota estourada, chave
-   * inválida ou rede fora valem para a fila inteira, e repetir só gastaria o
-   * tempo de quem está esperando na tela.
+   * Só vale insistir quando a recusa é local ao candidato — 404 de modelo que
+   * saiu do ar, 400 de nome que a conta não conhece, 402 de crédito que
+   * acabou naquele provedor (o gateway sem o crédito do mês não diz nada
+   * sobre a chave da OpenAI). Chave inválida ou rede fora valem para a fila
+   * inteira, e repetir só gastaria o tempo de quem está esperando na tela.
    */
   let lastError: unknown = new Error('nenhum modelo configurado');
 
-  for (const { model, name, viaGateway } of candidates()) {
+  for (const { model, name, providerOptions } of candidates()) {
     try {
       const { text } = await generateText({
         model,
@@ -179,32 +285,22 @@ export async function POST(request: Request) {
         /*
          * Teto alto para três frases, e por um motivo.
          *
-         * O Flash gasta parte do orçamento de saída raciocinando antes de
-         * escrever, e esses tokens contam aqui: com 220 a resposta chegava
-         * cortada no meio da primeira frase. O `thinkingBudget: 0` desliga o
-         * raciocínio, que não tem o que fazer numa tarefa de redigir a partir
-         * de números já comparados, e o teto folgado cobre o resto.
+         * Modelo que raciocina gasta parte do orçamento de saída pensando
+         * antes de escrever, e esses tokens contam aqui: com 220 a resposta
+         * chegava cortada no meio da primeira frase. As opções de cada
+         * candidato desligam o raciocínio — que não tem o que fazer numa
+         * tarefa de redigir a partir de números já comparados — e o teto
+         * folgado cobre o resto.
          */
         maxOutputTokens: 800,
-        providerOptions: viaGateway
-          ? {
-              gateway: {
-                models: FALLBACK_MODELS,
-                tags: ['feature:matchup'],
-                /*
-                 * As combinações são finitas — 63 armas em dois modos — e a
-                 * resposta não depende de quem perguntou. Guardar por um dia
-                 * derruba o custo para perto de zero e devolve na hora quem
-                 * repetir a comparação.
-                 */
-                cacheControl: 'max-age=86400',
-              },
-            }
-          : { google: { thinkingConfig: { thinkingBudget: 0 } } },
+        providerOptions,
       });
 
       const answer = text.trim();
       if (!answer) throw new Error('resposta vazia');
+
+      // Uma linha por resposta: é o que diz, no log, de qual bolso saiu.
+      console.log('[matchup] respondeu', { name });
 
       return Response.json(
         { text: answer },
@@ -213,7 +309,7 @@ export async function POST(request: Request) {
       );
     } catch (error) {
       lastError = error;
-      if (!isModelProblem(error)) break;
+      if (!isModelProblem(error) && !isOutOfCredit(error)) break;
       console.warn('[matchup] modelo recusado, tentando o próximo', { name });
     }
   }

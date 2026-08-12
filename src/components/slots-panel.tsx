@@ -14,7 +14,7 @@ import { attachmentsForWeapon } from '@/data/attachments';
 import { budgetFor, SLOTS_BY_ID } from '@/data/classes';
 import type { Attachment, Weapon, StatKey, SlotId } from '@/data/types';
 import { LOWER_IS_BETTER, type Budget } from '@/lib/stats';
-import { attachmentName, factoryAttachments } from '@/lib/loadout';
+import { attachmentCost, attachmentName, factoryAttachments } from '@/lib/loadout';
 import { AttachmentIcon } from '@/components/icons/attachment-icon';
 import { AttachmentThumb } from './attachment-thumb';
 
@@ -292,7 +292,7 @@ export function SlotsPanel({
 
               {!compact && (
                 <span className="font-mono text-[11px]" style={{ color: 'var(--text-dim)' }}>
-                  {current ? `${current.cost} pts` : '—'}
+                  {current ? `${attachmentCost(current, weapon)} pts` : '—'}
                 </span>
               )}
             </button>
@@ -362,7 +362,7 @@ function SlotOptions({
 
   const chosen = options.find((o) => o.id === chosenId) ?? null;
   const preview = options.find((o) => o.id === hovered) ?? chosen;
-  const spendWithout = currentSpend - (chosen?.cost ?? 0);
+  const spendWithout = currentSpend - (chosen ? attachmentCost(chosen, weapon) : 0);
 
   return (
     <Card
@@ -442,7 +442,7 @@ function SlotOptions({
               weapon={weapon}
               attachment={option}
               active={option.id === chosenId}
-              fits={spendWithout + option.cost <= budgetTotal}
+              fits={spendWithout + attachmentCost(option, weapon) <= budgetTotal}
               onSelect={() => onSelect(option.id)}
               onFocus={() => setHovered(option.id)}
             />
@@ -483,7 +483,7 @@ function OptionTile({
 
   return (
     <Hint
-      label={attachment ? `${attachmentName(attachment, weapon)} · ${attachment.cost} pts` : 'Sem acessório'}
+      label={attachment ? `${attachmentName(attachment, weapon)} · ${attachmentCost(attachment, weapon)} pts` : 'Sem acessório'}
     >
       <button
         type="button"
@@ -529,7 +529,7 @@ function OptionTile({
                 : 'color-mix(in oklab, var(--text) 10%, transparent)',
           }}
         >
-          {attachment ? attachment.cost : 0}
+          {attachment ? attachmentCost(attachment, weapon) : 0}
         </span>
 
         <span

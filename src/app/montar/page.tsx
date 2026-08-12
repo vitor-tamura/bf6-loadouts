@@ -11,6 +11,7 @@ import { SlotsPanel, BudgetBar } from '@/components/slots-panel';
 import { StatsPanel } from '@/components/stats-panel';
 import { WeaponPreview } from '@/components/weapon-preview';
 import { DockablePanel, type PanelMode } from '@/components/dockable-panel';
+import { RecommendButton } from '@/components/recommend-button';
 import { SiteFooter } from '@/components/site-footer';
 import { WeaponFilters, WeaponList, WeaponSelector, useWeaponFilter } from '@/components/weapon-selector';
 import { WEAPONS_BY_ID, PRIMARY_CATEGORIES } from '@/data/weapons';
@@ -108,13 +109,13 @@ function BuilderPage() {
   const sidearmBase = useMemo(() => (sidearm ? baseStats(sidearm) : null), [sidearm]);
   const sidearmBudget = useMemo(
     () =>
-      calculateBudget(sidearmAttachments, sidearm ? budgetFor(sidearm.category) : POINT_BUDGET),
+      calculateBudget(sidearmAttachments, sidearm ? budgetFor(sidearm.category) : POINT_BUDGET, sidearm),
     [sidearmAttachments, sidearm],
   );
   const stats = useMemo(() => (weapon ? calculateStats(weapon, attachments) : null), [weapon, attachments]);
   const base = useMemo(() => (weapon ? baseStats(weapon) : null), [weapon]);
   const budget = useMemo(
-    () => calculateBudget(attachments, weapon ? budgetFor(weapon.category) : POINT_BUDGET),
+    () => calculateBudget(attachments, weapon ? budgetFor(weapon.category) : POINT_BUDGET, weapon),
     [attachments, weapon],
   );
   const distance = useMemo(() => (stats ? analysisDistance(stats) : 100), [stats]);
@@ -124,6 +125,13 @@ function BuilderPage() {
   function chooseWeapon(id: string) {
     setWeapon(id);
     setTab('montar');
+  }
+
+  // A recomendação chega validada; aplicar é varrer os slots da arma — o que
+  // ela não citou volta a vazio, para a montagem ser a recomendada, inteira.
+  function applyRecommendation(recommended: Partial<Record<SlotId, string>>) {
+    if (!weapon) return;
+    for (const slot of weapon.slots) setAttachment(slot, recommended[slot] ?? null);
   }
 
   return (
@@ -219,6 +227,15 @@ function BuilderPage() {
                     >
                       Limpar
                     </Button>
+                  </div>
+                  {/* A montagem pronta antes da manual: quem não quer decidir
+                      slot a slot resolve num clique. */}
+                  <div className="mt-2 border-t pt-2" style={{ borderColor: 'var(--border-soft)' }}>
+                    <RecommendButton
+                      key={weapon.id}
+                      weapon={weapon}
+                      onLoadout={applyRecommendation}
+                    />
                   </div>
                 </Panel>
 

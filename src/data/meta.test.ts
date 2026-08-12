@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   HIGHLIGHTS,
+  TRENDING,
   SOURCES,
   NOT_MULTIPLAYER,
   BY_CATEGORY,
@@ -21,6 +22,7 @@ import { WEAPONS_BY_ID } from './weapons';
 
 const all: MetaPick[] = [
   ...HIGHLIGHTS,
+  ...TRENDING,
   ...BY_CATEGORY.flatMap((group) => [group.best, ...group.mentions]),
 ];
 

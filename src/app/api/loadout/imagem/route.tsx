@@ -7,7 +7,7 @@ import { SLOTS_BY_ID, budgetFor } from '@/data/classes';
 import { seasonLabel } from '@/data/season';
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import type { Attachment } from '@/data/types';
-import { attachmentName, loadoutAttachments } from '@/lib/loadout';
+import { attachmentCost, attachmentName, loadoutAttachments } from '@/lib/loadout';
 import { LOADOUT_PARAM, decodeLoadout } from '@/lib/share';
 
 /**
@@ -124,7 +124,7 @@ export async function GET(request: Request) {
   if (!loadout || !weapon) return new Response('Loadout inválido', { status: 400 });
 
   const pecas = loadoutAttachments(loadout.attachments, weapon);
-  const gasto = pecas.reduce((soma, peca) => soma + peca.cost, 0);
+  const gasto = pecas.reduce((soma, peca) => soma + attachmentCost(peca, weapon), 0);
   const teto = budgetFor(weapon.category);
   const temporada = seasonLabel(new Date());
   const foto = await fotoDaArma(weapon.id);
@@ -242,7 +242,7 @@ export async function GET(request: Request) {
                   {attachmentName(peca, weapon).toUpperCase()}
                 </div>
                 <div style={{ display: 'flex', fontSize: 20, color: COR.fraco, marginTop: 2 }}>
-                  {(SLOTS_BY_ID.get(peca.slot)?.name ?? peca.slot).toUpperCase()} · {peca.cost} pts
+                  {(SLOTS_BY_ID.get(peca.slot)?.name ?? peca.slot).toUpperCase()} · {attachmentCost(peca, weapon)} pts
                 </div>
               </div>
             </div>
@@ -257,6 +257,16 @@ export async function GET(request: Request) {
         { name: 'Barlow', data: corpo, weight: 400, style: 'normal' },
         { name: 'Barlow Condensed', data: titulo, weight: 600, style: 'normal' },
       ],
+      /*
+       * O cartão é função pura do código que está no endereço: mesmo código,
+       * mesmo desenho. Agora que o link é colado em conversa, cada pessoa que
+       * vê a mensagem busca esta rota — sem cache, cada uma pagaria uma
+       * renderização do zero. A semana na borda é o teto de quanto tempo um
+       * redesenho do cartão demora a aparecer nos links já compartilhados.
+       */
+      headers: {
+        'cache-control': 'public, max-age=3600, s-maxage=604800, stale-while-revalidate=2592000',
+      },
     },
   );
 }

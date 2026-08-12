@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { WEAPONS } from '@/data/weapons';
 import { attachmentsForWeapon } from '@/data/attachments';
-import { encodeLoadout, decodeLoadout, loadoutUrl } from './share';
+import { encodeLoadout, decodeLoadout, loadoutImageUrl, loadoutUrl } from './share';
 import { EMPTY_LOADOUT, factoryAttachments, type Loadout } from './loadout';
 import { WEAPONS_BY_ID } from '@/data/weapons';
 
@@ -111,6 +111,17 @@ describe('URL de compartilhamento', () => {
     expect(url.startsWith('https://exemplo.com/montar/?l=')).toBe(true);
     const code = new URL(url).searchParams.get('l')!;
     expect(decodeLoadout(code)).toEqual(full);
+  });
+
+  it('o cartão em imagem tem endereço próprio, com o mesmo código do link', () => {
+    const url = loadoutImageUrl(full, 'https://exemplo.com');
+    expect(url.startsWith('https://exemplo.com/api/loadout/imagem/?l=')).toBe(true);
+
+    // O mesmo código dos dois lados: link e imagem nunca mostram builds diferentes.
+    const daImagem = new URL(url).searchParams.get('l')!;
+    const doLink = new URL(loadoutUrl(full, 'https://exemplo.com')).searchParams.get('l')!;
+    expect(daImagem).toBe(doLink);
+    expect(decodeLoadout(daImagem)).toEqual(full);
   });
 });
 
