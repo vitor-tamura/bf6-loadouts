@@ -34,7 +34,21 @@ export default defineConfig([
     },
   },
 
-  // Os mesmos caminhos que o eslint-config-next já ignora — declarados aqui
-  // porque sobrescrever a lista de ignorados apaga a dele.
-  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts']),
+  /*
+   * Os mesmos caminhos que o eslint-config-next já ignora — declarados aqui
+   * porque sobrescrever a lista de ignorados apaga a dele.
+   *
+   * `data/sources/imports` entrou depois: é onde ficam as fontes como elas
+   * vieram — planilhas, JSON de outros projetos e páginas salvas do navegador,
+   * com os pacotes JavaScript minificados do site junto. Não é código deste
+   * projeto e não se corrige; deixar entrar rendeu 52 mil apontamentos numa
+   * execução, o que é o mesmo que não ter lint.
+   */
+  globalIgnores([
+    '.next/**',
+    'out/**',
+    'build/**',
+    'next-env.d.ts',
+    'data/sources/imports/**',
+  ]),
 ]);

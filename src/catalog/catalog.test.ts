@@ -458,9 +458,25 @@ describe('efeitos e estatísticas', () => {
     expect(typeof stats.magazineCapacity).toBe('number');
   });
 
-  it('deixam o custo nulo quando a fonte não o publica', () => {
-    // As quinze munições: existem, sem preço em Attachment Points registrado.
-    expect(getPending().attachmentsWithoutCost).toBe(15);
-    expect(getAttachment('ammo:standard')!.cost).toBeNull();
+  it('deixam o custo nulo quando nenhuma fonte o publica', () => {
+    /*
+     * As páginas salvas do BF6 Loadouts trouxeram o preço de nove das quinze
+     * munições. As seis que sobram — as duas variantes de chumbo grosso e as
+     * subsônicas — o site não lista, e ficam nulas em vez de herdar o preço da
+     * munição parecida.
+     */
+    expect(getPending().attachmentsWithoutCost).toBe(6);
+    expect(getAttachment('ammo:standard')!.cost).toBe(5);
+    expect(getAttachment('ammo:subsonic')!.cost).toBeNull();
+  });
+
+  it('mantém o custo que a tela do jogo confirmou, contra o do site', () => {
+    /*
+     * O BF6 Loadouts está desatualizado em dois custos de ergonomia da M16A4:
+     * diz 10 para os dois, e a tela mostra 25 e 5. Sem a trava por fonte, cada
+     * importação desfazia a correção feita com print.
+     */
+    expect(getAttachment('full_auto')!.cost).toBe(25);
+    expect(getAttachment('rail_cover')!.cost).toBe(5);
   });
 });

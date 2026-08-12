@@ -34,7 +34,8 @@
     "catalog:import-analyzer": "node --experimental-strip-types scripts/catalog/import-analyzer.ts",
     "catalog:coverage": "node --experimental-strip-types scripts/catalog/coverage.ts",
     "catalog:update": "node --experimental-strip-types scripts/catalog/update.ts",
-    "catalog:import-ttk": "node --experimental-strip-types scripts/catalog/import-ttk-sheet.ts"
+    "catalog:import-ttk": "node --experimental-strip-types scripts/catalog/import-ttk-sheet.ts",
+    "catalog:import-loadouts": "node --experimental-strip-types scripts/catalog/import-loadouts-page.ts"
   },
   "dependencies": {
     "@ai-sdk/google": "^4.0.39",

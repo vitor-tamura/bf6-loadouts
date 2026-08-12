@@ -105,6 +105,25 @@ Escolher em silêncio faria a trajetória parecer exata.
 
 ## O import inicial
 
+## O que o BF6 Loadouts não entrega
+
+Investigado em 12/08/2026. O site responde a cliente automatizado, mas **não
+serve no HTML** o que falta ao catálogo: custo em pontos e lista de acessórios
+por arma. Foram lidas a home, `/create`, `/weapons` e uma página de loadout —
+nenhuma traz esses campos. É um aplicativo Next.js que monta as telas no
+navegador; no HTML só existem rotas de imagem (`/api/storage/...`).
+
+As duas saídas seriam rodar um navegador dentro do pipeline ou reconstruir a API
+interna a partir dos pacotes JavaScript. A primeira traz um navegador inteiro
+como dependência de um script de dados; a segunda quebra a cada publicação do
+site, e quebra calada.
+
+O que sobra, e funciona: **print da tela do jogo**. Foi assim que a ergonomia da
+M16A4 saiu de treze peças sem arma nenhuma para uma lista completa com custos, em
+minutos — ver `contributing-data.md`.
+
+## O import inicial
+
 Duas lacunas vieram dele e continuam abertas, porque preenchê-las exigiria
 inventar:
 

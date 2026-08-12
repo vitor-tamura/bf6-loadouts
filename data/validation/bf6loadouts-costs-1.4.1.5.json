@@ -1,0 +1,1465 @@
+{
+  "gameVersion": "1.4.1.5",
+  "checkedAt": "2026-08-12",
+  "domain": "attachment_cost",
+  "source": {
+    "provider": "bf6loadouts",
+    "type": "current_state",
+    "url": "https://bf6loadouts.com/attachments",
+    "dataset": "página salva do navegador",
+    "commit": null,
+    "version": null,
+    "retrievedAt": "2026-08-12T14:42:56.401Z",
+    "snapshot": "bf6loadouts-2026-08-12"
+  },
+  "cards": 335,
+  "applied": 0,
+  "protectedByGame": [
+    {
+      "id": "rail_cover",
+      "game": 5,
+      "page": 10
+    },
+    {
+      "id": "full_auto",
+      "game": 25,
+      "page": 10
+    }
+  ],
+  "unchanged": 49,
+  "unmatched": 284,
+  "unmatchedBySlot": {
+    "Ammo": 1,
+    "Barrel": 162,
+    "Magazine": 51,
+    "Optic": 40,
+    "Optic Accessory": 8,
+    "Right Accessory": 10,
+    "Top Accessory": 6,
+    "Underbarrel": 6
+  },
+  "note": "A página descreve o arsenal com peças nomeadas e o catálogo com peças genéricas por categoria, herdadas do v5. O que não casa é a medida dessa divergência, não erro de leitura.",
+  "changes": [],
+  "missing": [
+    {
+      "name": "Buckshot",
+      "slot": "Ammo",
+      "cost": 10
+    },
+    {
+      "name": "14.5\" Standard",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "18.9\" Prototype",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "16.5\" Rifle",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "16.5\" Fluted",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "480mm Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "510mm Fluted",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "480mm MG",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "480mm Fluted",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "510mm DMR",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "391mm CQB",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "14.5\" Factory",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "16\" US",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "18\" US-LB",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "IAR Heavy",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "18\" Custom",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "450mm Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "600mm Cut",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "600mm Fluted",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "409mm US",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "600mm DMR",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "17\" Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "20\" Long",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "432mm Fluted",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "17\" Cut",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "415mm Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "415mm Prototype",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "415mm Fluted",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "409mm Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "458mm Custom",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "409mm Cut",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "409mm Fluted",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "11.5\" Commando",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "12.5\" Mid",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "14.5\" Carbine",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "12.5\" Fluted",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "13\" Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "13\" Prototype",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "16\" Custom",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "16\" Rifle",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "13\" Fluted",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "314mm Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "314mm Prototype",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "314mm Fluted",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "13\" Commando",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "12\" Assaulter",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "10\" Factory",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "10\" Full",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "14.5\" Alt",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "10.5\" Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "14.5\" Common",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "240mm SB",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "303mm LB",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "240mm Fluted",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "6\" Standard",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "4.5\" Compact",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "8\" Extended",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "6\" Fluted",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "225mm Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "245mm Custom",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "180mm Standard",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "180mm Prototype",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "200mm Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "200mm Custom-H",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "305mm Custom-H",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "305mm Custom",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "200mm Custom",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "246mm Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "264mm Prototype",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "407mm CIV-S",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "264mm Fluted",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "5.5\" Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "6.5\" Extended",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "5.5\" Fluted",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "9\" Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "9\" Fluted",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "11\" Extended",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "9\" Heavy",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "11\" Heavy",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "394mm SB",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "465mm LB",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "349mm Fluted",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "16.5\" LSW",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "16.5\" Basic",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "20\" LE",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "20\" SDM-R",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "22\" E3 Long",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "17\" Fluted",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "590mm Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "521mm Boar-F",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "521mm Boar",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "600mm Tabuk",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "419mm Boar-F",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "370mm Compact",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "450mm Standard",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "612mm VMW",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "406mm Standard",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "556mm Prototype",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "508mm MK8",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "457mm MK9",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "330mm MK3",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "20\" Lima",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "24\" Bravo",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "20\" OH",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "18\" EBR",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "22\" Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "16\" Short",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "21.5\" Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "24\" Extended",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "21.5\" Fluted",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "560mm Factory",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "560mm Cut",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "457mm Urban",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "550mm Factory",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "556mm Para",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "620mm Classic",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "565mm Fluted",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "24\" Fluted",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "24\" Full",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "26\" Carbon",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "650mm Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "730mm 3LR",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "650mm Fluted",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "514mm Carbine",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "27\" MK22",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "26\" Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "20\" Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "18.5\" Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "430mm Cut",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "430mm Factory",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "3.9\" Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "3.9\" Pencil",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "122mm Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "122mm Pencil",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "5\" Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "5\" Pencil",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "6.75\" Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "8.37\" Long",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "5.12\" Compact",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "6.8\" Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "Extended Barrel",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "6.8\" Fluted",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "18.9\" Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "16\" Factory",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "18\" US",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "20\" Marksman",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "18\" Fluted",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "460mm Factory",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "550mm Infantry",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "660mm VMW",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "16\" Fluted",
+      "slot": "Barrel",
+      "cost": 25
+    },
+    {
+      "name": "7.7\" Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "7.7\" Pencil",
+      "slot": "Barrel",
+      "cost": 20
+    },
+    {
+      "name": "16.2\" Cut",
+      "slot": "Barrel",
+      "cost": 15
+    },
+    {
+      "name": "18\" Govt.",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "18\" SPR",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "18\" Pencil",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "20\" HBAR",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "16\" Dissipator",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "27\" Factory",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "27\" Full",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "32\" Custom",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "20\" Custom Covert",
+      "slot": "Barrel",
+      "cost": 10
+    },
+    {
+      "name": "30RND Magazine",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "30RND Fast Mag",
+      "slot": "Magazine",
+      "cost": 10
+    },
+    {
+      "name": "20RND Fast Mag",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "20RND Magazine",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "40RND Fast Mag",
+      "slot": "Magazine",
+      "cost": 30
+    },
+    {
+      "name": "36RND Magazine",
+      "slot": "Magazine",
+      "cost": 15
+    },
+    {
+      "name": "40RND Magazine",
+      "slot": "Magazine",
+      "cost": 25
+    },
+    {
+      "name": "45RND Magazine",
+      "slot": "Magazine",
+      "cost": 35
+    },
+    {
+      "name": "45RND Fast Mag",
+      "slot": "Magazine",
+      "cost": 40
+    },
+    {
+      "name": "15RND Magazine",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "15RND Fast Mag",
+      "slot": "Magazine",
+      "cost": 10
+    },
+    {
+      "name": "10RND Fast Mag",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "25RND Magazine",
+      "slot": "Magazine",
+      "cost": 20
+    },
+    {
+      "name": "25RND Fast Mag",
+      "slot": "Magazine",
+      "cost": 25
+    },
+    {
+      "name": "50RND Fast Mag",
+      "slot": "Magazine",
+      "cost": 45
+    },
+    {
+      "name": "10RND Magazine",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "41RND Magazine",
+      "slot": "Magazine",
+      "cost": 10
+    },
+    {
+      "name": "50RND Magazine",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "17RND Magazine",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "17RND Fast Mag",
+      "slot": "Magazine",
+      "cost": 10
+    },
+    {
+      "name": "23RND Magazine",
+      "slot": "Magazine",
+      "cost": 25
+    },
+    {
+      "name": "27RND Magazine",
+      "slot": "Magazine",
+      "cost": 45
+    },
+    {
+      "name": "60RND Magazine",
+      "slot": "Magazine",
+      "cost": 55
+    },
+    {
+      "name": "100RND Belt Pouch",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "200RND Belt Box",
+      "slot": "Magazine",
+      "cost": 55
+    },
+    {
+      "name": "50RND Loose Belt",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "75RND Drum",
+      "slot": "Magazine",
+      "cost": 50
+    },
+    {
+      "name": "50RND Belt Pouch",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "60RND Drum Mag",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "100RND Drum Mag",
+      "slot": "Magazine",
+      "cost": 45
+    },
+    {
+      "name": "75RND Belt Box",
+      "slot": "Magazine",
+      "cost": 10
+    },
+    {
+      "name": "100RND Belt Box",
+      "slot": "Magazine",
+      "cost": 25
+    },
+    {
+      "name": "5RND Fast Mag",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "5RND Magazine",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "8RND Magazine",
+      "slot": "Magazine",
+      "cost": 25
+    },
+    {
+      "name": "7RND Magazine",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "7 Shell Tube",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "5 Shell Tube",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "6 Shell Tube",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "4RND Magazine",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "8RND Fast Mag",
+      "slot": "Magazine",
+      "cost": 10
+    },
+    {
+      "name": "4RND Fast Mag",
+      "slot": "Magazine",
+      "cost": 10
+    },
+    {
+      "name": "21RND Magazine",
+      "slot": "Magazine",
+      "cost": 15
+    },
+    {
+      "name": "11RND Magazine",
+      "slot": "Magazine",
+      "cost": 25
+    },
+    {
+      "name": "6RND Speedloader",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "7 Shell Dual Tubes",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "50RND Drum",
+      "slot": "Magazine",
+      "cost": 5
+    },
+    {
+      "name": "100RND Magazine",
+      "slot": "Magazine",
+      "cost": 55
+    },
+    {
+      "name": "35RND Magazine",
+      "slot": "Magazine",
+      "cost": 15
+    },
+    {
+      "name": "35RND Fast Mag",
+      "slot": "Magazine",
+      "cost": 20
+    },
+    {
+      "name": "7RND Fast Mag",
+      "slot": "Magazine",
+      "cost": 10
+    },
+    {
+      "name": "SU-123 1.50x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "2PRO 1.25x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "OSA-7 1.00x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "1P87 1.50x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "R-MR 1.00x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "CCO 2.00x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "SDO 3.50x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "CQ RDS 1.25x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "Mini Flex 1.00x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "3VZR 1.75x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "Baker 3.00x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "R4T 2.00x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "DVO LPVO",
+      "slot": "Optic",
+      "cost": 25
+    },
+    {
+      "name": "RO-M 1.75x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "ST Prism 5.00x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "ROX 1.50x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "BF-2M 2.50x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "Mars-F LPVO",
+      "slot": "Optic",
+      "cost": 25
+    },
+    {
+      "name": "PVQ-31 4.00x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "RO-S 1.25x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "MC-CO LPVO",
+      "slot": "Optic",
+      "cost": 25
+    },
+    {
+      "name": "LDS 4.50x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "PAS-35 3.00x",
+      "slot": "Optic",
+      "cost": 25
+    },
+    {
+      "name": "A-P2 1.75x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "SF-G2 5.00x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "Grim 1.50x",
+      "slot": "Optic",
+      "cost": 25
+    },
+    {
+      "name": "NGFC LPVO",
+      "slot": "Optic",
+      "cost": 25
+    },
+    {
+      "name": "RMR 1.00x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "Aperture Sights",
+      "slot": "Optic",
+      "cost": 5
+    },
+    {
+      "name": "CQB Sights",
+      "slot": "Optic",
+      "cost": 5
+    },
+    {
+      "name": "S-VPS 6.00x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "SSDS 6.00x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "LERT 8.00x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "1P88 Variable",
+      "slot": "Optic",
+      "cost": 25
+    },
+    {
+      "name": "SM Rifle Variable",
+      "slot": "Optic",
+      "cost": 25
+    },
+    {
+      "name": "NFX 8.00x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "TS-HD 6.00x",
+      "slot": "Optic",
+      "cost": 25
+    },
+    {
+      "name": "R-VPS 10.00x",
+      "slot": "Optic",
+      "cost": 10
+    },
+    {
+      "name": "SU-230 LPVO",
+      "slot": "Optic",
+      "cost": 20
+    },
+    {
+      "name": "TH-RDS 1.00x",
+      "slot": "Optic",
+      "cost": 35
+    },
+    {
+      "name": "Canted Iron Sights",
+      "slot": "Optic Accessory",
+      "cost": 5
+    },
+    {
+      "name": "Canted Reflex",
+      "slot": "Optic Accessory",
+      "cost": 10
+    },
+    {
+      "name": "Piggyback Reflex",
+      "slot": "Optic Accessory",
+      "cost": 10
+    },
+    {
+      "name": "Canted Iron Sight",
+      "slot": "Optic Accessory",
+      "cost": 5
+    },
+    {
+      "name": "Adjustable Magnification 2.00x",
+      "slot": "Optic Accessory",
+      "cost": 10
+    },
+    {
+      "name": "Adjustable Magnification 3.00x",
+      "slot": "Optic Accessory",
+      "cost": 10
+    },
+    {
+      "name": "Adjustable Magnification 4.00x",
+      "slot": "Optic Accessory",
+      "cost": 10
+    },
+    {
+      "name": "Anti-Glare Coating",
+      "slot": "Optic Accessory",
+      "cost": 10
+    },
+    {
+      "name": "Flashlight",
+      "slot": "Right Accessory",
+      "cost": 10
+    },
+    {
+      "name": "5 MW Red",
+      "slot": "Right Accessory",
+      "cost": 10
+    },
+    {
+      "name": "5 MW Green",
+      "slot": "Right Accessory",
+      "cost": 10
+    },
+    {
+      "name": "50 MW Green",
+      "slot": "Right Accessory",
+      "cost": 20
+    },
+    {
+      "name": "50 MW Blue",
+      "slot": "Right Accessory",
+      "cost": 20
+    },
+    {
+      "name": "120 MW Blue",
+      "slot": "Right Accessory",
+      "cost": 30
+    },
+    {
+      "name": "Laser/Light Combo Green",
+      "slot": "Right Accessory",
+      "cost": 20
+    },
+    {
+      "name": "Laser/Light Combo Red",
+      "slot": "Right Accessory",
+      "cost": 10
+    },
+    {
+      "name": "Range Finder",
+      "slot": "Right Accessory",
+      "cost": 15
+    },
+    {
+      "name": "50 MW Violet",
+      "slot": "Right Accessory",
+      "cost": 10
+    },
+    {
+      "name": "5 MW Green",
+      "slot": "Top Accessory",
+      "cost": 10
+    },
+    {
+      "name": "5 MW Red",
+      "slot": "Top Accessory",
+      "cost": 10
+    },
+    {
+      "name": "50 MW Green",
+      "slot": "Top Accessory",
+      "cost": 20
+    },
+    {
+      "name": "50 MW Blue",
+      "slot": "Top Accessory",
+      "cost": 20
+    },
+    {
+      "name": "120 MW Blue",
+      "slot": "Top Accessory",
+      "cost": 30
+    },
+    {
+      "name": "50 MW Violet",
+      "slot": "Top Accessory",
+      "cost": 10
+    },
+    {
+      "name": "5 MW Red",
+      "slot": "Underbarrel",
+      "cost": 10
+    },
+    {
+      "name": "5 MW Green",
+      "slot": "Underbarrel",
+      "cost": 10
+    },
+    {
+      "name": "Laser Light Combo Red",
+      "slot": "Underbarrel",
+      "cost": 20
+    },
+    {
+      "name": "Laser Light Combo Green",
+      "slot": "Underbarrel",
+      "cost": 20
+    },
+    {
+      "name": "50 MW Green",
+      "slot": "Underbarrel",
+      "cost": 20
+    },
+    {
+      "name": "Flashlight",
+      "slot": "Underbarrel",
+      "cost": 10
+    }
+  ]
+}

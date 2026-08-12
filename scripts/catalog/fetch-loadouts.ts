@@ -9,6 +9,24 @@
  * dizer o que mudou no último patch, só mostra o presente —, e é por isso que
  * ela decide compatibilidade e não decide balanceamento.
  *
+ * ## O que uma investigação de 12/08/2026 encontrou
+ *
+ * O site responde bem a cliente automatizado (200, com user-agent honesto), mas
+ * **não serve os dados que faltam ao catálogo**. Foram lidas a home, `/create`,
+ * `/weapons` e uma página de loadout: nenhuma traz custo em pontos nem lista de
+ * acessórios por arma no HTML. O aplicativo é Next.js e monta essas telas no
+ * navegador, buscando os dados depois; no HTML há apenas rotas de imagem
+ * (`/api/storage/...`), nenhuma de dados.
+ *
+ * Extrair dali exigiria uma das duas coisas: rodar um navegador de verdade no
+ * pipeline, ou reconstruir a API interna a partir dos pacotes JavaScript. A
+ * primeira traz um navegador inteiro como dependência de um script de dados; a
+ * segunda produz um extrator que quebra a cada publicação do site, calado.
+ *
+ * Por isso este script continua guardando o instantâneo e nada mais. Enquanto
+ * não houver caminho melhor, custo de munição e compatibilidade de munição e
+ * ergonomia seguem como pendência declarada — ver `docs/data-sources.md`.
+ *
  * ## Por que este script guarda em vez de interpretar
  *
  * O site é uma aplicação, não uma API publicada. A forma dos dados dentro dele
@@ -115,7 +133,28 @@ async function main(): Promise<void> {
       process.exit(3);
     }
   } catch (error) {
-    console.error(`[catalog] estado atual falhou: ${error instanceof Error ? error.message : error}`);
+    const message = error instanceof Error ? error.message : String(error);
+    console.error(`[catalog] estado atual falhou: ${message}`);
+
+    /*
+     * 403 não é falha de rede, é recusa.
+     *
+     * O site responde 403 a cliente automatizado — o que é direito de quem o
+     * mantém, e não se contorna trocando o user-agent para fingir navegador.
+     * O caminho que sobra é o manual: alguém abre a página, salva o HTML e o
+     * põe em `data/sources/imports/`, de onde `import-loadouts` o lê. Fica mais
+     * lento e continua rastreável, que é o que importa para o catálogo.
+     */
+    if (message.includes('403')) {
+      console.error(
+        '\nO site recusou o acesso automatizado. Para importar assim mesmo:\n' +
+          '  1. abra https://bf6loadouts.com no navegador;\n' +
+          '  2. salve a página como HTML;\n' +
+          `  3. copie para data/sources/imports/bf6loadouts-<data>.html;\n` +
+          '  4. rode npm run catalog:import-loadouts.\n',
+      );
+    }
+
     process.exit(1);
   }
 }

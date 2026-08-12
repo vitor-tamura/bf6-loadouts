@@ -1,0 +1,7 @@
+# As pastas que o navegador cria ao salvar uma página completa.
+#
+# Elas trazem os pacotes JavaScript, o CSS e as imagens do site — 75 arquivos e
+# dezenas de megabytes por página, que o importador nunca lê: ele extrai nome,
+# slot e custo do HTML. Uma vez entraram no commit por engano e renderam 874
+# arquivos e 50 MB, além de 52 mil apontamentos de lint.
+*_files/

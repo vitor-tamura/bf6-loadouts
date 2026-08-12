@@ -156,6 +156,48 @@
         "selectedSource": "BF6 TTK vs Range (planilha)",
         "reason": "A planilha é posterior ao dataset do Analyzer, que é da 1.3.3.0, e o catálogo já está em versão mais nova. Nos campos em que as duas publicam, a mais recente manda. As armas que a planilha não cobre seguem com o Analyzer, e isso está registrado."
       }
+    },
+    {
+      "id": "evt-2026-08-12-bf6loadouts-costs",
+      "gameVersion": "1.4.1.5",
+      "timestamp": "2026-08-12",
+      "type": "cost_changed",
+      "entityType": "attachment",
+      "entityId": null,
+      "changes": {
+        "aplicados": 0,
+        "jáIguais": 49,
+        "protegidosPelaPrintDoJogo": 2,
+        "semCorrespondência": 284,
+        "porSlotSemCorrespondência": {
+          "Ammo": 1,
+          "Barrel": 162,
+          "Magazine": 51,
+          "Optic": 40,
+          "Optic Accessory": 8,
+          "Right Accessory": 10,
+          "Top Accessory": 6,
+          "Underbarrel": 6
+        }
+      },
+      "sources": [
+        {
+          "provider": "bf6loadouts",
+          "type": "current_state",
+          "url": "https://bf6loadouts.com/attachments",
+          "dataset": "página salva do navegador",
+          "commit": null,
+          "version": null,
+          "retrievedAt": "2026-08-12T14:42:56.401Z",
+          "snapshot": "bf6loadouts-2026-08-12"
+        }
+      ],
+      "automation": "auto",
+      "resolution": {
+        "status": "resolved",
+        "selectedSource": "bf6loadouts",
+        "reason": "O custo em Attachment Points é estado atual do jogo, e quem observa o estado atual é o BF6 Loadouts. As peças que não casam são as que o catálogo modela de outra forma — decisão de unificação fica para revisão humana."
+      }
     }
   ]
 }

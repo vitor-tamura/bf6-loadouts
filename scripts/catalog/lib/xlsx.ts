@@ -140,19 +140,39 @@ export function readWorkbook(path: string): Map<string, Row[]> {
   const rels = files.get('xl/_rels/workbook.xml.rels')?.toString('utf8') ?? '';
   const shared = sharedStrings(files.get('xl/sharedStrings.xml')?.toString('utf8') ?? '');
 
-  const targets = new Map(
-    [...rels.matchAll(/Id="([^"]+)"[^>]*Target="([^"]+)"/g)].map((match) => [match[1], match[2]]),
-  );
+  /*
+   * Atributo não tem ordem garantida.
+   *
+   * Um gravador escreve `Id="rId1" Target="worksheets/sheet1.xml"`, outro
+   * escreve `Type=... Target=... Id=...`. Um padrão que exigisse `Id` antes de
+   * `Target` simplesmente não casa no segundo caso — e o resultado é uma
+   * planilha lida como se não tivesse aba nenhuma, sem erro. Cada atributo é
+   * procurado por si dentro do elemento.
+   */
+  const targets = new Map<string, string>();
+  for (const relationship of rels.matchAll(/<Relationship\b([^>]*)\/>/g)) {
+    const id = relationship[1].match(/\bId="([^"]+)"/)?.[1];
+    const target = relationship[1].match(/\bTarget="([^"]+)"/)?.[1];
+    if (id && target) targets.set(id, target);
+  }
 
   const sheets = new Map<string, Row[]>();
 
-  for (const sheet of workbook.matchAll(/<sheet[^>]*name="([^"]+)"[^>]*r:id="([^"]+)"[^>]*\/>/g)) {
-    const target = targets.get(sheet[2]);
+  for (const sheet of workbook.matchAll(/<sheet\b([^>]*)\/>/g)) {
+    const name = sheet[1].match(/\bname="([^"]+)"/)?.[1];
+    const id = sheet[1].match(/\br:id="([^"]+)"/)?.[1];
+    if (!name || !id) continue;
+
+    const target = targets.get(id);
     if (!target) continue;
 
-    const path = target.startsWith('xl/') ? target : `xl/${target.replace(/^\//, '')}`;
+    // O alvo pode vir absoluto (`/xl/worksheets/sheet1.xml`) ou relativo à
+    // pasta do workbook (`worksheets/sheet1.xml`).
+    const clean = target.replace(/^\//, '');
+    const path = clean.startsWith('xl/') ? clean : `xl/${clean}`;
+
     const xml = files.get(path)?.toString('utf8');
-    if (xml) sheets.set(sheet[1], parseSheet(xml, shared));
+    if (xml) sheets.set(name, parseSheet(xml, shared));
   }
 
   return sheets;
