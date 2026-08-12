@@ -1,7 +1,14 @@
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import { budgetFor, CATEGORY_NAMES, CLASSES } from '@/data/classes';
 import live from '@/data/meta-live.json';
-import type { MetaPatch } from '@/data/meta';
+import {
+  HIGHLIGHTS,
+  SOURCES,
+  TRENDING,
+  UPDATED_AT,
+  type MetaPatch,
+  type MetaPick,
+} from '@/data/meta';
 import { SEASONS, phaseOn, seasonOn } from '@/data/season';
 import type { Weapon } from '@/data/types';
 import {
@@ -433,6 +440,50 @@ function gameState(): string {
   return `Hoje é ${today}. O jogo está na Temporada ${season.number} — ${season.name}, fase "${phase.name}" desde ${phase.startsOn}. ${patchLine}`;
 }
 
+/**
+ * O que a comunidade já disse sobre esta arma.
+ *
+ * A pesquisa em sites e comunidades especializadas existe neste projeto, e
+ * acontece uma vez por dia: o workflow `meta-daily` pergunta a um modelo com
+ * busca o que está sendo discutido, filtra contra o arsenal e grava em
+ * `meta-live.json` com as páginas que sustentam cada nome.
+ *
+ * É essa leitura que entra aqui. A diferença em relação a buscar na hora é o
+ * relógio: a busca dentro da chamada custava mais que o orçamento inteiro e
+ * impedia o raciocínio mínimo, enquanto isto já está no disco quando o clique
+ * acontece — custo zero de espera, e com fonte.
+ *
+ * A leitura fala da arma, não da montagem: diz que a M16A4 é a primeira
+ * colocada e por quê, não que peças pôr nela. Serve de contexto para o modelo
+ * escolher, e é assim que ela entra no prompt.
+ */
+function communityRead(weapon: Weapon): { text: string; sources: CitedSource[] } | null {
+  const fromLive = [...(live.picks ?? []), ...(live.trending ?? [])] as MetaPick[];
+  const fallback = [...HIGHLIGHTS, ...TRENDING];
+
+  // A leitura do dia manda; a estática cobre enquanto o workflow não roda.
+  const picks = fromLive.length ? fromLive : fallback;
+  const found = picks.filter((pick) => pick.weapon === weapon.id);
+  if (!found.length) return null;
+
+  const catalog = (live.sources?.length ? live.sources : SOURCES) as { name: string; url: string }[];
+
+  const cited = [
+    ...new Map(
+      found
+        .flatMap((pick) => pick.sources ?? [])
+        .map((index) => catalog[index])
+        .filter(Boolean)
+        .map((source) => [source.url, { name: source.name, url: source.url }]),
+    ).values(),
+  ];
+
+  return {
+    text: found.map((pick) => pick.reason).join(' '),
+    sources: cited,
+  };
+}
+
 /** Sete dias na borda, um mês servindo o antigo enquanto revalida. */
 const CACHE = 'public, s-maxage=604800, stale-while-revalidate=2592000';
 
@@ -454,6 +505,7 @@ async function adviceFrom(
   prompt: string,
   weapon: Weapon,
   deadline: number,
+  community: { text: string; sources: CitedSource[] } | null,
 ): Promise<LoadoutAdvice> {
   let critique = '';
 
@@ -469,7 +521,16 @@ async function adviceFrom(
       throw new Error(`resposta sem JSON${sample ? `: ${sample}` : ''}`);
     }
 
-    const { advice, discarded, alternativeDiscarded } = buildAdvice(weapon, parsed, sources);
+    /*
+     * As fontes: da busca quando ela roda, da leitura do meta quando não.
+     *
+     * As do meta sustentam o que se disse da arma, não a escolha das peças — e
+     * é por isso que elas entram como fonte da leitura, não como prova da
+     * build. `unsourced` continua avisando quando não há nenhuma das duas.
+     */
+    const cited = sources.length ? sources : (community?.sources ?? []);
+
+    const { advice, discarded, alternativeDiscarded } = buildAdvice(weapon, parsed, cited);
 
     /*
      * A alternativa não custa uma rodada nem derruba a resposta.
@@ -572,6 +633,7 @@ export async function GET(request: Request) {
   }
 
   const profile = COMBAT_RANGES.find((item) => item.value === range)!;
+  const community = communityRead(weapon);
   const prompt = `Você é especialista em Battlefield 6 MULTIPLAYER. Monte o loadout que a comunidade recomenda hoje para a ${weapon.name} — ${weaponClass(weapon)}, ${CATEGORY_NAMES[weapon.category]} —, para combate a ${profile.label.toLowerCase()} distância: ${profile.hint}
 
 ${gameState()}
@@ -583,9 +645,16 @@ ${
 Uma busca só, curta: "${weapon.name} best attachments" ou "${weapon.name} loadout". Prefira Reddit recente (r/Battlefield6, r/Battlefield) e patch notes da EA. Priorize os últimos 30 dias. Não abra dezenas de páginas — duas ou três bastam.
 
 `
-      : `## 1. Responda do que você já sabe
+      : `## 1. O que a comunidade diz desta arma
+${
+  community
+    ? `
+Leitura de ${live.readAt ?? UPDATED_AT}, feita a partir de guias e discussões: "${community.text}"
 
-A busca está desligada nesta chamada. Use o que você conhece das builds que a comunidade discute para esta arma, sem inventar fonte, número ou citação.
+Use isso como contexto — ele descreve a arma, não a montagem.`
+    : `
+Não há leitura recente desta arma. Responda do que você já sabe das builds que a comunidade discute, sem inventar fonte, número ou citação.`
+}
 
 `
   }## 2. Escolha os acessórios
@@ -631,7 +700,7 @@ Regras:
     }
 
     try {
-      const advice = await adviceFrom(model, prompt, weapon, deadline);
+      const advice = await adviceFrom(model, prompt, weapon, deadline, community);
       console.log('[recommend] respondeu', { weaponId, range, model, unsourced: advice.unsourced });
 
       /*
