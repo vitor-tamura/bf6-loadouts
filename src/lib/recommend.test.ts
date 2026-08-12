@@ -288,4 +288,22 @@ describe('nome aproximado da peça', () => {
     const { discarded } = validateRecommendation(m16, { barrel: 'Cano de Plasma Sideral' });
     expect(discarded).toHaveLength(1);
   });
+
+  it('aceita o nome com o custo colado, que é como o modelo o devolve', () => {
+    /*
+     * O cardápio do prompt lista "Cano Estendido (10 pts)", porque o preço é o
+     * que decide o que cabe no orçamento — e o modelo copia o nome com o preço
+     * junto. A peça deixava de ser encontrada por causa do sufixo que a própria
+     * pergunta pôs ali.
+     */
+    const cano = (attachmentsForWeapon(m16).get('barrel') ?? [])[0];
+    const nome = attachmentName(cano, m16);
+
+    const comCusto = validateRecommendation(m16, { barrel: `${nome} (10 pts)` });
+    expect(comCusto.discarded).toHaveLength(0);
+    expect(comCusto.attachments.barrel).toBe(cano.id);
+
+    // Uma peça só, sem plural e sem espaço, continua valendo.
+    expect(validateRecommendation(m16, { barrel: `${nome} (5 pt)` }).discarded).toHaveLength(0);
+  });
 });

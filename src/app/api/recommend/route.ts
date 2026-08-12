@@ -358,13 +358,47 @@ async function ask(model: string, prompt: string, deadline: number) {
   throw lastError;
 }
 
-/** Tira as cercas de código que o modelo às vezes põe em volta do JSON. */
+/**
+ * Recorta o JSON da resposta, e remenda o que der.
+ *
+ * O modelo às vezes cerca o JSON com crase, escreve uma frase antes, ou para no
+ * meio — a resposta chegou cortada em `"magazine":"Carregador` mais de uma vez.
+ * Uma montagem pela metade ainda é montagem: sete peças escolhidas valem mais
+ * que a recusa da resposta inteira por causa da oitava.
+ *
+ * O remendo é conservador. Ele fecha aspas e chaves abertas e descarta o par
+ * incompleto do fim; não inventa peça, não completa nome pela metade. Se ainda
+ * assim não virar JSON, aí sim a resposta se perde.
+ */
 function extractJson(text: string): RawAdvice | null {
   const start = text.indexOf('{');
+  if (start === -1) return null;
+
   const end = text.lastIndexOf('}');
-  if (start === -1 || end === -1) return null;
+  if (end > start) {
+    try {
+      return JSON.parse(text.slice(start, end + 1)) as RawAdvice;
+    } catch {
+      // Segue para o remendo: há chave de abertura, mas o conteúdo não fecha.
+    }
+  }
+
+  let cut = text.slice(start);
+
+  // Fora de aspas, corta no último par "chave": "valor" completo.
+  const lastComplete = cut.lastIndexOf('",');
+  if (lastComplete > 0) cut = cut.slice(0, lastComplete + 1);
+  else {
+    const lastQuote = cut.lastIndexOf('"');
+    if (lastQuote > 0) cut = cut.slice(0, lastQuote + 1);
+  }
+
+  // Fecha o que ficou aberto, na ordem em que abriu.
+  const opens = (cut.match(/\{/g) ?? []).length - (cut.match(/\}/g) ?? []).length;
+  if (opens > 0) cut += '}'.repeat(opens);
+
   try {
-    return JSON.parse(text.slice(start, end + 1)) as RawAdvice;
+    return JSON.parse(cut) as RawAdvice;
   } catch {
     return null;
   }
@@ -431,7 +465,7 @@ async function adviceFrom(
     );
     const parsed = extractJson(text);
     if (!parsed) {
-      const sample = text.replace(/\s+/g, ' ').slice(0, 180);
+      const sample = text.replace(/\s+/g, ' ').slice(0, 400);
       throw new Error(`resposta sem JSON${sample ? `: ${sample}` : ''}`);
     }
 
@@ -565,6 +599,9 @@ Responda SOMENTE com este JSON, sem cercas de código e sem texto antes ou depoi
 Regras:
 - Só peças copiadas exatamente da lista acima, uma por slot.
 - Use o id do slot exatamente como aparece antes do parêntese.
+- O nome da peça vai SEM o custo: escreva "Compensador Linear", nunca
+  "Compensador Linear (10 pts)". O preço está na lista para você somar, não para
+  copiar.
 - Nada além de "picks": nem explicação, nem alternativa, nem comentário. Quem
   clicou quer a arma montada, e cada frase a mais é um segundo a mais de espera.`;
 

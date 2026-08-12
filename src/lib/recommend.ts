@@ -141,7 +141,15 @@ function editDistance(a: string, b: string): number {
  * curtos só toleram um deslize, e nenhum tolera diferença em dígito.
  */
 function findPart(parts: Attachment[], weapon: Weapon, wanted: string): Attachment | undefined {
-  const target = normalizeKey(wanted);
+  /*
+   * O custo vem colado no nome, e não é culpa do modelo.
+   *
+   * O cardápio do prompt lista "Compensador Linear (10 pts)", porque o preço é
+   * o que decide o que cabe no orçamento. O modelo então devolve o nome com o
+   * preço junto — e a peça deixava de ser encontrada por causa do sufixo que a
+   * própria pergunta pôs ali.
+   */
+  const target = normalizeKey(wanted.replace(/\s*\(\s*\d+\s*pts?\s*\)\s*$/i, ''));
   const exact = parts.find((part) => normalizeKey(attachmentName(part, weapon)) === target);
   if (exact) return exact;
 
