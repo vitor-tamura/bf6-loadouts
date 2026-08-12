@@ -91,11 +91,15 @@ const MODELS = (process.env.OPENAI_RECOMMEND_MODELS ?? 'gpt-5-mini,gpt-4.1-mini'
  *
  * Antes o modelo escrevia o painel inteiro — porquê, modo de jogar, consenso,
  * o que o patch mudou e uma build alternativa —, e isso levava perto de um
- * minuto. Agora ele devolve só as peças, que é o que o botão promete. O teto
- * conta o raciocínio junto nos modelos gpt-5, então sobra folga para ele
- * pensar e ainda assim caber no orçamento de vinte segundos.
+ * minuto. Agora ele devolve só as peças, que é o que o botão promete.
+ *
+ * O teto foi a 1200 e voltou. Nos modelos gpt-5 ele conta o raciocínio junto, e
+ * escolher dez peças dentro de um orçamento de pontos é justamente a parte que
+ * exige pensar: a resposta chegava cortada no meio do JSON, e uma montagem pela
+ * metade não é montagem. O que economiza tempo é a resposta curta, não o teto
+ * apertado — só se paga o que for gerado.
  */
-const MAX_OUTPUT_TOKENS = positiveInt(process.env.OPENAI_RECOMMEND_MAX_OUTPUT_TOKENS, 1200);
+const MAX_OUTPUT_TOKENS = positiveInt(process.env.OPENAI_RECOMMEND_MAX_OUTPUT_TOKENS, 3000);
 const MAX_RETRIES = positiveInt(process.env.OPENAI_RECOMMEND_RETRIES, 3);
 
 /*
@@ -114,8 +118,8 @@ const MAX_RETRIES = positiveInt(process.env.OPENAI_RECOMMEND_RETRIES, 3);
  * desde o clique, e o que falta é só a leitura da comunidade. Estourar o
  * relógio custa a leitura, não a build.
  */
-const REQUEST_TIMEOUT_MS = positiveInt(process.env.OPENAI_RECOMMEND_REQUEST_TIMEOUT_MS, 9_000);
-const TIME_BUDGET_MS = positiveInt(process.env.OPENAI_RECOMMEND_TIME_BUDGET_MS, 10_000);
+const REQUEST_TIMEOUT_MS = positiveInt(process.env.OPENAI_RECOMMEND_REQUEST_TIMEOUT_MS, 14_000);
+const TIME_BUDGET_MS = positiveInt(process.env.OPENAI_RECOMMEND_TIME_BUDGET_MS, 15_000);
 
 /** O erro de quem ficou sem tempo — reconhecível no log e no fim da fila. */
 const timeout = (message: string) => Object.assign(new Error(message), { timedOut: true });
@@ -197,12 +201,16 @@ function retryDelayMs(response: Response, message: string, attempt: number) {
  * que o orçamento inteiro de dez segundos. Manter ligada é apostar que a busca
  * cabe; desligar troca a leitura de hoje pelo que o modelo já sabe.
  *
- * A escolha fica em variável de ambiente porque ela é de operação, não de
- * código: dá para medir com ela ligada, ver quantas respostas estouram o
- * relógio, e desligar sem publicar versão nova. Com a busca desligada, o painel
- * avisa — `unsourced` continua sendo verdade quando não há página citada.
+ * Ela vem desligada por padrão, e a razão é medida: com a busca, a resposta não
+ * fechava dentro do relógio — voltava cortada ou não voltava. Sem ela, o modelo
+ * responde em poucos segundos e a montagem sai inteira.
+ *
+ * O que se perde está dito na tela: `unsourced` continua verdadeiro quando
+ * nenhuma página é citada, e o painel avisa que aquilo é o que o modelo já
+ * sabia, não leitura de discussão recente. Ligar de volta é
+ * `OPENAI_RECOMMEND_WEB_SEARCH=on`, sem publicar versão nova.
  */
-const WEB_SEARCH = process.env.OPENAI_RECOMMEND_WEB_SEARCH !== 'off';
+const WEB_SEARCH = process.env.OPENAI_RECOMMEND_WEB_SEARCH === 'on';
 
 function requestBody(model: string, prompt: string) {
   return {
@@ -475,11 +483,19 @@ export async function GET(request: Request) {
 
 ${gameState()}
 
-## 1. Pesquise rápido
+${
+    WEB_SEARCH
+      ? `## 1. Pesquise rápido
 
-Uma busca só, curta: "${weapon.name} best attachments" ou "${weapon.name} loadout". Prefira Reddit recente (r/Battlefield6, r/Battlefield) e patch notes da EA. Priorize os últimos 30 dias. Não abra dezenas de páginas — duas ou três bastam para saber o que a comunidade monta.
+Uma busca só, curta: "${weapon.name} best attachments" ou "${weapon.name} loadout". Prefira Reddit recente (r/Battlefield6, r/Battlefield) e patch notes da EA. Priorize os últimos 30 dias. Não abra dezenas de páginas — duas ou três bastam.
 
-## 2. Escolha os acessórios
+`
+      : `## 1. Responda do que você já sabe
+
+A busca está desligada nesta chamada. Use o que você conhece das builds que a comunidade discute para esta arma, sem inventar fonte, número ou citação.
+
+`
+  }## 2. Escolha os acessórios
 
 Use SOMENTE os desta lista. Cada linha é um slot, no formato "id do slot (nome): peças com o custo em pontos":
 
