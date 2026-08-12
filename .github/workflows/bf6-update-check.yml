@@ -1,13 +1,13 @@
 # Saiu patch novo?
 #
-# Roda de seis em seis horas e pergunta uma coisa só à página de novidades da
-# EA: apareceu algum número de versão que `data/versions` ainda não tem. Na
-# esmagadora maioria das execuções a resposta é não, e o workflow termina em
-# segundos sem tocar em nada — patch de Battlefield não sai toda tarde.
+# Roda de seis em seis horas e faz uma pergunta só à página de novidades da EA:
+# apareceu algum Game Update que `data/versions` ainda não tem. Na esmagadora
+# maioria das execuções a resposta é não, e o workflow termina em segundos.
 #
-# Quando a resposta é sim, ele chama o workflow de processamento uma vez por
-# versão encontrada, da mais antiga para a mais nova. A ordem importa: processar
-# 1.4.2.0 antes de 1.4.1.0 faria o estado novo ser reescrito pelo velho.
+# A versão sai do endereço do artigo — `/news/battlefield-6-game-update-1-4-1-5`
+# —, nunca do corpo da página: o texto tem números de quatro grupos por toda
+# parte (ids de componente), e colher um deles faria o pipeline processar uma
+# versão que não existe.
 #
 # Este workflow não escreve nada no repositório. Quem escreve é o de
 # processamento, e mesmo ele só escreve em branch.
@@ -19,8 +19,8 @@ on:
     - cron: '0 */6 * * *'
   workflow_dispatch:
 
-# Duas verificações ao mesmo tempo abririam dois Pull Requests para o mesmo
-# patch. A segunda espera; ela vai encontrar a versão já processada e sair.
+# Duas verificações ao mesmo tempo disparariam o processamento duas vezes para
+# o mesmo patch. A segunda espera; ela vai encontrar a versão já processada.
 concurrency:
   group: bf6-update-check
   cancel-in-progress: false
@@ -32,8 +32,6 @@ permissions:
 jobs:
   verificar:
     runs-on: ubuntu-latest
-    outputs:
-      missing: ${{ steps.discover.outputs.missing }}
     steps:
       - uses: actions/checkout@v4
 
@@ -49,15 +47,31 @@ jobs:
         run: |
           set -o pipefail
           resultado=$(npm run --silent catalog:discover -- --json)
-          echo "$resultado"
-          echo "missing=$(echo "$resultado" | node -e 'process.stdin.on("data",d=>process.stdout.write(JSON.stringify(JSON.parse(d.toString()).missing)))')" >> "$GITHUB_OUTPUT"
+          echo "$resultado" | head -c 2000
+          versoes=$(echo "$resultado" | node -e '
+            let raw = "";
+            process.stdin.on("data", (chunk) => (raw += chunk));
+            process.stdin.on("end", () => {
+              const { updates } = JSON.parse(raw);
+              process.stdout.write(updates.map((u) => u.version).join(" "));
+            });
+          ')
+          echo "versions=$versoes" >> "$GITHUB_OUTPUT"
+          echo "Versões a processar: ${versoes:-nenhuma}"
 
-      - name: Disparar o processamento de cada versão nova
-        if: steps.discover.outputs.missing != '[]'
+      # Uma execução por versão, da mais antiga para a mais nova: cada uma parte
+      # do estado deixado pela anterior.
+      - name: Disparar o processamento
+        if: steps.discover.outputs.versions != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          for versao in $(echo '${{ steps.discover.outputs.missing }}' | node -e 'process.stdin.on("data",d=>process.stdout.write(JSON.parse(d.toString()).join(" ")))'); do
+          for versao in ${{ steps.discover.outputs.versions }}; do
+            if gh pr list --state open --search "update Battlefield 6 to $versao in:title" --json number \
+              | grep -q '"number"'; then
+              echo "::notice::Já existe Pull Request aberto para $versao — pulando."
+              continue
+            fi
             echo "Disparando processamento de $versao"
             gh workflow run bf6-update-process.yml -f version="$versao"
           done

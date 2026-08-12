@@ -1,6 +1,48 @@
 # Atualização automática
 
-Três workflows em `.github/workflows/`.
+O gatilho e a fonte são os **patch notes oficiais da EA**. O pipeline não
+depende de Reddit, do BF6 Loadouts nem do dataset da comunidade para saber que
+saiu versão nova — essas fontes seguem valendo para balística e conferência,
+mas não decidem quando atualizar.
+
+## Um comando só
+
+```bash
+npm run catalog:update                       # descobre e processa o que faltar
+npm run catalog:update -- --version 1.4.2.0  # uma versão específica
+npm run catalog:update -- --dry-run          # mostra o que faria, sem escrever
+```
+
+É exatamente o que o GitHub Actions executa. Se o workflow rodasse uma sequência
+própria de passos, viraria uma caixa preta que só falha em produção.
+
+O `--dry-run` imprime as mudanças reconhecidas com o nível de cada uma e não
+toca em arquivo nenhum:
+
+```
+[catalog] 1.4.1.0: mudanças reconhecidas { total: 2, auto: 0, review: 2 }
+[catalog]   🟡 weapon_added —
+[catalog]   🟡 compatibility_added m87a1, m1014, ks18k, db12
+[catalog] 1.4.1.0: nenhum arquivo foi modificado (--dry-run)
+```
+
+## De onde sai a versão
+
+Do **endereço do artigo**, nunca do corpo da página:
+
+```
+/news/battlefield-6-game-update-1-4-1-5   →   1.4.1.5
+```
+
+A página de novidades tem números de quatro grupos por toda parte —
+`2.926.379.084`, `069.342.055.185` — que são identificadores de componente. Um
+extrator que varresse o texto colheria um deles como versão, e o pipeline
+baixaria um patch note inexistente e abriria Pull Request para uma versão que a
+EA nunca lançou.
+
+## Os três workflows
+
+Em `.github/workflows/`:
 
 | Arquivo | Quando | O que faz |
 | --- | --- | --- |
@@ -13,7 +55,8 @@ Três workflows em `.github/workflows/`.
 **A automação nunca escreve em `main`.**
 
 Nem quando a mudança é óbvia, nem quando a validação passa limpa. O que sai do
-processamento é sempre um branch `data/update/<versão>` e um Pull Request. O
+processamento é sempre um branch `automation/bf6-update/<versão>` e um Pull
+Request. O
 catálogo alimenta um site que diz às pessoas o que montar; uma leitura errada
 publicada sozinha é uma recomendação errada dada em nome do projeto.
 
@@ -34,29 +77,59 @@ justamente quando o pipeline parou de enxergar.
 ## Processamento
 
 ```
-baixa patch note → lê → estado atual → dataset da comunidade
-      → concilia → valida → diff → build → branch → Pull Request
+baixa patch note → lê → concilia → índices → valida
+      → diff → build → cobertura → branch → Pull Request
 ```
 
-Falhas têm pesos diferentes:
+Branch: `automation/bf6-update-<versão>`.
 
-- **sem patch note** — interrompe; não há o que conciliar;
-- **patch note ilegível** — `blocked`: abre issue `[CATALOG] Revisão manual
-  necessária`, não altera nada;
-- **sem estado atual ou sem dataset da comunidade** — segue, marcado. O PR
-  informa que a matriz não foi reconfirmada;
-- **testes falhando** — segue, e o PR explica. Os testes fixam relações
-  confirmadas à mão (o 50 MW Violet, entre outras): uma falha significa que o
-  patch mudou uma delas, e isso precisa de confirmação com o jogo aberto, não de
-  um teste ajustado às pressas.
+## O que o patch note consegue aplicar sozinho
+
+| Situação | O que acontece |
+| --- | --- |
+| "Weapon X has been removed" | 🟢 entidade passa a `removed`, com `removedIn` |
+| "from 800 to 820" | 🟢 os dois números vêm da fonte |
+| "available for the M87A1, M1014, 18.5KS-K, and DB-12" | 🟢 as relações nascem, se a peça e todas as armas resolverem |
+| "recoil reduced by 10%" | 🟡 registra operação e proporção, sem virar número |
+| "Added a new laser attachment" (sem slot/custo) | 🟡 falta o que o patch não publicou |
+| peça citada que não existe no catálogo | 🟡 precisa ser criada antes |
+
+Compatibilidade só nasce sozinha quando a EA **lista as armas**. Sem lista, é
+pendência — nunca dedução por categoria.
+
+## Idempotência
+
+Rodar de novo não duplica nada:
+
+- versão já em `data/versions` é pulada;
+- patch note já baixado não é rebaixado;
+- Pull Request já aberto para a versão impede outro.
+
+## Quando algo falha, não há Pull Request
+
+Testes, lint, tipos, validação e build rodam antes de abrir o PR. Falhando
+qualquer um, abre-se uma **issue** com o link da execução e o catálogo em `main`
+fica intacto. Um PR vermelho seria aprovado por engano num dia corrido; uma
+issue não se confunde com trabalho pronto.
+
+Um caso não é falha: patch note **sem mudanças de catálogo**. Um update de
+correções — deploy, animação, som, interface — legitimamente não altera arma
+nenhuma, e o pipeline segue com zero mudanças. O que separa isso de "o parser
+não entendeu" é a estrutura do texto: tendo changelog e seções, zero é resposta;
+não tendo, é falha.
 
 ## O corpo do Pull Request
 
 Título: `feat(data): update Battlefield 6 to <versão>`
 
-Traz o diff resumido (armas, acessórios, compatibilidade, stats, efeitos,
-custos), a contagem por nível de automação, o resultado de cada fonte e o
-lembrete de que percentuais não viraram número.
+Gerado por `scripts/catalog/pr-body.ts`. Traz o diff resumido, a contagem por
+nível e cada mudança com a frase de origem ao lado:
+
+```
+🟢 aplicadas automaticamente   3
+🟡 precisam de revisão         2
+🔴 não puderam ser lidas       0
+```
 
 ## Revisar
 
@@ -69,18 +142,31 @@ lembrete de que percentuais não viraram número.
 O workflow de validação confere se o gerado está em dia com a origem — Pull
 Request com índice defasado é recusado.
 
-## Rodar na mão
+## Rodar passo a passo
+
+`catalog:update` faz tudo, mas cada passo continua utilizável sozinho — é assim
+que se depura um pipeline quando ele quebra:
 
 ```bash
 npm run catalog:discover
 npm run catalog:fetch-patch  -- 1.4.2.0
 npm run catalog:parse-patch  -- 1.4.2.0
-npm run catalog:fetch-loadouts
-npm run catalog:fetch-github
 npm run catalog:reconcile    -- 1.4.2.0
 npm run catalog
-npm run catalog:diff -- 1.3.3.0 1.4.2.0
+npm run catalog:diff -- 1.4.1.5 1.4.2.0
+npm run catalog:coverage
 ```
+
+A balística tem caminho próprio, e não sai do patch note:
+
+```bash
+npm run catalog:fetch-github
+npm run catalog:import-analyzer
+```
+
+Uma versão nova **herda** a simulação da anterior — sem isso, um patch que só
+corrige um botão derrubaria as capacidades `damageCurves`, `velocity` e `ttk`
+para falso, e o TTK e os gráficos deixariam de existir da noite para o dia.
 
 ## Variáveis de ambiente
 

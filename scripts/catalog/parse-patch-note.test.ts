@@ -9,9 +9,15 @@
  */
 
 import { describe, expect, it } from 'vitest';
-import { knownEntities, parseLine, parseNote } from './parse-patch-note.ts';
+import {
+  knownEntities,
+  looksLikePatchNote,
+  parseAnnouncements,
+  parseLine,
+  parseNote,
+} from './parse-patch-note.ts';
 import { compareVersions, isGameVersion } from './lib/io.ts';
-import { extractVersions } from './discover-updates.ts';
+import { extractUpdates, toIsoDate } from './discover-updates.ts';
 
 const known = knownEntities();
 const parse = (line: string) => parseLine(line, known);
@@ -87,10 +93,14 @@ describe('adições e remoções', () => {
     expect(change!.automation).toBe('auto');
   });
 
-  it('bloqueia remoção sem entidade reconhecível', () => {
-    const change = parse('Some weapon attachments were removed from the test range');
-
-    expect(change!.automation).toBe('blocked');
+  it('ignora remoção que não é de arma nem de peça', () => {
+    /*
+     * Patch note remove muita coisa que não é conteúdo: botão, ícone, som.
+     * Tratar cada uma como "não consegui ler" abriria uma issue de revisão
+     * manual por patch — e o texto continua guardado para auditoria.
+     */
+    expect(parse('The Challenges button has been removed from the attachment screen')).toBeNull();
+    expect(parse('Some weapon attachments were removed from the test range')).toBeNull();
   });
 });
 
@@ -116,11 +126,73 @@ describe('o que o parser ignora', () => {
 });
 
 describe('mudança sem número', () => {
-  it('vai para revisão, porque não dá para medir uma frase', () => {
-    const change = parse('M16A4 recoil has been slightly improved');
+  it('vai para revisão quando a frase diz que algo mudou', () => {
+    const change = parse('M16A4 recoil has been adjusted');
 
     expect(change!.automation).toBe('review');
     expect(change!.operation).toBe('none');
+  });
+
+  it('não inventa mudança a partir de nota de interface', () => {
+    /*
+     * Citar uma arma e uma estatística não é anunciar balanceamento. Esta
+     * frase é real, do patch 1.4.1.0, e virava uma alteração de carregador da
+     * M60 — o verbo é o que separa a correção de ícone da mudança de arma.
+     */
+    expect(
+      parse('Magazine attachment indicator alignment has been improved when customising the M/60'),
+    ).toBeNull();
+  });
+
+  it('não confunde "slightly" com o cano Light', () => {
+    // Outra do 1.4.1.0: sem fronteira de palavra, `light` casa dentro de
+    // "slightly" e a frase vira mudança de dano de um cano.
+    expect(parse('Fall damage is now slightly reduced when falling into shallow water')).toBeNull();
+  });
+});
+
+describe('compatibilidade anunciada em prosa', () => {
+  /*
+   * A frase é literal do patch 1.4.1.0. É o caso que a automação existe para
+   * cobrir: a EA lista as armas, e a relação pode nascer sem revisão.
+   */
+  const frase =
+    'The Extended Barrel with a 4" extension increases projectile velocity at the cost of mobility and aim-down-sights speed, and is available for the M87A1, M1014, 18.5KS-K, and DB-12.';
+
+  it('lê a lista inteira, sem parar no ponto de "18.5KS-K"', () => {
+    const [change] = parseAnnouncements(frase, known);
+
+    expect(change.kind).toBe('compatibility_added');
+    expect(change.weaponIds).toEqual(['m87a1', 'm1014', 'ks18k', 'db12']);
+  });
+
+  it('exige que a peça seja peça, e não a primeira entidade da frase', () => {
+    /*
+     * A frase cita quatro armas; sem esta trava, a arma era tomada como a
+     * entidade da relação e quatro compatibilidades saíam apontando para nada.
+     */
+    const [change] = parseAnnouncements(frase, known);
+
+    expect(change.entityId).toBeNull();
+    expect(change.automation).toBe('review');
+  });
+
+  it('não inventa relação quando nenhuma arma resolve', () => {
+    expect(
+      parseAnnouncements('The Widget is available for the Foo and the Bar.', known),
+    ).toHaveLength(0);
+  });
+});
+
+describe('o texto tem cara de patch note?', () => {
+  it('reconhece changelog e seções em caixa alta', () => {
+    expect(looksLikePatchNote('Major Updates for 1.4.1.5\n CHANGELOG')).toBe(true);
+    expect(looksLikePatchNote('\n PLAYER: \n a\n VEHICLES: \n b\n WEAPONS: \n c')).toBe(true);
+  });
+
+  it('recusa página que não é patch note', () => {
+    // Distingue "patch sem mudanças de catálogo" de "parser cego".
+    expect(looksLikePatchNote('Sorry, you are not eligible to view this content.')).toBe(false);
   });
 });
 
@@ -167,10 +239,29 @@ describe('números de versão', () => {
     expect(isGameVersion('1.4')).toBe(false);
   });
 
-  it('colhe as versões citadas numa página, sem repetir', () => {
-    const found = extractVersions(
-      'Update 1.4.2.0 is live. Read the 1.4.2.0 notes. Previously: 1.4.1.0. Ignore 2.0 and 3.1.4.',
-    );
-    expect(found).toEqual(['1.4.1.0', '1.4.2.0']);
+  it('lê a versão do endereço do artigo, não do corpo da página', () => {
+    /*
+     * A página da EA tem números de quatro grupos por toda parte — ids de
+     * componente como 2.926.379.084. Um extrator que varresse o texto colheria
+     * isso como versão e o pipeline baixaria um patch note inexistente.
+     */
+    const html = `
+      <a href="/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-1-5">
+        <span>August 3, 2026</span>
+        <span style="--line-clamp:3">BATTLEFIELD 6 GAME UPDATE 1.4.1.5</span>
+      </a>
+      <p>id 2.926.379.084 e 069.342.055.185 não são versões</p>`;
+
+    const found = extractUpdates(html);
+    expect(found).toHaveLength(1);
+    expect(found[0].version).toBe('1.4.1.5');
+    expect(found[0].publishedAt).toBe('2026-08-03');
+    expect(found[0].title).toBe('BATTLEFIELD 6 GAME UPDATE 1.4.1.5');
+    expect(found[0].url).toContain('https://www.ea.com/');
+  });
+
+  it('converte a data do jeito que a EA escreve', () => {
+    expect(toIsoDate('August 3, 2026')).toBe('2026-08-03');
+    expect(toIsoDate('December 12, 2025')).toBe('2025-12-12');
   });
 });

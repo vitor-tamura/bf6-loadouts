@@ -1,63 +1,107 @@
 #!/usr/bin/env node
 /**
- * Existe patch novo?
+ * Saiu patch novo?
  *
  *   npm run catalog:discover
  *   npm run catalog:discover -- --json
  *
- * Lê a página de novidades da EA, recolhe os números de versão que aparecem lá
- * e devolve os que ainda não existem em `data/versions`. É o primeiro passo do
- * workflow automático: se a resposta for vazia — o caso comum, já que patch não
- * sai todo dia —, nada mais roda e nenhum Pull Request é aberto.
+ * Lê a página de novidades da EA e devolve os Game Updates que ainda não estão
+ * em `data/versions`. É o gatilho de todo o pipeline: sem versão nova aqui,
+ * nada mais roda.
  *
- * ## Por que só números de versão
+ * ## Por que a versão sai do endereço, e não do texto
  *
- * Porque é o que dá para afirmar lendo uma página que muda de layout sem aviso.
- * Um extrator que dependesse da estrutura do HTML — "o terceiro card da segunda
- * seção" — passaria a colher lixo silenciosamente na primeira reforma do site.
- * Número de versão tem forma reconhecível e é conferível contra o que já existe
- * no repositório; o resto do trabalho é do `fetch-patch-note`, que vai buscar a
- * página daquela versão especificamente.
+ * Porque o texto mente. A página tem números de quatro grupos por toda parte —
+ * `2.926.379.084`, `069.342.055.185` — que são identificadores de componente, e
+ * um extrator que varresse o corpo atrás de `\d+\.\d+\.\d+\.\d+` colheria isso
+ * como se fosse versão do jogo. O pipeline então baixaria um patch note que não
+ * existe e abriria um Pull Request para uma versão inventada.
  *
- * Saída em ordem cronológica: quando aparecem três versões de uma vez, elas são
- * processadas da mais antiga para a mais nova, senão o estado novo seria
- * reescrito pelo velho.
+ * O endereço não tem esse problema. A EA publica cada atualização em
+ * `/news/battlefield-6-game-update-1-4-1-5`, e o que está depois de
+ * `game-update-` é a versão, escrita com hífen. Um link com essa forma é uma
+ * afirmação da própria EA de que aquela versão existe.
  */
 
-import { ENDPOINTS, fetchText, htmlToText } from './lib/http.ts';
+import { ENDPOINTS, fetchText } from './lib/http.ts';
 import { compareVersions, isGameVersion, listVersions, log } from './lib/io.ts';
 
-/**
- * A cara de uma versão da EA.
- *
- * Quatro grupos de dígitos — `1.4.2.0`. Três também aparecem em texto de
- * marketing, e é justamente por isso que a captura exige os quatro: `2.0.1` num
- * parágrafo é quase sempre outra coisa, e um falso positivo aqui manda o
- * pipeline inventar uma versão que não existe.
- */
-const VERSION_PATTERN = /\b(\d+\.\d+\.\d+\.\d+)\b/g;
+/** `/news/battlefield-6-game-update-1-4-1-5` → `1.4.1.5`. */
+const UPDATE_LINK =
+  /href="((?:https:\/\/www\.ea\.com)?\/games\/battlefield\/battlefield-6\/news\/[a-z0-9-]*game-update-([\d-]+))"/gi;
 
-export function extractVersions(text: string): string[] {
-  const found = new Set<string>();
-  for (const match of text.matchAll(VERSION_PATTERN)) {
-    if (isGameVersion(match[1])) found.add(match[1]);
+/** A data do card, no formato que a EA escreve: `August 3, 2026`. */
+const CARD_DATE = />([A-Z][a-z]+ \d{1,2}, \d{4})</;
+
+/** O título fica num contêiner de recorte de linhas. */
+const CARD_TITLE = /--line-clamp:\d+">([^<]{5,160})</;
+
+const MONTHS: Record<string, string> = {
+  january: '01', february: '02', march: '03', april: '04', may: '05', june: '06',
+  july: '07', august: '08', september: '09', october: '10', november: '11', december: '12',
+};
+
+/** `August 3, 2026` → `2026-08-03`. Sem reconhecer o mês, devolve o texto. */
+export function toIsoDate(text: string): string {
+  const match = text.match(/^([A-Za-z]+) (\d{1,2}), (\d{4})$/);
+  if (!match) return text;
+
+  const month = MONTHS[match[1].toLowerCase()];
+  return month ? `${match[3]}-${month}-${match[2].padStart(2, '0')}` : text;
+}
+
+export interface DiscoveredUpdate {
+  version: string;
+  url: string;
+  title: string | null;
+  publishedAt: string | null;
+}
+
+/**
+ * Os Game Updates que a página anuncia.
+ *
+ * Cada link vive dentro de um cartão que termina no primeiro `</a>` seguinte —
+ * é lá que estão o título e a data, e limitar a busca a esse pedaço evita
+ * colher a data do cartão vizinho.
+ */
+export function extractUpdates(html: string): DiscoveredUpdate[] {
+  const found = new Map<string, DiscoveredUpdate>();
+
+  for (const match of html.matchAll(UPDATE_LINK)) {
+    const version = match[2].replace(/-/g, '.');
+    if (!isGameVersion(version) || found.has(version)) continue;
+
+    const href = match[1];
+    const card = html.slice(match.index + match[0].length).split('</a>')[0];
+    const date = card.match(CARD_DATE);
+    const title = card.match(CARD_TITLE);
+
+    found.set(version, {
+      version,
+      url: href.startsWith('http') ? href : `https://www.ea.com${href}`,
+      title: title ? title[1].trim() : null,
+      publishedAt: date ? toIsoDate(date[1]) : null,
+    });
   }
-  return [...found].sort(compareVersions);
+
+  return [...found.values()].sort((a, b) => compareVersions(a.version, b.version));
 }
 
 export async function discover(): Promise<{
   known: string[];
-  published: string[];
-  missing: string[];
+  published: DiscoveredUpdate[];
+  updates: DiscoveredUpdate[];
 }> {
   const html = await fetchText(ENDPOINTS.eaNews);
-  const published = extractVersions(htmlToText(html));
+  const published = extractUpdates(html);
   const known = listVersions();
 
   return {
     known,
     published,
-    missing: published.filter((version) => !known.includes(version)).sort(compareVersions),
+    // Da mais antiga para a mais nova: processar 1.4.2.0 antes de 1.4.1.0
+    // faria o estado novo ser reescrito pelo velho.
+    updates: published.filter((update) => !known.includes(update.version)),
   };
 }
 
@@ -68,25 +112,26 @@ async function main(): Promise<void> {
     const result = await discover();
 
     if (asJson) {
-      // O workflow lê esta linha: uma só, para caber num output de step.
       console.log(JSON.stringify(result));
     } else {
-      log('versões conhecidas', result.known);
-      log('versões publicadas', result.published);
-      log('faltando', result.missing.length ? result.missing : 'nenhuma');
+      log('versões no catálogo', result.known);
+      log('game updates publicados', result.published.map((u) => u.version));
+      log('a processar', result.updates.length ? result.updates.map((u) => u.version) : 'nenhuma');
+      for (const update of result.updates) {
+        log(`  ${update.version}`, { título: update.title, publicado: update.publishedAt, url: update.url });
+      }
     }
 
     if (!result.published.length) {
       /*
-       * A página respondeu e nenhuma versão apareceu.
+       * A página respondeu e nenhum Game Update apareceu.
        *
        * Isso não é "não há patch novo" — é sinal de que a página mudou de forma
-       * ou de endereço, e seguir em frente diria ao workflow que está tudo em
-       * dia justamente quando ele parou de enxergar. Melhor falhar e ser
-       * consertado.
+       * ou de endereço. Seguir em frente diria ao workflow que está tudo em dia
+       * justamente quando ele parou de enxergar.
        */
       console.error(
-        'nenhum número de versão encontrado na página da EA — confira CATALOG_EA_NEWS_URL e o extrator',
+        'nenhum Game Update encontrado na página da EA — confira CATALOG_EA_NEWS_URL e o extrator de links',
       );
       process.exit(2);
     }

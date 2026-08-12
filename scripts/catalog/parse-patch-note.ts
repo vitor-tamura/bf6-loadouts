@@ -38,6 +38,49 @@ import { PATCHES, isGameVersion, log, readJson, writeJson } from './lib/io.ts';
 import { attachments, weapons } from './lib/store.ts';
 import type { PatchNote } from './fetch-patch-note.ts';
 
+/**
+ * O corpo útil do patch note.
+ *
+ * A página vem com o site inteiro em volta: menu, seletor de data de
+ * nascimento, links de loja. Nada disso é patch note, e deixar tudo passar
+ * multiplica as chances de o parser reconhecer uma "mudança" num item de menu.
+ * O corpo começa no anúncio da versão e vai até o fim.
+ */
+/**
+ * O texto tem cara de patch note?
+ *
+ * Existe uma diferença que o pipeline precisa saber fazer: um patch de
+ * correções — deploy, animação, som, interface — legitimamente não muda nada do
+ * catálogo, e concluir "nenhuma mudança" ali é acertar. Já um texto que o
+ * parser não entendeu produz o mesmo zero, e ali concluir a mesma coisa é
+ * deixar o jogo mudar sem ninguém ver.
+ *
+ * O que separa os dois é a estrutura: patch note da EA tem changelog e seções
+ * em caixa alta. Achando isso, zero mudanças é resposta; não achando, é falha.
+ */
+export function looksLikePatchNote(body: string): boolean {
+  if (/CHANGELOG|Major Updates? for/i.test(body)) return true;
+
+  // Seções no formato "WEAPONS:", "VEHICLES:", "UI & HUD:".
+  const sections = body.match(/\n\s*[A-Z][A-Z &/-]{3,30}:\s/g) ?? [];
+  return sections.length >= 3;
+}
+
+export function bodyOf(raw: string): string {
+  const start = raw.search(/Game Updates?\s*\n|CHANGELOG|Major Updates? for/i);
+  return start > 0 ? raw.slice(start) : raw;
+}
+
+/**
+ * A lista de armas que uma frase declara explicitamente.
+ *
+ * "is available for the M87A1, M1014, 18.5KS-K, and DB-12" é a EA dizendo, com
+ * todas as letras, em que armas a peça entra. É a única forma de compatibilidade
+ * que o pipeline aceita sem revisão — o resto vira pendência.
+ */
+const AVAILABLE_FOR =
+  /\b(?:available|usable|equippable)\s+(?:for|on)\s+(?:the\s+)?(.+?)(?:\.\s|\.$|;|$)/i;
+
 export interface PatchChange {
   /** O que a frase parece fazer. */
   kind:
@@ -53,6 +96,8 @@ export interface PatchChange {
   entityType: 'weapon' | 'attachment' | 'unknown';
   /** O id do catálogo, quando a entidade foi reconhecida. */
   entityId: string | null;
+  /** As armas citadas, quando a frase declara compatibilidade. */
+  weaponIds?: string[];
   /** O nome exatamente como o patch note o escreveu. */
   mentioned: string | null;
   field: string | null;
@@ -103,17 +148,41 @@ export function knownEntities(): Known {
 }
 
 /**
+ * O padrão que reconhece o nome de uma entidade dentro de uma frase.
+ *
+ * Não basta procurar a substring: o nome precisa estar sozinho. Sem fronteira,
+ * `light` casa dentro de "slightly" — e foi assim que "Fall damage is now
+ * slightly reduced when falling into shallow water" virou uma mudança de dano
+ * do cano Light. O separador flexível entre os caracteres é o que faz `m60`
+ * reconhecer "M/60" e `18.5ks-k` reconhecer "18.5KS-K".
+ */
+function namePattern(key: string): RegExp {
+  const body = key.split('').join('[^a-z0-9]*');
+  return new RegExp(`(?<![a-z0-9])${body}(?![a-z0-9])`, 'i');
+}
+
+const patterns = new Map<string, RegExp>();
+
+function matchesName(line: string, key: string): boolean {
+  let pattern = patterns.get(key);
+  if (!pattern) {
+    pattern = namePattern(key);
+    patterns.set(key, pattern);
+  }
+  return pattern.test(line);
+}
+
+/**
  * Acha a entidade citada na frase.
  *
  * Procura do nome mais longo para o mais curto, senão "M4" casaria antes de
  * "M4A1" e a mudança iria para a arma errada.
  */
 function findEntity(line: string, known: Known) {
-  const text = normalize(line);
-
   const search = (map: Map<string, string>) => {
-    const candidates = [...map.keys()].filter((key) => key.length >= 3 && text.includes(key));
-    candidates.sort((a, b) => b.length - a.length);
+    const candidates = [...map.keys()]
+      .filter((key) => key.length >= 3 && matchesName(line, key))
+      .sort((a, b) => b.length - a.length);
     return candidates.length ? { key: candidates[0], id: map.get(candidates[0])! } : null;
   };
 
@@ -171,6 +240,16 @@ function findField(line: string): string | null {
 const ADDED = /\b(added|introduced|new)\b/i;
 const REMOVED = /\b(removed|retired|disabled|delisted)\b/i;
 
+/**
+ * O que distingue balanceamento de correção de interface.
+ *
+ * Um patch note fala muito mais de botão, ícone e animação do que de dano. Sem
+ * este filtro, qualquer frase que cite uma arma e a palavra "magazine" vira
+ * mudança de carregador.
+ */
+const CHANGE_VERB =
+  /\b(increased|reduced|decreased|lowered|raised|buffed|nerfed|adjusted|tuned|changed|updated|rebalanced|now deals|no longer deals)\b/i;
+
 /* -------------------------------- o parser -------------------------------- */
 
 /** Uma frase que não fala de arma nem de peça não interessa a este catálogo. */
@@ -222,13 +301,16 @@ export function parseLine(line: string, known: Known): PatchChange | null {
   }
 
   if (REMOVED.test(clean)) {
-    if (!entity) {
-      return {
-        ...base,
-        automation: 'blocked',
-        reason: 'Remoção anunciada sem entidade reconhecível na frase.',
-      };
-    }
+    /*
+     * Remoção sem entidade não é bloqueio, é assunto alheio.
+     *
+     * Patch note remove muita coisa que não é arma nem peça — botão, ícone,
+     * som, geometria de mapa. Tratar cada uma como "não consegui ler" abriria
+     * uma issue de revisão manual por patch, e quem for atendê-la vai
+     * encontrar "The Challenges button has been removed from the in-game
+     * attachment screen". O texto fica guardado no patch note para auditoria.
+     */
+    if (!entity) return null;
     return {
       ...base,
       kind: entity.entityType === 'attachment' ? 'attachment_removed' : 'weapon_removed',
@@ -279,7 +361,15 @@ export function parseLine(line: string, known: Known): PatchChange | null {
 
   /* ------------------------------- sem número ------------------------------- */
 
-  if (entity && field) {
+  /*
+   * Sem número, só vale se a frase disser que algo mudou.
+   *
+   * Citar uma arma e uma estatística não é anunciar mudança: "Magazine
+   * attachment indicator alignment has been improved when customising the M/60"
+   * fala de alinhamento de ícone, e virava uma alteração de carregador da M60.
+   * O verbo é o que separa a nota de correção da nota de balanceamento.
+   */
+  if (entity && field && CHANGE_VERB.test(clean)) {
     return {
       ...base,
       kind: 'stat_changed',
@@ -292,11 +382,108 @@ export function parseLine(line: string, known: Known): PatchChange | null {
   return null;
 }
 
+/**
+ * As armas nomeadas numa lista em prosa.
+ *
+ * "M87A1, M1014, 18.5KS-K, and DB-12" vira quatro ids. Um nome que não resolve
+ * derruba a frase inteira para revisão em vez de entrar pela metade: meia lista
+ * de compatibilidade é pior que nenhuma, porque parece completa.
+ */
+function weaponsIn(text: string, known: Known): { ids: string[]; unresolved: string[] } {
+  const ids: string[] = [];
+  const unresolved: string[] = [];
+
+  for (const raw of text.split(/,| and | e /i)) {
+    const name = raw.replace(/\b(the|weapons?|attachments?)\b/gi, '').trim();
+    if (name.length < 2) continue;
+
+    const id = known.weapons.get(normalize(name));
+    if (id) ids.push(id);
+    else unresolved.push(name);
+  }
+
+  return { ids: [...new Set(ids)], unresolved };
+}
+
+/**
+ * O anúncio de conteúdo novo, que vem em prosa e não em lista de mudanças.
+ *
+ * Uma temporada começa assim: "Season 4 introduces the Extended Barrel and 1P86
+ * LPVO sight. The Extended Barrel ... is available for the M87A1, M1014,
+ * 18.5KS-K, and DB-12." Não há bullet, não há campo, não há número — há um
+ * parágrafo. É de lá que saem as peças novas e, quando a EA se dá ao trabalho
+ * de listar, a compatibilidade delas.
+ */
+export function parseAnnouncements(body: string, known: Known): PatchChange[] {
+  const changes: PatchChange[] = [];
+
+  for (const sentence of body.split(/(?<=\.)\s+/)) {
+    const clean = sentence.replace(/\s+/g, ' ').trim();
+    if (clean.length < 20) continue;
+
+    const available = clean.match(AVAILABLE_FOR);
+    if (!available) continue;
+
+    /*
+     * A peça precisa ser peça.
+     *
+     * `findEntity` devolve o que achar primeiro, e numa frase que lista quatro
+     * armas ele acha uma arma. Tomar isso como "entidade encontrada" fazia a
+     * relação sair como automática sem que a peça tivesse sido identificada —
+     * quatro compatibilidades apontando para um `null`.
+     */
+    const found = findEntity(clean, known);
+    const attachment = found?.entityType === 'attachment' ? found : null;
+
+    const { ids, unresolved } = weaponsIn(available[1], known);
+    if (!ids.length) continue;
+
+    changes.push({
+      kind: 'compatibility_added',
+      entityType: 'attachment',
+      entityId: attachment?.id ?? null,
+      weaponIds: ids,
+      mentioned: null,
+      field: null,
+      operation: 'none',
+      value: null,
+      before: null,
+      after: null,
+      /*
+       * Compatibilidade explícita é aplicável — desde que os dois lados
+       * resolvam. Peça desconhecida ou arma que não casou vira revisão: criar a
+       * relação com uma das pontas em aberto seria inventar metade dela.
+       */
+      automation: attachment && !unresolved.length ? 'auto' : 'review',
+      reason: !attachment
+        ? 'A peça citada não existe no catálogo — provavelmente é nova e precisa ser criada primeiro.'
+        : unresolved.length
+          ? `Armas não reconhecidas na lista: ${unresolved.join(', ')}.`
+          : null,
+      line: clean,
+    });
+  }
+
+  return changes;
+}
+
 export function parseNote(note: PatchNote, known: Known): PatchChange[] {
-  return note.rawContent
+  const body = bodyOf(note.rawContent);
+
+  const lines = body
     .split('\n')
     .map((line) => parseLine(line, known))
     .filter((change): change is PatchChange => change !== null);
+
+  /*
+   * As duas leituras se completam e podem repetir a mesma frase — a linha a
+   * linha vê "available for" como texto sem número, e o anúncio a vê como
+   * compatibilidade. Quando isso acontece, a leitura mais específica fica.
+   */
+  const announcements = parseAnnouncements(body, known);
+  const announced = new Set(announcements.map((change) => change.line));
+
+  return [...lines.filter((change) => !announced.has(change.line)), ...announcements];
 }
 
 function main(): void {
@@ -321,16 +508,13 @@ function main(): void {
   log('patch lido', { 'versão': version, mudanças: changes.length, ...byLevel });
 
   if (!changes.length) {
-    /*
-     * Patch note que não produz nenhuma mudança legível é suspeito.
-     *
-     * Pode ser um patch só de correção de servidor — acontece —, mas pode ser o
-     * parser tendo deixado de entender o formato. Como não dá para distinguir
-     * os dois daqui, o pipeline para e chama gente: o item 33 chama isso de
-     * `blocked`, e é melhor uma issue a mais do que um catálogo intacto quando
-     * o jogo mudou.
-     */
-    console.warn('nenhuma mudança reconhecida — revise o formato do patch note antes de seguir.');
+    if (looksLikePatchNote(bodyOf(note.rawContent))) {
+      // Patch de correção: o changelog está lá, e nada nele toca no catálogo.
+      log('nenhuma mudança de catálogo neste patch — o texto é de correções');
+      return;
+    }
+
+    console.warn('nenhuma mudança reconhecida e o texto não parece um patch note — revise o formato.');
     process.exit(3);
   }
 }

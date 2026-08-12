@@ -45,7 +45,7 @@ export interface PatchNote {
  */
 export function patchNoteUrl(version: string): string {
   const slug = version.replace(/\./g, '-');
-  return `${ENDPOINTS.eaNews}/battlefield-6-update-${slug}`;
+  return `${ENDPOINTS.eaNews}/battlefield-6-game-update-${slug}`;
 }
 
 /** A data de publicação, quando a página a declara em formato de máquina. */

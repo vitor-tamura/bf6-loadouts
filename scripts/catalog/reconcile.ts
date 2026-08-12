@@ -120,6 +120,9 @@ function main(): void {
   let review = 0;
   let blocked = 0;
 
+  /** Relações que o patch note criou, acrescentadas à matriz herdada. */
+  const newRelations: CompatibilityRow[] = [];
+
   changes.forEach((change, index) => {
     if (change.automation === 'blocked') {
       blocked += 1;
@@ -182,6 +185,57 @@ function main(): void {
         });
       }
       return;
+    }
+
+    /* --------------------- compatibilidade que a EA listou --------------------- */
+
+    /*
+     * O único caso em que uma relação nasce sozinha.
+     *
+     * "The Extended Barrel ... is available for the M87A1, M1014, 18.5KS-K, and
+     * DB-12" é a EA dizendo, com todas as letras, em que armas a peça entra.
+     * Isso é fonte oficial e explícita — as duas condições que
+     * `compatibility.md` exige. Qualquer coisa menos que isso vira pendência.
+     */
+    if (
+      change.automation === 'auto' &&
+      change.kind === 'compatibility_added' &&
+      change.entityId &&
+      change.weaponIds?.length
+    ) {
+      const attachment = attachmentById.get(change.entityId);
+      const slot = attachment?.slot;
+
+      const added = change.weaponIds.filter((weaponId) => weaponById.has(weaponId));
+
+      if (attachment && slot && added.length === change.weaponIds.length) {
+        for (const weaponId of added) {
+          newRelations.push({
+            gameVersion: version,
+            weaponId,
+            attachmentId: change.entityId,
+            slot,
+            status: 'active',
+            source,
+            note: null,
+          });
+        }
+
+        applied += 1;
+        events.push({
+          id: eventId(version, 'compatibility', index),
+          gameVersion: version,
+          timestamp: TODAY,
+          type: 'compatibility_added',
+          entityType: 'compatibility',
+          entityId: change.entityId,
+          changes: { slot, weapons: added, line: change.line },
+          sources: [source],
+          automation: 'auto',
+          resolution: null,
+        });
+        return;
+      }
     }
 
     /* ------------------------ estatística com os dois números ------------------------ */
@@ -273,11 +327,26 @@ function main(): void {
       .map((entity) => entity.id),
   );
 
-  const nextCompatibility = carried.map((row) => {
+  const carriedRows = carried.map((row) => {
     if (!removedIds.has(row.weaponId) && !removedIds.has(row.attachmentId)) return row;
     // A relação de uma entidade que saiu do jogo sai junto — sem ser apagada.
     return { ...row, status: 'removed' as const, note: 'Entidade retirada do jogo nesta versão.' };
   });
+
+  /*
+   * As relações novas entram sem repetir as que já existem: a EA às vezes
+   * reanuncia uma peça em mais armas, e a lista dela é do que passa a valer,
+   * não do que mudou.
+   */
+  const known = new Set(carriedRows.map((row) => `${row.weaponId}|${row.attachmentId}`));
+  const nextCompatibility = [...carriedRows, ...newRelations.filter(
+    (row) => !known.has(`${row.weaponId}|${row.attachmentId}`),
+  )].sort(
+    (a, b) =>
+      a.weaponId.localeCompare(b.weaponId) ||
+      a.slot.localeCompare(b.slot) ||
+      a.attachmentId.localeCompare(b.attachmentId),
+  );
 
   events.push({
     id: eventId(version, 'compatibility-carried', 0),
@@ -305,6 +374,33 @@ function main(): void {
   }));
 
   const nextEffects = effects(previous).map((entry) => ({ ...entry, gameVersion: version }));
+
+  /*
+   * A simulação é herdada junto com o resto.
+   *
+   * Curva de dano, velocidade, arrasto, recuo, espalhamento e recarga não vêm
+   * do patch note — vêm do dataset da comunidade, por um caminho próprio. Sem
+   * copiá-los, a versão nova nasce sem balística nenhuma, e as capacidades
+   * `damageCurves`, `velocity`, `drag` e `ttk` caem para falso: o TTK e os
+   * gráficos deixam de existir da noite para o dia por causa de um patch que
+   * só corrigiu um botão.
+   *
+   * Quando `import-analyzer` rodar sobre a versão nova, ele sobrescreve isto
+   * com números atualizados. Até lá, o que valia antes continua valendo — e o
+   * evento diz que não houve reconfirmação.
+   */
+  const inherit = <T>(file: string, key: string): Record<string, unknown> => {
+    const previousFile = readJsonIf<Record<string, unknown>>(
+      join(versionDir(previous), file),
+      {} as Record<string, unknown>,
+    );
+    const rows = (previousFile[key] as T[] | undefined) ?? [];
+    return {
+      ...previousFile,
+      gameVersion: version,
+      [key]: rows.map((row) => ({ ...(row as object), gameVersion: version })),
+    };
+  };
 
   /* ------------------------------ o que vai ao disco ------------------------------ */
 
@@ -337,6 +433,12 @@ function main(): void {
   });
   writeJson(join(dir, 'stats.json'), { gameVersion: version, stats: nextStats });
   writeJson(join(dir, 'effects.json'), { gameVersion: version, effects: nextEffects });
+
+  writeJson(join(dir, 'ballistics.json'), inherit('ballistics.json', 'ballistics'));
+  writeJson(join(dir, 'damage-models.json'), inherit('damage-models.json', 'models'));
+  writeJson(join(dir, 'recoil.json'), inherit('recoil.json', 'recoil'));
+  writeJson(join(dir, 'spread.json'), inherit('spread.json', 'spread'));
+  writeJson(join(dir, 'reload.json'), inherit('reload.json', 'reload'));
   writeJson(join(dir, 'changes.json'), { gameVersion: version, events });
 
   // A anterior deixa de ser a corrente, e continua inteira onde está.
