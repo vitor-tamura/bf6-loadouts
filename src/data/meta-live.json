@@ -1,8 +1,143 @@
 {
-  "readAt": null,
-  "model": null,
-  "patch": null,
-  "picks": [],
-  "trending": [],
-  "sources": []
+  "readAt": "2026-08-12",
+  "model": "gpt-5-mini",
+  "patch": {
+    "name": "Battlefield 6 Game Update 1.4.1.0",
+    "date": "2026-07-21"
+  },
+  "picks": [
+    {
+      "weapon": "scw-10",
+      "reason": "Após o lançamento da Season 4 (Game Update 1.4.1.0) análises/guia de armas e discussões de jogadores apontam o SCW-10 como o SMG com menor TTK e alto controle em curtas-distâncias, e o patch 1.4.1.0 não alterou suas estatísticas de arma.",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "weapon": "sg-553r",
+      "reason": "Relatos e listas de meta publicadas depois do patch identificam a SG 553R como a carabina de referência para média/curta distância graças ao equilíbrio entre dano, precisão e controle, e o changelog 1.4.1.0 não lista mudanças de balanceamento para ela.",
+      "sources": []
+    },
+    {
+      "weapon": "tr-7",
+      "reason": "Comunidade e guias de armas pós-1.4.1.0 continuam a classificar o TR-7 entre os melhores rifles para curta/média distância por seu TTK competitivo e manejo; o patch 1.4.1.0 não incluiu nerfs/buffs estatísticos a ele.",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "weapon": "nvo-228e",
+      "reason": "Discussões e comparadores de armas após a atualização listam a NVO-228E como opção dominante em curtas-distâncias por sua combinação de dano e cadência, sem mudanças mencionadas no changelog de 1.4.1.0.",
+      "sources": []
+    },
+    {
+      "weapon": "m277",
+      "reason": "Guias e posts de meta publicados após o patch apontam o M277 como um dos ARs com melhor desempenho agregado (TTK/controle) no multiplayer tradicional; o patch 1.4.1.0 não traz alterações de estatísticas para o M277.",
+      "sources": []
+    },
+    {
+      "weapon": "db-12",
+      "reason": "Relatos e posts de análise depois da Season 4 destacam o DB-12 como referência em curta-média distância para jogadores que usam shotguns devido a performance de TTK em objetivos próximos; changelog 1.4.1.0 não altera stats de armas que afetem essa conclusão.",
+      "sources": []
+    },
+    {
+      "weapon": "cz3a1",
+      "reason": "Trackers, guias e discussões pós-patch colocam a CZ3A1 entre as armas com melhor combinação de TTK e controle (especialmente para jogadores agressivos), e ela não foi modificada em 1.4.1.0.",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "weapon": "kv9",
+      "reason": "Análises e comparadores citam o KV9 como uma das armas com maior letalidade efetiva quando se balanceia TTK e controle; o changelog da atualização 1.4.1.0 não registra mudanças de atributos que afetem o KV9.",
+      "sources": []
+    }
+  ],
+  "trending": [
+    {
+      "weapon": "vssm",
+      "reason": "A arma foi introduzida pela Season 4 (Game Update 1.4.1.0) como DMR/DMR-full-auto com supressor integrado, gerando discussões imediatas sobre viabilidade em curtas-distâncias nas postagens pós-launch.",
+      "sources": [
+        0
+      ],
+      "trend": "chegou no patch"
+    },
+    {
+      "weapon": "ef88",
+      "reason": "Incluída oficialmente na Season 4 (Game Update 1.4.1.0) como bullpup de médio-longo alcance; guias e posts iniciais da comunidade passaram a testar e comentar seu desempenho desde a chegada.",
+      "sources": [
+        0
+      ],
+      "trend": "chegou no patch"
+    },
+    {
+      "weapon": "brod-3",
+      "reason": "Anunciada na mesma atualização 1.4.1.0 como carabina agressiva para combate próximo; discussões e primeiras builds apareceram imediatamente após o patch.",
+      "sources": [
+        0
+      ],
+      "trend": "chegou no patch"
+    },
+    {
+      "weapon": "scw-10",
+      "reason": "Apesar de não ter recebido mudanças diretas em 1.4.1.0, discussões recentes e guias pós-patch reafirmaram o domínio do SCW-10 em curtas-distâncias, sinalizando migração de jogadores para ele após Season 4 por desempenho percebido em partidas recentes.",
+      "sources": [
+        1
+      ],
+      "trend": "buff indireto (sem patch de arma)"
+    },
+    {
+      "weapon": "sg-553r",
+      "reason": "Listas e threads feitas após o lançamento da Season 4 continuam citando a SG 553R entre as armas-padrão do meta, mantendo sua presença mesmo sem alterações no patch 1.4.1.0.",
+      "sources": [],
+      "trend": "persistência de meta"
+    }
+  ],
+  "sources": [
+    {
+      "name": "EA / patch notes 1.4.1.0",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-1-0",
+      "date": "2026-07-16",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "página oficial de changelog e anúncio da Season 4 (contém o histórico de mudanças aplicáveis ao multiplayer tradicional; confirma que 1.4.1.0 introduziu novas armas mas não listou correções de estatísticas para as armas ",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Battlefield Meta (guia)",
+      "url": "https://battlefieldmeta.gg/best-loadouts/scw-10",
+      "date": "2026-07-31",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "análises de armas e builds usadas no multiplayer tradicional; usado para aferir performance prática e recomendações pós-patch",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit r/Battlefield6 (threads meta e discussões)",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1v745rt/getting_back_to_bf6_after_season_4_what_are_the/",
+      "date": "2026-08-01",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "coletânea de percepção e discussão da comunidade multiplayer tradicional nas últimas semanas após a Season 4; útil para identificar armas citadas como desempenho dominante ou migrações de jogadores",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "New Game Network (tier analysis)",
+      "url": "https://www.newgamenetwork.com/battlefield-6-weapon-tier-list/",
+      "date": "2026-07-20",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "análises e tier lists independentes com foco no multiplayer tradicional que sintetizam métricas e testes pós-atualização",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "WZStats / battlefield meta trackers",
+      "url": "https://wzstats.gg/battlefield-6/big-maps/best-gun/best-smg-in-battlefield",
+      "date": "2026-07-15",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "comparadores/trackers com dados de build e recomendações aplicáveis ao multiplayer tradicional; usados para corroborar presença de armas em guias metas",
+      "timeframe": "season-4"
+    }
+  ]
 }
