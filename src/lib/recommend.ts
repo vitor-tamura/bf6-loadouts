@@ -59,6 +59,16 @@ export const isCombatRange = (value: unknown): value is CombatRange =>
  * Peso negativo é estatística em que menos é melhor — tempo de mira, recuo,
  * recarga. As chaves `dps` e `range` não existem em `EffectiveStats`: são
  * derivadas, e `statValue` sabe calculá-las.
+ *
+ * Os números seguem o que a comunidade persegue, e não o que é fácil de medir.
+ * Guias e discussões convergem em três coisas — controle de recuo, manejo e
+ * munição —, e é por isso que recuo aparece nas três distâncias, e não só na
+ * longa: quem monta uma AR para mapa médio começa pela boca e pela empunhadura.
+ * `headshot` entra pelo mesmo motivo — a munição de ponta oca é meta por
+ * empurrar o multiplicador, e sem peso nenhum ela nunca seria escolhida.
+ *
+ * Só valem porque `score` normaliza cada estatística contra a arma nua. Com os
+ * números crus de antes, um peso de recuo era decoração.
  */
 const WEIGHTS: Record<CombatRange, Partial<Record<keyof EffectiveStats | 'dps' | 'range', number>>> =
   {
@@ -66,9 +76,23 @@ const WEIGHTS: Record<CombatRange, Partial<Record<keyof EffectiveStats | 'dps' |
       dps: 0.9,
       adsMs: -0.75,
       swapMs: -0.35,
-      hipfire: 0.85,
+      /*
+       * Tiro de quadril pesa, mas não como dano.
+       *
+       * Com 0,85 ele empatava com o dano e puxava para dentro da build tudo
+       * que mexe em `hipfire` — lanterna, laser, mira inclinada —, que é
+       * justamente o que ninguém monta de propósito. Guias e discussões
+       * colocam controle de recuo e velocidade de mira na frente; de perto se
+       * mira também, e o quadril é o desempate, não o plano.
+       */
+      hipfire: 0.35,
       mobility: 0.65,
-      control: 0.35,
+      control: 0.5,
+      // De perto o duelo acaba em meia rajada, então o recuo pesa menos que o
+      // manejo — mas pesa: a primeira correção ainda acontece dentro do duelo.
+      verticalRecoil: -0.4,
+      horizontalRecoil: -0.3,
+      headshot: 0.3,
       reload: -0.3,
       magazine: 0.2,
     },
@@ -78,6 +102,11 @@ const WEIGHTS: Record<CombatRange, Partial<Record<keyof EffectiveStats | 'dps' |
       velocity: 0.35,
       accuracy: 0.7,
       control: 0.7,
+      // A distância em que a rajada inteira precisa cair no alvo, e onde a
+      // comunidade gasta os primeiros pontos do orçamento.
+      verticalRecoil: -0.65,
+      horizontalRecoil: -0.5,
+      headshot: 0.35,
       adsMs: -0.35,
       reload: -0.2,
       magazine: 0.25,
@@ -92,6 +121,7 @@ const WEIGHTS: Record<CombatRange, Partial<Record<keyof EffectiveStats | 'dps' |
       control: 0.75,
       verticalRecoil: -0.65,
       horizontalRecoil: -0.65,
+      headshot: 0.4,
       adsMs: -0.15,
       magazine: 0.2,
     },
@@ -226,10 +256,29 @@ function statValue(stats: EffectiveStats, key: keyof EffectiveStats | 'dps' | 'r
   return typeof value === 'number' ? value : 0;
 }
 
-function score(stats: EffectiveStats, range: CombatRange) {
+/**
+ * A nota da arma, com cada estatística medida contra ela mesma.
+ *
+ * A versão anterior somava `valor × peso` sobre os números crus, e números
+ * crus não se comparam: velocidade anda na casa dos 600, tempo de mira na dos
+ * 300, e recuo vertical vai de 0,4 a 2,6. Com pesos parecidos, velocidade e
+ * mira decidiam tudo e o recuo não decidia nada — cortar 20% dele mexia 0,08
+ * numa nota de várias centenas. Era por isso que a montagem ignorava
+ * exatamente o que a comunidade mais persegue: controle.
+ *
+ * Aqui cada estatística vira a razão contra a arma de fábrica, então 1,0 é
+ * "igual à arma nua" e 1,2 é "20% melhor". O peso passa a significar o que
+ * promete — quanto aquilo importa —, e 20% de recuo a menos pesa tanto quanto
+ * 20% de dano a mais quando os dois têm o mesmo peso.
+ */
+function score(stats: EffectiveStats, range: CombatRange, reference: EffectiveStats) {
   return Object.entries(WEIGHTS[range]).reduce((total, [key, weight]) => {
-    const value = statValue(stats, key as keyof EffectiveStats | 'dps' | 'range');
-    return total + value * (weight ?? 0);
+    const stat = key as keyof EffectiveStats | 'dps' | 'range';
+    const base = statValue(reference, stat);
+    // Estatística que a arma não tem (arma sem queda de bala, sem recuo) não
+    // entra na conta: dividir por zero contaminaria a nota inteira.
+    if (!base) return total;
+    return total + (statValue(stats, stat) / base) * (weight ?? 0);
   }, 0);
 }
 
@@ -245,7 +294,7 @@ export function attachmentScore(
   attachment: Attachment,
   range: CombatRange,
 ): number {
-  return score(calculateStats(weapon, [attachment]), range);
+  return score(calculateStats(weapon, [attachment]), range, calculateStats(weapon, []));
 }
 
 /**
@@ -263,21 +312,71 @@ export function idealLoadout(
   const bySlot = attachmentsForWeapon(weapon);
   const budget = budgetFor(weapon.category);
   const build: Partial<Record<SlotId, string>> = { ...factoryAttachments(weapon) };
+  /** A arma sem peça nenhuma: a régua contra a qual todo slot vazio se mede. */
+  const naked = calculateStats(weapon, []);
+  const bare = score(naked, range, naked);
+
+  /*
+   * O piso para ocupar um slot que veio vazio.
+   *
+   * Sobrar ponto no orçamento não é motivo para gastar. Sem piso, a última
+   * passada enchia trilho e acessório de mira com o que houvesse — lanterna e
+   * alça inclinada, cujo efeito é tiro de quadril e nada mais — só porque o
+   * ganho era positivo por uma fração. Era isso que fazia toda sugestão
+   * terminar igual, e era isso que denunciava a montagem como automática.
+   *
+   * Slot que já vem ocupado de fábrica não passa por aqui: ali a peça vai ser
+   * trocada por outra, e trocar por pouco continua valendo — não custa slot,
+   * custa a diferença de preço.
+   *
+   * A régua é a soma dos pesos em módulo, e não a nota da arma nua: essa nota é
+   * a soma com sinal, então os pesos negativos a encolhem, e ela desce a 0,8 em
+   * curta contra 2,1 em média. Um piso proporcional a ela ficava frouxo de um
+   * lado e apertado do outro — chegou a barrar o carregador estendido, que é
+   * peça de todo guia. Em módulo a escala é estável, e 1% dela separa a peça
+   * que muda a arma da que só ocupa o slot.
+   */
+  const floor =
+    Object.values(WEIGHTS[range]).reduce((total, weight) => total + Math.abs(weight ?? 0), 0) * 0.01;
 
   const candidates: { slot: SlotId; attachment: Attachment; gain: number }[] = [];
   for (const slot of weapon.slots) {
     const currentId = build[slot];
     const current = currentId ? ATTACHMENTS_BY_ID.get(currentId) : null;
-    const baseline = current ? attachmentScore(weapon, current, range) : 0;
+    /*
+     * Slot vazio compara contra a arma nua, e não contra zero.
+     *
+     * `attachmentScore` devolve a nota da **arma com a peça**, não o que a peça
+     * acrescenta. Com `baseline = 0`, todo slot que começa vazio media o ganho
+     * contra o nada e recebia a nota inteira da arma — uns 480 numa AR, contra
+     * os 2 ou 3 de diferença que um cano melhor faz num slot que já vem
+     * ocupado. A ordenação virava "primeiro os slots vazios", em qualquer
+     * ordem entre si, e o orçamento acabava em lanterna e mira inclinada antes
+     * de chegar no cano.
+     */
+    const baseline = current ? attachmentScore(weapon, current, range) : bare;
 
     for (const attachment of bySlot.get(slot) ?? []) {
       if (attachment.id === currentId) continue;
       const gain = attachmentScore(weapon, attachment, range) - baseline;
-      if (gain > 0) candidates.push({ slot, attachment, gain });
+      if (gain > (current ? 0 : floor)) candidates.push({ slot, attachment, gain });
     }
   }
 
-  candidates.sort((a, b) => b.gain - a.gain);
+  /*
+   * Ganho por ponto gasto, e não ganho absoluto.
+   *
+   * O orçamento é fechado, então a pergunta de cada peça é o que ela entrega
+   * pelo que cobra: ordenar pelo ganho puro faz a peça de 40 pontos passar na
+   * frente de duas de 15 que juntas rendem mais. Peça de graça não divide por
+   * zero — ela vem antes de qualquer uma que cobre.
+   */
+  const perPoint = ({ attachment, gain }: (typeof candidates)[number]) =>
+    // O preço é o da peça **nesta** arma: o mesmo cano custa diferente conforme
+    // onde é montado, e `attachment.cost` é só o valor de tabela.
+    gain / (attachmentCost(attachment, weapon) || 0.5);
+
+  candidates.sort((a, b) => perPoint(b) - perPoint(a));
 
   /*
    * Um slot é decidido uma vez só.
@@ -301,6 +400,47 @@ export function idealLoadout(
       continue;
     }
     settled.add(slot);
+  }
+
+  /*
+   * O troco também é orçamento.
+   *
+   * A fila acima serve os slots pelo que rendem por ponto, e é assim que o
+   * essencial entra antes do supérfluo. Só que a peça mais eficiente raramente
+   * é a melhor: o carregador de 15 pontos ganha da versão de 30 na divisão, e
+   * a build fechava com pontos sobrando e a peça pior montada.
+   *
+   * Esta passada gasta o que sobrou, promovendo cada slot para a melhor peça
+   * que ainda couber. Ela repete porque uma promoção muda o que sobra para as
+   * seguintes; para quando ninguém mais se mexe, e o teto é só a trava contra
+   * um empate que oscile para sempre.
+   */
+  for (let round = 0; round < weapon.slots.length; round += 1) {
+    let changed = false;
+
+    for (const slot of weapon.slots) {
+      const currentId = build[slot];
+      const current = currentId ? ATTACHMENTS_BY_ID.get(currentId) : null;
+      let bestId = currentId;
+      let bestScore = current ? attachmentScore(weapon, current, range) : bare;
+
+      const minimum = current ? bestScore : bestScore + floor;
+
+      for (const attachment of bySlot.get(slot) ?? []) {
+        const value = attachmentScore(weapon, attachment, range);
+        if (value <= Math.max(bestScore, minimum)) continue;
+        if (buildCost(weapon, { ...build, [slot]: attachment.id }) > budget) continue;
+        bestId = attachment.id;
+        bestScore = value;
+      }
+
+      if (bestId && bestId !== currentId) {
+        build[slot] = bestId;
+        changed = true;
+      }
+    }
+
+    if (!changed) break;
   }
 
   return build;

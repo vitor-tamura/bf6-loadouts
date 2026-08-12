@@ -140,6 +140,48 @@ describe('idealLoadout', () => {
       }
     }
   });
+  /*
+   * A reclamação que originou a regra: toda sugestão terminava com lanterna e
+   * alça de ferro inclinada montadas, em qualquer arma e qualquer distância.
+   *
+   * Eram dois defeitos somados. O ganho de um slot vazio era medido contra
+   * zero, e não contra a arma sem a peça, então qualquer coisa num slot vazio
+   * valia a nota inteira da arma — centenas, contra os dois ou três pontos que
+   * um cano melhor rende. E a passada que gasta o troco aceitava ganho
+   * positivo por qualquer fração, enchendo trilho e acessório de mira com o
+   * que sobrasse.
+   */
+  it('não gasta o orçamento em peça que só mexe no tiro de quadril', () => {
+    const cosmeticos = new Set([
+      'leftRail-flashlight',
+      'opticAccessory-canted-iron-sight',
+      'opticAccessory-canted-iron-sights',
+    ]);
+
+    // Média e longa é onde o orçamento tem competição de verdade, e é a média
+    // que o botão da tela pede. Em curta sobra ponto numa LMG ou num sniper, e
+    // aí a lanterna é o melhor uso do troco — o que a regra impede é ela passar
+    // na frente de peça que muda a arma, não que ela exista.
+    for (const range of ['media', 'longa'] as const) {
+      for (const weapon of WEAPONS.filter((w) => w.slots.length > 0)) {
+        const montadas = Object.values(idealLoadout(weapon, range));
+        const intrusa = montadas.find((id) => id && cosmeticos.has(id));
+        expect(intrusa, `${weapon.name} em ${range} montou ${intrusa}`).toBeUndefined();
+      }
+    }
+  });
+
+  it('monta boca, cano e empunhadura antes de qualquer trilho', () => {
+    for (const id of ['m433', 'b36a4', 'm16a4', 'sgx']) {
+      const weapon = WEAPONS_BY_ID.get(id)!;
+      const build = idealLoadout(weapon, 'media');
+
+      for (const slot of ['muzzle', 'barrel', 'underbarrel'] as const) {
+        if (!weapon.slots.includes(slot)) continue;
+        expect(build[slot], `${weapon.name} ficou sem ${slot}`).toBeTruthy();
+      }
+    }
+  });
 });
 
 /**
