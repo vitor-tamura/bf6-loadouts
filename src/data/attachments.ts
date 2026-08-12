@@ -316,7 +316,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'muzzle-lightened-suppressor',
-    name: 'Supressor Aliviado',
+    name: 'Supressor Leve',
     originalName: 'Lightened Suppressor',
     slot: 'muzzle',
     cost: 30,
@@ -2715,11 +2715,11 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'ergonomics-a3-receiver',
-    name: 'Receiver A3',
+    name: 'Receptor A3',
     originalName: 'A3 Receiver',
     slot: 'ergonomics',
     cost: 10,
-    description: 'Receiver aprimorado: recuo mais previsível.',
+    description: 'Converte a arma para totalmente automática: mais cadência, menos controle.',
     mods: { control: { add: 5 }, verticalRecoil: { mult: 0.93 } },
     compat: { weapons: ['m16a4'] },
     provenance: 'game',

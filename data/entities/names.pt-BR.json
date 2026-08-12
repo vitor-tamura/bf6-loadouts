@@ -371,9 +371,10 @@
       "from": "dataset"
     },
     "full_auto": {
-      "pt": "Receiver A3",
+      "pt": "Receptor A3",
       "original": "A3 Receiver",
-      "from": "dataset"
+      "from": "jogo",
+      "note": "Tela \"Selecionar ergonomia\" da M16A4. Converte a arma para totalmente automática."
     },
     "full_auto_vssm": {
       "pt": "Coronha Dobrável",
@@ -411,9 +412,10 @@
       "from": "matriz"
     },
     "light_supp": {
-      "pt": "Supressor Aliviado",
+      "pt": "Supressor Leve",
       "original": "Lightened Suppressor",
-      "from": "dataset"
+      "from": "jogo",
+      "note": "Tela \"Selecionar bocal\" da M16A4."
     },
     "linear_comp": {
       "pt": "Compensador Linear",

@@ -92,11 +92,18 @@ compõe os dois: `name` em português, `originalName` em inglês.
 
 `from` diz de onde a tradução veio:
 
-| Origem | Significado |
-| --- | --- |
-| `dataset` | nomenclatura já curada em `src/data/attachments.ts` |
-| `matriz` | tela "Selecionar cano" do jogo — comprimento × perfil |
-| `curadoria` | traduzido seguindo o vocabulário das outras duas |
+| Origem | Significado | Precedência |
+| --- | --- | --- |
+| `jogo` | conferido numa print da tela | **manda sobre todas** |
+| `matriz` | tela "Selecionar cano" — comprimento × perfil | alta |
+| `dataset` | nomenclatura curada em `src/data/attachments.ts` | média |
+| `curadoria` | traduzido seguindo o vocabulário das outras | baixa |
+
+**A print do jogo manda.** O dataset curado já errou dois nomes: a peça de
+ergonomia da M16A4 é `Receptor A3` (não "Receiver A3") e o supressor de 30
+pontos é `Supressor Leve` (não "Supressor Aliviado"). Quando uma print
+contradiz qualquer outra origem, ela vence — e a entrada passa a `from: "jogo"`,
+com a tela citada na nota.
 
 Os 283 carregadores não estão listados um a um: eles seguem padrão fechado
 (`30 Rnd`, `30 Fast`) e são resolvidos pelas `rules` do mesmo arquivo. Escrever

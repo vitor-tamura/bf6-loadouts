@@ -144,6 +144,18 @@ describe('nomes das peças', () => {
     expect(porOriginal.get('30 Fast')).toBe('Carregador Rápido de 30');
   });
 
+  it('usam o nome que está na tela do jogo, e não a tradução do dataset', () => {
+    /*
+     * Os dois casos em que a nomenclatura curada estava errada, conferidos em
+     * print: a M16A4 chama a peça de ergonomia de "Receptor A3" — não
+     * "Receiver A3" — e o supressor de 30 pontos é "Supressor Leve", não
+     * "Supressor Aliviado". Print do jogo manda sobre catálogo e sobre
+     * tradução; estes testes existem para as duas não voltarem.
+     */
+    expect(getAttachment('full_auto')!.name).toBe('Receptor A3');
+    expect(getAttachment('light_supp')!.name).toBe('Supressor Leve');
+  });
+
   it('não deixam nenhuma peça ativa em inglês', () => {
     expect(getPending().attachmentsWithoutTranslation).toBe(0);
 
