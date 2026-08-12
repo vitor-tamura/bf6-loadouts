@@ -120,6 +120,42 @@
         "status": "open",
         "reason": "Dois coeficientes circulam e nenhuma fonte oficial arbitra. O catálogo usa o do Analyzer por ser o do dataset importado; a queda de bala calculada com ele é aproximada, e a tela deve dizer isso."
       }
+    },
+    {
+      "id": "evt-2026-08-12-ttk-sheet-import",
+      "gameVersion": "1.4.1.5",
+      "timestamp": "2026-08-12",
+      "type": "source_conflict_resolved",
+      "entityType": "catalog",
+      "entityId": null,
+      "changes": {
+        "armas": 39,
+        "semCorrespondência": [
+          "B364A4",
+          "SOR-300C"
+        ],
+        "divergências": 36,
+        "arrasto": 0.0025,
+        "aindaComAnalyzer": 23
+      },
+      "sources": [
+        {
+          "provider": "BF6 TTK vs Range (planilha)",
+          "type": "community",
+          "url": null,
+          "dataset": "aba Data",
+          "commit": null,
+          "version": null,
+          "retrievedAt": "2026-08-12T13:48:00.919Z",
+          "snapshot": "ttk-sheet-2026-08-12"
+        }
+      ],
+      "automation": "auto",
+      "resolution": {
+        "status": "resolved",
+        "selectedSource": "BF6 TTK vs Range (planilha)",
+        "reason": "A planilha é posterior ao dataset do Analyzer, que é da 1.3.3.0, e o catálogo já está em versão mais nova. Nos campos em que as duas publicam, a mais recente manda. As armas que a planilha não cobre seguem com o Analyzer, e isso está registrado."
+      }
     }
   ]
 }

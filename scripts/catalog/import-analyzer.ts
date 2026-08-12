@@ -379,7 +379,9 @@ function main(): void {
   /* --------------------------------- eventos --------------------------------- */
 
   const changesPath = join(dir, 'changes.json');
-  const changes = readJson<{ gameVersion: string; events: { id: string }[] }>(changesPath);
+  const changes = readJson<{ gameVersion: string; events: ({ id: string } & Record<string, unknown>)[] }>(
+    changesPath,
+  );
 
   /*
    * Reimportar substitui, não empilha.

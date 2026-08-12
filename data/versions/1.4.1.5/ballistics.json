@@ -3,7 +3,7 @@
   "model": {
     "name": "bf6_projectile",
     "gravityMps2": -9.81,
-    "baseDragPerMeter": 0.0035,
+    "baseDragPerMeter": 0.0025,
     "ammoDragPerMeter": {
       "long_range": 0.002,
       "penetration": {
@@ -12,7 +12,8 @@
       }
     },
     "dragConflict": {
-      "status": "open",
+      "status": "resolved",
+      "selected": 0.0025,
       "analyzer": {
         "base": 0.0035,
         "longRange": 0.002
@@ -21,13 +22,13 @@
         "base": 0.0025,
         "longRange": 0.001
       },
-      "note": "A EA confirma que existe arrasto e não publica o coeficiente. Os dois valores circulam; o catálogo usa o do Analyzer por ser o do dataset importado. Ver changes.json."
+      "note": "Duas fontes independentes publicam 0,0025 — a planilha de TTK e o comentário da planilha da comunidade —, contra 0,0035 do Analyzer, que é da 1.3.3.0. O catálogo passa a usar 0,0025. A EA confirma o mecanismo e não publica o número, então isto continua sendo escolha entre fontes, não medição."
     }
   },
   "ballistics": [
     {
       "weaponId": "ak205",
-      "muzzleVelocity": 708,
+      "muzzleVelocity": 737,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -35,19 +36,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "ak4d",
-      "muzzleVelocity": 680,
+      "muzzleVelocity": 720,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -55,14 +56,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -147,7 +148,7 @@
     },
     {
       "weaponId": "drsiar",
-      "muzzleVelocity": 680,
+      "muzzleVelocity": 720,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -155,14 +156,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -187,7 +188,7 @@
     },
     {
       "weaponId": "es57",
-      "muzzleVelocity": 510,
+      "muzzleVelocity": 650,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -195,14 +196,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -215,19 +216,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "grtbc",
-      "muzzleVelocity": 563,
+      "muzzleVelocity": 599,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -235,14 +236,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -267,7 +268,7 @@
     },
     {
       "weaponId": "kord6p67",
-      "muzzleVelocity": 724,
+      "muzzleVelocity": 760,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -275,14 +276,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -307,7 +308,7 @@
     },
     {
       "weaponId": "kts100",
-      "muzzleVelocity": 808,
+      "muzzleVelocity": 840,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -315,19 +316,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "kv9",
-      "muzzleVelocity": 362,
+      "muzzleVelocity": 348,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -335,19 +336,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "l110",
-      "muzzleVelocity": 740,
+      "muzzleVelocity": 780,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -355,14 +356,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -387,7 +388,7 @@
     },
     {
       "weaponId": "l85a3",
-      "muzzleVelocity": 778,
+      "muzzleVelocity": 814,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -395,19 +396,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "lmr27",
-      "muzzleVelocity": 800,
+      "muzzleVelocity": 880,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -415,14 +416,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -467,7 +468,7 @@
     },
     {
       "weaponId": "m123k",
-      "muzzleVelocity": 630,
+      "muzzleVelocity": 670,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -475,14 +476,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -527,7 +528,7 @@
     },
     {
       "weaponId": "m240l",
-      "muzzleVelocity": 590,
+      "muzzleVelocity": 630,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -535,19 +536,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "m250",
-      "muzzleVelocity": 724,
+      "muzzleVelocity": 760,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -555,19 +556,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "m277",
-      "muzzleVelocity": 592,
+      "muzzleVelocity": 624,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -575,14 +576,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -607,7 +608,7 @@
     },
     {
       "weaponId": "m39emr",
-      "muzzleVelocity": 760,
+      "muzzleVelocity": 800,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -615,19 +616,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "m417a2",
-      "muzzleVelocity": 560,
+      "muzzleVelocity": 600,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -635,19 +636,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "m433",
-      "muzzleVelocity": 630,
+      "muzzleVelocity": 670,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -655,14 +656,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -675,14 +676,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -695,19 +696,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "m4a1",
-      "muzzleVelocity": 590,
+      "muzzleVelocity": 630,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -715,19 +716,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "m60",
-      "muzzleVelocity": 680,
+      "muzzleVelocity": 720,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -735,14 +736,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -787,7 +788,7 @@
     },
     {
       "weaponId": "nvo228e",
-      "muzzleVelocity": 626,
+      "muzzleVelocity": 671,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -795,14 +796,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -815,14 +816,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -867,7 +868,7 @@
     },
     {
       "weaponId": "pw5a3",
-      "muzzleVelocity": 408,
+      "muzzleVelocity": 432,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -875,19 +876,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "pw7a2",
-      "muzzleVelocity": 576,
+      "muzzleVelocity": 600,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -895,19 +896,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "qbz192",
-      "muzzleVelocity": 608,
+      "muzzleVelocity": 644,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -915,14 +916,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -947,7 +948,7 @@
     },
     {
       "weaponId": "rpkm",
-      "muzzleVelocity": 630,
+      "muzzleVelocity": 670,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -955,19 +956,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "scw10",
-      "muzzleVelocity": 398,
+      "muzzleVelocity": 428,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -975,19 +976,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "sg553r",
-      "muzzleVelocity": 483,
+      "muzzleVelocity": 519,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -995,19 +996,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "sgx",
-      "muzzleVelocity": 378,
+      "muzzleVelocity": 402,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -1015,19 +1016,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "sl9",
-      "muzzleVelocity": 486,
+      "muzzleVelocity": 510,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -1035,14 +1036,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -1067,7 +1068,7 @@
     },
     {
       "weaponId": "sor556",
-      "muzzleVelocity": 768,
+      "muzzleVelocity": 800,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -1075,14 +1076,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -1107,7 +1108,7 @@
     },
     {
       "weaponId": "svdm",
-      "muzzleVelocity": 760,
+      "muzzleVelocity": 640,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -1115,19 +1116,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "svk86",
-      "muzzleVelocity": 680,
+      "muzzleVelocity": 720,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -1135,19 +1136,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "tr7",
-      "muzzleVelocity": 604,
+      "muzzleVelocity": 648,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -1155,19 +1156,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "umg40",
-      "muzzleVelocity": 467,
+      "muzzleVelocity": 488,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -1175,19 +1176,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "usg90",
-      "muzzleVelocity": 543,
+      "muzzleVelocity": 570,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -1195,14 +1196,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {

@@ -1,0 +1,416 @@
+{
+  "gameVersion": "1.4.1.5",
+  "checkedAt": "2026-08-12",
+  "domain": "ballistics",
+  "fields": [
+    "muzzleVelocity",
+    "damage curve",
+    "dragPerMeter",
+    "headshotMultiplier"
+  ],
+  "weapons": 39,
+  "status": "differences_found",
+  "note": "A planilha prevalece por ser mais recente que o dataset do Analyzer (1.3.3.0). As armas fora dela mantêm os valores do Analyzer, então o arsenal tem duas procedências.",
+  "unmatched": [
+    "B364A4",
+    "SOR-300C"
+  ],
+  "differences": [
+    {
+      "weaponId": "m433",
+      "analyzer": {
+        "velocity": 630,
+        "damage": 26.05
+      },
+      "planilha": {
+        "velocity": 670,
+        "damage": 25
+      }
+    },
+    {
+      "weaponId": "sor556",
+      "analyzer": {
+        "velocity": 768,
+        "damage": 26.05
+      },
+      "planilha": {
+        "velocity": 800,
+        "damage": 25
+      }
+    },
+    {
+      "weaponId": "ak4d",
+      "analyzer": {
+        "velocity": 680,
+        "damage": 35.22
+      },
+      "planilha": {
+        "velocity": 720,
+        "damage": 33.4
+      }
+    },
+    {
+      "weaponId": "tr7",
+      "analyzer": {
+        "velocity": 604,
+        "damage": 35.22
+      },
+      "planilha": {
+        "velocity": 648,
+        "damage": 33.4
+      }
+    },
+    {
+      "weaponId": "kord6p67",
+      "analyzer": {
+        "velocity": 724,
+        "damage": 20.67
+      },
+      "planilha": {
+        "velocity": 760,
+        "damage": 20
+      }
+    },
+    {
+      "weaponId": "nvo228e",
+      "analyzer": {
+        "velocity": 626,
+        "damage": 35.22
+      },
+      "planilha": {
+        "velocity": 671,
+        "damage": 33.4
+      }
+    },
+    {
+      "weaponId": "l85a3",
+      "analyzer": {
+        "velocity": 778,
+        "damage": 26.05
+      },
+      "planilha": {
+        "velocity": 814,
+        "damage": 25
+      }
+    },
+    {
+      "weaponId": "m4a1",
+      "analyzer": {
+        "velocity": 590,
+        "damage": 26.05
+      },
+      "planilha": {
+        "velocity": 630,
+        "damage": 25
+      }
+    },
+    {
+      "weaponId": "m277",
+      "analyzer": {
+        "velocity": 592,
+        "damage": 26.05
+      },
+      "planilha": {
+        "velocity": 624,
+        "damage": 25
+      }
+    },
+    {
+      "weaponId": "ak205",
+      "analyzer": {
+        "velocity": 708,
+        "damage": 20.67
+      },
+      "planilha": {
+        "velocity": 737,
+        "damage": 20
+      }
+    },
+    {
+      "weaponId": "m417a2",
+      "analyzer": {
+        "velocity": 560,
+        "damage": 35.22
+      },
+      "planilha": {
+        "velocity": 600,
+        "damage": 33.4
+      }
+    },
+    {
+      "weaponId": "qbz192",
+      "analyzer": {
+        "velocity": 608,
+        "damage": 26.05
+      },
+      "planilha": {
+        "velocity": 644,
+        "damage": 25
+      }
+    },
+    {
+      "weaponId": "grtbc",
+      "analyzer": {
+        "velocity": 563,
+        "damage": 26.05
+      },
+      "planilha": {
+        "velocity": 599,
+        "damage": 25
+      }
+    },
+    {
+      "weaponId": "sg553r",
+      "analyzer": {
+        "velocity": 483,
+        "damage": 35.22
+      },
+      "planilha": {
+        "velocity": 519,
+        "damage": 33.4
+      }
+    },
+    {
+      "weaponId": "sgx",
+      "analyzer": {
+        "velocity": 378,
+        "damage": 26.05
+      },
+      "planilha": {
+        "velocity": 402,
+        "damage": 25
+      }
+    },
+    {
+      "weaponId": "pw5a3",
+      "analyzer": {
+        "velocity": 408,
+        "damage": 26.05
+      },
+      "planilha": {
+        "velocity": 432,
+        "damage": 25
+      }
+    },
+    {
+      "weaponId": "pw7a2",
+      "analyzer": {
+        "velocity": 576,
+        "damage": 17.13
+      },
+      "planilha": {
+        "velocity": 600,
+        "damage": 16.7
+      }
+    },
+    {
+      "weaponId": "umg40",
+      "analyzer": {
+        "velocity": 467,
+        "damage": 26.05
+      },
+      "planilha": {
+        "velocity": 488,
+        "damage": 25
+      }
+    },
+    {
+      "weaponId": "usg90",
+      "analyzer": {
+        "velocity": 543,
+        "damage": 20.67
+      },
+      "planilha": {
+        "velocity": 570,
+        "damage": 20
+      }
+    },
+    {
+      "weaponId": "kv9",
+      "analyzer": {
+        "velocity": 362,
+        "damage": 26.05
+      },
+      "planilha": {
+        "velocity": 348,
+        "damage": 25
+      }
+    },
+    {
+      "weaponId": "scw10",
+      "analyzer": {
+        "velocity": 398,
+        "damage": 35.22
+      },
+      "planilha": {
+        "velocity": 428,
+        "damage": 33.4
+      }
+    },
+    {
+      "weaponId": "sl9",
+      "analyzer": {
+        "velocity": 486,
+        "damage": 26.05
+      },
+      "planilha": {
+        "velocity": 510,
+        "damage": 25
+      }
+    },
+    {
+      "weaponId": "l110",
+      "analyzer": {
+        "velocity": 740,
+        "damage": 26.05
+      },
+      "planilha": {
+        "velocity": 780,
+        "damage": 25
+      }
+    },
+    {
+      "weaponId": "drsiar",
+      "analyzer": {
+        "velocity": 680,
+        "damage": 26.05
+      },
+      "planilha": {
+        "velocity": 720,
+        "damage": 25
+      }
+    },
+    {
+      "weaponId": "m60",
+      "analyzer": {
+        "velocity": 680,
+        "damage": 35.22
+      },
+      "planilha": {
+        "velocity": 720,
+        "damage": 33.4
+      }
+    },
+    {
+      "weaponId": "rpkm",
+      "analyzer": {
+        "velocity": 630,
+        "damage": 35.22
+      },
+      "planilha": {
+        "velocity": 670,
+        "damage": 33.4
+      }
+    },
+    {
+      "weaponId": "m123k",
+      "analyzer": {
+        "velocity": 630,
+        "damage": 26.05
+      },
+      "planilha": {
+        "velocity": 670,
+        "damage": 25
+      }
+    },
+    {
+      "weaponId": "m250",
+      "analyzer": {
+        "velocity": 724,
+        "damage": 26.05
+      },
+      "planilha": {
+        "velocity": 760,
+        "damage": 25
+      }
+    },
+    {
+      "weaponId": "kts100",
+      "analyzer": {
+        "velocity": 808,
+        "damage": 26.05
+      },
+      "planilha": {
+        "velocity": 840,
+        "damage": 25
+      }
+    },
+    {
+      "weaponId": "m240l",
+      "analyzer": {
+        "velocity": 590,
+        "damage": 35.22
+      },
+      "planilha": {
+        "velocity": 630,
+        "damage": 33.4
+      }
+    },
+    {
+      "weaponId": "m39emr",
+      "analyzer": {
+        "velocity": 760,
+        "damage": 41.5
+      },
+      "planilha": {
+        "velocity": 800,
+        "damage": 40
+      }
+    },
+    {
+      "weaponId": "lmr27",
+      "analyzer": {
+        "velocity": 800,
+        "damage": 29.4
+      },
+      "planilha": {
+        "velocity": 880,
+        "damage": 27.3
+      }
+    },
+    {
+      "weaponId": "svk86",
+      "analyzer": {
+        "velocity": 680,
+        "damage": 66.7
+      },
+      "planilha": {
+        "velocity": 720,
+        "damage": 66.7
+      }
+    },
+    {
+      "weaponId": "svdm",
+      "analyzer": {
+        "velocity": 760,
+        "damage": 41.5
+      },
+      "planilha": {
+        "velocity": 640,
+        "damage": 40
+      }
+    },
+    {
+      "weaponId": "es57",
+      "analyzer": {
+        "velocity": 510,
+        "damage": 20
+      },
+      "planilha": {
+        "velocity": 650,
+        "damage": 20
+      }
+    },
+    {
+      "weaponId": "m44",
+      "analyzer": {
+        "velocity": 440,
+        "damage": 66.7
+      },
+      "planilha": {
+        "velocity": 440,
+        "damage": 60
+      }
+    }
+  ]
+}

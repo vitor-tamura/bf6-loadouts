@@ -359,18 +359,18 @@ describe('balística', () => {
   it('guarda o arrasto no modelo, não repetido em cada arma', () => {
     const modelo = getBallisticsModel();
     expect(modelo?.gravityMps2).toBe(-9.81);
-    expect(modelo?.baseDragPerMeter).toBe(0.0035);
+    expect(modelo?.baseDragPerMeter).toBe(0.0025);
   });
 
-  it('mantém o conflito de coeficiente à vista de quem for calcular', () => {
+  it('registra a escolha entre os coeficientes em disputa', () => {
     /*
-     * O Analyzer usa 0,0035 e a planilha da comunidade usa 0,0025. A EA
-     * confirma que existe arrasto e não publica o número. O catálogo usa o do
-     * dataset importado e guarda a discordância — escolher em silêncio faria a
-     * queda de bala parecer exata.
+     * Duas fontes publicam 0,0025 — a planilha de TTK e a da comunidade —
+     * contra 0,0035 do Analyzer, que é da 1.3.3.0. O catálogo usa 0,0025 e
+     * guarda a discordância: a EA confirma o mecanismo e não publica o número,
+     * então isto continua sendo escolha entre fontes, não medição.
      */
     const conflito = getBallisticsModel()?.dragConflict;
-    expect(conflito?.status).toBe('open');
+    expect(conflito?.status).toBe('resolved');
     expect(conflito?.analyzer.base).toBe(0.0035);
     expect(conflito?.communitySpreadsheet.base).toBe(0.0025);
   });
@@ -390,7 +390,9 @@ describe('curva de dano', () => {
 
   it('traz as zonas de acerto junto com a curva', () => {
     // O multiplicador de cabeça vem de tabela por arma, com padrão por família.
-    expect(getWeaponDamageModel('m433')?.zones.head).toBe(1.4);
+    // A M433 está na planilha de TTK, que publica 1,34; a PSR não está, e
+    // segue com o multiplicador do Analyzer.
+    expect(getWeaponDamageModel('m433')?.zones.head).toBe(1.34);
     expect(getWeaponDamageModel('psr')?.zones.head).toBe(1.75);
     expect(getWeaponDamageModel('psr')?.zones.limb).toBe(0.67);
   });

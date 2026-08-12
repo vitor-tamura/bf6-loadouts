@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "gameVersion": "1.4.1.5",
-  "generatedAt": "2026-08-12T13:38:34.228Z",
+  "generatedAt": "2026-08-12T13:48:13.395Z",
   "capabilities": {
     "weapons": true,
     "attachments": true,
@@ -26553,7 +26553,7 @@
   "ballisticsModel": {
     "name": "bf6_projectile",
     "gravityMps2": -9.81,
-    "baseDragPerMeter": 0.0035,
+    "baseDragPerMeter": 0.0025,
     "ammoDragPerMeter": {
       "long_range": 0.002,
       "penetration": {
@@ -26562,7 +26562,8 @@
       }
     },
     "dragConflict": {
-      "status": "open",
+      "status": "resolved",
+      "selected": 0.0025,
       "analyzer": {
         "base": 0.0035,
         "longRange": 0.002
@@ -26571,13 +26572,13 @@
         "base": 0.0025,
         "longRange": 0.001
       },
-      "note": "A EA confirma que existe arrasto e não publica o coeficiente. Os dois valores circulam; o catálogo usa o do Analyzer por ser o do dataset importado. Ver changes.json."
+      "note": "Duas fontes independentes publicam 0,0025 — a planilha de TTK e o comentário da planilha da comunidade —, contra 0,0035 do Analyzer, que é da 1.3.3.0. O catálogo passa a usar 0,0025. A EA confirma o mecanismo e não publica o número, então isto continua sendo escolha entre fontes, não medição."
     }
   },
   "ballistics": [
     {
       "weaponId": "ak205",
-      "muzzleVelocity": 708,
+      "muzzleVelocity": 737,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -26585,19 +26586,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "ak4d",
-      "muzzleVelocity": 680,
+      "muzzleVelocity": 720,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -26605,14 +26606,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -26697,7 +26698,7 @@
     },
     {
       "weaponId": "drsiar",
-      "muzzleVelocity": 680,
+      "muzzleVelocity": 720,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -26705,14 +26706,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -26737,7 +26738,7 @@
     },
     {
       "weaponId": "es57",
-      "muzzleVelocity": 510,
+      "muzzleVelocity": 650,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -26745,14 +26746,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -26765,19 +26766,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "grtbc",
-      "muzzleVelocity": 563,
+      "muzzleVelocity": 599,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -26785,14 +26786,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -26817,7 +26818,7 @@
     },
     {
       "weaponId": "kord6p67",
-      "muzzleVelocity": 724,
+      "muzzleVelocity": 760,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -26825,14 +26826,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -26857,7 +26858,7 @@
     },
     {
       "weaponId": "kts100",
-      "muzzleVelocity": 808,
+      "muzzleVelocity": 840,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -26865,19 +26866,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "kv9",
-      "muzzleVelocity": 362,
+      "muzzleVelocity": 348,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -26885,19 +26886,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "l110",
-      "muzzleVelocity": 740,
+      "muzzleVelocity": 780,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -26905,14 +26906,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -26937,7 +26938,7 @@
     },
     {
       "weaponId": "l85a3",
-      "muzzleVelocity": 778,
+      "muzzleVelocity": 814,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -26945,19 +26946,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "lmr27",
-      "muzzleVelocity": 800,
+      "muzzleVelocity": 880,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -26965,14 +26966,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -27017,7 +27018,7 @@
     },
     {
       "weaponId": "m123k",
-      "muzzleVelocity": 630,
+      "muzzleVelocity": 670,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27025,14 +27026,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -27077,7 +27078,7 @@
     },
     {
       "weaponId": "m240l",
-      "muzzleVelocity": 590,
+      "muzzleVelocity": 630,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27085,19 +27086,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "m250",
-      "muzzleVelocity": 724,
+      "muzzleVelocity": 760,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27105,19 +27106,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "m277",
-      "muzzleVelocity": 592,
+      "muzzleVelocity": 624,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27125,14 +27126,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -27157,7 +27158,7 @@
     },
     {
       "weaponId": "m39emr",
-      "muzzleVelocity": 760,
+      "muzzleVelocity": 800,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27165,19 +27166,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "m417a2",
-      "muzzleVelocity": 560,
+      "muzzleVelocity": 600,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27185,19 +27186,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "m433",
-      "muzzleVelocity": 630,
+      "muzzleVelocity": 670,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27205,14 +27206,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -27225,14 +27226,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -27245,19 +27246,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "m4a1",
-      "muzzleVelocity": 590,
+      "muzzleVelocity": 630,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27265,19 +27266,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "m60",
-      "muzzleVelocity": 680,
+      "muzzleVelocity": 720,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27285,14 +27286,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -27337,7 +27338,7 @@
     },
     {
       "weaponId": "nvo228e",
-      "muzzleVelocity": 626,
+      "muzzleVelocity": 671,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27345,14 +27346,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -27365,14 +27366,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -27417,7 +27418,7 @@
     },
     {
       "weaponId": "pw5a3",
-      "muzzleVelocity": 408,
+      "muzzleVelocity": 432,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27425,19 +27426,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "pw7a2",
-      "muzzleVelocity": 576,
+      "muzzleVelocity": 600,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27445,19 +27446,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "qbz192",
-      "muzzleVelocity": 608,
+      "muzzleVelocity": 644,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27465,14 +27466,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -27497,7 +27498,7 @@
     },
     {
       "weaponId": "rpkm",
-      "muzzleVelocity": 630,
+      "muzzleVelocity": 670,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27505,19 +27506,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "scw10",
-      "muzzleVelocity": 398,
+      "muzzleVelocity": 428,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27525,19 +27526,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "sg553r",
-      "muzzleVelocity": 483,
+      "muzzleVelocity": 519,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27545,19 +27546,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "sgx",
-      "muzzleVelocity": 378,
+      "muzzleVelocity": 402,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27565,19 +27566,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "sl9",
-      "muzzleVelocity": 486,
+      "muzzleVelocity": 510,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27585,14 +27586,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -27617,7 +27618,7 @@
     },
     {
       "weaponId": "sor556",
-      "muzzleVelocity": 768,
+      "muzzleVelocity": 800,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27625,14 +27626,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -27657,7 +27658,7 @@
     },
     {
       "weaponId": "svdm",
-      "muzzleVelocity": 760,
+      "muzzleVelocity": 640,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27665,19 +27666,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "svk86",
-      "muzzleVelocity": 680,
+      "muzzleVelocity": 720,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27685,19 +27686,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "tr7",
-      "muzzleVelocity": 604,
+      "muzzleVelocity": 648,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27705,19 +27706,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "umg40",
-      "muzzleVelocity": 467,
+      "muzzleVelocity": 488,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27725,19 +27726,19 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "usg90",
-      "muzzleVelocity": 543,
+      "muzzleVelocity": 570,
       "drag": {
         "model": "analyzer",
         "coefficient": 0.0035
@@ -27745,14 +27746,14 @@
       "gravity": -9.81,
       "status": "verified",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -27821,7 +27822,7 @@
       "weaponId": "ak205",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -27833,68 +27834,68 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 20.67,
-          "source": "Sym"
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 17.74,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 17.8,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 17.74,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 17.8,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 15.07,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 15,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 15.07,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 15,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 14.62,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 14.3,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 14.62,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 14.3,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 12.76,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 12.5,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "ak4d",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -27906,41 +27907,41 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 35.22,
-          "source": "Sym"
+          "damage": 33.4,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 35.22,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 33.4,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 20,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -28199,7 +28200,7 @@
       "weaponId": "drsiar",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -28211,41 +28212,41 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 26.05,
-          "source": "Sym"
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 16.7,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -28318,60 +28319,60 @@
         {
           "distance": 0,
           "damage": 20,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 9,
+          "distance": 10,
           "damage": 20,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 17.7,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 17.8,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 17.7,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 17.8,
+          "source": "planilha"
         },
         {
-          "distance": 21,
+          "distance": 35,
           "damage": 15,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 36,
+          "distance": 50,
           "damage": 15,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 36,
+          "distance": 50,
           "damage": 14.3,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 75,
+          "distance": 80,
           "damage": 14.3,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 75,
+          "distance": 80,
           "damage": 12.5,
-          "source": "Sym"
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -28391,67 +28392,67 @@
         {
           "distance": 0,
           "damage": 25,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 9,
+          "distance": 10,
           "damage": 25,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 21.5,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 21,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 21.5,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 21,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 17.7,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 18,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 17.7,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 18,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 16.7,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 17,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 16.7,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 17,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 14.3,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 14,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "grtbc",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -28463,61 +28464,51 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 26.05,
-          "source": "Sym"
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 21.56,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 21.4,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 21.56,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 21.4,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 17.74,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 17.8,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 17.74,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 17.8,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 17.13,
-          "source": "Sym"
-        },
-        {
-          "distance": 75,
-          "damage": 17.13,
-          "source": "Sym"
-        },
-        {
-          "distance": 75,
-          "damage": 14.62,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 14.3,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -28577,7 +28568,7 @@
       "weaponId": "kord6p67",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -28589,41 +28580,41 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 20.67,
-          "source": "Sym"
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 14.62,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 14.3,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -28683,7 +28674,7 @@
       "weaponId": "kts100",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -28695,48 +28686,48 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 26.05,
-          "source": "Sym"
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 16.7,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "kv9",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -28748,68 +28739,68 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 26.05,
-          "source": "Sym"
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 14.62,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 14.3,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 14.62,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 14.3,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 12.76,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 12.5,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "l110",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -28821,41 +28812,41 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 26.05,
-          "source": "Sym"
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 16.7,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -28910,7 +28901,7 @@
       "weaponId": "l85a3",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -28922,41 +28913,41 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 26.05,
-          "source": "Sym"
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 16.7,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -28975,41 +28966,31 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 29.4,
-          "source": "Sym"
+          "damage": 27.3,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 29.4,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 27.3,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 27.5,
-          "source": "Sym"
-        },
-        {
-          "distance": 75,
-          "damage": 27.5,
-          "source": "Sym"
-        },
-        {
-          "distance": 75,
-          "damage": 26.2,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 25,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -29132,7 +29113,7 @@
       "weaponId": "m123k",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -29144,41 +29125,41 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 26.05,
-          "source": "Sym"
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 16.7,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -29286,7 +29267,7 @@
       "weaponId": "m240l",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -29298,48 +29279,48 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 35.22,
-          "source": "Sym"
+          "damage": 33.4,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 35.22,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 33.4,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 20,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "m250",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -29351,33 +29332,28 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 26.05,
-          "source": "Sym"
-        },
-        {
-          "distance": 15,
-          "damage": 26.05,
-          "source": "Sym"
+          "damage": 25,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); special damage profile: no falloff at any range (user-confirmed)",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "m277",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -29389,31 +29365,31 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 26.05,
-          "source": "Sym"
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 20,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -29505,48 +29481,48 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 41.5,
-          "source": "Sym"
+          "damage": 40,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 41.5,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 40,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 37.6,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 37.7,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 37.6,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 37.7,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 34.4,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 33.4,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "m417a2",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -29558,68 +29534,68 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 35.22,
-          "source": "Sym"
+          "damage": 33.4,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 35.22,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 33.4,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 27.48,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 27.3,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 27.48,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 27.3,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 21.56,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 21.4,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 21.56,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 21.4,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 16.7,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "m433",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -29631,48 +29607,48 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 26.05,
-          "source": "Sym"
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 16.7,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "m44",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.34,
+        "head": 1.5,
         "limb": 1,
         "body": 1,
         "limbClass": null,
@@ -29684,51 +29660,41 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 66.7,
-          "source": "Sym"
+          "damage": 60,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 66.7,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 60,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 59.9,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 33,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 59.9,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 33,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 33.4,
-          "source": "Sym"
-        },
-        {
-          "distance": 75,
-          "damage": 33.4,
-          "source": "Sym"
-        },
-        {
-          "distance": 75,
+          "distance": 80,
           "damage": 25,
-          "source": "Sym"
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -29748,77 +29714,77 @@
         {
           "distance": 0,
           "damage": 33.4,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 9,
+          "distance": 10,
           "damage": 33.4,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 9,
+          "distance": 10,
           "damage": 25,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 21,
+          "distance": 35,
           "damage": 25,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 21,
+          "distance": 35,
           "damage": 20,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 36,
+          "distance": 50,
           "damage": 20,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 36,
+          "distance": 50,
           "damage": 16.7,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 54,
+          "distance": 70,
           "damage": 16.7,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 54,
+          "distance": 70,
           "damage": 14.3,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 75,
+          "distance": 80,
           "damage": 14.3,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 75,
+          "distance": 80,
           "damage": 12.5,
-          "source": "Sym"
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "m4a1",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -29830,68 +29796,68 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 26.05,
-          "source": "Sym"
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 21.56,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 21.4,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 21.56,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 21.4,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 17.74,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 17.8,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 17.74,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 17.8,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 14.62,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 14.3,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "m60",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -29903,41 +29869,41 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 35.22,
-          "source": "Sym"
+          "damage": 33.4,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 35.22,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 33.4,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 20,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -30050,7 +30016,7 @@
       "weaponId": "nvo228e",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -30062,61 +30028,61 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 35.22,
-          "source": "Sym"
+          "damage": 33.4,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 35.22,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 33.4,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 27.48,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 27.3,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 27.48,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 27.3,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 21.56,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 21.4,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 21.56,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 21.4,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 16.7,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -30136,60 +30102,60 @@
         {
           "distance": 0,
           "damage": 25,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 9,
+          "distance": 10,
           "damage": 25,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 9,
+          "distance": 10,
           "damage": 20,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 21,
+          "distance": 35,
           "damage": 20,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 21,
+          "distance": 35,
           "damage": 16.7,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 36,
+          "distance": 50,
           "damage": 16.7,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 36,
+          "distance": 50,
           "damage": 14.3,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 75,
+          "distance": 80,
           "damage": 14.3,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 75,
+          "distance": 80,
           "damage": 12.5,
-          "source": "Sym"
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -30317,7 +30283,7 @@
       "weaponId": "pw5a3",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -30329,68 +30295,68 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 26.05,
-          "source": "Sym"
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 14.62,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 14.3,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 14.62,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 14.3,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 12.76,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 12.5,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "pw7a2",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -30402,48 +30368,48 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 17.13,
-          "source": "Sym"
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 14.62,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 14.3,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 14.62,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 14.3,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 12.76,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 12.5,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "qbz192",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -30455,61 +30421,61 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 26.05,
-          "source": "Sym"
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 21.56,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 21.4,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 21.56,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 21.4,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 17.74,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 17.8,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 17.74,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 17.8,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 14.62,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 14.3,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -30569,7 +30535,7 @@
       "weaponId": "rpkm",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -30581,68 +30547,78 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 35.22,
-          "source": "Sym"
+          "damage": 33.4,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 35.22,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 33.4,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 27.48,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 27.3,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 27.48,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 27.3,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 21.56,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 21.4,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 21.56,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 21.4,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 21,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 70,
+          "damage": 21,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 70,
+          "damage": 20,
+          "source": "planilha"
+        },
+        {
+          "distance": 80,
+          "damage": 20,
+          "source": "planilha"
+        },
+        {
+          "distance": 80,
+          "damage": 16.7,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "scw10",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -30654,68 +30630,68 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 35.22,
-          "source": "Sym"
+          "damage": 33.4,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 35.22,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 33.4,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 14.62,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 14.3,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "sg553r",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -30727,68 +30703,68 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 35.22,
-          "source": "Sym"
+          "damage": 33.4,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 35.22,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 33.4,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 14.62,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 14.3,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "sgx",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -30800,68 +30776,68 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 26.05,
-          "source": "Sym"
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 14.62,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 14.3,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 14.62,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 14.3,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 12.76,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 12.5,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "sl9",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -30873,61 +30849,51 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 26.05,
-          "source": "Sym"
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 14.62,
-          "source": "Sym"
-        },
-        {
-          "distance": 75,
-          "damage": 14.62,
-          "source": "Sym"
-        },
-        {
-          "distance": 75,
-          "damage": 12.76,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 12.5,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -31007,7 +30973,7 @@
       "weaponId": "sor556",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -31019,41 +30985,41 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 26.05,
-          "source": "Sym"
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 16.7,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -31125,41 +31091,41 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 41.5,
-          "source": "Sym"
+          "damage": 40,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 41.5,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 40,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 37.6,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 37.7,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 37.6,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 37.7,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 34.4,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 33.4,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -31179,47 +31145,47 @@
         {
           "distance": 0,
           "damage": 66.7,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 9,
+          "distance": 10,
           "damage": 66.7,
-          "source": "Sym"
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 57.2,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 60,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 57.2,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 60,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 52.4,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 50,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "tr7",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -31231,48 +31197,48 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 35.22,
-          "source": "Sym"
+          "damage": 33.4,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 35.22,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 33.4,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 20,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "umg40",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -31284,68 +31250,68 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 26.05,
-          "source": "Sym"
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 26.05,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 25,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 21.56,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 21.4,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 21.56,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 21.4,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 17.74,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 17.8,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 17.74,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 17.8,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 17.13,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 16.7,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 14.62,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 14.3,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
       "weaponId": "usg90",
       "model": "piecewise_linear",
       "zones": {
-        "head": 1.4,
+        "head": 1.34,
         "limb": 0.84,
         "body": 1,
         "limbClass": "auto",
@@ -31357,61 +31323,61 @@
       "curve": [
         {
           "distance": 0,
-          "damage": 20.67,
-          "source": "Sym"
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 20.67,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 20,
+          "source": "planilha"
         },
         {
-          "distance": 9,
-          "damage": 17.74,
-          "source": "Sym"
+          "distance": 10,
+          "damage": 18,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 17.74,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 18,
+          "source": "planilha"
         },
         {
-          "distance": 21,
-          "damage": 15.07,
-          "source": "Sym"
+          "distance": 35,
+          "damage": 15,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 15.07,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 15,
+          "source": "planilha"
         },
         {
-          "distance": 36,
-          "damage": 14.62,
-          "source": "Sym"
+          "distance": 50,
+          "damage": 14.3,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 14.62,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 14.3,
+          "source": "planilha"
         },
         {
-          "distance": 75,
-          "damage": 12.76,
-          "source": "Sym"
+          "distance": 80,
+          "damage": 12.5,
+          "source": "planilha"
         }
       ],
       "status": "provisional",
-      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "declaredSource": "Planilha comunitária de TTK vs Range",
       "source": {
-        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "provider": "BF6 TTK vs Range (planilha)",
         "type": "community",
-        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
-        "dataset": "data/weapons.json",
-        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
-        "version": "1.4.1.5",
-        "retrievedAt": "2026-08-12T13:38:18.277Z",
-        "snapshot": "github-7907352"
+        "url": null,
+        "dataset": "aba Data",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T13:48:00.919Z",
+        "snapshot": "ttk-sheet-2026-08-12"
       }
     },
     {
@@ -39672,7 +39638,7 @@
   ],
   "indexes": {
     "gameVersion": "1.4.1.5",
-    "generatedAt": "2026-08-12T13:38:34.228Z",
+    "generatedAt": "2026-08-12T13:48:13.395Z",
     "attachmentsByWeapon": {
       "ak205": [
         "120mw_blue",

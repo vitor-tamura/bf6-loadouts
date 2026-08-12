@@ -26,7 +26,19 @@ const STEP_SECONDS = 1 / 500;
 /** Um projétil que passasse disto já teria acertado o chão. */
 const MAX_FLIGHT_SECONDS = 30;
 
-export type DragSource = 'analyzer' | 'community';
+/**
+ * De onde sai o coeficiente de arrasto.
+ *
+ * `catalog` é o padrão e o único que descreve o jogo: é o valor que o catálogo
+ * publica, escolhido entre as fontes e registrado com o porquê. Os outros dois
+ * existem para comparar — rodar a mesma trajetória com os dois números e medir
+ * a diferença é melhor do que discutir qual está certo.
+ *
+ * Manter os dois fixos aqui já custou caro uma vez: quando o catálogo passou a
+ * publicar 0,0025, o motor continuou calculando com 0,0035 porque o número
+ * morava no código. Dado e cálculo brigando, e o cálculo ganhando calado.
+ */
+export type DragSource = 'catalog' | 'analyzer' | 'community';
 
 export interface ProjectileModel {
   velocityMps: number;
@@ -37,7 +49,7 @@ export interface ProjectileModel {
 }
 
 /** Os coeficientes que circulam, com a fonte de cada um. */
-const DRAG: Record<DragSource, { base: number; longRange: number }> = {
+const DRAG: Record<Exclude<DragSource, 'catalog'>, { base: number; longRange: number }> = {
   analyzer: { base: 0.0035, longRange: 0.002 },
   community: { base: 0.0025, longRange: 0.001 },
 };
@@ -64,17 +76,36 @@ export function dragModelFor(
   weaponId: string,
   options: { dragSource?: DragSource; longRange?: boolean } = {},
 ): ProjectileModel | null {
-  const { dragSource = 'analyzer', longRange = false } = options;
+  const { dragSource = 'catalog', longRange = false } = options;
 
   const ballistics = getWeaponBallistics(weaponId);
   const velocity = ballistics?.muzzleVelocity;
   if (velocity == null) return null;
 
-  const coefficients = DRAG[dragSource];
+  const model = getBallisticsModel();
+
+  /*
+   * O catálogo manda; as constantes são só para comparação.
+   *
+   * A munição de longo alcance é a única variação que as fontes descrevem
+   * igual, e o catálogo a publica no modelo. Sem ela lá, cai-se na proporção
+   * conhecida entre os dois coeficientes.
+   */
+  const longRangeFromCatalog = (model?.ammoDragPerMeter as { long_range?: number } | undefined)
+    ?.long_range;
+
+  const base =
+    dragSource === 'catalog' ? (model?.baseDragPerMeter ?? DRAG.analyzer.base) : DRAG[dragSource].base;
+
+  const long =
+    dragSource === 'catalog'
+      ? (longRangeFromCatalog ?? DRAG.analyzer.longRange)
+      : DRAG[dragSource].longRange;
+
   return {
     velocityMps: velocity,
-    dragPerMeter: longRange ? coefficients.longRange : coefficients.base,
-    gravityMps2: getBallisticsModel()?.gravityMps2 ?? -9.81,
+    dragPerMeter: longRange ? long : base,
+    gravityMps2: model?.gravityMps2 ?? -9.81,
     dragSource,
   };
 }
