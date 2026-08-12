@@ -85,6 +85,30 @@ function table(rows: Row[] | undefined): Record<string, string | null>[] {
 const scoped = (attachmentId: string, slot: string) =>
   slot === 'ammo' && !attachmentId.startsWith('ammo:') ? `ammo:${attachmentId}` : attachmentId;
 
+/**
+ * As contradições da matriz que já foram decididas.
+ *
+ * A planilha herda do levantamento original um erro de classificação na vz61:
+ * cinco empunhaduras aparecem sob `laser`. A decisão de corrigi-las não é
+ * palpite, e cabe justificar aqui porque ela contraria a fonte:
+ *
+ * - as cinco são do grupo `GRIPS` e declaram `underbarrel` na própria peça;
+ * - a vz61 já tem cinco lasers de verdade, do grupo `LASERS`, ativos no slot
+ *   `laser` — não são elas que preenchem esse slot;
+ * - sem a correção, a arma fica com **zero** empunhaduras, e com dez lasers
+ *   dos quais metade é empunhadura.
+ *
+ * Entrada nova aqui precisa da mesma prestação de contas: o que a fonte diz, o
+ * que a peça declara e por que um dos dois vence.
+ */
+const SLOT_FIXES: Record<string, { slot: string; reason: string }> = {
+  'vz61|canted_stubby': { slot: 'underbarrel', reason: 'Peça do grupo GRIPS listada sob laser.' },
+  'vz61|cmpct_handstop': { slot: 'underbarrel', reason: 'Peça do grupo GRIPS listada sob laser.' },
+  'vz61|fold_stubby': { slot: 'underbarrel', reason: 'Peça do grupo GRIPS listada sob laser.' },
+  'vz61|ribbed_stubby': { slot: 'underbarrel', reason: 'Peça do grupo GRIPS listada sob laser.' },
+  'vz61|stipp_stubby': { slot: 'underbarrel', reason: 'Peça do grupo GRIPS listada sob laser.' },
+};
+
 function main(): void {
   const version = currentVersion();
   const dir = versionDir(version);
@@ -242,6 +266,8 @@ function main(): void {
   const slotOf = new Map(attachments().map((attachment) => [attachment.id, attachment.slot]));
 
   const mismatched: { weaponId: string; attachmentId: string; matrix: string; declared: string }[] = [];
+  /** As divergências que `SLOT_FIXES` já decidiu. */
+  const resolved: { weaponId: string; attachmentId: string; matrix: string; slot: string; reason: string }[] = [];
   let skippedNone = 0;
 
   const addRelation = (weaponId: string, rawAttachment: string, slot: string) => {
@@ -257,27 +283,35 @@ function main(): void {
     if (!weaponId || !attachmentId || seen.has(key)) return;
 
     /*
-     * A planilha herda a contradição do levantamento original: as cinco
-     * empunhaduras da vz61 aparecem na matriz sob `laser`, e as peças declaram
-     * `underbarrel`. Elas entram como pendência, no slot que a peça declara —
-     * a mesma decisão tomada na importação inicial, e pelo mesmo motivo: qual
-     * dos dois lados está certo é pergunta para quem tem o jogo aberto.
+     * A matriz e a peça podem discordar sobre o slot.
+     *
+     * Quando a discordância já foi decidida, `SLOT_FIXES` diz qual lado vence e
+     * por quê, e a relação entra ativa. Quando é nova, entra como pendência no
+     * slot que a peça declara: qual dos dois está certo é pergunta para quem
+     * tem o jogo aberto, e o pipeline não a responde sozinho.
      */
     const declared = slotOf.get(attachmentId);
     const divergent = declared !== undefined && declared !== slot;
-    if (divergent) mismatched.push({ weaponId, attachmentId, matrix: slot, declared: declared! });
+    const fix = SLOT_FIXES[key];
+
+    if (divergent && !fix) {
+      mismatched.push({ weaponId, attachmentId, matrix: slot, declared: declared! });
+    }
+    if (fix) resolved.push({ weaponId, attachmentId, matrix: slot, slot: fix.slot, reason: fix.reason });
 
     seen.add(key);
     relations.push({
       gameVersion: version,
       weaponId,
       attachmentId,
-      slot: divergent ? declared! : slot,
-      status: divergent ? 'needs_review' : 'active',
-      source: SOURCE,
-      note: divergent
-        ? `A matriz da planilha registra esta relação no slot "${slot}", e a peça declara "${declared}". Confirmar no jogo antes de ativar.`
-        : null,
+      slot: fix ? fix.slot : divergent ? declared! : slot,
+      status: divergent && !fix ? 'needs_review' : 'active',
+      source: fix ? { ...SOURCE, type: 'verified' as const } : SOURCE,
+      note: fix
+        ? `A matriz registra no slot "${slot}"; corrigido para "${fix.slot}". ${fix.reason}`
+        : divergent
+          ? `A matriz da planilha registra esta relação no slot "${slot}", e a peça declara "${declared}". Confirmar no jogo antes de ativar.`
+          : null,
     });
   };
 
@@ -322,6 +356,7 @@ function main(): void {
     costsApplied,
     overriddenGame,
     slotMismatch: mismatched,
+    slotFixed: resolved,
     pending,
   });
 
@@ -347,6 +382,7 @@ function main(): void {
         relações: relations.length,
         custosAplicados: costsApplied,
         divergênciasDeSlot: mismatched,
+        divergênciasCorrigidas: resolved,
         opçõesVaziasIgnoradas: skippedNone,
 
         sobrescritosSobreAPrint: overriddenGame,
@@ -372,6 +408,7 @@ function main(): void {
     'relações': relations.length,
     'custos aplicados': costsApplied,
     'divergências de slot': mismatched.length,
+    'divergências corrigidas': resolved.length,
     'sobrescritos sobre a print': overriddenGame.length,
   });
 }

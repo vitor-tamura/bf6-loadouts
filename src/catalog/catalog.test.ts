@@ -326,12 +326,24 @@ describe('compatibilidade', () => {
     }
   });
 
-  it('deixa fora do artefato o que aguarda revisão', () => {
-    // As cinco empunhaduras da vz61, que a fonte registrou em dois slots.
-    expect(getPending().compatibilityNeedsReview).toBe(5);
-
+  it('resolveu a contradição de slot da vz61', () => {
+    /*
+     * A matriz listava cinco empunhaduras da vz61 sob `laser`, e as peças
+     * declaravam `underbarrel`. A correção está declarada no importador com a
+     * justificativa: as cinco são do grupo GRIPS, a arma já tem cinco lasers de
+     * verdade, e sem elas ficaria com zero empunhaduras.
+     */
     const empunhaduras = ['canted_stubby', 'cmpct_handstop', 'fold_stubby', 'ribbed_stubby', 'stipp_stubby'];
-    for (const id of empunhaduras) expect(isCompatible('vz61', id)).toBe(false);
+
+    const porSlot = getWeaponAttachmentsBySlot('vz61');
+    expect((porSlot.get('underbarrel') ?? []).map((p) => p.id).sort()).toEqual(empunhaduras);
+    expect((porSlot.get('laser') ?? []).length).toBe(5);
+
+    for (const id of empunhaduras) expect(isCompatible('vz61', id)).toBe(true);
+  });
+
+  it('não deixa nenhuma relação pendente de revisão', () => {
+    expect(getPending().compatibilityNeedsReview).toBe(0);
   });
 });
 

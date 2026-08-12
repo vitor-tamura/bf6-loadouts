@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "gameVersion": "1.4.1.5",
-  "generatedAt": "2026-08-12T15:12:57.946Z",
+  "generatedAt": "2026-08-12T15:17:13.222Z",
   "capabilities": {
     "weapons": true,
     "attachments": true,
@@ -28587,6 +28587,31 @@
       "weaponId": "vz61",
       "attachmentId": "std_optic",
       "slot": "sight"
+    },
+    {
+      "weaponId": "vz61",
+      "attachmentId": "canted_stubby",
+      "slot": "underbarrel"
+    },
+    {
+      "weaponId": "vz61",
+      "attachmentId": "cmpct_handstop",
+      "slot": "underbarrel"
+    },
+    {
+      "weaponId": "vz61",
+      "attachmentId": "fold_stubby",
+      "slot": "underbarrel"
+    },
+    {
+      "weaponId": "vz61",
+      "attachmentId": "ribbed_stubby",
+      "slot": "underbarrel"
+    },
+    {
+      "weaponId": "vz61",
+      "attachmentId": "stipp_stubby",
+      "slot": "underbarrel"
     }
   ],
   "ballisticsModel": {
@@ -29926,7 +29951,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -29979,7 +30004,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -30032,7 +30057,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -30105,7 +30130,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -30178,7 +30203,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -30231,7 +30256,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -30284,7 +30309,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -30337,7 +30362,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -30410,7 +30435,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -30483,7 +30508,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -30556,7 +30581,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -30609,7 +30634,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -30662,7 +30687,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -30715,7 +30740,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -30768,7 +30793,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -30841,7 +30866,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -30894,7 +30919,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -30942,7 +30967,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -30995,7 +31020,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -31048,7 +31073,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -31111,7 +31136,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -31164,7 +31189,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -31217,7 +31242,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -31270,7 +31295,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -31318,7 +31343,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -31371,7 +31396,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -31409,7 +31434,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -31452,7 +31477,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -31525,7 +31550,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -31578,7 +31603,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -31651,7 +31676,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -31704,7 +31729,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -31767,7 +31792,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -31850,7 +31875,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -31923,7 +31948,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -31976,7 +32001,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -32039,7 +32064,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -32082,7 +32107,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -32155,7 +32180,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -32228,7 +32253,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -32301,7 +32326,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -32349,7 +32374,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -32422,7 +32447,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -32475,7 +32500,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -32548,7 +32573,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -32601,7 +32626,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -32674,7 +32699,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -32747,7 +32772,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -32820,7 +32845,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -32893,7 +32918,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -32966,7 +32991,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -33039,7 +33064,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -33092,7 +33117,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -33145,7 +33170,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -33198,7 +33223,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -33251,7 +33276,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -33304,7 +33329,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -33377,7 +33402,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -33450,7 +33475,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -33503,7 +33528,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -33566,7 +33591,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     },
@@ -33639,7 +33664,7 @@
         "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
         "commit": null,
         "version": null,
-        "retrievedAt": "2026-08-12T15:12:57.415Z",
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       }
     }
@@ -41712,7 +41737,7 @@
   ],
   "indexes": {
     "gameVersion": "1.4.1.5",
-    "generatedAt": "2026-08-12T15:12:57.946Z",
+    "generatedAt": "2026-08-12T15:17:13.222Z",
     "attachmentsByWeapon": {
       "ak205": [
         "120mw_blue",
@@ -44574,17 +44599,22 @@
         "ammo:standard",
         "ammo:synthetic",
         "basic",
+        "canted_stubby",
+        "cmpct_handstop",
         "combo_green",
         "combo_red",
         "compensator",
         "cqb_supp",
         "flashlight",
+        "fold_stubby",
         "iron",
         "magazine:vz61:10_rnd",
         "magazine:vz61:20_rnd",
+        "ribbed_stubby",
         "sp_brake",
         "std_optic",
-        "std_supp"
+        "std_supp",
+        "stipp_stubby"
       ]
     },
     "weaponsByAttachment": {
@@ -45644,7 +45674,8 @@
         "tr7",
         "umg40",
         "vcr2",
-        "vssm"
+        "vssm",
+        "vz61"
       ],
       "classic_grip_pod": [
         "ak4d",
@@ -45755,7 +45786,8 @@
         "sgx",
         "sl9",
         "sor300sc",
-        "umg40"
+        "umg40",
+        "vz61"
       ],
       "combo_green": [
         "es57",
@@ -46273,7 +46305,8 @@
         "tr7",
         "umg40",
         "vcr2",
-        "vssm"
+        "vssm",
+        "vz61"
       ],
       "fold_vert": [
         "ak205",
@@ -47723,7 +47756,8 @@
         "tr7",
         "umg40",
         "vcr2",
-        "vssm"
+        "vssm",
+        "vz61"
       ],
       "ribbed_vert": [
         "ak205",
@@ -48058,7 +48092,8 @@
         "tr7",
         "umg40",
         "vcr2",
-        "vssm"
+        "vssm",
+        "vz61"
       ],
       "stipp_stubby_db12": [
         "db12"
@@ -51822,6 +51857,13 @@
         "sight": [
           "iron",
           "std_optic"
+        ],
+        "underbarrel": [
+          "canted_stubby",
+          "cmpct_handstop",
+          "fold_stubby",
+          "ribbed_stubby",
+          "stipp_stubby"
         ]
       }
     }
@@ -51859,7 +51901,7 @@
     }
   },
   "pending": {
-    "compatibilityNeedsReview": 5,
+    "compatibilityNeedsReview": 0,
     "attachmentsWithoutWeapon": 23,
     "attachmentsWithoutCost": 0,
     "attachmentsWithoutTranslation": 0

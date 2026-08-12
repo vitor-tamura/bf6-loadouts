@@ -8,7 +8,7 @@
     "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
     "commit": null,
     "version": null,
-    "retrievedAt": "2026-08-12T15:12:57.415Z",
+    "retrievedAt": "2026-08-12T15:17:01.745Z",
     "snapshot": "master-2026-08-12"
   },
   "weapons": 62,
@@ -17,36 +17,42 @@
   "relations": 2753,
   "costsApplied": 43,
   "overriddenGame": [],
-  "slotMismatch": [
+  "slotMismatch": [],
+  "slotFixed": [
     {
       "weaponId": "vz61",
       "attachmentId": "fold_stubby",
       "matrix": "laser",
-      "declared": "underbarrel"
+      "slot": "underbarrel",
+      "reason": "Peça do grupo GRIPS listada sob laser."
     },
     {
       "weaponId": "vz61",
       "attachmentId": "ribbed_stubby",
       "matrix": "laser",
-      "declared": "underbarrel"
+      "slot": "underbarrel",
+      "reason": "Peça do grupo GRIPS listada sob laser."
     },
     {
       "weaponId": "vz61",
       "attachmentId": "canted_stubby",
       "matrix": "laser",
-      "declared": "underbarrel"
+      "slot": "underbarrel",
+      "reason": "Peça do grupo GRIPS listada sob laser."
     },
     {
       "weaponId": "vz61",
       "attachmentId": "stipp_stubby",
       "matrix": "laser",
-      "declared": "underbarrel"
+      "slot": "underbarrel",
+      "reason": "Peça do grupo GRIPS listada sob laser."
     },
     {
       "weaponId": "vz61",
       "attachmentId": "cmpct_handstop",
       "matrix": "laser",
-      "declared": "underbarrel"
+      "slot": "underbarrel",
+      "reason": "Peça do grupo GRIPS listada sob laser."
     }
   ],
   "pending": [

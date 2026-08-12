@@ -1,6 +1,6 @@
 {
   "gameVersion": "1.4.1.5",
-  "generatedAt": "2026-08-12T15:12:57.682Z",
+  "generatedAt": "2026-08-12T15:17:12.917Z",
   "attachmentsByWeapon": {
     "ak205": [
       "120mw_blue",
@@ -2862,17 +2862,22 @@
       "ammo:standard",
       "ammo:synthetic",
       "basic",
+      "canted_stubby",
+      "cmpct_handstop",
       "combo_green",
       "combo_red",
       "compensator",
       "cqb_supp",
       "flashlight",
+      "fold_stubby",
       "iron",
       "magazine:vz61:10_rnd",
       "magazine:vz61:20_rnd",
+      "ribbed_stubby",
       "sp_brake",
       "std_optic",
-      "std_supp"
+      "std_supp",
+      "stipp_stubby"
     ]
   },
   "weaponsByAttachment": {
@@ -3932,7 +3937,8 @@
       "tr7",
       "umg40",
       "vcr2",
-      "vssm"
+      "vssm",
+      "vz61"
     ],
     "classic_grip_pod": [
       "ak4d",
@@ -4043,7 +4049,8 @@
       "sgx",
       "sl9",
       "sor300sc",
-      "umg40"
+      "umg40",
+      "vz61"
     ],
     "combo_green": [
       "es57",
@@ -4561,7 +4568,8 @@
       "tr7",
       "umg40",
       "vcr2",
-      "vssm"
+      "vssm",
+      "vz61"
     ],
     "fold_vert": [
       "ak205",
@@ -6011,7 +6019,8 @@
       "tr7",
       "umg40",
       "vcr2",
-      "vssm"
+      "vssm",
+      "vz61"
     ],
     "ribbed_vert": [
       "ak205",
@@ -6346,7 +6355,8 @@
       "tr7",
       "umg40",
       "vcr2",
-      "vssm"
+      "vssm",
+      "vz61"
     ],
     "stipp_stubby_db12": [
       "db12"
@@ -10110,6 +10120,13 @@
       "sight": [
         "iron",
         "std_optic"
+      ],
+      "underbarrel": [
+        "canted_stubby",
+        "cmpct_handstop",
+        "fold_stubby",
+        "ribbed_stubby",
+        "stipp_stubby"
       ]
     }
   }
