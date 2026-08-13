@@ -638,6 +638,60 @@ figure canvas {
 }
 
 /*
+ * Cartão de arma sob o ponteiro.
+ *
+ * Os cartões do catálogo, das tendências e do meta são um `<a>` por fora e um
+ * `Card` do antd por dentro, e o hover deles precisava de conserto em dois
+ * pontos.
+ *
+ * O primeiro é o clareamento. `a:hover` acende qualquer link, e sobre um cartão
+ * inteiro isso lavava a foto da arma e tirava a cor da etiqueta de temporada e
+ * do nome da classe. Nenhum outro cartão do site clareia — os de peça trocam o
+ * fundo. Aqui o link só entrega o hover ao filho.
+ *
+ * O segundo é onde estas regras moram. O `Card` traz o `background` do antd,
+ * declarado fora de camada, e por isso ganha de qualquer coisa escrita em
+ * `@layer utilities`, por mais específica que seja — é o mesmo desempate
+ * documentado em `.chip.chip`. Daí o realce do cartão estar aqui embaixo, longe
+ * das outras regras de `.card`.
+ *
+ * O realce é um fio âmbar por dentro da borda, e não a sombra externa que os
+ * demais cartões usam: o chanfro é `clip-path`, e `clip-path` corta o que
+ * escapa do contorno — sombra de fora não apareceria. A borda continua onde
+ * estava; era o `hoverable` do antd que a apagava no hover, e a grade piscava a
+ * cada cartão que o ponteiro cruzava.
+ */
+@media (hover: hover) {
+  a:has(> .card):hover {
+    filter: none;
+  }
+
+  a:hover > .card {
+    background-color: var(--surface-hover);
+    box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--accent) 40%, transparent);
+  }
+
+  /* O destaque do meta adensa o próprio âmbar em vez de ir para o cinza comum:
+     no cinza, o realce apagaria a marca de qual é a arma indicada. */
+  a:hover > .card-accent {
+    background-color: color-mix(in oklab, var(--accent) 18%, transparent);
+  }
+}
+
+/*
+ * Fundo do cartão em destaque — a arma indicada de cada categoria, no meta.
+ *
+ * Âmbar bem diluído, o bastante para separar a indicação das menções abaixo
+ * dela. Era estilo inline, e estilo inline vence o hover: o cartão mais
+ * importante da tela era justamente o único que não reagia ao ponteiro. Como
+ * classe, ele reage — e precisa do nome repetido para desempatar com o
+ * `background` do `Card`, que tem o mesmo peso e entra no `<head>` depois.
+ */
+.card-accent.card-accent {
+  background-color: color-mix(in oklab, var(--accent) 8%, transparent);
+}
+
+/*
  * Barra de estatística sob o ponteiro.
  *
  * São quatorze barras empilhadas e todas parecidas; sem realce, o olho perde a
