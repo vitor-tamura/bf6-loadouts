@@ -345,11 +345,16 @@ function WeaponCard({ weapon, stats }: { weapon: Weapon; stats: ReturnType<typeo
   // Abrir o montador já com a arma equipada é o que se espera de um catálogo.
   const href = `${BUILDER_PATH}?l=${encodeLoadout({ ...EMPTY_LOADOUT, weapon: weapon.id })}`;
 
+  /*
+   * O cartão vai sem `hoverable`: o realce do antd apaga a borda no hover e põe
+   * no lugar a sombra padrão dele, que não é a do site — e, sob o chanfro, nem
+   * chega a aparecer. Quem cuida do hover é `globals.css`, como no resto da
+   * interface.
+   */
   return (
     <Link href={href} className="block h-full">
       <Card
         variant="outlined"
-        hoverable
         className="card bevel h-full"
         styles={{ body: { padding: 8 } }}
         style={{ borderColor: 'var(--border-soft)' }}

@@ -347,9 +347,9 @@ function TrendingCard({ pick, rank }: { pick: TrendingPick; rank: number }) {
 
   return (
     <Link href={href} className="block h-full">
+      {/* Sem `hoverable`: o realce do antd apagaria justamente a borda âmbar. */}
       <Card
         variant="outlined"
-        hoverable
         className="card bevel h-full"
         styles={{ body: { padding: 10 } }}
         style={{ borderColor: 'color-mix(in oklab, var(--accent) 35%, var(--border-soft))' }}
@@ -427,15 +427,16 @@ function MetaCard({
 
   return (
     <Link href={href} className={featured ? 'block' : 'block h-full'}>
+      {/*
+        O tom âmbar do destaque vem da classe, não do estilo inline: fundo
+        declarado aqui dentro venceria o hover do cartão, e o card em destaque
+        seria o único da tela a não reagir ao ponteiro.
+      */}
       <Card
         variant="outlined"
-        hoverable
-        className={`card bevel ${featured ? '' : 'h-full'}`}
+        className={`card bevel ${featured ? 'card-accent' : 'h-full'}`}
         styles={{ body: { padding: 10 } }}
-        style={{
-          borderColor: featured ? 'var(--accent)' : 'var(--border-soft)',
-          background: featured ? 'color-mix(in oklab, var(--accent) 8%, transparent)' : undefined,
-        }}
+        style={{ borderColor: featured ? 'var(--accent)' : 'var(--border-soft)' }}
       >
         <div className="flex items-baseline justify-between gap-2">
           <span className="font-display truncate text-base font-semibold tracking-wide">
