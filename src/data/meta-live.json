@@ -1,125 +1,102 @@
 {
-  "readAt": "2026-08-13",
+  "readAt": "2026-08-14",
   "model": "gpt-5-mini",
   "patch": {
-    "name": "Battlefield 6 Game Update 1.4.1.0",
+    "name": "1.4.1.0 (Season 4 / Pacific Front)",
     "date": "2026-07-21"
   },
   "picks": [
     {
-      "weapon": "brod-3",
-      "reason": "Nova carabina introduzida na atualização de Season 4 com perfil anunciado como versátil e, desde o lançamento, jogadores reportam alta eficiência em curtas/médias distâncias nas discussões de comunidade.",
-      "sources": [
-        0
-      ]
-    },
-    {
       "weapon": "ef88",
-      "reason": "Arma bullpup adicionada na Season 4 indicada pela EA para médio-longo alcance e elogiada por players em posts recentes como objeto de uso agressivo e preciso.",
-      "sources": [
-        0
-      ]
-    },
-    {
-      "weapon": "vssm",
-      "reason": "Designated Marksman Rifle com supressor integrado e modo full-auto lançado na Season 4; comunity threads destacam seu dano/stealth e apontam que o modo full-auto tem impacto forte em CQB.",
-      "sources": [
-        0
-      ]
-    },
-    {
-      "weapon": "scw-10",
-      "reason": "SMG/carbine citada repetidamente nas discussões de comunidade pós-patch como uma das principais opções para combate próximo devido a TTK percebido e controle.",
+      "reason": "Novo AR introduzido em Season 4 com 26 de dano e alta cadência/controle destacando-se nos testes e guias como a adição mais impactante ao pool de assalto.",
       "sources": [
         1
       ]
     },
     {
-      "weapon": "sg-553r",
-      "reason": "Rifle de assalto/smg listado por jogadores nas conversas de meta como destaque para confronto próximo e médio, aparecendo em compilações de ‘melhores armas’ pós-Season 4.",
+      "weapon": "m16a4",
+      "reason": "Relatório oficial/comunitário do lançamento da temporada indica que a M16A4 é a arma mais implantada no jogo, mantendo presença dominante no multiplayer tradicional.",
       "sources": [
-        2
+        3
+      ]
+    },
+    {
+      "weapon": "brod-3",
+      "reason": "Nova carabina da Season 4 (BROD 3) com 26 de dano e 830 RPM indicada por guias como arma de alta velocidade eficaz em curto/curto-médio alcance.",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "weapon": "vssm",
+      "reason": "Novo rifle marksman subsonic introduzido na Season 4 com supressor integral e opção full-auto, destacado em guias por sua furtividade/uso em contatos próximos a médios.",
+      "sources": [
+        1
       ]
     }
   ],
   "trending": [
     {
-      "weapon": "brod-3",
-      "reason": "Lançada na Game Update 1.4.1.0 (Season 4) e desde então tem aparecido repetidamente em posts de jogadores como arma nova com impacto imediato no meta de curtas/médias distâncias.",
-      "sources": [
-        0
-      ],
-      "trend": "chegou no patch"
-    },
-    {
-      "weapon": "vssm",
-      "reason": "Adicionada na mesma atualização com supressor integrado e full-auto; discussões recentes na comunidade apontam para adoção rápida da arma em combates fechados.",
-      "sources": [
-        0
-      ],
-      "trend": "chegou no patch"
-    },
-    {
-      "weapon": "tr-7",
-      "reason": "Listada por jogadores em posts de fim de julho como parte do núcleo de armas ainda dominantes no meta de curtas/médias distâncias após o lançamento da Season 4.",
+      "weapon": "ef88",
+      "reason": "EF88 é citado por guias e cobertura do patch como o destaque das três armas novas e rapidamente entrou nas discussões de melhores loadouts.",
       "sources": [
         1
       ],
-      "trend": "community pickup"
+      "trend": "chegou no patch"
     },
     {
-      "weapon": "m4a1",
-      "reason": "Continuamente citada em discussões de começo de agosto como arma estável e presente no pool de escolhas competitivas mesmo com a chegada das armas de Season 4.",
+      "weapon": "brod-3",
+      "reason": "Cobertura do lançamento e guias de Season 4 mostram adoção imediata do BROD 3 em builds agressivas por sua cadência e mobilidade.",
       "sources": [
-        2
+        1
       ],
-      "trend": "community pickup"
+      "trend": "chegou no patch"
     }
   ],
   "sources": [
     {
-      "name": "EA — Game Update 1.4.1.0 (Season 4)",
-      "url": "https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-4-1-0",
-      "date": "2026-07-16",
+      "name": "MP1st (cobertura do patch)",
+      "url": "https://mp1st.com/title-updates-and-patches/battlefield-6-update-1-000-025-fires-out-july-21-season-4",
+      "date": "2026-07-21",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "changelog oficial que anuncia a atualização (disponível para multiplayer) e lista as novas armas BROD 3, EF88 e VSSM e mudanças gerais de armas/gadget relevantes ao multiplayer tradicional",
+      "scope": "anúncio da atualização de Season 4 e notas resumidas do patch que servem como data-limite para mudanças de armas no multiplayer tradicional",
       "timeframe": "season-4"
     },
     {
-      "name": "Reddit r/Battlefield6 — 'Getting back to BF6 after Season 4'",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1v745rt/getting_back_to_bf6_after_season_4_what_are_the/",
-      "date": "2026-07-26",
+      "name": "Boostmatch — guia Season 4 / Tsuru Reef",
+      "url": "https://boostmatch.gg/blog/battlefield-6/articles/battlefield-6-season-4-tsuru-reef-guide",
+      "date": "2026-07-21",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "discussões de comunidade focadas em multiplayer tradicional citando armas ativas no meta pós-Season 4 (uso/percepção em partidas tradicionais)",
+      "scope": "análise detalhada das armas novas (EF88, BROD 3, VSSM) e observação explícita de que o balanceamento core do multiplayer permaneceu largamente inalterado",
       "timeframe": "season-4"
     },
     {
-      "name": "Reddit r/Battlefield6 — 'Best weapon' thread",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1vgg3c5/best_weapon/",
-      "date": "2026-08-05",
+      "name": "ComicBook — patch notes / Season 4 coverage",
+      "url": "https://comicbook.com/gaming/news/bf6-battlefield-6-season-4-update-patch-notes/",
+      "date": "2026-07-21",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "compilações e opiniões recentes da comunidade sobre melhores armas para multiplayer tradicional após os patches da Season 4",
+      "scope": "publicação do resumo das notas de versão de Season 4 confirmando versão do update e conteúdo lançado para multiplayer tradicional",
       "timeframe": "season-4"
     },
     {
-      "name": "Reddit r/LowSodiumBattlefield — 'best carbine / new BROD3'",
-      "url": "https://www.reddit.com/r/LowSodiumBattlefield/comments/1vc2ivu/i_was_gone_for_a_few_seasons_whats_the_best/",
-      "date": "2026-07-31",
+      "name": "Reddit — Community Update (DICE/comms)",
+      "url": "https://www.reddit.com/r/Battlefield/comments/1ux8cmj/battlefield_6_community_update_naval_warfare_and/",
+      "date": "2026-07-21",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "discussões comunitárias focalizadas em armas e recibo de novas armas da Season 4 em partidas multiplayer tradicional",
+      "scope": "comunicado/comentários oficiais compartilhados em canais da comunidade que incluem dados de implantação de armas (ex.: M16A4) no multiplayer tradicional",
       "timeframe": "season-4"
     },
     {
-      "name": "Reddit r/LowSodiumBattlefield — 'new guns get nerfs?'",
-      "url": "https://www.reddit.com/r/LowSodiumBattlefield/comments/1vkr4fh/do_you_think_any_of_the_new_guns_are_going_to_see/",
-      "date": "2026-08-10",
+      "name": "EA / DICE forums — Game Update & Roadmap",
+      "url": "https://forums.ea.com/blog/battlefield-game-info-hub-en/battlefield-6---2026-roadmap-seasons-3%E2%80%935-community-features-and-more/13336854",
+      "date": "2026-07-21",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "feedback comunitário recente sobre potência percebida das armas novas na rotação multiplayer tradicional",
+      "scope": "canal oficial de notas e roadmap que confirma datas da temporada, versão do patch e escopo (multiplayer tradicional)",
       "timeframe": "season-4"
     }
   ]
