@@ -1,102 +1,144 @@
 {
-  "readAt": "2026-08-14",
+  "readAt": "2026-08-15",
   "model": "gpt-5-mini",
   "patch": {
-    "name": "1.4.1.0 (Season 4 / Pacific Front)",
-    "date": "2026-07-21"
+    "name": "Game Update 1.4.1.5",
+    "date": "2026-08-04"
   },
   "picks": [
     {
-      "weapon": "ef88",
-      "reason": "Novo AR introduzido em Season 4 com 26 de dano e alta cadência/controle destacando-se nos testes e guias como a adição mais impactante ao pool de assalto.",
+      "weapon": "kord-6p67",
+      "reason": "trackers e guias de meta listam o KORD 6P67 como uma LMG topo por tempo de morte e controle de recuo consistente após os ajustes de manuseio anteriores e sem nerfs nas notas mais recentes.",
       "sources": [
-        1
+        3
       ]
     },
     {
-      "weapon": "m16a4",
-      "reason": "Relatório oficial/comunitário do lançamento da temporada indica que a M16A4 é a arma mais implantada no jogo, mantendo presença dominante no multiplayer tradicional.",
+      "weapon": "sg-553r",
+      "reason": "vários guias de Season 4 e comparadores colocam a SG 553R como uma arma S/A de alta performance em curtas-médias distâncias com TTK favorável e estabilidade comprovada após 1.4.1.0.",
+      "sources": []
+    },
+    {
+      "weapon": "m4a1",
+      "reason": "conserva presença forte no meta segundo páginas de loadouts e comparadores, mantendo versatilidade e boas estatísticas de tempo para matar sem alterações recentes que a enfraqueçam.",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "weapon": "m417-a2",
+      "reason": "guia de loadouts e sites de comparador colocam a M417 A2 em A-tier por alcance e precisão, sem alterações contrárias nas notas de 1.4.1.0/1.4.1.5.",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "weapon": "m250",
+      "reason": "figura consistentemente nas listas de armas recomendadas para médio-longo alcance em trackers e guias pós-Season 4, sem nerfs citados nas últimas notas.",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "weapon": "m240l",
+      "reason": "aparece em múltiplas comparações e guias como LMG de alto impacto e continua sem mudanças de dano ou cadência nas atualizações recentes, sustentando seu lugar no meta.",
       "sources": [
         3
       ]
     },
     {
       "weapon": "brod-3",
-      "reason": "Nova carabina da Season 4 (BROD 3) com 26 de dano e 830 RPM indicada por guias como arma de alta velocidade eficaz em curto/curto-médio alcance.",
+      "reason": "introduzida na atualização 1.4.1.0 como nova carabina e já listada por sites especializados como A-tier por mobilidade e desempenho em curtas-médias distâncias.",
       "sources": [
-        1
+        0
       ]
     },
     {
-      "weapon": "vssm",
-      "reason": "Novo rifle marksman subsonic introduzido na Season 4 com supressor integral e opção full-auto, destacado em guias por sua furtividade/uso em contatos próximos a médios.",
+      "weapon": "ef88",
+      "reason": "nova AR adicionada em 1.4.1.0, destacada pela EA e por guias de Season 4 como alternativa de médio-longo alcance que preenche uma lacuna no rol de assalto.",
       "sources": [
-        1
+        0
       ]
     }
   ],
   "trending": [
     {
-      "weapon": "ef88",
-      "reason": "EF88 é citado por guias e cobertura do patch como o destaque das três armas novas e rapidamente entrou nas discussões de melhores loadouts.",
+      "weapon": "brod-3",
+      "reason": "a arma foi adicionada na atualização 1.4.1.0 (Season 4) e multiple sites de guias e análises a destacaram nas semanas seguintes como carabina adotada em builds.",
       "sources": [
-        1
+        0
       ],
       "trend": "chegou no patch"
     },
     {
-      "weapon": "brod-3",
-      "reason": "Cobertura do lançamento e guias de Season 4 mostram adoção imediata do BROD 3 em builds agressivas por sua cadência e mobilidade.",
+      "weapon": "ef88",
+      "reason": "EF88 foi lançada em 1.4.1.0 e apareceu em guias de Season 4 e posts de comunidade como arma nova testada para médio-longo alcance.",
       "sources": [
-        1
+        0
       ],
       "trend": "chegou no patch"
+    },
+    {
+      "weapon": "vssm",
+      "reason": "VSSM foi listada entre as novas armas em 1.4.1.0 e guias/threads a apontaram como DMR que impacta escolhas de Recon e marksman.",
+      "sources": [
+        0
+      ],
+      "trend": "chegou no patch"
+    },
+    {
+      "weapon": "sor-300sc",
+      "reason": "o patch 1.4.1.5 corrigiu um crash de driver relacionado a troca de acessórios e mapas com grandes corpos d'água que afetava jogadores ao trocar anexos no SOR-300SC.",
+      "sources": [
+        2
+      ],
+      "trend": "bugfix"
     }
   ],
   "sources": [
     {
-      "name": "MP1st (cobertura do patch)",
-      "url": "https://mp1st.com/title-updates-and-patches/battlefield-6-update-1-000-025-fires-out-july-21-season-4",
-      "date": "2026-07-21",
+      "name": "EA — Game Update 1.4.1.0",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-1-0",
+      "date": "2026-07-16",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "anúncio da atualização de Season 4 e notas resumidas do patch que servem como data-limite para mudanças de armas no multiplayer tradicional",
+      "scope": "página oficial do patch que anuncia Season 4, lista as novas armas (BROD 3, EF88, VSSM) e mudanças de attachments/Água aplicáveis ao multiplayer tradicional",
       "timeframe": "season-4"
     },
     {
-      "name": "Boostmatch — guia Season 4 / Tsuru Reef",
-      "url": "https://boostmatch.gg/blog/battlefield-6/articles/battlefield-6-season-4-tsuru-reef-guide",
+      "name": "EA/Forums — Game Update 1.4.1.0 (changelog)",
+      "url": "https://forums.ea.com/blog/battlefield-game-info-hub-en/battlefield-6-update-1-4-1-0/13563635",
       "date": "2026-07-21",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "análise detalhada das armas novas (EF88, BROD 3, VSSM) e observação explícita de que o balanceamento core do multiplayer permaneceu largamente inalterado",
+      "scope": "changelog detalhado publicado pelos canais oficiais EA/DICE com notas e correções que impactam matchmaking e armas no multiplayer tradicional",
       "timeframe": "season-4"
     },
     {
-      "name": "ComicBook — patch notes / Season 4 coverage",
-      "url": "https://comicbook.com/gaming/news/bf6-battlefield-6-season-4-update-patch-notes/",
-      "date": "2026-07-21",
+      "name": "Reddit — 1.4.1.5 announcement/thread",
+      "url": "https://www.reddit.com/r/Battlefield/comments/1vefvqv/battlefield_6_game_update_1415/",
+      "date": "2026-08-03",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "publicação do resumo das notas de versão de Season 4 confirmando versão do update e conteúdo lançado para multiplayer tradicional",
+      "scope": "post que documenta o lançamento do update 1.4.1.5 (lançamento 2026-08-04) e descreve correções que afetam armas e estabilidade no multiplayer tradicional",
       "timeframe": "season-4"
     },
     {
-      "name": "Reddit — Community Update (DICE/comms)",
-      "url": "https://www.reddit.com/r/Battlefield/comments/1ux8cmj/battlefield_6_community_update_naval_warfare_and/",
-      "date": "2026-07-21",
+      "name": "BattlefieldMeta — Weapon Comparator / meta pages",
+      "url": "https://battlefieldmeta.gg/weapon-comparator",
+      "date": "2026-08-10",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "comunicado/comentários oficiais compartilhados em canais da comunidade que incluem dados de implantação de armas (ex.: M16A4) no multiplayer tradicional",
+      "scope": "comparador/trackers que agrupa estatísticas de armas e rankings usados por jogadores competitivos em partidas multiplayer tradicionais",
       "timeframe": "season-4"
     },
     {
-      "name": "EA / DICE forums — Game Update & Roadmap",
-      "url": "https://forums.ea.com/blog/battlefield-game-info-hub-en/battlefield-6---2026-roadmap-seasons-3%E2%80%935-community-features-and-more/13336854",
-      "date": "2026-07-21",
+      "name": "Battlefinity / guides",
+      "url": "https://battlefinity.gg/battlefield",
+      "date": "2026-08-11",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "canal oficial de notas e roadmap que confirma datas da temporada, versão do patch e escopo (multiplayer tradicional)",
+      "scope": "guias e listas de loadouts pós-Season 4 que comentam o papel das armas no meta de multiplayer tradicional",
       "timeframe": "season-4"
     }
   ]
