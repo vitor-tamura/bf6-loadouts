@@ -1,70 +1,40 @@
 {
-  "readAt": "2026-08-15",
+  "readAt": "2026-08-16",
   "model": "gpt-5-mini",
   "patch": {
-    "name": "Game Update 1.4.1.5",
-    "date": "2026-08-04"
+    "name": "Game Update 1.4.1.0 (Season 4)",
+    "date": "2026-07-21"
   },
   "picks": [
     {
-      "weapon": "kord-6p67",
-      "reason": "trackers e guias de meta listam o KORD 6P67 como uma LMG topo por tempo de morte e controle de recuo consistente após os ajustes de manuseio anteriores e sem nerfs nas notas mais recentes.",
-      "sources": [
-        3
-      ]
-    },
-    {
-      "weapon": "sg-553r",
-      "reason": "vários guias de Season 4 e comparadores colocam a SG 553R como uma arma S/A de alta performance em curtas-médias distâncias com TTK favorável e estabilidade comprovada após 1.4.1.0.",
+      "weapon": "m433",
+      "reason": "consenso de jogadores experientes e listas de tier apontam o M433 como referência para mid/close range pela combinação de precisão e TTK em testes comunitários.",
       "sources": []
     },
     {
-      "weapon": "m4a1",
-      "reason": "conserva presença forte no meta segundo páginas de loadouts e comparadores, mantendo versatilidade e boas estatísticas de tempo para matar sem alterações recentes que a enfraqueçam.",
+      "weapon": "drs-iar",
+      "reason": "discussões recentes no sub mostram que o DRS-IAR tem performance de LMG com controle e alcance comparáveis a rifles de ponta, sendo citado como potencialmente OP por vários jogadores.",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "weapon": "ak4d",
+      "reason": "analises e guias de meta/ builds apontam o AK4D como rifle com excelente desempenho em mid-range, sendo tratado como um dos pilares do meta por sites de loadouts.",
       "sources": [
         4
       ]
     },
     {
-      "weapon": "m417-a2",
-      "reason": "guia de loadouts e sites de comparador colocam a M417 A2 em A-tier por alcance e precisão, sem alterações contrárias nas notas de 1.4.1.0/1.4.1.5.",
-      "sources": [
-        3
-      ]
-    },
-    {
-      "weapon": "m250",
-      "reason": "figura consistentemente nas listas de armas recomendadas para médio-longo alcance em trackers e guias pós-Season 4, sem nerfs citados nas últimas notas.",
-      "sources": [
-        4
-      ]
-    },
-    {
-      "weapon": "m240l",
-      "reason": "aparece em múltiplas comparações e guias como LMG de alto impacto e continua sem mudanças de dano ou cadência nas atualizações recentes, sustentando seu lugar no meta.",
-      "sources": [
-        3
-      ]
-    },
-    {
-      "weapon": "brod-3",
-      "reason": "introduzida na atualização 1.4.1.0 como nova carabina e já listada por sites especializados como A-tier por mobilidade e desempenho em curtas-médias distâncias.",
-      "sources": [
-        0
-      ]
-    },
-    {
-      "weapon": "ef88",
-      "reason": "nova AR adicionada em 1.4.1.0, destacada pela EA e por guias de Season 4 como alternativa de médio-longo alcance que preenche uma lacuna no rol de assalto.",
-      "sources": [
-        0
-      ]
+      "weapon": "kord-6p67",
+      "reason": "menções recorrentes em discussões sobre equilíbrio como uma metralhadora leve de alto rendimento para combates de corpo a corpo e média distância, com bom tradeoff entre dano e controle.",
+      "sources": []
     }
   ],
   "trending": [
     {
       "weapon": "brod-3",
-      "reason": "a arma foi adicionada na atualização 1.4.1.0 (Season 4) e multiple sites de guias e análises a destacaram nas semanas seguintes como carabina adotada em builds.",
+      "reason": "arma adicionada pela atualização 1.4.1.0 (Season 4) e imediatamente mencionada pela equipe e pela comunidade como carabina nova para close-range.",
       "sources": [
         0
       ],
@@ -72,7 +42,7 @@
     },
     {
       "weapon": "ef88",
-      "reason": "EF88 foi lançada em 1.4.1.0 e apareceu em guias de Season 4 e posts de comunidade como arma nova testada para médio-longo alcance.",
+      "reason": "EF88 foi introduzida na 1.4.1.0 como bullpup voltada para mid/long range e destacou-se nas notas oficiais como novo rifle a testar pela comunidade.",
       "sources": [
         0
       ],
@@ -80,65 +50,57 @@
     },
     {
       "weapon": "vssm",
-      "reason": "VSSM foi listada entre as novas armas em 1.4.1.0 e guias/threads a apontaram como DMR que impacta escolhas de Recon e marksman.",
+      "reason": "VSSM entrou com a 1.4.1.0 como DMR com supressor integrado e capacidade full-auto; comunidades reportaram interesse imediato em builds stealth.",
       "sources": [
         0
       ],
       "trend": "chegou no patch"
-    },
-    {
-      "weapon": "sor-300sc",
-      "reason": "o patch 1.4.1.5 corrigiu um crash de driver relacionado a troca de acessórios e mapas com grandes corpos d'água que afetava jogadores ao trocar anexos no SOR-300SC.",
-      "sources": [
-        2
-      ],
-      "trend": "bugfix"
     }
   ],
   "sources": [
     {
-      "name": "EA — Game Update 1.4.1.0",
-      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-1-0",
-      "date": "2026-07-16",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "página oficial do patch que anuncia Season 4, lista as novas armas (BROD 3, EF88, VSSM) e mudanças de attachments/Água aplicáveis ao multiplayer tradicional",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "EA/Forums — Game Update 1.4.1.0 (changelog)",
-      "url": "https://forums.ea.com/blog/battlefield-game-info-hub-en/battlefield-6-update-1-4-1-0/13563635",
+      "name": "EA — Game Update 1.4.1.0 (oficial)",
+      "url": "https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-4-1-0",
       "date": "2026-07-21",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "changelog detalhado publicado pelos canais oficiais EA/DICE com notas e correções que impactam matchmaking e armas no multiplayer tradicional",
+      "scope": "notes oficiais do patch da Temporada 4 que listam armas adicionadas e mudanças que afetam apenas multiplayer tradicional",
       "timeframe": "season-4"
     },
     {
-      "name": "Reddit — 1.4.1.5 announcement/thread",
-      "url": "https://www.reddit.com/r/Battlefield/comments/1vefvqv/battlefield_6_game_update_1415/",
+      "name": "PC Gamer — resumo 1.4.1.5 (qualidade de vida)",
+      "url": "https://www.pcgamer.com/ea-has-fixed-a-niche-battlefield-6-issue-where-some-nvidia-gpus-were-crashing-while-changing-attachments-or-playing-on-maps-with-large-bodies-of-water/",
       "date": "2026-08-03",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "post que documenta o lançamento do update 1.4.1.5 (lançamento 2026-08-04) e descreve correções que afetam armas e estabilidade no multiplayer tradicional",
+      "scope": "cobertura jornalística do patch 1.4.1.5 (pequeno hotfix) e mudanças de estabilidade que valem para multiplayer tradicional",
       "timeframe": "season-4"
     },
     {
-      "name": "BattlefieldMeta — Weapon Comparator / meta pages",
-      "url": "https://battlefieldmeta.gg/weapon-comparator",
-      "date": "2026-08-10",
+      "name": "Reddit — DRS LMG discuss (comunidade)",
+      "url": "https://www.reddit.com/r/LowSodiumBattlefield/comments/1vew5nq/the_drs_lmg_might_be_op/",
+      "date": "2026-08-04",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "comparador/trackers que agrupa estatísticas de armas e rankings usados por jogadores competitivos em partidas multiplayer tradicionais",
+      "scope": "post comunitário que documenta percepção e exemplos de uso do DRS-IAR no multiplayer tradicional",
       "timeframe": "season-4"
     },
     {
-      "name": "Battlefinity / guides",
-      "url": "https://battlefinity.gg/battlefield",
-      "date": "2026-08-11",
+      "name": "Reddit — 3KDR Tierlist (comunidade)",
+      "url": "https://www.reddit.com/r/Battlefield/comments/1uu8b3q/the_official_3kdr_tierlist/",
+      "date": "2026-07-12",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "guias e listas de loadouts pós-Season 4 que comentam o papel das armas no meta de multiplayer tradicional",
+      "scope": "lista comunitária que reúne análise de armas usadas em níveis altos de jogo (multiplayer tradicional) e ajuda a sustentar picks",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "BattlefieldMeta — guia AK4D (tracker/guia)",
+      "url": "https://battlefieldmeta.gg/best-loadouts/ak4d",
+      "date": "2026-07-28",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "guia/tracker de builds que compila estatísticas e recomendações de loadout aplicáveis ao multiplayer tradicional",
       "timeframe": "season-4"
     }
   ]
