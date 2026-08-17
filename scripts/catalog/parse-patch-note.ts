@@ -323,6 +323,70 @@ function removesEntity(line: string, key: string, entityType: 'weapon' | 'attach
 const CHANGE_VERB =
   /\b(increased|reduced|decreased|lowered|raised|buffed|nerfed|adjusted|tuned|changed|updated|rebalanced|now deals|no longer deals)\b/i;
 
+/**
+ * O nome do que entrou, quando a frase o diz.
+ *
+ * Um nome próprio seguido do tipo: "Interdictor sniper rifle", "EOD Bot Arm
+ * melee weapon", "XM-99 Prototype assault rifle". É o que permite dizer o que
+ * apareceu no jogo em vez de mandar ao Pull Request o parágrafo inteiro com a
+ * entidade em branco, que é como o anúncio da 1.4.2.0 chegou.
+ */
+const NEW_NAME = new RegExp(
+  '\\b([A-Z0-9][\\w.-]*(?:[ -][A-Z0-9][\\w.-]*){0,3})\\s+' +
+    '((?:assault |sniper |battle |marksman |melee |light )?' +
+    '(?:rifles?|carbines?|shotguns?|sidearms?|pistols?|SMGs?|LMGs?|DMRs?|weapons?|' +
+    'sights?|optics?|scopes?|barrels?|muzzles?|magazines?|grips?|lasers?|stocks?|ammo))\\b',
+  'g',
+);
+
+/** A distância em que o anúncio ainda está falando do mesmo assunto. */
+const NEARBY = 60;
+
+/**
+ * Um nome próprio de duas palavras ou mais — "Match Grade Ammo".
+ *
+ * A maiúscula sozinha não serve de sinal: toda frase começa com uma. Duas
+ * seguidas são o que separa o nome de algo do jogo de uma regra geral escrita
+ * em prosa.
+ */
+const PROPER_NAME = /\b[A-Z][\w.-]*(?:[ -][A-Z][\w.-]*)+/;
+
+/**
+ * O que a frase anuncia, ou nada quando ela não nomeia coisa alguma.
+ *
+ * A palavra "new" solta não é anúncio de arma: "New Airplane Control Assist
+ * offers an alternative way to pilot airplanes, alongside improvements to (…)
+ * Patrol Boat weapons" tem as duas peças do padrão — o verbo e um nome com
+ * cara de arma — separadas por cinquenta palavras de assunto nenhum. O que
+ * amarra as duas é a vizinhança: o nome vem colado ao anúncio, antes dele na
+ * voz passiva ("The EOD Bot Arm melee weapon has been added") ou depois na
+ * ativa ("bringing (…) the Interdictor sniper rifle").
+ */
+function newlyNamed(line: string): string | null {
+  const verb = ADDED.exec(line);
+  if (!verb) return null;
+
+  /** "The EOD Bot Arm melee weapon" é a peça; o artigo é da frase. */
+  const trim = (name: string) => {
+    const clean = name.trim().replace(/^(?:The|A|An|New)\s+/, '');
+    return clean.length >= 3 ? clean : null;
+  };
+
+  const after = line.slice(verb.index + verb[0].length);
+  NEW_NAME.lastIndex = 0;
+  const forward = NEW_NAME.exec(after);
+  if (forward && forward.index <= NEARBY) return trim(forward[0]);
+
+  // Voz passiva: o nome ficou para trás, e vale o último antes do verbo.
+  const before = line.slice(0, verb.index);
+  NEW_NAME.lastIndex = 0;
+  let last: RegExpExecArray | null = null;
+  for (let match = NEW_NAME.exec(before); match; match = NEW_NAME.exec(before)) last = match;
+
+  if (last && before.length - (last.index + last[0].length) <= NEARBY) return trim(last[0]);
+  return null;
+}
+
 /* -------------------------------- o parser -------------------------------- */
 
 /** Uma frase que não fala de arma nem de peça não interessa a este catálogo. */
@@ -354,9 +418,22 @@ export function parseLine(line: string, known: Known): PatchChange | null {
   /* ------------------------------ adição e remoção ------------------------------ */
 
   if (ADDED.test(clean) && !field) {
+    const named = entity ? entity.key : newlyNamed(clean);
+
+    /*
+     * Anúncio que não nomeia nada não é anúncio de conteúdo.
+     *
+     * "Vehicle and Aerial Combat Improvements: New Airplane Control Assist (…)"
+     * virava uma arma nova a revisar, e quem abria a pendência encontrava um
+     * parágrafo sobre pilotagem. Sem nome, não há o que cadastrar — e o texto
+     * continua no patch note guardado, para auditoria.
+     */
+    if (!named) return null;
+
     return {
       ...base,
       kind: entity?.entityType === 'attachment' ? 'attachment_added' : 'weapon_added',
+      mentioned: entity ? base.mentioned : named,
       operation: 'none',
       /*
        * Coisa nova nunca entra sozinha.
@@ -369,7 +446,7 @@ export function parseLine(line: string, known: Known): PatchChange | null {
       automation: 'review',
       reason: entity
         ? 'Adição anunciada de entidade que já existe no catálogo — conferir se é reintrodução.'
-        : 'Adição anunciada de entidade desconhecida: falta id, categoria e compatibilidade, que o patch note não publica.',
+        : `Adição anunciada de "${named}", que o catálogo não tem: falta id, categoria e compatibilidade, que o patch note não publica.`,
     };
   }
 
@@ -458,13 +535,26 @@ export function parseLine(line: string, known: Known): PatchChange | null {
    * fala de alinhamento de ícone, e virava uma alteração de carregador da M60.
    * O verbo é o que separa a nota de correção da nota de balanceamento.
    */
-  if (entity && field && CHANGE_VERB.test(clean)) {
+  /*
+   * Entidade que o catálogo não conhece some se esta frase virar nulo — e some
+   * justamente onde mais importa: "Match Grade Ammo now deals the intended
+   * damage against swimming soldiers" fala de uma munição que não está em
+   * `data/entities`, e o silêncio faz a lacuna passar por ausência de mudança.
+   *
+   * O que a autoriza a entrar sem entidade é haver nome próprio na frase. "Fall
+   * damage is now slightly reduced when falling into shallow water" tem campo e
+   * verbo e não nomeia coisa alguma do jogo: sem esta condição, toda regra
+   * geral de dano viraria pendência de uma arma que ninguém citou.
+   */
+  if (field && CHANGE_VERB.test(clean) && (entity || PROPER_NAME.test(clean))) {
     return {
       ...base,
       kind: 'stat_changed',
       operation: 'none',
       automation: 'review',
-      reason: 'Mudança descrita sem número: precisa de medição de outra fonte.',
+      reason: entity
+        ? 'Mudança descrita sem número: precisa de medição de outra fonte.'
+        : 'Mudança descrita sem número, e a entidade citada não existe no catálogo.',
     };
   }
 

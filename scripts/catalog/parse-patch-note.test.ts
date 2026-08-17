@@ -85,6 +85,47 @@ describe('adições e remoções', () => {
     expect(change!.entityId).toBeNull();
   });
 
+  it('diz o nome do que entrou, e não o parágrafo inteiro', () => {
+    /*
+     * A abertura da 1.4.2.0, com a arma nova enterrada no meio do anúncio da
+     * temporada. Quem revisa o Pull Request precisa ler "Interdictor sniper
+     * rifle" e sair cadastrando; o parágrafo com a entidade em branco obriga a
+     * caçar o que mudou dentro de trinta linhas de evento e mapa.
+     */
+    const change = parse(
+      'On Tuesday, August 18, Game Update 1.4.2.0 goes live for Battlefield 6 and REDSEC, ' +
+        'bringing the Top Gun event, the return of Wake Island, the expanded Tsuru Reef, ' +
+        'two new fighter jets, the Interdictor sniper rifle, a new Crashed Carrier POI in Fort Lyndon.',
+    );
+
+    expect(change!.kind).toBe('weapon_added');
+    expect(change!.mentioned).toBe('Interdictor sniper rifle');
+    expect(change!.automation).toBe('review');
+  });
+
+  it('lê o nome também na voz passiva', () => {
+    const change = parse('The EOD Bot Arm melee weapon has been added to Portal.');
+
+    expect(change!.kind).toBe('weapon_added');
+    expect(change!.mentioned).toBe('EOD Bot Arm melee weapon');
+  });
+
+  it('descarta anúncio que não nomeia conteúdo nenhum', () => {
+    /*
+     * Também da 1.4.2.0, e virava arma nova a revisar: tem "New" no começo e a
+     * palavra "weapons" cinquenta palavras depois, sem relação entre as duas.
+     * Sem nome não há o que cadastrar, e o texto continua guardado no patch
+     * note para auditoria.
+     */
+    expect(
+      parse(
+        'Vehicle and Aerial Combat Improvements: New Airplane Control Assist offers an alternative, ' +
+          'more approachable way to pilot airplanes, alongside improvements to jet landing gear, ' +
+          'flight animations, projectile presentation, Patrol Boat weapons, and laser designation.',
+      ),
+    ).toBeNull();
+  });
+
   it('aceita remoção de quem existe, porque o id já é conhecido', () => {
     const change = parse('The DB-12 shotgun has been removed from the store rotation');
 
@@ -184,8 +225,25 @@ describe('mudança sem número', () => {
 
   it('não confunde "slightly" com o cano Light', () => {
     // Outra do 1.4.1.0: sem fronteira de palavra, `light` casa dentro de
-    // "slightly" e a frase vira mudança de dano de um cano.
+    // "slightly" e a frase vira mudança de dano de um cano. A regra geral de
+    // dano de queda também não nomeia coisa nenhuma do jogo — é o que separa
+    // esta frase da munição desconhecida logo abaixo.
     expect(parse('Fall damage is now slightly reduced when falling into shallow water')).toBeNull();
+  });
+
+  it('não engole mudança de peça que o catálogo ainda não tem', () => {
+    /*
+     * Do patch 1.4.2.0. A Match Grade Ammo não está em `data/entities` — nenhuma
+     * das quinze munições se chama assim —, e a frase sumia calada. Some
+     * justamente onde mais importa: a leitura ficava indistinguível de "o patch
+     * não mexeu em munição nenhuma", e a lacuna do catálogo não aparecia.
+     */
+    const change = parse('Match Grade Ammo now deals the intended damage against swimming soldiers.');
+
+    expect(change!.entityId).toBeNull();
+    expect(change!.field).toBe('damage');
+    expect(change!.automation).toBe('review');
+    expect(change!.reason).toMatch(/não existe no catálogo/);
   });
 });
 
