@@ -15,7 +15,7 @@
  */
 
 import { join } from 'node:path';
-import { DIFFS, NOW, log, writeJson } from './lib/io.ts';
+import { DIFFS, NOW, log, readJsonIf, versionDir, writeJson } from './lib/io.ts';
 import {
   compatibility,
   effects,
@@ -59,6 +59,76 @@ function diffEntities(
   }
 
   return { added, removed, renamed: renamed.sort((a, b) => a.id.localeCompare(b.id)) };
+}
+
+/**
+ * Os arquivos de simulação, que são o único lugar onde o número exato mora.
+ *
+ * O patch note diz "VSSM limb damage multipliers have been adjusted" e não diz
+ * de quanto para quanto — a EA não publica o valor interno. Quem publica é o
+ * dataset da comunidade, e o que transforma o texto em número é comparar o
+ * instantâneo de antes com o de depois. Sem esta parte, o Pull Request anuncia
+ * que algo mudou e não sabe dizer o quê.
+ */
+const SIMULATION: { file: string; key: string; label: string }[] = [
+  { file: 'damage-models.json', key: 'models', label: 'damage' },
+  { file: 'ballistics.json', key: 'ballistics', label: 'ballistics' },
+  { file: 'recoil.json', key: 'recoil', label: 'recoil' },
+  { file: 'spread.json', key: 'spread', label: 'spread' },
+  { file: 'reload.json', key: 'reload', label: 'reload' },
+];
+
+/**
+ * Campos que mudam sem o jogo ter mudado.
+ *
+ * `source` carrega o instante da importação e `gameVersion` é reescrito em toda
+ * conciliação: comparados, acusariam 62 armas alteradas em todo patch e o
+ * resumo perderia a serventia.
+ */
+const NOT_A_CHANGE = new Set(['source', 'gameVersion', 'weaponId']);
+
+/**
+ * Um objeto aninhado vira pares `caminho → valor`.
+ *
+ * `zones.limb` e `drag.coefficient` precisam aparecer com esse nome no diff:
+ * quem revisa quer ler "damage.zones.limb: 0,91 → 0,84", e não "zones mudou".
+ * A curva de dano é o caso especial — ela é lista, e comparar a lista inteira
+ * diria que mudou sem dizer onde. Cada ponto entra pela distância que ele
+ * descreve, de modo que o degrau alterado aparece sozinho.
+ */
+function flatten(value: unknown, prefix: string, into: Record<string, unknown>): void {
+  if (value === null || typeof value !== 'object') {
+    into[prefix] = value;
+    return;
+  }
+
+  if (Array.isArray(value)) {
+    const curve = value.every(
+      (point) => point && typeof point === 'object' && 'distance' in point && 'damage' in point,
+    );
+
+    if (!curve) {
+      into[prefix] = JSON.stringify(value);
+      return;
+    }
+
+    for (const point of value as { distance: number; damage: number }[]) {
+      into[`${prefix}@${point.distance}m`] = point.damage;
+    }
+    return;
+  }
+
+  for (const [field, inner] of Object.entries(value as Record<string, unknown>)) {
+    if (NOT_A_CHANGE.has(field)) continue;
+    flatten(inner, prefix ? `${prefix}.${field}` : field, into);
+  }
+}
+
+/** As linhas de um arquivo de simulação, por arma. */
+function simulationRows(version: string, file: string, key: string) {
+  const content = readJsonIf<Record<string, unknown>>(join(versionDir(version), file), {});
+  const rows = (content[key] as { weaponId?: string }[] | undefined) ?? [];
+  return new Map(rows.filter((row) => row.weaponId).map((row) => [row.weaponId!, row]));
 }
 
 const relationKey = (row: { weaponId: string; attachmentId: string }) =>
@@ -132,6 +202,34 @@ export function diffVersions(from: string, to: string) {
     }
   }
 
+  /* ------------------------------- simulação ------------------------------- */
+
+  const simulation: Change[] = [];
+
+  for (const { file, key, label } of SIMULATION) {
+    const rowsBefore = simulationRows(from, file, key);
+
+    for (const [weaponId, row] of simulationRows(to, file, key)) {
+      const old = rowsBefore.get(weaponId);
+      if (!old) continue;
+
+      const antes: Record<string, unknown> = {};
+      const depois: Record<string, unknown> = {};
+      flatten(old, '', antes);
+      flatten(row, '', depois);
+
+      for (const [field, value] of Object.entries(depois)) {
+        if (antes[field] === value) continue;
+        simulation.push({
+          id: weaponId,
+          field: `${label}.${field}`,
+          from: antes[field] ?? null,
+          to: value,
+        });
+      }
+    }
+  }
+
   return {
     from,
     to,
@@ -142,6 +240,9 @@ export function diffVersions(from: string, to: string) {
     stats: statChanges.sort((a, b) => a.id.localeCompare(b.id)),
     effects: effectChanges.sort((a, b) => a.id.localeCompare(b.id)),
     costs: costChanges.sort((a, b) => a.id.localeCompare(b.id)),
+    simulation: simulation.sort(
+      (a, b) => a.id.localeCompare(b.id) || (a.field ?? '').localeCompare(b.field ?? ''),
+    ),
   };
 }
 
@@ -162,6 +263,7 @@ export function summarize(diff: ReturnType<typeof diffVersions>): string {
     `Stats:\n~ ${diff.stats.length}`,
     `Effects:\n~ ${diff.effects.length}`,
     `Costs:\n~ ${diff.costs.length}`,
+    `Simulation:\n~ ${diff.simulation.length}`,
   ].join('\n\n');
 }
 

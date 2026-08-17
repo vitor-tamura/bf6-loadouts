@@ -22,6 +22,7 @@
  */
 
 import { WEAPONS } from '../../src/data/weapons.ts';
+import { SEASONS } from '../../src/data/season.ts';
 import { pageKey } from '../../src/lib/sources.ts';
 
 /** No máximo, o que a tela mostra. */
@@ -318,6 +319,12 @@ function listasBrutas(bruto) {
   };
 }
 
+/** O começo da temporada que a leitura declara — o piso do que ela pode citar. */
+function inicioDaTemporada(timeframe) {
+  const numero = Number(String(timeframe ?? '').replace('season-', ''));
+  return SEASONS.find((temporada) => temporada.number === numero)?.startsOn ?? null;
+}
+
 /**
  * A atualização do jogo que a leitura diz ter olhado.
  *
@@ -326,12 +333,23 @@ function listasBrutas(bruto) {
  * apoiada em tier lists de duas semanas antes. Data no futuro é alucinação — o
  * patch de amanhã ainda não mexeu em arma nenhuma.
  */
-export function normalizarPatch(bruto, hoje) {
+export function normalizarPatch(bruto, hoje, inicioDaTemporada = null) {
   const patch = bruto?.patch;
   if (!patch || typeof patch !== 'object') return null;
 
   const name = String(patch.name ?? '').trim().slice(0, 80) || null;
   const date = ehData(patch.date) && patch.date <= hoje ? patch.date : null;
+
+  /*
+   * Patch de outra temporada não ancora leitura de hoje.
+   *
+   * A leitura de 17/08 saiu apontando o Blastpoint 1.3.2.0, de junho, com a
+   * Temporada 4 no ar desde 21/07: a tela anunciava "revisado em 17/08" e
+   * descrevia o jogo de duas temporadas atrás. Quando a data não alcança o
+   * começo da temporada, o par inteiro cai — o nome sozinho seria a mesma
+   * afirmação errada, só que sem data para o leitor conferir.
+   */
+  if (inicioDaTemporada && (!date || date < inicioDaTemporada)) return null;
 
   return name || date ? { name, date } : null;
 }
@@ -387,7 +405,7 @@ export function montarLeitura({ bruto, anotacoes = [], buscou = null, modelo, ho
     conteudo: {
       readAt: hoje,
       model: modelo,
-      patch: normalizarPatch(bruto, hoje),
+      patch: normalizarPatch(bruto, hoje, inicioDaTemporada(timeframe)),
       picks: meta.items,
       trending: trends.items,
       sources,

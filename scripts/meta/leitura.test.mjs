@@ -166,6 +166,28 @@ describe('patch da leitura', () => {
     expect(normalizarPatch({}, HOJE)).toBeNull();
     expect(normalizarPatch({ patch: { name: '', date: 'não sei' } }, HOJE)).toBeNull();
   });
+
+  it('recusa patch de antes da temporada que a leitura declara', () => {
+    /*
+     * Aconteceu: a leitura de 17/08 saiu apontando o Blastpoint 1.3.2.0, de
+     * 10/06, com a Temporada 4 no ar desde 21/07. A tela dizia "revisado em
+     * 17/08" e descrevia o jogo de duas temporadas atrás — o pior tipo de erro,
+     * porque a data recente é justamente o que faz o leitor confiar na lista.
+     */
+    const velho = { patch: { name: 'Blastpoint Update 1.3.2.0', date: '2026-06-10' } };
+
+    expect(normalizarPatch(velho, HOJE, '2026-07-21')).toBeNull();
+    expect(normalizarPatch(velho, HOJE)).toEqual({
+      name: 'Blastpoint Update 1.3.2.0',
+      date: '2026-06-10',
+    });
+  });
+
+  it('aceita o patch da temporada corrente', () => {
+    expect(
+      normalizarPatch({ patch: { name: 'Game Update 1.4.1.0', date: '2026-07-21' } }, HOJE, '2026-07-21'),
+    ).toEqual({ name: 'Game Update 1.4.1.0', date: '2026-07-21' });
+  });
 });
 
 describe('chave de página', () => {

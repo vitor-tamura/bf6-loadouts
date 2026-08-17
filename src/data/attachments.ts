@@ -381,7 +381,9 @@ export const ATTACHMENTS: Attachment[] = [
     originalName: 'Standard Suppressor',
     slot: 'muzzle',
     cost: 20,
-    description: 'Abafa o disparo e apaga a marcação, de perto e de longe. Piora o tiro sem visada.',
+    // A perda de tiro sem visada saiu daqui: ela é derivada dos modificadores e
+    // sai escrita sozinha, junto das outras que esta peça cobra.
+    description: 'Abafa o disparo e apaga a marcação, de perto e de longe.',
     mods: { velocity: { mult: 0.92 }, range: { mult: 0.94 }, adsMs: { mult: 1.04 }, mobility: { add: -3 }, hipfire: { add: -6 } },
     compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
     provenance: 'curated',
