@@ -1,0 +1,4035 @@
+{
+  "gameVersion": "1.4.2.0",
+  "spread": [
+    {
+      "weaponId": "ak205",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          7
+        ],
+        "hipStand": [
+          1.804,
+          6
+        ],
+        "hipMove": [
+          2.255,
+          7
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.239,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.43,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "ak4d",
+      "spread": {
+        "adsStand": [
+          0.05,
+          7
+        ],
+        "adsMove": [
+          0.32,
+          8
+        ],
+        "hipStand": [
+          2.432,
+          7
+        ],
+        "hipMove": [
+          3.04,
+          8
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.523,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.941,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "b36a4",
+      "spread": {
+        "adsStand": [
+          0.05,
+          7
+        ],
+        "adsMove": [
+          0.32,
+          8
+        ],
+        "hipStand": [
+          2.432,
+          7
+        ],
+        "hipMove": [
+          3.04,
+          8
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.36,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.648,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "brod3",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.35,
+          7
+        ],
+        "hipStand": [
+          1.804,
+          6
+        ],
+        "hipMove": [
+          2.255,
+          7
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.228,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.22,
+          "firingExp": 2.5,
+          "firingOffset": 1.84,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.67
+        },
+        "hip": {
+          "inc": 0.41,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.51,
+          "firingExp": 2.5,
+          "firingOffset": 3.31,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "cz3a1",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          6
+        ],
+        "hipStand": [
+          1.804,
+          6
+        ],
+        "hipMove": [
+          2.255,
+          6
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.28,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.547,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "db12",
+      "spread": {
+        "adsStand": [
+          0.05,
+          5
+        ],
+        "adsMove": [
+          0.32,
+          5
+        ],
+        "hipStand": [
+          2.432,
+          5
+        ],
+        "hipMove": [
+          3.04,
+          5
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.001,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 1,
+          "idleOffset": 4.00364,
+          "firingCoef": 0,
+          "firingExp": 0.25,
+          "firingOffset": 6.6,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 6.6,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.648,
+          "idleTime": 1.2,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.0833333,
+          "firingExp": 2.5,
+          "firingOffset": 0.81,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "drsiar",
+      "spread": {
+        "adsStand": [
+          0.05,
+          9
+        ],
+        "adsMove": [
+          0.32,
+          10
+        ],
+        "hipStand": [
+          3.352,
+          9
+        ],
+        "hipMove": [
+          4.19,
+          10
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.36,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.648,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "ef88",
+      "spread": {
+        "adsStand": [
+          0.1,
+          7
+        ],
+        "adsMove": [
+          0.25,
+          8
+        ],
+        "hipStand": [
+          2.432,
+          7
+        ],
+        "hipMove": [
+          3.04,
+          8
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.3,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.04,
+          "firingExp": 2.5,
+          "firingOffset": 2.05,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 8,
+          "firstShotMul": 1,
+          "distExp": 0.67
+        },
+        "hip": {
+          "inc": 0.54,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.43,
+          "firingExp": 2.5,
+          "firingOffset": 3.69,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 14.4,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "es57",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          6
+        ],
+        "hipStand": [
+          1.352,
+          6
+        ],
+        "hipMove": [
+          1.69,
+          6
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 1,
+          "idleOffset": 13.02,
+          "firingCoef": 0,
+          "firingExp": 0.25,
+          "firingOffset": 6.6,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 6.6,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.398,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.25,
+          "firingExp": 2.5,
+          "firingOffset": 2.43,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "ggh22",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          6
+        ],
+        "hipStand": [
+          1.352,
+          6
+        ],
+        "hipMove": [
+          1.69,
+          6
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 1,
+          "idleOffset": 9.765,
+          "firingCoef": 0,
+          "firingExp": 0.25,
+          "firingOffset": 6.6,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 6.6,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.398,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.1875,
+          "firingExp": 2.5,
+          "firingOffset": 1.8225,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "grtbc",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          7
+        ],
+        "hipStand": [
+          1.804,
+          6
+        ],
+        "hipMove": [
+          2.255,
+          7
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.304,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.547,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "grtcps",
+      "spread": {
+        "adsStand": [
+          0.05,
+          9
+        ],
+        "adsMove": [
+          0.32,
+          10
+        ],
+        "hipStand": [
+          3.352,
+          9
+        ],
+        "hipMove": [
+          4.19,
+          10
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 1,
+          "idleOffset": 6.85715,
+          "firingCoef": 0,
+          "firingExp": 0.25,
+          "firingOffset": 6.6,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 6.6,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.398,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.1875,
+          "firingExp": 2.5,
+          "firingOffset": 1.8225,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "kord6p67",
+      "spread": {
+        "adsStand": [
+          0.05,
+          7
+        ],
+        "adsMove": [
+          0.32,
+          8
+        ],
+        "hipStand": [
+          2.432,
+          7
+        ],
+        "hipMove": [
+          3.04,
+          8
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.28,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.504,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "ks18k",
+      "spread": {
+        "adsStand": [
+          0.05,
+          5
+        ],
+        "adsMove": [
+          0.32,
+          5
+        ],
+        "hipStand": [
+          2.432,
+          5
+        ],
+        "hipMove": [
+          3.04,
+          5
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.001,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 1,
+          "idleOffset": 4.00364,
+          "firingCoef": 0,
+          "firingExp": 0.25,
+          "firingOffset": 6.6,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 6.6,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.648,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.0833333,
+          "firingExp": 2.5,
+          "firingOffset": 0.81,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "kts100",
+      "spread": {
+        "adsStand": [
+          0.05,
+          9
+        ],
+        "adsMove": [
+          0.32,
+          10
+        ],
+        "hipStand": [
+          3.352,
+          9
+        ],
+        "hipMove": [
+          4.19,
+          10
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.36,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.648,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "kv9",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          6
+        ],
+        "hipStand": [
+          1.804,
+          6
+        ],
+        "hipMove": [
+          2.255,
+          6
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.28,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.547,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "l110",
+      "spread": {
+        "adsStand": [
+          0.05,
+          11
+        ],
+        "adsMove": [
+          0.32,
+          13
+        ],
+        "hipStand": [
+          4.848,
+          11
+        ],
+        "hipMove": [
+          6.06,
+          13
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.36,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.648,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "l115",
+      "spread": {
+        "adsStand": [
+          0,
+          9
+        ],
+        "adsMove": [
+          0.32,
+          10
+        ],
+        "hipStand": [
+          3.352,
+          9
+        ],
+        "hipMove": [
+          4.19,
+          10
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 1,
+          "idleOffset": 6.5,
+          "firingCoef": 0,
+          "firingExp": 0.25,
+          "firingOffset": 6.6,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 6.6,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.941,
+          "idleTime": 1.8,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.05,
+          "firingExp": 2.5,
+          "firingOffset": 0.486,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "l85a3",
+      "spread": {
+        "adsStand": [
+          0.05,
+          7
+        ],
+        "adsMove": [
+          0.32,
+          8
+        ],
+        "hipStand": [
+          2.432,
+          7
+        ],
+        "hipMove": [
+          3.04,
+          8
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.36,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.648,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "lmr27",
+      "spread": {
+        "adsStand": [
+          0.05,
+          7
+        ],
+        "adsMove": [
+          0.32,
+          8
+        ],
+        "hipStand": [
+          2.432,
+          7
+        ],
+        "hipMove": [
+          3.04,
+          8
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 1,
+          "idleOffset": 6.85715,
+          "firingCoef": 0,
+          "firingExp": 0.25,
+          "firingOffset": 6.6,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 6.6,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.398,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.1875,
+          "firingExp": 2.5,
+          "firingOffset": 1.8225,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "m1014",
+      "spread": {
+        "adsStand": [
+          0.05,
+          5
+        ],
+        "adsMove": [
+          0.32,
+          5
+        ],
+        "hipStand": [
+          2.432,
+          5
+        ],
+        "hipMove": [
+          3.04,
+          5
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.001,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 1,
+          "idleOffset": 4.00364,
+          "firingCoef": 0,
+          "firingExp": 0.25,
+          "firingOffset": 6.6,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 6.6,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.941,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.05,
+          "firingExp": 2.5,
+          "firingOffset": 0.486,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "m121a2",
+      "spread": {
+        "adsStand": [
+          0.05,
+          11
+        ],
+        "adsMove": [
+          0.32,
+          13
+        ],
+        "hipStand": [
+          4.848,
+          11
+        ],
+        "hipMove": [
+          6.06,
+          13
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.523,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.941,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "m123k",
+      "spread": {
+        "adsStand": [
+          0.05,
+          11
+        ],
+        "adsMove": [
+          0.32,
+          13
+        ],
+        "hipStand": [
+          4.848,
+          11
+        ],
+        "hipMove": [
+          6.06,
+          13
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.36,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.648,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "m16a4",
+      "spread": {
+        "adsStand": [
+          0.05,
+          7
+        ],
+        "adsMove": [
+          0.32,
+          8
+        ],
+        "hipStand": [
+          2.432,
+          7
+        ],
+        "hipMove": [
+          3.04,
+          8
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.36,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.648,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "m2010esr",
+      "spread": {
+        "adsStand": [
+          0,
+          9
+        ],
+        "adsMove": [
+          0.32,
+          10
+        ],
+        "hipStand": [
+          3.352,
+          9
+        ],
+        "hipMove": [
+          4.19,
+          10
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 1,
+          "idleOffset": 6.5,
+          "firingCoef": 0,
+          "firingExp": 0.25,
+          "firingOffset": 6.6,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 6.6,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.941,
+          "idleTime": 1.8,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.05,
+          "firingExp": 2.5,
+          "firingOffset": 0.486,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "m240l",
+      "spread": {
+        "adsStand": [
+          0.05,
+          11
+        ],
+        "adsMove": [
+          0.32,
+          13
+        ],
+        "hipStand": [
+          4.848,
+          11
+        ],
+        "hipMove": [
+          6.06,
+          13
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.523,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.941,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "m250",
+      "spread": {
+        "adsStand": [
+          0.05,
+          11
+        ],
+        "adsMove": [
+          0.32,
+          13
+        ],
+        "hipStand": [
+          4.848,
+          11
+        ],
+        "hipMove": [
+          6.06,
+          13
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.409,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.648,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "m277",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          7
+        ],
+        "hipStand": [
+          1.804,
+          6
+        ],
+        "hipMove": [
+          2.255,
+          7
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.409,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.648,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "m357trait",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          6
+        ],
+        "hipStand": [
+          1.352,
+          6
+        ],
+        "hipMove": [
+          1.69,
+          6
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 1,
+          "idleOffset": 9.765,
+          "firingCoef": 0,
+          "firingExp": 0.25,
+          "firingOffset": 6.6,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 6.6,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.648,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.0833333,
+          "firingExp": 2.5,
+          "firingOffset": 0.81,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "m39emr",
+      "spread": {
+        "adsStand": [
+          0.05,
+          9
+        ],
+        "adsMove": [
+          0.32,
+          10
+        ],
+        "hipStand": [
+          3.352,
+          9
+        ],
+        "hipMove": [
+          4.19,
+          10
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 1,
+          "idleOffset": 6.5,
+          "firingCoef": 0,
+          "firingExp": 0.25,
+          "firingOffset": 6.6,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 6.6,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.504,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.142857,
+          "firingExp": 2.5,
+          "firingOffset": 1.388571,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "m417a2",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          7
+        ],
+        "hipStand": [
+          1.804,
+          6
+        ],
+        "hipMove": [
+          2.255,
+          7
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.409,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.736,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "m433",
+      "spread": {
+        "adsStand": [
+          0.05,
+          7
+        ],
+        "adsMove": [
+          0.32,
+          8
+        ],
+        "hipStand": [
+          2.432,
+          7
+        ],
+        "hipMove": [
+          3.04,
+          8
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.36,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.648,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "m44",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          6
+        ],
+        "hipStand": [
+          1.352,
+          6
+        ],
+        "hipMove": [
+          1.69,
+          6
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 1,
+          "idleOffset": 7.812,
+          "firingCoef": 0,
+          "firingExp": 0.25,
+          "firingOffset": 6.6,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 6.6,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.648,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.0833333,
+          "firingExp": 2.5,
+          "firingOffset": 0.81,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "m45a1",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          6
+        ],
+        "hipStand": [
+          1.352,
+          6
+        ],
+        "hipMove": [
+          1.69,
+          6
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 1,
+          "idleOffset": 9.765,
+          "firingCoef": 0,
+          "firingExp": 0.25,
+          "firingOffset": 6.6,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 6.6,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.504,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.142857,
+          "firingExp": 2.5,
+          "firingOffset": 1.388571,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "m4a1",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          7
+        ],
+        "hipStand": [
+          1.804,
+          6
+        ],
+        "hipMove": [
+          2.255,
+          7
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.304,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.547,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "m60",
+      "spread": {
+        "adsStand": [
+          0.05,
+          11
+        ],
+        "adsMove": [
+          0.32,
+          13
+        ],
+        "hipStand": [
+          4.848,
+          11
+        ],
+        "hipMove": [
+          6.06,
+          13
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.523,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.941,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "m87a1",
+      "spread": {
+        "adsStand": [
+          0.05,
+          5
+        ],
+        "adsMove": [
+          0.32,
+          5
+        ],
+        "hipStand": [
+          2.432,
+          5
+        ],
+        "hipMove": [
+          3.04,
+          5
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.001,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 1,
+          "idleOffset": 4.00364,
+          "firingCoef": 0,
+          "firingExp": 0.25,
+          "firingOffset": 6.6,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 6.6,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.941,
+          "idleTime": 1.2,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.05,
+          "firingExp": 2.5,
+          "firingOffset": 0.486,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "miniscout",
+      "spread": {
+        "adsStand": [
+          0,
+          7
+        ],
+        "adsMove": [
+          0.32,
+          8
+        ],
+        "hipStand": [
+          2.432,
+          7
+        ],
+        "hipMove": [
+          3.04,
+          8
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 1,
+          "idleOffset": 5.5,
+          "firingCoef": 0,
+          "firingExp": 0.25,
+          "firingOffset": 6.6,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 6.6,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.941,
+          "idleTime": 1.8,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.05,
+          "firingExp": 2.5,
+          "firingOffset": 0.486,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "nvo228e",
+      "spread": {
+        "adsStand": [
+          0.05,
+          7
+        ],
+        "adsMove": [
+          0.32,
+          8
+        ],
+        "hipStand": [
+          2.432,
+          7
+        ],
+        "hipMove": [
+          3.04,
+          8
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.409,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.736,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "p18",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          6
+        ],
+        "hipStand": [
+          1.352,
+          6
+        ],
+        "hipMove": [
+          1.69,
+          6
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 1,
+          "idleOffset": 9.765,
+          "firingCoef": 0,
+          "firingExp": 0.25,
+          "firingOffset": 6.6,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 6.6,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.398,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.1875,
+          "firingExp": 2.5,
+          "firingOffset": 1.8225,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "pp19",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          6
+        ],
+        "hipStand": [
+          1.804,
+          6
+        ],
+        "hipMove": [
+          2.255,
+          6
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.28,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.547,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "psr",
+      "spread": {
+        "adsStand": [
+          0,
+          11
+        ],
+        "adsMove": [
+          0.32,
+          13
+        ],
+        "hipStand": [
+          4.848,
+          11
+        ],
+        "hipMove": [
+          6.06,
+          13
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 1,
+          "idleOffset": 5.45455,
+          "firingCoef": 0,
+          "firingExp": 0.25,
+          "firingOffset": 6.6,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 6.6,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.941,
+          "idleTime": 1.8,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.05,
+          "firingExp": 2.5,
+          "firingOffset": 0.486,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "pw5a3",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          6
+        ],
+        "hipStand": [
+          1.804,
+          6
+        ],
+        "hipMove": [
+          2.255,
+          6
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.28,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.547,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "pw7a2",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          6
+        ],
+        "hipStand": [
+          1.804,
+          6
+        ],
+        "hipMove": [
+          2.255,
+          6
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.221,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.398,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "qbz192",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          7
+        ],
+        "hipStand": [
+          1.804,
+          6
+        ],
+        "hipMove": [
+          2.255,
+          7
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.304,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.547,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "rpk74m",
+      "spread": {
+        "adsStand": [
+          0.05,
+          9
+        ],
+        "adsMove": [
+          0.32,
+          10
+        ],
+        "hipStand": [
+          3.352,
+          9
+        ],
+        "hipMove": [
+          4.19,
+          10
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.28,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.504,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "rpkm",
+      "spread": {
+        "adsStand": [
+          0.05,
+          9
+        ],
+        "adsMove": [
+          0.32,
+          10
+        ],
+        "hipStand": [
+          3.352,
+          9
+        ],
+        "hipMove": [
+          4.19,
+          10
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.409,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.736,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "scw10",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          6
+        ],
+        "hipStand": [
+          1.804,
+          6
+        ],
+        "hipMove": [
+          2.255,
+          6
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.36,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.736,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "sg553r",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          7
+        ],
+        "hipStand": [
+          1.804,
+          6
+        ],
+        "hipMove": [
+          2.255,
+          7
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.36,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.736,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "sgx",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          6
+        ],
+        "hipStand": [
+          1.804,
+          6
+        ],
+        "hipMove": [
+          2.255,
+          6
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.28,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.547,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "sl9",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          6
+        ],
+        "hipStand": [
+          1.804,
+          6
+        ],
+        "hipMove": [
+          2.255,
+          6
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.28,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.547,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "sor300sc",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          7
+        ],
+        "hipStand": [
+          1.804,
+          6
+        ],
+        "hipMove": [
+          2.255,
+          7
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.36,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.736,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "sor556",
+      "spread": {
+        "adsStand": [
+          0.05,
+          7
+        ],
+        "adsMove": [
+          0.32,
+          8
+        ],
+        "hipStand": [
+          2.432,
+          7
+        ],
+        "hipMove": [
+          3.04,
+          8
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.36,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.648,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "sv98",
+      "spread": {
+        "adsStand": [
+          0,
+          9
+        ],
+        "adsMove": [
+          0.32,
+          10
+        ],
+        "hipStand": [
+          3.352,
+          9
+        ],
+        "hipMove": [
+          4.19,
+          10
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 1,
+          "idleOffset": 6.5,
+          "firingCoef": 0,
+          "firingExp": 0.25,
+          "firingOffset": 6.6,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 6.6,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.941,
+          "idleTime": 1.8,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.05,
+          "firingExp": 2.5,
+          "firingOffset": 0.486,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "svdm",
+      "spread": {
+        "adsStand": [
+          0.05,
+          9
+        ],
+        "adsMove": [
+          0.32,
+          10
+        ],
+        "hipStand": [
+          3.352,
+          9
+        ],
+        "hipMove": [
+          4.19,
+          10
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 1,
+          "idleOffset": 6.5,
+          "firingCoef": 0,
+          "firingExp": 0.25,
+          "firingOffset": 6.6,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 6.6,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.504,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.142857,
+          "firingExp": 2.5,
+          "firingOffset": 1.388571,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "svk86",
+      "spread": {
+        "adsStand": [
+          0.05,
+          9
+        ],
+        "adsMove": [
+          0.32,
+          10
+        ],
+        "hipStand": [
+          4.848,
+          9
+        ],
+        "hipMove": [
+          6.06,
+          10
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 1,
+          "idleOffset": 6.5,
+          "firingCoef": 0,
+          "firingExp": 0.25,
+          "firingOffset": 6.6,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 6.6,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.648,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.0833333,
+          "firingExp": 2.5,
+          "firingOffset": 0.81,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "tr7",
+      "spread": {
+        "adsStand": [
+          0.05,
+          7
+        ],
+        "adsMove": [
+          0.32,
+          8
+        ],
+        "hipStand": [
+          2.432,
+          7
+        ],
+        "hipMove": [
+          3.04,
+          8
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.523,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.941,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "umg40",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          6
+        ],
+        "hipStand": [
+          1.804,
+          6
+        ],
+        "hipMove": [
+          2.255,
+          6
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.304,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.547,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "usg90",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          6
+        ],
+        "hipStand": [
+          1.804,
+          6
+        ],
+        "hipMove": [
+          2.255,
+          6
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.239,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.43,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "vcr2",
+      "spread": {
+        "adsStand": [
+          0.05,
+          7
+        ],
+        "adsMove": [
+          0.32,
+          8
+        ],
+        "hipStand": [
+          2.432,
+          7
+        ],
+        "hipMove": [
+          3.04,
+          8
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.36,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.648,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "vssm",
+      "spread": {
+        "adsStand": [
+          0.05,
+          9
+        ],
+        "adsMove": [
+          0.35,
+          10
+        ],
+        "hipStand": [
+          3.352,
+          9
+        ],
+        "hipMove": [
+          4.19,
+          10
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 1,
+          "idleOffset": 6.85715,
+          "firingCoef": 0,
+          "firingExp": 0.25,
+          "firingOffset": 6.6,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 6.6,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.398,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.1875,
+          "firingExp": 2.5,
+          "firingOffset": 1.8225,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    },
+    {
+      "weaponId": "vz61",
+      "spread": {
+        "adsStand": [
+          0.05,
+          6
+        ],
+        "adsMove": [
+          0.32,
+          6
+        ],
+        "hipStand": [
+          1.804,
+          6
+        ],
+        "hipMove": [
+          2.255,
+          6
+        ]
+      },
+      "dynamic": {
+        "ads": {
+          "inc": 0.209,
+          "idleTime": 0.4,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 7.5,
+          "firingCoef": 1.2,
+          "firingExp": 2.5,
+          "firingOffset": 2.7,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 7.2,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        },
+        "hip": {
+          "inc": 0.376,
+          "idleTime": 0.6,
+          "idleCoef": 0,
+          "idleExp": 0.25,
+          "idleOffset": 25,
+          "firingCoef": 0.5,
+          "firingExp": 2.5,
+          "firingOffset": 4.86,
+          "notFiringCoef": 0,
+          "notFiringExp": 0.25,
+          "notFiringOffset": 12.96,
+          "firstShotMul": 1,
+          "distExp": 0.5
+        }
+      },
+      "status": "verified",
+      "source": {
+        "provider": "raymdl/BF6-Weapon-Analyzer",
+        "type": "community",
+        "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "dataset": "data/weapons.json",
+        "commit": "7907352cea3a3d2e339d9e66fec8b2c34c7a3d7c",
+        "version": "1.4.1.5",
+        "retrievedAt": "2026-08-12T13:38:18.277Z",
+        "snapshot": "github-7907352"
+      },
+      "gameVersion": "1.4.2.0"
+    }
+  ]
+}
