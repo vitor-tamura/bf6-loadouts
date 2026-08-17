@@ -33,7 +33,17 @@
 
 import { join } from 'node:path';
 import type { SourceRef } from '../../src/catalog/catalog.types.ts';
-import { DATA, IMPORTS, NOW, TODAY, log, readJson, versionDir, writeJson } from './lib/io.ts';
+import {
+  DATA,
+  IMPORTS,
+  NOW,
+  TODAY,
+  compareVersions,
+  log,
+  readJson,
+  versionDir,
+  writeJson,
+} from './lib/io.ts';
 import { readdirSync } from 'node:fs';
 import { currentVersion, weapons } from './lib/store.ts';
 
@@ -150,23 +160,48 @@ function main(): void {
   const snapshot = latestSnapshot();
   const short = snapshot.commit.slice(0, 7);
 
-  const source: SourceRef = {
-    provider: snapshot.repository,
-    type: 'community',
-    url: `https://github.com/${snapshot.repository}`,
-    dataset: 'data/weapons.json',
-    commit: snapshot.commit,
-    version,
-    retrievedAt: NOW,
-    snapshot: `github-${short}`,
-  };
-
   const analyzerWeapons = snapshot.files['data/weapons.json'] as AnalyzerWeapon[] | undefined;
   const analyzerBallistics = snapshot.files['data/ballistics.json'] as AnalyzerBallistics | undefined;
 
   if (!analyzerWeapons || !analyzerBallistics) {
     throw new Error('o instantâneo não tem data/weapons.json e data/ballistics.json');
   }
+
+  /*
+   * A versão que o dataset descreve não é a versão em que ele está sendo
+   * escrito, e confundir as duas é como um número de 1.3.3.0 entra no catálogo
+   * carimbado como medição de 1.4.2.0. O `release` é o que o Analyzer declara
+   * sobre si; sem ele, a proveniência fica nula, que é a resposta honesta.
+   */
+  const release = analyzerBallistics.release ?? null;
+
+  /*
+   * Dataset atrasado não sobrescreve dado melhor.
+   *
+   * A comunidade demora dias para reprocessar um patch, e o pipeline roda no
+   * dia. Sem esta trava, a primeira execução depois da atualização substituiria
+   * a curva de dano medida da versão anterior pela de duas versões atrás — e a
+   * regressão viria assinada como importação nova.
+   */
+  if (release && compareVersions(release, version) < 0 && !process.argv.includes('--force')) {
+    log('nada importado', {
+      'o dataset descreve': release,
+      'a versão corrente é': version,
+      'o que fazer': 'esperar o dataset alcançar o patch, ou passar --force para sobrescrever',
+    });
+    return;
+  }
+
+  const source: SourceRef = {
+    provider: snapshot.repository,
+    type: 'community',
+    url: `https://github.com/${snapshot.repository}`,
+    dataset: 'data/weapons.json',
+    commit: snapshot.commit,
+    version: release,
+    retrievedAt: NOW,
+    snapshot: `github-${short}`,
+  };
 
   /*
    * Só entra arma que já existe no catálogo.

@@ -36,6 +36,8 @@ const diff = previous
       stats: unknown[];
       effects: unknown[];
       costs: unknown[];
+      /** Ausente nos diffs gerados antes de a comparação de números existir. */
+      simulation?: { id: string; field?: string; from?: unknown; to?: unknown }[];
     } | null>(join(DIFFS, `${previous}-to-${version}.json`), null)
   : null;
 
@@ -56,6 +58,34 @@ const describe = (event: ChangeEvent) => {
 
 const list = (events: ChangeEvent[]) =>
   events.length ? events.map(describe).join('\n') : '_nenhuma._';
+
+/** Quantas mudanças de número cabem no corpo antes de ele virar tabela de dados. */
+const MAX_NUMEROS = 25;
+
+/**
+ * Os números que mudaram, que é o que o patch note não publica.
+ *
+ * "VSSM limb damage multipliers have been adjusted" não diz de quanto para
+ * quanto — a EA não divulga o valor interno. O diff entre dois instantâneos
+ * diz, e é aqui que ele aparece: `damage.zones.limb: 0.91 → 0.84`. Sem esta
+ * lista, quem revisa lê que algo mudou e continua sem saber o quê.
+ */
+function numbers(diff: { simulation?: { id: string; field?: string; from?: unknown; to?: unknown }[] }) {
+  const changes = diff.simulation ?? [];
+  if (!changes.length) return '';
+
+  const linhas = changes
+    .slice(0, MAX_NUMEROS)
+    .map((change) => `- \`${change.id}\` **${change.field}**: ${change.from ?? '—'} → ${change.to ?? '—'}`);
+
+  const resto = changes.length - linhas.length;
+
+  return `
+
+### Números que mudaram
+
+${linhas.join('\n')}${resto > 0 ? `\n- _e mais ${resto}, no arquivo do diff._` : ''}`;
+}
 
 const quality = Object.entries(catalog.dataQuality)
   .map(([domain, counts]) => {
@@ -92,7 +122,8 @@ Compatibility:  + ${diff.compatibility.added.length}  - ${diff.compatibility.rem
 Stats:          ~ ${diff.stats.length}
 Effects:        ~ ${diff.effects.length}
 Costs:          ~ ${diff.costs.length}
-\`\`\``
+Simulation:     ~ ${diff.simulation?.length ?? 0}
+\`\`\`${numbers(diff)}`
     : ''
 }
 

@@ -131,6 +131,29 @@ async function processVersion(update: DiscoveredUpdate, options: Options): Promi
     return false;
   }
 
+  /* --------------------------- números da simulação --------------------------- */
+
+  /*
+   * A conciliação herda curva de dano, velocidade e recuo da versão anterior,
+   * porque o patch note não os publica: a EA escreve "limb damage multipliers
+   * have been adjusted" e não diz de quanto para quanto. Quem diz é o dataset
+   * da comunidade, quando ele alcança o patch — e é isto aqui que vai perguntar,
+   * a cada execução, se ele já alcançou.
+   *
+   * Nada disso é obrigatório. Sem rede, com o dataset atrasado ou com o
+   * repositório fora do ar, o passo não escreve nada e a versão segue com os
+   * números herdados, que é o estado anterior e não uma perda. O que muda é que,
+   * no dia em que a fonte publicar, o `diff` mostra o número exato no Pull
+   * Request em vez de repetir a frase do patch note.
+   */
+  if (run('fetch-github-data.ts').ok) {
+    if (!run('import-analyzer.ts').ok) {
+      log(`${version}: a importação dos números falhou — eles seguem herdados`);
+    }
+  } else {
+    log(`${version}: o dataset da comunidade não pôde ser lido — números herdados`);
+  }
+
   if (!run('generate-indexes.ts').ok) return false;
   if (!run('validate.ts').ok) {
     console.error(`${version}: o catálogo gerado não passou na validação`);
