@@ -93,6 +93,44 @@ describe('adições e remoções', () => {
     expect(change!.automation).toBe('auto');
   });
 
+  it('aceita remoção de peça cujo nome já traz o tipo', () => {
+    const change = parse('The 50 MW Violet laser has been removed from the game.');
+
+    expect(change!.entityId).toBe('50mw_violet');
+    expect(change!.kind).toBe('attachment_removed');
+    expect(change!.automation).toBe('auto');
+  });
+
+  it('não tira a arma quando o que saiu foi algo de dentro dela', () => {
+    /*
+     * A linha é do patch 1.4.2.0, e foi ela que apagou a VSSM do catálogo: o
+     * parser viu "removed" e um nome de arma na mesma frase e aplicou a saída
+     * sozinho. O que a EA tirou foi um modificador do cano — a arma continua no
+     * jogo, e com ela vinham 62 curvas de dano contra 61 armas, o bastante para
+     * derrubar `damageCurves`, `velocity`, `drag` e `ttk` de uma vez.
+     *
+     * A entidade continua reconhecida: a frase é notícia sobre a VSSM, e some
+     * do Pull Request se virar nulo. O que ela não pode é seguir sozinha.
+     */
+    const change = parse(
+      'An unintended recoil modifier has been removed from VSSM barrel attachments.',
+    );
+
+    expect(change!.entityId).toBe('vssm');
+    expect(change!.kind).not.toBe('weapon_removed');
+    expect(change!.automation).toBe('review');
+  });
+
+  it('não lê defeito corrigido como conteúdo retirado', () => {
+    const change = parse(
+      'Fixed an issue where the M87A1 laser sight was not being removed on unequip.',
+    );
+
+    expect(change!.entityId).toBe('m87a1');
+    expect(change!.kind).not.toBe('weapon_removed');
+    expect(change!.automation).toBe('review');
+  });
+
   it('ignora remoção que não é de arma nem de peça', () => {
     /*
      * Patch note remove muita coisa que não é conteúdo: botão, ícone, som.

@@ -163,13 +163,17 @@ function namePattern(key: string): RegExp {
 
 const patterns = new Map<string, RegExp>();
 
-function matchesName(line: string, key: string): boolean {
+function matchName(line: string, key: string): RegExpExecArray | null {
   let pattern = patterns.get(key);
   if (!pattern) {
     pattern = namePattern(key);
     patterns.set(key, pattern);
   }
-  return pattern.test(line);
+  return pattern.exec(line);
+}
+
+function matchesName(line: string, key: string): boolean {
+  return matchName(line, key) !== null;
 }
 
 /**
@@ -259,6 +263,56 @@ function findField(line: string): string | null {
 const ADDED = /\b(added|introduced|new)\b/i;
 const REMOVED = /\b(removed|retired|disabled|delisted)\b/i;
 
+/** "was not being removed" é defeito corrigido, não conteúdo retirado. */
+const NOT_REMOVED = /\b(not|never|no longer|without)\b/i;
+
+/**
+ * O que sai do jogo é a peça citada aqui, e não a arma que a hospeda.
+ *
+ * Aparecendo entre o nome e o verbo, qualquer um destes é sinal de que quem
+ * levou o "removed" foi ele, não a entidade: "the M87A1 laser sight ...
+ * removed" tira a mira, e a M87A1 é só onde ela estava montada.
+ */
+const REMOVED_PART =
+  /\b(sights?|barrels?|muzzles?|magazines?|grips?|lasers?|stocks?|ammo|attachments?|modifiers?|effects?|bugs?|issues?|buttons?|icons?|options?|skins?|animations?|sounds?|indicators?)\b/i;
+
+/**
+ * A entidade é o que saiu, ou o lugar de onde saiu outra coisa?
+ *
+ * "The DB-12 shotgun has been removed from the store rotation" tira a arma.
+ * "An unintended recoil modifier has been removed from VSSM barrel
+ * attachments" tira um modificador de dentro do cano — e foi lida como a saída
+ * da VSSM do jogo, que desapareceu do catálogo inteiro, com a compatibilidade
+ * junto, num patch que só acertou um cano.
+ *
+ * O que separa as duas é a ordem em que a frase se monta: o que sai vem antes
+ * do verbo, e o que vem depois, atrás de "from", é a origem. Só isso ainda não
+ * basta — entre o nome e o verbo não pode haver negativa nem outro substantivo
+ * levando o "removed" embora.
+ */
+function removesEntity(line: string, key: string, entityType: 'weapon' | 'attachment'): boolean {
+  const name = matchName(line, key);
+  const verb = REMOVED.exec(line);
+  if (!name || !verb) return false;
+
+  // Verbo antes do nome: a entidade está do lado do "from", como origem.
+  if (verb.index < name.index) return false;
+
+  let between = line.slice(name.index + name[0].length, verb.index);
+
+  /*
+   * O substantivo colado ao nome de uma peça é o tipo dela, não outra coisa: em
+   * "The 50 MW Violet laser has been removed from the game", quem sai é o
+   * laser, que é a própria peça. Numa arma o mesmo substantivo diz o contrário
+   * — "the M87A1 laser sight ... removed" tira a mira e deixa a arma.
+   */
+  if (entityType === 'attachment') {
+    between = between.replace(new RegExp(`^\\s*${REMOVED_PART.source}`, 'i'), '');
+  }
+
+  return !NOT_REMOVED.test(between) && !REMOVED_PART.test(between);
+}
+
 /**
  * O que distingue balanceamento de correção de interface.
  *
@@ -330,6 +384,22 @@ export function parseLine(line: string, known: Known): PatchChange | null {
      * attachment screen". O texto fica guardado no patch note para auditoria.
      */
     if (!entity) return null;
+
+    /*
+     * Citar a entidade numa frase de remoção não é a entidade ter sido
+     * removida. Quando ela não é o alvo, a frase continua sendo notícia sobre
+     * ela — vai marcada, e quem revisa diz o que saiu.
+     */
+    if (!removesEntity(clean, entity.key, entity.entityType)) {
+      return {
+        ...base,
+        kind: field ? 'stat_changed' : 'unknown',
+        operation: 'none',
+        automation: 'review',
+        reason: 'A frase remove algo de dentro da entidade, não a entidade do jogo.',
+      };
+    }
+
     return {
       ...base,
       kind: entity.entityType === 'attachment' ? 'attachment_removed' : 'weapon_removed',
