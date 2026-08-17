@@ -118,11 +118,20 @@ Informação mais recente pesa mais. Não repita tier list antiga.
 
 ## 3. Onde procurar
 
-- Patch notes oficiais da EA/DICE e canais oficiais de Battlefield.
-- Reddit recente — r/Battlefield6, r/Battlefield, r/BF6 —, procurando por "meta", "best gun", "tier list", "broken", "nerf", "buff", "weapon usage", "best loadout".
-- Trackers e comparadores com pick rate, uso, K/D, KPM ou TTK.
+As duas listas não se abastecem no mesmo lugar.
 
-Nenhum site sozinho decide. O mesmo site em idiomas diferentes (/pt, /es) conta como uma fonte só. O Reddit mostra percepção, não medição: quando ele disser que uma arma é absurda e os números não confirmarem, diga isso no motivo em vez de tratar como fato.
+**Para picks**, procure quem analisa o meta depois do patch: guia, tier list ou ranking que use a palavra "meta" e diga de que modo está falando. Termos que costumam achar: "meta", "best weapons", "tier list", "weapon ranking", com o número da temporada junto. Tracker ou comparador com pick rate, uso, K/D, KPM ou TTK vale como medição e pesa mais que opinião.
+
+**Para trending**, procure onde a conversa acontece:
+- fórum oficial da EA — forums.ea.com e answers.ea.com, seções de Battlefield 6, tanto discussão geral quanto relato de bug;
+- Reddit recente — r/Battlefield6, r/Battlefield, r/BF6 —, por "broken", "nerf", "buff", "why is everyone using", "new build";
+- comentários e relatos de quem joga, sobre acessório, montagem ou comportamento que mudou.
+
+Patch notes oficiais da EA/DICE ancoram as duas: é de lá que sai o que a atualização mexeu.
+
+Nenhum site sozinho decide. O mesmo site em idiomas diferentes (/pt, /es) conta como uma fonte só. Fórum e Reddit mostram percepção, não medição: quando eles disserem que uma arma é absurda e os números não confirmarem, diga isso no motivo em vez de tratar como fato.
+
+Fonte publicada antes de ${TEMPORADA.startsOn} — o começo da temporada — não sustenta posição nenhuma. Ela pode aparecer como contexto no motivo, nunca como a evidência que põe a arma na lista. E o campo "patch" precisa ser uma atualização desta temporada: apontar um patch anterior a ${TEMPORADA.startsOn} anula a leitura inteira, porque a tela passa a anunciar hoje o jogo de dois meses atrás.
 
 ## 4. Meta não é a mesma coisa que trending
 
