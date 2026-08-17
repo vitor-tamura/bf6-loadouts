@@ -1,125 +1,116 @@
 {
   "readAt": "2026-08-17",
-  "model": "gpt-4.1",
+  "model": "curadoria manual",
   "patch": {
-    "name": "Battlefield 6 Blastpoint Update 1.3.2.0",
-    "date": "2026-06-10"
+    "name": "Game Update 1.4.1.0 (Season 4: Pacific Front)",
+    "date": "2026-07-21"
   },
   "picks": [
     {
-      "weapon": "sor-556-mk2",
-      "reason": "Ajustes recentes melhoraram a precisão e o controle de recuo, tornando-a altamente eficaz em combates de médio alcance.",
-      "sources": [
-        0
-      ]
-    },
-    {
-      "weapon": "m4a1",
-      "reason": "Aumento na cadência de tiro e redução do tempo para matar (TTK) após o último patch, elevando sua eficácia em combates próximos.",
-      "sources": [
-        0
-      ]
-    },
-    {
-      "weapon": "l85a3",
-      "reason": "Melhorias no alcance efetivo e estabilidade, tornando-a uma escolha sólida para engajamentos de longo alcance.",
-      "sources": [
-        0
-      ]
-    },
-    {
-      "weapon": "kord-6p67",
-      "reason": "Redução significativa no recuo, aumentando sua precisão e controle em rajadas prolongadas.",
-      "sources": [
-        0
-      ]
+      "weapon": "ef88",
+      "reason": "Primeiro lugar nas leituras pós-1.4.1.0: junta recuo controlável a desempenho de médio e longo alcance, que é o que os mapas abertos da temporada cobram.",
+      "sources": [0, 1]
     },
     {
       "weapon": "m16a4",
-      "reason": "Ajustes na dispersão de tiros e melhoria na estabilidade ao disparar em modo burst, aumentando sua eficácia.",
-      "sources": [
-        0
-      ]
+      "reason": "Atravessou o 1.4.1.0 sem redução direta de dano nem de controle de recuo, e continuou confiável enquanto o resto da lista se mexia.",
+      "sources": [0]
+    },
+    {
+      "weapon": "kts100-mk8",
+      "reason": "Melhor metralhadora do multiplayer: carregador grande, velocidade de projétil alta e pouca variação de recuo na rajada longa.",
+      "sources": [0, 1]
+    },
+    {
+      "weapon": "m4a1",
+      "reason": "A escolha de quem avança em cima do objetivo, no curto e médio alcance, citada como a melhor carabina da temporada.",
+      "sources": [0, 1]
+    },
+    {
+      "weapon": "m2010-esr",
+      "reason": "Melhor fuzil de precisão: velocidade de projétil alta e poder de parada confiável, com folga suficiente para jogar em movimento.",
+      "sources": [0]
     }
   ],
   "trending": [
     {
       "weapon": "ef88",
-      "reason": "Redução no recuo vertical no último patch levou a um aumento no uso pela comunidade.",
-      "sources": [
-        0
-      ],
-      "trend": "buff de recuo"
+      "reason": "Tópico no fórum oficial afirma que o Match Trigger desliga o aumento de dispersão por tiro e derruba o recuo, deixando a arma precisa demais em full auto.",
+      "sources": [2],
+      "trend": "match trigger em debate"
     },
     {
-      "weapon": "vcr-2",
-      "reason": "Descoberta de uma nova configuração full-auto que melhora o desempenho em combates próximos.",
-      "sources": [
-        0
-      ],
-      "trend": "build full-auto"
+      "weapon": "brod-3",
+      "reason": "Jogadores abriram tópico questionando a precisão da BROD 3 e da EF88, e a dupla virou assunto recorrente no fórum da EA.",
+      "sources": [3],
+      "trend": "precisão contestada"
     },
     {
       "weapon": "m433",
-      "reason": "Introdução recente no jogo com estatísticas promissoras levou a uma rápida adoção pelos jogadores.",
-      "sources": [
-        0
-      ],
-      "trend": "chegou no patch"
+      "reason": "Na discussão de equilíbrio, jogadores relatam que ela vence as submetralhadoras no curto alcance, com quatro tiros para abater.",
+      "sources": [4],
+      "trend": "vence as smgs de perto"
     },
     {
-      "weapon": "ak-205",
-      "reason": "Jogadores migrando da M4A1 devido a ajustes que tornaram a AK-205 mais competitiva.",
-      "sources": [
-        0
-      ],
-      "trend": "migração da M4A1"
+      "weapon": "vssm",
+      "reason": "As notas da 1.4.2.0 tiraram um modificador de recuo não intencional dos canos dela, o que muda o comportamento das montagens que o usavam.",
+      "sources": [5],
+      "trend": "cano perdeu modificador"
     }
   ],
   "sources": [
     {
-      "name": "GAMES.GG",
-      "url": "https://games.gg/battlefield-6/guides/battlefield-6-blastpoint-update-rundown/",
-      "date": "2026-06-10",
+      "name": "KeenGamer — Season 4 Meta: 5 Best Weapons Ranked",
+      "url": "https://www.keengamer.com/articles/guides/battlefield-6-season-4-meta-5-best-weapons-ranked/",
+      "date": "2026-07-24",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Análise detalhada das mudanças no patch 1.3.2.0, focando no multiplayer tradicional.",
+      "scope": "Ranking das cinco armas mais fortes da Season 4 em partidas de multiplayer, com os mapas da temporada como referência.",
       "timeframe": "season-4"
     },
     {
-      "name": "SteamDB",
-      "url": "https://steamdb.info/patchnotes/21256123/",
-      "date": "2026-01-20",
+      "name": "TheGamer — Best Weapons For Season 4",
+      "url": "https://www.thegamer.com/battlefield-6-best-weapons-class-meta-smg-lmg-assault-rifle-sniper-dmr-season-4-guide/",
+      "date": "2026-08-03",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Notas oficiais de atualização fornecendo detalhes sobre mudanças em armas e mecânicas de jogo.",
+      "scope": "Guia por classe do multiplayer tradicional; o texto separa o ranqueado do REDSEC e trata das partidas convencionais.",
       "timeframe": "season-4"
     },
     {
-      "name": "GameSpot",
-      "url": "https://www.gamespot.com/articles/battlefield-6-season-3-patch-notes-detail-improvements-for-vehicles-netcode-gadgets-and-more/1100-6539867/",
-      "date": "2026-05-08",
+      "name": "EA Forums — Match Trigger na EF88 e na BROD 3",
+      "url": "https://forums.ea.com/idea/battlefield-6-bug-reports-en/match-trigger-on-ef88--brod-3-makes-them-brokenly-accurate-on-full-auto/13590818",
+      "date": "2026-08-17",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Cobertura abrangente das notas do patch da Temporada 3, incluindo ajustes em armas e balanceamento.",
+      "scope": "Tópico do fórum oficial sobre o efeito do Match Trigger em full auto na partida. A data é a da leitura: a página não declara a de publicação.",
       "timeframe": "season-4"
     },
     {
-      "name": "Battlefield 6 Stats",
-      "url": "https://www.battlefield6.gg/patch-notes/",
-      "date": "2025-10-24",
+      "name": "EA Forums — BROD 3 & EF88 has low precision?",
+      "url": "https://forums.ea.com/idea/battlefield-6-bug-reports-en/brod-3--ef88-has-low-precision/13574625",
+      "date": "2026-08-17",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Feed de atualizações com notas de patch detalhadas, relevantes para o multiplayer tradicional.",
+      "scope": "Relato de precisão das duas armas da Season 4 em partida de multiplayer. A data é a da leitura: a página não declara a de publicação.",
       "timeframe": "season-4"
     },
     {
-      "name": "PatchDiff",
-      "url": "https://patchdiff.com/games/battlefield-6",
-      "date": "2026-07-10",
+      "name": "EA Forums — Current Weapon Balance",
+      "url": "https://forums.ea.com/discussions/battlefield-6-general-discussion-en/current-weapon-balance/13124700",
+      "date": "2026-08-17",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Análise de buffs e nerfs em patches recentes, focando no impacto no multiplayer tradicional.",
+      "scope": "Discussão de equilíbrio de armas no multiplayer, comparando M433 e M4A1 com as submetralhadoras no curto alcance.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "EA — Battlefield 6 Game Update 1.4.2.0",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-0",
+      "date": "2026-08-17",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Notas oficiais da atualização; a linha citada está na seção de armas e descreve o comportamento em partida.",
       "timeframe": "season-4"
     }
   ]
