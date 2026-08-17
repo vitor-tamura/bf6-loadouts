@@ -49,8 +49,8 @@ const STAT_LABEL: Record<StatKey, string> = {
 };
 
 /** Transforma os modificadores em frases curtas e legíveis. */
-function summarizeEffects(attachment: Attachment): { text: string; good: boolean }[] {
-  const out: { text: string; good: boolean }[] = [];
+function summarizeEffects(attachment: Attachment): { text: string; label: string; good: boolean }[] {
+  const out: { text: string; label: string; good: boolean }[] = [];
 
   for (const [statKey, mod] of Object.entries(attachment.mods) as [
     StatKey,
@@ -60,6 +60,7 @@ function summarizeEffects(attachment: Attachment): { text: string; good: boolean
     if (mod.add !== undefined && mod.add !== 0) {
       out.push({
         text: `${mod.add > 0 ? '+' : ''}${mod.add} ${STAT_LABEL[statKey]}`,
+        label: STAT_LABEL[statKey],
         good: lowerIsBetter ? mod.add < 0 : mod.add > 0,
       });
     }
@@ -68,12 +69,48 @@ function summarizeEffects(attachment: Attachment): { text: string; good: boolean
       if (pct === 0) continue;
       out.push({
         text: `${pct > 0 ? '+' : ''}${pct}% ${STAT_LABEL[statKey]}`,
+        label: STAT_LABEL[statKey],
         good: lowerIsBetter ? pct < 0 : pct > 0,
       });
     }
   }
 
   return out;
+}
+
+/**
+ * O que a peça cobra, em palavras.
+ *
+ * As descrições foram escritas para vender a peça — "duas portas: mais
+ * controle ainda, e esconde a marcação do disparo" não conta que o tiro sem
+ * visada piora seis pontos. Escrever a contrapartida em cada uma das 216 que
+ * têm custo criaria 216 frases para envelhecer no primeiro rebalanceamento, e
+ * elas divergiriam do número mostrado logo abaixo. Então a frase é derivada
+ * dos próprios modificadores: onde o número muda, o texto muda junto.
+ *
+ * A lista sai sem repetir estatística — recuo vertical que piora em soma e em
+ * proporção é um custo só, e não dois — e sem repetir o que a frase já disse:
+ * parte das descrições já conta o preço ("o preço é o tiro sem visada"), e
+ * emendar "piora tiro sem visada" atrás dela diz a mesma coisa duas vezes.
+ */
+const withoutAccents = (text: string) =>
+  text
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase();
+
+const alreadySaid = (description: string, label: string) =>
+  new RegExp(`(^|[^a-z])${withoutAccents(label)}([^a-z]|$)`).test(description);
+
+export function downsides(attachment: Attachment): string[] {
+  const description = withoutAccents(attachment.description);
+
+  const labels = summarizeEffects(attachment)
+    .filter((effect) => !effect.good)
+    .map((effect) => effect.label)
+    .filter((label) => !alreadySaid(description, label));
+
+  return [...new Set(labels)];
 }
 
 /** Quantos pontos cada marca do medidor vale — dez marcas para os 100 pontos. */
@@ -414,6 +451,17 @@ function SlotOptions({
         )}
         <p className="mt-0.5 text-[12px] leading-snug" style={{ color: 'var(--text-soft)' }}>
           {preview ? preview.description : definition.description}
+          {/*
+            A peça que cobra alguma coisa diz o que cobra, na mesma frase em que
+            se anuncia. Sem isto, a descrição é propaganda: lê-se "mais controle
+            ainda" e monta-se sem saber que o tiro sem visada foi junto.
+          */}
+          {preview && downsides(preview).length > 0 && (
+            <span style={{ color: 'var(--color-negative)' }}>
+              {' '}
+              Piora {downsides(preview).join(', ')}.
+            </span>
+          )}
         </p>
         {preview && (
           <p className="mt-1 flex flex-wrap gap-x-3 gap-y-0.5 font-mono text-[11px]">
