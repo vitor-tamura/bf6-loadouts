@@ -244,6 +244,8 @@ describe('mudança sem número', () => {
     expect(change!.field).toBe('damage');
     expect(change!.automation).toBe('review');
     expect(change!.reason).toMatch(/não existe no catálogo/);
+    // Sem id, é o nome que identifica a pendência no corpo do Pull Request.
+    expect(change!.mentioned).toBe('Match Grade Ammo');
   });
 });
 

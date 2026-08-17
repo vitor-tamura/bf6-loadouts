@@ -280,6 +280,12 @@ function main(): void {
         // Percentual não vira número: a proporção é o que a fonte publicou.
         before: change.before,
         after: change.after,
+        /*
+         * O nome do que o patch note citou, para o evento poder dizer de quem
+         * fala quando o catálogo ainda não tem a entidade — "Interdictor sniper
+         * rifle" em vez do parágrafo inteiro com um travessão no lugar do id.
+         */
+        mentioned: change.mentioned,
         line: change.line,
       },
       sources: [source],

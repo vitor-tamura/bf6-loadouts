@@ -546,10 +546,14 @@ export function parseLine(line: string, known: Known): PatchChange | null {
    * verbo e não nomeia coisa alguma do jogo: sem esta condição, toda regra
    * geral de dano viraria pendência de uma arma que ninguém citou.
    */
-  if (field && CHANGE_VERB.test(clean) && (entity || PROPER_NAME.test(clean))) {
+  const proper = PROPER_NAME.exec(clean);
+
+  if (field && CHANGE_VERB.test(clean) && (entity || proper)) {
     return {
       ...base,
       kind: 'stat_changed',
+      // Sem id, o nome próprio da frase é o que identifica a pendência.
+      mentioned: entity ? base.mentioned : (proper?.[0] ?? null),
       operation: 'none',
       automation: 'review',
       reason: entity

@@ -139,7 +139,20 @@ jobs:
           git checkout -b "$branch"
           git add data public/data
           git commit -m "feat(data): update Battlefield 6 to ${{ inputs.version }}"
-          git push --set-upstream origin "$branch"
+
+          # Uma tentativa anterior pode ter deixado o branch no remoto — foi o
+          # que aconteceu quando a 1.4.2.0 rodou duas vezes: o Pull Request da
+          # primeira já estava fechado, a guarda acima deixou passar, e o push
+          # bateu num branch que ninguém mais lia. O conteúdo aqui é gerado do
+          # zero a cada execução e o passo anterior já garantiu que não há Pull
+          # Request aberto, então substituir é o certo. O lease é o que impede
+          # que a substituição pise em algo que tenha chegado depois do fetch.
+          if git fetch origin "$branch" 2>/dev/null; then
+            git push --force-with-lease="$branch:$(git rev-parse FETCH_HEAD)" origin "$branch"
+            git branch --set-upstream-to="origin/$branch" "$branch"
+          else
+            git push --set-upstream origin "$branch"
+          fi
 
           gh pr create \
             --title "feat(data): update Battlefield 6 to ${{ inputs.version }}" \
