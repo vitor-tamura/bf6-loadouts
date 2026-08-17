@@ -1,106 +1,125 @@
 {
-  "readAt": "2026-08-16",
-  "model": "gpt-5-mini",
+  "readAt": "2026-08-17",
+  "model": "gpt-4.1",
   "patch": {
-    "name": "Game Update 1.4.1.0 (Season 4)",
-    "date": "2026-07-21"
+    "name": "Battlefield 6 Blastpoint Update 1.3.2.0",
+    "date": "2026-06-10"
   },
   "picks": [
     {
-      "weapon": "m433",
-      "reason": "consenso de jogadores experientes e listas de tier apontam o M433 como referência para mid/close range pela combinação de precisão e TTK em testes comunitários.",
-      "sources": []
-    },
-    {
-      "weapon": "drs-iar",
-      "reason": "discussões recentes no sub mostram que o DRS-IAR tem performance de LMG com controle e alcance comparáveis a rifles de ponta, sendo citado como potencialmente OP por vários jogadores.",
+      "weapon": "sor-556-mk2",
+      "reason": "Ajustes recentes melhoraram a precisão e o controle de recuo, tornando-a altamente eficaz em combates de médio alcance.",
       "sources": [
-        2
+        0
       ]
     },
     {
-      "weapon": "ak4d",
-      "reason": "analises e guias de meta/ builds apontam o AK4D como rifle com excelente desempenho em mid-range, sendo tratado como um dos pilares do meta por sites de loadouts.",
+      "weapon": "m4a1",
+      "reason": "Aumento na cadência de tiro e redução do tempo para matar (TTK) após o último patch, elevando sua eficácia em combates próximos.",
       "sources": [
-        4
+        0
+      ]
+    },
+    {
+      "weapon": "l85a3",
+      "reason": "Melhorias no alcance efetivo e estabilidade, tornando-a uma escolha sólida para engajamentos de longo alcance.",
+      "sources": [
+        0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "menções recorrentes em discussões sobre equilíbrio como uma metralhadora leve de alto rendimento para combates de corpo a corpo e média distância, com bom tradeoff entre dano e controle.",
-      "sources": []
+      "reason": "Redução significativa no recuo, aumentando sua precisão e controle em rajadas prolongadas.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "m16a4",
+      "reason": "Ajustes na dispersão de tiros e melhoria na estabilidade ao disparar em modo burst, aumentando sua eficácia.",
+      "sources": [
+        0
+      ]
     }
   ],
   "trending": [
     {
-      "weapon": "brod-3",
-      "reason": "arma adicionada pela atualização 1.4.1.0 (Season 4) e imediatamente mencionada pela equipe e pela comunidade como carabina nova para close-range.",
-      "sources": [
-        0
-      ],
-      "trend": "chegou no patch"
-    },
-    {
       "weapon": "ef88",
-      "reason": "EF88 foi introduzida na 1.4.1.0 como bullpup voltada para mid/long range e destacou-se nas notas oficiais como novo rifle a testar pela comunidade.",
+      "reason": "Redução no recuo vertical no último patch levou a um aumento no uso pela comunidade.",
+      "sources": [
+        0
+      ],
+      "trend": "buff de recuo"
+    },
+    {
+      "weapon": "vcr-2",
+      "reason": "Descoberta de uma nova configuração full-auto que melhora o desempenho em combates próximos.",
+      "sources": [
+        0
+      ],
+      "trend": "build full-auto"
+    },
+    {
+      "weapon": "m433",
+      "reason": "Introdução recente no jogo com estatísticas promissoras levou a uma rápida adoção pelos jogadores.",
       "sources": [
         0
       ],
       "trend": "chegou no patch"
     },
     {
-      "weapon": "vssm",
-      "reason": "VSSM entrou com a 1.4.1.0 como DMR com supressor integrado e capacidade full-auto; comunidades reportaram interesse imediato em builds stealth.",
+      "weapon": "ak-205",
+      "reason": "Jogadores migrando da M4A1 devido a ajustes que tornaram a AK-205 mais competitiva.",
       "sources": [
         0
       ],
-      "trend": "chegou no patch"
+      "trend": "migração da M4A1"
     }
   ],
   "sources": [
     {
-      "name": "EA — Game Update 1.4.1.0 (oficial)",
-      "url": "https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-4-1-0",
-      "date": "2026-07-21",
+      "name": "GAMES.GG",
+      "url": "https://games.gg/battlefield-6/guides/battlefield-6-blastpoint-update-rundown/",
+      "date": "2026-06-10",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "notes oficiais do patch da Temporada 4 que listam armas adicionadas e mudanças que afetam apenas multiplayer tradicional",
+      "scope": "Análise detalhada das mudanças no patch 1.3.2.0, focando no multiplayer tradicional.",
       "timeframe": "season-4"
     },
     {
-      "name": "PC Gamer — resumo 1.4.1.5 (qualidade de vida)",
-      "url": "https://www.pcgamer.com/ea-has-fixed-a-niche-battlefield-6-issue-where-some-nvidia-gpus-were-crashing-while-changing-attachments-or-playing-on-maps-with-large-bodies-of-water/",
-      "date": "2026-08-03",
+      "name": "SteamDB",
+      "url": "https://steamdb.info/patchnotes/21256123/",
+      "date": "2026-01-20",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "cobertura jornalística do patch 1.4.1.5 (pequeno hotfix) e mudanças de estabilidade que valem para multiplayer tradicional",
+      "scope": "Notas oficiais de atualização fornecendo detalhes sobre mudanças em armas e mecânicas de jogo.",
       "timeframe": "season-4"
     },
     {
-      "name": "Reddit — DRS LMG discuss (comunidade)",
-      "url": "https://www.reddit.com/r/LowSodiumBattlefield/comments/1vew5nq/the_drs_lmg_might_be_op/",
-      "date": "2026-08-04",
+      "name": "GameSpot",
+      "url": "https://www.gamespot.com/articles/battlefield-6-season-3-patch-notes-detail-improvements-for-vehicles-netcode-gadgets-and-more/1100-6539867/",
+      "date": "2026-05-08",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "post comunitário que documenta percepção e exemplos de uso do DRS-IAR no multiplayer tradicional",
+      "scope": "Cobertura abrangente das notas do patch da Temporada 3, incluindo ajustes em armas e balanceamento.",
       "timeframe": "season-4"
     },
     {
-      "name": "Reddit — 3KDR Tierlist (comunidade)",
-      "url": "https://www.reddit.com/r/Battlefield/comments/1uu8b3q/the_official_3kdr_tierlist/",
-      "date": "2026-07-12",
+      "name": "Battlefield 6 Stats",
+      "url": "https://www.battlefield6.gg/patch-notes/",
+      "date": "2025-10-24",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "lista comunitária que reúne análise de armas usadas em níveis altos de jogo (multiplayer tradicional) e ajuda a sustentar picks",
+      "scope": "Feed de atualizações com notas de patch detalhadas, relevantes para o multiplayer tradicional.",
       "timeframe": "season-4"
     },
     {
-      "name": "BattlefieldMeta — guia AK4D (tracker/guia)",
-      "url": "https://battlefieldmeta.gg/best-loadouts/ak4d",
-      "date": "2026-07-28",
+      "name": "PatchDiff",
+      "url": "https://patchdiff.com/games/battlefield-6",
+      "date": "2026-07-10",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "guia/tracker de builds que compila estatísticas e recomendações de loadout aplicáveis ao multiplayer tradicional",
+      "scope": "Análise de buffs e nerfs em patches recentes, focando no impacto no multiplayer tradicional.",
       "timeframe": "season-4"
     }
   ]
