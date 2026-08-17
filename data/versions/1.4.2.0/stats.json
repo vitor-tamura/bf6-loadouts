@@ -1,0 +1,1555 @@
+{
+  "gameVersion": "1.4.2.0",
+  "stats": [
+    {
+      "weaponId": "ak205",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 719.999,
+        "magazineCapacity": 31,
+        "adsMs": 200,
+        "reload": 2.484,
+        "emptyReload": 2.917,
+        "velocity": 708,
+        "verticalRecoil": 0.5082994245768439,
+        "horizontalRecoil": 7.4,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "ak4d",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 514.285,
+        "magazineCapacity": 21,
+        "adsMs": 270,
+        "reload": 2.467,
+        "emptyReload": 3.3,
+        "velocity": 680,
+        "verticalRecoil": 0.852210725925926,
+        "horizontalRecoil": 20,
+        "spreadMax": 7
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "b36a4",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 719.999,
+        "magazineCapacity": 31,
+        "adsMs": 250,
+        "reload": 2.384,
+        "emptyReload": 2.95,
+        "velocity": 740,
+        "verticalRecoil": 0.7264767922329352,
+        "horizontalRecoil": 28,
+        "spreadMax": 7
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "brod3",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 830.7692307692307,
+        "magazineCapacity": 31,
+        "adsMs": 200,
+        "reload": 2.217,
+        "emptyReload": 3.35,
+        "velocity": 580,
+        "verticalRecoil": 0.8354362713464263,
+        "horizontalRecoil": 24.3,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "cz3a1",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 981.818,
+        "magazineCapacity": 31,
+        "adsMs": 170,
+        "reload": 2.217,
+        "emptyReload": 2.95,
+        "velocity": 336,
+        "verticalRecoil": 0.6848687077127121,
+        "horizontalRecoil": 50.8,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "db12",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 359.999,
+        "magazineCapacity": 16,
+        "adsMs": 240,
+        "reload": null,
+        "emptyReload": null,
+        "velocity": 400,
+        "verticalRecoil": 2.708937326026026,
+        "horizontalRecoil": 15,
+        "spreadMax": 5
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "drsiar",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 771.428,
+        "magazineCapacity": 31,
+        "adsMs": 280,
+        "reload": 2.467,
+        "emptyReload": 2.95,
+        "velocity": 680,
+        "verticalRecoil": 0.7074531033217424,
+        "horizontalRecoil": 29.3,
+        "spreadMax": 9
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "ef88",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 675,
+        "magazineCapacity": 31,
+        "adsMs": 250,
+        "reload": 2.416,
+        "emptyReload": 2.8415,
+        "velocity": 670,
+        "verticalRecoil": 0.6720006428699492,
+        "horizontalRecoil": 20.3,
+        "spreadMax": 7
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "es57",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 449.999,
+        "magazineCapacity": 21,
+        "adsMs": 175,
+        "reload": 2.017,
+        "emptyReload": 2.2,
+        "velocity": 510,
+        "verticalRecoil": 1,
+        "horizontalRecoil": 15,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "ggh22",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 359.999,
+        "magazineCapacity": 16,
+        "adsMs": 175,
+        "reload": 1.934,
+        "emptyReload": 2.25,
+        "velocity": 400,
+        "verticalRecoil": 1.5,
+        "horizontalRecoil": 12,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "grtbc",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 830.769,
+        "magazineCapacity": 31,
+        "adsMs": 195,
+        "reload": 2.5,
+        "emptyReload": 3.35,
+        "velocity": 563,
+        "verticalRecoil": 0.8070225287267756,
+        "horizontalRecoil": 26.1,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "grtcps",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 359.999,
+        "magazineCapacity": 21,
+        "adsMs": 330,
+        "reload": 2.75,
+        "emptyReload": 3.284,
+        "velocity": 760,
+        "verticalRecoil": 1.059495487512401,
+        "horizontalRecoil": 8,
+        "spreadMax": 9
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "kord6p67",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 899.999,
+        "magazineCapacity": 31,
+        "adsMs": 240,
+        "reload": 2.45,
+        "emptyReload": 3.017,
+        "velocity": 724,
+        "verticalRecoil": 0.5410650819182649,
+        "horizontalRecoil": 28.9,
+        "spreadMax": 7
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "ks18k",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 299.999,
+        "magazineCapacity": 9,
+        "adsMs": 270,
+        "reload": 2.75,
+        "emptyReload": 3.7,
+        "velocity": 400,
+        "verticalRecoil": 1.685561002860638,
+        "horizontalRecoil": 12,
+        "spreadMax": 5
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "kts100",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 514.285,
+        "magazineCapacity": 60,
+        "adsMs": 320,
+        "reload": 3.25,
+        "emptyReload": 3.984,
+        "velocity": 808,
+        "verticalRecoil": 0.5249051373057618,
+        "horizontalRecoil": 9.5,
+        "spreadMax": 9
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "kv9",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 1079.999,
+        "magazineCapacity": 18,
+        "adsMs": 165,
+        "reload": 2.384,
+        "emptyReload": 2.9,
+        "velocity": 362,
+        "verticalRecoil": 0.5380755478069144,
+        "horizontalRecoil": 50,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "l110",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 719.999,
+        "magazineCapacity": 100,
+        "adsMs": 380,
+        "reload": 6.5,
+        "emptyReload": 7.734,
+        "velocity": 740,
+        "verticalRecoil": 0.5658669081032143,
+        "horizontalRecoil": 31,
+        "spreadMax": 11
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "l115",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 46.34995364996909,
+        "magazineCapacity": 6,
+        "adsMs": null,
+        "reload": 2.75,
+        "emptyReload": 4.233,
+        "velocity": 664,
+        "verticalRecoil": 2,
+        "horizontalRecoil": 4,
+        "spreadMax": 9
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "l85a3",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 635.294,
+        "magazineCapacity": 31,
+        "adsMs": 230,
+        "reload": 2.767,
+        "emptyReload": 2.733,
+        "velocity": 778,
+        "verticalRecoil": 0.6740692990342647,
+        "horizontalRecoil": 22.8,
+        "spreadMax": 7
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "lmr27",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 449.999,
+        "magazineCapacity": 11,
+        "adsMs": 340,
+        "reload": 3.034,
+        "emptyReload": 3.067,
+        "velocity": 800,
+        "verticalRecoil": 0.9150188301243465,
+        "horizontalRecoil": 11,
+        "spreadMax": 7
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "m1014",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 199.999,
+        "magazineCapacity": 7,
+        "adsMs": 260,
+        "reload": null,
+        "emptyReload": null,
+        "velocity": 400,
+        "verticalRecoil": 2.407944289800912,
+        "horizontalRecoil": 15,
+        "spreadMax": 5
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "m121a2",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 654.545,
+        "magazineCapacity": 50,
+        "adsMs": 390,
+        "reload": 6.267,
+        "emptyReload": 7.25,
+        "velocity": 560,
+        "verticalRecoil": 0.805977209331897,
+        "horizontalRecoil": 31.8,
+        "spreadMax": 11
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "m123k",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 830.769,
+        "magazineCapacity": 100,
+        "adsMs": 400,
+        "reload": 6.65,
+        "emptyReload": 7.434,
+        "velocity": 630,
+        "verticalRecoil": 0.6107296272745169,
+        "horizontalRecoil": 47.7,
+        "spreadMax": 11
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "m16a4",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 771.428,
+        "magazineCapacity": 31,
+        "adsMs": null,
+        "reload": 2.2,
+        "emptyReload": 2.634,
+        "velocity": 680,
+        "verticalRecoil": 0.7302661666514224,
+        "horizontalRecoil": 37.5,
+        "spreadMax": 7
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "m2010esr",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 44.0816018658339,
+        "magazineCapacity": 6,
+        "adsMs": 500,
+        "reload": 3.234,
+        "emptyReload": 3.934,
+        "velocity": 760,
+        "verticalRecoil": 1.5,
+        "horizontalRecoil": 10,
+        "spreadMax": 9
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "m240l",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 599.999,
+        "magazineCapacity": 50,
+        "adsMs": 410,
+        "reload": 4.25,
+        "emptyReload": 5.9,
+        "velocity": 590,
+        "verticalRecoil": 0.8064454775462087,
+        "horizontalRecoil": 34.5,
+        "spreadMax": 11
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "m250",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 674.999,
+        "magazineCapacity": 50,
+        "adsMs": 360,
+        "reload": 5.75,
+        "emptyReload": 6.134,
+        "velocity": 724,
+        "verticalRecoil": 0.7266832146901031,
+        "horizontalRecoil": 35.9,
+        "spreadMax": 11
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "m277",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 719.999,
+        "magazineCapacity": 21,
+        "adsMs": 210,
+        "reload": 2.384,
+        "emptyReload": 2.554,
+        "velocity": 592,
+        "verticalRecoil": 0.9542958007305558,
+        "horizontalRecoil": 34.4,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "m357trait",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 224.999,
+        "magazineCapacity": 8,
+        "adsMs": 225,
+        "reload": 3.067,
+        "emptyReload": null,
+        "velocity": 410,
+        "verticalRecoil": 3,
+        "horizontalRecoil": 15,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "m39emr",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 257.142,
+        "magazineCapacity": 21,
+        "adsMs": 320,
+        "reload": 2.534,
+        "emptyReload": 2.85,
+        "velocity": 760,
+        "verticalRecoil": 1.745759610105661,
+        "horizontalRecoil": 8,
+        "spreadMax": 9
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "m417a2",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 654.545,
+        "magazineCapacity": 21,
+        "adsMs": 230,
+        "reload": 2.467,
+        "emptyReload": 2.567,
+        "velocity": 560,
+        "verticalRecoil": 0.9354648009443473,
+        "horizontalRecoil": 15.4,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "m433",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 830.769,
+        "magazineCapacity": 31,
+        "adsMs": 250,
+        "reload": 2.384,
+        "emptyReload": 2.967,
+        "velocity": 630,
+        "verticalRecoil": 0.7933323350025011,
+        "horizontalRecoil": 41.4,
+        "spreadMax": 7
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "m44",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 163.636,
+        "magazineCapacity": 6,
+        "adsMs": 225,
+        "reload": 3.4,
+        "emptyReload": null,
+        "velocity": 440,
+        "verticalRecoil": 6,
+        "horizontalRecoil": 12,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "m45a1",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 327.272,
+        "magazineCapacity": 8,
+        "adsMs": 200,
+        "reload": 1.867,
+        "emptyReload": 2,
+        "velocity": 336,
+        "verticalRecoil": 1.67,
+        "horizontalRecoil": 12,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "m4a1",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 899.999,
+        "magazineCapacity": 31,
+        "adsMs": 200,
+        "reload": 2.2,
+        "emptyReload": 2.695,
+        "velocity": 590,
+        "verticalRecoil": 0.8482748505471913,
+        "horizontalRecoil": 30.7,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "m60",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 514.285,
+        "magazineCapacity": 100,
+        "adsMs": 420,
+        "reload": 7.35,
+        "emptyReload": 8.123,
+        "velocity": 680,
+        "verticalRecoil": 0.7361877333333333,
+        "horizontalRecoil": 29.9,
+        "spreadMax": 11
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "m87a1",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 1799.999,
+        "magazineCapacity": 8,
+        "adsMs": 250,
+        "reload": null,
+        "emptyReload": null,
+        "velocity": 400,
+        "verticalRecoil": 3.611916434701368,
+        "horizontalRecoil": 12,
+        "spreadMax": 5
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "miniscout",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 51,
+        "magazineCapacity": 11,
+        "adsMs": 430,
+        "reload": 2.334,
+        "emptyReload": 3.9,
+        "velocity": 760,
+        "verticalRecoil": 1,
+        "horizontalRecoil": 5,
+        "spreadMax": 7
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "nvo228e",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 654.545,
+        "magazineCapacity": 31,
+        "adsMs": 260,
+        "reload": 2.5,
+        "emptyReload": 2.979,
+        "velocity": 626,
+        "verticalRecoil": 0.7326801731267338,
+        "horizontalRecoil": 28.9,
+        "spreadMax": 7
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "p18",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 399.999,
+        "magazineCapacity": 18,
+        "adsMs": 175,
+        "reload": 1.934,
+        "emptyReload": 2.167,
+        "velocity": 350,
+        "verticalRecoil": 1.2,
+        "horizontalRecoil": 15,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "pp19",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 719.999,
+        "magazineCapacity": 31,
+        "adsMs": null,
+        "reload": 2.467,
+        "emptyReload": 3.028,
+        "velocity": 444,
+        "verticalRecoil": 0.5434529043176682,
+        "horizontalRecoil": 18,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "psr",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 38.11762015220833,
+        "magazineCapacity": 11,
+        "adsMs": 550,
+        "reload": 3.35,
+        "emptyReload": 4.35,
+        "velocity": 680,
+        "verticalRecoil": 1.8,
+        "horizontalRecoil": 12,
+        "spreadMax": 11
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "pw5a3",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 771.428,
+        "magazineCapacity": 31,
+        "adsMs": 175,
+        "reload": 2.517,
+        "emptyReload": 2.9,
+        "velocity": 408,
+        "verticalRecoil": 0.5635141243555819,
+        "horizontalRecoil": 28.3,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "pw7a2",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 947.368,
+        "magazineCapacity": 31,
+        "adsMs": 165,
+        "reload": 2.184,
+        "emptyReload": 3.086,
+        "velocity": 576,
+        "verticalRecoil": 0.5091176296296296,
+        "horizontalRecoil": 27.8,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "qbz192",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 771.428,
+        "magazineCapacity": 31,
+        "adsMs": 200,
+        "reload": 2.567,
+        "emptyReload": 2.784,
+        "velocity": 608,
+        "verticalRecoil": 0.7716257185185186,
+        "horizontalRecoil": 19.9,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "rpk74m",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 685.714,
+        "magazineCapacity": 46,
+        "adsMs": null,
+        "reload": 2.784,
+        "emptyReload": 3.1,
+        "velocity": 808,
+        "verticalRecoil": 0.4752860772664234,
+        "horizontalRecoil": 16.1,
+        "spreadMax": 9
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "rpkm",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 553.846,
+        "magazineCapacity": 41,
+        "adsMs": 310,
+        "reload": 2.8,
+        "emptyReload": 3.284,
+        "velocity": 630,
+        "verticalRecoil": 0.6552679088502079,
+        "horizontalRecoil": 17.5,
+        "spreadMax": 9
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "scw10",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 799.999,
+        "magazineCapacity": 16,
+        "adsMs": 185,
+        "reload": 2.6,
+        "emptyReload": 3.11,
+        "velocity": 398,
+        "verticalRecoil": 0.7124297727932585,
+        "horizontalRecoil": 33.5,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "sg553r",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 719.999,
+        "magazineCapacity": 31,
+        "adsMs": 205,
+        "reload": 2.5,
+        "emptyReload": 2.926,
+        "velocity": 483,
+        "verticalRecoil": 0.826647274688653,
+        "horizontalRecoil": 35.8,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "sgx",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 830.769,
+        "magazineCapacity": 31,
+        "adsMs": 175,
+        "reload": 2.517,
+        "emptyReload": 2.917,
+        "velocity": 378,
+        "verticalRecoil": 0.6011482210263789,
+        "horizontalRecoil": 31.7,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "sl9",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 674.999,
+        "magazineCapacity": 31,
+        "adsMs": 180,
+        "reload": 2.65,
+        "emptyReload": 3.183,
+        "velocity": 486,
+        "verticalRecoil": 0.5240016637500265,
+        "horizontalRecoil": 13,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "sor300sc",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 599.999,
+        "magazineCapacity": 31,
+        "adsMs": 195,
+        "reload": 2.25,
+        "emptyReload": 3.284,
+        "velocity": 528,
+        "verticalRecoil": 0.7416865095483536,
+        "horizontalRecoil": 15.8,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "sor556",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 568.421,
+        "magazineCapacity": 31,
+        "adsMs": 260,
+        "reload": 2.384,
+        "emptyReload": 2.667,
+        "velocity": 768,
+        "verticalRecoil": 0.6232874910249844,
+        "horizontalRecoil": 12.7,
+        "spreadMax": 7
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "sv98",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 37.67438355865456,
+        "magazineCapacity": 11,
+        "adsMs": 520,
+        "reload": 2.984,
+        "emptyReload": 3.967,
+        "velocity": 680,
+        "verticalRecoil": 1.25,
+        "horizontalRecoil": 10,
+        "spreadMax": 9
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "svdm",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 299.999,
+        "magazineCapacity": 11,
+        "adsMs": 360,
+        "reload": 2.5,
+        "emptyReload": 3.45,
+        "velocity": 760,
+        "verticalRecoil": 1.565163788370593,
+        "horizontalRecoil": 10,
+        "spreadMax": 9
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "svk86",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 149.999,
+        "magazineCapacity": 11,
+        "adsMs": 380,
+        "reload": 2.967,
+        "emptyReload": 4.217,
+        "velocity": 680,
+        "verticalRecoil": 3.00993036225114,
+        "horizontalRecoil": 20,
+        "spreadMax": 9
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "tr7",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 719.999,
+        "magazineCapacity": 21,
+        "adsMs": 255,
+        "reload": 2.4,
+        "emptyReload": 3.37,
+        "velocity": 604,
+        "verticalRecoil": 1.159597110751388,
+        "horizontalRecoil": 40.8,
+        "spreadMax": 7
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "umg40",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 635.294,
+        "magazineCapacity": 31,
+        "adsMs": 175,
+        "reload": 2.517,
+        "emptyReload": 2.917,
+        "velocity": 467,
+        "verticalRecoil": 0.6022807459596908,
+        "horizontalRecoil": 13,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "usg90",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 899.999,
+        "magazineCapacity": 51,
+        "adsMs": 185,
+        "reload": 3,
+        "emptyReload": 3.314,
+        "velocity": 543,
+        "verticalRecoil": 0.5471688016080739,
+        "horizontalRecoil": 35.5,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "vcr2",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 899.999,
+        "magazineCapacity": 31,
+        "adsMs": 255,
+        "reload": 2.434,
+        "emptyReload": 3.129,
+        "velocity": 660,
+        "verticalRecoil": 0.8205740274617134,
+        "horizontalRecoil": 50.3,
+        "spreadMax": 7
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "vssm",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 449.999,
+        "magazineCapacity": 21,
+        "adsMs": 250,
+        "reload": 2.467,
+        "emptyReload": null,
+        "velocity": 303,
+        "verticalRecoil": 0.799909248014769,
+        "horizontalRecoil": 45,
+        "spreadMax": 9
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    },
+    {
+      "weaponId": "vz61",
+      "gameVersion": "1.4.2.0",
+      "stats": {
+        "rpm": 818.181,
+        "magazineCapacity": 11,
+        "adsMs": 175,
+        "reload": 2.134,
+        "emptyReload": 2.833,
+        "velocity": 313,
+        "verticalRecoil": 0.5074041324896612,
+        "horizontalRecoil": 18.4,
+        "spreadMax": 6
+      },
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      }
+    }
+  ]
+}

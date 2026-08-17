@@ -1,0 +1,217 @@
+{
+  "gameVersion": "1.4.2.0",
+  "events": [
+    {
+      "id": "evt-1.4.2.0-review-0",
+      "gameVersion": "1.4.2.0",
+      "timestamp": "2026-08-17",
+      "type": "weapon_added",
+      "entityType": "catalog",
+      "entityId": null,
+      "changes": {
+        "field": null,
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "Interdictor sniper rifle",
+        "line": "On Tuesday, August 18, Game Update 1.4.2.0 goes live for Battlefield 6 and REDSEC, bringing the Top Gun event, the return of Wake Island, the expanded Tsuru Reef, two new fighter jets, the Interdictor sniper rifle, a new Crashed Carrier POI in Fort Lyndon, and new aerial experiences across Carrier Strike and Gauntlet: Fighter Sweep."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-0",
+          "version": "1.4.2.0",
+          "retrievedAt": "2026-08-17T17:31:15.240Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Adição anunciada de \"Interdictor sniper rifle\", que o catálogo não tem: falta id, categoria e compatibilidade, que o patch note não publica."
+      }
+    },
+    {
+      "id": "evt-1.4.2.0-review-1",
+      "gameVersion": "1.4.2.0",
+      "timestamp": "2026-08-17",
+      "type": "stat_changed",
+      "entityType": "weapon",
+      "entityId": "vssm",
+      "changes": {
+        "field": "recoil",
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "An unintended",
+        "line": "An unintended recoil modifier has been removed from VSSM barrel attachments."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-0",
+          "version": "1.4.2.0",
+          "retrievedAt": "2026-08-17T17:31:15.240Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "A frase remove algo de dentro da entidade, não a entidade do jogo."
+      }
+    },
+    {
+      "id": "evt-1.4.2.0-review-2",
+      "gameVersion": "1.4.2.0",
+      "timestamp": "2026-08-17",
+      "type": "stat_changed",
+      "entityType": "catalog",
+      "entityId": null,
+      "changes": {
+        "field": "damage",
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "Match Grade Ammo",
+        "line": "Match Grade Ammo now deals the intended damage against swimming soldiers."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-0",
+          "version": "1.4.2.0",
+          "retrievedAt": "2026-08-17T17:31:15.240Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Mudança descrita sem número, e a entidade citada não existe no catálogo."
+      }
+    },
+    {
+      "id": "evt-1.4.2.0-review-3",
+      "gameVersion": "1.4.2.0",
+      "timestamp": "2026-08-17",
+      "type": "stat_changed",
+      "entityType": "weapon",
+      "entityId": "vssm",
+      "changes": {
+        "field": "damage",
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "VSSM limb",
+        "line": "VSSM limb damage multipliers have been adjusted."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-0",
+          "version": "1.4.2.0",
+          "retrievedAt": "2026-08-17T17:31:15.240Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Mudança descrita sem número: precisa de medição de outra fonte."
+      }
+    },
+    {
+      "id": "evt-1.4.2.0-review-4",
+      "gameVersion": "1.4.2.0",
+      "timestamp": "2026-08-17",
+      "type": "weapon_added",
+      "entityType": "catalog",
+      "entityId": null,
+      "changes": {
+        "field": null,
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "EOD Bot Arm melee weapon",
+        "line": "The EOD Bot Arm melee weapon has been added to Portal and can be equipped using “mod.AddEquipment(player, mod.Gadgets.Melee_EOD_Bot_Arm)”."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-0",
+          "version": "1.4.2.0",
+          "retrievedAt": "2026-08-17T17:31:15.240Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Adição anunciada de \"EOD Bot Arm melee weapon\", que o catálogo não tem: falta id, categoria e compatibilidade, que o patch note não publica."
+      }
+    },
+    {
+      "id": "evt-1.4.2.0-review-5",
+      "gameVersion": "1.4.2.0",
+      "timestamp": "2026-08-17",
+      "type": "stat_changed",
+      "entityType": "catalog",
+      "entityId": null,
+      "changes": {
+        "field": "range",
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "Custom Weapon Drops",
+        "line": "Custom Weapon Drops have been adjusted to now display their interaction prompt within the intended viewing range and angle, and correctly deform the terrain when they land."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-0",
+          "version": "1.4.2.0",
+          "retrievedAt": "2026-08-17T17:31:15.240Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Mudança descrita sem número, e a entidade citada não existe no catálogo."
+      }
+    },
+    {
+      "id": "evt-1.4.2.0-compatibility-carried-0",
+      "gameVersion": "1.4.2.0",
+      "timestamp": "2026-08-17",
+      "type": "source_conflict",
+      "entityType": "compatibility",
+      "entityId": null,
+      "changes": {
+        "carried": 2753,
+        "closed": 0
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-0",
+          "version": "1.4.2.0",
+          "retrievedAt": "2026-08-17T17:31:15.240Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "A matriz veio da versão anterior sem confirmação do estado atual. Rode catalog:fetch-loadouts e confirme antes de publicar."
+      }
+    }
+  ]
+}
