@@ -154,6 +154,25 @@ jobs:
             git push --set-upstream origin "$branch"
           fi
 
-          gh pr create \
-            --title "feat(data): update Battlefield 6 to ${{ inputs.version }}" \
-            --body-file /tmp/pr-body.md
+          # A API do GitHub responde 503 de vez em quando, e foi assim que uma
+          # execução se perdeu com o branch já no remoto e o trabalho inteiro
+          # pronto — só o Pull Request faltava. Repetir resolve; e se ele tiver
+          # nascido na tentativa anterior, isso conta como sucesso, não como
+          # erro de "já existe".
+          for espera in 10 30 0; do
+            gh pr create \
+              --title "feat(data): update Battlefield 6 to ${{ inputs.version }}" \
+              --body-file /tmp/pr-body.md && exit 0
+
+            if gh pr list --state open --head "$branch" --json number | grep -q '"number"'; then
+              echo "::notice::O Pull Request já existe — a tentativa anterior chegou a criá-lo."
+              exit 0
+            fi
+
+            [ "$espera" = 0 ] && break
+            echo "::warning::A API do GitHub recusou a abertura. Nova tentativa em ${espera}s."
+            sleep "$espera"
+          done
+
+          echo "::error::Não foi possível abrir o Pull Request. O branch $branch está no remoto, com o trabalho pronto — reabrir é só rodar este workflow de novo."
+          exit 1
