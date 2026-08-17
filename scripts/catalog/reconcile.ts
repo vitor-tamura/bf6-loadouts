@@ -280,6 +280,12 @@ function main(): void {
         // Percentual não vira número: a proporção é o que a fonte publicou.
         before: change.before,
         after: change.after,
+        /*
+         * O nome do que o patch note citou, para o evento poder dizer de quem
+         * fala quando o catálogo ainda não tem a entidade — "Interdictor sniper
+         * rifle" em vez do parágrafo inteiro com um travessão no lugar do id.
+         */
+        mentioned: change.mentioned,
         line: change.line,
       },
       sources: [source],
@@ -410,8 +416,20 @@ function main(): void {
    * Quando `import-analyzer` rodar sobre a versão nova, ele sobrescreve isto
    * com números atualizados. Até lá, o que valia antes continua valendo — e o
    * evento diz que não houve reconfirmação.
+   *
+   * O que não se herda é a arma que saiu. Sua linha de balística ficaria no
+   * arquivo sem arma correspondente, e as capacidades são cobertura — uma linha
+   * a mais reprova a conta tanto quanto uma a menos, e `damageCurves`,
+   * `velocity`, `drag` e `ttk` cairiam todas por causa de uma arma retirada.
    */
-  const inherit = <T>(file: string, key: string): Record<string, unknown> => {
+  const liveWeaponIds = new Set(
+    weaponRefs.filter((ref) => ref.status !== 'removed').map((ref) => ref.id),
+  );
+
+  const inherit = <T extends { weaponId?: string }>(
+    file: string,
+    key: string,
+  ): Record<string, unknown> => {
     const previousFile = readJsonIf<Record<string, unknown>>(
       join(versionDir(previous), file),
       {} as Record<string, unknown>,
@@ -420,7 +438,9 @@ function main(): void {
     return {
       ...previousFile,
       gameVersion: version,
-      [key]: rows.map((row) => ({ ...(row as object), gameVersion: version })),
+      [key]: rows
+        .filter((row) => !row.weaponId || liveWeaponIds.has(row.weaponId))
+        .map((row) => ({ ...(row as object), gameVersion: version })),
     };
   };
 

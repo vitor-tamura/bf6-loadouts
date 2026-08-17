@@ -163,13 +163,17 @@ function namePattern(key: string): RegExp {
 
 const patterns = new Map<string, RegExp>();
 
-function matchesName(line: string, key: string): boolean {
+function matchName(line: string, key: string): RegExpExecArray | null {
   let pattern = patterns.get(key);
   if (!pattern) {
     pattern = namePattern(key);
     patterns.set(key, pattern);
   }
-  return pattern.test(line);
+  return pattern.exec(line);
+}
+
+function matchesName(line: string, key: string): boolean {
+  return matchName(line, key) !== null;
 }
 
 /**
@@ -259,6 +263,56 @@ function findField(line: string): string | null {
 const ADDED = /\b(added|introduced|new)\b/i;
 const REMOVED = /\b(removed|retired|disabled|delisted)\b/i;
 
+/** "was not being removed" é defeito corrigido, não conteúdo retirado. */
+const NOT_REMOVED = /\b(not|never|no longer|without)\b/i;
+
+/**
+ * O que sai do jogo é a peça citada aqui, e não a arma que a hospeda.
+ *
+ * Aparecendo entre o nome e o verbo, qualquer um destes é sinal de que quem
+ * levou o "removed" foi ele, não a entidade: "the M87A1 laser sight ...
+ * removed" tira a mira, e a M87A1 é só onde ela estava montada.
+ */
+const REMOVED_PART =
+  /\b(sights?|barrels?|muzzles?|magazines?|grips?|lasers?|stocks?|ammo|attachments?|modifiers?|effects?|bugs?|issues?|buttons?|icons?|options?|skins?|animations?|sounds?|indicators?)\b/i;
+
+/**
+ * A entidade é o que saiu, ou o lugar de onde saiu outra coisa?
+ *
+ * "The DB-12 shotgun has been removed from the store rotation" tira a arma.
+ * "An unintended recoil modifier has been removed from VSSM barrel
+ * attachments" tira um modificador de dentro do cano — e foi lida como a saída
+ * da VSSM do jogo, que desapareceu do catálogo inteiro, com a compatibilidade
+ * junto, num patch que só acertou um cano.
+ *
+ * O que separa as duas é a ordem em que a frase se monta: o que sai vem antes
+ * do verbo, e o que vem depois, atrás de "from", é a origem. Só isso ainda não
+ * basta — entre o nome e o verbo não pode haver negativa nem outro substantivo
+ * levando o "removed" embora.
+ */
+function removesEntity(line: string, key: string, entityType: 'weapon' | 'attachment'): boolean {
+  const name = matchName(line, key);
+  const verb = REMOVED.exec(line);
+  if (!name || !verb) return false;
+
+  // Verbo antes do nome: a entidade está do lado do "from", como origem.
+  if (verb.index < name.index) return false;
+
+  let between = line.slice(name.index + name[0].length, verb.index);
+
+  /*
+   * O substantivo colado ao nome de uma peça é o tipo dela, não outra coisa: em
+   * "The 50 MW Violet laser has been removed from the game", quem sai é o
+   * laser, que é a própria peça. Numa arma o mesmo substantivo diz o contrário
+   * — "the M87A1 laser sight ... removed" tira a mira e deixa a arma.
+   */
+  if (entityType === 'attachment') {
+    between = between.replace(new RegExp(`^\\s*${REMOVED_PART.source}`, 'i'), '');
+  }
+
+  return !NOT_REMOVED.test(between) && !REMOVED_PART.test(between);
+}
+
 /**
  * O que distingue balanceamento de correção de interface.
  *
@@ -268,6 +322,70 @@ const REMOVED = /\b(removed|retired|disabled|delisted)\b/i;
  */
 const CHANGE_VERB =
   /\b(increased|reduced|decreased|lowered|raised|buffed|nerfed|adjusted|tuned|changed|updated|rebalanced|now deals|no longer deals)\b/i;
+
+/**
+ * O nome do que entrou, quando a frase o diz.
+ *
+ * Um nome próprio seguido do tipo: "Interdictor sniper rifle", "EOD Bot Arm
+ * melee weapon", "XM-99 Prototype assault rifle". É o que permite dizer o que
+ * apareceu no jogo em vez de mandar ao Pull Request o parágrafo inteiro com a
+ * entidade em branco, que é como o anúncio da 1.4.2.0 chegou.
+ */
+const NEW_NAME = new RegExp(
+  '\\b([A-Z0-9][\\w.-]*(?:[ -][A-Z0-9][\\w.-]*){0,3})\\s+' +
+    '((?:assault |sniper |battle |marksman |melee |light )?' +
+    '(?:rifles?|carbines?|shotguns?|sidearms?|pistols?|SMGs?|LMGs?|DMRs?|weapons?|' +
+    'sights?|optics?|scopes?|barrels?|muzzles?|magazines?|grips?|lasers?|stocks?|ammo))\\b',
+  'g',
+);
+
+/** A distância em que o anúncio ainda está falando do mesmo assunto. */
+const NEARBY = 60;
+
+/**
+ * Um nome próprio de duas palavras ou mais — "Match Grade Ammo".
+ *
+ * A maiúscula sozinha não serve de sinal: toda frase começa com uma. Duas
+ * seguidas são o que separa o nome de algo do jogo de uma regra geral escrita
+ * em prosa.
+ */
+const PROPER_NAME = /\b[A-Z][\w.-]*(?:[ -][A-Z][\w.-]*)+/;
+
+/**
+ * O que a frase anuncia, ou nada quando ela não nomeia coisa alguma.
+ *
+ * A palavra "new" solta não é anúncio de arma: "New Airplane Control Assist
+ * offers an alternative way to pilot airplanes, alongside improvements to (…)
+ * Patrol Boat weapons" tem as duas peças do padrão — o verbo e um nome com
+ * cara de arma — separadas por cinquenta palavras de assunto nenhum. O que
+ * amarra as duas é a vizinhança: o nome vem colado ao anúncio, antes dele na
+ * voz passiva ("The EOD Bot Arm melee weapon has been added") ou depois na
+ * ativa ("bringing (…) the Interdictor sniper rifle").
+ */
+function newlyNamed(line: string): string | null {
+  const verb = ADDED.exec(line);
+  if (!verb) return null;
+
+  /** "The EOD Bot Arm melee weapon" é a peça; o artigo é da frase. */
+  const trim = (name: string) => {
+    const clean = name.trim().replace(/^(?:The|A|An|New)\s+/, '');
+    return clean.length >= 3 ? clean : null;
+  };
+
+  const after = line.slice(verb.index + verb[0].length);
+  NEW_NAME.lastIndex = 0;
+  const forward = NEW_NAME.exec(after);
+  if (forward && forward.index <= NEARBY) return trim(forward[0]);
+
+  // Voz passiva: o nome ficou para trás, e vale o último antes do verbo.
+  const before = line.slice(0, verb.index);
+  NEW_NAME.lastIndex = 0;
+  let last: RegExpExecArray | null = null;
+  for (let match = NEW_NAME.exec(before); match; match = NEW_NAME.exec(before)) last = match;
+
+  if (last && before.length - (last.index + last[0].length) <= NEARBY) return trim(last[0]);
+  return null;
+}
 
 /* -------------------------------- o parser -------------------------------- */
 
@@ -300,9 +418,22 @@ export function parseLine(line: string, known: Known): PatchChange | null {
   /* ------------------------------ adição e remoção ------------------------------ */
 
   if (ADDED.test(clean) && !field) {
+    const named = entity ? entity.key : newlyNamed(clean);
+
+    /*
+     * Anúncio que não nomeia nada não é anúncio de conteúdo.
+     *
+     * "Vehicle and Aerial Combat Improvements: New Airplane Control Assist (…)"
+     * virava uma arma nova a revisar, e quem abria a pendência encontrava um
+     * parágrafo sobre pilotagem. Sem nome, não há o que cadastrar — e o texto
+     * continua no patch note guardado, para auditoria.
+     */
+    if (!named) return null;
+
     return {
       ...base,
       kind: entity?.entityType === 'attachment' ? 'attachment_added' : 'weapon_added',
+      mentioned: entity ? base.mentioned : named,
       operation: 'none',
       /*
        * Coisa nova nunca entra sozinha.
@@ -315,7 +446,7 @@ export function parseLine(line: string, known: Known): PatchChange | null {
       automation: 'review',
       reason: entity
         ? 'Adição anunciada de entidade que já existe no catálogo — conferir se é reintrodução.'
-        : 'Adição anunciada de entidade desconhecida: falta id, categoria e compatibilidade, que o patch note não publica.',
+        : `Adição anunciada de "${named}", que o catálogo não tem: falta id, categoria e compatibilidade, que o patch note não publica.`,
     };
   }
 
@@ -330,6 +461,22 @@ export function parseLine(line: string, known: Known): PatchChange | null {
      * attachment screen". O texto fica guardado no patch note para auditoria.
      */
     if (!entity) return null;
+
+    /*
+     * Citar a entidade numa frase de remoção não é a entidade ter sido
+     * removida. Quando ela não é o alvo, a frase continua sendo notícia sobre
+     * ela — vai marcada, e quem revisa diz o que saiu.
+     */
+    if (!removesEntity(clean, entity.key, entity.entityType)) {
+      return {
+        ...base,
+        kind: field ? 'stat_changed' : 'unknown',
+        operation: 'none',
+        automation: 'review',
+        reason: 'A frase remove algo de dentro da entidade, não a entidade do jogo.',
+      };
+    }
+
     return {
       ...base,
       kind: entity.entityType === 'attachment' ? 'attachment_removed' : 'weapon_removed',
@@ -388,13 +535,30 @@ export function parseLine(line: string, known: Known): PatchChange | null {
    * fala de alinhamento de ícone, e virava uma alteração de carregador da M60.
    * O verbo é o que separa a nota de correção da nota de balanceamento.
    */
-  if (entity && field && CHANGE_VERB.test(clean)) {
+  /*
+   * Entidade que o catálogo não conhece some se esta frase virar nulo — e some
+   * justamente onde mais importa: "Match Grade Ammo now deals the intended
+   * damage against swimming soldiers" fala de uma munição que não está em
+   * `data/entities`, e o silêncio faz a lacuna passar por ausência de mudança.
+   *
+   * O que a autoriza a entrar sem entidade é haver nome próprio na frase. "Fall
+   * damage is now slightly reduced when falling into shallow water" tem campo e
+   * verbo e não nomeia coisa alguma do jogo: sem esta condição, toda regra
+   * geral de dano viraria pendência de uma arma que ninguém citou.
+   */
+  const proper = PROPER_NAME.exec(clean);
+
+  if (field && CHANGE_VERB.test(clean) && (entity || proper)) {
     return {
       ...base,
       kind: 'stat_changed',
+      // Sem id, o nome próprio da frase é o que identifica a pendência.
+      mentioned: entity ? base.mentioned : (proper?.[0] ?? null),
       operation: 'none',
       automation: 'review',
-      reason: 'Mudança descrita sem número: precisa de medição de outra fonte.',
+      reason: entity
+        ? 'Mudança descrita sem número: precisa de medição de outra fonte.'
+        : 'Mudança descrita sem número, e a entidade citada não existe no catálogo.',
     };
   }
 

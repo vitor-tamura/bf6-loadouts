@@ -47,8 +47,10 @@ const blocked = byLevel('blocked');
 
 /** Uma linha por evento, com a frase de origem quando houver. */
 const describe = (event: ChangeEvent) => {
-  const line = (event.changes as { line?: string }).line;
-  const target = event.entityId ?? '—';
+  const { line, mentioned } = event.changes as { line?: string; mentioned?: string | null };
+  // Sem id no catálogo, vale o nome que o patch note publicou: quem revisa
+  // precisa saber que a pendência é da Interdictor, não de um travessão.
+  const target = event.entityId ?? mentioned ?? '—';
   return `- \`${event.type}\` **${target}**${line ? `\n  > ${line}` : ''}`;
 };
 
