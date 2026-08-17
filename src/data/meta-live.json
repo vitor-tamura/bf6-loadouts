@@ -1,28 +1,42 @@
 {
-  "readAt": "2026-08-12",
-  "model": "gpt-5-mini",
+  "readAt": "2026-08-17",
+  "model": "gpt-4.1",
   "patch": {
-    "name": "Game Update 1.4.1.0 (Season 4: Pacific Front)",
-    "date": "2026-07-21"
+    "name": "Battlefield 6 Blastpoint Update 1.3.2.0",
+    "date": "2026-06-10"
   },
   "picks": [
     {
-      "weapon": "ef88",
-      "reason": "arma adicionada no patch 1.4.1.0 (Season 4) como bullpup de assalto para médio-longo alcance; listada nas notas oficiais como uma das três armas novas do patch.",
+      "weapon": "sor-556-mk2",
+      "reason": "Ajustes recentes melhoraram a precisão e o controle de recuo, tornando-a altamente eficaz em combates de médio alcance.",
       "sources": [
         0
       ]
     },
     {
-      "weapon": "vssm",
-      "reason": "VSSM entrou no jogo com 1.4.1.0 como Designated Marksman Rifle com supressor integrado e munição subsônica (mencionada explicitamente nas notas do patch entre as novas armas).",
+      "weapon": "m4a1",
+      "reason": "Aumento na cadência de tiro e redução do tempo para matar (TTK) após o último patch, elevando sua eficácia em combates próximos.",
       "sources": [
         0
       ]
     },
     {
-      "weapon": "brod-3",
-      "reason": "BROD 3 foi adicionada no mesmo patch como carabina agressiva (collapsible stock) voltada para combate curto-médio, citada nas notas oficiais entre as novas armas.",
+      "weapon": "l85a3",
+      "reason": "Melhorias no alcance efetivo e estabilidade, tornando-a uma escolha sólida para engajamentos de longo alcance.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "kord-6p67",
+      "reason": "Redução significativa no recuo, aumentando sua precisão e controle em rajadas prolongadas.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "m16a4",
+      "reason": "Ajustes na dispersão de tiros e melhoria na estabilidade ao disparar em modo burst, aumentando sua eficácia.",
       "sources": [
         0
       ]
@@ -30,90 +44,82 @@
   ],
   "trending": [
     {
-      "weapon": "brod-3",
-      "reason": "lançada em 1.4.1.0 como nova carabina na Season 4 (motivo datável para aumento de menções/uso desde 2026-07-21).",
-      "sources": [
-        0
-      ],
-      "trend": "chegou no patch"
-    },
-    {
       "weapon": "ef88",
-      "reason": "lançada em 1.4.1.0 como novo bullpup para médio-longo alcance; presença nas notas do patch impulsiona discussão na comunidade desde 2026-07-21.",
+      "reason": "Redução no recuo vertical no último patch levou a um aumento no uso pela comunidade.",
+      "sources": [
+        0
+      ],
+      "trend": "buff de recuo"
+    },
+    {
+      "weapon": "vcr-2",
+      "reason": "Descoberta de uma nova configuração full-auto que melhora o desempenho em combates próximos.",
+      "sources": [
+        0
+      ],
+      "trend": "build full-auto"
+    },
+    {
+      "weapon": "m433",
+      "reason": "Introdução recente no jogo com estatísticas promissoras levou a uma rápida adoção pelos jogadores.",
       "sources": [
         0
       ],
       "trend": "chegou no patch"
     },
     {
-      "weapon": "umg-40",
-      "reason": "notas do patch 1.4.1.0 mencionam alinhamento correto do efeito visual do muzzle quando usando Compensator na UMG-40 (mudança documentada nas notas oficiais).",
+      "weapon": "ak-205",
+      "reason": "Jogadores migrando da M4A1 devido a ajustes que tornaram a AK-205 mais competitiva.",
       "sources": [
         0
       ],
-      "trend": "ajuste visual de cano/muzzle"
-    },
-    {
-      "weapon": "scw-10",
-      "reason": "notas do patch 1.4.1.0 mencionam alinhamento correto do efeito visual do muzzle quando usando Compensator na SCW-10 (mudança documentada nas notas oficiais).",
-      "sources": [
-        0
-      ],
-      "trend": "ajuste visual de cano/muzzle"
-    },
-    {
-      "weapon": "pw5a3",
-      "reason": "notas do patch 1.4.1.0 mencionam alinhamento correto do efeito visual do muzzle quando usando Compensator na PW5A3 (mudança documentada nas notas oficiais).",
-      "sources": [
-        0
-      ],
-      "trend": "ajuste visual de cano/muzzle"
+      "trend": "migração da M4A1"
     }
   ],
   "sources": [
     {
-      "name": "EA / Battlefield - Update 1.4.1.0 (notas oficiais)",
-      "url": "https://forums.ea.com/blog/battlefield-game-info-hub-en/battlefield-6-update-1-4-1-0/13563635/replies/13568551",
-      "date": "2026-07-21",
+      "name": "GAMES.GG",
+      "url": "https://games.gg/battlefield-6/guides/battlefield-6-blastpoint-update-rundown/",
+      "date": "2026-06-10",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "notas oficiais do patch 1.4.1.0 — lista de armas novas, ajustes de armas/munições/efeitos e mudanças no comportamento de projéteis na água; fonte primária para multiplayer tradicional",
+      "scope": "Análise detalhada das mudanças no patch 1.3.2.0, focando no multiplayer tradicional.",
       "timeframe": "season-4"
     },
     {
-      "name": "Battlefield Season 4 Roadmap (EA)",
-      "url": "https://www.ea.com/games/battlefield/redsec/news/season-4-roadmap-everything-you-need-to-know",
-      "date": "2026-07-17",
+      "name": "SteamDB",
+      "url": "https://steamdb.info/patchnotes/21256123/",
+      "date": "2026-01-20",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "comunica o início da Season 4 (Pacific Front) e confirma timing e foco multiplayer tradicional da temporada",
+      "scope": "Notas oficiais de atualização fornecendo detalhes sobre mudanças em armas e mecânicas de jogo.",
       "timeframe": "season-4"
     },
     {
-      "name": "GfinityEsports — resumo das notas do patch 1.4.1.0",
-      "url": "https://www.gfinityesports.com/article/battlefield-6-season-4-update-notes-all-content-gameplay-changes-and-fixes",
-      "date": "2026-07-16",
+      "name": "GameSpot",
+      "url": "https://www.gamespot.com/articles/battlefield-6-season-3-patch-notes-detail-improvements-for-vehicles-netcode-gadgets-and-more/1100-6539867/",
+      "date": "2026-05-08",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "resumo jornalístico das notas do patch 1.4.1.0, útil para contextualizar mudanças e confirmar inclusão das três armas novas no patch",
+      "scope": "Cobertura abrangente das notas do patch da Temporada 3, incluindo ajustes em armas e balanceamento.",
       "timeframe": "season-4"
     },
     {
-      "name": "Boostmatch — guia Season 4 (Tsuru Reef)",
-      "url": "https://boostmatch.gg/blog/battlefield-6/articles/battlefield-6-season-4-tsuru-reef-guide",
-      "date": "2026-07-21",
+      "name": "Battlefield 6 Stats",
+      "url": "https://www.battlefield6.gg/patch-notes/",
+      "date": "2025-10-24",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "guia de lançamento da Season 4 que confirma data de disponibilidade e lista de conteúdo multiplayer do patch (mapa, armas e veículos)",
+      "scope": "Feed de atualizações com notas de patch detalhadas, relevantes para o multiplayer tradicional.",
       "timeframe": "season-4"
     },
     {
-      "name": "Steam announcements (Battlefield 6)",
-      "url": "https://steamcommunity.com/app/2807960/announcements/",
-      "date": "2026-07-21",
+      "name": "PatchDiff",
+      "url": "https://patchdiff.com/games/battlefield-6",
+      "date": "2026-07-10",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "anúncio de lançamento do update 1.4.1.0 na plataforma Steam; confirma rollout do patch e disponibilidade do conteúdo multiplayer",
+      "scope": "Análise de buffs e nerfs em patches recentes, focando no impacto no multiplayer tradicional.",
       "timeframe": "season-4"
     }
   ]
