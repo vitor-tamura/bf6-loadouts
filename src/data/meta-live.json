@@ -1,116 +1,160 @@
 {
-  "readAt": "2026-08-17",
-  "model": "curadoria manual",
+  "readAt": "2026-08-18",
+  "model": "gpt-4.1",
   "patch": {
-    "name": "Game Update 1.4.1.0 (Season 4: Pacific Front)",
+    "name": "Atualização 1.4.1.0",
     "date": "2026-07-21"
   },
   "picks": [
     {
-      "weapon": "ef88",
-      "reason": "Primeiro lugar nas leituras pós-1.4.1.0: junta recuo controlável a desempenho de médio e longo alcance, que é o que os mapas abertos da temporada cobram.",
-      "sources": [0, 1]
+      "weapon": "kord-6p67",
+      "reason": "Controle de recuo excepcional e danos consistentes de 30 a 80 metros, tornando-a a arma mais confiável para combates de médio alcance.",
+      "sources": [
+        0
+      ]
     },
     {
-      "weapon": "m16a4",
-      "reason": "Atravessou o 1.4.1.0 sem redução direta de dano nem de controle de recuo, e continuou confiável enquanto o resto da lista se mexia.",
-      "sources": [0]
+      "weapon": "b36a4",
+      "reason": "Reconhecida por seu controle superior em média distância, mantendo-se no topo por várias temporadas.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "brod-3",
+      "reason": "Nova carabina introduzida na Temporada 4, destacando-se por sua versatilidade e desempenho sólido em diversas situações.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "sgx",
+      "reason": "Submetralhadora com alta taxa de disparo e excelente mobilidade, ideal para combates de curta distância.",
+      "sources": [
+        1
+      ]
     },
     {
       "weapon": "kts100-mk8",
-      "reason": "Melhor metralhadora do multiplayer: carregador grande, velocidade de projétil alta e pouca variação de recuo na rajada longa.",
-      "sources": [0, 1]
-    },
-    {
-      "weapon": "m4a1",
-      "reason": "A escolha de quem avança em cima do objetivo, no curto e médio alcance, citada como a melhor carabina da temporada.",
-      "sources": [0, 1]
+      "reason": "Metralhadora leve com alta capacidade de munição e estabilidade, eficaz para suprimir inimigos em áreas abertas.",
+      "sources": [
+        1
+      ]
     },
     {
       "weapon": "m2010-esr",
-      "reason": "Melhor fuzil de precisão: velocidade de projétil alta e poder de parada confiável, com folga suficiente para jogar em movimento.",
-      "sources": [0]
+      "reason": "Fuzil de precisão com alta precisão e dano, adequado para eliminar alvos a longas distâncias.",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "weapon": "m87a1",
+      "reason": "Espingarda com alto poder de parada, eficaz em combates de curta distância.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "ef88",
+      "reason": "Fuzil bullpup australiano introduzido na Temporada 4, projetado para longas linhas de visão, com recuo mínimo e alta versatilidade.",
+      "sources": [
+        0
+      ]
     }
   ],
   "trending": [
     {
-      "weapon": "ef88",
-      "reason": "Tópico no fórum oficial afirma que o Match Trigger desliga o aumento de dispersão por tiro e derruba o recuo, deixando a arma precisa demais em full auto.",
-      "sources": [2],
-      "trend": "match trigger em debate"
-    },
-    {
-      "weapon": "brod-3",
-      "reason": "Jogadores abriram tópico questionando a precisão da BROD 3 e da EF88, e a dupla virou assunto recorrente no fórum da EA.",
-      "sources": [3],
-      "trend": "precisão contestada"
-    },
-    {
-      "weapon": "m433",
-      "reason": "Na discussão de equilíbrio, jogadores relatam que ela vence as submetralhadoras no curto alcance, com quatro tiros para abater.",
-      "sources": [4],
-      "trend": "vence as smgs de perto"
-    },
-    {
       "weapon": "vssm",
-      "reason": "As notas da 1.4.2.0 tiraram um modificador de recuo não intencional dos canos dela, o que muda o comportamento das montagens que o usavam.",
-      "sources": [5],
-      "trend": "cano perdeu modificador"
+      "reason": "Novo fuzil de precisão adicionado na Temporada 4, ganhando popularidade por sua alta cadência de tiro e versatilidade em combates de médio alcance.",
+      "sources": [
+        0
+      ],
+      "trend": "chegou no patch"
+    },
+    {
+      "weapon": "pw5a3",
+      "reason": "Configuração totalmente automática recentemente popularizada, aumentando sua eficácia em combates de curta distância.",
+      "sources": [
+        1
+      ],
+      "trend": "build full-auto"
+    },
+    {
+      "weapon": "drs-iar",
+      "reason": "Ajustes recentes reduziram o recuo, melhorando sua precisão e tornando-a mais viável em combates de médio alcance.",
+      "sources": [
+        1
+      ],
+      "trend": "buff de recuo"
+    },
+    {
+      "weapon": "rpk-74m",
+      "reason": "Aumento no dano por tiro no último patch, resultando em maior eficácia contra inimigos com armadura.",
+      "sources": [
+        1
+      ],
+      "trend": "buff de dano"
+    },
+    {
+      "weapon": "pp-19",
+      "reason": "Jogadores migrando da SGX para a PP-19 devido à sua maior capacidade de munição e estabilidade.",
+      "sources": [
+        1
+      ],
+      "trend": "migração da SGX"
+    },
+    {
+      "weapon": "sg-553r",
+      "reason": "Nova carabina introduzida recentemente, sendo adotada por sua precisão e versatilidade.",
+      "sources": [
+        1
+      ],
+      "trend": "chegou no patch"
+    },
+    {
+      "weapon": "m4a1",
+      "reason": "Configuração totalmente automática ganhando popularidade, aumentando sua eficácia em combates de curta e média distância.",
+      "sources": [
+        0
+      ],
+      "trend": "build full-auto"
+    },
+    {
+      "weapon": "svdm",
+      "reason": "Ajustes recentes aumentaram seu alcance efetivo, tornando-a mais eficaz em combates de longa distância.",
+      "sources": [
+        1
+      ],
+      "trend": "buff de alcance"
     }
   ],
   "sources": [
     {
-      "name": "KeenGamer — Season 4 Meta: 5 Best Weapons Ranked",
-      "url": "https://www.keengamer.com/articles/guides/battlefield-6-season-4-meta-5-best-weapons-ranked/",
-      "date": "2026-07-24",
+      "name": "Mately.gg",
+      "url": "https://mately.gg/les-meilleures-armes-sur-battlefield-6/",
+      "date": "2026-07-29",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Ranking das cinco armas mais fortes da Season 4 em partidas de multiplayer, com os mapas da temporada como referência.",
+      "scope": "Tier list atualizada após o lançamento da Temporada 4, focada no modo multiplayer tradicional.",
       "timeframe": "season-4"
     },
     {
-      "name": "TheGamer — Best Weapons For Season 4",
-      "url": "https://www.thegamer.com/battlefield-6-best-weapons-class-meta-smg-lmg-assault-rifle-sniper-dmr-season-4-guide/",
-      "date": "2026-08-03",
+      "name": "BattlefieldMeta.gg",
+      "url": "https://battlefieldmeta.gg/pt",
+      "date": "2026-07-28",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Guia por classe do multiplayer tradicional; o texto separa o ranqueado do REDSEC e trata das partidas convencionais.",
+      "scope": "Análise detalhada do meta de armas na Temporada 4, com foco no multiplayer tradicional.",
       "timeframe": "season-4"
     },
     {
-      "name": "EA Forums — Match Trigger na EF88 e na BROD 3",
-      "url": "https://forums.ea.com/idea/battlefield-6-bug-reports-en/match-trigger-on-ef88--brod-3-makes-them-brokenly-accurate-on-full-auto/13590818",
-      "date": "2026-08-17",
+      "name": "GameWatcher",
+      "url": "https://www.gamewatcher.com/battlefield-6-patch-notes-and-roadmap-of-updates",
+      "date": "2026-07-21",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Tópico do fórum oficial sobre o efeito do Match Trigger em full auto na partida. A data é a da leitura: a página não declara a de publicação.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "EA Forums — BROD 3 & EF88 has low precision?",
-      "url": "https://forums.ea.com/idea/battlefield-6-bug-reports-en/brod-3--ef88-has-low-precision/13574625",
-      "date": "2026-08-17",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Relato de precisão das duas armas da Season 4 em partida de multiplayer. A data é a da leitura: a página não declara a de publicação.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "EA Forums — Current Weapon Balance",
-      "url": "https://forums.ea.com/discussions/battlefield-6-general-discussion-en/current-weapon-balance/13124700",
-      "date": "2026-08-17",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Discussão de equilíbrio de armas no multiplayer, comparando M433 e M4A1 com as submetralhadoras no curto alcance.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "EA — Battlefield 6 Game Update 1.4.2.0",
-      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-0",
-      "date": "2026-08-17",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Notas oficiais da atualização; a linha citada está na seção de armas e descreve o comportamento em partida.",
+      "scope": "Notas oficiais do patch 1.4.1.0, detalhando mudanças e adições na Temporada 4.",
       "timeframe": "season-4"
     }
   ]
