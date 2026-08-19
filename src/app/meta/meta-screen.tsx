@@ -17,6 +17,7 @@ import {
   NOT_MULTIPLAYER,
   BY_CATEGORY,
   META_SEASON,
+  MIN_TRENDING,
   type MetaPatch,
   type MetaPick,
   type MetaSource,
@@ -69,6 +70,17 @@ export function MetaScreen({
   patch?: MetaPatch | null;
   fromSearch?: boolean;
 } = {}) {
+  /*
+    O bloco de tendência é inteiro ou não é.
+
+    O piso é o mesmo que `scripts/meta/leitura.mjs` cobra do modelo, e aqui ele
+    vale contra o que já está gravado: leitura publicada antes daquela trava
+    seguia na tela como fileira de dois cartões numa grade de quatro. Arma que
+    saiu do arsenal não conta, porque o cartão dela não chega a ser desenhado —
+    contar a lista crua prometia quatro e mostrava dois.
+  */
+  const trendingVisivel = trending.filter((pick) => WEAPONS_BY_ID.has(pick.weapon));
+
   return (
     <div className="min-h-dvh">
       <AppHeader subtitle="O que está forte agora no multiplayer" />
@@ -161,26 +173,12 @@ export function MetaScreen({
         <section className="mb-3">
           <h2 className="label mb-2">O topo do multiplayer</h2>
           <BlockNote>
-            O que põe uma arma aqui é <strong>o quanto ela está sendo escolhida agora</strong>: a
-            posição no ranking de multiplayer e a quantidade de fontes independentes que repetem o
-            nome dela. Como o jogo não publica pick rate, popularidade aqui é convergência de fonte,
-            não número medido — é também por isso que a ordem é a do ranking, e não a das contas de
-            TTK que o resto do site faz.{' '}
-            {fromSearch ? (
-              <>
-                O que o último patch fez com a arma aparece no texto do cartão como contexto, para
-                que se saiba se a leitura é posterior a ele. Não é o que a põe na lista: mudança recente
-                é assunto do bloco de tendência, logo abaixo.
-              </>
-            ) : (
-              <>
-                O que o patch em vigor fez com a arma entra no motivo como contexto — inclusive o
-                fato de o changelog inteiro não a citar, que é afirmação conferível porque a lista é
-                exaustiva. Não é o que a põe na lista: mudança recente é assunto do bloco de
-                tendência, logo abaixo.
-              </>
-            )}{' '}
-            Os colchetes dizem de que fonte saiu cada indicação.
+            Entra aqui <strong>o que está sendo mais escolhido agora</strong>: posição no ranking do
+            multiplayer e quantas fontes independentes repetem o nome. Sem pick rate público,
+            popularidade é convergência de fonte — por isso a ordem é a do ranking, não a das contas
+            de TTK do resto do site. O patch aparece no cartão como contexto, não como o que põe a
+            arma na lista; mudança recente é assunto do bloco de tendência. Os colchetes dizem de
+            que fonte saiu cada indicação.
           </BlockNote>
           <Row gutter={[8, 8]}>
             {picks.map((pick, rank) => (
@@ -191,7 +189,7 @@ export function MetaScreen({
           </Row>
         </section>
 
-        {trending.length > 0 && (
+        {trendingVisivel.length >= MIN_TRENDING && (
           <section className="mb-3">
             <BlockDivider />
             <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
@@ -201,16 +199,13 @@ export function MetaScreen({
               </Typography.Text>
             </div>
             <BlockNote>
-              O que põe uma arma aqui não é ela ser mais usada que as de cima — é{' '}
-              <strong>algo ter mudado nela</strong>, e dar para datar: um acerto do último patch, um
-              acessório que o estúdio desligou, uma build nova, uma arma recém-chegada já sendo
-              adotada. A etiqueta âmbar diz o que mudou; o texto abaixo dela, que evidência sustenta
-              isso. Por isso esta lista não é a de cima em outra ordem: o topo mede o nível de hoje
-              e aqui é a variação da semana — uma arma pode estar mudando de patamar sem nunca ter
-              chegado perto das mais escolhidas.
+              Não é ser mais usada que as de cima — é <strong>algo ter mudado</strong>, e dar para
+              datar: um acerto do patch, um acessório desligado, uma build nova, uma arma
+              recém-chegada já sendo adotada. A etiqueta âmbar diz o que mudou; o texto abaixo, que
+              evidência sustenta isso. O topo mede o nível de hoje; aqui, a variação da semana.
             </BlockNote>
             <Row gutter={[8, 8]}>
-              {trending.map((pick, rank) => (
+              {trendingVisivel.map((pick, rank) => (
                 <Col key={`${pick.weapon}-${pick.trend}`} xs={24} sm={12} lg={8} xl={6}>
                   <TrendingCard pick={pick} rank={rank + 1} />
                 </Col>

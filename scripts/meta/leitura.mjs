@@ -24,6 +24,7 @@
 import { WEAPONS } from '../../src/data/weapons.ts';
 import { SEASONS } from '../../src/data/season.ts';
 import { pageKey } from '../../src/lib/sources.ts';
+import { MIN_TRENDING } from '../../src/data/meta.ts';
 
 /** No máximo, o que a tela mostra. */
 const MAX_PICKS = 8;
@@ -52,8 +53,11 @@ const MIN_PICKS = 4;
  * ontem, que é uma leitura inteira e coerente, em vez de publicar meio bloco.
  * Completar com arma sem evidência não está entre as opções — é exatamente o que
  * estas travas existem para impedir.
+ *
+ * O número vem de `src/data/meta.ts` porque a tela cobra o mesmo piso do arquivo
+ * já gravado. Esta trava protege o que ainda vai ser publicado; a de lá é quem
+ * tira da tela a leitura curta que passou antes de ela existir.
  */
-const MIN_TRENDING = 4;
 
 /** Uma arma pode ser meta e estar subindo. Seis não podem — isso é a mesma lista duas vezes. */
 const MAX_REPETIDAS_NO_TRENDING = 2;
