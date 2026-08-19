@@ -1,160 +1,105 @@
 {
-  "readAt": "2026-08-18",
-  "model": "gpt-4.1",
+  "readAt": "2026-08-19",
+  "model": "gpt-5-mini",
   "patch": {
-    "name": "Atualização 1.4.1.0",
-    "date": "2026-07-21"
+    "name": "Game Update 1.4.2.0",
+    "date": "2026-08-18"
   },
   "picks": [
     {
-      "weapon": "kord-6p67",
-      "reason": "Controle de recuo excepcional e danos consistentes de 30 a 80 metros, tornando-a a arma mais confiável para combates de médio alcance.",
+      "weapon": "vssm",
+      "reason": "remoção de um modificador de recuo involuntário em anexos da VSSM e ajuste de multiplicadores de dano em membros, tornando o comportamento da arma mais previsível e corrigindo inconsistências de dano.",
       "sources": [
-        0
-      ]
-    },
-    {
-      "weapon": "b36a4",
-      "reason": "Reconhecida por seu controle superior em média distância, mantendo-se no topo por várias temporadas.",
-      "sources": [
-        0
-      ]
-    },
-    {
-      "weapon": "brod-3",
-      "reason": "Nova carabina introduzida na Temporada 4, destacando-se por sua versatilidade e desempenho sólido em diversas situações.",
-      "sources": [
-        0
-      ]
-    },
-    {
-      "weapon": "sgx",
-      "reason": "Submetralhadora com alta taxa de disparo e excelente mobilidade, ideal para combates de curta distância.",
-      "sources": [
-        1
-      ]
-    },
-    {
-      "weapon": "kts100-mk8",
-      "reason": "Metralhadora leve com alta capacidade de munição e estabilidade, eficaz para suprimir inimigos em áreas abertas.",
-      "sources": [
-        1
-      ]
-    },
-    {
-      "weapon": "m2010-esr",
-      "reason": "Fuzil de precisão com alta precisão e dano, adequado para eliminar alvos a longas distâncias.",
-      "sources": [
-        1
-      ]
-    },
-    {
-      "weapon": "m87a1",
-      "reason": "Espingarda com alto poder de parada, eficaz em combates de curta distância.",
-      "sources": [
-        0
+        2
       ]
     },
     {
       "weapon": "ef88",
-      "reason": "Fuzil bullpup australiano introduzido na Temporada 4, projetado para longas linhas de visão, com recuo mínimo e alta versatilidade.",
+      "reason": "melhorias de apresentação e consistência de anexos para o EF88, corrigindo ícones e problemas visuais que agora permitem setups/visualização de mira mais fiéis ao funcionamento real da arma.",
       "sources": [
-        0
+        2
+      ]
+    },
+    {
+      "weapon": "brod-3",
+      "reason": "correção do nível de zoom da BROD 3 com a Mira Térmica 3.00x, restaurando o uso pretendido do alcance ótico e evitando discrepâncias de mira.",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "weapon": "nvo-228e",
+      "reason": "correção de animação do braço esquerdo ao recarregar a NVO-228E, eliminando um bug de apresentação que impactava a percepção de fluxo de recarga.",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "weapon": "m2010-esr",
+      "reason": "correção no comportamento do Match Grade Ammo, que não aplicava reduções de dano involuntárias na M2010 ESR, restabelecendo o dano pretendido com esse tipo de munição.",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "weapon": "svk-86",
+      "reason": "correção no Match Grade Ammo para SVK-8.6, removendo reduções de dano não intencionais e alinhando o dano ao esperado para munição de precisão.",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "weapon": "mini-scout",
+      "reason": "correção das attachments 50 mW Violet do Mini Scout para ajustarem corretamente ao trilho inferior quando usadas com ópticas maiores, corrigindo comportamento de montagem.",
+      "sources": [
+        2
       ]
     }
   ],
   "trending": [
     {
       "weapon": "vssm",
-      "reason": "Novo fuzil de precisão adicionado na Temporada 4, ganhando popularidade por sua alta cadência de tiro e versatilidade em combates de médio alcance.",
+      "reason": "no changelog do patch 1.4.2.0 foi listado explicitamente que um modificador de recuo involuntário foi removido dos canos da VSSM; conversas no subreddit apontaram mudanças no comportamento de recuo após o patch.",
       "sources": [
-        0
+        2
       ],
-      "trend": "chegou no patch"
+      "trend": "remoção de modificador de recuo"
     },
     {
-      "weapon": "pw5a3",
-      "reason": "Configuração totalmente automática recentemente popularizada, aumentando sua eficácia em combates de curta distância.",
+      "weapon": "ef88",
+      "reason": "o patch 1.4.2.0 cita melhorias de apresentação e consistência de anexos para o EF88; posts oficiais e threads na comunidade sobre Top Gun citam ajustes que levaram jogadores a testar novas builds com o EF88.",
       "sources": [
-        1
+        2
       ],
-      "trend": "build full-auto"
-    },
-    {
-      "weapon": "drs-iar",
-      "reason": "Ajustes recentes reduziram o recuo, melhorando sua precisão e tornando-a mais viável em combates de médio alcance.",
-      "sources": [
-        1
-      ],
-      "trend": "buff de recuo"
-    },
-    {
-      "weapon": "rpk-74m",
-      "reason": "Aumento no dano por tiro no último patch, resultando em maior eficácia contra inimigos com armadura.",
-      "sources": [
-        1
-      ],
-      "trend": "buff de dano"
-    },
-    {
-      "weapon": "pp-19",
-      "reason": "Jogadores migrando da SGX para a PP-19 devido à sua maior capacidade de munição e estabilidade.",
-      "sources": [
-        1
-      ],
-      "trend": "migração da SGX"
-    },
-    {
-      "weapon": "sg-553r",
-      "reason": "Nova carabina introduzida recentemente, sendo adotada por sua precisão e versatilidade.",
-      "sources": [
-        1
-      ],
-      "trend": "chegou no patch"
-    },
-    {
-      "weapon": "m4a1",
-      "reason": "Configuração totalmente automática ganhando popularidade, aumentando sua eficácia em combates de curta e média distância.",
-      "sources": [
-        0
-      ],
-      "trend": "build full-auto"
-    },
-    {
-      "weapon": "svdm",
-      "reason": "Ajustes recentes aumentaram seu alcance efetivo, tornando-a mais eficaz em combates de longa distância.",
-      "sources": [
-        1
-      ],
-      "trend": "buff de alcance"
+      "trend": "apresentação e consistência de anexos"
     }
   ],
   "sources": [
     {
-      "name": "Mately.gg",
-      "url": "https://mately.gg/les-meilleures-armes-sur-battlefield-6/",
-      "date": "2026-07-29",
+      "name": "EA - Top Gun / Community Update",
+      "url": "https://careers.ea.com/pl/games/battlefield/battlefield-6/news/battlefield-6-community-update-top-gun-incoming",
+      "date": "2026-08-06",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Tier list atualizada após o lançamento da Temporada 4, focada no modo multiplayer tradicional.",
+      "scope": "anuncia o lançamento do patch 1.4.2.0 (Top Gun) e o conteúdo de temporada aplicável ao multiplayer tradicional",
       "timeframe": "season-4"
     },
     {
-      "name": "BattlefieldMeta.gg",
-      "url": "https://battlefieldmeta.gg/pt",
-      "date": "2026-07-28",
+      "name": "EA - Game Update 1.4.1.0 (Season 4 introdução)",
+      "url": "https://careers.ea.com/pt-br/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-1-0",
+      "date": "2026-07-16",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Análise detalhada do meta de armas na Temporada 4, com foco no multiplayer tradicional.",
+      "scope": "documenta o início da Temporada 4 e introdução de armas (VSSM) e mudanças de temporada relevantes para o multiplayer tradicional",
       "timeframe": "season-4"
     },
     {
-      "name": "GameWatcher",
-      "url": "https://www.gamewatcher.com/battlefield-6-patch-notes-and-roadmap-of-updates",
-      "date": "2026-07-21",
+      "name": "Reddit - changelog e discussão do Update 1.4.2.0",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1vocwhr/battlefield_6_update_1420/",
+      "date": "2026-08-18",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Notas oficiais do patch 1.4.1.0, detalhando mudanças e adições na Temporada 4.",
+      "scope": "registro público do changelog do Game Update 1.4.2.0 com a lista de correções e quem discute efeitos imediatos no multiplayer tradicional",
       "timeframe": "season-4"
     }
   ]
