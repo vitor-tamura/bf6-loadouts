@@ -1,132 +1,130 @@
 {
   "readAt": "2026-08-19",
-  "model": "curadoria manual",
+  "model": "gpt-5-mini",
   "patch": {
-    "name": "Game Update 1.4.2.0 (Temporada 4, fase Top Gun)",
+    "name": "Game Update 1.4.2.0",
     "date": "2026-08-18"
   },
   "picks": [
     {
-      "weapon": "m16a4",
-      "reason": "Primeira colocada geral e primeira entre os onze fuzis do multiplayer, e a 1.4.2.0 não encostou nela: a rajada de três segue matando a distância sem concorrente à altura.",
-      "sources": [0, 3]
+      "weapon": "ef88",
+      "reason": "arma adicionada na Temporada 4 com perfil bullpup de médio-longo alcance e presença destacada nas notas oficiais como novo assault rifle do lançamento da temporada.",
+      "sources": [
+        0
+      ]
     },
     {
-      "weapon": "b36a4",
-      "reason": "Segunda entre os fuzis: cadência menor que a da M16A4 — 720 contra 800 RPM — trocada por bala mais rápida e recuo bem mais fácil de segurar na automática.",
-      "sources": [0, 3]
-    },
-    {
-      "weapon": "kord-6p67",
-      "reason": "Terceira entre os fuzis e quarta no ranking geral: 900 RPM, a maior cadência da classe, para quem ganha a troca no primeiro segundo.",
-      "sources": [0, 3]
-    },
-    {
-      "weapon": "pp-19",
-      "reason": "Primeira submetralhadora e terceira colocada geral do multiplayer, com 53 tiros no carregador helicoidal — e nenhuma linha sobre ela no changelog da 1.4.2.0.",
-      "sources": [0, 2]
-    },
-    {
-      "weapon": "drs-iar",
-      "reason": "Primeira metralhadora e quinta colocada geral: maneja como fuzil e segura objetivo. A 1.4.2.0 manteve a posição por omissão — mexeu na RPK-74M, não nela.",
-      "sources": [0, 2]
-    },
-    {
-      "weapon": "m2010-esr",
-      "reason": "Primeiro ferrolho do multiplayer, e a 1.4.2.0 devolveu o que faltava: a Munição Match Grade parou de aplicar uma redução de dano que não era intencional.",
-      "sources": [0, 1]
+      "weapon": "brod-3",
+      "reason": "arma introduzida na Temporada 4 listada nas notas oficiais como novo carbine — contém o hardware e attachments que a posicionam para uso em multiplayer amplo desde o patch de temporada.",
+      "sources": [
+        0
+      ]
     },
     {
       "weapon": "vssm",
-      "reason": "Segue como a primeira DMR do multiplayer mesmo depois de a 1.4.2.0 tirar dos canos dela um modificador de recuo que não deveria existir e refazer os multiplicadores de dano em membro.",
-      "sources": [0, 1]
+      "reason": "novo designated marksman rifle anunciado junto à Temporada 4 como parte do pacote de armas multiplayer (chegou com a atualização de 2026-07-21).",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "m16a4",
+      "reason": "mencionada em discussões da comunidade pós-patch como um dos ARs de referência do meta multiplayer por conta do comportamento de burst e desempenho relatado após as atualizações de temporada.",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "weapon": "drs-iar",
+      "reason": "presença recorrente em análises e guias de multiplayer como metagun de alto desempenho antes e após a janela de temporada, mantendo-se referenciada por trackers e guias de arma.",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "weapon": "kord-6p67",
+      "reason": "citada em logs e guias de balanceamento como metralhadora com boa sustentação de dano no multiplayer desde mudanças anteriores e usada como referência de LMG do meta.",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "weapon": "l85a3",
+      "reason": "aparece em listas e conversas da comunidade pós-patch como AR com boa precisão em médios comprimentos e foi rastreada por guias como pick consistente no multiplayer da temporada.",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "weapon": "ak4d",
+      "reason": "frequentemente citada em discussões e guias de multiplayer como uma opção de rifle de batalha sólida no meta atual e aparece em rankings comunitários pós-atualizações.",
+      "sources": [
+        4
+      ]
     }
   ],
   "trending": [
     {
-      "weapon": "ef88",
-      "trend": "match trigger desligado",
-      "reason": "O estúdio tirou o Match Trigger da arma depois de jogadores mostrarem no fórum que a peça desliga o aumento de dispersão por tiro e derruba o recuo em três degraus, deixando a automática quase sem coice.",
-      "sources": [4, 5]
-    },
-    {
-      "weapon": "brod-3",
-      "trend": "perdeu a peça que a segurava",
-      "reason": "A carabina caiu no mesmo comunicado: terceira da classe no multiplayer, agora precisa segurar o recuo sem o acessório que vinha carregando as montagens dela.",
-      "sources": [4, 5]
-    },
-    {
       "weapon": "interdictor",
-      "trend": "chegou na 1.4.2.0",
-      "reason": "Antimaterial de alcance extremo que entrou pelo Passe de Batalha na fase Top Gun, feita para tirar piloto de dentro da cabine — e por isso divide quem joga a pé de quem voa.",
-      "sources": [1, 2]
+      "reason": "arma nova adicionada no update Top Gun (1.4.2.0, 2026-08-18) — a comunidade e notas do patch a mencionam como o novo sniper de maior alcance, gerando conversas imediatas sobre seu comportamento e sweet-spot; é citada especificamente nas comunicações do patch e em postagens da comunidade no lançamento.",
+      "sources": [
+        2
+      ],
+      "trend": "chegou no patch"
     },
     {
-      "weapon": "svk-86",
-      "trend": "munição match corrigida",
-      "reason": "Dividiu com a M2010 ESR o acerto da Munição Match Grade, e é a via mais barata de aproveitá-lo: .338 semiautomático, dois tiros ao peito.",
-      "sources": [1, 2]
-    },
-    {
-      "weapon": "l115",
-      "trend": "mira de ferro de 5 para 15",
-      "reason": "O custo do acessório de mira de ferro triplicou no patch, o que reabre a conta dos 100 pontos em toda montagem de ferrolho que contava com ela para sobrar orçamento.",
-      "sources": [2]
+      "weapon": "ef88",
+      "reason": "arma introduzida com a Temporada 4 (1.4.1.0 / Season 4) e novamente mencionada na fase Top Gun; seu aparecimento na lista oficial de novas armas gerou adoção e discussões táticas na comunidade multiplayer desde o lançamento da temporada.",
+      "sources": [
+        0
+      ],
+      "trend": "chegou no patch"
     }
   ],
   "sources": [
     {
-      "name": "wzstats.gg — ranking do multiplayer",
-      "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-08-19",
+      "name": "EA Season 4 roadmap",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/season-4-roadmap-everything-you-need-to-know",
+      "date": "2026-07-17",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Tem página só de multiplayer, separada das de REDSEC e de REDSEC Ranqueado, e ordena arma por arma dentro de cada classe.",
+      "scope": "anuncia conteúdo e armas novas para Battlefield 6 Multiplayer (Season 4) — fonte oficial que lista EF88, BROD 3, VSSM e Interdictor como hardware de multiplayer",
       "timeframe": "season-4"
     },
     {
-      "name": "EA — Battlefield 6 Game Update 1.4.2.0",
-      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-0",
+      "name": "EA Community Update - Top Gun Incoming",
+      "url": "https://forums.ea.com/blog/battlefield-game-info-hub-pt/battlefield-6---atualiza%C3%A7%C3%A3o-da-comunidade/13620285",
+      "date": "2026-08-06",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "comunicado oficial da EA/DICE sobre o update Top Gun (fase iniciada em 2026-08-18) aplicável ao multiplayer; confirma chegada de Interdictor e conteúdo de multiplayer",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit BF6 - Patch announcement posts",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1vocwhr/battlefield_6_update_1420/",
       "date": "2026-08-18",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Notas oficiais da atualização em vigor. O REDSEC tem seção própria no texto, então a seção de armas citada aqui é a da partida comum.",
+      "scope": "postagem de anúncio/comentários da comunidade sobre o Game Update 1.4.2.0 (Top Gun) que documenta o deploy do patch e as mudanças/novas armas no multiplayer",
       "timeframe": "season-4"
     },
     {
-      "name": "BF6 Balance Log — registro da 1.4.2.0",
+      "name": "BF6 Balance Log (patch index)",
       "url": "https://bf6balancelog.com/",
-      "date": "2026-08-14",
+      "date": "2026-07-16",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Transcreve o changelog oficial arma por arma, com os números que o resumo da imprensa corta — a mira de ferro da L115 de 5 para 15 pontos, por exemplo.",
+      "scope": "arquivo e índice de patches e mudanças de balanceamento que confirma datas de deployment de Game Update 1.4.1.0 (Season 4) e histórico de alterações relevantes para multiplayer",
       "timeframe": "season-4"
     },
     {
-      "name": "wzstats.gg — fuzis de assalto no multiplayer",
-      "url": "https://wzstats.gg/battlefield-6/multiplayer/best-gun/best-assault-rifles-in-battlefield",
-      "date": "2026-08-18",
+      "name": "Community discussion 'M16A4 / burst'",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1tgpsti/i_never_expected_to_enjoy_a_burst_ar_in_this_game/",
+      "date": "2026-05-18",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Página de classe do mesmo rastreador, também só de multiplayer: publica a ordem completa dos onze fuzis, que a página de resumo corta no quinto.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "EA Forums — Match Trigger na EF88 e na BROD 3",
-      "url": "https://forums.ea.com/idea/battlefield-6-bug-reports-en/match-trigger-on-ef88--brod-3-makes-them-brokenly-accurate-on-full-auto/13590818",
-      "date": "2026-08-19",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Relato no fórum oficial sobre o que a peça faz em partida: desliga o aumento de dispersão por tiro e baixa o recuo em três degraus. A data é a da leitura — a página não declara a de publicação.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Battlefield Comms — Match Trigger desligado da EF88 e da BROD 3",
-      "url": "https://steamcommunity.com/app/2807960/discussions/0/581677784229939742/",
-      "date": "2026-08-19",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Comunicado oficial do estúdio: a peça saiu das duas armas enquanto a \"interação não intencional\" é investigada, e isso vale para o Gunsmith de quem joga a partida comum. A data é a da leitura.",
+      "scope": "discussão da comunidade sobre comportamento do M16A4 em multiplayer — usada para evidenciar percepção pós-patch e adoção no meta multiplayer",
       "timeframe": "season-4"
     }
   ]
