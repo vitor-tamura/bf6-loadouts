@@ -1,78 +1,79 @@
 {
   "readAt": "2026-08-19",
-  "model": "gpt-4.1",
+  "model": "gpt-5-mini",
   "patch": {
-    "name": "Battlefield 6 Game Update 1.4.1.5",
-    "date": "2026-08-03"
+    "name": "Game Update 1.4.2.0",
+    "date": "2026-08-18"
   },
   "picks": [
     {
-      "weapon": "ak-205",
-      "reason": "A AK-205 continua sendo uma das armas mais escolhidas no multiplayer tradicional devido ao seu equilíbrio entre dano e controle de recuo, tornando-a eficaz em diversas situações de combate.",
-      "sources": []
+      "weapon": "vssm",
+      "reason": "ajuste nos multiplicadores de dano a membros no patch 1.4.2.0 que alterou como a arma aplica dano corporal em partidas multiplayer, impactando sua eficácia em confrontos de curta/média distância.",
+      "sources": [
+        3
+      ]
     },
     {
-      "weapon": "kv9",
-      "reason": "A KV9 é altamente popular no multiplayer tradicional por sua alta cadência de tiro e manuseio ágil, ideal para combates de curta distância.",
-      "sources": []
-    },
-    {
-      "weapon": "m1014",
-      "reason": "A M1014 é amplamente utilizada no multiplayer tradicional por seu alto dano em combates próximos, sendo eficaz em mapas com espaços confinados.",
-      "sources": []
+      "weapon": "interdictor",
+      "reason": "nova rifle de precisão adicionada no patch 1.4.2.0 (Top Gun) — arma presente no pool de multiplayer desde o lançamento da atualização e que altera o leque de snipers jogáveis.",
+      "sources": [
+        2
+      ]
     }
   ],
   "trending": [
     {
-      "weapon": "m417-a2",
-      "reason": "A atualização 1.4.1.5 reduziu o recuo da M417 A2, aumentando sua precisão e tornando-a mais viável em combates de médio alcance.",
+      "weapon": "interdictor",
+      "reason": "o Interdictor foi incluído na atualização 1.4.2.0 (Top Gun) e a comunicação oficial/comentários nas comunidades apontaram sua disponibilidade imediata no multiplayer após o lançamento da atualização.",
       "sources": [
-        0
+        2
       ],
-      "trend": "buff de recuo"
+      "trend": "chegou no patch"
     },
     {
-      "weapon": "scw-10",
-      "reason": "A SCW-10 recebeu um aumento no dano base na atualização 1.4.1.5, resultando em uma maior taxa de eliminação em combates próximos.",
+      "weapon": "mini-scout",
+      "reason": "o patch 1.4.2.0 corrigiu um problema com as mini-scout 50 mW (ajuste de posicionamento em trilhos), afetando como o acessório funciona em armas do multiplayer.",
       "sources": [
-        0
+        3
       ],
-      "trend": "buff de dano"
-    },
-    {
-      "weapon": "m4a1",
-      "reason": "A cadência de tiro da M4A1 foi aumentada na atualização 1.4.1.5, melhorando sua eficácia em situações de combate rápido.",
-      "sources": [
-        0
-      ],
-      "trend": "buff de cadência"
-    },
-    {
-      "weapon": "m87a1",
-      "reason": "O alcance efetivo da M87A1 foi ampliado na atualização 1.4.1.5, tornando-a mais versátil em diferentes distâncias de combate.",
-      "sources": [
-        0
-      ],
-      "trend": "buff de alcance"
+      "trend": "correção de anexo"
     }
   ],
   "sources": [
     {
-      "name": "Battlefield 6 Balance Log",
-      "url": "https://bf6balancelog.com/",
-      "date": "2026-08-03",
+      "name": "EA — Game Update 1.4.1.0 / Season 4 (oficial)",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-1-0",
+      "date": "2026-07-21",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Compilação detalhada das notas de atualização do Battlefield 6, incluindo mudanças específicas em armas no multiplayer tradicional.",
+      "scope": "página oficial de notas de atualização da EA/DICE para multiplayer (lançou a Temporada 4: Naval Warfare) — referência do ciclo de patches da temporada; conteúdo multiplayer",
       "timeframe": "season-4"
     },
     {
-      "name": "Battlefield6.gg",
-      "url": "https://www.battlefield6.gg/",
+      "name": "EA Forums — Game Update 1.4.1.5 (qualidade de vida)",
+      "url": "https://forums.ea.com/blog/battlefield-game-info-hub-en/battlefield-6-game-update-1-4-1-5/13609027",
+      "date": "2026-08-04",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "comunicação oficial em fórum da EA sobre atualizações e correções aplicáveis ao multiplayer",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit — anúncio e notas do patch 1.4.2.0 (Top Gun / 2026-08-18)",
+      "url": "https://www.reddit.com/r/Battlefield/comments/1vocwgg/battlefield_6_update_1420/",
       "date": "2026-08-18",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Site especializado que fornece listas de armas e análises focadas no multiplayer tradicional do Battlefield 6.",
+      "scope": "discussão e transcrição comunitária das notas do patch 1.4.2.0; confirma mudanças e itens adicionados ao multiplayer (Top Gun, Interdictor, correções de armas)",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit — discussão sobre o lançamento 1.4.2.0 (thread de comunidade)",
+      "url": "https://www.reddit.com/r/Battlefield/comments/1vrjcci/bfcomms_battlefield_6_game_update_1420_is_now/",
+      "date": "2026-08-18",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "thread comunitário que lista e cita trechos das notas de atualização e reporta mudanças observadas no multiplayer (arma/attachments/limb damage)",
       "timeframe": "season-4"
     }
   ]
