@@ -1,130 +1,78 @@
 {
   "readAt": "2026-08-19",
-  "model": "gpt-5-mini",
+  "model": "gpt-4.1",
   "patch": {
-    "name": "Game Update 1.4.2.0",
-    "date": "2026-08-18"
+    "name": "Battlefield 6 Game Update 1.4.1.5",
+    "date": "2026-08-03"
   },
   "picks": [
     {
-      "weapon": "ef88",
-      "reason": "arma adicionada na Temporada 4 com perfil bullpup de médio-longo alcance e presença destacada nas notas oficiais como novo assault rifle do lançamento da temporada.",
-      "sources": [
-        0
-      ]
+      "weapon": "ak-205",
+      "reason": "A AK-205 continua sendo uma das armas mais escolhidas no multiplayer tradicional devido ao seu equilíbrio entre dano e controle de recuo, tornando-a eficaz em diversas situações de combate.",
+      "sources": []
     },
     {
-      "weapon": "brod-3",
-      "reason": "arma introduzida na Temporada 4 listada nas notas oficiais como novo carbine — contém o hardware e attachments que a posicionam para uso em multiplayer amplo desde o patch de temporada.",
-      "sources": [
-        0
-      ]
+      "weapon": "kv9",
+      "reason": "A KV9 é altamente popular no multiplayer tradicional por sua alta cadência de tiro e manuseio ágil, ideal para combates de curta distância.",
+      "sources": []
     },
     {
-      "weapon": "vssm",
-      "reason": "novo designated marksman rifle anunciado junto à Temporada 4 como parte do pacote de armas multiplayer (chegou com a atualização de 2026-07-21).",
-      "sources": [
-        0
-      ]
-    },
-    {
-      "weapon": "m16a4",
-      "reason": "mencionada em discussões da comunidade pós-patch como um dos ARs de referência do meta multiplayer por conta do comportamento de burst e desempenho relatado após as atualizações de temporada.",
-      "sources": [
-        4
-      ]
-    },
-    {
-      "weapon": "drs-iar",
-      "reason": "presença recorrente em análises e guias de multiplayer como metagun de alto desempenho antes e após a janela de temporada, mantendo-se referenciada por trackers e guias de arma.",
-      "sources": [
-        3
-      ]
-    },
-    {
-      "weapon": "kord-6p67",
-      "reason": "citada em logs e guias de balanceamento como metralhadora com boa sustentação de dano no multiplayer desde mudanças anteriores e usada como referência de LMG do meta.",
-      "sources": [
-        3
-      ]
-    },
-    {
-      "weapon": "l85a3",
-      "reason": "aparece em listas e conversas da comunidade pós-patch como AR com boa precisão em médios comprimentos e foi rastreada por guias como pick consistente no multiplayer da temporada.",
-      "sources": [
-        4
-      ]
-    },
-    {
-      "weapon": "ak4d",
-      "reason": "frequentemente citada em discussões e guias de multiplayer como uma opção de rifle de batalha sólida no meta atual e aparece em rankings comunitários pós-atualizações.",
-      "sources": [
-        4
-      ]
+      "weapon": "m1014",
+      "reason": "A M1014 é amplamente utilizada no multiplayer tradicional por seu alto dano em combates próximos, sendo eficaz em mapas com espaços confinados.",
+      "sources": []
     }
   ],
   "trending": [
     {
-      "weapon": "interdictor",
-      "reason": "arma nova adicionada no update Top Gun (1.4.2.0, 2026-08-18) — a comunidade e notas do patch a mencionam como o novo sniper de maior alcance, gerando conversas imediatas sobre seu comportamento e sweet-spot; é citada especificamente nas comunicações do patch e em postagens da comunidade no lançamento.",
-      "sources": [
-        2
-      ],
-      "trend": "chegou no patch"
-    },
-    {
-      "weapon": "ef88",
-      "reason": "arma introduzida com a Temporada 4 (1.4.1.0 / Season 4) e novamente mencionada na fase Top Gun; seu aparecimento na lista oficial de novas armas gerou adoção e discussões táticas na comunidade multiplayer desde o lançamento da temporada.",
+      "weapon": "m417-a2",
+      "reason": "A atualização 1.4.1.5 reduziu o recuo da M417 A2, aumentando sua precisão e tornando-a mais viável em combates de médio alcance.",
       "sources": [
         0
       ],
-      "trend": "chegou no patch"
+      "trend": "buff de recuo"
+    },
+    {
+      "weapon": "scw-10",
+      "reason": "A SCW-10 recebeu um aumento no dano base na atualização 1.4.1.5, resultando em uma maior taxa de eliminação em combates próximos.",
+      "sources": [
+        0
+      ],
+      "trend": "buff de dano"
+    },
+    {
+      "weapon": "m4a1",
+      "reason": "A cadência de tiro da M4A1 foi aumentada na atualização 1.4.1.5, melhorando sua eficácia em situações de combate rápido.",
+      "sources": [
+        0
+      ],
+      "trend": "buff de cadência"
+    },
+    {
+      "weapon": "m87a1",
+      "reason": "O alcance efetivo da M87A1 foi ampliado na atualização 1.4.1.5, tornando-a mais versátil em diferentes distâncias de combate.",
+      "sources": [
+        0
+      ],
+      "trend": "buff de alcance"
     }
   ],
   "sources": [
     {
-      "name": "EA Season 4 roadmap",
-      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/season-4-roadmap-everything-you-need-to-know",
-      "date": "2026-07-17",
+      "name": "Battlefield 6 Balance Log",
+      "url": "https://bf6balancelog.com/",
+      "date": "2026-08-03",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "anuncia conteúdo e armas novas para Battlefield 6 Multiplayer (Season 4) — fonte oficial que lista EF88, BROD 3, VSSM e Interdictor como hardware de multiplayer",
+      "scope": "Compilação detalhada das notas de atualização do Battlefield 6, incluindo mudanças específicas em armas no multiplayer tradicional.",
       "timeframe": "season-4"
     },
     {
-      "name": "EA Community Update - Top Gun Incoming",
-      "url": "https://forums.ea.com/blog/battlefield-game-info-hub-pt/battlefield-6---atualiza%C3%A7%C3%A3o-da-comunidade/13620285",
-      "date": "2026-08-06",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "comunicado oficial da EA/DICE sobre o update Top Gun (fase iniciada em 2026-08-18) aplicável ao multiplayer; confirma chegada de Interdictor e conteúdo de multiplayer",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Reddit BF6 - Patch announcement posts",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1vocwhr/battlefield_6_update_1420/",
+      "name": "Battlefield6.gg",
+      "url": "https://www.battlefield6.gg/",
       "date": "2026-08-18",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "postagem de anúncio/comentários da comunidade sobre o Game Update 1.4.2.0 (Top Gun) que documenta o deploy do patch e as mudanças/novas armas no multiplayer",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "BF6 Balance Log (patch index)",
-      "url": "https://bf6balancelog.com/",
-      "date": "2026-07-16",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "arquivo e índice de patches e mudanças de balanceamento que confirma datas de deployment de Game Update 1.4.1.0 (Season 4) e histórico de alterações relevantes para multiplayer",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Community discussion 'M16A4 / burst'",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1tgpsti/i_never_expected_to_enjoy_a_burst_ar_in_this_game/",
-      "date": "2026-05-18",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "discussão da comunidade sobre comportamento do M16A4 em multiplayer — usada para evidenciar percepção pós-patch e adoção no meta multiplayer",
+      "scope": "Site especializado que fornece listas de armas e análises focadas no multiplayer tradicional do Battlefield 6.",
       "timeframe": "season-4"
     }
   ]
