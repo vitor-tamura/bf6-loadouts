@@ -79,6 +79,17 @@ export const WEAPON_IMAGES: Record<string, WeaponImageSources> = {
   psr: { photo: 'https://www.imfdb.org/images/thumb/4/4e/BF6_MRAD.jpg/600px-BF6_MRAD.jpg', render: 'https://img.battlefieldmeta.gg/psr_version2/gunMiniDisplay' },
   'mini-scout': { photo: 'https://www.imfdb.org/images/thumb/1/18/BF6_QMini.jpg/600px-BF6_QMini.jpg', render: 'https://img.battlefieldmeta.gg/mini-scout_version1/gunMiniDisplay' },
   l115: { photo: 'https://www.imfdb.org/images/thumb/0/0d/BF6_AWM_(0).jpg/600px-BF6_AWM_(0).jpg', render: 'https://img.battlefieldmeta.gg/l115/gunMiniDisplay' },
+  /*
+   * A Interdictor é a Desert Tech HTI, e é por esse nome que a foto existe.
+   *
+   * Ela ficou meses como a única arma sem imagem porque a busca era pelo nome
+   * do jogo: a Battlefield Wiki não tem página dela até hoje, e o arquivo
+   * `Interdictor_BF6.png` nunca existiu. O que a EA fez foi um trocadilho com o
+   * nome real — "Hard Target Interdiction" —, e na IMFDB a arma está catalogada
+   * assim, com a captura do menu de personalização que este projeto usa para
+   * todas as outras.
+   */
+  interdictor: { photo: 'https://www.imfdb.org/images/thumb/1/13/BF6_DT_HTI.jpg/600px-BF6_DT_HTI.jpg', render: 'https://img.battlefieldmeta.gg/interdictor/gunMiniDisplay' },
   m1014: { photo: 'https://www.imfdb.org/images/thumb/f/f8/BF6_BenM4.jpg/600px-BF6_BenM4.jpg', render: 'https://img.battlefieldmeta.gg/m1014_version2/gunMiniDisplay' },
   '18-5ks-k': { photo: 'https://www.imfdb.org/images/thumb/e/ef/BF6_KSK.jpg/600px-BF6_KSK.jpg', render: 'https://img.battlefieldmeta.gg/185ks-k_version2/gunMiniDisplay' },
   m87a1: { photo: 'https://www.imfdb.org/images/thumb/e/e9/BF6_M590.jpg/600px-BF6_M590.jpg', render: 'https://img.battlefieldmeta.gg/m87a1_version2/gunMiniDisplay' },

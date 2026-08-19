@@ -53,8 +53,8 @@ em ordem:
    Battlefield Wiki e, como reserva, um render de terceiros;
 3. **Marcador** com o nome da arma, quando não há nem uma nem outra.
 
-Hoje 62 das 68 armas têm foto; as 6 restantes (corpo a corpo e Interdictor)
-mostram o marcador.
+Hoje 63 das 68 armas têm foto; as 5 restantes, todas de corpo a corpo, mostram o
+marcador.
 
 Todas essas fontes mostram a arma **montada de fábrica**, então o quadro não muda
 quando um acessório entra. Quem responde à montagem é o resto da tela: os

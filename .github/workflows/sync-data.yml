@@ -41,15 +41,37 @@ jobs:
       - run: npm ci
       - run: pip install --quiet Pillow
 
+      # A opção "só relatório" não funcionava, e o motivo é uma armadilha da
+      # linguagem de expressão do Actions: `a && '' || b` nunca devolve `''`.
+      # A string vazia é falsa, então o `||` sempre entrega o outro lado — a
+      # caixa desmarcada gravava do mesmo jeito. Aqui o valor é decidido em
+      # `env`, com `true`/`false` explícitos, e o shell escolhe o argumento.
+      #
+      # `inputs.apply` só existe em execução manual; no agendamento ele vem
+      # vazio, e vazio aqui significa gravar — que é o que a rodada de segunda
+      # precisa fazer para haver Pull Request.
       - name: Sincronizar dataset
         id: sync
+        shell: bash
+        env:
+          GRAVAR: ${{ github.event_name != 'workflow_dispatch' || inputs.apply }}
         run: |
+          if [ "$GRAVAR" = 'false' ]; then argumentos=''; else argumentos='--apply'; fi
+          echo "Modo: ${argumentos:-somente relatório}"
+
+          node --experimental-strip-types scripts/sync.mjs $argumentos 2>&1 \
+            | sed 's/\x1b\[[0-9;]*m//g' > /tmp/sync.log
+          cat /tmp/sync.log
+
+          # Delimitador sorteado por execução: o relatório é texto do script, e
+          # uma linha que por acaso fosse `FIM` encerraria o bloco no meio e
+          # quebraria o passo — ou deixaria injetar saída no `GITHUB_OUTPUT`.
+          fim="FIM_$RANDOM$RANDOM"
           {
-            echo 'relatorio<<FIM'
-            node --experimental-strip-types scripts/sync.mjs \
-              ${{ inputs.apply == false && '' || '--apply' }} 2>&1 \
-              | sed 's/\x1b\[[0-9;]*m//g'
-            echo 'FIM'
+            echo "relatorio<<$fim"
+            head -c 60000 /tmp/sync.log
+            echo
+            echo "$fim"
           } >> "$GITHUB_OUTPUT"
 
       - name: Baixar imagens que faltam
@@ -67,7 +89,7 @@ jobs:
           npm run build
 
       - name: Abrir Pull Request
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v7
         with:
           branch: dados/sincronizacao
           base: dev
@@ -91,6 +113,8 @@ jobs:
             - [ ] Conflitos listados acima foram conferidos um a um
             - [ ] Se o jogo mudou balanceamento, revisar `src/data/meta.ts`:
                   data, indicações que envelheceram e fonte nova
+            - [ ] A leitura do meta é **só de multiplayer** — fonte que fala de
+                  REDSEC, de Ranqueado ou dos dois no mesmo texto não entra
             - [ ] O CI está verde
 
             O catálogo público só muda quando o jogo muda, então este PR é o

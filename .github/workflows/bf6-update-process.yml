@@ -74,8 +74,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if gh pr list --state open --head "automation/bf6-update-${{ inputs.version }}" --json number \
-            | grep -q '"number"'; then
+          if [ -n "$(gh pr list --state open --head "automation/bf6-update-${{ inputs.version }}" --json number --jq '.[].number')" ]; then
             echo "::error::Já existe Pull Request aberto para ${{ inputs.version }}."
             exit 1
           fi
@@ -86,9 +85,17 @@ jobs:
 
       # Baixa o patch note, lê, concilia, valida, gera diff, monta o catálogo e
       # mede a cobertura. Falhou qualquer etapa, o passo inteiro falha.
+      #
+      # `shell: bash` não é enfeite: o shell padrão do `run` é `bash -e`, sem
+      # `pipefail`, e num comando terminado em `| tee` quem responde pelo
+      # resultado é o `tee` — que sempre devolve zero. O passo ficava verde com
+      # a atualização quebrada, e o pipeline seguia até abrir Pull Request em
+      # cima de um catálogo que nunca foi gerado. Com `shell: bash` o Actions
+      # usa `bash -eo pipefail`, e a falha volta a ser falha.
       - name: Atualizar o catálogo
         if: steps.existe.outputs.pular != '1'
         id: update
+        shell: bash
         run: npm run catalog:update -- --version '${{ inputs.version }}' 2>&1 | tee /tmp/update.log
 
       - name: Testes, lint, tipos e build
@@ -100,36 +107,34 @@ jobs:
           npm run typecheck
           npm run build
 
-      - name: Abrir issue quando o pipeline falhar
-        if: failure() && steps.existe.outputs.pular != '1'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Versão nova que não mexeu em nada do catálogo existe — patch de correção
+      # de mapa, de áudio, de interface. Antes isso chegava aqui como `git
+      # commit` sem nada para commitar, que sai com código 1: o job morria como
+      # se o pipeline tivesse quebrado, e a versão ficava para trás, pronta para
+      # ser redescoberta e reprocessada a cada seis horas, para sempre.
+      - name: O catálogo mudou?
+        if: steps.existe.outputs.pular != '1'
+        id: mudou
         run: |
-          gh issue create \
-            --title "[CATALOG] Falha ao processar a versão ${{ inputs.version }}" \
-            --body "O pipeline falhou e **nenhum Pull Request foi aberto**.
-
-          Versão: \`${{ inputs.version }}\`
-          Execução: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-
-          O patch note baixado, se houver, está em \`data/patches/${{ inputs.version }}.json\`.
-          O catálogo em \`main\` não foi alterado.
-
-          Rode localmente para reproduzir:
-
-          \`\`\`bash
-          npm run catalog:update -- --version ${{ inputs.version }}
-          \`\`\`"
+          # `--porcelain` também lista arquivo novo, que é a forma mais comum de
+          # o catálogo mudar: `data/versions/<versão>/` nasce sem estar rastreado
+          # e um `git diff` sozinho não o veria.
+          if [ -z "$(git status --porcelain -- data public/data)" ]; then
+            echo "::notice::A ${{ inputs.version }} não alterou o catálogo. Nada a propor."
+            echo "houve=0" >> "$GITHUB_OUTPUT"
+          else
+            echo "houve=1" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Montar o corpo do Pull Request
-        if: steps.existe.outputs.pular != '1'
+        if: steps.mudou.outputs.houve == '1'
         run: |
           node --experimental-strip-types scripts/catalog/pr-body.ts \
             '${{ inputs.version }}' "$ANTERIOR" > /tmp/pr-body.md
           cat /tmp/pr-body.md
 
       - name: Abrir o Pull Request
-        if: steps.existe.outputs.pular != '1'
+        if: steps.mudou.outputs.houve == '1'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -164,7 +169,7 @@ jobs:
               --title "feat(data): update Battlefield 6 to ${{ inputs.version }}" \
               --body-file /tmp/pr-body.md && exit 0
 
-            if gh pr list --state open --head "$branch" --json number | grep -q '"number"'; then
+            if [ -n "$(gh pr list --state open --head "$branch" --json number --jq '.[].number')" ]; then
               echo "::notice::O Pull Request já existe — a tentativa anterior chegou a criá-lo."
               exit 0
             fi
@@ -176,3 +181,31 @@ jobs:
 
           echo "::error::Não foi possível abrir o Pull Request. O branch $branch está no remoto, com o trabalho pronto — reabrir é só rodar este workflow de novo."
           exit 1
+
+      # Este passo é o último de propósito.
+      #
+      # Passo condicionado por `failure()` só roda se a falha já tiver
+      # acontecido quando chega a vez dele. Estando no meio da lista, como
+      # estava, ele cobria a atualização e os testes e deixava de fora
+      # justamente o fim — o push e a abertura do Pull Request, que é onde a
+      # API de terceiro entra e onde a execução se perde sem deixar rastro.
+      - name: Abrir issue quando o pipeline falhar
+        if: failure() && steps.existe.outputs.pular != '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --title "[CATALOG] Falha ao processar a versão ${{ inputs.version }}" \
+            --body "O pipeline falhou e **nenhum Pull Request foi aberto**.
+
+          Versão: \`${{ inputs.version }}\`
+          Execução: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          O patch note baixado, se houver, está em \`data/patches/${{ inputs.version }}.json\`.
+          O catálogo em \`main\` não foi alterado.
+
+          Rode localmente para reproduzir:
+
+          \`\`\`bash
+          npm run catalog:update -- --version ${{ inputs.version }}
+          \`\`\`"

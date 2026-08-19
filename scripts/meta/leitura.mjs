@@ -130,6 +130,62 @@ export function extrairJson(bruto) {
  */
 export const chavePagina = pageKey;
 
+/**
+ * Rastreadores que publicam os dois modos, cada um no seu endereço.
+ *
+ * Neles o caminho é a declaração de modo — e é a única que existe, porque o
+ * conteúdo das duas páginas é igualzinho: uma tabela de armas ordenadas. Sem
+ * `multiplayer` no caminho, o que a página descreve é o battle royale.
+ */
+const TRACKERS_POR_MODO = new Set([
+  'wzstats.gg',
+  'battlefieldmeta.gg',
+  'bfhub.gg',
+  'battlefinity.gg',
+  'nolagvpn.com',
+]);
+
+/** Um segmento do endereço que só existe em página de battle royale. */
+const MARCAS_DE_BATTLE_ROYALE = /redsec|battle-?royale|battle_royale/i;
+
+/**
+ * A página fala do modo errado?
+ *
+ * Esta é a trava que faltava, e a que custou mais caro. As outras pegam
+ * preguiça — motivo repetido, rótulo vazio, fonte contada duas vezes. Esta pega
+ * o erro que **parece** certo: uma lista de armas reais, bem escrita, datada de
+ * ontem, e que descreve o REDSEC. Foi assim que a KTS100 MK8 apareceu na tela
+ * como "melhor metralhadora do multiplayer" — ela é a primeira colocada geral
+ * do battle royale e não chega ao pódio da própria classe no multiplayer.
+ *
+ * Nada no texto da página denuncia isso. O endereço, sim: quem ranqueia os dois
+ * modos os separa por caminho, e `wzstats.gg/battlefield-6/meta` é o battle
+ * royale enquanto `wzstats.gg/battlefield-6/multiplayer/meta` é o que esta tela
+ * quer. `ranked` também é REDSEC — o ranqueado do BF6 é battle royale.
+ *
+ * A regra vale só para os rastreadores conhecidos. Fórum, Reddit e notícia
+ * passam: o que eles trazem entra como percepção, não como posição.
+ */
+export function ehPaginaDeOutroModo(url) {
+  let endereco;
+  try {
+    endereco = new URL(String(url));
+  } catch {
+    return false;
+  }
+
+  const host = endereco.hostname.replace(/^www\./, '');
+  const caminho = endereco.pathname.toLowerCase();
+
+  if (MARCAS_DE_BATTLE_ROYALE.test(caminho) || MARCAS_DE_BATTLE_ROYALE.test(host)) return true;
+  if (!TRACKERS_POR_MODO.has(host)) return false;
+
+  // Raiz do rastreador não declara modo nenhum, e o padrão dessas páginas é o
+  // battle royale — foi o que a leitura de agosto provou ao trazer a lista do
+  // REDSEC inteira de uma página que só dizia "Battlefield 6 Meta".
+  return !/(^|\/)multiplayer(\/|$)/.test(caminho);
+}
+
 const ehData = (valor) => /^\d{4}-\d{2}-\d{2}$/.test(String(valor ?? ''));
 
 function fonteBase(url, { hoje, timeframe }) {
@@ -183,6 +239,10 @@ export function normalizarFontes(anotacoes, bruto, opcoes) {
 
   const incluir = (fonte) => {
     if (!fonte) return;
+    if (ehPaginaDeOutroModo(fonte.url)) {
+      opcoes.descartes?.push({ nome: fonte.name, motivo: 'página de REDSEC, não de multiplayer' });
+      return;
+    }
     const pagina = chavePagina(fonte.url);
     const jaVista = porPagina.get(pagina);
 
@@ -382,10 +442,21 @@ export function montarLeitura({ bruto, anotacoes = [], buscou = null, modelo, ho
   if (buscou === false) throw new Error('o modelo não chamou a busca');
   if (buscou === null && !anotacoes.length) throw new Error('a busca não abriu página nenhuma');
 
-  const sources = normalizarFontes(anotacoes, bruto, { hoje, timeframe });
+  const fontesDescartadas = [];
+  const sources = normalizarFontes(anotacoes, bruto, { hoje, timeframe, descartes: fontesDescartadas });
   // Sem anotação, valem as fontes que o modelo declarou no JSON. Sem nenhuma
   // das duas, não há o que mostrar embaixo do card — e aí a leitura não serve.
-  if (!sources.length) throw new Error('busca não devolveu fonte nenhuma');
+  //
+  // Quando a lista esvaziou porque tudo caiu por modo, o erro diz isso: leitura
+  // que só achou página de REDSEC não é leitura sem fonte, é leitura do modo
+  // errado, e quem for ler o log precisa saber a diferença.
+  if (!sources.length) {
+    throw new Error(
+      fontesDescartadas.length
+        ? `todas as fontes eram de REDSEC: ${fontesDescartadas.map((d) => d.nome).join(', ')}`
+        : 'busca não devolveu fonte nenhuma',
+    );
+  }
 
   const resolverFonte = resolvedorDeFonte(sources);
 
@@ -410,6 +481,6 @@ export function montarLeitura({ bruto, anotacoes = [], buscou = null, modelo, ho
       trending: trends.items,
       sources,
     },
-    descartes: [...meta.descartes, ...trends.descartes],
+    descartes: [...fontesDescartadas, ...meta.descartes, ...trends.descartes],
   };
 }
