@@ -1,4 +1,10 @@
-import { HIGHLIGHTS, SOURCES, type MetaPick, type MetaSource } from '@/data/meta';
+import {
+  HIGHLIGHTS,
+  SOURCES,
+  type CategoryHighlight,
+  type MetaPick,
+  type MetaSource,
+} from '@/data/meta';
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import { pageKey } from './sources';
 
@@ -29,6 +35,45 @@ import { pageKey } from './sources';
 export const MIN_DESTAQUES = 4;
 
 /**
+ * Uma lista de fontes que aceita as da curadoria sem perder os números.
+ *
+ * Quem cita é sempre um índice: o cartão guarda `[2]` e a tela desenha a segunda
+ * fonte da lista que ela recebeu. Enquanto a lista e o cartão vêm da mesma
+ * leitura isso se sustenta sozinho; no instante em que um cartão escrito à mão
+ * entra numa tela que mostra a leitura do dia, o número passa a apontar para
+ * outra página — e não há como notar, porque continua sendo um colchete com um
+ * número dentro.
+ *
+ * `pageKey` decide o que é a mesma página: o mesmo guia em `/`, `/pt` e `/es` é
+ * uma fonte só, e listá-lo três vezes faria a tela parecer mais sustentada do
+ * que é.
+ */
+function costurar(fontes: MetaSource[], deOnde: MetaSource[]) {
+  const juntas = [...fontes];
+  const porPagina = new Map(juntas.map((fonte, i) => [pageKey(fonte.url), i]));
+
+  const realocar = (indice: number): number | null => {
+    const fonte = deOnde[indice];
+    if (!fonte) return null;
+
+    const chave = pageKey(fonte.url);
+    const conhecida = porPagina.get(chave);
+    if (conhecida !== undefined) return conhecida;
+
+    porPagina.set(chave, juntas.push(fonte) - 1);
+    return juntas.length - 1;
+  };
+
+  /** O mesmo cartão, com os colchetes valendo na lista costurada. */
+  const recitar = <T extends MetaPick>(pick: T): T => ({
+    ...pick,
+    sources: pick.sources.map(realocar).filter((i): i is number => i !== null),
+  });
+
+  return { recitar, fontes: () => juntas };
+}
+
+/**
  * Os cartões do topo e a lista de fontes que eles citam.
  *
  * As fontes voltam junto porque completar o bloco pode acrescentar página nova
@@ -50,31 +95,40 @@ export function completarDestaques(
     .slice(0, faltam);
   if (!candidatos.length) return { destaques: noArsenal, fontes };
 
-  /*
-    A mesma página em duas listas é uma fonte só. `pageKey` já resolve o caso que
-    mais aparece — o mesmo guia publicado em `/`, `/pt` e `/es` —, e é o que
-    impede o rodapé de listar duas vezes o mesmo link com números diferentes.
-  */
-  const juntas = [...fontes];
-  const porPagina = new Map(juntas.map((fonte, i) => [pageKey(fonte.url), i]));
+  const costura = costurar(fontes, fontesDaCuradoria);
+  const completados = candidatos.map((pick) =>
+    costura.recitar({
+      ...pick,
+      reason: `Da curadoria escrita à mão do site, porque a leitura do dia não citou a arma. ${pick.reason}`,
+    }),
+  );
 
-  const realocar = (indice: number): number | null => {
-    const fonte = fontesDaCuradoria[indice];
-    if (!fonte) return null;
+  return { destaques: [...noArsenal, ...completados], fontes: costura.fontes() };
+}
 
-    const chave = pageKey(fonte.url);
-    const conhecida = porPagina.get(chave);
-    if (conhecida !== undefined) return conhecida;
+/**
+ * Os blocos por categoria, citando a lista que a tela realmente mostra.
+ *
+ * Estes cartões são escritos à mão e nunca foram substituídos pela leitura do
+ * dia — só o topo e a tendência são. Enquanto a tela mostrava a curadoria
+ * inteira ninguém notava; com a leitura automática no ar, o `[1] [4]` do M16A4
+ * passou a apontar para as notas da EA e uma thread do Reddit, no lugar das duas
+ * páginas do rastreador que sustentam a posição dele.
+ *
+ * Vale para o `best` e para as menções: as duas linhas citam do mesmo jeito.
+ */
+export function realocarCategorias(
+  categorias: CategoryHighlight[],
+  fontes: MetaSource[],
+  { fontesDaCuradoria = SOURCES } = {},
+): { categorias: CategoryHighlight[]; fontes: MetaSource[] } {
+  const costura = costurar(fontes, fontesDaCuradoria);
 
-    porPagina.set(chave, juntas.push(fonte) - 1);
-    return juntas.length - 1;
-  };
-
-  const completados = candidatos.map((pick) => ({
-    weapon: pick.weapon,
-    reason: `Da curadoria escrita à mão do site, porque a leitura do dia não citou a arma. ${pick.reason}`,
-    sources: pick.sources.map(realocar).filter((i): i is number => i !== null),
+  const realocadas = categorias.map((grupo) => ({
+    ...grupo,
+    best: costura.recitar(grupo.best),
+    mentions: grupo.mentions.map(costura.recitar),
   }));
 
-  return { destaques: [...noArsenal, ...completados], fontes: juntas };
+  return { categorias: realocadas, fontes: costura.fontes() };
 }

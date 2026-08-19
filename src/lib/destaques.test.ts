@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { completarDestaques, MIN_DESTAQUES } from './destaques';
-import type { MetaPick, MetaSource } from '@/data/meta';
+import { completarDestaques, MIN_DESTAQUES, realocarCategorias } from './destaques';
+import type { CategoryHighlight, MetaPick, MetaSource } from '@/data/meta';
 
 /**
  * O que estes testes protegem é o colchete.
@@ -131,5 +131,66 @@ describe('completar o topo do multiplayer', () => {
     });
 
     expect(destaques.map((pick) => pick.weapon)).toEqual(['m16a4']);
+  });
+});
+
+/**
+ * Os blocos por categoria nunca foram substituídos pela leitura do dia, e é
+ * justamente por isso que eles quebram quando ela entra: são cartões da
+ * curadoria citando a lista de fontes de outra pessoa.
+ */
+describe('citações dos blocos por categoria', () => {
+  const CATEGORIAS: CategoryHighlight[] = [
+    {
+      category: 'ar',
+      best: curado('m16a4', [0]),
+      mentions: [curado('b36a4', [0, 1]), curado('l85a3', [1])],
+    },
+  ];
+
+  const realocar = (fontes: MetaSource[]) =>
+    realocarCategorias(CATEGORIAS, fontes, { fontesDaCuradoria: DA_CURADORIA });
+
+  it('acrescenta ao rodapé as páginas da curadoria e reaponta os colchetes', () => {
+    const { categorias, fontes } = realocar(DA_LEITURA);
+    const [grupo] = categorias;
+
+    expect(fontes.slice(0, 2)).toEqual(DA_LEITURA);
+    expect(fontes[2]?.url).toBe('https://wzstats.gg/battlefield-6/multiplayer/meta');
+    expect(grupo.best.sources).toEqual([2]);
+    expect(grupo.mentions[0].sources).toEqual([2, 1]);
+    expect(grupo.mentions[1].sources).toEqual([1]);
+  });
+
+  it('deixa toda citação apontando para uma fonte que existe', () => {
+    const { categorias, fontes } = realocar(DA_LEITURA);
+
+    for (const grupo of categorias) {
+      for (const pick of [grupo.best, ...grupo.mentions]) {
+        for (const i of pick.sources) {
+          expect(fontes[i], `${pick.weapon} cita [${i + 1}]`).toBeDefined();
+        }
+      }
+    }
+  });
+
+  it('não mexe no texto nem na ordem dos cartões', () => {
+    const [grupo] = realocar(DA_LEITURA).categorias;
+
+    expect(grupo.category).toBe('ar');
+    expect(grupo.best.weapon).toBe('m16a4');
+    expect(grupo.best.reason).toBe(curado('m16a4', [0]).reason);
+    expect(grupo.mentions.map((pick) => pick.weapon)).toEqual(['b36a4', 'l85a3']);
+  });
+
+  /*
+    A tela sem leitura do dia mostra a curadoria inteira, e aí a lista de fontes
+    já é a dela: costurar não pode acrescentar nada nem mudar número nenhum.
+  */
+  it('não mexe em nada quando o rodapé já é o da curadoria', () => {
+    const { categorias, fontes } = realocar(DA_CURADORIA);
+
+    expect(fontes).toEqual(DA_CURADORIA);
+    expect(categorias).toEqual(CATEGORIAS);
   });
 });

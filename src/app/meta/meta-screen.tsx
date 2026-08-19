@@ -24,7 +24,7 @@ import {
 } from '@/data/meta';
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import { EMPTY_LOADOUT } from '@/lib/loadout';
-import { completarDestaques } from '@/lib/destaques';
+import { completarDestaques, realocarCategorias } from '@/lib/destaques';
 import { completarTendencia, MIN_TENDENCIA } from '@/lib/trending';
 import { BUILDER_PATH, encodeLoadout } from '@/lib/share';
 import { baseStats } from '@/lib/stats';
@@ -90,7 +90,18 @@ export function MetaScreen({
     a curadoria escrita à mão, e as fontes dela vêm junto, senão o colchete do
     cartão apontaria para a fonte errada do rodapé.
   */
-  const { destaques, fontes } = completarDestaques(picks, sources);
+  const doTopo = completarDestaques(picks, sources);
+
+  /*
+    Os blocos por categoria são escritos à mão e continuam sendo, mesmo quando o
+    topo vem da leitura do dia — e é aí que o colchete deles passa a apontar para
+    a fonte errada, porque o rodapé virou o da leitura. A costura corre depois da
+    do topo, sobre a lista que ela devolveu, para as duas não brigarem pelo mesmo
+    número.
+  */
+  const porCategoria = realocarCategorias(BY_CATEGORY, doTopo.fontes);
+  const { destaques } = doTopo;
+  const fontes = porCategoria.fontes;
 
   return (
     <div className="min-h-dvh">
@@ -229,7 +240,7 @@ export function MetaScreen({
           <BlockDivider />
           <h2 className="label mb-2">Meta por categoria</h2>
           <Row gutter={[8, 8]}>
-            {BY_CATEGORY.map((group) => (
+            {porCategoria.categorias.map((group) => (
               <Col key={group.category} xs={24} lg={12} xl={8}>
                 <Card
                   variant="outlined"
