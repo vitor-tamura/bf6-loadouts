@@ -1,5 +1,6 @@
 'use client';
 
+import type { ReactNode } from 'react';
 import { Hint } from '@/components/hint';
 import Link from 'next/link';
 import { Alert, Card, Col, Divider, Row, Tag, Typography } from 'antd';
@@ -159,6 +160,28 @@ export function MetaScreen({
 
         <section className="mb-3">
           <h2 className="label mb-2">O topo do multiplayer</h2>
+          <BlockNote>
+            O que põe uma arma aqui é <strong>o quanto ela está sendo escolhida agora</strong>: a
+            posição no ranking de multiplayer e a quantidade de fontes independentes que repetem o
+            nome dela. Como o jogo não publica pick rate, popularidade aqui é convergência de fonte,
+            não número medido — é também por isso que a ordem é a do ranking, e não a das contas de
+            TTK que o resto do site faz.{' '}
+            {fromSearch ? (
+              <>
+                O que o último patch fez com a arma aparece no texto do cartão como contexto, para
+                que se saiba se a leitura é posterior a ele. Não é o que a põe na lista: mudança recente
+                é assunto do bloco de tendência, logo abaixo.
+              </>
+            ) : (
+              <>
+                O que o patch em vigor fez com a arma entra no motivo como contexto — inclusive o
+                fato de o changelog inteiro não a citar, que é afirmação conferível porque a lista é
+                exaustiva. Não é o que a põe na lista: mudança recente é assunto do bloco de
+                tendência, logo abaixo.
+              </>
+            )}{' '}
+            Os colchetes dizem de que fonte saiu cada indicação.
+          </BlockNote>
           <Row gutter={[8, 8]}>
             {picks.map((pick, rank) => (
               <Col key={pick.weapon} xs={24} sm={12} lg={8} xl={6}>
@@ -177,6 +200,15 @@ export function MetaScreen({
                 armas em alta na conversa ou no uso percebido
               </Typography.Text>
             </div>
+            <BlockNote>
+              O que põe uma arma aqui não é ela ser mais usada que as de cima — é{' '}
+              <strong>algo ter mudado nela</strong>, e dar para datar: um acerto do último patch, um
+              acessório que o estúdio desligou, uma build nova, uma arma recém-chegada já sendo
+              adotada. A etiqueta âmbar diz o que mudou; o texto abaixo dela, que evidência sustenta
+              isso. Por isso esta lista não é a de cima em outra ordem: o topo mede o nível de hoje
+              e aqui é a variação da semana — uma arma pode estar mudando de patamar sem nunca ter
+              chegado perto das mais escolhidas.
+            </BlockNote>
             <Row gutter={[8, 8]}>
               {trending.map((pick, rank) => (
                 <Col key={`${pick.weapon}-${pick.trend}`} xs={24} sm={12} lg={8} xl={6}>
@@ -337,7 +369,25 @@ function BlockDivider() {
   return <Divider style={{ margin: '20px 0', borderColor: 'var(--border-soft)' }} />;
 }
 
-/** Cartão de tendência: popularidade recente, hype ou build nova, sem misturar com meta. */
+/**
+ * O critério do bloco, dito antes dos cartões.
+ *
+ * Cada cartão já trazia o motivo daquela arma, mas motivo não é critério: lido
+ * sozinho, "primeira da classe" e "o estúdio desligou o acessório" parecem duas
+ * frases sobre armas fortes, e nada diz por que uma está no topo e a outra em
+ * tendência. A regra que separa os dois blocos vivia só nos comentários de
+ * `meta.ts` — quem lê a tela nunca a via. Agora ela vem antes da lista, que é
+ * onde ela decide alguma coisa.
+ */
+function BlockNote({ children }: { children: ReactNode }) {
+  return (
+    <p className="mb-2 max-w-[80ch] text-[12px] leading-relaxed" style={{ color: 'var(--text-soft)' }}>
+      {children}
+    </p>
+  );
+}
+
+/** Cartão de tendência: o que mudou na arma — buff, acessório, build nova —, sem misturar com o nível que decide o topo. */
 function TrendingCard({ pick, rank }: { pick: TrendingPick; rank: number }) {
   const weapon = WEAPONS_BY_ID.get(pick.weapon);
   if (!weapon) return null;
