@@ -24,6 +24,8 @@ import {
 } from '@/data/meta';
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import { EMPTY_LOADOUT } from '@/lib/loadout';
+import { completarDestaques } from '@/lib/destaques';
+import { completarTendencia, MIN_TENDENCIA } from '@/lib/trending';
 import { BUILDER_PATH, encodeLoadout } from '@/lib/share';
 import { baseStats } from '@/lib/stats';
 import { shotsToKill, timeToKill } from '@/lib/ballistics';
@@ -69,6 +71,27 @@ export function MetaScreen({
   patch?: MetaPatch | null;
   fromSearch?: boolean;
 } = {}) {
+  /*
+    O bloco de tendência é inteiro ou não é.
+
+    A lista que chega pode vir curta — o modelo nem sempre acha quatro coisas
+    datáveis para contar —, e aí quem completa é o catálogo, com as armas que
+    entraram na temporada. O que sobra abaixo de `MIN_TENDENCIA` não vira
+    fileira quebrada: o bloco inteiro sai da tela.
+  */
+  const tendencia = completarTendencia(trending, { on: readAt ?? UPDATED_AT });
+
+  /*
+    O topo tem o mesmo problema e outra saída.
+
+    Quando a leitura do dia volta com duas armas, o ranking também sai como
+    fileira quebrada — só que aqui o catálogo não tem o que dizer: ele sabe
+    quando a arma chegou, não o quanto ela está sendo escolhida. Quem completa é
+    a curadoria escrita à mão, e as fontes dela vêm junto, senão o colchete do
+    cartão apontaria para a fonte errada do rodapé.
+  */
+  const { destaques, fontes } = completarDestaques(picks, sources);
+
   return (
     <div className="min-h-dvh">
       <AppHeader subtitle="O que está forte agora no multiplayer" />
@@ -161,29 +184,15 @@ export function MetaScreen({
         <section className="mb-3">
           <h2 className="label mb-2">O topo do multiplayer</h2>
           <BlockNote>
-            O que põe uma arma aqui é <strong>o quanto ela está sendo escolhida agora</strong>: a
-            posição no ranking de multiplayer e a quantidade de fontes independentes que repetem o
-            nome dela. Como o jogo não publica pick rate, popularidade aqui é convergência de fonte,
-            não número medido — é também por isso que a ordem é a do ranking, e não a das contas de
-            TTK que o resto do site faz.{' '}
-            {fromSearch ? (
-              <>
-                O que o último patch fez com a arma aparece no texto do cartão como contexto, para
-                que se saiba se a leitura é posterior a ele. Não é o que a põe na lista: mudança recente
-                é assunto do bloco de tendência, logo abaixo.
-              </>
-            ) : (
-              <>
-                O que o patch em vigor fez com a arma entra no motivo como contexto — inclusive o
-                fato de o changelog inteiro não a citar, que é afirmação conferível porque a lista é
-                exaustiva. Não é o que a põe na lista: mudança recente é assunto do bloco de
-                tendência, logo abaixo.
-              </>
-            )}{' '}
-            Os colchetes dizem de que fonte saiu cada indicação.
+            Entra aqui <strong>o que está sendo mais escolhido agora</strong>: posição no ranking do
+            multiplayer e quantas fontes independentes repetem o nome. Sem pick rate público,
+            popularidade é convergência de fonte — por isso a ordem é a do ranking, não a das contas
+            de TTK do resto do site. O patch aparece no cartão como contexto, não como o que põe a
+            arma na lista; mudança recente é assunto do bloco de tendência. Os colchetes dizem de
+            que fonte saiu cada indicação.
           </BlockNote>
           <Row gutter={[8, 8]}>
-            {picks.map((pick, rank) => (
+            {destaques.map((pick, rank) => (
               <Col key={pick.weapon} xs={24} sm={12} lg={8} xl={6}>
                 <MetaCard pick={pick} rank={rank + 1} />
               </Col>
@@ -191,7 +200,7 @@ export function MetaScreen({
           </Row>
         </section>
 
-        {trending.length > 0 && (
+        {tendencia.length >= MIN_TENDENCIA && (
           <section className="mb-3">
             <BlockDivider />
             <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
@@ -201,16 +210,13 @@ export function MetaScreen({
               </Typography.Text>
             </div>
             <BlockNote>
-              O que põe uma arma aqui não é ela ser mais usada que as de cima — é{' '}
-              <strong>algo ter mudado nela</strong>, e dar para datar: um acerto do último patch, um
-              acessório que o estúdio desligou, uma build nova, uma arma recém-chegada já sendo
-              adotada. A etiqueta âmbar diz o que mudou; o texto abaixo dela, que evidência sustenta
-              isso. Por isso esta lista não é a de cima em outra ordem: o topo mede o nível de hoje
-              e aqui é a variação da semana — uma arma pode estar mudando de patamar sem nunca ter
-              chegado perto das mais escolhidas.
+              Não é ser mais usada que as de cima — é <strong>algo ter mudado</strong>, e dar para
+              datar: um acerto do patch, um acessório desligado, uma build nova, uma arma
+              recém-chegada já sendo adotada. A etiqueta âmbar diz o que mudou; o texto abaixo, que
+              evidência sustenta isso. O topo mede o nível de hoje; aqui, a variação da semana.
             </BlockNote>
             <Row gutter={[8, 8]}>
-              {trending.map((pick, rank) => (
+              {tendencia.map((pick, rank) => (
                 <Col key={`${pick.weapon}-${pick.trend}`} xs={24} sm={12} lg={8} xl={6}>
                   <TrendingCard pick={pick} rank={rank + 1} />
                 </Col>
@@ -305,7 +311,7 @@ export function MetaScreen({
             duas linhas de texto — nada que o componente resolvesse por nós.
           */}
           <ul className="space-y-1.5 text-[12px]">
-            {sources.map((f, i) => (
+            {fontes.map((f, i) => (
               <li key={f.url}>
                 <p className="flex flex-wrap items-baseline gap-x-2">
                   <span className="font-mono text-[11px]" style={{ color: 'var(--text-dim)' }}>
