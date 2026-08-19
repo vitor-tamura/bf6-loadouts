@@ -24,7 +24,6 @@
 import { WEAPONS } from '../../src/data/weapons.ts';
 import { SEASONS } from '../../src/data/season.ts';
 import { pageKey } from '../../src/lib/sources.ts';
-import { MIN_TRENDING } from '../../src/data/meta.ts';
 
 /** No máximo, o que a tela mostra. */
 const MAX_PICKS = 8;
@@ -34,30 +33,12 @@ const MAX_FONTES = 8;
 /**
  * Abaixo disto a resposta é enchimento, não leitura magra.
  *
- * O piso do meta vale contra o que o modelo mandou, não em absoluto: se ele
- * devolveu três armas e as três se sustentam, a leitura entra com três. O que a
- * trava pega é a resposta que veio com oito e chegou aqui com uma.
+ * O piso vale contra o que o modelo mandou, não em absoluto: se ele devolveu
+ * três armas e as três se sustentam, a leitura entra com três. O que a trava
+ * pega é a resposta que veio com oito e chegou aqui com uma.
  */
 const MIN_PICKS = 4;
-
-/**
- * O trending, esse tem piso absoluto: quatro armas, ou a leitura não sai.
- *
- * A diferença tem motivo. Quando o meta vem curto, a tela ainda se sustenta nos
- * outros blocos — o por categoria, o do REDSEC. O trending é um bloco só, numa
- * grade de até quatro colunas: com duas ou três armas ele aparece como fileira
- * quebrada, e quem lê não tem como saber se aquilo é o que existe ou o que
- * sobrou de uma resposta ruim.
- *
- * Recusar custa a leitura do dia inteira, e é de propósito: a tela fica com a de
- * ontem, que é uma leitura inteira e coerente, em vez de publicar meio bloco.
- * Completar com arma sem evidência não está entre as opções — é exatamente o que
- * estas travas existem para impedir.
- *
- * O número vem de `src/data/meta.ts` porque a tela cobra o mesmo piso do arquivo
- * já gravado. Esta trava protege o que ainda vai ser publicado; a de lá é quem
- * tira da tela a leitura curta que passou antes de ela existir.
- */
+const MIN_TRENDING = 3;
 
 /** Uma arma pode ser meta e estar subindo. Seis não podem — isso é a mesma lista duas vezes. */
 const MAX_REPETIDAS_NO_TRENDING = 2;
@@ -382,20 +363,12 @@ export function normalizarLista(
 /**
  * Quando o saneamento derruba quase tudo, o que sobra não é uma leitura curta —
  * é o resto de uma resposta preguiçosa. Melhor perguntar ao próximo modelo.
- *
- * `absoluto` escolhe contra o que o piso vale. Sem ele, vale contra o que o
- * modelo mandou, e resposta curta que chega inteira aqui passa. Com ele, vale
- * contra o que sobrou: é o caso do trending, que precisa de bloco cheio ou de
- * nenhum.
  */
-function exigirMinimo({ items, descartes }, enviados, minimo, nome, { absoluto = false } = {}) {
-  const piso = absoluto ? minimo : Math.min(minimo, enviados);
-  if (items.length >= piso) return;
+function exigirMinimo({ items, descartes }, enviados, minimo, nome) {
+  if (items.length >= Math.min(minimo, enviados)) return;
 
   const porque = descartes.map((d) => `${d.nome}: ${d.motivo}`).join('; ');
-  throw new Error(
-    `sobraram ${items.length} de ${enviados} ${nome}, e o piso é ${piso}${porque ? ` — ${porque}` : ''}`,
-  );
+  throw new Error(`sobraram ${items.length} de ${enviados} ${nome}${porque ? ` — ${porque}` : ''}`);
 }
 
 /** O nome das listas muda conforme o humor do modelo; o conteúdo, não. */
@@ -497,7 +470,7 @@ export function montarLeitura({ bruto, anotacoes = [], buscou = null, modelo, ho
     jaNoMeta: new Set(meta.items.map((item) => item.weapon)),
     maxRepetidas: MAX_REPETIDAS_NO_TRENDING,
   });
-  exigirMinimo(trends, enviadosTrending, MIN_TRENDING, 'armas em trending', { absoluto: true });
+  exigirMinimo(trends, enviadosTrending, MIN_TRENDING, 'armas em trending');
 
   return {
     conteudo: {

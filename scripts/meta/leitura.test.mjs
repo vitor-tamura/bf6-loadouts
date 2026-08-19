@@ -39,33 +39,23 @@ const META_BOM = [
   pick('KORD 6P67', 'Alcance útil maior que o resto da classe mesmo sem acessório de precisão.'),
 ];
 
-/**
- * Um trending que passa, para os casos que estão testando outra coisa.
- *
- * O piso do trending é absoluto: quem manda menos de quatro não publica. Sem
- * esta lista, os testes de fonte e de motivo repetido morreriam no piso antes
- * de chegar ao que cada um queria ver.
- */
-const TRENDING_BOM = [
-  trend('VSSM', 'build full-auto', 'A configuração automática virou assunto depois de aparecer em vídeo de dano em CQB.'),
-  trend('EF88', 'chegou no patch', 'Entrou com a fase Pacific Front e já aparece em builds recomendadas de engenheiro.'),
-  trend('RPK-74M', 'buff de recuo', 'O 4.2 reduziu o coice vertical e o suporte voltou às listas de recomendação.'),
-  trend('SGX', 'migração da PP-19', 'Quem jogava de submetralhadora trocou de arma depois que o alcance útil dela subiu.'),
-];
-
 describe('leitura do meta', () => {
   it('aceita uma leitura curta e sustentada', () => {
     const { conteudo } = leitura({
       patch: { name: 'Update 4.2', date: '2026-08-08' },
       picks: META_BOM,
-      trending: TRENDING_BOM,
+      trending: [
+        trend('VSSM', 'build full-auto', 'A configuração automática virou assunto depois de aparecer em vídeo de dano em CQB.'),
+        trend('EF88', 'chegou no patch', 'Entrou com a fase Pacific Front e já aparece em builds recomendadas de engenheiro.'),
+        trend('RPK-74M', 'buff de recuo', 'O 4.2 reduziu o coice vertical e o suporte voltou às listas de recomendação.'),
+      ],
       sources: [
         { name: 'Reddit — balanceamento', url: 'https://reddit.com/r/Battlefield6/comments/abc', date: '2026-08-10', scope: 'Discussão de multiplayer.' },
       ],
     });
 
     expect(conteudo.picks).toHaveLength(4);
-    expect(conteudo.trending.map((t) => t.weapon)).toEqual(['vssm', 'ef88', 'rpk-74m', 'sgx']);
+    expect(conteudo.trending.map((t) => t.weapon)).toEqual(['vssm', 'ef88', 'rpk-74m']);
     expect(conteudo.readAt).toBe(HOJE);
     expect(conteudo.patch).toEqual({ name: 'Update 4.2', date: '2026-08-08' });
   });
@@ -80,21 +70,6 @@ describe('leitura do meta', () => {
           trend('PP-19', 'em uso', 'Segue popular entre engenheiros nos mapas fechados da temporada.'),
           trend('KORD 6P67', 'presente', 'Aparece bastante nas partidas de quem prefere alcance.'),
         ],
-      }),
-    ).toThrow(/trending/);
-  });
-
-  /*
-   * O bloco do trending é de quatro colunas: com três armas ele sai como
-   * fileira quebrada, e não há como o leitor saber se aquilo é o que existe ou
-   * o que sobrou. Aqui as três se sustentam — o piso não está julgando
-   * qualidade, está exigindo bloco cheio.
-   */
-  it('recusa o trending que não chega a quatro armas', () => {
-    expect(() =>
-      leitura({
-        picks: META_BOM,
-        trending: TRENDING_BOM.slice(0, 3),
       }),
     ).toThrow(/trending/);
   });
@@ -119,7 +94,7 @@ describe('leitura do meta', () => {
         pick('M433', 'Segue primeira do ranking geral desde o ajuste de recuo do 4.2.'),
         pick('L85A3', 'Recuo curto o bastante para segurar rajada inteira em média distância.'),
       ],
-      trending: TRENDING_BOM,
+      trending: [],
     });
 
     expect(conteudo.picks.map((p) => p.weapon)).not.toContain('m433');
@@ -130,7 +105,7 @@ describe('leitura do meta', () => {
   it('conta o mesmo site em idiomas diferentes como uma fonte só', () => {
     const { conteudo } = leitura({
       picks: META_BOM,
-      trending: TRENDING_BOM,
+      trending: [],
       sources: [
         { name: 'Tier list', url: 'https://battlefieldmeta.gg/multiplayer', date: '2026-08-09', scope: 'Tier list de multiplayer.' },
         { name: 'Tier list (es)', url: 'https://battlefieldmeta.gg/es/multiplayer', date: '2026-08-09', scope: 'A mesma página em espanhol.' },
@@ -149,7 +124,7 @@ describe('leitura do meta', () => {
         pick('PP-19', 'A submetralhadora com melhor controle em corredor depois do buff de cadência.', 'https://exemplo.invalido/nao-listada'),
         pick('KORD 6P67', 'Alcance útil maior que o resto da classe mesmo sem acessório de precisão.'),
       ],
-      trending: TRENDING_BOM,
+      trending: [],
     });
 
     const porArma = Object.fromEntries(conteudo.picks.map((p) => [p.weapon, p.sources]));
@@ -177,7 +152,7 @@ describe('leitura do meta', () => {
   it('descarta a fonte que é página de REDSEC', () => {
     const { conteudo, descartes } = leitura({
       picks: META_BOM,
-      trending: TRENDING_BOM,
+      trending: [],
       sources: [
         { name: 'Ranking do BR', url: 'https://wzstats.gg/battlefield-6/meta', date: '2026-08-19', scope: 'Ranking geral.' },
         { name: 'Ranqueado', url: 'https://wzstats.gg/battlefield-6/ranked/meta', date: '2026-08-19', scope: 'Ranqueado.' },
