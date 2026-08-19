@@ -165,7 +165,7 @@ A lista de trending não pode ser a de meta em outra ordem. Prefira armas que n�
 ## 6. Limites
 
 - No máximo 8 armas em picks, da mais forte para a menos forte.
-- No máximo 8 armas em trending, da mais quente para a menos quente.
+- Pelo menos 4 e no máximo 8 armas em trending, da mais quente para a menos quente. Abaixo de 4 a leitura do dia inteira é descartada e a tela fica com a de ontem — o que é melhor do que completar a lista com arma sem evidência.
 - No máximo 5 fontes.
 - Use exatamente estes nomes de arma, sem apelido e sem acessório junto: ${ARMAS_PERMITIDAS}.
 - Não invente pick rate, TTK, tendência nem fala de comunidade. Sem evidência, a arma fica de fora: quatro armas sustentadas valem mais que oito preenchidas.
