@@ -157,9 +157,11 @@ export function MetaScreen({
             className="bevel-sm mt-2"
             title={
               <span className="text-[12px] leading-relaxed" style={{ color: 'var(--text-soft)' }}>
-                Esta lista é <strong>opinião da comunidade, não medição</strong>. Não existe fonte
-                pública de uso real no Battlefield 6 — as APIs abertas servem estatística por
-                jogador, e quem tem os números agregados não os publica.{' '}
+                Esta tela é <strong>leitura de fonte, não medição nossa</strong>. Força vem de teste
+                e análise que fóruns e comunidades especializadas publicam, e elas discordam entre
+                si; uso e conversa não têm número público — as APIs abertas servem estatística por
+                jogador, e quem tem os agregados não os publica —, então o bloco de tendência é
+                percepção declarada, não pick rate.{' '}
                 {fromSearch ? (
                   <>
                     Esta leitura foi montada <strong>automaticamente</strong>, uma vez por dia, a
@@ -193,14 +195,19 @@ export function MetaScreen({
         </Card>
 
         <section className="mb-3">
-          <h2 className="label mb-2">O topo do multiplayer</h2>
+          <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
+            <h2 className="label">O topo do multiplayer</h2>
+            <Typography.Text className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
+              as mais fortes depois da atualização mais recente
+            </Typography.Text>
+          </div>
           <BlockNote>
-            Entra aqui <strong>o que está sendo mais escolhido agora</strong>: posição no ranking do
-            multiplayer e quantas fontes independentes repetem o nome. Sem pick rate público,
-            popularidade é convergência de fonte — por isso a ordem é a do ranking, não a das contas
-            de TTK do resto do site. O patch aparece no cartão como contexto, não como o que põe a
-            arma na lista; mudança recente é assunto do bloco de tendência. Os colchetes dizem de
-            que fonte saiu cada indicação.
+            Entra aqui a arma que as fontes apontam como <strong>mais forte depois do patch em
+            vigor</strong>: teste, análise de balanceamento e estatística publicados por fóruns e
+            comunidades especializadas — TTK, dano, controle, alcance. Posição em ranking de meta
+            conta como julgamento de força da fonte, e não como pick rate, que o jogo não publica. A
+            ordem é a que essas leituras dão. Ser muito usada não põe arma aqui: isso é o bloco de
+            tendência. Os colchetes dizem de que fonte saiu cada indicação.
           </BlockNote>
           <Row gutter={[8, 8]}>
             {destaques.map((pick, rank) => (
@@ -221,10 +228,11 @@ export function MetaScreen({
               </Typography.Text>
             </div>
             <BlockNote>
-              Não é ser mais usada que as de cima — é <strong>algo ter mudado</strong>, e dar para
-              datar: um acerto do patch, um acessório desligado, uma build nova, uma arma
-              recém-chegada já sendo adotada. A etiqueta âmbar diz o que mudou; o texto abaixo, que
-              evidência sustenta isso. O topo mede o nível de hoje; aqui, a variação da semana.
+              Aqui é <strong>o que a comunidade mais comenta e mais leva para a partida</strong>:
+              fórum oficial, Reddit e comunidades especializadas, pela conversa da semana e pelo uso
+              que elas relatam. Não é a lista de cima em outra ordem — arma muito falada não é
+              necessariamente a mais forte, e a mais forte nem sempre é a que está sendo usada. A
+              etiqueta âmbar diz do que se fala; o texto abaixo, que evidência sustenta isso.
             </BlockNote>
             <Row gutter={[8, 8]}>
               {tendencia.map((pick, rank) => (
@@ -362,10 +370,12 @@ export function MetaScreen({
             ))}
           </ul>
           <p className="mt-2 max-w-[80ch] text-[11px] leading-relaxed" style={{ color: 'var(--text-dim)' }}>
-            Duas coisas barram uma fonte. A <strong>data</strong>: guia de lançamento descreve um
-            jogo que já mudou de balanceamento quatro vezes. E o <strong>modo</strong>: quem mede
+            Três coisas barram uma fonte. A <strong>data</strong>: guia de lançamento descreve um
+            jogo que já mudou de balanceamento quatro vezes. O <strong>modo</strong>: quem mede
             multiplayer e REDSEC no mesmo texto fica de fora, porque não dá para saber qual dos dois
-            sustenta cada indicação — foi o que tirou daqui uma das fontes anteriores.
+            sustenta cada indicação. E <strong>o que ela pode provar</strong>: fórum, Reddit e
+            comentário mostram do que se fala — sustentam a tendência, e não o topo, que precisa de
+            quem meça arma por arma ou do changelog oficial.
           </p>
         </Card>
 

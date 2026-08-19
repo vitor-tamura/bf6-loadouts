@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { chavePagina, montarLeitura, normalizarPatch } from './leitura.mjs';
+import { chavePagina, confiabilidade, montarLeitura, normalizarPatch } from './leitura.mjs';
 
 /**
  * As travas da leitura diária, testadas contra o que já foi publicado errado.
@@ -24,13 +24,25 @@ const anotacoes = [
 const leitura = (bruto, extras = {}) =>
   montarLeitura({ bruto, anotacoes, modelo: 'teste', hoje: HOJE, timeframe: 'season-4', ...extras });
 
-const pick = (weapon, reason, source = 'https://reddit.com/r/Battlefield6/comments/abc') => ({
+/*
+  As duas perguntas da tela não se provam no mesmo lugar, e por isso os dois
+  ajudantes daqui nascem com fontes diferentes: o topo cita quem mede, a
+  tendência cita onde a conversa acontece. Trocar uma pela outra é o que os
+  testes de critério verificam.
+*/
+const FONTE_QUE_MEDE = 'https://ea.com/games/battlefield/battlefield-6/news/update-4-2';
+const FONTE_DE_CONVERSA = 'https://reddit.com/r/Battlefield6/comments/abc';
+
+const pick = (weapon, reason, source = FONTE_QUE_MEDE) => ({
   weapon,
   reason,
   source,
 });
 
-const trend = (weapon, rotulo, reason) => ({ ...pick(weapon, reason), trend: rotulo });
+const trend = (weapon, rotulo, reason, source = FONTE_DE_CONVERSA) => ({
+  ...pick(weapon, reason, source),
+  trend: rotulo,
+});
 
 const META_BOM = [
   pick('M16A4', 'Segue primeira do ranking geral desde o ajuste de recuo do 4.2.'),
@@ -117,24 +129,49 @@ describe('leitura do meta', () => {
   });
 
   it('cita a fonte que o modelo apontou, não a posição da arma na lista', () => {
-    const { conteudo } = leitura({
+    const { conteudo, descartes } = leitura({
       picks: [
-        pick('M16A4', 'Segue primeira do ranking geral desde o ajuste de recuo do 4.2.', 'https://ea.com/games/battlefield/battlefield-6/news/update-4-2'),
-        pick('B36A4', 'TTK curto em média distância e recuo previsível com cano longo.', 'https://reddit.com/r/Battlefield6/comments/abc'),
+        pick('M16A4', 'Segue primeira do ranking geral desde o ajuste de recuo do 4.2.'),
+        pick('B36A4', 'TTK curto em média distância e recuo previsível com cano longo.', 'https://wzstats.gg/battlefield-6/multiplayer/meta'),
         pick('PP-19', 'A submetralhadora com melhor controle em corredor depois do buff de cadência.', 'https://exemplo.invalido/nao-listada'),
         pick('KORD 6P67', 'Alcance útil maior que o resto da classe mesmo sem acessório de precisão.'),
+        pick('L85A3', 'Recuo curto o bastante para segurar rajada inteira em média distância.'),
       ],
       trending: [],
+      sources: [
+        { name: 'Ranking do multiplayer', url: 'https://wzstats.gg/battlefield-6/multiplayer/meta', date: '2026-08-09', scope: 'Ranking arma a arma, só de multiplayer.' },
+      ],
     });
 
     const porArma = Object.fromEntries(conteudo.picks.map((p) => [p.weapon, p.sources]));
     const ea = conteudo.sources.findIndex((f) => f.url.includes('ea.com'));
-    const reddit = conteudo.sources.findIndex((f) => f.url.includes('reddit.com'));
+    const rastreador = conteudo.sources.findIndex((f) => f.url.includes('wzstats.gg'));
 
     expect(porArma.m16a4).toEqual([ea]);
-    expect(porArma.b36a4).toEqual([reddit]);
-    // Arma cuja fonte não está na lista fica sem citação, em vez de herdar a de outra.
-    expect(porArma['pp-19']).toEqual([]);
+    expect(porArma.b36a4).toEqual([rastreador]);
+    // Arma cuja fonte não está entre as que sobraram não herda a de outra nem
+    // fica sem colchete: ela sai. Cartão sem citação é afirmação sem nada atrás.
+    expect(porArma['pp-19']).toBeUndefined();
+    expect(descartes).toContainEqual({
+      nome: 'PP-19',
+      motivo: 'sem fonte que resolva entre as que sobraram',
+    });
+  });
+
+  /*
+   * A leitura de 19/08 saiu com três armas no topo e duas em tendência, todas
+   * sem colchete: o modelo apontou páginas que o saneamento de fontes já tinha
+   * recusado, e o que ficou na tela foi "desempenho superior em dano e controle"
+   * sem nada atrás. É a trava mais recente, e a que mais depende do resto — só
+   * dá para exigir citação de todo cartão porque a tela sabe completar o bloco.
+   */
+  it('recusa a leitura em que nenhum cartão cita fonte que resolva', () => {
+    expect(() =>
+      leitura({
+        picks: META_BOM.map((p) => ({ ...p, source: 'https://exemplo.invalido/nao-listada' })),
+        trending: [],
+      }),
+    ).toThrow(/sem fonte que resolva/);
   });
 
   it('recusa resposta em que a busca não abriu página nenhuma', () => {
@@ -236,5 +273,84 @@ describe('chave de página', () => {
   it('junta www, barra final e prefixo de idioma', () => {
     expect(chavePagina('https://www.battlefieldmeta.gg/pt/')).toBe(chavePagina('https://battlefieldmeta.gg'));
     expect(chavePagina('https://exemplo.gg/meta')).not.toBe(chavePagina('https://exemplo.gg/trending'));
+  });
+});
+
+/**
+ * Ser criterioso, aqui, não é desconfiar de todo mundo: é saber o que cada
+ * página pode provar. A leitura de 19/08 pôs no topo armas que ninguém
+ * sustentava, com frases que caberiam em qualquer arma, e isso passou porque as
+ * travas de então só perguntavam se a página existia e de que modo ela falava.
+ */
+describe('critério do topo', () => {
+  it('classifica a página pelo que ela pode sustentar', () => {
+    expect(confiabilidade('https://www.ea.com/games/battlefield/battlefield-6/news/x')).toBe('oficial');
+    // O mesmo domínio, dois papéis: comunicado do estúdio e conversa de quem joga.
+    expect(confiabilidade('https://forums.ea.com/blog/battlefield-game-info-hub-en/x/1')).toBe('oficial');
+    expect(confiabilidade('https://forums.ea.com/idea/battlefield-6-bug-reports-en/x/1')).toBe('comunidade');
+    expect(confiabilidade('https://wzstats.gg/battlefield-6/multiplayer/meta')).toBe('analise');
+    expect(confiabilidade('https://bf6balancelog.com/')).toBe('analise');
+    expect(confiabilidade('https://www.reddit.com/r/Battlefield6/comments/abc')).toBe('comunidade');
+    // Ranqueia armas e aparece na busca, mas é peça de marketing de VPN.
+    expect(confiabilidade('https://nolagvpn.com/battlefield-6-meta')).toBe('comunidade');
+    expect(confiabilidade('nem-url')).toBe('comunidade');
+  });
+
+  it('descarta do topo a arma que só o Reddit sustenta', () => {
+    const { conteudo, descartes } = leitura({
+      picks: [
+        ...META_BOM,
+        pick('L85A3', 'Uma thread diz que ela ficou absurda depois do último ajuste de recuo.', FONTE_DE_CONVERSA),
+      ],
+      trending: [],
+    });
+
+    expect(conteudo.picks.map((p) => p.weapon)).not.toContain('l85a3');
+    expect(descartes).toContainEqual({
+      nome: 'L85A3',
+      motivo: 'sustentada só por conversa: fórum e Reddit não medem força',
+    });
+  });
+
+  it('a mesma fonte de Reddit continua sustentando a tendência', () => {
+    const { conteudo } = leitura({
+      picks: META_BOM,
+      trending: [
+        trend('L85A3', 'todo mundo usando', 'Thread de 400 respostas contando que ela apareceu em quase toda partida da semana.'),
+      ],
+    });
+
+    expect(conteudo.trending.map((t) => t.weapon)).toEqual(['l85a3']);
+    expect(conteudo.trending[0].sources).toHaveLength(1);
+  });
+
+  it('descarta a fonte publicada antes do começo da temporada', () => {
+    const { conteudo, descartes } = leitura({
+      picks: META_BOM,
+      trending: [],
+      sources: [
+        { name: 'Guia de lançamento', url: 'https://exemplo.gg/battlefield-6/multiplayer/melhores-armas', date: '2026-05-02', scope: 'Guia do lançamento, multiplayer.' },
+      ],
+    });
+
+    expect(conteudo.sources.map((f) => f.url)).not.toContain('https://exemplo.gg/battlefield-6/multiplayer/melhores-armas');
+    expect(descartes.some((d) => d.motivo.includes('antes do começo da temporada'))).toBe(true);
+  });
+
+  // A frase abaixo é a que a leitura de 19/08 publicou, palavra por palavra.
+  it('descarta o motivo que é elogio sem fato', () => {
+    const { conteudo, descartes } = leitura({
+      picks: [
+        ...META_BOM,
+        pick('L85A3', 'Reconhecida por seu desempenho superior em dano e controle, tornando-se uma escolha dominante no meta atual.'),
+      ],
+      trending: [],
+    });
+
+    expect(conteudo.picks.map((p) => p.weapon)).not.toContain('l85a3');
+    expect(descartes).toContainEqual({
+      nome: 'L85A3',
+      motivo: 'motivo é elogio sem fato: serve para qualquer arma',
+    });
   });
 });

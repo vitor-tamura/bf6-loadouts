@@ -19,6 +19,13 @@
  * o dataset aceitou tudo, porque as armas existiam mesmo. O que separa leitura
  * de enchimento é o resto — rótulo que diz o que mudou, motivo que não se
  * repete, trending que não ecoa o meta e fonte que é uma página só.
+ *
+ * O eixo das duas listas mudou depois disso: picks é força depois do patch,
+ * trending é conversa e uso. As travas continuam valendo — elas medem se a
+ * resposta tem lastro, não de que lado do eixo ela está —, e o eixo acrescentou
+ * a sua: quem afirma força tem de citar quem mede. Fórum e Reddit sustentam a
+ * tendência e não o topo, e é a mesma página valendo para uma pergunta e não
+ * para a outra, não uma página sendo boa ou ruim.
  */
 
 import { WEAPONS } from '../../src/data/weapons.ts';
@@ -40,19 +47,41 @@ const MAX_FONTES = 8;
 const MIN_PICKS = 4;
 const MIN_TRENDING = 3;
 
-/** Uma arma pode ser meta e estar subindo. Seis não podem — isso é a mesma lista duas vezes. */
+/** Uma arma pode ser das mais fortes e das mais faladas. Seis não podem — isso é a mesma lista duas vezes. */
 const MAX_REPETIDAS_NO_TRENDING = 2;
 
 /** Motivo mais curto que isto não cabe um fato. */
 const MOTIVO_MINIMO = 25;
 
 /**
+ * Elogio que serve para qualquer arma boa, e por isso não prova nenhuma.
+ *
+ * Saiu assim a leitura de 19/08: "Reconhecida por seu desempenho superior em
+ * dano e controle, tornando-se uma escolha dominante no meta atual." São dezoito
+ * palavras que não dizem um número, um teste, uma posição nem o que o patch
+ * mexeu — e que caberiam igualmente em qualquer outra arma da lista.
+ *
+ * O tamanho mínimo não pega isso: a frase é longa. O que a denuncia é ser
+ * intercambiável, e é isso que estes padrões procuram.
+ */
+const MOTIVO_SEM_FATO = [
+  /desempenho superior/,
+  /escolha dominante/,
+  /domina(ndo)? o meta/,
+  /uma das melhores armas/,
+  /(altamente|extremamente|muito) (eficaz|eficiente|versatil|forte)/,
+  /eficaz em (diversas|varias|muitas|todas)( as)? situacoes/,
+  /excelente desempenho/,
+  /(melhor|otima) opcao (do|no) meta/,
+];
+
+/**
  * Rótulos que não dizem nada.
  *
  * "Popularidade crescente" e "aumento de uso" descrevem a seção inteira: todo
- * card do trending está subindo, é para isso que a seção existe. O rótulo só
- * paga o espaço que ocupa se disser *o que* mudou naquela arma — o buff, a
- * build, a chegada no patch.
+ * card do trending está sendo falado ou usado, é para isso que a seção existe. O
+ * rótulo só paga o espaço que ocupa se disser *do que se fala* naquela arma — a
+ * build, a reclamação, a migração, a chegada no patch.
  */
 const TREND_VAZIO = new Set([
   'em alta',
@@ -144,6 +173,73 @@ const TRACKERS_POR_MODO = new Set([
   'battlefinity.gg',
   'nolagvpn.com',
 ]);
+
+/**
+ * Sites da EA e da DICE: é onde o que mudou no jogo é afirmado, não deduzido.
+ *
+ * `forums.ea.com` não entra inteiro. O mesmo domínio hospeda o comunicado do
+ * estúdio, em `/blog/`, e a discussão de quem joga em todo o resto — a primeira
+ * é fonte oficial, a segunda é conversa, e a diferença está no caminho.
+ */
+const FONTES_OFICIAIS = new Set(['ea.com', 'battlefield.com', 'answers.ea.com']);
+
+/**
+ * Quem mede ou analisa arma por arma, com número.
+ *
+ * A lista é curta de propósito: sustentar "esta é a arma mais forte depois do
+ * patch" exige método publicado — ranking arma a arma, transcrição do
+ * changelog, tabela de dano ou de TTK. Site que não faz isso não vira fonte
+ * fraca, vira fonte de conversa: continua valendo para a tendência.
+ *
+ * `nolagvpn.com` está fora e é o exemplo do porquê. Ele aparece em busca de meta
+ * e ranqueia armas, mas é material de marketing de um serviço de VPN, não
+ * medição — e ranking assim sustenta o quanto se fala de uma arma, não o quanto
+ * ela rende. (Ele segue em [TRACKERS_POR_MODO], que é outra pergunta: aquela
+ * lista existe para saber se a página fala de multiplayer ou de REDSEC.)
+ */
+const FONTES_DE_ANALISE = new Set([
+  'wzstats.gg',
+  'battlefieldmeta.gg',
+  'bfhub.gg',
+  'battlefinity.gg',
+  'bf6balancelog.com',
+  'symthic.com',
+  'sym.gg',
+  'truegamedata.com',
+]);
+
+/**
+ * O que esta página pode sustentar.
+ *
+ * A tela pergunta duas coisas diferentes, e elas não se provam no mesmo lugar. O
+ * topo afirma força depois do patch: isso é teste, medição ou changelog, e sai
+ * de fonte oficial ou de quem analisa arma por arma. A tendência afirma que se
+ * fala de uma arma e que ela está sendo levada para a partida: isso é fórum,
+ * Reddit e comentário, que são a evidência certa para essa pergunta e a errada
+ * para a outra.
+ *
+ * O padrão é `comunidade`. Site que ninguém reconheceu não é acusado de nada —
+ * ele só não pode, sozinho, pôr uma arma no topo.
+ */
+export function confiabilidade(url) {
+  let endereco;
+  try {
+    endereco = new URL(String(url));
+  } catch {
+    return 'comunidade';
+  }
+
+  const host = endereco.hostname.replace(/^www./, '');
+  if (host === 'forums.ea.com') {
+    return endereco.pathname.toLowerCase().startsWith('/blog') ? 'oficial' : 'comunidade';
+  }
+  if (FONTES_OFICIAIS.has(host)) return 'oficial';
+  if (FONTES_DE_ANALISE.has(host)) return 'analise';
+  return 'comunidade';
+}
+
+/** Só fonte que mede ou que é oficial põe arma no topo. */
+const sustentaForca = (url) => confiabilidade(url) !== 'comunidade';
 
 /** Um segmento do endereço que só existe em página de battle royale. */
 const MARCAS_DE_BATTLE_ROYALE = /redsec|battle-?royale|battle_royale/i;
@@ -259,7 +355,21 @@ export function normalizarFontes(anotacoes, bruto, opcoes) {
   for (const anotacao of anotacoes ?? []) incluir(fonteAberta(anotacao, opcoes));
   for (const declarada of bruto?.sources ?? []) incluir(fonteDeclarada(declarada, opcoes));
 
-  return [...porPagina.values()];
+  /*
+    Data velha cai por último, e não na entrada, porque quem sabe a data é a
+    fonte declarada: a página que a busca abriu chega aqui datada de hoje, e só
+    depois o modelo diz de quando ela é. Guia publicado antes do começo da
+    temporada descreve outro jogo — entre ele e agora vieram um patch de armas e
+    uma temporada inteira.
+  */
+  return [...porPagina.values()].filter((fonte) => {
+    if (!opcoes.desde || !ehData(fonte.date) || fonte.date >= opcoes.desde) return true;
+    opcoes.descartes?.push({
+      nome: fonte.name,
+      motivo: `publicada em ${fonte.date}, antes do começo da temporada`,
+    });
+    return false;
+  });
 }
 
 /**
@@ -294,7 +404,15 @@ function resolvedorDeFonte(sources) {
  */
 export function normalizarLista(
   lista,
-  { max, rotulo = false, resolverFonte, jaNoMeta = new Set(), maxRepetidas = Infinity },
+  {
+    max,
+    rotulo = false,
+    resolverFonte,
+    exigirForca = false,
+    fonteForte = () => true,
+    jaNoMeta = new Set(),
+    maxRepetidas = Infinity,
+  },
 ) {
   const armasVistas = new Set();
   const motivosVistos = new Set();
@@ -324,6 +442,10 @@ export function normalizarLista(
       descartar(arma.name, 'repete o motivo de outra arma palavra por palavra');
       continue;
     }
+    if (MOTIVO_SEM_FATO.some((padrao) => padrao.test(texto(reason)))) {
+      descartar(arma.name, 'motivo é elogio sem fato: serve para qualquer arma');
+      continue;
+    }
 
     const trend = String(pick.trend ?? '').trim();
     if (rotulo) {
@@ -339,10 +461,38 @@ export function normalizarLista(
 
     if (jaNoMeta.has(arma.id)) {
       if (repetidas === maxRepetidas) {
-        descartar(arma.name, 'trending repetindo o meta em vez de mostrar o que subiu');
+        descartar(arma.name, 'trending repetindo o meta em vez de mostrar do que se fala');
         continue;
       }
       repetidas += 1;
+    }
+
+    /*
+      Arma sem citação que resolva não entra.
+
+      A leitura de 19/08 saiu com cinco cartões e nenhum colchete: o modelo
+      apontou páginas que o saneamento de fontes tinha recusado — modo errado ou
+      data anterior à temporada —, e o que ficou na tela foi "desempenho superior
+      em dano e controle", sem nada atrás. Um cartão assim é indistinguível de um
+      bem citado para quem lê, e é pior que a ausência dele: a tela promete, logo
+      acima, que os colchetes dizem de onde saiu cada indicação.
+
+      O bloco não fica menor por isso — a tela completa o topo pela curadoria e a
+      tendência pelo catálogo, e os dois dizem de onde vieram.
+    */
+    const sources = resolverFonte(pick.source ?? pick.sources?.[0]);
+    if (!sources.length) {
+      descartar(arma.name, 'sem fonte que resolva entre as que sobraram');
+      continue;
+    }
+    /*
+      Quem afirma força precisa de quem mede. Uma thread dizendo que a arma está
+      absurda é evidência de conversa — legítima, e é ela que sustenta a
+      tendência —, mas não é medição, e o topo da tela diz que é.
+    */
+    if (exigirForca && !sources.some(fonteForte)) {
+      descartar(arma.name, 'sustentada só por conversa: fórum e Reddit não medem força');
+      continue;
     }
 
     armasVistas.add(arma.id);
@@ -351,7 +501,7 @@ export function normalizarLista(
     const item = {
       weapon: arma.id,
       reason,
-      sources: resolverFonte(pick.source ?? pick.sources?.[0]),
+      sources,
     };
     if (rotulo) item.trend = trend;
     items.push(item);
@@ -443,7 +593,13 @@ export function montarLeitura({ bruto, anotacoes = [], buscou = null, modelo, ho
   if (buscou === null && !anotacoes.length) throw new Error('a busca não abriu página nenhuma');
 
   const fontesDescartadas = [];
-  const sources = normalizarFontes(anotacoes, bruto, { hoje, timeframe, descartes: fontesDescartadas });
+  const desde = inicioDaTemporada(timeframe);
+  const sources = normalizarFontes(anotacoes, bruto, {
+    hoje,
+    timeframe,
+    desde,
+    descartes: fontesDescartadas,
+  });
   // Sem anotação, valem as fontes que o modelo declarou no JSON. Sem nenhuma
   // das duas, não há o que mostrar embaixo do card — e aí a leitura não serve.
   //
@@ -453,14 +609,20 @@ export function montarLeitura({ bruto, anotacoes = [], buscou = null, modelo, ho
   if (!sources.length) {
     throw new Error(
       fontesDescartadas.length
-        ? `todas as fontes eram de REDSEC: ${fontesDescartadas.map((d) => d.nome).join(', ')}`
+        ? `nenhuma fonte passou — ${fontesDescartadas.map((d) => `${d.nome}: ${d.motivo}`).join('; ')}`
         : 'busca não devolveu fonte nenhuma',
     );
   }
 
   const resolverFonte = resolvedorDeFonte(sources);
+  const fonteForte = (indice) => sustentaForca(sources[indice]?.url);
 
-  const meta = normalizarLista(listas.picks, { max: MAX_PICKS, resolverFonte });
+  const meta = normalizarLista(listas.picks, {
+    max: MAX_PICKS,
+    resolverFonte,
+    exigirForca: true,
+    fonteForte,
+  });
   exigirMinimo(meta, enviadosPicks, MIN_PICKS, 'armas do meta');
 
   const trends = normalizarLista(listas.trending, {

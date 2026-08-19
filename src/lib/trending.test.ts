@@ -96,3 +96,36 @@ describe('completar a tendência', () => {
     expect(completa.length).toBeLessThan(MIN_TENDENCIA);
   });
 });
+
+/*
+  A leitura de 19/08 pôs cinco cartões na tela sem um colchete sequer: as páginas
+  que o modelo apontou tinham sido recusadas por modo ou por data. Do lado da
+  tela, isso não é um cartão pobre — é uma afirmação sem nada atrás.
+*/
+describe('cartão sem citação', () => {
+  const semFonte = (weapon: string): TrendingPick => ({ ...trend(weapon), sources: [] });
+
+  it('não ocupa lugar no bloco', () => {
+    const completa = completarTendencia([semFonte('interdictor'), trend('ef88')], {
+      on: NA_LEITURA,
+    });
+
+    expect(completa[0].weapon).toBe('ef88');
+    expect(completa.filter((pick) => pick.weapon === 'interdictor')).toHaveLength(1);
+    expect(completa.find((pick) => pick.weapon === 'interdictor')?.trend).toBe(
+      'chegou na Temporada 4',
+    );
+  });
+
+  it('o do catálogo é a única exceção, e ele diz de onde veio', () => {
+    const completa = completarTendencia([semFonte('ef88'), semFonte('brod-3')], {
+      on: NA_LEITURA,
+    });
+
+    expect(completa).toHaveLength(MIN_TENDENCIA);
+    for (const pick of completa) {
+      expect(pick.sources, pick.weapon).toEqual([]);
+      expect(pick.reason, pick.weapon).toContain('catálogo do site');
+    }
+  });
+});

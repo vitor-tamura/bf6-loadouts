@@ -85,15 +85,26 @@ export function completarDestaques(
   fontes: MetaSource[],
   { curadoria = HIGHLIGHTS, fontesDaCuradoria = SOURCES } = {},
 ): { destaques: MetaPick[]; fontes: MetaSource[] } {
-  const noArsenal = picks.filter((pick) => WEAPONS_BY_ID.has(pick.weapon));
-  const faltam = MIN_DESTAQUES - noArsenal.length;
-  if (faltam <= 0) return { destaques: noArsenal, fontes };
+  /*
+    Cartão sem citação que resolva não conta como leitura.
 
-  const jaCitada = new Set(noArsenal.map((pick) => pick.weapon));
+    Em 19/08 o topo saiu com três armas e nenhum colchete: as páginas que o
+    modelo apontou tinham sido recusadas por modo ou por data, e a tela ficou
+    afirmando "desempenho superior em dano e controle" sem nada atrás, logo
+    abaixo da frase que promete dizer de que fonte saiu cada indicação. Aqui eles
+    saem, e a curadoria — que cita — ocupa o lugar.
+  */
+  const sustentadas = picks.filter(
+    (pick) => WEAPONS_BY_ID.has(pick.weapon) && pick.sources.length > 0,
+  );
+  const faltam = MIN_DESTAQUES - sustentadas.length;
+  if (faltam <= 0) return { destaques: sustentadas, fontes };
+
+  const jaCitada = new Set(sustentadas.map((pick) => pick.weapon));
   const candidatos = curadoria
     .filter((pick) => WEAPONS_BY_ID.has(pick.weapon) && !jaCitada.has(pick.weapon))
     .slice(0, faltam);
-  if (!candidatos.length) return { destaques: noArsenal, fontes };
+  if (!candidatos.length) return { destaques: sustentadas, fontes };
 
   const costura = costurar(fontes, fontesDaCuradoria);
   const completados = candidatos.map((pick) =>
@@ -103,7 +114,7 @@ export function completarDestaques(
     }),
   );
 
-  return { destaques: [...noArsenal, ...completados], fontes: costura.fontes() };
+  return { destaques: [...sustentadas, ...completados], fontes: costura.fontes() };
 }
 
 /**

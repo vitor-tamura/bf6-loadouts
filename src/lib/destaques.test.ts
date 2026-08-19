@@ -194,3 +194,33 @@ describe('citações dos blocos por categoria', () => {
     expect(categorias).toEqual(CATEGORIAS);
   });
 });
+
+/*
+  O mesmo do bloco de tendência, no de cima: em 19/08 o topo saiu com três armas
+  e nenhuma citação, porque o saneamento de fontes tinha recusado as páginas que
+  as sustentavam. Quem cita ocupa o lugar de quem não cita.
+*/
+describe('cartão sem citação no topo', () => {
+  const semFonte = (weapon: string): MetaPick => ({ ...lido(weapon), sources: [] });
+
+  it('sai do bloco e a curadoria entra no lugar', () => {
+    const { destaques } = completar([semFonte('vssm'), lido('interdictor')]);
+
+    expect(destaques.map((pick) => pick.weapon)).toEqual([
+      'interdictor',
+      'm16a4',
+      'b36a4',
+      'pp-19',
+    ]);
+    for (const pick of destaques) expect(pick.sources.length, pick.weapon).toBeGreaterThan(0);
+  });
+
+  it('leitura inteira sem citação vira bloco inteiro de curadoria', () => {
+    const { destaques } = completar([semFonte('vssm'), semFonte('interdictor')]);
+
+    expect(destaques).toHaveLength(MIN_DESTAQUES);
+    for (const pick of destaques) {
+      expect(pick.reason, pick.weapon).toMatch(/^Da curadoria escrita à mão do site/);
+    }
+  });
+});

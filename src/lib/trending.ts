@@ -17,9 +17,10 @@ import { WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
  * leitura ser descartada.
  *
  * O que completa não é opinião inventada: é o que o próprio catálogo do site
- * sabe provar — quais armas entraram no arsenal na temporada em vigor. Arma nova
- * é a única tendência que um dataset consegue sustentar sozinho, e o cartão diz
- * de onde veio, sem colchete de fonte, porque fonte não houve.
+ * sabe provar — quais armas entraram no arsenal na temporada em vigor. O
+ * catálogo não sabe do que a comunidade fala; o máximo que ele prova é quem
+ * acabou de chegar, que é o candidato mais óbvio a estar na conversa. O cartão
+ * diz de onde veio, e não leva colchete, porque fonte não houve.
  */
 
 /**
@@ -48,26 +49,33 @@ const dia = (iso: string) => DIA.format(new Date(`${iso}T12:00:00Z`));
  * o bloco está falando, e ler o relógio aqui faria a página renderizada no
  * servidor e a hidratada no navegador discordarem na virada da temporada.
  *
- * Arma fora do arsenal cai antes da conta. O cartão dela não chega a ser
- * desenhado, e contá-la prometeria quatro para mostrar três.
+ * Duas coisas caem antes da conta: arma fora do arsenal, cujo cartão não chega
+ * a ser desenhado, e cartão da leitura sem citação que resolva. O segundo é o
+ * que apareceu em 19/08 — cinco cartões, nenhum colchete, porque as páginas que
+ * o modelo apontou tinham sido recusadas por modo ou por data. Um cartão desses
+ * afirma sem nada atrás, bem no bloco que promete dizer de onde saiu cada nome.
+ * O do catálogo, esse entra sem colchete de propósito: ele diz no texto que veio
+ * do catálogo, e é a única coisa aqui que não precisa de fonte de fora.
  */
 export function completarTendencia(
   trending: TrendingPick[],
   { on }: { on: string },
 ): TrendingPick[] {
-  const noArsenal = trending.filter((pick) => WEAPONS_BY_ID.has(pick.weapon));
-  const faltam = MIN_TENDENCIA - noArsenal.length;
-  if (faltam <= 0) return noArsenal;
+  const sustentadas = trending.filter(
+    (pick) => WEAPONS_BY_ID.has(pick.weapon) && pick.sources.length > 0,
+  );
+  const faltam = MIN_TENDENCIA - sustentadas.length;
+  if (faltam <= 0) return sustentadas;
 
   const temporada = seasonOn(new Date(`${on}T12:00:00Z`));
-  if (!temporada) return noArsenal;
+  if (!temporada) return sustentadas;
 
   /*
     Só o que falta, e nunca na frente do que a leitura trouxe: o cartão com
     evidência de comunidade vale mais que o do catálogo, e a ordem do bloco é
     lida como ordem de importância.
   */
-  const jaCitada = new Set(noArsenal.map((pick) => pick.weapon));
+  const jaCitada = new Set(sustentadas.map((pick) => pick.weapon));
   const chegadas = WEAPONS.filter(
     (arma) => arma.season === temporada.number && !jaCitada.has(arma.id),
   )
@@ -75,9 +83,9 @@ export function completarTendencia(
     .map((arma) => ({
       weapon: arma.id,
       trend: `chegou na Temporada ${temporada.number}`,
-      reason: `Entrou no arsenal com a Temporada ${temporada.number}, ${temporada.name}, em ${dia(temporada.startsOn)}. Este cartão vem do catálogo do site: a leitura do dia não achou conversa da comunidade sobre ela.`,
+      reason: `Arma nova da Temporada ${temporada.number}, ${temporada.name}, no ar desde ${dia(temporada.startsOn)}. Este cartão vem do catálogo do site: a leitura do dia não achou conversa nem uso relatado sobre ela.`,
       sources: [] as number[],
     }));
 
-  return [...noArsenal, ...chegadas];
+  return [...sustentadas, ...chegadas];
 }

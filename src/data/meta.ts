@@ -201,19 +201,21 @@ export const META_SEASON = 4;
 /**
  * O topo do multiplayer, sem separar por categoria.
  *
- * Quem decide aqui é a popularidade: o quanto a arma está sendo escolhida e
- * recomendada agora. Isso se lê na posição do ranking de multiplayer da fonte
- * [0], na ordem completa da classe da fonte [3] — que mostra quanta folga há até
- * a seguinte — e em quantas fontes independentes repetem o mesmo nome. Como o
- * jogo não publica pick rate, "popular" é convergência de fonte, não número
- * medido; é por isso, também, que a ordem daqui é a do ranking e não a das
- * contas de TTK que o resto do site faz.
+ * Quem decide aqui é a força depois da atualização em vigor: o que guias,
+ * fóruns e comunidades especializadas testam e argumentam — TTK, dano, controle,
+ * alcance, consistência. A posição no ranking de meta da fonte [0] e a ordem
+ * completa da classe da fonte [3] entram como julgamento de força de quem
+ * analisa, e não como pick rate: o jogo não publica uso, e tier list é opinião
+ * ordenada, não contagem de quem joga.
  *
- * O que a 1.4.2.0 fez com a arma entra no motivo como contexto: serve para quem
- * lê saber se a colocação foi confirmada depois do patch, e o caso mais forte é
+ * O que a 1.4.2.0 fez com a arma entra no motivo porque é o que data a leitura —
+ * força apurada antes do patch não descreve o jogo de hoje. O caso mais forte é
  * o do changelog inteiro não citá-la, afirmação conferível justamente porque a
- * lista é exaustiva. Não é o que põe a arma na lista — mudança recente, por
- * maior que seja, é assunto de [TRENDING], que mede variação, não nível.
+ * lista é exaustiva.
+ *
+ * O quanto a arma está sendo falada ou levada para a partida é outra pergunta, e
+ * ela está em [TRENDING]. Uma coisa não implica a outra: arma forte que ninguém
+ * descobriu continua aqui, e a arma que aparece em toda partida pode não estar.
  */
 export const HIGHLIGHTS: MetaPick[] = [
   {
@@ -254,16 +256,19 @@ export const HIGHLIGHTS: MetaPick[] = [
 ];
 
 /**
- * Armas que estão aparecendo mais na conversa ou no uso percebido.
+ * As armas mais comentadas e mais usadas, segundo a comunidade e as fontes.
  *
- * Trending não é sinônimo de meta: entra arma que ganhou adoção, hype ou uma
- * build nova mesmo quando ainda não há consenso de que seja a escolha mais
- * eficiente. A busca diária substitui esta lista quando grava `meta-live.json`.
+ * A pergunta aqui não é qual arma é melhor, e sim de qual se fala e qual está
+ * aparecendo em partida: thread de fórum, discussão no Reddit, build que
+ * viralizou, gente migrando de uma arma para outra. Entra arma sem consenso de
+ * eficiência, e fica de fora arma forte de que ninguém está falando — essa é a
+ * lista de [HIGHLIGHTS]. A busca diária substitui esta quando grava
+ * `meta-live.json`.
  *
- * Nesta rodada tudo aqui tem data: a 1.4.2.0 subiu em 18/08, e o estúdio
- * desligou o Match Trigger fora do patch, por comunicado. São fatos, não
- * impressões — e é essa a diferença entre esta seção e uma lista de "o que anda
- * popular".
+ * Nesta rodada tudo aqui tem onde: a 1.4.2.0 subiu em 18/08 e o estúdio desligou
+ * o Match Trigger por comunicado, e foi isso que pôs as duas primeiras na boca
+ * de todo mundo. São fatos com endereço, não impressões — e é essa a diferença
+ * entre esta seção e uma lista de "o que anda popular".
  */
 export const TRENDING: TrendingPick[] = [
   {

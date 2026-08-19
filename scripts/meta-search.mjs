@@ -120,14 +120,22 @@ Informação mais recente pesa mais. Não repita tier list antiga.
 
 As duas listas não se abastecem no mesmo lugar.
 
-**Para picks**, procure quem analisa o meta depois do patch: guia, tier list ou ranking que use a palavra "meta" e diga de que modo está falando. Termos que costumam achar: "meta", "best weapons", "tier list", "weapon ranking", com o número da temporada junto. Tracker ou comparador com pick rate, uso, K/D, KPM ou TTK vale como medição e pesa mais que opinião.
+**Para picks**, procure quem testa e argumenta desempenho depois do patch: análise de balanceamento, tier list ou ranking de meta que explique **por que** a arma é forte, tabela de TTK, dano, recuo ou alcance, discussão técnica em fórum e comunidade especializada. Termos que costumam achar: "meta", "best weapons", "tier list", "weapon ranking", "TTK chart", "after patch", com o número da temporada junto. Posição em ranking de meta vale como julgamento de força da fonte. Uso alto sozinho não põe arma em picks — isso é trending.
 
-**Para trending**, procure onde a conversa acontece:
+**Para trending**, procure volume de conversa e de uso — de que a comunidade está falando e o que ela está levando para a partida:
 - fórum oficial da EA — forums.ea.com e answers.ea.com, seções de Battlefield 6, tanto discussão geral quanto relato de bug;
-- Reddit recente — r/Battlefield6, r/Battlefield, r/BF6 —, por "broken", "nerf", "buff", "why is everyone using", "new build";
-- comentários e relatos de quem joga, sobre acessório, montagem ou comportamento que mudou.
+- Reddit recente — r/Battlefield6, r/Battlefield, r/BF6 —, por "everyone is using", "why is everyone using", "most used", "broken", "new build", "meta right now";
+- comentários e relatos de quem joga sobre o que anda aparecendo em toda partida;
+- tracker ou comparador que publique uso, quando houver — é a única coisa parecida com medição que existe aqui.
 
 Patch notes oficiais da EA/DICE ancoram as duas: é de lá que sai o que a atualização mexeu.
+
+**Quem pode sustentar cada lista.** Isto é verificado no código, e arma que não passar é descartada antes de a leitura ser gravada:
+
+- **picks** só aceitam fonte oficial da EA/DICE — \`ea.com\`, \`battlefield.com\`, \`forums.ea.com/blog\` — ou quem mede arma por arma: \`wzstats.gg\` em caminho de multiplayer, \`bf6balancelog.com\`, \`battlefieldmeta.gg\`, \`bfhub.gg\`, \`battlefinity.gg\`, ou análise equivalente com número publicado;
+- **trending** aceita qualquer uma dessas mais fórum, Reddit, Steam, vídeo e comentário — é onde a conversa está, e conversa é o que essa lista mede.
+
+Fórum e Reddit **não** põem arma em picks, por mais convincente que seja a thread: eles provam que se fala da arma, não que ela é forte. Se a única evidência que você achou para uma arma forte é conversa, ponha a arma em trending e diga isso no motivo. Material de marketing — site de VPN, loja, guia patrocinado — não sustenta nenhuma das duas.
 
 Nenhum site sozinho decide. O mesmo site em idiomas diferentes (/pt, /es) conta como uma fonte só. Fórum e Reddit mostram percepção, não medição: quando eles disserem que uma arma é absurda e os números não confirmarem, diga isso no motivo em vez de tratar como fato.
 
@@ -148,25 +156,26 @@ Guia editorial que não diz de que modo fala está no mesmo caso: por padrão es
 
 Fonte publicada antes de ${TEMPORADA.startsOn} — o começo da temporada — não sustenta posição nenhuma. Ela pode aparecer como contexto no motivo, nunca como a evidência que põe a arma na lista. E o campo "patch" precisa ser uma atualização desta temporada: apontar um patch anterior a ${TEMPORADA.startsOn} anula a leitura inteira, porque a tela passa a anunciar hoje o jogo de dois meses atrás.
 
-## 4. Meta não é a mesma coisa que trending
+## 4. Uma lista é força, a outra é conversa
 
-META: desempenho de fato superior — TTK, dano, controle, alcance, versatilidade, presença no jogo de nível alto, consenso. Uso alto sozinho não põe arma aqui.
+META: as armas **mais fortes depois da atualização mais recente**, segundo quem testa e analisa — TTK, dano, controle, alcance, versatilidade, consistência, desempenho no jogo de nível alto. Uso alto sozinho não põe arma aqui; força que só apareceu antes do patch, também não.
 
-TRENDING: adoção ou conversa que cresceu por um motivo datável — buff no último patch, build nova, arma recém-chegada já sendo adotada, gente migrando de outra arma. Ser nova não é tendência; é preciso sinal de adoção.
+TRENDING: as armas **mais comentadas e/ou mais usadas** pela comunidade e pelas fontes especializadas nesta semana — do que se fala, o que aparece em toda partida, que build viralizou, para onde as pessoas migraram. Não precisa ser forte, e a arma não precisa ter mudado: basta que a conversa ou o uso estejam ali, com onde isso foi visto.
 
-A lista de trending não pode ser a de meta em outra ordem. Prefira armas que não estão em picks. Uma arma pode aparecer nas duas listas, no máximo duas ao todo, e só quando o motivo dela ter subido nesta semana estiver dito.
+As duas se cruzam de vez em quando — arma forte costuma ser usada —, mas uma não é a outra em outra ordem. Prefira em trending armas que não estão em picks. Uma arma pode aparecer nas duas listas, no máximo duas ao todo, e só quando a evidência da conversa ou do uso estiver dita.
 
 ## 5. Como escrever cada arma
 
-- "reason": uma frase em português do Brasil com o fato concreto — o que o patch fez, que build apareceu, o que a comunidade passou a dizer, que número mudou. Nada de "está em alta", "muito comentada" ou "eficaz em diversas situações". Duas armas nunca com a mesma frase.
-- "trend": rótulo curto do que mudou naquela arma — "buff de recuo", "build full-auto", "chegou no patch", "migração da X". Não use "popularidade crescente", "aumento de uso", "tendência crescente" nem qualquer sinônimo de "está subindo": isso vale para a seção inteira e não informa nada.
+- "reason": uma frase em português do Brasil com o fato concreto. Em picks, o que sustenta a força: o número, o teste, a análise, a posição no ranking, o que o patch fez com ela. Em trending, onde a conversa ou o uso foi visto: a thread, o vídeo, o relato, a build que apareceu. Duas armas nunca com a mesma frase.
+- Elogio sem fato é recusado pelo código, e a frase inteira cai junto com a arma: "desempenho superior", "escolha dominante", "domina o meta", "uma das melhores armas", "altamente versátil", "muito eficaz", "eficaz em diversas situações", "excelente desempenho". Se a sua frase caberia igual em outra arma da lista, ela não é evidência.
+- "trend": rótulo curto do assunto daquela arma, do que mudou nela e etc — "build full-auto", "todo mundo usando", "reclamação de recuo", "chegou no patch", "migração da X". Não use "popularidade crescente", "aumento de uso", "tendência crescente" nem qualquer sinônimo de "está subindo": isso vale para a seção inteira e não informa nada.
 - "source": a URL, entre as que você listar em "sources", que sustenta aquela arma.
 
 ## 6. Limites
 
 - No máximo 8 armas em picks, da mais forte para a menos forte.
-- No máximo 8 armas em trending, da mais quente para a menos quente.
-- No máximo 5 fontes.
+- No máximo 8 armas em trending, da mais comentada ou usada para a menos.
+- No máximo 5 fontes, e nenhuma publicada antes de ${TEMPORADA.startsOn} — data anterior ao começo da temporada é descartada, e a arma que dependia dela cai junto.
 - Use exatamente estes nomes de arma, sem apelido e sem acessório junto: ${ARMAS_PERMITIDAS}.
 - Não invente pick rate, TTK, tendência nem fala de comunidade. Sem evidência, a arma fica de fora: quatro armas sustentadas valem mais que oito preenchidas.
 
@@ -174,7 +183,7 @@ A lista de trending não pode ser a de meta em outra ordem. Prefira armas que n�
 
 Responda SOMENTE com este JSON, sem cercas de código e sem texto antes ou depois:
 
-{"patch":{"name":"nome ou número da atualização","date":"YYYY-MM-DD"},"picks":[{"weapon":"NOME EXATO DA ARMA","reason":"por que ela está forte agora","source":"https://..."}],"trending":[{"weapon":"NOME EXATO DA ARMA","trend":"o que mudou nela","reason":"que evidência recente mostra o crescimento","source":"https://..."}],"sources":[{"name":"nome curto da fonte","url":"https://...","date":"YYYY-MM-DD","scope":"por que essa fonte vale para o multiplayer"}]}`;
+{"patch":{"name":"nome ou número da atualização","date":"YYYY-MM-DD"},"picks":[{"weapon":"NOME EXATO DA ARMA","reason":"o que mostra que ela está forte depois do patch e por que esta forte agora","source":"https://..."}],"trending":[{"weapon":"NOME EXATO DA ARMA","trend":"do que se fala nela","reason":"onde a conversa ou o uso recente foi visto","source":"https://..."}],"sources":[{"name":"nome curto da fonte","url":"https://...","date":"YYYY-MM-DD","scope":"por que essa fonte vale para o multiplayer"}]}`;
 
 const esperar = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
