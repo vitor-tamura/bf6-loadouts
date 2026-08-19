@@ -25,10 +25,12 @@ concurrency:
   group: bf6-update-check
   cancel-in-progress: false
 
-# `pull-requests: read` não é detalhe: declarar um bloco `permissions` zera tudo
-# o que não está listado, e sem esse escopo o `gh pr list` da última etapa
-# responde 403. O passo inteiro falha antes de disparar coisa alguma — que é
-# como a 1.4.2.0 saiu no dia 18 e nunca chegou a `data/versions`.
+# `pull-requests: read` está aqui porque declarar um bloco `permissions` zera
+# todo escopo que não aparece nele, e o `gh pr list` da última etapa precisa
+# desse. Hoje ele funciona sem: o repositório é público, e dado público o token
+# lê de qualquer jeito. É uma dependência que ninguém escolheu — no dia em que o
+# repositório virar privado, a etapa passa a responder 403 e nenhuma versão
+# nova é disparada, sem que nada aqui tenha mudado.
 permissions:
   contents: read
   actions: write
