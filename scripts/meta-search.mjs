@@ -120,7 +120,7 @@ Informação mais recente pesa mais. Não repita tier list antiga.
 
 As duas listas não se abastecem no mesmo lugar.
 
-**Para picks**, procure quem analisa o meta depois do patch: guia, tier list ou ranking que use a palavra "meta" e diga de que modo está falando. Termos que costumam achar: "meta", "best weapons", "tier list", "weapon ranking", com o número da temporada junto. Tracker ou comparador com pick rate, uso, K/D, KPM ou TTK vale como medição e pesa mais que opinião.
+**Para picks**, procure quem mostra o que está sendo usado depois do patch: ranking, tier list ou guia que use a palavra "meta" e diga de que modo está falando. Termos que costumam achar: "meta", "best weapons", "tier list", "weapon ranking", "most used", "pick rate", com o número da temporada junto. Tracker ou comparador vale mais que opinião, e dentro dele pick rate e uso pesam mais que K/D, KPM ou TTK — é popularidade que decide esta lista.
 
 **Para trending**, procure onde a conversa acontece:
 - fórum oficial da EA — forums.ea.com e answers.ea.com, seções de Battlefield 6, tanto discussão geral quanto relato de bug;
@@ -148,11 +148,11 @@ Guia editorial que não diz de que modo fala está no mesmo caso: por padrão es
 
 Fonte publicada antes de ${TEMPORADA.startsOn} — o começo da temporada — não sustenta posição nenhuma. Ela pode aparecer como contexto no motivo, nunca como a evidência que põe a arma na lista. E o campo "patch" precisa ser uma atualização desta temporada: apontar um patch anterior a ${TEMPORADA.startsOn} anula a leitura inteira, porque a tela passa a anunciar hoje o jogo de dois meses atrás.
 
-## 4. Meta não é a mesma coisa que trending
+## 4. Meta é nível, trending é variação
 
-META: desempenho de fato superior — TTK, dano, controle, alcance, versatilidade, presença no jogo de nível alto, consenso. Uso alto sozinho não põe arma aqui.
+META: o quanto a arma está sendo **escolhida e recomendada agora** — posição no ranking de multiplayer, pick rate e uso quando houver, quantas fontes independentes repetem o nome, presença no jogo de nível alto. Desempenho (TTK, dano, controle, alcance) explica a posição dentro do motivo, mas não é o que põe a arma aqui: arma que os números favorecem e ninguém escolhe fica de fora, e o que o último patch fez com ela é contexto, não credencial.
 
-TRENDING: adoção ou conversa que cresceu por um motivo datável — buff no último patch, build nova, arma recém-chegada já sendo adotada, gente migrando de outra arma. Ser nova não é tendência; é preciso sinal de adoção.
+TRENDING: o que **mudou** nela por um motivo datável — buff ou nerf no último patch, acessório que o estúdio mexeu, build nova, arma recém-chegada já sendo adotada, gente migrando de outra arma. Ser nova não é tendência; é preciso sinal de adoção. Aqui a arma não precisa estar entre as mais usadas: precisa estar mudando de patamar.
 
 A lista de trending não pode ser a de meta em outra ordem. Prefira armas que não estão em picks. Uma arma pode aparecer nas duas listas, no máximo duas ao todo, e só quando o motivo dela ter subido nesta semana estiver dito.
 

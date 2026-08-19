@@ -201,15 +201,19 @@ export const META_SEASON = 4;
 /**
  * O topo do multiplayer, sem separar por categoria.
  *
- * A ordem segue o ranking de multiplayer da fonte [0]. Para virar destaque não
- * basta estar bem colocada: a arma precisa de uma segunda perna, e ela é ou a
- * ordem completa da classe (fonte [3], que mostra quanta folga há até a
- * seguinte) ou um fato datável da 1.4.2.0 — o que o patch fez com ela, ou o
- * fato de o changelog inteiro não a citar, que é afirmação conferível
- * justamente porque a lista é exaustiva.
+ * Quem decide aqui é a popularidade: o quanto a arma está sendo escolhida e
+ * recomendada agora. Isso se lê na posição do ranking de multiplayer da fonte
+ * [0], na ordem completa da classe da fonte [3] — que mostra quanta folga há até
+ * a seguinte — e em quantas fontes independentes repetem o mesmo nome. Como o
+ * jogo não publica pick rate, "popular" é convergência de fonte, não número
+ * medido; é por isso, também, que a ordem daqui é a do ranking e não a das
+ * contas de TTK que o resto do site faz.
  *
- * Quem tem só a colocação aparece em [BY_CATEGORY], onde uma fonte que ranqueia
- * por classe basta.
+ * O que a 1.4.2.0 fez com a arma entra no motivo como contexto: serve para quem
+ * lê saber se a colocação foi confirmada depois do patch, e o caso mais forte é
+ * o do changelog inteiro não citá-la, afirmação conferível justamente porque a
+ * lista é exaustiva. Não é o que põe a arma na lista — mudança recente, por
+ * maior que seja, é assunto de [TRENDING], que mede variação, não nível.
  */
 export const HIGHLIGHTS: MetaPick[] = [
   {
