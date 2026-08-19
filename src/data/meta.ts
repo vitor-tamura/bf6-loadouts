@@ -118,33 +118,6 @@ export const SOURCES: MetaSource[] = [
     scope: 'Tem página só de multiplayer, separada das de REDSEC e de REDSEC Ranqueado, e ordena arma por arma dentro de cada classe.',
     timeframe: 'season-4',
   },
-  {
-    name: 'TheGamer — melhores armas por classe',
-    url: 'https://www.thegamer.com/battlefield-6-best-weapons-class-meta-smg-lmg-assault-rifle-sniper-dmr-season-4-guide/',
-    date: '2026-08-03',
-    country: 'INT',
-    mode: 'multiplayer',
-    scope: 'Diz a que se refere: "the best weapons you can use during Season 4 across all four classes in multiplayer".',
-    timeframe: 'season-4',
-  },
-  {
-    name: 'KeenGamer — as cinco melhores da Temporada 4',
-    url: 'https://www.keengamer.com/articles/guides/battlefield-6-season-4-meta-5-best-weapons-ranked/',
-    date: '2026-07-24',
-    country: 'INT',
-    mode: 'multiplayer',
-    scope: 'Julga o desempenho nos "multiplayer maps" da temporada, com Tsuru Reef como referência.',
-    timeframe: 'season-4',
-  },
-  {
-    name: 'Game Rant — armas do meta da Temporada 4',
-    url: 'https://gamerant.com/battlefield-6-bf6-best-guns-weapons-meta-season-4-s4/',
-    date: '2026-07-24',
-    country: 'INT',
-    mode: 'multiplayer',
-    scope: 'Ordena pelos mapas grandes do multiplayer — Railway to Golmud e Tsuru Reef — e em nenhum momento fala de REDSEC.',
-    timeframe: 'season-4',
-  },
 ];
 
 /** Quando esta lista foi revisada por aqui. */
