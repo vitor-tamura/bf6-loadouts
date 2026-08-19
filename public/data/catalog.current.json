@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "gameVersion": "1.4.2.0",
-  "generatedAt": "2026-08-17T17:31:16.220Z",
+  "generatedAt": "2026-08-19T13:38:35.295Z",
   "capabilities": {
     "weapons": true,
     "attachments": true,
@@ -42047,7 +42047,7 @@
   ],
   "indexes": {
     "gameVersion": "1.4.2.0",
-    "generatedAt": "2026-08-17T17:31:16.220Z",
+    "generatedAt": "2026-08-19T13:38:35.295Z",
     "attachmentsByWeapon": {
       "ak205": [
         "120mw_blue",
