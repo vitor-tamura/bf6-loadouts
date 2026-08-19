@@ -107,8 +107,10 @@ nenhuma.
 	Entrega esperada: tela de meta sempre com data recente e sem arma que saiu
 	das listas da comunidade.
 - **M-02 · Completar mídia do arsenal**
-	Objetivo: fechar as fotos faltantes de armas (especialmente corpo a corpo e
-	Interdictor) e manter cobertura contínua para novos itens de temporada.
+	Objetivo: fechar as fotos faltantes de armas — restam as cinco de corpo a
+	corpo — e manter cobertura contínua para novos itens de temporada. A
+	Interdictor saiu da lista em 19/08/2026, quando se descobriu que ela está
+	catalogada pelo nome da arma real, a Desert Tech HTI.
 	Entrega esperada: preview visual completo, sem fallback para marcador textual.
 - **M-03 · Reduzir heranças temporárias de compatibilidade**
 	Objetivo: substituir slots herdados em armas recém-chegadas por listas nativas

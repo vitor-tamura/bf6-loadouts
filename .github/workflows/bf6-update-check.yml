@@ -25,9 +25,14 @@ concurrency:
   group: bf6-update-check
   cancel-in-progress: false
 
+# `pull-requests: read` não é detalhe: declarar um bloco `permissions` zera tudo
+# o que não está listado, e sem esse escopo o `gh pr list` da última etapa
+# responde 403. O passo inteiro falha antes de disparar coisa alguma — que é
+# como a 1.4.2.0 saiu no dia 18 e nunca chegou a `data/versions`.
 permissions:
   contents: read
   actions: write
+  pull-requests: read
 
 jobs:
   verificar:
@@ -61,14 +66,28 @@ jobs:
 
       # Uma execução por versão, da mais antiga para a mais nova: cada uma parte
       # do estado deixado pela anterior.
+      #
+      # A lista chega por variável de ambiente, e não interpolada no meio do
+      # script: `${{ }}` cola o texto antes de o shell existir, então um valor
+      # torto viraria comando. Aqui ele é só um dado, e o `case` recusa o que
+      # não tiver a cara de uma versão da EA.
+      #
+      # A busca por Pull Request aberto procura pelo branch, não pelo título: o
+      # `--search ... in:title` depende do índice de busca do GitHub, que demora
+      # a enxergar PR recém-aberto e devolvia vazio para um PR que existia.
       - name: Disparar o processamento
         if: steps.discover.outputs.versions != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSOES: ${{ steps.discover.outputs.versions }}
         run: |
-          for versao in ${{ steps.discover.outputs.versions }}; do
-            if gh pr list --state open --search "update Battlefield 6 to $versao in:title" --json number \
-              | grep -q '"number"'; then
+          for versao in $VERSOES; do
+            case "$versao" in
+              [0-9]*.[0-9]*.[0-9]*.[0-9]*) ;;
+              *) echo "::warning::'$versao' não tem formato de versão — ignorada."; continue ;;
+            esac
+
+            if [ -n "$(gh pr list --state open --head "automation/bf6-update-$versao" --json number --jq '.[].number')" ]; then
               echo "::notice::Já existe Pull Request aberto para $versao — pulando."
               continue
             fi

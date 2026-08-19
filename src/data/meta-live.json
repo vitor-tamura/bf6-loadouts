@@ -1,98 +1,132 @@
 {
-  "readAt": "2026-08-17",
+  "readAt": "2026-08-19",
   "model": "curadoria manual",
   "patch": {
-    "name": "Game Update 1.4.1.0 (Season 4: Pacific Front)",
-    "date": "2026-07-21"
+    "name": "Game Update 1.4.2.0 (Temporada 4, fase Top Gun)",
+    "date": "2026-08-18"
   },
   "picks": [
     {
-      "weapon": "ef88",
-      "reason": "Primeiro lugar nas leituras pós-1.4.1.0: junta recuo controlável a desempenho de médio e longo alcance, que é o que os mapas abertos da temporada cobram.",
-      "sources": [0, 1]
-    },
-    {
       "weapon": "m16a4",
-      "reason": "Atravessou o 1.4.1.0 sem redução direta de dano nem de controle de recuo, e continuou confiável enquanto o resto da lista se mexia.",
-      "sources": [0]
+      "reason": "Primeira colocada geral e primeira entre os onze fuzis do multiplayer, e a 1.4.2.0 não encostou nela: a rajada de três segue matando a distância sem concorrente à altura.",
+      "sources": [0, 3]
     },
     {
-      "weapon": "kts100-mk8",
-      "reason": "Melhor metralhadora do multiplayer: carregador grande, velocidade de projétil alta e pouca variação de recuo na rajada longa.",
-      "sources": [0, 1]
+      "weapon": "b36a4",
+      "reason": "Segunda entre os fuzis: cadência menor que a da M16A4 — 720 contra 800 RPM — trocada por bala mais rápida e recuo bem mais fácil de segurar na automática.",
+      "sources": [0, 3]
     },
     {
-      "weapon": "m4a1",
-      "reason": "A escolha de quem avança em cima do objetivo, no curto e médio alcance, citada como a melhor carabina da temporada.",
-      "sources": [0, 1]
+      "weapon": "kord-6p67",
+      "reason": "Terceira entre os fuzis e quarta no ranking geral: 900 RPM, a maior cadência da classe, para quem ganha a troca no primeiro segundo.",
+      "sources": [0, 3]
+    },
+    {
+      "weapon": "pp-19",
+      "reason": "Primeira submetralhadora e terceira colocada geral do multiplayer, com 53 tiros no carregador helicoidal — e nenhuma linha sobre ela no changelog da 1.4.2.0.",
+      "sources": [0, 2]
+    },
+    {
+      "weapon": "drs-iar",
+      "reason": "Primeira metralhadora e quinta colocada geral: maneja como fuzil e segura objetivo. A 1.4.2.0 manteve a posição por omissão — mexeu na RPK-74M, não nela.",
+      "sources": [0, 2]
     },
     {
       "weapon": "m2010-esr",
-      "reason": "Melhor fuzil de precisão: velocidade de projétil alta e poder de parada confiável, com folga suficiente para jogar em movimento.",
-      "sources": [0]
+      "reason": "Primeiro ferrolho do multiplayer, e a 1.4.2.0 devolveu o que faltava: a Munição Match Grade parou de aplicar uma redução de dano que não era intencional.",
+      "sources": [0, 1]
+    },
+    {
+      "weapon": "vssm",
+      "reason": "Segue como a primeira DMR do multiplayer mesmo depois de a 1.4.2.0 tirar dos canos dela um modificador de recuo que não deveria existir e refazer os multiplicadores de dano em membro.",
+      "sources": [0, 1]
     }
   ],
   "trending": [
     {
       "weapon": "ef88",
-      "reason": "Tópico no fórum oficial afirma que o Match Trigger desliga o aumento de dispersão por tiro e derruba o recuo, deixando a arma precisa demais em full auto.",
-      "sources": [2],
-      "trend": "match trigger em debate"
+      "trend": "match trigger desligado",
+      "reason": "O estúdio tirou o Match Trigger da arma depois de jogadores mostrarem no fórum que a peça desliga o aumento de dispersão por tiro e derruba o recuo em três degraus, deixando a automática quase sem coice.",
+      "sources": [4, 5]
     },
     {
       "weapon": "brod-3",
-      "reason": "Jogadores abriram tópico questionando a precisão da BROD 3 e da EF88, e a dupla virou assunto recorrente no fórum da EA.",
-      "sources": [3],
-      "trend": "precisão contestada"
+      "trend": "perdeu a peça que a segurava",
+      "reason": "A carabina caiu no mesmo comunicado: terceira da classe no multiplayer, agora precisa segurar o recuo sem o acessório que vinha carregando as montagens dela.",
+      "sources": [4, 5]
     },
     {
-      "weapon": "m433",
-      "reason": "Na discussão de equilíbrio, jogadores relatam que ela vence as submetralhadoras no curto alcance, com quatro tiros para abater.",
-      "sources": [4],
-      "trend": "vence as smgs de perto"
+      "weapon": "interdictor",
+      "trend": "chegou na 1.4.2.0",
+      "reason": "Antimaterial de alcance extremo que entrou pelo Passe de Batalha na fase Top Gun, feita para tirar piloto de dentro da cabine — e por isso divide quem joga a pé de quem voa.",
+      "sources": [1, 2]
     },
     {
-      "weapon": "vssm",
-      "reason": "As notas da 1.4.2.0 tiraram um modificador de recuo não intencional dos canos dela, o que muda o comportamento das montagens que o usavam.",
-      "sources": [5],
-      "trend": "cano perdeu modificador"
+      "weapon": "svk-86",
+      "trend": "munição match corrigida",
+      "reason": "Dividiu com a M2010 ESR o acerto da Munição Match Grade, e é a via mais barata de aproveitá-lo: .338 semiautomático, dois tiros ao peito.",
+      "sources": [1, 2]
+    },
+    {
+      "weapon": "l115",
+      "trend": "mira de ferro de 5 para 15",
+      "reason": "O custo do acessório de mira de ferro triplicou no patch, o que reabre a conta dos 100 pontos em toda montagem de ferrolho que contava com ela para sobrar orçamento.",
+      "sources": [2]
     }
   ],
   "sources": [
     {
-      "name": "EA Forums — Match Trigger na EF88 e na BROD 3",
-      "url": "https://forums.ea.com/idea/battlefield-6-bug-reports-en/match-trigger-on-ef88--brod-3-makes-them-brokenly-accurate-on-full-auto/13590818",
-      "date": "2026-08-17",
+      "name": "wzstats.gg — ranking do multiplayer",
+      "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
+      "date": "2026-08-19",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Tópico do fórum oficial sobre o efeito do Match Trigger em full auto na partida. A data é a da leitura: a página não declara a de publicação.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "EA Forums — BROD 3 & EF88 has low precision?",
-      "url": "https://forums.ea.com/idea/battlefield-6-bug-reports-en/brod-3--ef88-has-low-precision/13574625",
-      "date": "2026-08-17",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Relato de precisão das duas armas da Season 4 em partida de multiplayer. A data é a da leitura: a página não declara a de publicação.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "EA Forums — Current Weapon Balance",
-      "url": "https://forums.ea.com/discussions/battlefield-6-general-discussion-en/current-weapon-balance/13124700",
-      "date": "2026-08-17",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Discussão de equilíbrio de armas no multiplayer, comparando M433 e M4A1 com as submetralhadoras no curto alcance.",
+      "scope": "Tem página só de multiplayer, separada das de REDSEC e de REDSEC Ranqueado, e ordena arma por arma dentro de cada classe.",
       "timeframe": "season-4"
     },
     {
       "name": "EA — Battlefield 6 Game Update 1.4.2.0",
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-0",
-      "date": "2026-08-17",
+      "date": "2026-08-18",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Notas oficiais da atualização; a linha citada está na seção de armas e descreve o comportamento em partida.",
+      "scope": "Notas oficiais da atualização em vigor. O REDSEC tem seção própria no texto, então a seção de armas citada aqui é a da partida comum.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "BF6 Balance Log — registro da 1.4.2.0",
+      "url": "https://bf6balancelog.com/",
+      "date": "2026-08-14",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Transcreve o changelog oficial arma por arma, com os números que o resumo da imprensa corta — a mira de ferro da L115 de 5 para 15 pontos, por exemplo.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "wzstats.gg — fuzis de assalto no multiplayer",
+      "url": "https://wzstats.gg/battlefield-6/multiplayer/best-gun/best-assault-rifles-in-battlefield",
+      "date": "2026-08-18",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Página de classe do mesmo rastreador, também só de multiplayer: publica a ordem completa dos onze fuzis, que a página de resumo corta no quinto.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "EA Forums — Match Trigger na EF88 e na BROD 3",
+      "url": "https://forums.ea.com/idea/battlefield-6-bug-reports-en/match-trigger-on-ef88--brod-3-makes-them-brokenly-accurate-on-full-auto/13590818",
+      "date": "2026-08-19",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Relato no fórum oficial sobre o que a peça faz em partida: desliga o aumento de dispersão por tiro e baixa o recuo em três degraus. A data é a da leitura — a página não declara a de publicação.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Battlefield Comms — Match Trigger desligado da EF88 e da BROD 3",
+      "url": "https://steamcommunity.com/app/2807960/discussions/0/581677784229939742/",
+      "date": "2026-08-19",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Comunicado oficial do estúdio: a peça saiu das duas armas enquanto a \"interação não intencional\" é investigada, e isso vale para o Gunsmith de quem joga a partida comum. A data é a da leitura.",
       "timeframe": "season-4"
     }
   ]

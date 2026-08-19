@@ -107,9 +107,9 @@ describe('leitura do meta', () => {
       picks: META_BOM,
       trending: [],
       sources: [
-        { name: 'Tier list', url: 'https://battlefieldmeta.gg/', date: '2026-08-09', scope: 'Tier list de multiplayer.' },
-        { name: 'Tier list (es)', url: 'https://battlefieldmeta.gg/es', date: '2026-08-09', scope: 'A mesma página em espanhol.' },
-        { name: 'Tier list (pt)', url: 'https://battlefieldmeta.gg/pt', date: '2026-08-09', scope: 'A mesma página em português.' },
+        { name: 'Tier list', url: 'https://battlefieldmeta.gg/multiplayer', date: '2026-08-09', scope: 'Tier list de multiplayer.' },
+        { name: 'Tier list (es)', url: 'https://battlefieldmeta.gg/es/multiplayer', date: '2026-08-09', scope: 'A mesma página em espanhol.' },
+        { name: 'Tier list (pt)', url: 'https://battlefieldmeta.gg/pt/multiplayer', date: '2026-08-09', scope: 'A mesma página em português.' },
       ],
     });
 
@@ -139,6 +139,48 @@ describe('leitura do meta', () => {
 
   it('recusa resposta em que a busca não abriu página nenhuma', () => {
     expect(() => leitura({ picks: META_BOM, trending: [] }, { anotacoes: [] })).toThrow(/busca/);
+  });
+
+  /*
+   * O erro que mais custou caro nesta tela não foi arma inventada nem motivo
+   * repetido: foi lista certa do jogo errado. A leitura de 17/08 publicou a
+   * KTS100 MK8 como "melhor metralhadora do multiplayer" apoiada em página de
+   * battle royale — ela é a primeira colocada geral do REDSEC e não chega ao
+   * pódio da classe no multiplayer. Nada no texto da página denunciava isso; o
+   * endereço, sim.
+   */
+  it('descarta a fonte que é página de REDSEC', () => {
+    const { conteudo, descartes } = leitura({
+      picks: META_BOM,
+      trending: [],
+      sources: [
+        { name: 'Ranking do BR', url: 'https://wzstats.gg/battlefield-6/meta', date: '2026-08-19', scope: 'Ranking geral.' },
+        { name: 'Ranqueado', url: 'https://wzstats.gg/battlefield-6/ranked/meta', date: '2026-08-19', scope: 'Ranqueado.' },
+        { name: 'Loot do REDSEC', url: 'https://exemplo.gg/battlefield-6/redsec/loadouts', date: '2026-08-19', scope: 'Battle royale.' },
+        { name: 'Ranking do multiplayer', url: 'https://wzstats.gg/battlefield-6/multiplayer/meta', date: '2026-08-19', scope: 'Só multiplayer.' },
+      ],
+    });
+
+    const enderecos = conteudo.sources.map((f) => f.url);
+    expect(enderecos).toContain('https://wzstats.gg/battlefield-6/multiplayer/meta');
+    expect(enderecos.some((url) => url.includes('/ranked/') || url.includes('redsec'))).toBe(false);
+    expect(enderecos).not.toContain('https://wzstats.gg/battlefield-6/meta');
+    expect(descartes.filter((d) => d.motivo.includes('REDSEC'))).toHaveLength(3);
+  });
+
+  it('recusa a leitura inteira quando só sobrou página de battle royale', () => {
+    expect(() =>
+      leitura(
+        {
+          picks: META_BOM,
+          trending: [],
+          sources: [
+            { name: 'Ranking do BR', url: 'https://wzstats.gg/battlefield-6/meta', date: '2026-08-19', scope: 'Ranking geral.' },
+          ],
+        },
+        { anotacoes: [{ type: 'url_citation', url: 'https://wzstats.gg/battlefield-6/ranked/meta', title: 'Ranqueado' }] },
+      ),
+    ).toThrow(/REDSEC/);
   });
 
   it('recusa nome de arma que não existe no jogo', () => {

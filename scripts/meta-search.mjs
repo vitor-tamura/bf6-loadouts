@@ -131,6 +131,21 @@ Patch notes oficiais da EA/DICE ancoram as duas: é de lá que sai o que a atual
 
 Nenhum site sozinho decide. O mesmo site em idiomas diferentes (/pt, /es) conta como uma fonte só. Fórum e Reddit mostram percepção, não medição: quando eles disserem que uma arma é absurda e os números não confirmarem, diga isso no motivo em vez de tratar como fato.
 
+## 3.1. O modo está no endereço, não no texto
+
+Este é o erro que mais estraga esta leitura, e ele **não parece** erro: uma lista de armas que existem, bem escrita, publicada ontem — descrevendo o battle royale.
+
+Os rastreadores que ranqueiam os dois modos separam por caminho, e só o caminho declara o modo:
+
+- \`wzstats.gg/battlefield-6/multiplayer/...\` → **serve**;
+- \`wzstats.gg/battlefield-6/meta\` e \`wzstats.gg/battlefield-6/ranked/meta\` → REDSEC, **não serve** (o Ranqueado do BF6 é battle royale);
+- endereço com \`redsec\` ou \`battle-royale\` em qualquer parte → não serve;
+- raiz de site de meta, sem \`multiplayer\` no caminho → assuma battle royale.
+
+O teste de sanidade é a KTS100 MK8: ela é a primeira colocada **geral** do REDSEC e não chega ao pódio das metralhadoras do multiplayer. Se ela aparecer no topo da sua lista, você está lendo o modo errado — recomece.
+
+Guia editorial que não diz de que modo fala está no mesmo caso: por padrão essas matérias descrevem o battle royale, porque é dele que vêm os vídeos. Sem uma frase que prove o modo, a fonte não entra.
+
 Fonte publicada antes de ${TEMPORADA.startsOn} — o começo da temporada — não sustenta posição nenhuma. Ela pode aparecer como contexto no motivo, nunca como a evidência que põe a arma na lista. E o campo "patch" precisa ser uma atualização desta temporada: apontar um patch anterior a ${TEMPORADA.startsOn} anula a leitura inteira, porque a tela passa a anunciar hoje o jogo de dois meses atrás.
 
 ## 4. Meta não é a mesma coisa que trending

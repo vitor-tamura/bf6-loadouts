@@ -146,48 +146,87 @@ a contagem revela cano faltando no catálogo.
 ## O meta, a cada patch
 
 A tela `/meta` não vem do catálogo: ela é curadoria, guardada em
-[`src/data/meta.ts`](./src/data/meta.ts). Não existe API pública de uso real no
-Battlefield 6 — a do gametools serve estatística por jogador e só tem endpoint
-agregado de arma para BF1, BF3, BF4 e BFV; o tracker.gg tem os números e não os
-publica. Então o que vale é o que os portais especializados escrevem.
+[`src/data/meta.ts`](./src/data/meta.ts) e relida todo dia pelo workflow
+`meta-daily`, que grava [`src/data/meta-live.json`](./src/data/meta-live.json).
+Não existe API pública de uso real no Battlefield 6 — a do gametools serve
+estatística por jogador e só tem endpoint agregado de arma para BF1, BF3, BF4 e
+BFV; o tracker.gg tem os números e não os publica.
 
 **A tela é do multiplayer.** O REDSEC, o battle royale, tem meta próprio, e essa
-é a armadilha mais fácil de cair: boa parte das listas de "melhores armas do
-BF6" que aparecem na busca descreve o battle royale sem avisar. A KTS100 MK8 é o
-caso exemplar — primeira colocada geral do REDSEC e apenas a sexta metralhadora
-do multiplayer. Fonte que mistura os dois modos no mesmo texto não entra: em
-agosto de 2026 o Nerdschalk saiu por isso ("effective in both public matches and
-Ranked REDSEC play"), e com ele caiu a única sustentação que a RPK-74M tinha
-entre os destaques.
+é a armadilha mais fácil de cair — não porque seja difícil de ver, mas porque o
+erro parece certo. Uma lista de armas que existem, bem escrita, publicada
+ontem, com um nome errado no topo. A KTS100 MK8 é o caso exemplar: primeira
+colocada **geral** do REDSEC e fora do pódio das metralhadoras do multiplayer.
+Ela entrou nesta tela em agosto de 2026 como "melhor metralhadora do
+multiplayer", vinda de guia que não declarava modo — e ficou dias no ar.
 
-Quando o jogo receber atualização de balanceamento — que é quando o catálogo
-público muda e o PR automático aparece:
+### De onde o dado vem, desde agosto de 2026
 
-1. Procure guias e matérias publicados **depois** do patch, nos veículos de
-   maior alcance que ranqueiam arma por classe. O que interessa é matéria com data e nome de
-   arma, não vídeo nem opinião solta de fórum.
-   **Data manda.** Guia de lançamento não entra, por mais completo que seja:
-   entre ele e hoje vieram quatro temporadas e o patch que mexeu em velocidade e
-   recuo. Em agosto de 2026 as duas publicações brasileiras que ranqueavam armas
-   — Critical Hits e Omelete — eram de outubro de 2025, e por isso ficaram de
-   fora. Publicação brasileira dentro da janela é bem-vinda e aparece com selo
-   `BR`; fora da janela, não.
-2. **Confira o modo antes de tudo.** Registre em `escopo` o trecho que prova de
-   que modo a fonte fala; sem esse indício a fonte não entra. O
-   [wzstats](https://wzstats.gg/battlefield-6/multiplayer/meta) ranqueia os dois
-   modos em páginas separadas (`/multiplayer/meta`, `/meta` e `/ranked/meta`), o
-   que o torna útil duas vezes: decide o primeiro nome de cada classe e serve de
-   controle para saber se um guia sem modo declarado está descrevendo o battle
-   royale.
-3. Cruze pelo menos duas fontes antes de mover uma arma. Uma citação isolada
-   entra como menção, não como destaque — o teste em
-   [`src/data/meta.test.ts`](./src/data/meta.test.ts) cobra isso.
-4. Atualize `ATUALIZADO_EM`, `TEMPORADA_DO_META` e a lista `FONTES` — cada fonte
-   com nome, link e a data que ela mesma declara.
-5. Refaça `NAO_E_MULTIPLAYER` comparando o primeiro escalão dos dois modos. É a
-   seção que explica ao leitor por que as listas que ele viu por aí não batem
-   com esta.
-6. Tire quem saiu das listas. Manter indicação velha só para a tela parecer
+O lastro mudou. Antes eram guias editoriais que ranqueavam arma por classe, e
+foi de lá que veio o erro acima: matéria que não diz de que modo fala quase
+sempre descreve o battle royale, porque é dele que vêm os vídeos. Hoje entram
+três coisas, e cada uma responde por uma parte:
+
+| O quê | Quem | Decide |
+| --- | --- | --- |
+| **Posição** | rastreador que separa os modos por endereço | quem é o primeiro de cada classe |
+| **Mudança** | notas oficiais da EA e registro de balanceamento | o que o patch mexeu — e, por exaustão, o que não mexeu |
+| **Percepção** | fórum oficial da EA, subreddits, comunicados do Battlefield Comms | o que entra em `TRENDING` |
+
+Percepção não vira posição no ranking. Quando o fórum disser que uma arma está
+absurda e a medição não confirmar, isso vira o motivo do card de trending — não
+uma promoção na lista de meta.
+
+### O modo está no endereço, não no texto
+
+Quem ranqueia os dois modos separa por caminho, e é o caminho que declara o
+modo:
+
+| Endereço | Vale? |
+| --- | --- |
+| `wzstats.gg/battlefield-6/multiplayer/…` | sim |
+| `wzstats.gg/battlefield-6/meta` | não — é o REDSEC |
+| `wzstats.gg/battlefield-6/ranked/meta` | não — o Ranqueado do BF6 é battle royale |
+| qualquer caminho com `redsec` ou `battle-royale` | não |
+| raiz de site de meta, sem `multiplayer` no caminho | não — o padrão dessas páginas é o battle royale |
+
+Isso não é só recomendação: `ehPaginaDeOutroModo`, em
+[`scripts/meta/leitura.mjs`](./scripts/meta/leitura.mjs), recusa essas páginas
+antes de a leitura diária virar arquivo, e a leitura em que todas as fontes
+caírem por modo é descartada inteira, com o motivo no log do workflow.
+
+### Quando o jogo receber atualização de balanceamento
+
+É quando o catálogo público muda e o PR automático aparece.
+
+1. **Confira o modo antes de tudo.** Registre em `scope` o trecho que prova de
+   que modo a fonte fala; sem esse indício a fonte não entra. O teste de
+   sanidade é a KTS100 MK8 no topo: se ela aparecer lá, a leitura é do REDSEC.
+2. Ancore no patch. Leia as notas oficiais e o
+   [BF6 Balance Log](https://bf6balancelog.com/) arma por arma — é de lá que
+   sai o fato datável que cada card precisa citar. Vale também o que o estúdio
+   faz **fora** do patch: em agosto de 2026 o Match Trigger foi desligado da
+   EF88 e da BROD 3 por comunicado, sem uma linha em changelog nenhum.
+3. Procure a conversa onde ela acontece — `forums.ea.com`, `answers.ea.com`,
+   r/Battlefield6, r/Battlefield —, por "broken", "nerf", "buff", "why is
+   everyone using". Fórum não declara data de publicação; registre a data da
+   leitura e diga isso no `scope`, como as fontes de agosto de 2026 fazem.
+   **Data manda.** Guia de lançamento não entra, por mais completo que seja.
+   Publicação brasileira dentro da janela é bem-vinda e aparece com selo `BR`;
+   fora da janela, não.
+4. Cruze duas fontes antes de mover uma arma. Duas páginas do mesmo rastreador
+   **não** são duas fontes — o teste em
+   [`src/data/meta.test.ts`](./src/data/meta.test.ts) só conta, então quem
+   cobra honestidade aqui é quem escreve. O par que sustenta um destaque é
+   posição + fato datável do patch.
+5. Atualize `UPDATED_AT`, `META_SEASON` e a lista `SOURCES` — cada fonte com
+   nome, link e a data que ela mesma declara. Mantenha a ordem de `SOURCES`
+   igual à de `meta-live.json`: os cards citam a fonte pelo número, e a tela usa
+   a lista da leitura do dia mesmo nos blocos que vêm de `meta.ts`.
+6. Refaça `NOT_MULTIPLAYER` comparando o primeiro escalão dos dois modos, na
+   mesma leitura e no mesmo dia. É a seção que explica ao leitor por que as
+   listas que ele viu por aí não batem com esta.
+7. Tire quem saiu das listas. Manter indicação velha só para a tela parecer
    cheia é pior do que uma lista curta.
 
 O nome da arma na fonte nem sempre é o nome do dataset. Confira o id em

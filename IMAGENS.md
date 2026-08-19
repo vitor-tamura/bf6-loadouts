@@ -12,7 +12,7 @@ Duas coisas diferentes aparecem na tela, e elas seguem caminhos separados:
 
 ## A arma
 
-As 62 fotos ficam no projeto, em `public/weapons/<id-da-arma>.webp` — 1,5 MB no
+As 63 fotos ficam no projeto, em `public/weapons/<id-da-arma>.webp` — 2,3 MB no
 total. A aplicação não faz nenhuma requisição para fora: nada depende de site de
 terceiros continuar no ar nem de o CDN permitir hotlink.
 
@@ -22,8 +22,13 @@ O preview procura, nesta ordem:
 2. a URL de origem em `src/data/weapon-images.ts`, se o arquivo local faltar;
 3. um marcador com o nome da arma, quando não há nenhuma das duas.
 
-Falta uma: a **Interdictor**, da Temporada 4, que ainda não apareceu em nenhuma
-fonte pública.
+O arsenal está completo. A última a entrar foi a **Interdictor**, da Temporada 4,
+e ela demorou por um motivo que vale registrar: a busca era pelo nome do jogo. A
+Battlefield Wiki não tem página dela, e `Interdictor_BF6.png` nunca existiu — o
+nome é trocadilho da EA com o da arma real, a **Desert Tech HTI** (*Hard Target
+Interdiction*), e é sob esse nome que a captura do menu de personalização está
+catalogada na IMFDB. Arma nova que "não apareceu em nenhuma fonte" costuma ser
+isto: procurada pelo nome errado.
 
 ### Baixar
 

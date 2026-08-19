@@ -54,6 +54,9 @@ jobs:
         with:
           ref: main
           persist-credentials: false
+          # O passo de publicação faz rebase quando a main anda durante a
+          # leitura, e rebase em clone raso não tem sobre o que se apoiar.
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -104,4 +107,18 @@ jobs:
           git add $arquivos
           git commit -m "Atualiza a leitura da comunidade do dia"
           git remote set-url origin "https://x-access-token:${MAIN_PUSH_TOKEN}@github.com/${{ github.repository }}.git"
-          git push origin HEAD:main
+
+          # A `main` pode ter andado durante os até quarenta minutos de leitura,
+          # e aí o push é recusado. Sem esta insistência a rodada inteira ia
+          # para o lixo — a busca já foi paga e a tela seguia com a leitura de
+          # ontem. O rebase é seguro porque o commit toca dois arquivos que só
+          # esta automação escreve.
+          for tentativa in 1 2 3; do
+            git push origin HEAD:main && exit 0
+            echo "::warning::A main andou. Tentativa $tentativa: rebase e novo push."
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort; break; }
+          done
+
+          echo "::error::Não foi possível publicar a leitura do dia na main."
+          exit 1

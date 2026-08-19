@@ -108,20 +108,92 @@ export interface RedsecContrast {
   note: string;
 }
 
+/**
+ * As fontes, todas de multiplayer e todas de depois da 1.4.2.0.
+ *
+ * A leitura de agosto de 2026 trocou de lastro. O que sustentava as posições
+ * antes eram guias editoriais — Game Rant, TheGamer, KeenGamer —, e foi de lá
+ * que veio o erro que a tela publicou: a KTS100 MK8 como "melhor metralhadora
+ * do multiplayer", quando ela é a primeira colocada geral do REDSEC e nem
+ * aparece no pódio das metralhadoras do multiplayer. Guia que não diz de que
+ * modo fala acaba descrevendo o battle royale, porque é dele que a maioria dos
+ * vídeos e das tier lists trata.
+ *
+ * O que entra agora são três coisas que se conferem:
+ *
+ * 1. **O ranking que separa os modos.** O wzstats publica multiplayer, REDSEC e
+ *    REDSEC Ranqueado em páginas diferentes, e é a página de multiplayer que
+ *    decide posição aqui. É medição, não opinião.
+ * 2. **O que a atualização mexeu.** As notas oficiais e o registro de
+ *    balanceamento dizem, arma por arma, o que mudou — e, por serem exaustivas,
+ *    também dizem o que *não* mudou.
+ * 3. **A conversa da comunidade.** O fórum oficial da EA e os comunicados do
+ *    Battlefield Comms mostram percepção e ação do estúdio. Percepção não vira
+ *    posição no ranking: entra em [TRENDING], onde é exatamente o que se quer.
+ *
+ * As fontes 0 e 3 são o mesmo rastreador em páginas diferentes. Elas não contam
+ * como duas publicações concordando — a página de classe está na lista porque é
+ * a única que publica a ordem inteira, do 1º ao 11º fuzil, que o resumo corta.
+ */
 export const SOURCES: MetaSource[] = [
   {
     name: 'wzstats.gg — ranking do multiplayer',
     url: 'https://wzstats.gg/battlefield-6/multiplayer/meta',
-    date: '2026-08-07',
+    date: '2026-08-19',
     country: 'INT',
     mode: 'multiplayer',
     scope: 'Tem página só de multiplayer, separada das de REDSEC e de REDSEC Ranqueado, e ordena arma por arma dentro de cada classe.',
     timeframe: 'season-4',
   },
+  {
+    name: 'EA — Battlefield 6 Game Update 1.4.2.0',
+    url: 'https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-0',
+    date: '2026-08-18',
+    country: 'INT',
+    mode: 'multiplayer',
+    scope: 'Notas oficiais da atualização em vigor. O REDSEC tem seção própria no texto, então a seção de armas citada aqui é a da partida comum.',
+    timeframe: 'season-4',
+  },
+  {
+    name: 'BF6 Balance Log — registro da 1.4.2.0',
+    url: 'https://bf6balancelog.com/',
+    date: '2026-08-14',
+    country: 'INT',
+    mode: 'multiplayer',
+    scope: 'Transcreve o changelog oficial arma por arma, com os números que o resumo da imprensa corta — a mira de ferro da L115 de 5 para 15 pontos, por exemplo.',
+    timeframe: 'season-4',
+  },
+  {
+    name: 'wzstats.gg — fuzis de assalto no multiplayer',
+    url: 'https://wzstats.gg/battlefield-6/multiplayer/best-gun/best-assault-rifles-in-battlefield',
+    date: '2026-08-18',
+    country: 'INT',
+    mode: 'multiplayer',
+    scope: 'Página de classe do mesmo rastreador, também só de multiplayer: publica a ordem completa dos onze fuzis, que a página de resumo corta no quinto.',
+    timeframe: 'season-4',
+  },
+  {
+    name: 'EA Forums — Match Trigger na EF88 e na BROD 3',
+    url: 'https://forums.ea.com/idea/battlefield-6-bug-reports-en/match-trigger-on-ef88--brod-3-makes-them-brokenly-accurate-on-full-auto/13590818',
+    date: '2026-08-19',
+    country: 'INT',
+    mode: 'multiplayer',
+    scope: 'Relato no fórum oficial sobre o que a peça faz em partida: desliga o aumento de dispersão por tiro e baixa o recuo em três degraus. A data é a da leitura — a página não declara a de publicação.',
+    timeframe: 'season-4',
+  },
+  {
+    name: 'Battlefield Comms — Match Trigger desligado da EF88 e da BROD 3',
+    url: 'https://steamcommunity.com/app/2807960/discussions/0/581677784229939742/',
+    date: '2026-08-19',
+    country: 'INT',
+    mode: 'multiplayer',
+    scope: 'Comunicado oficial do estúdio: a peça saiu das duas armas enquanto a "interação não intencional" é investigada, e isso vale para o Gunsmith de quem joga a partida comum. A data é a da leitura.',
+    timeframe: 'season-4',
+  },
 ];
 
 /** Quando esta lista foi revisada por aqui. */
-export const UPDATED_AT = '2026-08-07';
+export const UPDATED_AT = '2026-08-19';
 
 /** A temporada a que esta leitura se refere. */
 export const META_SEASON = 4;
@@ -129,46 +201,50 @@ export const META_SEASON = 4;
 /**
  * O topo do multiplayer, sem separar por categoria.
  *
- * A ordem segue o ranking de multiplayer da fonte [0], e só entra quem tem ao
- * menos duas fontes concordando — foi o que deixou de fora a PP-19, a KORD 6P67
- * e a QBZ-192, que lideram suas classes ali mas nenhum guia ainda comentou.
- * Elas aparecem em [POR_CATEGORIA], onde uma fonte que ranqueia por classe
- * basta.
+ * A ordem segue o ranking de multiplayer da fonte [0]. Para virar destaque não
+ * basta estar bem colocada: a arma precisa de uma segunda perna, e ela é ou a
+ * ordem completa da classe (fonte [3], que mostra quanta folga há até a
+ * seguinte) ou um fato datável da 1.4.2.0 — o que o patch fez com ela, ou o
+ * fato de o changelog inteiro não a citar, que é afirmação conferível
+ * justamente porque a lista é exaustiva.
+ *
+ * Quem tem só a colocação aparece em [BY_CATEGORY], onde uma fonte que ranqueia
+ * por classe basta.
  */
 export const HIGHLIGHTS: MetaPick[] = [
   {
     weapon: 'm16a4',
-    reason: 'A primeira colocada geral do multiplayer: recuo controlado, bala rápida e dano estável em qualquer distância.',
-    sources: [0, 2],
+    reason: 'Primeira colocada geral e primeira entre os onze fuzis do multiplayer, e a 1.4.2.0 não encostou nela: a rajada de três segue matando a distância sem concorrente à altura.',
+    sources: [0, 3],
   },
   {
     weapon: 'b36a4',
-    reason: 'Bullpup equilibrado, logo atrás da M16A4 — o maior potencial de eliminação entre os fuzis, na leitura das fontes.',
+    reason: 'Segunda entre os fuzis: cadência menor que a da M16A4 — 720 contra 800 RPM — trocada por bala mais rápida e recuo bem mais fácil de segurar na automática.',
     sources: [0, 3],
+  },
+  {
+    weapon: 'kord-6p67',
+    reason: 'Terceira entre os fuzis e quarta no ranking geral: 900 RPM, a maior cadência da classe, para quem ganha a troca no primeiro segundo.',
+    sources: [0, 3],
+  },
+  {
+    weapon: 'pp-19',
+    reason: 'Primeira submetralhadora e terceira colocada geral do multiplayer, com 53 tiros no carregador helicoidal — e nenhuma linha sobre ela no changelog da 1.4.2.0.',
+    sources: [0, 2],
   },
   {
     weapon: 'drs-iar',
-    reason: 'A metralhadora do momento: tempo para matar curto para o porte e alcance suficiente para segurar objetivo.',
-    sources: [0, 1, 3],
-  },
-  {
-    weapon: 'sgx',
-    reason: 'A submetralhadora agressiva de quem entra primeiro, e a mais citada da classe fora do battle royale.',
-    sources: [0, 1],
-  },
-  {
-    weapon: 'pw5a3',
-    reason: 'Equilíbrio entre manejo e controle no vão curto, sem o custo de mobilidade das opções mais pesadas.',
-    sources: [0, 3],
+    reason: 'Primeira metralhadora e quinta colocada geral: maneja como fuzil e segura objetivo. A 1.4.2.0 manteve a posição por omissão — mexeu na RPK-74M, não nela.',
+    sources: [0, 2],
   },
   {
     weapon: 'm2010-esr',
-    reason: 'O ferrolho de referência: bala veloz e poder de parada, com mobilidade para trocar de posição.',
-    sources: [0, 2, 3],
+    reason: 'Primeiro ferrolho do multiplayer, e a 1.4.2.0 devolveu o que faltava: a Munição Match Grade parou de aplicar uma redução de dano que não era intencional.',
+    sources: [0, 1],
   },
   {
-    weapon: 'sg-553r',
-    reason: 'A carabina mais sólida da temporada — a segunda da classe no ranking e a primeira na leitura do guia.',
+    weapon: 'vssm',
+    reason: 'Segue como a primeira DMR do multiplayer mesmo depois de a 1.4.2.0 tirar dos canos dela um modificador de recuo que não deveria existir e refazer os multiplicadores de dano em membro.',
     sources: [0, 1],
   },
 ];
@@ -179,37 +255,42 @@ export const HIGHLIGHTS: MetaPick[] = [
  * Trending não é sinônimo de meta: entra arma que ganhou adoção, hype ou uma
  * build nova mesmo quando ainda não há consenso de que seja a escolha mais
  * eficiente. A busca diária substitui esta lista quando grava `meta-live.json`.
+ *
+ * Nesta rodada tudo aqui tem data: a 1.4.2.0 subiu em 18/08, e o estúdio
+ * desligou o Match Trigger fora do patch, por comunicado. São fatos, não
+ * impressões — e é essa a diferença entre esta seção e uma lista de "o que anda
+ * popular".
  */
 export const TRENDING: TrendingPick[] = [
   {
-    weapon: 'vssm',
-    trend: 'full-auto em alta',
-    reason: 'A novidade da temporada virou assunto pela combinação de supressor integrado, modo automático e força em médio alcance.',
-    sources: [0, 1, 3],
-  },
-  {
     weapon: 'ef88',
-    trend: 'arma nova',
-    reason: 'Os guias ainda discutem se ela já passou as veteranas, mas a curiosidade e as builds de Season 4 mantêm a EF88 em evidência.',
-    sources: [2, 3],
+    trend: 'match trigger desligado',
+    reason: 'O estúdio tirou o Match Trigger da arma depois de jogadores mostrarem no fórum que a peça desliga o aumento de dispersão por tiro e derruba o recuo em três degraus, deixando a automática quase sem coice.',
+    sources: [4, 5],
   },
   {
     weapon: 'brod-3',
-    trend: 'mobilidade',
-    reason: 'Carabina recente, citada como opção agressiva para quem quer trocar alcance por velocidade de entrada.',
-    sources: [0, 3],
+    trend: 'perdeu a peça que a segurava',
+    reason: 'A carabina caiu no mesmo comunicado: terceira da classe no multiplayer, agora precisa segurar o recuo sem o acessório que vinha carregando as montagens dela.',
+    sources: [4, 5],
   },
   {
-    weapon: 'drs-iar',
-    trend: 'muito usada',
-    reason: 'A leitura de temporada empurrou a DRS-IAR para o centro da conversa entre suportes por TTK curto e alcance confiável.',
-    sources: [0, 1, 3],
+    weapon: 'interdictor',
+    trend: 'chegou na 1.4.2.0',
+    reason: 'Antimaterial de alcance extremo que entrou pelo Passe de Batalha na fase Top Gun, feita para tirar piloto de dentro da cabine — e por isso divide quem joga a pé de quem voa.',
+    sources: [1, 2],
   },
   {
-    weapon: 'sg-553r',
-    trend: 'build consistente',
-    reason: 'A carabina segue subindo nas recomendações por ser fácil de encaixar em mapas e classes diferentes.',
-    sources: [0, 1],
+    weapon: 'svk-86',
+    trend: 'munição match corrigida',
+    reason: 'Dividiu com a M2010 ESR o acerto da Munição Match Grade, e é a via mais barata de aproveitá-lo: .338 semiautomático, dois tiros ao peito.',
+    sources: [1, 2],
+  },
+  {
+    weapon: 'l115',
+    trend: 'mira de ferro de 5 para 15',
+    reason: 'O custo do acessório de mira de ferro triplicou no patch, o que reabre a conta dos 100 pontos em toda montagem de ferrolho que contava com ela para sobrar orçamento.',
+    sources: [2],
   },
 ];
 
@@ -217,78 +298,78 @@ export const TRENDING: TrendingPick[] = [
  * O melhor de cada categoria.
  *
  * Aqui a fonte [0] decide o primeiro nome, porque é a única que ordena arma por
- * arma dentro da classe e separando por modo. Os guias entram sustentando e
- * discordando: onde a leitura editorial aponta outra arma, ela vem logo abaixo,
- * nas menções, com o motivo à vista.
+ * arma dentro da classe e separando por modo. As notas do patch entram onde
+ * mexeram na arma, e o fórum onde a comunidade tem algo a dizer que o ranking
+ * não mostra.
  */
 export const BY_CATEGORY: CategoryHighlight[] = [
   {
     category: 'ar',
-    best: { weapon: 'm16a4', reason: 'Primeira da classe e do ranking geral do multiplayer.', sources: [0, 2] },
+    best: { weapon: 'm16a4', reason: 'Primeira da classe e do ranking geral do multiplayer.', sources: [0, 3] },
     mentions: [
-      { weapon: 'b36a4', reason: 'Logo atrás, com o maior potencial de eliminação entre os fuzis.', sources: [0, 3] },
-      { weapon: 'kord-6p67', reason: 'Terceira da classe, e a primeira quando a briga é no vão longo.', sources: [0] },
+      { weapon: 'b36a4', reason: 'Segunda: mais lenta e mais estável que a primeira colocada.', sources: [0, 3] },
+      { weapon: 'kord-6p67', reason: 'Terceira aqui e primeira no REDSEC — a diferença entre os dois modos em uma arma só.', sources: [0, 3] },
+      { weapon: 'nvo-228e', reason: 'Quarta: soco de três tiros no vão curto que degrada em degraus suaves.', sources: [3] },
       {
         weapon: 'ef88',
-        reason: 'A novidade da temporada: os guias a chamam de melhor do jogo, mas o ranking do multiplayer ainda a põe atrás das veteranas.',
-        sources: [2, 3],
+        reason: 'Quinta. A novidade da temporada não subiu mais que isso, e agora joga sem o Match Trigger que o estúdio desligou.',
+        sources: [3, 5],
       },
     ],
   },
   {
     category: 'carbine',
-    best: { weapon: 'qbz-192', reason: 'Primeira da classe no multiplayer, à frente da carabina que os guias preferem.', sources: [0] },
+    best: { weapon: 'qbz-192', reason: 'Primeira da classe no multiplayer: bullpup compacta com boa velocidade de bala para o tamanho.', sources: [0] },
     mentions: [
-      { weapon: 'sg-553r', reason: 'Segunda no ranking e primeira na leitura do guia — a diferença entre as duas é pequena.', sources: [0, 1] },
-      { weapon: 'brod-3', reason: 'A carabina nova, agressiva: para quem troca alcance por mobilidade.', sources: [0, 3] },
-      { weapon: 'm4a1', reason: 'Mais fácil de dominar, e a preferida de quem joga na investida.', sources: [0, 1, 2, 3] },
+      { weapon: 'sg-553r', reason: 'Segunda aqui e primeira no REDSEC: três tiros de perto, com a bala mais lenta da classe.', sources: [0] },
+      { weapon: 'brod-3', reason: 'Terceira, e a que mais perdeu com a retirada do Match Trigger.', sources: [0, 5] },
     ],
   },
   {
     category: 'smg',
-    best: { weapon: 'pp-19', reason: 'Primeira da classe: carregador fundo e controle que sustenta a rajada longa.', sources: [0] },
+    best: { weapon: 'pp-19', reason: 'Primeira da classe: carregador de 53 e controle que sustenta a rajada longa.', sources: [0] },
     mentions: [
-      { weapon: 'sgx', reason: 'Opção agressiva para quem entra primeiro.', sources: [0, 1] },
-      { weapon: 'pw5a3', reason: 'Equilíbrio entre manejo e controle no vão curto.', sources: [0, 3] },
-      { weapon: 'cz3a1', reason: 'Cadência altíssima e tiro sem visada muito bom — a favorita dos guias, quinta no ranking.', sources: [0, 1, 3] },
+      { weapon: 'sgx', reason: 'Segunda aqui e primeira no REDSEC — a bala mais lenta do arsenal cobra mira adiantada.', sources: [0] },
+      { weapon: 'pw5a3', reason: 'Terceira: equilíbrio entre manejo e controle no vão curto.', sources: [0] },
     ],
   },
   {
     category: 'lmg',
-    best: { weapon: 'drs-iar', reason: 'Tempo para matar rápido com alcance sólido — primeira da classe nas duas leituras.', sources: [0, 1, 3] },
+    best: { weapon: 'drs-iar', reason: 'Primeira da classe: maneja como fuzil e é a única metralhadora no primeiro escalão do multiplayer.', sources: [0, 2] },
     mentions: [
-      { weapon: 'rpk-74m', reason: 'Controle firme com volume de fogo, para negar passagem em mapa aberto.', sources: [0] },
-      { weapon: 'l110', reason: 'A leve da classe, para quem quer volume de fogo sem perder o passo.', sources: [0] },
+      { weapon: 'rpk-74m', reason: 'Segunda: bala a 808 m/s e manejo próximo ao de um fuzil. A 1.4.2.0 só corrigiu uma pose de animação dela.', sources: [0, 2] },
+      { weapon: 'l110', reason: 'Terceira, a leve da classe: volume de fogo sem perder o passo.', sources: [0] },
       {
         weapon: 'kts100-mk8',
-        reason: 'Cuidado: é a nº 1 do REDSEC e vive em lista de melhores, mas no multiplayer só a sexta da classe.',
-        sources: [0, 1, 2, 3],
+        reason: 'Cuidado: é a primeira colocada geral do REDSEC e vive em lista de melhores, mas no multiplayer não chega ao pódio da própria classe.',
+        sources: [0],
       },
     ],
   },
   {
     category: 'dmr',
-    best: { weapon: 'vssm', reason: 'A novidade da temporada assumiu a classe: supressor integrado e automático, para quem joga escondido.', sources: [0, 1, 3] },
+    best: { weapon: 'vssm', reason: 'Primeira da classe: subsônica e silenciosa de fábrica, mesmo depois do acerto de recuo da 1.4.2.0.', sources: [0, 1] },
     mentions: [
-      { weapon: 'm39-emr', reason: 'A semiautomática de sempre, segunda da classe.', sources: [0] },
-      { weapon: 'svdm', reason: 'Cadência consistente, mas o multiplayer a rebaixou — no REDSEC ela lidera a classe.', sources: [0, 1] },
+      { weapon: 'm39-emr', reason: 'Segunda: a semiautomática de sempre.', sources: [0] },
+      { weapon: 'svdm', reason: 'Primeira DMR do REDSEC, e aqui atrás das duas de cima.', sources: [0] },
+      { weapon: 'svk-86', reason: 'Voltou ao dano pretendido com Munição Match Grade na 1.4.2.0.', sources: [1, 2] },
     ],
   },
   {
     category: 'sniper',
-    best: { weapon: 'm2010-esr', reason: 'Bala veloz e poder de parada, com mobilidade entre posições.', sources: [0, 2, 3] },
+    best: { weapon: 'm2010-esr', reason: 'Primeiro da classe nos dois modos, e beneficiado direto pela correção da Munição Match Grade.', sources: [0, 1] },
     mentions: [
-      { weapon: 'mini-scout', reason: 'A leve, para quem troca de posição o tempo todo.', sources: [0, 1, 3] },
-      { weapon: 'psr', reason: 'Terceira da classe, para o vão realmente longo.', sources: [0] },
-      { weapon: 'l115', reason: 'Ferrolho tradicional, e a primeira escolha do guia — quarta no ranking.', sources: [0, 1] },
+      { weapon: 'mini-scout', reason: 'Segundo: o leve, para quem troca de posição o tempo todo.', sources: [0] },
+      { weapon: 'psr', reason: 'Terceiro, para o vão realmente longo.', sources: [0] },
+      { weapon: 'l115', reason: 'A mira de ferro dele passou de 5 para 15 pontos no patch, e a conta dos 100 mudou junto.', sources: [2] },
+      { weapon: 'interdictor', reason: 'Chegou na 1.4.2.0, pelo Passe de Batalha: alcance extremo, feito para alcançar piloto na cabine.', sources: [1, 2] },
     ],
   },
   {
     category: 'shotgun',
     best: { weapon: 'm87a1', reason: 'A única escopeta no primeiro escalão do multiplayer, e com folga sobre as demais.', sources: [0] },
     mentions: [
-      { weapon: 'm1014', reason: 'A semiautomática, para quem prefere o segundo tiro rápido ao dano do primeiro.', sources: [0, 3] },
-      { weapon: '18-5ks-k', reason: 'Terceira da classe, de bombeamento.', sources: [0] },
+      { weapon: 'm1014', reason: 'A semiautomática, para quem prefere o segundo tiro rápido ao dano do primeiro.', sources: [0] },
     ],
   },
   {
@@ -301,34 +382,34 @@ export const BY_CATEGORY: CategoryHighlight[] = [
 /**
  * As armas que o battle royale valoriza e o multiplayer, não.
  *
- * São as que estão no primeiro escalão do REDSEC e caem no multiplayer, pela
- * mesma fonte — que ranqueia os dois modos em páginas separadas. Elas explicam
- * por que boa parte das listas de "melhores armas" que circulam não serve para
- * quem joga Conquista.
+ * As quatro saem da mesma leitura, do mesmo dia, no mesmo rastreador, em
+ * páginas separadas por modo — é isso que faz a comparação valer. Elas explicam
+ * por que boa parte das listas de "melhores armas do BF6" que circulam não
+ * serve para quem joga Conquista: essas listas leem o REDSEC e não avisam.
  */
 export const NOT_MULTIPLAYER: RedsecContrast[] = [
   {
     weapon: 'kts100-mk8',
     redsec: 'nº 1 geral',
-    multiplayer: '6ª metralhadora',
-    note: 'Carregador grande e bala veloz valem mais quando a vida é maior e a munição vem do chão.',
+    multiplayer: 'fora do pódio das metralhadoras',
+    note: 'Carregador de 60 e bala a 808 m/s valem mais quando a vida é maior e a munição vem do chão.',
+  },
+  {
+    weapon: 'vcr-2',
+    redsec: '2º fuzil',
+    multiplayer: '7º fuzil',
+    note: 'Cadência alta em corpo curto rende na briga de esquadra; no objetivo fixo, a classe tem seis opções melhores.',
+  },
+  {
+    weapon: 'sor-556-mk2',
+    redsec: '3º fuzil',
+    multiplayer: '8º fuzil',
+    note: 'Recuo domado compensa quando o combate é longo e a munição é achada, não escolhida.',
   },
   {
     weapon: 'svdm',
     redsec: '1ª DMR',
-    multiplayer: '3ª DMR',
-    note: 'A semiautomática rende no vão aberto do battle royale; no multiplayer a VSSM tomou o lugar.',
-  },
-  {
-    weapon: 'ak-205',
-    redsec: '2ª carabina',
-    multiplayer: '6ª carabina',
-    note: 'Trocar alcance por mobilidade compensa menos quando o objetivo é fixo.',
-  },
-  {
-    weapon: 'usg-90',
-    redsec: '4ª submetralhadora',
-    multiplayer: '9ª submetralhadora',
-    note: 'Sustenta bem a briga longa de esquadra, e perde para as de cadência alta no corredor.',
+    multiplayer: 'atrás da VSSM e da M39 EMR',
+    note: 'A semiautomática rende no vão aberto do battle royale; no multiplayer a novidade subsônica da temporada tomou o lugar.',
   },
 ];
