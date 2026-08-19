@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   HIGHLIGHTS,
+  MIN_TRENDING,
   TRENDING,
   SOURCES,
   NOT_MULTIPLAYER,
@@ -100,5 +101,25 @@ describe('blocos por categoria', () => {
   it('cobrem uma categoria por vez', () => {
     const cats = BY_CATEGORY.map((b) => b.category);
     expect(new Set(cats).size).toBe(cats.length);
+  });
+});
+
+/**
+ * A curadoria é quem responde quando a leitura do dia não passa no piso do
+ * trending — e ela só serve para isso se ela própria passar. Uma lista de três
+ * armas aqui deixaria a tela sem saída: a leitura automática recusada, o
+ * fallback curto, e o bloco sumindo da página sem que nada estivesse quebrado.
+ */
+describe('tendência escrita à mão', () => {
+  it('enche o bloco sozinha, que é o papel dela quando a leitura do dia cai', () => {
+    expect(TRENDING.length).toBeGreaterThanOrEqual(MIN_TRENDING);
+  });
+
+  it('diz o que mudou em cada arma, e não repete o rótulo', () => {
+    for (const pick of TRENDING) {
+      expect(pick.trend?.trim().length, pick.weapon).toBeGreaterThan(0);
+    }
+    const rotulos = TRENDING.map((pick) => pick.trend);
+    expect(new Set(rotulos).size).toBe(rotulos.length);
   });
 });

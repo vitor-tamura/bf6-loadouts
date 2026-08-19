@@ -265,6 +265,23 @@ export const HIGHLIGHTS: MetaPick[] = [
  * impressões — e é essa a diferença entre esta seção e uma lista de "o que anda
  * popular".
  */
+/**
+ * O piso do bloco de tendência: quatro armas, ou ele não aparece.
+ *
+ * A grade vai a quatro colunas, e duas armas nela saem como fileira quebrada —
+ * quem lê não tem como saber se aquilo é o que existe ou o que sobrou de uma
+ * leitura ruim.
+ *
+ * O número vale nos dois lados, e é por isso que ele mora aqui e não dentro de
+ * um deles. Na leitura do dia (`scripts/meta/leitura.mjs`) ele recusa a resposta
+ * do modelo antes de gravar; na tela, ele vale contra o que já está gravado. A
+ * trava da leitura sozinha não bastava: ela não conserta arquivo publicado
+ * antes de ela existir, e foi o que aconteceu — a leitura de 19/08 saiu com
+ * duas armas em tendência horas antes da trava e ficaria na tela até alguém a
+ * substituir à mão.
+ */
+export const MIN_TRENDING = 4;
+
 export const TRENDING: TrendingPick[] = [
   {
     weapon: 'ef88',

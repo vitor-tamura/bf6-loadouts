@@ -1,6 +1,13 @@
 import { MetaScreen } from './meta-screen';
 import live from '@/data/meta-live.json';
-import type { MetaPatch, MetaPick, MetaSource, TrendingPick } from '@/data/meta';
+import {
+  MIN_TRENDING,
+  type MetaPatch,
+  type MetaPick,
+  type MetaSource,
+  type TrendingPick,
+} from '@/data/meta';
+import { WEAPONS_BY_ID } from '@/data/weapons';
 
 /**
  * A tela do meta.
@@ -26,18 +33,33 @@ export default function MetaPage() {
   const patch = ('patch' in live ? live.patch : null) as MetaPatch | null;
 
   /*
-   * `readAt` é a data que a tela mostra no "revisado em", e ela vale sempre que
-   * a rotina tiver rodado — inclusive quando o dia rendeu só trending, sem
-   * mexer no ranking. Exigir `picks` para aceitar a leitura jogava fora, junto,
-   * a data e o próprio trending, e o topo da tela seguia anunciando a data da
-   * curadoria escrita à mão.
+   * A leitura automática entra inteira, ou não entra.
+   *
+   * Inteira é ranking com arma e tendência com bloco cheio — o mesmo piso de
+   * quatro que `scripts/meta/leitura.mjs` cobra do modelo antes de gravar. Lá
+   * ele vale contra a resposta; aqui, contra o arquivo, e é isso que a trava de
+   * lá não alcança: a leitura de 19/08 foi publicada com duas armas em
+   * tendência horas antes de a trava existir e, como toda leitura seguinte que
+   * não passa no piso é descartada, aquele arquivo curto seguiria na tela sem
+   * prazo para sair.
+   *
+   * Arma que não está mais no arsenal não conta: o cartão dela não chega a ser
+   * desenhado, e um bloco de quatro nomes viraria uma fileira de dois.
+   *
+   * Quando o piso não é alcançado, quem responde é a curadoria escrita à mão,
+   * inteira. Aproveitar metade da leitura de hoje seria pior: os colchetes de
+   * cada cartão são índices em `sources`, e cruzar as duas origens faria cada
+   * um citar a fonte errada.
    */
-  if (!live.readAt || (!picks.length && !trending.length)) return <MetaScreen />;
+  const trendingCheio =
+    trending.filter((pick) => WEAPONS_BY_ID.has(pick.weapon)).length >= MIN_TRENDING;
+
+  if (!live.readAt || !picks.length || !trendingCheio) return <MetaScreen />;
 
   return (
     <MetaScreen
-      picks={picks.length ? picks : undefined}
-      trending={trending.length ? trending : undefined}
+      picks={picks}
+      trending={trending}
       sources={live.sources as MetaSource[]}
       readAt={live.readAt}
       patch={patch}
