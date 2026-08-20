@@ -93,6 +93,21 @@ describe('integridade do dataset', () => {
     expect(budgetFor('melee')).toBe(0);
   });
 
+  /*
+    O montador não pode oferecer peça que o Gunsmith do jogo não oferece: quem
+    monta aqui vai montar lá, e uma build que não fecha no jogo é pior que uma
+    build ruim. O caso é o Gatilho na EF88 e na BROD 3, desligado por comunicado
+    do estúdio em agosto de 2026 e sem uma linha em changelog — que é
+    justamente por que nenhuma sincronização automática pega isso.
+  */
+  it('não oferece o Gatilho onde o estúdio o desligou', () => {
+    const gatilho = ATTACHMENTS.find((a) => a.id === 'ergonomics-match-trigger');
+
+    expect(gatilho, 'ergonomics-match-trigger').toBeDefined();
+    expect(gatilho?.compat.weapons).not.toContain('ef88');
+    expect(gatilho?.compat.weapons).not.toContain('brod-3');
+  });
+
   it('só aceita acessório em slot que a arma possui', () => {
     for (const attachment of ATTACHMENTS) {
       for (const weapon of WEAPONS) {

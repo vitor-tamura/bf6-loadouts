@@ -65,13 +65,13 @@ describe('completar a tendência', () => {
     Sem colchete e dizendo de onde veio: o cartão do catálogo não pode passar por
     leitura de comunidade, que é a única coisa que esta tela promete não fazer.
   */
-  it('marca o cartão do catálogo e não inventa citação', () => {
+  it('data o cartão do catálogo e não inventa citação', () => {
     const doCatalogo = completarTendencia([trend('interdictor')], { on: NA_LEITURA }).slice(1);
 
     for (const pick of doCatalogo) {
       expect(pick.sources, pick.weapon).toEqual([]);
       expect(pick.trend, pick.weapon).toBe('chegou na Temporada 4');
-      expect(pick.reason, pick.weapon).toContain('catálogo do site');
+      // A data é o que o catálogo tem a provar sobre ela, e é o que entra.
       expect(pick.reason, pick.weapon).toContain('21/07/2026');
     }
   });
@@ -119,7 +119,7 @@ describe('cartão sem citação', () => {
     );
   });
 
-  it('o do catálogo é a única exceção, e ele diz de onde veio', () => {
+  it('o do catálogo é a única exceção ao colchete obrigatório', () => {
     const completa = completarTendencia([semFonte('ef88'), semFonte('brod-3')], {
       on: NA_LEITURA,
     });
@@ -127,7 +127,7 @@ describe('cartão sem citação', () => {
     expect(completa).toHaveLength(MIN_TENDENCIA);
     for (const pick of completa) {
       expect(pick.sources, pick.weapon).toEqual([]);
-      expect(pick.reason, pick.weapon).toContain('catálogo do site');
+      expect(pick.trend, pick.weapon).toBe('chegou na Temporada 4');
     }
   });
 });

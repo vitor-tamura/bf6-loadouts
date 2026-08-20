@@ -77,14 +77,18 @@ describe('completar o topo do multiplayer', () => {
     ]);
   });
 
-  it('marca o cartão que veio da curadoria, depois do que ele tem a dizer', () => {
+  /*
+    O texto do cartão completado é o da curadoria, palavra por palavra. A frase
+    que anunciava a procedência saiu do cartão, e o que separa um cartão da
+    leitura de um da curadoria passou a ser só a citação: os dois citam, e cada
+    colchete aponta para a fonte certa da lista do rodapé.
+  */
+  it('traz o texto da curadoria sem reescrevê-lo', () => {
     const { destaques } = completar([lido('vssm')]);
 
     for (const pick of destaques.slice(1)) {
-      expect(pick.reason, pick.weapon).toMatch(/^Primeira colocada geral/);
-      expect(pick.reason, pick.weapon).toMatch(
-        /Cartão da curadoria do site: a leitura de hoje não citou esta arma\.$/,
-      );
+      const naCuradoria = CURADORIA.find((c) => c.weapon === pick.weapon);
+      expect(pick.reason, pick.weapon).toBe(naCuradoria?.reason);
     }
     expect(destaques[0].reason).toBe(lido('vssm').reason);
   });
@@ -222,8 +226,10 @@ describe('cartão sem citação no topo', () => {
     const { destaques } = completar([semFonte('vssm'), semFonte('interdictor')]);
 
     expect(destaques).toHaveLength(MIN_DESTAQUES);
+    expect(destaques.map((pick) => pick.weapon)).toEqual(CURADORIA.map((c) => c.weapon));
+    // Nenhuma arma da leitura sobrou, e nenhum cartão ficou sem citação.
     for (const pick of destaques) {
-      expect(pick.reason, pick.weapon).toContain('Cartão da curadoria do site');
+      expect(pick.sources.length, pick.weapon).toBeGreaterThan(0);
     }
   });
 });

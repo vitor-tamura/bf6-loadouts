@@ -160,7 +160,7 @@ export const SOURCES: MetaSource[] = [
     date: '2026-08-14',
     country: 'INT',
     mode: 'multiplayer',
-    scope: 'Transcreve o changelog oficial arma por arma, com os números que o resumo da imprensa corta — a mira de ferro da L115 de 5 para 15 pontos, por exemplo.',
+    scope: 'Transcreve o changelog oficial arma por arma, com os números que o resumo da imprensa corta, e guarda o histórico por peça: é lá que se lê que a alça de ferro da L115 foi de 5 para 15 pontos — na 1.3.3.0, de junho, e não neste patch.',
     timeframe: 'season-4',
   },
   {
@@ -294,12 +294,6 @@ export const TRENDING: TrendingPick[] = [
     trend: 'munição match corrigida',
     reason: 'Dividiu com a M2010 ESR o acerto da Munição Match Grade, e é a via mais barata de aproveitá-lo: .338 semiautomático, dois tiros ao peito.',
     sources: [1, 2],
-  },
-  {
-    weapon: 'l115',
-    trend: 'mira de ferro de 5 para 15',
-    reason: 'O custo do acessório de mira de ferro triplicou no patch, o que reabre a conta dos 100 pontos em toda montagem de ferrolho que contava com ela para sobrar orçamento.',
-    sources: [2],
   },
 ];
 

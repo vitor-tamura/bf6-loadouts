@@ -2801,7 +2801,15 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 15,
     description: 'Gatilho leve: tiro sai mais rápido.',
     mods: { rpm: { mult: 1.04 }, control: { add: 3 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'kord-6p67', 'kts100-mk8', 'l85a3', 'm16a4', 'm277', 'm417-a2', 'm433', 'm4a1', 'nvo-228e', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'tr-7', 'vcr-2'] },
+    // EF88 e BROD 3 saíram desta lista sem passar por changelog. O estúdio
+    // desligou a peça nas duas por comunicado — lido em 19/08/2026, a página
+    // não declara data de publicação —, enquanto investiga a interação que
+    // desligava o aumento de dispersão por tiro e derrubava o recuo em três
+    // degraus. A 1.4.2.0 não tem uma linha sobre isso, e é por isso que a
+    // remoção é curadoria local: a fonte pública segue oferecendo a peça, e o
+    // sincronizador não desfaz o que ela não mudou. Quando o estúdio reabrir
+    // o Gatilho para as duas, os ids voltam para cá.
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'drs-iar', 'grt-bc', 'kord-6p67', 'kts100-mk8', 'l85a3', 'm16a4', 'm277', 'm417-a2', 'm433', 'm4a1', 'nvo-228e', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'tr-7', 'vcr-2'] },
     provenance: 'game',
   },
   {
@@ -3103,6 +3111,33 @@ export const ATTACHMENTS: Attachment[] = [
     mods: { hipfire: { add: 3 } },
     compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm44', 'm45a1', 'm4a1', 'm60', 'm87a1', 'nvo-228e', 'p18', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
     provenance: 'game',
+  },
+  {
+    /*
+      A mesma peça, o triplo do preço, porque a classe é outra.
+
+      O filtro por categoria do Gunsmith tirava mira de ferro de todo ferrolho —
+      "mira de sniper precisa de 2,5× para cima" —, e isso está errado: o
+      bf6balancelog registra na 1.3.3.0, de 26/06/2026, "L115 iron sight
+      attachment cost increased from 5 to 15, bringing it in line with other
+      Bolt-Action Rifles". A frase prova as duas coisas de uma vez: ferrolho
+      equipa alça de ferro, e nessa classe ela custa 15.
+
+      É entrada separada porque `cost` é um número só por peça, e aqui o preço
+      depende da arma. O par de alças inclinadas do slot óptico já resolve assim.
+
+      O efeito veio copiado da peça de 5 pontos: o que muda entre as duas, pelo
+      que a fonte publica, é o preço.
+    */
+    id: 'sight-iron-sights-bolt',
+    name: 'Alça de Ferro',
+    originalName: 'Iron Sights',
+    slot: 'sight',
+    cost: 15,
+    description: 'Mira de fábrica, a que menos pesa no manejo. No ferrolho, custa o triplo.',
+    mods: { hipfire: { add: 3 } },
+    compat: { weapons: ['interdictor', 'l115', 'm2010-esr', 'mini-scout', 'psr', 'sv-98'] },
+    provenance: 'curated',
   },
   {
     id: 'sight-lds-4-50x',
