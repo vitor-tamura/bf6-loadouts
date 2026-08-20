@@ -292,6 +292,20 @@ function main(): void {
   }
 
   /*
+    Peça que a fonte tem e o montador não é candidata a cadastro, e com
+    `--candidatos` ela vira arquivo de investigação em vez de aviso que ninguém
+    lê. É o começo da rotina do patch: o que aparece aqui é o que alguém precisa
+    conferir no jogo antes de virar dado.
+
+    A escrita é sempre por fusão. O arquivo da 1.4.2.0 foi montado à mão, com
+    fonte, escala de evidência e conflito registrado, e uma execução automática
+    não pode passar por cima disso.
+  */
+  if (process.argv.includes('--candidatos')) {
+    gravarCandidatos(gameVersion, [...semCorrespondencia.keys()]);
+  }
+
+  /*
     Arma que a matriz não cobre não tem como ser conferida, e o silêncio dela
     não é aval. É o caso do Interdictor, que chegou na 1.4.2.0 depois de a
     matriz ser montada — e de qualquer arma que entrar na próxima temporada.
@@ -386,6 +400,54 @@ function main(): void {
     );
     process.exit(1);
   }
+}
+
+/**
+ * Grava — fundindo — os candidatos a cadastro da versão.
+ *
+ * O arquivo é o mesmo que a auditoria de acessórios lê, e por isso ele nasce
+ * com os campos que ela espera: cada candidato entra com `existeNoJogo: null`,
+ * que é a primeira pergunta, e nunca com valor preenchido. Candidato que já
+ * está no arquivo não é tocado: o que veio à mão tem fonte e conflito
+ * registrados, e a rodada automática não sabe disso.
+ */
+function gravarCandidatos(versao: string, rotulos: string[]): void {
+  const caminho = join(DATA, 'compatibility', `acessorios-a-confirmar-${versao}.json`);
+  const antes = readJsonIf<{ candidatos?: { nome: string }[] } | null>(caminho, null);
+  const conhecidos = new Set((antes?.candidatos ?? []).map((c) => chave(c.nome)));
+
+  const novos = rotulos
+    .map((rotulo) => {
+      const [slot, nome] = rotulo.split(': ');
+      return { slot, nome: (nome ?? rotulo).trim() };
+    })
+    .filter(({ nome }) => !conhecidos.has(chave(nome)))
+    .map(({ slot, nome }) => ({
+      nome,
+      slotEsperado: SLOTS[slot] ?? slot,
+      existeNoJogo: null,
+      nomeNoJogo: null,
+      custoNoJogo: null,
+      efeitosNoJogo: [],
+      armas: [],
+      descobertoEm: `matriz de compatibilidade da ${versao}`,
+    }));
+
+  if (!novos.length) {
+    log('candidatos', { versao, novos: 0, jaConhecidos: conhecidos.size });
+    return;
+  }
+
+  ensureDir(join(DATA, 'compatibility'));
+  writeJson(caminho, {
+    ...(antes ?? {
+      gameVersion: versao,
+      fase: 'a confirmar no jogo',
+      porQue: 'peças que a matriz da versão tem e o montador não. Detectadas por catalog:compat --candidatos.',
+    }),
+    candidatos: [...(antes?.candidatos ?? []), ...novos],
+  });
+  log('candidatos', { versao, novos: novos.length, arquivo: `data/compatibility/acessorios-a-confirmar-${versao}.json` });
 }
 
 /**

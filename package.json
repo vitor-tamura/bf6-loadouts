@@ -40,7 +40,8 @@
     "catalog:import-master": "node --experimental-strip-types scripts/catalog/import-master.ts",
     "builds:search": "node --experimental-strip-types scripts/builds-search.mjs",
     "catalog:compat": "node --experimental-strip-types scripts/catalog/compat.ts",
-    "catalog:barris": "node --experimental-strip-types scripts/catalog/barris.ts"
+    "catalog:barris": "node --experimental-strip-types scripts/catalog/barris.ts",
+    "catalog:perguntar-acessorios": "node --experimental-strip-types scripts/catalog/perguntar-acessorios.ts"
   },
   "dependencies": {
     "@ai-sdk/google": "^4.0.39",
