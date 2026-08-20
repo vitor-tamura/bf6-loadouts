@@ -364,7 +364,6 @@ export const BY_CATEGORY: CategoryHighlight[] = [
     mentions: [
       { weapon: 'mini-scout', reason: 'Segundo: o leve, para quem troca de posição o tempo todo.', sources: [0] },
       { weapon: 'psr', reason: 'Terceiro, para o vão realmente longo.', sources: [0] },
-      { weapon: 'l115', reason: 'A mira de ferro dele passou de 5 para 15 pontos no patch, e a conta dos 100 mudou junto.', sources: [2] },
       { weapon: 'interdictor', reason: 'Chegou na 1.4.2.0, pelo Passe de Batalha: alcance extremo, feito para alcançar piloto na cabine.', sources: [1, 2] },
     ],
   },

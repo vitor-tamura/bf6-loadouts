@@ -256,13 +256,16 @@ describe('munição', () => {
       expect(sight, weapon.name).toBeTruthy();
       const attachment = ATTACHMENTS_BY_ID.get(sight!)!;
       expect(isCompatible(attachment, weapon), weapon.name).toBe(true);
-      // A alça de ferro é a de série; onde a arma não a aceita — rifles de
-      // precisão e a UMG-40 —, vale a mira mais barata que ela aceita.
+      // A alça de ferro é a de série; onde a arma não a aceita — só a UMG-40,
+      // hoje —, vale a mira mais barata que ela aceita.
       const options = attachmentsForWeapon(weapon).get('sight')!;
       expect(attachment.cost, weapon.name).toBe(options[0].cost);
     }
     expect(defaultSight(WEAPONS_BY_ID.get('ak4d')!)).toBe('sight-iron-sights');
-    expect(defaultSight(WEAPONS_BY_ID.get('sv-98')!)).not.toBe('sight-iron-sights');
+    // Ferrolho também enxerga por alça de ferro: o filtro por categoria a negava
+    // à classe inteira, e as duas fontes que olham o Gunsmith dizem o contrário.
+    expect(defaultSight(WEAPONS_BY_ID.get('sv-98')!)).toBe('sight-iron-sights');
+    expect(defaultSight(WEAPONS_BY_ID.get('umg-40')!)).not.toBe('sight-iron-sights');
   });
 
   it('repõe a munição ao limpar a montagem ou trocar de arma', () => {

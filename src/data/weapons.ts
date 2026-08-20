@@ -1702,6 +1702,9 @@ const SHOTGUNS: WeaponEntry[] = [
     verticalRecoil: 1.6,
     horizontalRecoil: 0.5,
     fireModes: ['semi'],
+    // A fonte lista alça inclinada e reflex inclinada nela, que o preset de
+    // escopeta não prevê — a M87A1, lida no mesmo dia, não as tem.
+    slots: [...SHOTGUN_SLOTS, 'opticAccessory'],
     provenance: 'game',
   },
   {
@@ -1833,6 +1836,9 @@ const PISTOLS: WeaponEntry[] = [
     verticalRecoil: 0.9,
     horizontalRecoil: 0.3,
     fireModes: ['semi'],
+    // Aceita o Retentor de Carregador Aprimorado, que o preset de pistola não
+    // prevê. A M44, lida no mesmo dia, não aceita.
+    slots: [...PISTOL_SLOTS, 'ergonomics'],
     provenance: 'game',
   },
   {
@@ -1923,6 +1929,9 @@ const PISTOLS: WeaponEntry[] = [
     verticalRecoil: 0.5,
     horizontalRecoil: 0.44,
     fireModes: ['auto', 'semi'],
+    // Aceita o Retentor de Carregador Aprimorado, que o preset de pistola não
+    // prevê. A M44, lida no mesmo dia, não aceita.
+    slots: [...PISTOL_SLOTS, 'ergonomics'],
     provenance: 'curated',
   },
   {
@@ -1988,6 +1997,9 @@ const PISTOLS: WeaponEntry[] = [
     provenance: 'curated',
   },
   {
+    // A matriz de compatibilidade lista cinco empunhaduras nela, e o preset de
+    // pistola não prevê acoplamento. Sem esta linha as cinco não aparecem.
+    slots: [...PISTOL_SLOTS, 'underbarrel'],
     id: 'vz-61',
     name: 'vz. 61',
     category: 'pistol',
