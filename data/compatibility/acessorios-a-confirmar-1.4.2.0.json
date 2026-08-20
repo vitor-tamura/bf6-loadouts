@@ -1,0 +1,82 @@
+{
+  "gameVersion": "1.4.2.0",
+  "fase": "existência confirmada, valores a confirmar no jogo",
+  "porQue": "Quatro peças que a EA anuncia no roadmap da Temporada 4 e que nenhuma fonte deste repositório tem: nem o dataset do montador, nem a nota da 1.4.2.0, nem a matriz do catálogo. A existência está resolvida; o que falta é custo, efeito medido e — o mais importante — em que armas cada uma entra.",
+  "oQueAsFontesDaquiDizem": {
+    "datasetDoMontador": "nenhuma das quatro está cadastrada",
+    "nota142": "zero menções a Hybrid, Canted Vertical ou Suppressor no texto do patch",
+    "nota141": "anuncia os acessórios da fase anterior — Extended Barrel e 1P86 LPVO —, que já entraram aqui; estas quatro são o lote seguinte",
+    "matrizDoCatalogo": "402 peças, e as parecidas são therm_hyb (óptica) e canted_stubby (acoplamento que já temos)"
+  },
+  "hierarquiaDeFonte": {
+    "existencia": "EA — roadmap da Temporada 4. Nomeia as três variantes por letra e descreve a escada de penalidade.",
+    "custo": "só relato de comunidade pós-patch. A EA não publica ponto de acessório, e por isso nenhum custo aqui está fechado.",
+    "compatibilidade": "a apurar no Gunsmith, arma por arma. 'A maioria das metralhadoras' não vira 'todas'."
+  },
+  "candidatos": [
+    {
+      "nome": "Hybrid Suppressor (L)",
+      "slotEsperado": "muzzle",
+      "existeNoJogo": true,
+      "efeitosSegundoAEa": [
+        "reduz recuo",
+        "reduz marcação no mundo e no minimapa",
+        "penaliza tiro sem visada",
+        "penaliza oscilação",
+        "penaliza velocidade de saque"
+      ],
+      "custoRelatadoPelaComunidade": 30,
+      "custoNoJogo": null,
+      "efeitosNoJogo": [],
+      "armas": [],
+      "observacao": "a mais barata das três, e a que cobra mais caro em penalidade. 30 pontos empataria com o Supressor de CQB, hoje a nossa boca mais cara"
+    },
+    {
+      "nome": "Hybrid Suppressor (S)",
+      "slotEsperado": "muzzle",
+      "existeNoJogo": true,
+      "efeitosSegundoAEa": [
+        "reduz recuo",
+        "reduz marcação no mundo e no minimapa",
+        "penaliza tiro sem visada"
+      ],
+      "custoRelatadoPelaComunidade": 40,
+      "custoNoJogo": null,
+      "efeitosNoJogo": [],
+      "armas": [],
+      "observacao": "mesma vantagem da (L) com uma penalidade só. A 40 pontos seria a boca mais cara do arsenal"
+    },
+    {
+      "nome": "Hybrid Suppressor (K)",
+      "slotEsperado": "muzzle",
+      "existeNoJogo": true,
+      "efeitosSegundoAEa": [
+        "reduz recuo",
+        "reduz marcação no mundo e no minimapa",
+        "sem penalidade declarada"
+      ],
+      "custoRelatadoPelaComunidade": 50,
+      "custoNoJogo": null,
+      "efeitosNoJogo": [],
+      "armas": [],
+      "observacao": "a EA diz que ela não tem contrapartida além do preço. A 50 pontos seria metade do orçamento numa peça só, acima do acoplamento de 45 que hoje é a peça mais cara do jogo — número que merece conferência antes de virar dado"
+    },
+    {
+      "nome": "Canted Vertical Grip",
+      "slotEsperado": "underbarrel",
+      "existeNoJogo": true,
+      "efeitosSegundoAEa": [
+        "melhora moderada de tiro sem visada",
+        "melhora a velocidade de saque",
+        "custo alto em pontos"
+      ],
+      "custoRelatadoPelaComunidade": null,
+      "custoNoJogo": null,
+      "efeitosNoJogo": [],
+      "armas": [],
+      "observacao": "a EA diz 'a maioria das metralhadoras'. São dez no arsenal — DRS-IAR, KTS100 MK8, RPKM, M123K, M250, L110, M/60, M240L, M121 A2, RPK-74M —, e 'a maioria' vira lista só arma por arma. Não confundir com o Canted Stubby, que já existe aqui"
+    }
+  ],
+  "comoPreencher": "No Gunsmith, para cada peça: copie nome e custo como a interface mostra, anote os efeitos e registre em que armas ela aparece. Onde o custo do jogo divergir do relato da comunidade, vale o jogo — e a divergência fica registrada, não apagada.",
+  "seConfirmarem": "Cadastro segue o caminho dos barris: custo publicado, mods vazios se o efeito não for medido, compatibilidade só onde houver evidência. O baseline congelado da 1.4.2.0 não muda — ele descreve o dataset como ele estava, e peça nova é dataset novo, não baseline corrigido."
+}
