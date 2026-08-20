@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { completarTendencia, MIN_TENDENCIA } from './trending';
+import { completarTendencia, fichaDaArma, MIN_TENDENCIA } from './trending';
 import type { TrendingPick } from '@/data/meta';
-import { WEAPONS_BY_ID } from '@/data/weapons';
+import { WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
+import { effectiveRange } from './ballistics';
+import { baseStats } from './stats';
 
 /**
  * O que estes testes protegem é a promessa da tela: o bloco de tendência ou
@@ -127,5 +129,64 @@ describe('cartão sem citação', () => {
       expect(pick.sources, pick.weapon).toEqual([]);
       expect(pick.reason, pick.weapon).toContain('catálogo do site');
     }
+  });
+});
+
+/*
+  A ficha é o que o cartão diz sobre a arma quando a conversa já foi explicada:
+  ela responde "o que é essa arma?", que é a pergunta seguinte de quem nunca a
+  pegou. Sai do dataset, então não pode divergir do que o resto do site mostra
+  nem inventar superlativo que a arma não tem.
+*/
+describe('ficha da arma', () => {
+  it('descreve a arma pelo papel que o catálogo dá a ela', () => {
+    const arma = WEAPONS_BY_ID.get('ef88')!;
+    const ficha = fichaDaArma(arma);
+
+    expect(ficha.papel).toBe(arma.summary);
+    expect(ficha.rpm).toBe(arma.rpm);
+  });
+
+  it('conta o alcance como o resto do site conta', () => {
+    for (const arma of WEAPONS) {
+      expect(fichaDaArma(arma).alcance, arma.name).toBe(
+        Math.round(effectiveRange(baseStats(arma))),
+      );
+    }
+  });
+
+  it('arma de um tiro não mostra tempo até a morte', () => {
+    const ficha = fichaDaArma(WEAPONS_BY_ID.get('interdictor')!);
+
+    expect(ficha.tiros).toBe(1);
+    expect(ficha.ttk).toBeNull();
+  });
+
+  /*
+    Duas armas da mesma categoria com "maior cadência da categoria" seria a prova
+    de que o rótulo não separa nada — e uma arma com três etiquetas não diz em
+    qual reparar.
+  */
+  it('não repete o mesmo superlativo dentro de uma categoria', () => {
+    const porCategoria = new Map<string, string[]>();
+
+    for (const arma of WEAPONS) {
+      const { destaque } = fichaDaArma(arma);
+      if (!destaque) continue;
+      porCategoria.set(arma.category, [...(porCategoria.get(arma.category) ?? []), destaque]);
+    }
+
+    for (const [categoria, rotulos] of porCategoria) {
+      expect(new Set(rotulos).size, categoria).toBe(rotulos.length);
+    }
+  });
+
+  it('só dá superlativo a quem está na frente com folga', () => {
+    const cadencia = WEAPONS.filter((arma) => arma.category === 'ar').sort((a, b) => b.rpm - a.rpm);
+    const primeira = fichaDaArma(cadencia[0]);
+
+    // A vice-líder da categoria nunca leva o rótulo da liderança.
+    expect(fichaDaArma(cadencia[1]).destaque).not.toBe('maior cadência da categoria');
+    expect(primeira.destaque === null || typeof primeira.destaque === 'string').toBe(true);
   });
 });

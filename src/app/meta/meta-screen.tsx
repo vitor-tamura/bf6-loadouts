@@ -25,7 +25,7 @@ import {
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import { EMPTY_LOADOUT } from '@/lib/loadout';
 import { completarDestaques, realocarCategorias } from '@/lib/destaques';
-import { completarTendencia, MIN_TENDENCIA } from '@/lib/trending';
+import { completarTendencia, fichaDaArma, MIN_TENDENCIA } from '@/lib/trending';
 import { BUILDER_PATH, encodeLoadout } from '@/lib/share';
 import { baseStats } from '@/lib/stats';
 import { shotsToKill, timeToKill } from '@/lib/ballistics';
@@ -228,11 +228,7 @@ export function MetaScreen({
               </Typography.Text>
             </div>
             <BlockNote>
-              Aqui é <strong>o que a comunidade mais comenta e mais leva para a partida</strong>:
-              fórum oficial, Reddit e comunidades especializadas, pela conversa da semana e pelo uso
-              que elas relatam. Não é a lista de cima em outra ordem — arma muito falada não é
-              necessariamente a mais forte, e a mais forte nem sempre é a que está sendo usada. A
-              etiqueta âmbar diz do que se fala; o texto abaixo, que evidência sustenta isso.
+              Aqui é <strong>o que a comunidade mais comenta e mais leva para a partida</strong>: fóruns, Reddit, Discord e afins. A arma pode ter sido buffada, ter acessório novo ou build.
             </BlockNote>
             <Row gutter={[8, 8]}>
               {tendencia.map((pick, rank) => (
@@ -420,6 +416,15 @@ function TrendingCard({ pick, rank }: { pick: TrendingPick; rank: number }) {
   if (!weapon) return null;
 
   const playerClass = CLASSES.find((c) => c.id === weapon.signatureClass);
+  /*
+    O motivo diz por que a arma está no bloco; a ficha diz o que ela é.
+
+    São perguntas diferentes e quem lê tem as duas: chegou aqui pela conversa,
+    mas ninguém decide pegar uma arma por ela estar sendo falada. A ficha sai do
+    mesmo dataset que calcula o TTK do resto do site, e por isso não depende de a
+    leitura do dia ter achado fonte.
+  */
+  const ficha = fichaDaArma(weapon);
   const href = `${BUILDER_PATH}?l=${encodeLoadout({ ...EMPTY_LOADOUT, weapon: weapon.id })}`;
 
   return (
@@ -466,6 +471,28 @@ function TrendingCard({ pick, rank }: { pick: TrendingPick; rank: number }) {
 
         <p className="mt-2 text-[11px] leading-snug" style={{ color: 'var(--text-soft)' }}>
           {pick.reason}
+        </p>
+
+        <p className="mt-1.5 text-[11px] leading-snug" style={{ color: 'var(--text-dim)' }}>
+          {ficha.papel}
+        </p>
+
+        <p
+          className="mt-1 flex flex-wrap items-center gap-x-2 font-mono text-[10px]"
+          style={{ color: 'var(--text-dim)' }}
+        >
+          <span>{ficha.rpm} RPM</span>
+          {ficha.tiros === 1 ? (
+            <span>1 tiro</span>
+          ) : (
+            ficha.ttk !== null && <span>{ficha.ttk} ms</span>
+          )}
+          <span>
+            {ficha.alcance > 0 ? `${ficha.alcance} m até mais um tiro` : 'mesmo dano em toda distância'}
+          </span>
+          {ficha.destaque && (
+            <span style={{ color: 'var(--text-soft)' }}>· {ficha.destaque}</span>
+          )}
         </p>
 
         {/*

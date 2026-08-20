@@ -1,6 +1,9 @@
 import type { TrendingPick } from '@/data/meta';
 import { seasonOn } from '@/data/season';
+import type { Weapon, WeaponCategory } from '@/data/types';
 import { WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
+import { effectiveRange, shotsToKill, timeToKill } from './ballistics';
+import { baseStats } from './stats';
 
 /**
  * O bloco de tendência, completo o bastante para ser lido.
@@ -83,9 +86,106 @@ export function completarTendencia(
     .map((arma) => ({
       weapon: arma.id,
       trend: `chegou na Temporada ${temporada.number}`,
-      reason: `Arma nova da Temporada ${temporada.number}, ${temporada.name}, no ar desde ${dia(temporada.startsOn)}. Este cartão vem do catálogo do site: a leitura do dia não achou conversa nem uso relatado sobre ela.`,
+      reason: `Chegou com a Temporada ${temporada.number} em ${dia(temporada.startsOn)}.`,
       sources: [] as number[],
     }));
 
   return [...sustentadas, ...chegadas];
+}
+
+/**
+ * O que o cartão diz sobre a arma, além de por que ela está no bloco.
+ *
+ * O motivo responde "por que ela está aqui" — a thread, a build, a chegada no
+ * patch. Ele não responde a pergunta seguinte, que é a de quem nunca pegou a
+ * arma: o que ela tem de diferente. Isso o catálogo sabe, e sabe sem depender de
+ * fonte nenhuma: é o mesmo dataset que o resto do site usa para calcular TTK.
+ */
+export interface FichaDaArma {
+  /** A linha do catálogo sobre o papel dela em combate. */
+  papel: string;
+  rpm: number;
+  /** Tiros para matar no vão curto, sem acessório. */
+  tiros: number;
+  /** Tempo até a morte no vão curto, em ms. `null` quando um tiro basta. */
+  ttk: number | null;
+  /** Distância em que ela deixa de matar com os tiros do vão curto. */
+  alcance: number;
+  /** O que ela tem de melhor entre as da mesma categoria, quando tem algo. */
+  destaque: string | null;
+}
+
+/**
+ * O melhor de cada categoria, calculado uma vez.
+ *
+ * A conta roda sobre o arsenal inteiro e não muda entre um cartão e outro, então
+ * fica em cache: sem isso, cada cartão recalcularia as 62 armas.
+ */
+const MELHORES = new Map<WeaponCategory, Map<string, string>>();
+
+/**
+ * Superlativo só quando é superlativo mesmo.
+ *
+ * A comparação exige folga: "maior cadência da categoria" com 5 RPM de vantagem
+ * é verdade e não é informação. Empate técnico não vira destaque — a arma fica
+ * sem etiqueta, que é melhor do que uma etiqueta que não separa nada.
+ */
+const CRITERIOS: {
+  rotulo: string;
+  valor: (arma: Weapon) => number;
+  maiorEhMelhor: boolean;
+  folga: number;
+}[] = [
+  { rotulo: 'TTK mais curto da categoria', valor: (a) => ttkDe(a) ?? Infinity, maiorEhMelhor: false, folga: 15 },
+  { rotulo: 'maior alcance útil da categoria', valor: (a) => effectiveRange(baseStats(a)), maiorEhMelhor: true, folga: 5 },
+  { rotulo: 'bala mais rápida da categoria', valor: (a) => a.velocity, maiorEhMelhor: true, folga: 40 },
+  { rotulo: 'maior cadência da categoria', valor: (a) => a.rpm, maiorEhMelhor: true, folga: 40 },
+  { rotulo: 'mira mais rápida da categoria', valor: (a) => a.adsMs, maiorEhMelhor: false, folga: 20 },
+  { rotulo: 'carregador maior da categoria', valor: (a) => a.magazine, maiorEhMelhor: true, folga: 5 },
+];
+
+const ttkDe = (arma: Weapon): number | null => {
+  const stats = baseStats(arma);
+  if (shotsToKill(stats, 0) === 1) return null;
+  const ttk = timeToKill(stats, 0);
+  return Number.isFinite(ttk) ? Math.round(ttk) : null;
+};
+
+function destaquesDaCategoria(categoria: WeaponCategory): Map<string, string> {
+  const emCache = MELHORES.get(categoria);
+  if (emCache) return emCache;
+
+  const daCategoria = WEAPONS.filter((arma) => arma.category === categoria);
+  const destaques = new Map<string, string>();
+
+  for (const criterio of CRITERIOS) {
+    const ordenadas = daCategoria
+      .map((arma) => ({ arma, valor: criterio.valor(arma) }))
+      .filter(({ valor }) => Number.isFinite(valor))
+      .sort((a, b) => (criterio.maiorEhMelhor ? b.valor - a.valor : a.valor - b.valor));
+
+    const [primeira, segunda] = ordenadas;
+    if (!primeira || !segunda) continue;
+    if (Math.abs(primeira.valor - segunda.valor) < criterio.folga) continue;
+    // Uma arma leva um rótulo só: o primeiro critério em que ela vence é o mais
+    // decisivo, e três etiquetas numa arma não dizem em qual reparar.
+    if (destaques.has(primeira.arma.id)) continue;
+    destaques.set(primeira.arma.id, criterio.rotulo);
+  }
+
+  MELHORES.set(categoria, destaques);
+  return destaques;
+}
+
+/** A ficha de uma arma, para o cartão de tendência. */
+export function fichaDaArma(arma: Weapon): FichaDaArma {
+  const stats = baseStats(arma);
+  return {
+    papel: arma.summary,
+    rpm: arma.rpm,
+    tiros: shotsToKill(stats, 0),
+    ttk: ttkDe(arma),
+    alcance: Math.round(effectiveRange(stats)),
+    destaque: destaquesDaCategoria(arma.category).get(arma.id) ?? null,
+  };
 }
