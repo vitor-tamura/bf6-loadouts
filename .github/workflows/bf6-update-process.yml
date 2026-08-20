@@ -105,6 +105,9 @@ jobs:
           npm test
           npm run lint
           npm run typecheck
+          # O catálogo desta versão acabou de ser escrito; esta é a hora de
+          # perguntar se o montador acompanha o que ele passou a dizer.
+          npm run catalog:compat
           npm run build
 
       # Versão nova que não mexeu em nada do catálogo existe — patch de correção

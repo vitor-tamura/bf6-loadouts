@@ -242,3 +242,30 @@ consegue ser montada dentro dos 100 pontos, temporada com fase fora da janela.
 Um patch que quebre qualquer uma dessas coisas derruba a suíte antes de chegar à
 interface — e, no PR automático, aparece como CI vermelho em vez de dado errado
 publicado.
+
+### O montador contra as fontes
+
+```bash
+npm run catalog:compat              # confere
+npm run catalog:compat -- --baseline  # aceita o estado atual da versão
+```
+
+Os testes cobrem o dataset por dentro; esta conferência cobre o que ele tem a
+ver com o jogo. Ela cruza o montador (`src/data/`) com duas fontes: a matriz de
+compatibilidade da versão (`data/versions/<v>/`), que cobre as 62 armas, e o
+instantâneo do bf6loadouts, que cobre as 27 que a captura manual conseguiu ler.
+
+A distinção que dá sentido ao resultado é entre **ausência** e **negativa**: o
+instantâneo não ter a peça só vale como evidência contrária quando ele enumerou
+aquele slot daquela arma. Quando ele nem leu a arma, o que existe é fonte única —
+e foi assim que a L115 ficou meses sem telêmetro no site, com tudo verde.
+
+O estado aceito de cada versão fica em `data/compatibility/<v>.json`, com o
+motivo de cada divergência e o que cada fonte disse sobre ela. A execução comum
+**não** regrava esse arquivo: se regravasse, o CI se curaria sozinho. Depois de
+conferir uma divergência nova no jogo, aceite-a com `-- --baseline` e commite o
+arquivo junto da mudança.
+
+Quando a próxima versão chegar, o baseline anterior continua no repositório: a
+diferença entre dois arquivos desses é o changelog de compatibilidade do patch,
+que nem a EA publica.

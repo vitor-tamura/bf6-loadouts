@@ -87,6 +87,7 @@ jobs:
           npm run typecheck
           npm test
           npm run build
+          npm run catalog:compat
 
       - name: Abrir Pull Request
         uses: peter-evans/create-pull-request@v7

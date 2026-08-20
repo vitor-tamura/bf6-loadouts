@@ -1,0 +1,64 @@
+# A rede de segurança de todo commit.
+#
+# Até agora ela não existia para o site: `catalog-validation.yml` roda em Pull
+# Request, mas só quando o diff toca `data/**`, `public/data/**` ou
+# `scripts/catalog/**`. Mudança em `src/` — o dataset das armas, os acessórios,
+# a tela — passava sem um teste rodar, e foi assim que o Gunsmith do site ficou
+# meses sem o Acessório Esquerdo da L115 com o repositório inteiro verde.
+#
+# São quatro perguntas, na ordem em que ficam mais caras de responder: o código
+# faz o que diz (testes), está escrito como o resto (lint), os tipos fecham, e o
+# site compila. A quinta é a conferência de compatibilidade, que compara o
+# montador com as fontes externas — ela é offline e roda em segundos, porque lê
+# arquivo que já está no repositório.
+
+name: CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+
+# Push seguido de push na mesma branch não precisa das duas execuções: a
+# primeira já não interessa quando a segunda existe.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Testes
+        run: npm test
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Tipos
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build
+
+      # Falha em duas situações, e só nelas: peça que as duas fontes confirmam e
+      # o montador não oferece, e divergência que o baseline da versão não
+      # previa. O resto — conflito entre fontes, fonte única, exclusão declarada
+      # — é aviso, porque um CI vermelho por evidência fraca empurra quem estiver
+      # de plantão a cadastrar peça sem conferir, só para voltar ao verde.
+      - name: Compatibilidade do montador com as fontes
+        run: npm run catalog:compat
