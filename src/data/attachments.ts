@@ -110,6 +110,28 @@ export const ATTACHMENTS: Attachment[] = [
     provenance: 'game',
   },
   {
+    /*
+      Empunhadura vertical inclinada, anunciada pela EA para "a maioria das
+      metralhadoras". A lista abaixo tem as dez do arsenal, e "a maioria" não é
+      "todas": relato pós-patch confirma M123K, RPKM e RPK-74M, e as outras
+      sete entram por extensão, não por evidência.
+
+      O custo é o único número aqui que não veio de fonte nenhuma. A EA diz
+      "custo significativo em pontos" e não publica o valor; 30 é o preço da
+      Stubby Inclinada, a peça mais parecida do arsenal, e está aqui como
+      estimativa declarada até o Gunsmith responder.
+    */
+    id: 'underbarrel-canted-vertical',
+    name: 'Vertical Inclinada',
+    originalName: 'Canted Vertical Grip',
+    slot: 'underbarrel',
+    cost: 30,
+    description: 'Empunhadura vertical virada para a frente: abre o cone de perto e acelera o saque.',
+    mods: {},
+    compat: { weapons: ['drs-iar', 'kts100-mk8', 'l110', 'm121-a2', 'm123k', 'm240l', 'm250', 'm60', 'rpk-74m', 'rpkm'] },
+    provenance: 'curated',
+  },
+  {
     id: 'underbarrel-compact-handstop',
     name: 'Apoio de Mão Compacto',
     originalName: 'Compact Handstop',
@@ -399,6 +421,64 @@ export const ATTACHMENTS: Attachment[] = [
     // sai escrita sozinha, junto das outras que esta peça cobra.
     description: 'Abafa o disparo e apaga a marcação, de perto e de longe.',
     mods: { velocity: { mult: 0.92 }, range: { mult: 0.94 }, adsMs: { mult: 1.04 }, mobility: { add: -3 }, hipfire: { add: -6 } },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    provenance: 'curated',
+  },
+  {
+    /*
+      Supressor e freio de boca na mesma peça, anunciada pela EA no roadmap da
+      Temporada 4 e entregue na fase Top Gun. As três variantes são
+      comprimentos do mesmo produto — a peça é baseada no Thunder Beast
+      Magnus-RR, que vem em versão cheia, S e K —, e o preço sobe conforme o
+      tubo encurta: quem paga mais compra ausência de peso, não tamanho.
+
+      Três coisas aqui ainda não vieram do jogo, e por isso as peças entram
+      como `curated`, que faz a tela marcar a montagem como valor aproximado:
+
+      - o custo. A EA não publica ponto de acessório; 30, 40 e 50 são relato
+        de comunidade pós-patch, registrado em
+        `data/compatibility/acessorios-a-confirmar-1.4.2.0.json`;
+      - o efeito. A EA descreve — reduz recuo e marcação, e cobra tiro sem
+        visada, oscilação e saque em escada — mas não publica número, e este
+        arquivo não inventa multiplicador. `mods: {}` até alguém medir;
+      - a compatibilidade. A lista abaixo é a do Supressor Padrão, por
+        suposição: híbrido é supressor, e supressor no BF6 vai para as mesmas
+        plataformas. Há relato de que algumas armas ficaram de fora, então
+        isto é o primeiro campo a conferir no Gunsmith.
+    */
+    id: 'muzzle-hybrid-suppressor-l',
+    name: 'Supressor Híbrido (L)',
+    originalName: 'Hybrid Suppressor (L)',
+    slot: 'muzzle',
+    cost: 30,
+    description: 'Supressor e freio na mesma peça, no corpo cheio: o mais barato dos três, e o que mais cobra em manejo.',
+    mods: {},
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    provenance: 'curated',
+  },
+  {
+    // Corpo médio. Ver o comentário da (L): custo, efeito e compatibilidade
+    // seguem o mesmo estado de evidência.
+    id: 'muzzle-hybrid-suppressor-s',
+    name: 'Supressor Híbrido (S)',
+    originalName: 'Hybrid Suppressor (S)',
+    slot: 'muzzle',
+    cost: 40,
+    description: 'O híbrido de corpo médio: mesma vantagem da versão cheia, cobrando só o tiro sem visada.',
+    mods: {},
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    provenance: 'curated',
+  },
+  {
+    // Corpo curto, e o mais caro do jogo. A EA diz que ele não tem penalidade
+    // alguma além do preço — metade do orçamento numa boca só.
+    id: 'muzzle-hybrid-suppressor-k',
+    name: 'Supressor Híbrido (K)',
+    originalName: 'Hybrid Suppressor (K)',
+    slot: 'muzzle',
+    cost: 50,
+    description: 'O híbrido curto: o mais caro do arsenal e o único sem contrapartida declarada.',
+    mods: {},
     compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
     provenance: 'curated',
   },

@@ -252,6 +252,43 @@ function suppressor(length: 'curto' | 'padrao' | 'longo', lightened = false) {
   );
 }
 
+/**
+ * Supressor híbrido: o tubo do supressor com as janelas do freio de boca.
+ *
+ * A peça é as duas coisas ao mesmo tempo — a EA a descreve como supressor
+ * somado a freio —, e o desenho precisa dizer isso de relance, senão ela vira
+ * mais um cilindro na lista de bocas. O corpo é o mesmo do supressor, para a
+ * família se reconhecer; o que muda são as duas fendas na parte de cima, que é
+ * como o freio aparece nos glifos de porta.
+ *
+ * As três variantes — (L), (S) e (K) — dividem o desenho de propósito. Elas se
+ * separam por custo e por penalidade, não por tamanho: dar silhueta diferente a
+ * cada uma seria inventar uma diferença física que fonte nenhuma descreve.
+ */
+function hybridSuppressor(length: 'curto' | 'medio' | 'longo') {
+  const endsAt = length === 'curto' ? 15 : length === 'longo' ? 19.5 : 17.5;
+  const divisoria = 11.5;
+  const janelas = [];
+  for (let x = divisoria + 1.1; x + 2 <= endsAt - 0.6; x += 2.4) janelas.push(x);
+
+  return (
+    <>
+      {thread}
+      <rect x="5.5" y="9" width="2" height="6" rx="0.8" />
+      <rect x="7.5" y="9" width={endsAt - 7.5} height="6" rx="1.2" />
+      {/*
+        A divisória parte a peça em duas: atrás dela é tubo de supressor, à
+        frente são as janelas do freio — as mesmas do glifo de portas, no mesmo
+        tamanho, para as duas famílias se lerem juntas.
+      */}
+      <path d={`M${divisoria} 9v6`} />
+      {janelas.map((x) => (
+        <rect key={x} x={x} y="10.4" width="2" height="3.2" rx="0.6" {...DETAIL} />
+      ))}
+    </>
+  );
+}
+
 /* ---------------------------------- Canos ---------------------------------- */
 
 /**
@@ -292,7 +329,7 @@ const underRail = <path d="M4 7h16" />;
  * `texture` desenha as ranhuras da versão estriada; `waist` afina o meio, que
  * é o perfil da vertical de liga e da 6H64.
  */
-function verticalGrip(texture: 'liso' | 'ranhurado' = 'liso', waist = false) {
+function verticalGrip(texture: 'liso' | 'ranhurado' = 'liso', waist = false, canted = false) {
   return (
     <>
       {underRail}
@@ -300,7 +337,20 @@ function verticalGrip(texture: 'liso' | 'ranhurado' = 'liso', waist = false) {
         // Cintura marcada: a silhueta em ampulheta da vertical de liga e da 6H64.
         <path d="M9.2 7h5.6l-1.1 5 1.1 6.5H9.2l1.1-6.5z" />
       ) : (
-        <rect x="9" y="7" width="6" height="11.5" rx="1.6" />
+        <rect
+          x="9"
+          y="7"
+          width="6"
+          height="11.5"
+          rx="1.6"
+          /*
+            Inclinada: o mesmo bloco em pé, virado para a frente. O ângulo é o
+            do Canted Stubby, para as duas peças inclinadas se lerem como
+            parentes — o que muda entre elas é a altura, que já é o que separa
+            uma vertical de uma stubby.
+          */
+          transform={canted ? 'rotate(16 12 12.75)' : undefined}
+        />
       )}
       {texture === 'ranhurado' && (
         <path d="M10 10h4M10 12.2h4M10 14.4h4M10 16.6h4" {...DETAIL} />
@@ -710,6 +760,21 @@ function glyphFor(attachment: Attachment): React.ReactNode {
       return redDot;
 
     case 'muzzle':
+      /*
+        Antes do supressor comum: o nome do híbrido contém "suppressor", e sem
+        esta linha as três variantes virariam supressor padrão na tela.
+
+        As letras são comprimento, não graduação de força — a peça é baseada no
+        Thunder Beast Magnus-RR, que vem em versões cheia, S e K. O (K) é o
+        curto, e é justamente ele o mais caro e o sem penalidade: quem paga mais
+        aqui compra ausência de peso, não tamanho. Se o Gunsmith mostrar outra
+        ordem, é uma linha para trocar.
+      */
+      if (n.includes('hybrid')) {
+        return hybridSuppressor(
+          n.includes('(k)') ? 'curto' : n.includes('(s)') ? 'medio' : 'longo',
+        );
+      }
       if (n.includes('suppressor')) {
         const length = n.includes('cqb') ? 'curto' : n.includes('long') ? 'longo' : 'padrao';
         return suppressor(length, n.includes('lightened'));
@@ -755,7 +820,11 @@ function glyphFor(attachment: Attachment): React.ReactNode {
       }
       if (n.includes('vertical')) {
         // A de liga e a 6H64 têm a cintura marcada; as demais são o bloco reto.
-        return verticalGrip(n.includes('ribbed') ? 'ranhurado' : 'liso', n.includes('alloy') || n.includes('6h64'));
+        return verticalGrip(
+          n.includes('ribbed') ? 'ranhurado' : 'liso',
+          n.includes('alloy') || n.includes('6h64'),
+          n.includes('canted'),
+        );
       }
       if (n.includes('mount')) return underbarrelMount;
       if (n.includes('mw') || n.includes('laser')) return laser;
