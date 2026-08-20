@@ -39,7 +39,8 @@
     "catalog:fetch-weapons": "node --experimental-strip-types scripts/catalog/fetch-loadouts-weapons.ts",
     "catalog:import-master": "node --experimental-strip-types scripts/catalog/import-master.ts",
     "builds:search": "node --experimental-strip-types scripts/builds-search.mjs",
-    "catalog:compat": "node --experimental-strip-types scripts/catalog/compat.ts"
+    "catalog:compat": "node --experimental-strip-types scripts/catalog/compat.ts",
+    "catalog:barris": "node --experimental-strip-types scripts/catalog/barris.ts"
   },
   "dependencies": {
     "@ai-sdk/google": "^4.0.39",

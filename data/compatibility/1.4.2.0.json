@@ -1,0 +1,370 @@
+{
+  "gameVersion": "1.4.2.0",
+  "geradoEm": "2026-08-20T16:46:12.945Z",
+  "fontes": {
+    "matriz": "data/versions/1.4.2.0/compatibility.json",
+    "instantaneo": "data/sources/imports/bf6loadouts-weapons-2026-08-12.json"
+  },
+  "resumo": {
+    "confirmado": 1887,
+    "conflito": 30,
+    "nao_conferido": 0,
+    "exclusao_declarada": 2,
+    "confirmado_e_ausente": 0,
+    "sem_fonte": 46
+  },
+  "divergencias": [
+    {
+      "arma": "ak4d",
+      "peca": "muzzle-flash-comp",
+      "slot": "muzzle",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "b36a4",
+      "peca": "muzzle-flash-comp",
+      "slot": "muzzle",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "l110",
+      "peca": "muzzle-flash-comp",
+      "slot": "muzzle",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "lmr27",
+      "peca": "muzzle-flash-comp",
+      "slot": "muzzle",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "m123k",
+      "peca": "muzzle-flash-comp",
+      "slot": "muzzle",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "m250",
+      "peca": "muzzle-flash-comp",
+      "slot": "muzzle",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "m277",
+      "peca": "muzzle-flash-comp",
+      "slot": "muzzle",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "m433",
+      "peca": "muzzle-flash-comp",
+      "slot": "muzzle",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "m4a1",
+      "peca": "muzzle-flash-comp",
+      "slot": "muzzle",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "m60",
+      "peca": "muzzle-flash-comp",
+      "slot": "muzzle",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "pw5a3",
+      "peca": "muzzle-flash-comp",
+      "slot": "muzzle",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "pw7a2",
+      "peca": "muzzle-flash-comp",
+      "slot": "muzzle",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "rpkm",
+      "peca": "muzzle-flash-comp",
+      "slot": "muzzle",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "m16a4",
+      "peca": "underbarrel-6h64-vertical",
+      "slot": "underbarrel",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "mini-scout",
+      "peca": "underbarrel-classic-grip-pod",
+      "slot": "underbarrel",
+      "status": "exclusao_declarada",
+      "motivo": "a matriz dá e o dataset exclui de propósito, por except",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "nao_leu"
+      }
+    },
+    {
+      "arma": "vssm",
+      "peca": "underbarrel-classic-grip-pod",
+      "slot": "underbarrel",
+      "status": "exclusao_declarada",
+      "motivo": "a matriz dá e o dataset exclui de propósito, por except",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "nao_leu"
+      }
+    },
+    {
+      "arma": "m16a4",
+      "peca": "underbarrel-ribbed-vertical",
+      "slot": "underbarrel",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "ak4d",
+      "peca": "underbarrel-slim-handstop",
+      "slot": "underbarrel",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "b36a4",
+      "peca": "underbarrel-slim-handstop",
+      "slot": "underbarrel",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "l110",
+      "peca": "underbarrel-slim-handstop",
+      "slot": "underbarrel",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "lmr27",
+      "peca": "underbarrel-slim-handstop",
+      "slot": "underbarrel",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "m1014",
+      "peca": "underbarrel-slim-handstop",
+      "slot": "underbarrel",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "m123k",
+      "peca": "underbarrel-slim-handstop",
+      "slot": "underbarrel",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "m240l",
+      "peca": "underbarrel-slim-handstop",
+      "slot": "underbarrel",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "m250",
+      "peca": "underbarrel-slim-handstop",
+      "slot": "underbarrel",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "m277",
+      "peca": "underbarrel-slim-handstop",
+      "slot": "underbarrel",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "m433",
+      "peca": "underbarrel-slim-handstop",
+      "slot": "underbarrel",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "m4a1",
+      "peca": "underbarrel-slim-handstop",
+      "slot": "underbarrel",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "m60",
+      "peca": "underbarrel-slim-handstop",
+      "slot": "underbarrel",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "m87a1",
+      "peca": "underbarrel-slim-handstop",
+      "slot": "underbarrel",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "rpkm",
+      "peca": "underbarrel-slim-handstop",
+      "slot": "underbarrel",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    },
+    {
+      "arma": "svdm",
+      "peca": "underbarrel-slim-handstop",
+      "slot": "underbarrel",
+      "status": "conflito",
+      "motivo": "a matriz dá, e o instantâneo enumerou o slot dessa arma sem a peça",
+      "fontes": {
+        "matriz": true,
+        "instantaneo": "slot_enumerado"
+      }
+    }
+  ]
+}

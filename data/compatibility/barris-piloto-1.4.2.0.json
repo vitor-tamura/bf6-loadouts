@@ -1,0 +1,682 @@
+{
+  "gameVersion": "1.4.2.0",
+  "geradoEm": "2026-08-20T17:30:58.613Z",
+  "fase": "auditoria",
+  "escopo": "piloto",
+  "congelado": {
+    "aprovado": 29,
+    "precisa_tooltip": 11,
+    "conflito_de_fonte": 2,
+    "especifico_da_arma": 3,
+    "entradas": {
+      "matriz": "d5f8d99ebf7bd124",
+      "acessorios": "92d484b1a12e0dd3",
+      "armas": "864bf0b4d1a4d901",
+      "planilha": {
+        "pendentes": 11,
+        "observados": 0
+      }
+    }
+  },
+  "modelo": "BF6 Attachment Database v0.9.3 (AntiPhysicsGames, CC BY-NC-SA 4.0) — só os custos por arquétipo",
+  "armas": {
+    "b36a4": {
+      "arquetipos": [
+        "basic",
+        "cryo",
+        "extended",
+        "heavy",
+        "heavy_ext",
+        "light",
+        "short"
+      ],
+      "canos": [
+        {
+          "peca": "barrel-391mm-cqb",
+          "nome": "391mm CQB",
+          "custo": 15,
+          "velocidade": 1.064,
+          "mira": 1.035,
+          "mobilidade": -3,
+          "candidatos": [
+            "short"
+          ],
+          "situacao": "aprovado"
+        },
+        {
+          "peca": "barrel-480mm-factory",
+          "nome": "480mm Factory",
+          "custo": 10,
+          "velocidade": 1.141,
+          "mira": 1.077,
+          "mobilidade": -6,
+          "candidatos": [
+            "basic",
+            "heavy",
+            "heavy_ext"
+          ],
+          "situacao": "precisa_tooltip"
+        },
+        {
+          "peca": "barrel-480mm-fluted",
+          "nome": "480mm Fluted",
+          "custo": 20,
+          "velocidade": 1.141,
+          "mira": 1.012,
+          "mobilidade": -1,
+          "candidatos": [
+            "light"
+          ],
+          "situacao": "aprovado",
+          "desempate": "tem efeito de comprimento, então não é cryo"
+        },
+        {
+          "peca": "barrel-480mm-mg",
+          "nome": "480mm MG",
+          "custo": 10,
+          "velocidade": 1.141,
+          "mira": 1.077,
+          "mobilidade": -6,
+          "candidatos": [
+            "basic",
+            "heavy",
+            "heavy_ext"
+          ],
+          "situacao": "precisa_tooltip"
+        },
+        {
+          "peca": "barrel-510mm-dmr",
+          "nome": "510mm DMR",
+          "custo": 5,
+          "velocidade": 1.167,
+          "mira": 1.091,
+          "mobilidade": -7,
+          "candidatos": [
+            "extended"
+          ],
+          "situacao": "aprovado"
+        },
+        {
+          "peca": "barrel-510mm-fluted",
+          "nome": "510mm Fluted",
+          "custo": 25,
+          "velocidade": 1.167,
+          "mira": 1.026,
+          "mobilidade": -2,
+          "candidatos": [],
+          "situacao": "conflito_de_fonte"
+        },
+        {
+          "peca": "barrel-cryogenic",
+          "nome": "Cryogenic",
+          "custo": 20,
+          "velocidade": null,
+          "mira": null,
+          "mobilidade": null,
+          "candidatos": [
+            "cryo"
+          ],
+          "situacao": "aprovado",
+          "desempate": "é o único sem efeito de comprimento"
+        }
+      ]
+    },
+    "ak4d": {
+      "arquetipos": [
+        "basic",
+        "cryo",
+        "extended",
+        "heavy",
+        "heavy_ext",
+        "short"
+      ],
+      "canos": [
+        {
+          "peca": "barrel-409mm-us",
+          "nome": "409mm US",
+          "custo": 15,
+          "velocidade": 1.079,
+          "mira": 1.043,
+          "mobilidade": -3,
+          "candidatos": [
+            "short"
+          ],
+          "situacao": "aprovado"
+        },
+        {
+          "peca": "barrel-450mm-factory",
+          "nome": "450mm Factory",
+          "custo": 10,
+          "velocidade": 1.115,
+          "mira": 1.063,
+          "mobilidade": -5,
+          "candidatos": [
+            "basic",
+            "heavy",
+            "heavy_ext"
+          ],
+          "situacao": "precisa_tooltip"
+        },
+        {
+          "peca": "barrel-600mm-cut",
+          "nome": "600mm Cut",
+          "custo": 5,
+          "velocidade": 1.245,
+          "mira": 1.133,
+          "mobilidade": -10,
+          "candidatos": [
+            "extended"
+          ],
+          "situacao": "aprovado"
+        },
+        {
+          "peca": "barrel-600mm-dmr",
+          "nome": "600mm DMR",
+          "custo": 5,
+          "velocidade": 1.245,
+          "mira": 1.133,
+          "mobilidade": -10,
+          "candidatos": [
+            "extended"
+          ],
+          "situacao": "aprovado"
+        },
+        {
+          "peca": "barrel-600mm-fluted",
+          "nome": "600mm Fluted",
+          "custo": 25,
+          "velocidade": 1.245,
+          "mira": 1.065,
+          "mobilidade": -5,
+          "candidatos": [],
+          "situacao": "conflito_de_fonte"
+        },
+        {
+          "peca": "barrel-cryogenic",
+          "nome": "Cryogenic",
+          "custo": 20,
+          "velocidade": null,
+          "mira": null,
+          "mobilidade": null,
+          "candidatos": [
+            "cryo"
+          ],
+          "situacao": "aprovado"
+        }
+      ]
+    },
+    "m16a4": {
+      "arquetipos": [
+        "basic",
+        "cryo",
+        "extended",
+        "heavy",
+        "heavy_ext",
+        "light",
+        "short"
+      ],
+      "canos": [
+        {
+          "peca": "barrel-16-dissipator",
+          "nome": "16\" Dissipator",
+          "custo": 15,
+          "velocidade": 1.077,
+          "mira": 1.042,
+          "mobilidade": -3,
+          "candidatos": [
+            "short"
+          ],
+          "situacao": "aprovado"
+        },
+        {
+          "peca": "barrel-18-govt",
+          "nome": "18\" Govt.",
+          "custo": 10,
+          "velocidade": 1.121,
+          "mira": 1.066,
+          "mobilidade": -5,
+          "candidatos": [
+            "basic",
+            "heavy",
+            "heavy_ext"
+          ],
+          "situacao": "precisa_tooltip"
+        },
+        {
+          "peca": "barrel-18-pencil",
+          "nome": "18\" Pencil",
+          "custo": 20,
+          "velocidade": 1.121,
+          "mira": 1.002,
+          "mobilidade": 0,
+          "candidatos": [
+            "light"
+          ],
+          "situacao": "aprovado",
+          "desempate": "tem efeito de comprimento, então não é cryo"
+        },
+        {
+          "peca": "barrel-18-spr",
+          "nome": "18\" SPR",
+          "custo": 10,
+          "velocidade": 1.121,
+          "mira": 1.066,
+          "mobilidade": -5,
+          "candidatos": [
+            "basic",
+            "heavy",
+            "heavy_ext"
+          ],
+          "situacao": "precisa_tooltip"
+        },
+        {
+          "peca": "barrel-20-factory",
+          "nome": "20\" Factory",
+          "custo": 5,
+          "velocidade": 1.165,
+          "mira": 1.09,
+          "mobilidade": -7,
+          "candidatos": [
+            "extended"
+          ],
+          "situacao": "aprovado"
+        },
+        {
+          "peca": "barrel-20-hbar",
+          "nome": "20\" HBAR",
+          "custo": 10,
+          "velocidade": 1.165,
+          "mira": 1.09,
+          "mobilidade": -7,
+          "candidatos": [
+            "basic",
+            "heavy",
+            "heavy_ext"
+          ],
+          "situacao": "precisa_tooltip"
+        },
+        {
+          "peca": "barrel-cryogenic",
+          "nome": "Cryogenic",
+          "custo": 20,
+          "velocidade": null,
+          "mira": null,
+          "mobilidade": null,
+          "candidatos": [
+            "cryo"
+          ],
+          "situacao": "aprovado",
+          "desempate": "é o único sem efeito de comprimento"
+        }
+      ]
+    },
+    "m4a1": {
+      "arquetipos": [
+        "basic",
+        "extended",
+        "light",
+        "short"
+      ],
+      "canos": [
+        {
+          "peca": "barrel-11-5-commando",
+          "nome": "11.5\" Commando",
+          "custo": 15,
+          "velocidade": 0.978,
+          "mira": 0.988,
+          "mobilidade": 1,
+          "candidatos": [
+            "short"
+          ],
+          "situacao": "aprovado"
+        },
+        {
+          "peca": "barrel-12-5-fluted",
+          "nome": "12.5\" Fluted",
+          "custo": 20,
+          "velocidade": null,
+          "mira": 0.94,
+          "mobilidade": 5,
+          "candidatos": [
+            "light"
+          ],
+          "situacao": "aprovado"
+        },
+        {
+          "peca": "barrel-12-5-mid",
+          "nome": "12.5\" Mid",
+          "custo": 10,
+          "velocidade": null,
+          "mira": null,
+          "mobilidade": null,
+          "candidatos": [
+            "basic"
+          ],
+          "situacao": "aprovado"
+        },
+        {
+          "peca": "barrel-14-5-carbine",
+          "nome": "14.5\" Carbine",
+          "custo": 5,
+          "velocidade": 1.044,
+          "mira": 1.024,
+          "mobilidade": -2,
+          "candidatos": [
+            "extended"
+          ],
+          "situacao": "aprovado"
+        }
+      ]
+    },
+    "vssm": {
+      "arquetipos": [
+        "vssm_suppressed",
+        "vssm_suppressed_asm"
+      ],
+      "canos": [
+        {
+          "peca": "barrel-21-5-factory",
+          "nome": "21.5\" Factory",
+          "custo": 10,
+          "velocidade": 1.198,
+          "mira": 1.108,
+          "mobilidade": -8,
+          "candidatos": [],
+          "situacao": "especifico_da_arma"
+        },
+        {
+          "peca": "barrel-21-5-fluted",
+          "nome": "21.5\" Fluted",
+          "custo": 20,
+          "velocidade": 1.198,
+          "mira": 1.042,
+          "mobilidade": -3,
+          "candidatos": [],
+          "situacao": "especifico_da_arma"
+        },
+        {
+          "peca": "barrel-24-extended",
+          "nome": "24\" Extended",
+          "custo": 5,
+          "velocidade": 1.253,
+          "mira": 1.138,
+          "mobilidade": -10,
+          "candidatos": [],
+          "situacao": "especifico_da_arma"
+        }
+      ]
+    },
+    "ef88": {
+      "arquetipos": [
+        "basic",
+        "cryo",
+        "ext_light",
+        "extended",
+        "heavy_ext",
+        "light",
+        "short",
+        "short_light"
+      ],
+      "canos": [
+        {
+          "peca": "barrel-391mm-cqb",
+          "nome": "391mm CQB",
+          "custo": 15,
+          "velocidade": 1.064,
+          "mira": 1.035,
+          "mobilidade": -3,
+          "candidatos": [
+            "short"
+          ],
+          "situacao": "aprovado"
+        },
+        {
+          "peca": "barrel-480mm-factory",
+          "nome": "480mm Factory",
+          "custo": 10,
+          "velocidade": 1.141,
+          "mira": 1.077,
+          "mobilidade": -6,
+          "candidatos": [
+            "basic",
+            "heavy_ext"
+          ],
+          "situacao": "precisa_tooltip"
+        },
+        {
+          "peca": "barrel-480mm-fluted",
+          "nome": "480mm Fluted",
+          "custo": 20,
+          "velocidade": 1.141,
+          "mira": 1.012,
+          "mobilidade": -1,
+          "candidatos": [
+            "light"
+          ],
+          "situacao": "aprovado",
+          "desempate": "tem efeito de comprimento, então não é cryo"
+        },
+        {
+          "peca": "barrel-480mm-mg",
+          "nome": "480mm MG",
+          "custo": 10,
+          "velocidade": 1.141,
+          "mira": 1.077,
+          "mobilidade": -6,
+          "candidatos": [
+            "basic",
+            "heavy_ext"
+          ],
+          "situacao": "precisa_tooltip"
+        },
+        {
+          "peca": "barrel-510mm-dmr",
+          "nome": "510mm DMR",
+          "custo": 5,
+          "velocidade": 1.167,
+          "mira": 1.091,
+          "mobilidade": -7,
+          "candidatos": [
+            "extended"
+          ],
+          "situacao": "aprovado"
+        },
+        {
+          "peca": "barrel-510mm-fluted",
+          "nome": "510mm Fluted",
+          "custo": 25,
+          "velocidade": 1.167,
+          "mira": 1.026,
+          "mobilidade": -2,
+          "candidatos": [
+            "ext_light",
+            "short_light"
+          ],
+          "situacao": "precisa_tooltip"
+        },
+        {
+          "peca": "barrel-cryogenic",
+          "nome": "Cryogenic",
+          "custo": 20,
+          "velocidade": null,
+          "mira": null,
+          "mobilidade": null,
+          "candidatos": [
+            "cryo"
+          ],
+          "situacao": "aprovado",
+          "desempate": "é o único sem efeito de comprimento"
+        }
+      ]
+    },
+    "lmr27": {
+      "arquetipos": [
+        "basic",
+        "extended",
+        "light"
+      ],
+      "canos": [
+        {
+          "peca": "barrel-21-5-factory",
+          "nome": "21.5\" Factory",
+          "custo": 10,
+          "velocidade": 1.198,
+          "mira": 1.108,
+          "mobilidade": -8,
+          "candidatos": [
+            "basic"
+          ],
+          "situacao": "aprovado"
+        },
+        {
+          "peca": "barrel-21-5-fluted",
+          "nome": "21.5\" Fluted",
+          "custo": 20,
+          "velocidade": 1.198,
+          "mira": 1.042,
+          "mobilidade": -3,
+          "candidatos": [
+            "light"
+          ],
+          "situacao": "aprovado"
+        },
+        {
+          "peca": "barrel-24-extended",
+          "nome": "24\" Extended",
+          "custo": 5,
+          "velocidade": 1.253,
+          "mira": 1.138,
+          "mobilidade": -10,
+          "candidatos": [
+            "extended"
+          ],
+          "situacao": "aprovado"
+        }
+      ]
+    },
+    "m250": {
+      "arquetipos": [
+        "heavy",
+        "heavy_ext"
+      ],
+      "canos": [
+        {
+          "peca": "barrel-406mm-standard",
+          "nome": "406mm Standard",
+          "custo": 10,
+          "velocidade": 1.077,
+          "mira": 1.042,
+          "mobilidade": -3,
+          "candidatos": [
+            "heavy",
+            "heavy_ext"
+          ],
+          "situacao": "precisa_tooltip"
+        },
+        {
+          "peca": "barrel-556mm-prototype",
+          "nome": "556mm Prototype",
+          "custo": 10,
+          "velocidade": 1.207,
+          "mira": 1.113,
+          "mobilidade": -8,
+          "candidatos": [
+            "heavy",
+            "heavy_ext"
+          ],
+          "situacao": "precisa_tooltip"
+        }
+      ]
+    },
+    "l115": {
+      "arquetipos": [
+        "basic",
+        "extended",
+        "light",
+        "short"
+      ],
+      "canos": [
+        {
+          "peca": "barrel-20-custom-covert",
+          "nome": "20\" Custom Covert",
+          "custo": 15,
+          "velocidade": 1.165,
+          "mira": 1.09,
+          "mobilidade": -7,
+          "candidatos": [
+            "short"
+          ],
+          "situacao": "aprovado"
+        },
+        {
+          "peca": "barrel-27-factory",
+          "nome": "27\" Factory",
+          "custo": 10,
+          "velocidade": 1.319,
+          "mira": 1.174,
+          "mobilidade": -13,
+          "candidatos": [
+            "basic"
+          ],
+          "situacao": "aprovado"
+        },
+        {
+          "peca": "barrel-27-full",
+          "nome": "27\" Full",
+          "custo": 10,
+          "velocidade": 1.319,
+          "mira": 1.174,
+          "mobilidade": -13,
+          "candidatos": [
+            "basic"
+          ],
+          "situacao": "aprovado"
+        },
+        {
+          "peca": "barrel-32-custom",
+          "nome": "32\" Custom",
+          "custo": 5,
+          "velocidade": 1.429,
+          "mira": 1.234,
+          "mobilidade": -18,
+          "candidatos": [
+            "extended"
+          ],
+          "situacao": "aprovado"
+        }
+      ]
+    },
+    "m1014": {
+      "arquetipos": [
+        "basic",
+        "extended"
+      ],
+      "canos": [
+        {
+          "peca": "barrel-18-5-factory",
+          "nome": "18.5\" Factory",
+          "custo": 10,
+          "velocidade": 1.132,
+          "mira": 1.072,
+          "mobilidade": -5,
+          "candidatos": [
+            "basic"
+          ],
+          "situacao": "aprovado"
+        },
+        {
+          "peca": "barrel-extended-barrel",
+          "nome": "Extended Barrel",
+          "custo": 5,
+          "velocidade": 1.12,
+          "mira": 1.06,
+          "mobilidade": -4,
+          "candidatos": [
+            "extended"
+          ],
+          "situacao": "aprovado"
+        }
+      ]
+    }
+  }
+}

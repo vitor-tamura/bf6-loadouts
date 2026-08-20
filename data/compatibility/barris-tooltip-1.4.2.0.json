@@ -1,0 +1,210 @@
+{
+  "gameVersion": "1.4.2.0",
+  "geradoEm": "2026-08-20T17:30:58.613Z",
+  "fase": "a observar no jogo",
+  "escopo": "piloto",
+  "comoPreencher": "Abra o Gunsmith na arma, selecione o cano e copie da tooltip só os efeitos listados em observar. Depois preencha arquetipoObservado com um dos candidatos.",
+  "pendentes": 11,
+  "observados": 0,
+  "canos": [
+    {
+      "arma": "b36a4",
+      "peca": "barrel-480mm-factory",
+      "nome": "480mm Factory",
+      "custo": 10,
+      "candidatos": [
+        "basic",
+        "heavy",
+        "heavy_ext"
+      ],
+      "observar": [
+        "+mira",
+        "+sustentado",
+        "+velocidade",
+        "−saque"
+      ],
+      "efeitosObservados": [],
+      "arquetipoObservado": null
+    },
+    {
+      "arma": "b36a4",
+      "peca": "barrel-480mm-mg",
+      "nome": "480mm MG",
+      "custo": 10,
+      "candidatos": [
+        "basic",
+        "heavy",
+        "heavy_ext"
+      ],
+      "observar": [
+        "+mira",
+        "+sustentado",
+        "+velocidade",
+        "−saque"
+      ],
+      "efeitosObservados": [],
+      "arquetipoObservado": null
+    },
+    {
+      "arma": "ak4d",
+      "peca": "barrel-450mm-factory",
+      "nome": "450mm Factory",
+      "custo": 10,
+      "candidatos": [
+        "basic",
+        "heavy",
+        "heavy_ext"
+      ],
+      "observar": [
+        "+mira",
+        "+sustentado",
+        "+velocidade",
+        "−saque"
+      ],
+      "efeitosObservados": [],
+      "arquetipoObservado": null
+    },
+    {
+      "arma": "m16a4",
+      "peca": "barrel-18-govt",
+      "nome": "18\" Govt.",
+      "custo": 10,
+      "candidatos": [
+        "basic",
+        "heavy",
+        "heavy_ext"
+      ],
+      "observar": [
+        "+mira",
+        "+sustentado",
+        "+velocidade",
+        "−saque"
+      ],
+      "efeitosObservados": [],
+      "arquetipoObservado": null
+    },
+    {
+      "arma": "m16a4",
+      "peca": "barrel-18-spr",
+      "nome": "18\" SPR",
+      "custo": 10,
+      "candidatos": [
+        "basic",
+        "heavy",
+        "heavy_ext"
+      ],
+      "observar": [
+        "+mira",
+        "+sustentado",
+        "+velocidade",
+        "−saque"
+      ],
+      "efeitosObservados": [],
+      "arquetipoObservado": null
+    },
+    {
+      "arma": "m16a4",
+      "peca": "barrel-20-hbar",
+      "nome": "20\" HBAR",
+      "custo": 10,
+      "candidatos": [
+        "basic",
+        "heavy",
+        "heavy_ext"
+      ],
+      "observar": [
+        "+mira",
+        "+sustentado",
+        "+velocidade",
+        "−saque"
+      ],
+      "efeitosObservados": [],
+      "arquetipoObservado": null
+    },
+    {
+      "arma": "ef88",
+      "peca": "barrel-480mm-factory",
+      "nome": "480mm Factory",
+      "custo": 10,
+      "candidatos": [
+        "basic",
+        "heavy_ext"
+      ],
+      "observar": [
+        "+mira",
+        "+velocidade",
+        "+sustentado",
+        "−saque"
+      ],
+      "efeitosObservados": [],
+      "arquetipoObservado": null
+    },
+    {
+      "arma": "ef88",
+      "peca": "barrel-480mm-mg",
+      "nome": "480mm MG",
+      "custo": 10,
+      "candidatos": [
+        "basic",
+        "heavy_ext"
+      ],
+      "observar": [
+        "+mira",
+        "+velocidade",
+        "+sustentado",
+        "−saque"
+      ],
+      "efeitosObservados": [],
+      "arquetipoObservado": null
+    },
+    {
+      "arma": "ef88",
+      "peca": "barrel-510mm-fluted",
+      "nome": "510mm Fluted",
+      "custo": 25,
+      "candidatos": [
+        "ext_light",
+        "short_light"
+      ],
+      "observar": [
+        "+velocidade",
+        "+quadril",
+        "−velocidade"
+      ],
+      "efeitosObservados": [],
+      "arquetipoObservado": null
+    },
+    {
+      "arma": "m250",
+      "peca": "barrel-406mm-standard",
+      "nome": "406mm Standard",
+      "custo": 10,
+      "candidatos": [
+        "heavy",
+        "heavy_ext"
+      ],
+      "observar": [
+        "+velocidade",
+        "−saque"
+      ],
+      "efeitosObservados": [],
+      "arquetipoObservado": null
+    },
+    {
+      "arma": "m250",
+      "peca": "barrel-556mm-prototype",
+      "nome": "556mm Prototype",
+      "custo": 10,
+      "candidatos": [
+        "heavy",
+        "heavy_ext"
+      ],
+      "observar": [
+        "+velocidade",
+        "−saque"
+      ],
+      "efeitosObservados": [],
+      "arquetipoObservado": null
+    }
+  ]
+}

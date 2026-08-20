@@ -1,0 +1,334 @@
+{
+  "gameVersion": "1.4.2.0",
+  "geradoEm": "2026-08-20T17:28:09.501Z",
+  "fase": "aprovado",
+  "escopo": "piloto",
+  "modelo": "BF6 Attachment Database v0.9.3 (AntiPhysicsGames, CC BY-NC-SA 4.0) — só os custos por arquétipo",
+  "canos": [
+    {
+      "arma": "b36a4",
+      "peca": "barrel-391mm-cqb",
+      "nome": "391mm CQB",
+      "arquetipo": "short",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "b36a4",
+      "peca": "barrel-480mm-fluted",
+      "nome": "480mm Fluted",
+      "arquetipo": "light",
+      "confianca": "alta",
+      "evidencia": [
+        "custo",
+        "efeito"
+      ],
+      "desempate": "tem efeito de comprimento, então não é cryo"
+    },
+    {
+      "arma": "b36a4",
+      "peca": "barrel-510mm-dmr",
+      "nome": "510mm DMR",
+      "arquetipo": "extended",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "b36a4",
+      "peca": "barrel-cryogenic",
+      "nome": "Cryogenic",
+      "arquetipo": "cryo",
+      "confianca": "alta",
+      "evidencia": [
+        "custo",
+        "efeito"
+      ],
+      "desempate": "é o único sem efeito de comprimento"
+    },
+    {
+      "arma": "ak4d",
+      "peca": "barrel-409mm-us",
+      "nome": "409mm US",
+      "arquetipo": "short",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "ak4d",
+      "peca": "barrel-600mm-cut",
+      "nome": "600mm Cut",
+      "arquetipo": "extended",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "ak4d",
+      "peca": "barrel-600mm-dmr",
+      "nome": "600mm DMR",
+      "arquetipo": "extended",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "ak4d",
+      "peca": "barrel-cryogenic",
+      "nome": "Cryogenic",
+      "arquetipo": "cryo",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "m16a4",
+      "peca": "barrel-16-dissipator",
+      "nome": "16\" Dissipator",
+      "arquetipo": "short",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "m16a4",
+      "peca": "barrel-18-pencil",
+      "nome": "18\" Pencil",
+      "arquetipo": "light",
+      "confianca": "alta",
+      "evidencia": [
+        "custo",
+        "efeito"
+      ],
+      "desempate": "tem efeito de comprimento, então não é cryo"
+    },
+    {
+      "arma": "m16a4",
+      "peca": "barrel-20-factory",
+      "nome": "20\" Factory",
+      "arquetipo": "extended",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "m16a4",
+      "peca": "barrel-cryogenic",
+      "nome": "Cryogenic",
+      "arquetipo": "cryo",
+      "confianca": "alta",
+      "evidencia": [
+        "custo",
+        "efeito"
+      ],
+      "desempate": "é o único sem efeito de comprimento"
+    },
+    {
+      "arma": "m4a1",
+      "peca": "barrel-11-5-commando",
+      "nome": "11.5\" Commando",
+      "arquetipo": "short",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "m4a1",
+      "peca": "barrel-12-5-fluted",
+      "nome": "12.5\" Fluted",
+      "arquetipo": "light",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "m4a1",
+      "peca": "barrel-12-5-mid",
+      "nome": "12.5\" Mid",
+      "arquetipo": "basic",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "m4a1",
+      "peca": "barrel-14-5-carbine",
+      "nome": "14.5\" Carbine",
+      "arquetipo": "extended",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "ef88",
+      "peca": "barrel-391mm-cqb",
+      "nome": "391mm CQB",
+      "arquetipo": "short",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "ef88",
+      "peca": "barrel-480mm-fluted",
+      "nome": "480mm Fluted",
+      "arquetipo": "light",
+      "confianca": "alta",
+      "evidencia": [
+        "custo",
+        "efeito"
+      ],
+      "desempate": "tem efeito de comprimento, então não é cryo"
+    },
+    {
+      "arma": "ef88",
+      "peca": "barrel-510mm-dmr",
+      "nome": "510mm DMR",
+      "arquetipo": "extended",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "ef88",
+      "peca": "barrel-cryogenic",
+      "nome": "Cryogenic",
+      "arquetipo": "cryo",
+      "confianca": "alta",
+      "evidencia": [
+        "custo",
+        "efeito"
+      ],
+      "desempate": "é o único sem efeito de comprimento"
+    },
+    {
+      "arma": "lmr27",
+      "peca": "barrel-21-5-factory",
+      "nome": "21.5\" Factory",
+      "arquetipo": "basic",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "lmr27",
+      "peca": "barrel-21-5-fluted",
+      "nome": "21.5\" Fluted",
+      "arquetipo": "light",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "lmr27",
+      "peca": "barrel-24-extended",
+      "nome": "24\" Extended",
+      "arquetipo": "extended",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "l115",
+      "peca": "barrel-20-custom-covert",
+      "nome": "20\" Custom Covert",
+      "arquetipo": "short",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "l115",
+      "peca": "barrel-27-factory",
+      "nome": "27\" Factory",
+      "arquetipo": "basic",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "l115",
+      "peca": "barrel-27-full",
+      "nome": "27\" Full",
+      "arquetipo": "basic",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "l115",
+      "peca": "barrel-32-custom",
+      "nome": "32\" Custom",
+      "arquetipo": "extended",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "m1014",
+      "peca": "barrel-18-5-factory",
+      "nome": "18.5\" Factory",
+      "arquetipo": "basic",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    },
+    {
+      "arma": "m1014",
+      "peca": "barrel-extended-barrel",
+      "nome": "Extended Barrel",
+      "arquetipo": "extended",
+      "confianca": "alta",
+      "evidencia": [
+        "custo"
+      ],
+      "desempate": null
+    }
+  ]
+}
