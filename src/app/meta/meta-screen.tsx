@@ -202,12 +202,7 @@ export function MetaScreen({
             </Typography.Text>
           </div>
           <BlockNote>
-            Entra aqui a arma que as fontes apontam como <strong>mais forte depois do patch em
-            vigor</strong>: teste, análise de balanceamento e estatística publicados por fóruns e
-            comunidades especializadas — TTK, dano, controle, alcance. Posição em ranking de meta
-            conta como julgamento de força da fonte, e não como pick rate, que o jogo não publica. A
-            ordem é a que essas leituras dão. Ser muito usada não põe arma aqui: isso é o bloco de
-            tendência. Os colchetes dizem de que fonte saiu cada indicação.
+            Entra aqui a arma que as fontes apontam como <strong>mais forte depois do patch</strong>: teste, análise de balanceamento e estatística analisada pelos jogadores e opiniões nas comunidades, entre eles TTK, dano, controle, alcance e etc. Posição em ranking da meta é baseada em análises e opiniões da comunidade, e não como pick rate, que o jogo não publica. Os colchetes dizem de que fonte saiu cada indicação (ex: [1], [2], [3]).
           </BlockNote>
           <Row gutter={[8, 8]}>
             {destaques.map((pick, rank) => (
