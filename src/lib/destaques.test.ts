@@ -77,11 +77,14 @@ describe('completar o topo do multiplayer', () => {
     ]);
   });
 
-  it('marca o cartão que veio da curadoria', () => {
+  it('marca o cartão que veio da curadoria, depois do que ele tem a dizer', () => {
     const { destaques } = completar([lido('vssm')]);
 
     for (const pick of destaques.slice(1)) {
-      expect(pick.reason, pick.weapon).toMatch(/^Da curadoria escrita à mão do site/);
+      expect(pick.reason, pick.weapon).toMatch(/^Primeira colocada geral/);
+      expect(pick.reason, pick.weapon).toMatch(
+        /Cartão da curadoria do site: a leitura de hoje não citou esta arma\.$/,
+      );
     }
     expect(destaques[0].reason).toBe(lido('vssm').reason);
   });
@@ -220,7 +223,7 @@ describe('cartão sem citação no topo', () => {
 
     expect(destaques).toHaveLength(MIN_DESTAQUES);
     for (const pick of destaques) {
-      expect(pick.reason, pick.weapon).toMatch(/^Da curadoria escrita à mão do site/);
+      expect(pick.reason, pick.weapon).toContain('Cartão da curadoria do site');
     }
   });
 });

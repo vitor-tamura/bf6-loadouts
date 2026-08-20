@@ -106,11 +106,20 @@ export function completarDestaques(
     .slice(0, faltam);
   if (!candidatos.length) return { destaques: sustentadas, fontes };
 
+  /*
+    A marca vem depois do motivo, e não antes.
+
+    Antes ela abria o cartão — "Da curadoria escrita à mão do site, porque a
+    leitura do dia não citou a arma." —, e o leitor lia duas linhas sobre a
+    procedência do cartão antes de saber de que arma se tratava. A procedência
+    precisa estar lá, mas ela qualifica o que foi dito; não é o que o cartão tem
+    a dizer.
+  */
   const costura = costurar(fontes, fontesDaCuradoria);
   const completados = candidatos.map((pick) =>
     costura.recitar({
       ...pick,
-      reason: `Da curadoria escrita à mão do site, porque a leitura do dia não citou a arma. ${pick.reason}`,
+      reason: `${pick.reason}`,
     }),
   );
 
