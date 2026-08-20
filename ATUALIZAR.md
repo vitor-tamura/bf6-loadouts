@@ -243,6 +243,43 @@ Um patch que quebre qualquer uma dessas coisas derruba a suíte antes de chegar 
 interface — e, no PR automático, aparece como CI vermelho em vez de dado errado
 publicado.
 
+### Como classificar o que uma fonte diz
+
+Toda investigação de patch esbarra na mesma tentação: achar a informação em três
+lugares e tratá-la como confirmada. Estes três lugares costumam ser o mesmo post
+republicado. A escala abaixo existe para separar as duas coisas, e vale para
+qualquer arquivo de investigação em `data/compatibility/`.
+
+| Grau | O que significa |
+| --- | --- |
+| `oficial` | a EA afirma, em roadmap ou nota de patch |
+| `corroborado` | duas ou mais fontes que se apuraram sozinhas dizem o mesmo, e nenhuma é oficial |
+| `relatado` | uma fonte de comunidade |
+| `evidencia_parcial` | confirmado nos casos observados, não no conjunto |
+| `desconhecido` | ninguém publicou |
+
+Três regras que decidem quase todos os casos:
+
+- **A afirmação nunca vale mais que a fonte que a sustenta.** Se o custo saiu de
+  um post, ele é `relatado` mesmo que todo mundo o repita — e o dataset guarda
+  `custoNoJogo: null` com o número ao lado, em campo separado.
+- **Repetição não é independência.** Página que reproduz o post original continua
+  sendo o post original. Duas fontes só são duas quando apuraram separado.
+- **A EA confirma existência, não valor.** Ela anuncia peça e descreve efeito;
+  não publica ponto de acessório nem matriz de compatibilidade. Para esses dois
+  campos, o Gunsmith é quem fecha — e onde ele divergir do relato, vale ele, com
+  a divergência registrada em vez de apagada.
+
+E uma distinção que já enganou esta investigação uma vez: **asset presente,
+peça desbloqueada e peça equipável são três coisas diferentes.** Um nome
+aparecer no Arsenal antes do patch prova que ele existe no jogo, não que alguém
+consegue montá-lo.
+
+O arquivo de investigação carrega as fontes com id, tipo e o que cada uma
+sustenta, e cada afirmação aponta para a sua. É o que permite, seis meses
+depois, saber se uma conclusão envelheceu ou se só a fonte dela envelheceu —
+ver `data/compatibility/acessorios-a-confirmar-1.4.2.0.json` como modelo.
+
 ### O montador contra as fontes
 
 ```bash

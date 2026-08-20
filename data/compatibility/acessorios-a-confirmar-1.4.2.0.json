@@ -8,16 +8,192 @@
     "nota141": "anuncia os acessórios da fase anterior — Extended Barrel e 1P86 LPVO —, que já entraram aqui; estas quatro são o lote seguinte",
     "matrizDoCatalogo": "402 peças, e as parecidas são therm_hyb (óptica) e canted_stubby (acoplamento que já temos)"
   },
+  "fontes": [
+    {
+      "id": "ea-roadmap-t4",
+      "nome": "EA — Season 4 Roadmap: Everything You Need to Know",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/season-4-roadmap-everything-you-need-to-know",
+      "tipo": "oficial",
+      "sustenta": [
+        "existência das quatro peças",
+        "três variantes de Hybrid, nomeadas L, S e K",
+        "escada de penalidade de cada variante",
+        "Canted Vertical Grip para a maioria das metralhadoras"
+      ],
+      "lidoNaFonte": false,
+      "nota": "www.ea.com não resolveu na máquina em que esta leitura foi feita, em 20/08/2026. O conteúdo foi corroborado por busca independente, que reproduz a mesma escada L/S/K e a mesma descrição de efeito. É a mesma página já cadastrada em src/data/meta.ts como fonte [0]."
+    },
+    {
+      "id": "reddit-custos-18-08",
+      "nome": "Reddit — Here are the weapons with the new Suppressors",
+      "url": "https://www.reddit.com/r/LowSodiumBattlefield/comments/1vrwjf2/here_are_the_weapons_with_the_new_suppressors/",
+      "data": "2026-08-18",
+      "tipo": "comunidade",
+      "sustenta": [
+        "custos 30, 40 e 50",
+        "lista preliminar de armas com as peças"
+      ],
+      "nota": "pós-patch, e é a origem dos três custos. A EA não publica ponto de acessório, então isto é o melhor que existe fora do jogo — e continua sendo relato."
+    },
+    {
+      "id": "reddit-canted-18-08",
+      "nome": "Reddit — New Attachment? (Canted Vertical)",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1vrn9bf/new_attachment/",
+      "data": "2026-08-18",
+      "tipo": "comunidade",
+      "sustenta": [
+        "Canted Vertical em uso depois do patch, em metralhadoras como RPK e M240"
+      ]
+    },
+    {
+      "id": "reddit-teste-19-08",
+      "nome": "Reddit — Comparison of the new Hybrid suppressor",
+      "url": "https://www.reddit.com/r/LowSodiumBattlefield/comments/1vsvlkt/comparison_of_the_new_hybrid_suppressor/",
+      "data": "2026-08-19",
+      "tipo": "comunidade",
+      "sustenta": [
+        "comportamento de recuo medido no campo de tiro"
+      ]
+    },
+    {
+      "id": "reddit-build-18-08",
+      "nome": "Reddit — Alternative L85A3 setup utilizing the new Hybrid Suppressor (L)",
+      "url": "https://www.reddit.com/r/Battlefield/comments/1vrojvu/alternative_l85a3_setup_utilizing_the_new_hybrid/",
+      "data": "2026-08-18",
+      "tipo": "comunidade",
+      "sustenta": [
+        "a peça aparece em montagem real depois do patch, com o nome (L)"
+      ]
+    },
+    {
+      "id": "reddit-arsenal-29-07",
+      "nome": "Reddit — os três Hybrid aparecendo no Arsenal antes do patch",
+      "url": "https://www.reddit.com/r/BF6/comments/1va5lwo/",
+      "data": "2026-07-29",
+      "tipo": "comunidade",
+      "sustenta": [
+        "os nomes K, S e L já existiam no jogo antes de a 1.4.2.0 subir"
+      ],
+      "nota": "prova que os nomes não foram inventados no dia do patch. Não prova que a peça era equipável: asset presente, desbloqueado e equipável são três coisas."
+    },
+    {
+      "id": "reddit-canted-uso-20-08",
+      "nome": "Reddit — Canted Vertical em uso, montagens de tiro sem visada",
+      "url": "https://www.reddit.com/r/Battlefield/comments/1vt57zk/new_grip_hipfire_lmgs/",
+      "data": "2026-08-20",
+      "tipo": "comunidade",
+      "sustenta": [
+        "a peça aparece em M123K, RPKM e RPK-74M depois do patch"
+      ],
+      "nota": "evidência de compatibilidade para essas três, e só para essas três."
+    },
+    {
+      "id": "bfbulletin-unlock",
+      "nome": "Battlefield Bulletin — requisito de desbloqueio do Canted Vertical Grip",
+      "url": "https://x.com/BFBulletin",
+      "tipo": "comunidade",
+      "sustenta": [
+        "desbloqueio por 2.000 de dano, com dano de metralhadora contando em dobro"
+      ]
+    }
+  ],
+  "evidencia": [
+    {
+      "afirmacao": "os Hybrid Suppressors existem",
+      "fonte": "ea-roadmap-t4",
+      "status": "oficial"
+    },
+    {
+      "afirmacao": "são três variantes",
+      "fonte": "ea-roadmap-t4",
+      "status": "oficial"
+    },
+    {
+      "afirmacao": "as variantes são L, S e K",
+      "fonte": "ea-roadmap-t4, reddit-custos-18-08, reddit-arsenal-29-07",
+      "status": "corroborado",
+      "nota": "a EA nomeia as variantes, mas a página não foi lida na fonte nesta máquina; o que fecha o grau é a coincidência com o Arsenal pré-patch e com o relato pós-patch"
+    },
+    {
+      "afirmacao": "efeitos gerais e escada de penalidade",
+      "fonte": "ea-roadmap-t4",
+      "status": "oficial"
+    },
+    {
+      "afirmacao": "o Canted Vertical Grip existe",
+      "fonte": "ea-roadmap-t4, reddit-canted-18-08",
+      "status": "oficial"
+    },
+    {
+      "afirmacao": "Canted Vertical vale para a maioria das metralhadoras",
+      "fonte": "ea-roadmap-t4",
+      "status": "oficial"
+    },
+    {
+      "afirmacao": "Hybrid (L) custa 30",
+      "fonte": "reddit-custos-18-08",
+      "status": "relatado"
+    },
+    {
+      "afirmacao": "Hybrid (S) custa 40",
+      "fonte": "reddit-custos-18-08",
+      "status": "relatado"
+    },
+    {
+      "afirmacao": "Hybrid (K) custa 50",
+      "fonte": "reddit-custos-18-08",
+      "status": "relatado"
+    },
+    {
+      "afirmacao": "matriz arma × Hybrid",
+      "fonte": "reddit-custos-18-08",
+      "status": "evidencia_parcial"
+    },
+    {
+      "afirmacao": "custo do Canted Vertical",
+      "fonte": null,
+      "status": "desconhecido"
+    },
+    {
+      "afirmacao": "matriz arma × Canted Vertical",
+      "fonte": "reddit-canted-uso-20-08",
+      "status": "evidencia_parcial",
+      "nota": "três metralhadoras observadas de dez; a EA diz a maioria, sem lista"
+    },
+    {
+      "afirmacao": "o comportamento de recuo do Hybrid, medido no campo de tiro",
+      "fonte": "reddit-teste-19-08",
+      "status": "corroborado",
+      "nota": "medição experimental, não opinião: bate com o efeito que a EA descreve"
+    },
+    {
+      "afirmacao": "Canted Vertical entra em M123K, RPKM e RPK-74M",
+      "fonte": "reddit-canted-uso-20-08",
+      "status": "evidencia_parcial"
+    },
+    {
+      "afirmacao": "os nomes K, S e L existiam no jogo antes da 1.4.2.0",
+      "fonte": "reddit-arsenal-29-07",
+      "status": "relatado",
+      "nota": "asset presente não é o mesmo que peça equipável"
+    },
+    {
+      "afirmacao": "Canted Vertical desbloqueia com 2.000 de dano",
+      "fonte": "bfbulletin-unlock",
+      "status": "relatado"
+    }
+  ],
   "hierarquiaDeFonte": {
-    "existencia": "EA — roadmap da Temporada 4. Nomeia as três variantes por letra e descreve a escada de penalidade.",
+    "existencia": "EA. Nomeia as três variantes por letra e descreve a escada de penalidade.",
     "custo": "só relato de comunidade pós-patch. A EA não publica ponto de acessório, e por isso nenhum custo aqui está fechado.",
-    "compatibilidade": "a apurar no Gunsmith, arma por arma. 'A maioria das metralhadoras' não vira 'todas'."
+    "compatibilidade": "a apurar no Gunsmith, arma por arma. A lista do Reddit serve de conferência cruzada, não de registro. 'A maioria das metralhadoras' não vira 'todas'."
   },
   "candidatos": [
     {
       "nome": "Hybrid Suppressor (L)",
       "slotEsperado": "muzzle",
       "existeNoJogo": true,
+      "existenciaSegundo": "ea-roadmap-t4",
       "efeitosSegundoAEa": [
         "reduz recuo",
         "reduz marcação no mundo e no minimapa",
@@ -26,45 +202,69 @@
         "penaliza velocidade de saque"
       ],
       "custoRelatadoPelaComunidade": 30,
+      "custoRelatadoSegundo": "reddit-custos-18-08",
       "custoNoJogo": null,
       "efeitosNoJogo": [],
       "armas": [],
-      "observacao": "a mais barata das três, e a que cobra mais caro em penalidade. 30 pontos empataria com o Supressor de CQB, hoje a nossa boca mais cara"
+      "observacao": "a mais barata das três, e a que cobra mais caro em penalidade. 30 pontos empataria com o Supressor de CQB, hoje a nossa boca mais cara",
+      "grauDeEvidencia": {
+        "existencia": "oficial",
+        "nome": "corroborado",
+        "custo": "relatado",
+        "compatibilidade": "evidencia_parcial"
+      }
     },
     {
       "nome": "Hybrid Suppressor (S)",
       "slotEsperado": "muzzle",
       "existeNoJogo": true,
+      "existenciaSegundo": "ea-roadmap-t4",
       "efeitosSegundoAEa": [
         "reduz recuo",
         "reduz marcação no mundo e no minimapa",
         "penaliza tiro sem visada"
       ],
       "custoRelatadoPelaComunidade": 40,
+      "custoRelatadoSegundo": "reddit-custos-18-08",
       "custoNoJogo": null,
       "efeitosNoJogo": [],
       "armas": [],
-      "observacao": "mesma vantagem da (L) com uma penalidade só. A 40 pontos seria a boca mais cara do arsenal"
+      "observacao": "mesma vantagem da (L) com uma penalidade só. A 40 pontos seria a boca mais cara do arsenal",
+      "grauDeEvidencia": {
+        "existencia": "oficial",
+        "nome": "corroborado",
+        "custo": "relatado",
+        "compatibilidade": "evidencia_parcial"
+      }
     },
     {
       "nome": "Hybrid Suppressor (K)",
       "slotEsperado": "muzzle",
       "existeNoJogo": true,
+      "existenciaSegundo": "ea-roadmap-t4",
       "efeitosSegundoAEa": [
         "reduz recuo",
         "reduz marcação no mundo e no minimapa",
         "sem penalidade declarada"
       ],
       "custoRelatadoPelaComunidade": 50,
+      "custoRelatadoSegundo": "reddit-custos-18-08",
       "custoNoJogo": null,
       "efeitosNoJogo": [],
       "armas": [],
-      "observacao": "a EA diz que ela não tem contrapartida além do preço. A 50 pontos seria metade do orçamento numa peça só, acima do acoplamento de 45 que hoje é a peça mais cara do jogo — número que merece conferência antes de virar dado"
+      "observacao": "a EA diz que ela não tem contrapartida além do preço. A 50 pontos seria metade do orçamento numa peça só, acima do acoplamento de 45 que hoje é a peça mais cara do jogo — número que merece conferência antes de virar dado",
+      "grauDeEvidencia": {
+        "existencia": "oficial",
+        "nome": "corroborado",
+        "custo": "relatado",
+        "compatibilidade": "evidencia_parcial"
+      }
     },
     {
       "nome": "Canted Vertical Grip",
       "slotEsperado": "underbarrel",
       "existeNoJogo": true,
+      "existenciaSegundo": "ea-roadmap-t4, reddit-canted-18-08",
       "efeitosSegundoAEa": [
         "melhora moderada de tiro sem visada",
         "melhora a velocidade de saque",
@@ -74,9 +274,23 @@
       "custoNoJogo": null,
       "efeitosNoJogo": [],
       "armas": [],
-      "observacao": "a EA diz 'a maioria das metralhadoras'. São dez no arsenal — DRS-IAR, KTS100 MK8, RPKM, M123K, M250, L110, M/60, M240L, M121 A2, RPK-74M —, e 'a maioria' vira lista só arma por arma. Não confundir com o Canted Stubby, que já existe aqui"
+      "observacao": "a EA diz 'a maioria das metralhadoras'. São dez no arsenal — DRS-IAR, KTS100 MK8, RPKM, M123K, M250, L110, M/60, M240L, M121 A2, RPK-74M —, e 'a maioria' vira lista só arma por arma. Relatos pós-patch citam RPK e M240. Não confundir com o Canted Stubby, que já existe aqui",
+      "grauDeEvidencia": {
+        "existencia": "oficial",
+        "nome": "oficial",
+        "custo": "desconhecido",
+        "compatibilidade": "evidencia_parcial"
+      }
     }
   ],
   "comoPreencher": "No Gunsmith, para cada peça: copie nome e custo como a interface mostra, anote os efeitos e registre em que armas ela aparece. Onde o custo do jogo divergir do relato da comunidade, vale o jogo — e a divergência fica registrada, não apagada.",
-  "seConfirmarem": "Cadastro segue o caminho dos barris: custo publicado, mods vazios se o efeito não for medido, compatibilidade só onde houver evidência. O baseline congelado da 1.4.2.0 não muda — ele descreve o dataset como ele estava, e peça nova é dataset novo, não baseline corrigido."
+  "seConfirmarem": "Cadastro segue o caminho dos barris: custo publicado, mods vazios se o efeito não for medido, compatibilidade só onde houver evidência. O baseline congelado da 1.4.2.0 não muda — ele descreve o dataset como ele estava, e peça nova é dataset novo, não baseline corrigido.",
+  "escalaDeEvidencia": {
+    "oficial": "a EA afirma, em roadmap ou nota de patch",
+    "corroborado": "duas ou mais fontes que se apuraram sozinhas dizem o mesmo, e nenhuma é oficial",
+    "relatado": "uma fonte de comunidade. Republicação em outra rede não vira segunda fonte",
+    "evidencia_parcial": "confirmado para alguns casos observados, não para o conjunto",
+    "desconhecido": "ninguém publicou",
+    "regra": "a afirmação nunca vale mais que a fonte que a sustenta, e repetição não é independência: as páginas que reproduzem o mesmo post do Reddit continuam sendo aquele post."
+  }
 }

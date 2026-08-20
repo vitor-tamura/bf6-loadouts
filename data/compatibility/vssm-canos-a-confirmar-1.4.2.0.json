@@ -1,0 +1,36 @@
+{
+  "gameVersion": "1.4.2.0",
+  "arma": "vssm",
+  "fase": "recadastro a confirmar no jogo",
+  "porQue": "A VSSM é a única arma cujo cano o modelo genérico não descreve. A matriz da 1.4.2.0 lista para ela dois arquétipos e os dois são supressos — vssm_suppressed (20) e vssm_suppressed_asm (30) —, enquanto o dataset tem três canos comuns, com velocidade e penalidade de mira como qualquer fuzil. Uma das duas descrições está errada, e não é o tipo de coisa que se resolve por algoritmo: é ir ver.",
+  "oQueODatasetTemHoje": [
+    { "peca": "barrel-21-5-factory", "nome": "21.5\" Factory", "custo": 10, "efeito": "velocidade ×1.198, alcance ×1.162, mira ×1.108, mobilidade −8" },
+    { "peca": "barrel-21-5-fluted", "nome": "21.5\" Fluted", "custo": 20, "efeito": "velocidade ×1.198, alcance ×1.162, mira ×1.042, mobilidade −3" },
+    { "peca": "barrel-24-extended", "nome": "24\" Extended", "custo": 5, "efeito": "velocidade ×1.253, alcance ×1.207, mira ×1.138, mobilidade −10" }
+  ],
+  "oQueAMatrizDiz": [
+    { "arquetipo": "vssm_suppressed", "pts": 20, "efeito": "supressão integral" },
+    { "arquetipo": "vssm_suppressed_asm", "pts": 30, "efeito": "supressão integral reforçada" }
+  ],
+  "oQueA142Mexeu": [
+    "An unintended recoil modifier has been removed from VSSM barrel attachments",
+    "The VSSM 200mm Barrel now displays the correct weight value — e este cano não existe no nosso dataset",
+    "VSSM limb damage multipliers have been adjusted — sem número publicado, e não modelamos multiplicador por membro"
+  ],
+  "perguntasAResponder": [
+    "Quantos canos a VSSM tem no Gunsmith, e quais são os nomes exatos?",
+    "Existe um 200mm Barrel? Se existe, ele é um dos três que temos com outro nome, ou é peça que falta?",
+    "Os canos dela são supressores integrais — isto é, alteram marcação no mundo e no minimapa — ou são canos comuns como o dataset supõe?",
+    "A arma aceita boca separada? Hoje o dataset oferece oito, e arma de supressor integral costuma não aceitar",
+    "Os custos batem com 10, 20 e 5, ou com os 20 e 30 da matriz?"
+  ],
+  "canosNoJogo": [],
+  "conclusao": null,
+  "hipoteses": [
+    "dataset incompleto — falta cano, e os que existem estão certos",
+    "dataset com modelo antigo — a VSSM foi cadastrada como fuzil comum e nunca revista",
+    "a fonte cataloga diferente — a matriz chama de arquétipo o que o jogo mostra como peça",
+    "mudança da 1.4.2.0 — o patch mexeu nos canos dela e o dataset ficou na versão anterior"
+  ],
+  "comoPreencher": "Liste em canosNoJogo cada cano como o Gunsmith mostra: nome, custo e efeitos, na ordem em que aparecem. Depois escolha uma das hipóteses em conclusao, ou escreva outra. Não tente casar com o que já está cadastrado enquanto anota — a comparação é o passo seguinte, e fazê-la de cabeça é o que produz dado enviesado."
+}
