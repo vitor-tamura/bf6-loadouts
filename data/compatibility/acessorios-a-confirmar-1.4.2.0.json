@@ -1,6 +1,6 @@
 {
   "gameVersion": "1.4.2.0",
-  "fase": "existência confirmada, valores a confirmar no jogo",
+  "fase": "cadastrado com suposição declarada, a confirmar no jogo",
   "porQue": "Quatro peças que a EA anuncia no roadmap da Temporada 4 e que nenhuma fonte deste repositório tem: nem o dataset do montador, nem a nota da 1.4.2.0, nem a matriz do catálogo. A existência está resolvida; o que falta é custo, efeito medido e — o mais importante — em que armas cada uma entra.",
   "oQueAsFontesDaquiDizem": {
     "datasetDoMontador": "nenhuma das quatro está cadastrada",
@@ -212,7 +212,23 @@
         "nome": "corroborado",
         "custo": "relatado",
         "compatibilidade": "evidencia_parcial"
-      }
+      },
+      "statusDaAuditoria": "partial_confirmation",
+      "relatos": [
+        {
+          "campo": "custo",
+          "valor": 30,
+          "fonte": "https://www.reddit.com/r/LowSodiumBattlefield/comments/1vsvlkt/comparison_of_the_new_hybrid_suppressor/",
+          "tier": 4
+        },
+        {
+          "campo": "custo",
+          "valor": 25,
+          "fonte": "https://www.reddit.com/r/Battlefield6/comments/1vsvmxp/quick_comparison_of_the_new_hybrid_suppressors/",
+          "tier": 4
+        }
+      ],
+      "fontesRepetidas": "várias postagens do Reddit reportando os mesmos valores e efeitos (as URLs acima são exemplos)"
     },
     {
       "nome": "Hybrid Suppressor (S)",
@@ -235,7 +251,23 @@
         "nome": "corroborado",
         "custo": "relatado",
         "compatibilidade": "evidencia_parcial"
-      }
+      },
+      "statusDaAuditoria": "partial_confirmation",
+      "relatos": [
+        {
+          "campo": "custo",
+          "valor": 30,
+          "fonte": "https://www.reddit.com/r/LowSodiumBattlefield/comments/1vsvlkt/comparison_of_the_new_hybrid_suppressor/",
+          "tier": 4
+        },
+        {
+          "campo": "custo",
+          "valor": 25,
+          "fonte": "https://www.reddit.com/r/Battlefield6/comments/1vsvmxp/quick_comparison_of_the_new_hybrid_suppressors/",
+          "tier": 4
+        }
+      ],
+      "fontesRepetidas": "mesmas postagens/threads do Reddit replicando informação"
     },
     {
       "nome": "Hybrid Suppressor (K)",
@@ -258,7 +290,17 @@
         "nome": "corroborado",
         "custo": "relatado",
         "compatibilidade": "evidencia_parcial"
-      }
+      },
+      "statusDaAuditoria": "partial_confirmation",
+      "relatos": [
+        {
+          "campo": "custo",
+          "valor": 30,
+          "fonte": "https://www.reddit.com/r/LowSodiumBattlefield/comments/1vsvlkt/comparison_of_the_new_hybrid_suppressor/",
+          "tier": 4
+        }
+      ],
+      "fontesRepetidas": "informações principais vêm de threads do Reddit citadas acima"
     },
     {
       "nome": "Canted Vertical Grip",
@@ -280,10 +322,26 @@
         "nome": "oficial",
         "custo": "desconhecido",
         "compatibilidade": "evidencia_parcial"
-      }
+      },
+      "statusDaAuditoria": "partial_confirmation",
+      "relatos": [
+        {
+          "campo": "disponibilidade",
+          "valor": "reportado para LMGs apenas",
+          "fonte": "https://www.reddit.com/r/Battlefield6/comments/1vr45dr/info_on_the_new_attachments_coming_out_tomorrow/",
+          "tier": 4
+        },
+        {
+          "campo": "desbloqueio",
+          "valor": "reportado como desbloqueável por progressão (ex.: relato de desbloqueio ao upar AK4D)",
+          "fonte": "https://www.reddit.com/r/Battlefield/comments/1vrn9bf/new_attachment/",
+          "tier": 4
+        }
+      ],
+      "fontesRepetidas": "vários posts do Reddit e agregadores de notícias consolidando o mesmo relatório; nenhuma fonte oficial lista armas específicas"
     }
   ],
-  "comoPreencher": "No Gunsmith, para cada peça: copie nome e custo como a interface mostra, anote os efeitos e registre em que armas ela aparece. Onde o custo do jogo divergir do relato da comunidade, vale o jogo — e a divergência fica registrada, não apagada.",
+  "comoPreencher": "No Gunsmith, para cada peça: confira o custo, anote os efeitos e — o mais importante — liste em que armas ela aparece de verdade. As listas cadastradas são suposição de família e vão ser recortadas, não ampliadas.",
   "seConfirmarem": "Cadastro segue o caminho dos barris: custo publicado, mods vazios se o efeito não for medido, compatibilidade só onde houver evidência. O baseline congelado da 1.4.2.0 não muda — ele descreve o dataset como ele estava, e peça nova é dataset novo, não baseline corrigido.",
   "escalaDeEvidencia": {
     "oficial": "a EA afirma, em roadmap ou nota de patch",
@@ -292,5 +350,109 @@
     "evidencia_parcial": "confirmado para alguns casos observados, não para o conjunto",
     "desconhecido": "ninguém publicou",
     "regra": "a afirmação nunca vale mais que a fonte que a sustenta, e repetição não é independência: as páginas que reproduzem o mesmo post do Reddit continuam sendo aquele post."
-  }
+  },
+  "cadastro": {
+    "quando": "2026-08-20",
+    "onde": "src/data/attachments.ts",
+    "ids": [
+      "muzzle-hybrid-suppressor-l",
+      "muzzle-hybrid-suppressor-s",
+      "muzzle-hybrid-suppressor-k",
+      "underbarrel-canted-vertical"
+    ],
+    "provenance": "curated — a tela marca como valor aproximado toda montagem que use uma delas",
+    "oQueVeioDeFonte": [
+      "existência e nomes: EA",
+      "custo dos três híbridos: relato de comunidade pós-patch (30, 40, 50)",
+      "a peça é o Thunder Beast Magnus-RR em três comprimentos: IMFDB"
+    ],
+    "oQueEhSuposicao": [
+      "a lista de armas dos híbridos é a do Supressor Padrão, 57 armas, por analogia de família — há relato de que algumas ficaram de fora",
+      "a Vertical Inclinada foi para as dez metralhadoras; a EA diz \"a maioria\", e só M123K, RPKM e RPK-74M têm relato de uso",
+      "o custo 30 da Vertical Inclinada é estimativa: nenhuma fonte publica, e 30 é o preço da Stubby Inclinada"
+    ],
+    "efeitos": "mods vazios nas quatro. A EA descreve o efeito em palavras e não publica número; medir é curadoria, e ninguém mediu.",
+    "impactoNoValidador": "os pares sem confirmação de fonte subiram de 46 para 227 no catalog:compat, e é a leitura certa: 181 pares novos que a matriz da 1.4.2.0 não conhece, porque ela é anterior às peças. O número volta a cair quando a matriz da próxima versão as incluir, ou quando o Gunsmith recortar as listas."
+  },
+  "pesquisaFeita": {
+    "quando": "2026-08-20",
+    "procurando": "a lista de armas que equipam cada peça",
+    "resultado": "nenhuma fonte alcançável publica a lista; o campo continua por suposição",
+    "tentativas": [
+      {
+        "fonte": "reddit.com (r/Battlefield6, r/LowSodiumBattlefield, r/Battlefield)",
+        "resultado": "bloqueado",
+        "detalhe": "o site recusa o rastreador da Anthropic. A busca por domínio devolve erro explícito, e a leitura direta da thread também. É onde a lista existe — a thread \"Here are the weapons with the new Suppressors\" — e é justamente o que não dá para abrir daqui."
+      },
+      {
+        "fonte": "ea.com — roadmap da Temporada 4",
+        "resultado": "inalcançável",
+        "detalhe": "o domínio não resolveu nesta máquina"
+      },
+      {
+        "fonte": "battlefield.fandom.com — verbete Suppressor",
+        "resultado": "HTTP 402"
+      },
+      {
+        "fonte": "imfdb.org — página do Battlefield 6",
+        "resultado": "HTTP 403",
+        "detalhe": "foi a busca que devolveu o dado do Magnus-RR; a página em si não abre"
+      },
+      {
+        "fonte": "bf6loadouts.com",
+        "resultado": "HTTP 403",
+        "detalhe": "a captura dele é manual por decisão do fetch-loadouts"
+      },
+      {
+        "fonte": "bf6balancelog.com",
+        "resultado": "aberto, e sem as peças",
+        "detalhe": "cobre a 1.4.2.0, mas transcreve a nota oficial — e a nota não cita as quatro peças. Confirma pelo silêncio que elas não entraram por changelog."
+      },
+      {
+        "fonte": "busca aberta",
+        "resultado": "rendeu tudo menos a lista",
+        "detalhe": "existência, nomes, escada de penalidade, custos relatados e a identificação do Thunder Beast Magnus-RR em três comprimentos. Nenhum resultado traz que armas equipam o quê."
+      }
+    ],
+    "conclusao": "A lista de armas só sai do Gunsmith. As duas listas cadastradas são suposição de família e a expectativa é que encolham: 57 armas nos híbridos e 10 na Vertical Inclinada são o teto, não a medida."
+  },
+  "perguntaAoModelo": {
+    "quando": "2026-08-20",
+    "modelos": [
+      "gpt-5-mini",
+      "gpt-4.1"
+    ],
+    "oQueFoiPedido": "a lista de armas de cada peça, com a URL de onde ela saiu",
+    "status": "relatado — nada aqui é dado confirmado, e nada disso entra no dataset",
+    "proximoPasso": "conferir no Gunsmith e mover o que bater para o campo armas",
+    "segundaRodada": {
+      "quando": "2026-08-20",
+      "prompt": "a doutrina de tiers, com hierarquia de fonte, independência e vocabulário de status",
+      "resultado": "as quatro voltaram partial_confirmation: existência sim, lista de armas não",
+      "rendeu": "o conflito de custo acima, que a primeira rodada não tinha pegado",
+      "naoRendeu": "nenhuma lista de armas — nem o modelo com busca própria achou"
+    }
+  },
+  "conflitos": [
+    {
+      "campo": "custo dos Supressores Híbridos",
+      "status": "source_conflict",
+      "valores": [
+        {
+          "valor": "30 / 40 / 50 para (L), (S) e (K)",
+          "fonte": "reddit-custos-18-08",
+          "tier": 4,
+          "nota": "thread que lista as três com custo por variante; é o que está cadastrado no dataset"
+        },
+        {
+          "valor": "25 a 30, sem separar por variante",
+          "fonte": "auditoria de 20/08 (gpt-5-mini com busca)",
+          "tier": 4,
+          "nota": "duas threads de comparação; o modelo devolveu os mesmos relatos para (L) e (S), o que sugere valor genérico da família e não medida por variante"
+        }
+      ],
+      "consequencia": "os três custos cadastrados em src/data/attachments.ts estão contestados por outra leitura da mesma camada de evidência. Nenhuma das duas é tier 0 ou 1, então nenhuma resolve a outra — e é por isso que as peças entraram como curated, com a tela marcando a montagem como valor aproximado.",
+      "comoResolver": "ler o custo na tela do Gunsmith. É o único degrau acima das duas."
+    }
+  ]
 }
