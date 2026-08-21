@@ -280,6 +280,40 @@ sustenta, e cada afirmação aponta para a sua. É o que permite, seis meses
 depois, saber se uma conclusão envelheceu ou se só a fonte dela envelheceu —
 ver `data/compatibility/acessorios-a-confirmar-1.4.2.0.json` como modelo.
 
+### Em que armas a peça nova entra
+
+```bash
+npm run catalog:perguntar-acessorios                    # varre e escreve
+OPENAI_API_KEY=... npm run catalog:perguntar-acessorios   # varre e, no que sobrar, pergunta
+```
+
+É a pergunta mais difícil de um patch, e a que menos gente publica: a EA anuncia
+a peça e descreve o efeito, mas não publica matriz de compatibilidade. A rotina
+ataca isso em duas etapas, e a ordem é o ponto.
+
+**Primeiro enumera.** Há uma fonte que lista a ficha de cada arma com o slot
+inteiro — as doze bocas da M4A1, as duas da M87A1. Isso é diferente de uma fonte
+que fala de uma arma por vez, e é o que permite ler ausência como negativa: se a
+ficha enumerou o slot e a peça não está lá, ela não entra naquela arma. Sessenta
+e três páginas, uma por arma de fogo, sem chave de API e sem modelo no meio.
+
+**Depois pergunta, só no que sobrou.** O que a varredura não achou vai para um
+modelo com busca ligada, que alcança página que este ambiente não alcança. Gastar
+chamada no que já foi enumerado seria trocar a fonte que lista o slot inteiro por
+uma que repete post de fórum.
+
+A trava que faz a coisa toda funcionar: **peça que a fonte não conhece dá zero
+acerto nas 63 armas**, e ler isso como 63 conflitos seria concluir que ela não
+entra em arma nenhuma a partir de uma fonte que só não a cadastrou ainda. Foi o
+caso da Vertical Inclinada em agosto de 2026 — o rnkd tinha os três Supressores
+Híbridos e não tinha ela. Por isso, candidato sem nenhuma confirmação sai como
+`ausente_da_fonte`, com os conflitos anulados.
+
+O resultado entra em `armasEnumeradas` (o que a varredura leu) e `armasRelatadas`
+(o que o modelo ouviu). **Nunca** em `armas`, que é o campo do Gunsmith, e nunca
+em `src/data/attachments.ts`. Promover é decisão de gente, com o jogo aberto — e
+quando acontece, fica registrado em `promovidoParaODataset`, com o porquê.
+
 ### O montador contra as fontes
 
 ```bash

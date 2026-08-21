@@ -1,7 +1,7 @@
 {
   "gameVersion": "1.4.2.0",
-  "fase": "cadastrado com suposição declarada, a confirmar no jogo",
-  "porQue": "Quatro peças que a EA anuncia no roadmap da Temporada 4 e que nenhuma fonte deste repositório tem: nem o dataset do montador, nem a nota da 1.4.2.0, nem a matriz do catálogo. A existência está resolvida; o que falta é custo, efeito medido e — o mais importante — em que armas cada uma entra.",
+  "fase": "compatibilidade e custo conferidos em fonte de fora; efeito derivado e ainda por medir no jogo",
+  "porQue": "Quatro peças que a EA anuncia no roadmap da Temporada 4 e que nenhuma fonte deste repositório tinha: nem o dataset do montador, nem a nota da 1.4.2.0, nem a matriz do catálogo. Em 21/08/2026 a existência, o custo dos três híbridos e a lista de armas das quatro saíram de fontes de fora. O que ainda falta: o custo da Vertical Inclinada e o efeito medido de todas elas.",
   "oQueAsFontesDaquiDizem": {
     "datasetDoMontador": "nenhuma das quatro está cadastrada",
     "nota142": "zero menções a Hybrid, Canted Vertical ou Suppressor no texto do patch",
@@ -95,6 +95,62 @@
       "sustenta": [
         "desbloqueio por 2.000 de dano, com dano de metralhadora contando em dobro"
       ]
+    },
+    {
+      "id": "rnkd-gg",
+      "nome": "rnkd.gg — Battlefield 6, ficha por arma com a lista de acessórios do Gunsmith",
+      "url": "https://rnkd.gg/battlefield6/weapons/",
+      "data": "2026-08-21",
+      "tipo": "base de dados",
+      "sustenta": [
+        "custo das três variantes: 30, 40 e 50, e o mesmo valor em toda arma que as recebe",
+        "a lista de armas que recebem cada Supressor Híbrido, arma por arma",
+        "a SV-98 recebe a (L) e não recebe a (S) nem a (K)",
+        "nenhuma submetralhadora, pistola ou escopeta recebe qualquer variante"
+      ],
+      "lidoNaFonte": true,
+      "nota": "enumera o slot inteiro de cada arma — as onze bocas da M16A4, as duas da M87A1 —, então \"não está na lista\" aqui é enumeração, não silêncio. Foi lida uma página por arma, 63 no total, que é o arsenal de fogo inteiro. Não publica multiplicador: nome, posto de desbloqueio e custo, e nada mais."
+    },
+    {
+      "id": "imfdb-talk-bf6",
+      "nome": "IMFDB — Talk:Battlefield 6",
+      "url": "https://www.imfdb.org/wiki/Talk:Battlefield_6",
+      "data": "2026-08-21",
+      "tipo": "comunidade",
+      "sustenta": [
+        "a Vertical Inclinada é a Zenitco RK-2, montada em ângulo pelo trilho B-25U",
+        "ela entra em toda metralhadora menos a M27 IAR"
+      ],
+      "lidoNaFonte": false,
+      "nota": "a página devolve HTTP 403 ao leitor daqui; o texto veio pelo resultado de busca, que o cita literalmente. A M27 IAR é a DRS-IAR no jogo — identificação que o próprio IMFDB e o Battlefield Wiki sustentam."
+    },
+    {
+      "id": "gfinity-s4-attachments",
+      "nome": "GFinity Esports — Season 4: How to Unlock Every New Weapon & Attachment",
+      "url": "https://www.gfinityesports.com/article/battlefield-6-season-4-how-to-unlock-every-new-weapon-and-attachment",
+      "data": "2026-08-21",
+      "tipo": "imprensa",
+      "sustenta": [
+        "a escada de penalidade das três variantes, no texto da EA",
+        "Vertical Inclinada e Supressor Híbrido chegam ao longo da Temporada 4"
+      ],
+      "lidoNaFonte": true,
+      "nota": "reproduz o roadmap da EA, que não abre nesta máquina. Detalha desbloqueio só das duas peças da fase anterior; das quatro daqui, dá o efeito em palavras e nenhum número."
+    },
+    {
+      "id": "resenha-hibrido-18-08",
+      "nome": "Resenha do Supressor Híbrido, agregando o texto da EA",
+      "url": "https://www.facebook.com/61576639947066/posts/bf6-just-added-a-suppressor-muzzle-brake-hybridthe-new-hybrid-suppressor-combine/122188353458887998/",
+      "data": "2026-08-18",
+      "tipo": "comunidade",
+      "sustenta": [
+        "custos 30, 40 e 50, um por variante",
+        "esconde por completo a marcação no mundo e encurta a do minimapa",
+        "reduz o acúmulo de recuo e melhora a recuperação; reduz um pouco o recuo geral",
+        "a (L) cobra tiro sem visada, oscilação e saque; a (S) cobra só tiro sem visada; a (K) não cobra manejo"
+      ],
+      "lidoNaFonte": true,
+      "nota": "segunda leitura independente da tabela 30/40/50, e a que descreve o ganho em mais detalhe que o roadmap. Continua sendo comunidade: nenhum número de multiplicador."
     }
   ],
   "evidencia": [
@@ -130,46 +186,15 @@
       "status": "oficial"
     },
     {
-      "afirmacao": "Hybrid (L) custa 30",
-      "fonte": "reddit-custos-18-08",
-      "status": "relatado"
-    },
-    {
-      "afirmacao": "Hybrid (S) custa 40",
-      "fonte": "reddit-custos-18-08",
-      "status": "relatado"
-    },
-    {
-      "afirmacao": "Hybrid (K) custa 50",
-      "fonte": "reddit-custos-18-08",
-      "status": "relatado"
-    },
-    {
-      "afirmacao": "matriz arma × Hybrid",
-      "fonte": "reddit-custos-18-08",
-      "status": "evidencia_parcial"
-    },
-    {
       "afirmacao": "custo do Canted Vertical",
       "fonte": null,
       "status": "desconhecido"
-    },
-    {
-      "afirmacao": "matriz arma × Canted Vertical",
-      "fonte": "reddit-canted-uso-20-08",
-      "status": "evidencia_parcial",
-      "nota": "três metralhadoras observadas de dez; a EA diz a maioria, sem lista"
     },
     {
       "afirmacao": "o comportamento de recuo do Hybrid, medido no campo de tiro",
       "fonte": "reddit-teste-19-08",
       "status": "corroborado",
       "nota": "medição experimental, não opinião: bate com o efeito que a EA descreve"
-    },
-    {
-      "afirmacao": "Canted Vertical entra em M123K, RPKM e RPK-74M",
-      "fonte": "reddit-canted-uso-20-08",
-      "status": "evidencia_parcial"
     },
     {
       "afirmacao": "os nomes K, S e L existiam no jogo antes da 1.4.2.0",
@@ -181,6 +206,30 @@
       "afirmacao": "Canted Vertical desbloqueia com 2.000 de dano",
       "fonte": "bfbulletin-unlock",
       "status": "relatado"
+    },
+    {
+      "afirmacao": "Hybrid (L) custa 30, (S) custa 40 e (K) custa 50",
+      "fonte": "rnkd-gg, resenha-hibrido-18-08, reddit-custos-18-08",
+      "status": "corroborado",
+      "nota": "três leituras independentes com o mesmo valor por variante, uma delas uma base que enumera o Gunsmith arma por arma. Resolve o conflito de 20/08."
+    },
+    {
+      "afirmacao": "matriz arma × Hybrid",
+      "fonte": "rnkd-gg",
+      "status": "corroborado",
+      "nota": "63 fichas lidas, uma por arma de fogo. A regra que sai delas é por categoria — fuzil, carabina, metralhadora, semiautomático de precisão e ferrolho sim; submetralhadora, pistola e escopeta não — com três exceções que só aparecem arma por arma: VSSM sem slot de boca, Interdictor com três bocas e nenhuma híbrida, SV-98 só com a (L)."
+    },
+    {
+      "afirmacao": "matriz arma × Canted Vertical",
+      "fonte": "imfdb-talk-bf6, reddit-canted-uso-20-08",
+      "status": "corroborado",
+      "nota": "\"toda metralhadora menos a M27 IAR\" é a primeira afirmação de conjunto que alguém publica; as três metralhadoras avistadas em uso pós-patch cabem dentro dela. Vira lista de nove, sem a DRS-IAR."
+    },
+    {
+      "afirmacao": "os multiplicadores de cada peça",
+      "fonte": null,
+      "status": "desconhecido",
+      "nota": "nenhuma fonte alcançável publica número: nem a EA, nem o rnkd.gg, nem o sym.gg. O que está no dataset é derivação declarada do efeito descrito, calibrada contra as peças vizinhas — e continua marcada como valor aproximado na tela."
     }
   ],
   "hierarquiaDeFonte": {
@@ -206,14 +255,14 @@
       "custoNoJogo": null,
       "efeitosNoJogo": [],
       "armas": [],
-      "observacao": "a mais barata das três, e a que cobra mais caro em penalidade. 30 pontos empataria com o Supressor de CQB, hoje a nossa boca mais cara",
+      "observacao": "a mais barata das três, e a que cobra mais caro em penalidade. Empata com o Supressor de CQB em 30 pontos. É a única que a SV-98 aceita, e por isso a lista dela tem uma arma a mais que as outras duas.",
       "grauDeEvidencia": {
         "existencia": "oficial",
         "nome": "corroborado",
-        "custo": "relatado",
-        "compatibilidade": "evidencia_parcial"
+        "custo": "corroborado",
+        "compatibilidade": "corroborado"
       },
-      "statusDaAuditoria": "partial_confirmation",
+      "statusDaAuditoria": "enumerado_com_recorte",
       "relatos": [
         {
           "campo": "custo",
@@ -228,7 +277,130 @@
           "tier": 4
         }
       ],
-      "fontesRepetidas": "várias postagens do Reddit reportando os mesmos valores e efeitos (as URLs acima são exemplos)"
+      "fontesRepetidas": "várias postagens do Reddit reportando os mesmos valores e efeitos (as URLs acima são exemplos)",
+      "custoConferidoSegundo": "rnkd-gg",
+      "armasEnumeradas": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "quando": "2026-08-21",
+        "confirmado": [
+          "tr-7",
+          "ak4d",
+          "b36a4",
+          "sor-556-mk2",
+          "l85a3",
+          "nvo-228e",
+          "m433",
+          "kord-6p67",
+          "vcr-2",
+          "m4a1",
+          "m16a4",
+          "ef88",
+          "qbz-192",
+          "ak-205",
+          "grt-bc",
+          "m417-a2",
+          "brod-3",
+          "sg-553r",
+          "sor-300sc",
+          "m277",
+          "kts100-mk8",
+          "drs-iar",
+          "rpkm",
+          "l110",
+          "m250",
+          "m123k",
+          "m60",
+          "m240l",
+          "m121-a2",
+          "rpk-74m",
+          "lmr27",
+          "m39-emr",
+          "svk-86",
+          "svdm",
+          "sv-98",
+          "grt-cps",
+          "m2010-esr",
+          "psr",
+          "mini-scout",
+          "l115"
+        ],
+        "conflito": [
+          "pw5a3",
+          "scw-10",
+          "kv9",
+          "pw7a2",
+          "usg-90",
+          "sl9",
+          "sgx",
+          "umg-40",
+          "cz3a1",
+          "pp-19",
+          "interdictor",
+          "m1014",
+          "db-12",
+          "18-5ks-k",
+          "m87a1",
+          "m45a1",
+          "es-57",
+          "p18",
+          "ggh-22",
+          "vz-61"
+        ],
+        "semSlot": [
+          "vssm",
+          "m44",
+          "m357-trait"
+        ],
+        "naoConferido": [],
+        "custo": 30
+      },
+      "promovidoParaODataset": {
+        "quando": "2026-08-21",
+        "onde": "src/data/attachments.ts",
+        "armas": [
+          "ak-205",
+          "ak4d",
+          "b36a4",
+          "brod-3",
+          "drs-iar",
+          "ef88",
+          "grt-bc",
+          "grt-cps",
+          "kord-6p67",
+          "kts100-mk8",
+          "l110",
+          "l115",
+          "l85a3",
+          "lmr27",
+          "m121-a2",
+          "m123k",
+          "m16a4",
+          "m2010-esr",
+          "m240l",
+          "m250",
+          "m277",
+          "m39-emr",
+          "m417-a2",
+          "m433",
+          "m4a1",
+          "m60",
+          "mini-scout",
+          "nvo-228e",
+          "psr",
+          "qbz-192",
+          "rpk-74m",
+          "rpkm",
+          "sg-553r",
+          "sor-300sc",
+          "sor-556-mk2",
+          "sv-98",
+          "svdm",
+          "svk-86",
+          "tr-7",
+          "vcr-2"
+        ],
+        "porQue": "a lista é a que a varredura enumerou, promovida à mão. O campo armas continua vazio de propósito: ninguém abriu o Gunsmith, e é ele quem preenche este campo."
+      }
     },
     {
       "nome": "Hybrid Suppressor (S)",
@@ -245,14 +417,14 @@
       "custoNoJogo": null,
       "efeitosNoJogo": [],
       "armas": [],
-      "observacao": "mesma vantagem da (L) com uma penalidade só. A 40 pontos seria a boca mais cara do arsenal",
+      "observacao": "mesma vantagem da (L) com uma penalidade só. A 40 pontos é a segunda boca mais cara do arsenal, atrás apenas da (K).",
       "grauDeEvidencia": {
         "existencia": "oficial",
         "nome": "corroborado",
-        "custo": "relatado",
-        "compatibilidade": "evidencia_parcial"
+        "custo": "corroborado",
+        "compatibilidade": "corroborado"
       },
-      "statusDaAuditoria": "partial_confirmation",
+      "statusDaAuditoria": "enumerado_com_recorte",
       "relatos": [
         {
           "campo": "custo",
@@ -267,7 +439,129 @@
           "tier": 4
         }
       ],
-      "fontesRepetidas": "mesmas postagens/threads do Reddit replicando informação"
+      "fontesRepetidas": "mesmas postagens/threads do Reddit replicando informação",
+      "custoConferidoSegundo": "rnkd-gg",
+      "armasEnumeradas": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "quando": "2026-08-21",
+        "confirmado": [
+          "tr-7",
+          "ak4d",
+          "b36a4",
+          "sor-556-mk2",
+          "l85a3",
+          "nvo-228e",
+          "m433",
+          "kord-6p67",
+          "vcr-2",
+          "m4a1",
+          "m16a4",
+          "ef88",
+          "qbz-192",
+          "ak-205",
+          "grt-bc",
+          "m417-a2",
+          "brod-3",
+          "sg-553r",
+          "sor-300sc",
+          "m277",
+          "kts100-mk8",
+          "drs-iar",
+          "rpkm",
+          "l110",
+          "m250",
+          "m123k",
+          "m60",
+          "m240l",
+          "m121-a2",
+          "rpk-74m",
+          "lmr27",
+          "m39-emr",
+          "svk-86",
+          "svdm",
+          "grt-cps",
+          "m2010-esr",
+          "psr",
+          "mini-scout",
+          "l115"
+        ],
+        "conflito": [
+          "pw5a3",
+          "scw-10",
+          "kv9",
+          "pw7a2",
+          "usg-90",
+          "sl9",
+          "sgx",
+          "umg-40",
+          "cz3a1",
+          "pp-19",
+          "sv-98",
+          "interdictor",
+          "m1014",
+          "db-12",
+          "18-5ks-k",
+          "m87a1",
+          "m45a1",
+          "es-57",
+          "p18",
+          "ggh-22",
+          "vz-61"
+        ],
+        "semSlot": [
+          "vssm",
+          "m44",
+          "m357-trait"
+        ],
+        "naoConferido": [],
+        "custo": 40
+      },
+      "promovidoParaODataset": {
+        "quando": "2026-08-21",
+        "onde": "src/data/attachments.ts",
+        "armas": [
+          "ak-205",
+          "ak4d",
+          "b36a4",
+          "brod-3",
+          "drs-iar",
+          "ef88",
+          "grt-bc",
+          "grt-cps",
+          "kord-6p67",
+          "kts100-mk8",
+          "l110",
+          "l115",
+          "l85a3",
+          "lmr27",
+          "m121-a2",
+          "m123k",
+          "m16a4",
+          "m2010-esr",
+          "m240l",
+          "m250",
+          "m277",
+          "m39-emr",
+          "m417-a2",
+          "m433",
+          "m4a1",
+          "m60",
+          "mini-scout",
+          "nvo-228e",
+          "psr",
+          "qbz-192",
+          "rpk-74m",
+          "rpkm",
+          "sg-553r",
+          "sor-300sc",
+          "sor-556-mk2",
+          "svdm",
+          "svk-86",
+          "tr-7",
+          "vcr-2"
+        ],
+        "porQue": "a lista é a que a varredura enumerou, promovida à mão. O campo armas continua vazio de propósito: ninguém abriu o Gunsmith, e é ele quem preenche este campo."
+      }
     },
     {
       "nome": "Hybrid Suppressor (K)",
@@ -284,14 +578,14 @@
       "custoNoJogo": null,
       "efeitosNoJogo": [],
       "armas": [],
-      "observacao": "a EA diz que ela não tem contrapartida além do preço. A 50 pontos seria metade do orçamento numa peça só, acima do acoplamento de 45 que hoje é a peça mais cara do jogo — número que merece conferência antes de virar dado",
+      "observacao": "a EA diz que ela não tem contrapartida além do preço, e o custo de 50 se confirmou em base de dados: metade do orçamento numa peça só, acima do acoplamento de 45 que era a peça mais cara do jogo.",
       "grauDeEvidencia": {
         "existencia": "oficial",
         "nome": "corroborado",
-        "custo": "relatado",
-        "compatibilidade": "evidencia_parcial"
+        "custo": "corroborado",
+        "compatibilidade": "corroborado"
       },
-      "statusDaAuditoria": "partial_confirmation",
+      "statusDaAuditoria": "enumerado_com_recorte",
       "relatos": [
         {
           "campo": "custo",
@@ -300,7 +594,129 @@
           "tier": 4
         }
       ],
-      "fontesRepetidas": "informações principais vêm de threads do Reddit citadas acima"
+      "fontesRepetidas": "informações principais vêm de threads do Reddit citadas acima",
+      "custoConferidoSegundo": "rnkd-gg",
+      "armasEnumeradas": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "quando": "2026-08-21",
+        "confirmado": [
+          "tr-7",
+          "ak4d",
+          "b36a4",
+          "sor-556-mk2",
+          "l85a3",
+          "nvo-228e",
+          "m433",
+          "kord-6p67",
+          "vcr-2",
+          "m4a1",
+          "m16a4",
+          "ef88",
+          "qbz-192",
+          "ak-205",
+          "grt-bc",
+          "m417-a2",
+          "brod-3",
+          "sg-553r",
+          "sor-300sc",
+          "m277",
+          "kts100-mk8",
+          "drs-iar",
+          "rpkm",
+          "l110",
+          "m250",
+          "m123k",
+          "m60",
+          "m240l",
+          "m121-a2",
+          "rpk-74m",
+          "lmr27",
+          "m39-emr",
+          "svk-86",
+          "svdm",
+          "grt-cps",
+          "m2010-esr",
+          "psr",
+          "mini-scout",
+          "l115"
+        ],
+        "conflito": [
+          "pw5a3",
+          "scw-10",
+          "kv9",
+          "pw7a2",
+          "usg-90",
+          "sl9",
+          "sgx",
+          "umg-40",
+          "cz3a1",
+          "pp-19",
+          "sv-98",
+          "interdictor",
+          "m1014",
+          "db-12",
+          "18-5ks-k",
+          "m87a1",
+          "m45a1",
+          "es-57",
+          "p18",
+          "ggh-22",
+          "vz-61"
+        ],
+        "semSlot": [
+          "vssm",
+          "m44",
+          "m357-trait"
+        ],
+        "naoConferido": [],
+        "custo": 50
+      },
+      "promovidoParaODataset": {
+        "quando": "2026-08-21",
+        "onde": "src/data/attachments.ts",
+        "armas": [
+          "ak-205",
+          "ak4d",
+          "b36a4",
+          "brod-3",
+          "drs-iar",
+          "ef88",
+          "grt-bc",
+          "grt-cps",
+          "kord-6p67",
+          "kts100-mk8",
+          "l110",
+          "l115",
+          "l85a3",
+          "lmr27",
+          "m121-a2",
+          "m123k",
+          "m16a4",
+          "m2010-esr",
+          "m240l",
+          "m250",
+          "m277",
+          "m39-emr",
+          "m417-a2",
+          "m433",
+          "m4a1",
+          "m60",
+          "mini-scout",
+          "nvo-228e",
+          "psr",
+          "qbz-192",
+          "rpk-74m",
+          "rpkm",
+          "sg-553r",
+          "sor-300sc",
+          "sor-556-mk2",
+          "svdm",
+          "svk-86",
+          "tr-7",
+          "vcr-2"
+        ],
+        "porQue": "a lista é a que a varredura enumerou, promovida à mão. O campo armas continua vazio de propósito: ninguém abriu o Gunsmith, e é ele quem preenche este campo."
+      }
     },
     {
       "nome": "Canted Vertical Grip",
@@ -316,14 +732,14 @@
       "custoNoJogo": null,
       "efeitosNoJogo": [],
       "armas": [],
-      "observacao": "a EA diz 'a maioria das metralhadoras'. São dez no arsenal — DRS-IAR, KTS100 MK8, RPKM, M123K, M250, L110, M/60, M240L, M121 A2, RPK-74M —, e 'a maioria' vira lista só arma por arma. Relatos pós-patch citam RPK e M240. Não confundir com o Canted Stubby, que já existe aqui",
+      "observacao": "\"a maioria das metralhadoras\" virou lista: toda metralhadora menos a M27 IAR, que aqui é a DRS-IAR. São nove das dez. O custo continua sem fonte nenhuma — 30 é o preço da Stubby Inclinada, estimativa declarada.",
       "grauDeEvidencia": {
         "existencia": "oficial",
         "nome": "oficial",
         "custo": "desconhecido",
-        "compatibilidade": "evidencia_parcial"
+        "compatibilidade": "corroborado"
       },
-      "statusDaAuditoria": "partial_confirmation",
+      "statusDaAuditoria": "ausente_da_fonte",
       "relatos": [
         {
           "campo": "disponibilidade",
@@ -338,10 +754,38 @@
           "tier": 4
         }
       ],
-      "fontesRepetidas": "vários posts do Reddit e agregadores de notícias consolidando o mesmo relatório; nenhuma fonte oficial lista armas específicas"
+      "fontesRepetidas": "vários posts do Reddit e agregadores de notícias consolidando o mesmo relatório; nenhuma fonte oficial lista armas específicas",
+      "naoConferidoPeloRnkd": "o rnkd.gg não conhece esta peça: nenhuma das 63 fichas a lista, nem as metralhadoras que têm relato de uso. A base tem os três híbridos, então o silêncio dela aqui é peça ausente do instantâneo, não exclusão por arma — e por isso não vale como evidência contrária.",
+      "armasEnumeradas": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "quando": "2026-08-21",
+        "confirmado": [],
+        "conflito": [],
+        "semSlot": [
+          "usg-90"
+        ],
+        "naoConferido": [],
+        "ausenteDaFonte": "nenhuma das 63 fichas lista esta peça. Isso é peça ausente do instantâneo da fonte, não exclusão por arma — as armas que enumeraram o slot sem ela não contam como evidência contrária, e por isso não foram registradas."
+      },
+      "promovidoParaODataset": {
+        "quando": "2026-08-21",
+        "onde": "src/data/attachments.ts",
+        "armas": [
+          "kts100-mk8",
+          "l110",
+          "m121-a2",
+          "m123k",
+          "m240l",
+          "m250",
+          "m60",
+          "rpk-74m",
+          "rpkm"
+        ],
+        "porQue": "a lista veio do IMFDB — \"toda metralhadora menos a M27 IAR\", que aqui é a DRS-IAR. A varredura não a alcança: a fonte que enumera não cadastrou esta peça."
+      }
     }
   ],
-  "comoPreencher": "No Gunsmith, para cada peça: confira o custo, anote os efeitos e — o mais importante — liste em que armas ela aparece de verdade. As listas cadastradas são suposição de família e vão ser recortadas, não ampliadas.",
+  "comoPreencher": "Falta o Gunsmith em dois pontos: o custo da Vertical Inclinada, e se os híbridos cobram velocidade de projétil. A lista de armas já foi conferida em fonte que enumera o slot inteiro — o que aparecer diferente na tela do jogo derruba a fonte, não o contrário.",
   "seConfirmarem": "Cadastro segue o caminho dos barris: custo publicado, mods vazios se o efeito não for medido, compatibilidade só onde houver evidência. O baseline congelado da 1.4.2.0 não muda — ele descreve o dataset como ele estava, e peça nova é dataset novo, não baseline corrigido.",
   "escalaDeEvidencia": {
     "oficial": "a EA afirma, em roadmap ou nota de patch",
@@ -363,16 +807,19 @@
     "provenance": "curated — a tela marca como valor aproximado toda montagem que use uma delas",
     "oQueVeioDeFonte": [
       "existência e nomes: EA",
-      "custo dos três híbridos: relato de comunidade pós-patch (30, 40, 50)",
-      "a peça é o Thunder Beast Magnus-RR em três comprimentos: IMFDB"
+      "custo dos três híbridos: rnkd.gg, com duas leituras de comunidade concordando (30, 40, 50)",
+      "a lista de armas dos três híbridos: rnkd.gg, 63 fichas conferidas",
+      "a lista de armas da Vertical Inclinada: IMFDB — toda metralhadora menos a M27 IAR",
+      "a peça é o Thunder Beast Magnus-RR em três comprimentos: IMFDB",
+      "a Vertical Inclinada é a Zenitco RK-2 no trilho B-25U: IMFDB"
     ],
     "oQueEhSuposicao": [
-      "a lista de armas dos híbridos é a do Supressor Padrão, 57 armas, por analogia de família — há relato de que algumas ficaram de fora",
-      "a Vertical Inclinada foi para as dez metralhadoras; a EA diz \"a maioria\", e só M123K, RPKM e RPK-74M têm relato de uso",
-      "o custo 30 da Vertical Inclinada é estimativa: nenhuma fonte publica, e 30 é o preço da Stubby Inclinada"
+      "os multiplicadores das quatro peças — derivados do efeito que a EA descreve, calibrados contra as peças vizinhas, nunca medidos",
+      "o custo 30 da Vertical Inclinada: nenhuma fonte publica, e 30 é o preço da Stubby Inclinada",
+      "a ausência de penalidade de velocidade e alcance nos híbridos: nenhuma fonte afirma que ela existe, e nenhuma afirma que não"
     ],
     "efeitos": "mods vazios nas quatro. A EA descreve o efeito em palavras e não publica número; medir é curadoria, e ninguém mediu.",
-    "impactoNoValidador": "os pares sem confirmação de fonte subiram de 46 para 227 no catalog:compat, e é a leitura certa: 181 pares novos que a matriz da 1.4.2.0 não conhece, porque ela é anterior às peças. O número volta a cair quando a matriz da próxima versão as incluir, ou quando o Gunsmith recortar as listas."
+    "impactoNoValidador": "os pares sem confirmação de fonte caíram de 227 para 173 no catalog:compat. Foram 54 pares a menos: 18 armas × 3 híbridos que saíram, mais a DRS-IAR que saiu da Vertical Inclinada, menos a SV-98 que entrou na (L). O resto continua sendo o que sempre foi — a matriz da 1.4.2.0 é anterior às peças e não as conhece."
   },
   "pesquisaFeita": {
     "quando": "2026-08-20",
@@ -436,7 +883,7 @@
   "conflitos": [
     {
       "campo": "custo dos Supressores Híbridos",
-      "status": "source_conflict",
+      "status": "resolved",
       "valores": [
         {
           "valor": "30 / 40 / 50 para (L), (S) e (K)",
@@ -452,7 +899,92 @@
         }
       ],
       "consequencia": "os três custos cadastrados em src/data/attachments.ts estão contestados por outra leitura da mesma camada de evidência. Nenhuma das duas é tier 0 ou 1, então nenhuma resolve a outra — e é por isso que as peças entraram como curated, com a tela marcando a montagem como valor aproximado.",
-      "comoResolver": "ler o custo na tela do Gunsmith. É o único degrau acima das duas."
+      "comoResolver": "ler o custo na tela do Gunsmith. É o único degrau acima das duas.",
+      "resolucao": {
+        "quando": "2026-08-21",
+        "valorQueFicou": "30 / 40 / 50 para (L), (S) e (K)",
+        "porQue": "o rnkd.gg lista as três com esses custos em cada uma das armas que as recebem, e a resenha de 18/08 repete os mesmos três valores por variante. São duas leituras independentes da tabela por variante contra uma leitura de faixa genérica (\"25 a 30\", sem separar variante) — que é justamente o que se espera de quem olhou a família e não a peça.",
+        "oQueContinuaAberto": "nenhuma das fontes é a tela do Gunsmith. O custo está corroborado, não medido; se o jogo mostrar outro número, é o jogo que ganha."
+      }
     }
-  ]
+  ],
+  "efeitosDerivados": {
+    "quando": "2026-08-21",
+    "porQue": "as quatro entraram com mods vazios porque ninguém publica multiplicador. Continua ninguém publicando — a busca desta rodada cobriu EA, rnkd.gg, sym.gg, wiki e imprensa, e nenhuma delas passa de descrição em palavras. O que mudou é que a descrição agora está fechada por duas leituras independentes, e o arquivo já deriva número de descrição em 216 outras peças. Então elas deixam de valer zero, que era o pior dos valores possíveis: uma boca de 50 pontos sem efeito nenhum some de qualquer montagem automática.",
+    "comoForamCalibrados": {
+      "recuo dos híbridos": "-7% nos dois eixos e +5 de controle, iguais nas três variantes. \"Reduz um pouco o recuo geral\" fica entre o Supressor Longo (-6% no vertical) e o Leve (-8%), e bem longe do Freio de Porta Dupla (-16%); o controle traduz \"reduz o acúmulo de recuo e melhora a recuperação\", que é o que a barra de Controle mede.",
+      "tiro sem visada": "-6 na (L) e na (S), o mesmo do Supressor Padrão. A escada da EA muda quantas penalidades cada variante cobra, não o tamanho de cada uma.",
+      "oscilação": "-4 de precisão, só na (L). O dataset não tem estatística de oscilação; precisão é onde ela aparece na tela, e -4 espelha o +4 do Quebra-Chamas.",
+      "saque": "+8% de tempo de troca na (L) e -8% na Vertical Inclinada. É a primeira vez que um acessório mexe em swapMs: a estatística existia, a tela já a mostrava e nenhuma peça a usava.",
+      "tiro sem visada da Vertical Inclinada": "+6, abaixo do +8 do Apoio de Mão Compacto, porque a EA chama de \"melhora moderada\"."
+    },
+    "oQueFicouDeFora": "velocidade e alcance. Os outros supressores do arsenal cobram os dois, mas nenhuma fonte diz que o híbrido cobra, e a EA afirma que a (K) não tem contrapartida alguma. Inventar a penalidade aqui contrariaria a única fonte oficial que existe sobre a peça — então ela não entra, e é o primeiro campo a conferir no Gunsmith.",
+    "provenance": "as quatro seguem curated: a tela marca como valor aproximado toda montagem que use uma delas."
+  },
+  "leituraDeFontes": {
+    "quando": "2026-08-21",
+    "procurando": "a lista de armas de cada peça e o número por trás de cada efeito",
+    "resultado": "a lista apareceu; o número, não",
+    "oQueAbriu": [
+      {
+        "fonte": "rnkd.gg",
+        "resultado": "aberto, e é a fonte desta rodada",
+        "detalhe": "63 fichas lidas, uma por arma de fogo. Dá nome, posto de desbloqueio e custo de cada acessório do slot; não dá multiplicador."
+      },
+      {
+        "fonte": "gfinityesports.com",
+        "resultado": "aberto",
+        "detalhe": "reproduz o roadmap da EA, que continua sem resolver nesta máquina. Efeito em palavras, sem número e sem lista de armas."
+      },
+      {
+        "fonte": "busca aberta sobre o IMFDB",
+        "resultado": "rendeu a frase que faltava",
+        "detalhe": "a página devolve 403, mas o resultado de busca cita o texto: Zenitco RK-2, \"for every LMG but the M27 IAR\"."
+      },
+      {
+        "fonte": "battlefieldmeta.gg e wzstats.gg",
+        "resultado": "abertos, e desatualizados",
+        "detalhe": "listam os acessórios por arma sem as peças da Temporada 4. Servem de contraprova de que enumerar não basta: é preciso enumerar depois do patch."
+      },
+      {
+        "fonte": "sym.gg",
+        "resultado": "aberto, e sem tabela de acessório",
+        "detalhe": "só gráfico de arma; a página de acessórios não existe."
+      },
+      {
+        "fonte": "ea.com",
+        "resultado": "inalcançável",
+        "detalhe": "o domínio continua sem resolver nesta máquina"
+      },
+      {
+        "fonte": "reddit.com",
+        "resultado": "bloqueado",
+        "detalhe": "o site continua recusando o rastreador"
+      },
+      {
+        "fonte": "battlefield.fandom.com",
+        "resultado": "HTTP 402"
+      },
+      {
+        "fonte": "boostmatch.gg",
+        "resultado": "HTTP 403"
+      }
+    ],
+    "conclusao": "A compatibilidade saiu da suposição: as listas dos híbridos encolheram de 57 armas para 39 e 40, e a da Vertical Inclinada de dez para nove. O efeito continua sem medição publicada e entrou por derivação declarada. O que ainda só o Gunsmith responde: o custo da Vertical Inclinada, e se o híbrido cobra velocidade de projétil."
+  },
+  "varreduraDoArsenal": {
+    "quando": "2026-08-21",
+    "fonte": "https://rnkd.gg/battlefield6/weapons",
+    "porQue": "a única fonte alcançável que enumera o slot inteiro de cada arma, o que permite ler ausência como negativa",
+    "armasLidas": 63,
+    "armasNoArsenal": 63,
+    "comoLer": {
+      "confirmado": "a ficha daquela arma lista a peça no slot esperado",
+      "conflito": "a ficha enumerou o slot e a peça não está nele — evidência contrária",
+      "semSlot": "a arma não tem esse slot; não diz nada sobre a peça",
+      "naoConferido": "a ficha não abriu; silêncio, e nada mais",
+      "ausenteDaFonte": "zero acertos no arsenal inteiro: a fonte não cadastrou a peça, e por isso os conflitos são anulados"
+    },
+    "limite": "enumerar não é o Gunsmith. Isto entra em armasEnumeradas, nunca em armas — promover é decisão de gente, com o jogo aberto."
+  }
 }

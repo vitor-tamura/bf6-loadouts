@@ -117,14 +117,22 @@ jobs:
         if: steps.existe.outputs.pular != '1'
         run: npm run catalog:compat -- --candidatos
 
-      # A auditoria pergunta a um modelo com busca onde a peça nova aparece, e
-      # grava só relato com endereço — nunca custo, efeito ou compatibilidade
-      # confirmados, que são campos do Gunsmith.
+      # A auditoria vai atrás de em que armas a peça nova entra, em duas etapas.
       #
-      # `continue-on-error` porque ela é a parte menos confiável do pipeline: a
-      # busca pode não achar nada, a API pode estar fora, e nenhuma das duas
-      # coisas justifica derrubar o Pull Request do patch. Sem o segredo
-      # configurado ela para sozinha, com a mensagem, e o resto segue.
+      # Primeiro varre a ficha de cada arma numa fonte que **enumera o slot
+      # inteiro** — 63 páginas, sem chave de API e sem modelo no meio. Enumerar é
+      # o que permite ler ausência como negativa, a mesma distinção que o
+      # `catalog:compat` faz. Depois, só para o que a varredura não fechou,
+      # pergunta a um modelo com busca.
+      #
+      # Grava em `armasEnumeradas` e `armasRelatadas`, nunca em `armas` nem no
+      # dataset: custo, efeito e compatibilidade confirmados são campos do
+      # Gunsmith, e promover é decisão de gente.
+      #
+      # `continue-on-error` porque ela depende de site de terceiro: a fonte pode
+      # mudar de layout, a busca pode não achar nada, a API pode estar fora, e
+      # nenhuma das três justifica derrubar o Pull Request do patch. Sem o
+      # segredo configurado, a varredura roda igual e só a pergunta é pulada.
       - name: Auditar os acessórios novos
         if: steps.existe.outputs.pular != '1'
         continue-on-error: true

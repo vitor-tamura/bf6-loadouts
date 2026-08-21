@@ -135,4 +135,13 @@ export const ENDPOINTS = {
   loadouts: process.env.CATALOG_LOADOUTS_URL ?? 'https://bf6loadouts.com',
   githubRepo: process.env.CATALOG_GITHUB_REPO ?? 'raymdl/BF6-Weapon-Analyzer',
   githubBranch: process.env.CATALOG_GITHUB_BRANCH ?? 'main',
+  /**
+   * A ficha por arma do rnkd.gg, que enumera o slot inteiro.
+   *
+   * É a única fonte alcançável daqui que lista, arma por arma, todos os
+   * acessórios de cada slot — inclusive os que a temporada acrescentou. Enumerar
+   * é o que a separa das outras: quando a peça não está lá, isso é evidência
+   * contrária, e não silêncio.
+   */
+  arsenal: process.env.CATALOG_ARSENAL_URL ?? 'https://rnkd.gg/battlefield6/weapons',
 };
