@@ -92,11 +92,11 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | Freio Compensado | Compensated Brake | 20 | 51 weapons | Freio com fendas em cima: derruba o salto e esconde a marcação. |
 | Supressor Padrão | Standard Suppressor | 20 | quase showAll (57) | Abafa o disparo e apaga a marcação, de perto e de longe. |
 | Supressor Longo | Long Suppressor | 25 | 50 weapons | O mais silencioso: recuo mais firme, em troca de mira lenta e mais oscilação. |
-| Supressor Híbrido (L) | Hybrid Suppressor (L) | 30 | quase showAll (57) | Supressor e freio na mesma peça, no corpo cheio: o mais barato dos três, e o que mais cobra em manejo. |
+| Supressor Híbrido (L) | Hybrid Suppressor (L) | 30 | 40 weapons | Supressor e freio na mesma peça, no corpo cheio: o mais barato dos três, e o que mais cobra em manejo. |
 | Supressor Leve | Lightened Suppressor | 30 | 53 weapons | Silêncio com o recuo mais firme dos supressores; o preço é o tiro sem visada. |
 | Supressor para Curta Distância | CQB Suppressor | 30 | quase showAll (58) | Silêncio sem penalidade de manejo — e sem ganho de recuo em troca. |
-| Supressor Híbrido (S) | Hybrid Suppressor (S) | 40 | quase showAll (57) | O híbrido de corpo médio: mesma vantagem da versão cheia, cobrando só o tiro sem visada. |
-| Supressor Híbrido (K) | Hybrid Suppressor (K) | 50 | quase showAll (57) | O híbrido curto: o mais caro do arsenal e o único sem contrapartida declarada. |
+| Supressor Híbrido (S) | Hybrid Suppressor (S) | 40 | 39 weapons | O híbrido de corpo médio: mesma vantagem da versão cheia, cobrando só o tiro sem visada. |
+| Supressor Híbrido (K) | Hybrid Suppressor (K) | 50 | 39 weapons | O híbrido curto: o mais caro do arsenal e o único sem contrapartida declarada. |
 
 ## Cano
 
@@ -294,7 +294,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | Curta Inclinada | Canted Stubby | 30 | 50 weapons | Recuperação de mira mais rápida entre disparos. |
 | Empunhadura com Bipé | Classic Grip Pod | 30 | 37 weapons | Empunhadura e bipé na mesma peça. |
 | Empunhadura com Bipé QD | QD Grip Pod | 30 | 39 weapons | Empunhadura e bipé na mesma peça. |
-| Vertical Inclinada | Canted Vertical Grip | 30 | 10 weapons | Empunhadura vertical virada para a frente: abre o cone de perto e acelera o saque. |
+| Vertical Inclinada | Canted Vertical Grip | 30 | 9 weapons | Empunhadura vertical virada para a frente: firma o tiro de perto e acelera o saque. |
 | Curta Texturizada | Stippled Stubby | 35 | 50 weapons | Recuperação de mira mais rápida entre disparos. |
 | Vertical Clássica | Classic Vertical | 35 | 49 weapons | O maior controle de recuo vertical. |
 | Curta de Perfil Baixo | Low-Profile Stubby | 45 | quase showAll (55) | Recuperação de mira mais rápida entre disparos. |

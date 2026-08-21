@@ -112,23 +112,28 @@ export const ATTACHMENTS: Attachment[] = [
   {
     /*
       Empunhadura vertical inclinada, anunciada pela EA para "a maioria das
-      metralhadoras". A lista abaixo tem as dez do arsenal, e "a maioria" não é
-      "todas": relato pós-patch confirma M123K, RPKM e RPK-74M, e as outras
-      sete entram por extensão, não por evidência.
+      metralhadoras". "A maioria" virou lista em 21/08/2026: o IMFDB identifica
+      a peça como a Zenitco RK-2 e diz que ela entra em toda metralhadora menos
+      a M27 IAR — que aqui é a DRS-IAR. Sobram nove, e a DRS-IAR saiu.
 
-      O custo é o único número aqui que não veio de fonte nenhuma. A EA diz
-      "custo significativo em pontos" e não publica o valor; 30 é o preço da
-      Stubby Inclinada, a peça mais parecida do arsenal, e está aqui como
-      estimativa declarada até o Gunsmith responder.
+      O efeito é derivado do que a EA descreve — tiro sem visada melhor e saque
+      mais rápido —, calibrado contra a peça vizinha: o Apoio de Mão Compacto
+      vale +8 de tiro sem visada, e "melhora moderada" fica abaixo disso. É o
+      primeiro acessório do arquivo a mexer em `swapMs`; a estatística já
+      existia, era exibida na tela e nenhuma peça a usava.
+
+      O custo continua sem fonte. A EA diz "custo significativo em pontos" e não
+      publica o valor; 30 é o preço da Stubby Inclinada, a peça mais parecida do
+      arsenal, e está aqui como estimativa declarada até o Gunsmith responder.
     */
     id: 'underbarrel-canted-vertical',
     name: 'Vertical Inclinada',
     originalName: 'Canted Vertical Grip',
     slot: 'underbarrel',
     cost: 30,
-    description: 'Empunhadura vertical virada para a frente: abre o cone de perto e acelera o saque.',
-    mods: {},
-    compat: { weapons: ['drs-iar', 'kts100-mk8', 'l110', 'm121-a2', 'm123k', 'm240l', 'm250', 'm60', 'rpk-74m', 'rpkm'] },
+    description: 'Empunhadura vertical virada para a frente: firma o tiro de perto e acelera o saque.',
+    mods: { hipfire: { add: 6 }, swapMs: { mult: 0.92 } },
+    compat: { weapons: ['kts100-mk8', 'l110', 'm121-a2', 'm123k', 'm240l', 'm250', 'm60', 'rpk-74m', 'rpkm'] },
     provenance: 'curated',
   },
   {
@@ -432,19 +437,36 @@ export const ATTACHMENTS: Attachment[] = [
       Magnus-RR, que vem em versão cheia, S e K —, e o preço sobe conforme o
       tubo encurta: quem paga mais compra ausência de peso, não tamanho.
 
-      Três coisas aqui ainda não vieram do jogo, e por isso as peças entram
-      como `curated`, que faz a tela marcar a montagem como valor aproximado:
+      As três entraram com `mods: {}` e lista de armas por analogia de família.
+      O que a leitura das fontes de fora fez com isso, em 21/08/2026:
 
-      - o custo. A EA não publica ponto de acessório; 30, 40 e 50 são relato
-        de comunidade pós-patch, registrado em
-        `data/compatibility/acessorios-a-confirmar-1.4.2.0.json`;
-      - o efeito. A EA descreve — reduz recuo e marcação, e cobra tiro sem
-        visada, oscilação e saque em escada — mas não publica número, e este
-        arquivo não inventa multiplicador. `mods: {}` até alguém medir;
-      - a compatibilidade. A lista abaixo é a do Supressor Padrão, por
-        suposição: híbrido é supressor, e supressor no BF6 vai para as mesmas
-        plataformas. Há relato de que algumas armas ficaram de fora, então
-        isto é o primeiro campo a conferir no Gunsmith.
+      - **o custo saiu de relato para conferido.** O rnkd.gg lê o Gunsmith arma
+        por arma e lista as três em 30, 40 e 50 pontos, no mesmo valor em toda
+        arma que as recebe. Isso encerra o conflito registrado em
+        `data/compatibility/acessorios-a-confirmar-1.4.2.0.json`, onde uma
+        segunda leitura falava em "25 a 30" sem separar variante;
+      - **a compatibilidade deixou de ser suposição.** A lista abaixo é a do
+        rnkd.gg, conferida nas 63 armas dele: entram fuzil de assalto, carabina,
+        metralhadora, semiautomático de precisão e ferrolho; ficam de fora
+        submetralhadora, pistola e escopeta — nenhuma das vinte e uma tem.
+        A VSSM não tem slot de boca, e a Interdictor lista três bocas, nenhuma
+        híbrida. A SV-98 é o caso torto: recebe a (L) e não recebe a (S) nem a
+        (K), e por isso ela aparece só nesta primeira lista;
+      - **o efeito virou número.** A EA descreve em palavras — reduz o recuo,
+        apaga a marcação no mundo e encurta a marcação no minimapa — e a escada
+        de penalidade separa as três: a (L) cobra tiro sem visada, oscilação e
+        saque; a (S) cobra só tiro sem visada; a (K) não cobra nada além do
+        preço. O ganho é o mesmo nas três, e os multiplicadores traduzem
+        "reduz um pouco" na escala do arquivo: -7% nos dois eixos, entre o
+        Supressor Longo (-6% no vertical) e o Leve (-8%), e bem longe do Freio
+        de Porta Dupla (-16%). A oscilação entra como perda de precisão, que é
+        onde ela aparece na tela.
+
+      O que ninguém publica continua fora: nenhuma fonte diz se o híbrido cobra
+      velocidade de projétil como os outros supressores cobram, e a EA afirma
+      que a (K) não tem contrapartida — então não há `velocity` nem `range`
+      aqui, e é o primeiro campo a conferir no Gunsmith. As três seguem
+      `curated`, e a tela continua marcando a montagem como valor aproximado.
     */
     id: 'muzzle-hybrid-suppressor-l',
     name: 'Supressor Híbrido (L)',
@@ -452,34 +474,38 @@ export const ATTACHMENTS: Attachment[] = [
     slot: 'muzzle',
     cost: 30,
     description: 'Supressor e freio na mesma peça, no corpo cheio: o mais barato dos três, e o que mais cobra em manejo.',
-    mods: {},
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    mods: { verticalRecoil: { mult: 0.93 }, horizontalRecoil: { mult: 0.93 }, control: { add: 5 }, hipfire: { add: -6 }, accuracy: { add: -4 }, swapMs: { mult: 1.08 } },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2'] },
     provenance: 'curated',
   },
   {
-    // Corpo médio. Ver o comentário da (L): custo, efeito e compatibilidade
-    // seguem o mesmo estado de evidência.
+    // Corpo médio. Ver o comentário da (L): mesmo ganho, custo conferido no
+    // rnkd.gg e lista de armas conferida arma por arma. A escada de penalidade
+    // da EA cobra uma coisa só desta aqui — e a SV-98, que aceita a (L), não
+    // aparece nesta lista.
     id: 'muzzle-hybrid-suppressor-s',
     name: 'Supressor Híbrido (S)',
     originalName: 'Hybrid Suppressor (S)',
     slot: 'muzzle',
     cost: 40,
     description: 'O híbrido de corpo médio: mesma vantagem da versão cheia, cobrando só o tiro sem visada.',
-    mods: {},
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    mods: { verticalRecoil: { mult: 0.93 }, horizontalRecoil: { mult: 0.93 }, control: { add: 5 }, hipfire: { add: -6 } },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'vcr-2'] },
     provenance: 'curated',
   },
   {
-    // Corpo curto, e o mais caro do jogo. A EA diz que ele não tem penalidade
-    // alguma além do preço — metade do orçamento numa boca só.
+    // Corpo curto, e a boca mais cara do jogo. A EA diz que ela não tem
+    // contrapartida alguma além do preço, e é assim que ela entra: o ganho das
+    // outras duas, sem penalidade nenhuma. Mesma lista da (S) — a SV-98 fica
+    // de fora das duas.
     id: 'muzzle-hybrid-suppressor-k',
     name: 'Supressor Híbrido (K)',
     originalName: 'Hybrid Suppressor (K)',
     slot: 'muzzle',
     cost: 50,
     description: 'O híbrido curto: o mais caro do arsenal e o único sem contrapartida declarada.',
-    mods: {},
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    mods: { verticalRecoil: { mult: 0.93 }, horizontalRecoil: { mult: 0.93 }, control: { add: 5 } },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'vcr-2'] },
     provenance: 'curated',
   },
   {
