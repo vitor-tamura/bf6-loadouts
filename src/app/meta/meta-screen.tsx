@@ -360,17 +360,7 @@ export function MetaScreen({
               </li>
             ))}
           </ul>
-          <p className="mt-2 max-w-[80ch] text-[11px] leading-relaxed" style={{ color: 'var(--text-dim)' }}>
-            Três coisas barram uma fonte. A <strong>data</strong>: guia de lançamento descreve um
-            jogo que já mudou de balanceamento quatro vezes. O <strong>modo</strong>: quem mede
-            multiplayer e REDSEC no mesmo texto fica de fora, porque não dá para saber qual dos dois
-            sustenta cada indicação. E <strong>o que ela pode provar</strong>: fórum, Reddit e
-            comentário mostram do que se fala — sustentam a tendência, e não o topo, que precisa de
-            quem meça arma por arma ou do changelog oficial.
-          </p>
         </Card>
-
-        <SiteFooter note="Ranking de opinião do multiplayer, mantido à mão. Os números das armas continuam vindo do dataset." />
       </main>
     </div>
   );
