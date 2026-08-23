@@ -1,121 +1,93 @@
 {
-  "readAt": "2026-08-21",
+  "readAt": "2026-08-23",
   "model": "gpt-5-mini",
   "patch": {
     "name": "Game Update 1.4.2.0 (Top Gun)",
-    "date": "2026-08-18"
+    "date": "2026-08-14"
   },
   "picks": [
     {
+      "weapon": "tr-7",
+      "reason": "Fontes de meta multiplayer aponham o TR-7 como referência de estabilidade entre bullpups e o posicionam alto nas comparações de controle/alcance após o lançamento da Season 4; o update mais recente trouxe apenas polimentos visuais/aparência de anexos, não nerfs ou buffs de atributos.",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "weapon": "sor-556-mk2",
+      "reason": "Listas de meta multiplayer pós‑patch colocam o SOR-556 Mk2 entre as melhores opções para versatilidade em média distância, com análises técnicas citando sua TTK consistente; 1.4.2.0 não alterou estatísticas de arma.",
+      "sources": [
+        1
+      ]
+    },
+    {
       "weapon": "m16a4",
-      "reason": "wzstats.gg coloca a M16A4 no topo do ranking multiplayer (#1 Assault Rifle) após a atualização da Season 4; ranking é baseado em medidas de desempenho do multiplayer e foi atualizado em 2026-08-21.",
+      "reason": "Análises de meta para o caminho multiplayer continuam a apontar M16A4 como escolha competitiva em médio‑curto alcance devido ao seu TTK por burst e controle; o patch 1.4.2.0 não mexeu nas estatísticas da arma, apenas em polimentos gerais.",
       "sources": [
         1
       ]
     },
     {
-      "weapon": "b36a4",
-      "reason": "wzstats.gg lista B36A4 como #2 entre Assault Rifles no painel multiplayer atualizado (meta multiplayer) — evidência quantitativa de força no modo tradicional.",
+      "weapon": "vssm",
+      "reason": "O VSSM aparece em rankings de multiplayer como uma opção de DMR/marksman destacada no meta atual; o patch 1.4.2.0 removeu um modificador de recuo não intencional em anexos (correção apontada pela EA), indicando que mudanças foram corretivas e não de balanceamento direto da arma.",
       "sources": [
-        1
-      ]
-    },
-    {
-      "weapon": "drs-iar",
-      "reason": "wzstats.gg mostra DRS-IAR como #1 entre LMGs no ranking multiplayer — posição que reflete desempenho medido por categoria no multiplayer tradicional.",
-      "sources": [
-        1
-      ]
-    },
-    {
-      "weapon": "pp-19",
-      "reason": "wzstats.gg aponta PP-19 como #1 SMG no ranking multiplayer atualizado, o que sustenta sua condição de pick para o meta de multiplayer.",
-      "sources": [
-        1
-      ]
-    },
-    {
-      "weapon": "kord-6p67",
-      "reason": "KORD 6P67 aparece entre os TOP do ranking de assault rifles em wzstats.gg (posição de destaque #3/assault), indicada pelo rastreador multiplayer como arma de alto desempenho depois do patch.",
-      "sources": [
-        1
-      ]
-    },
-    {
-      "weapon": "sgx",
-      "reason": "SGX figura alto no ranking multiplayer de wzstats.gg (entre os melhores SMGs/slots) em atualização de 21/08/2026, medido especificamente no caminho 'multiplayer'.",
-      "sources": [
-        1
-      ]
-    },
-    {
-      "weapon": "nvo-228e",
-      "reason": "NVO-228E está listada entre as melhores no painel multiplayer de wzstats.gg (#4 Assault Rifle), indicando consistência e desempenho no multiplayer após o patch.",
-      "sources": [
-        1
-      ]
-    },
-    {
-      "weapon": "m2010-esr",
-      "reason": "M2010 ESR aparece como #1 Sniper Rifle no ranking multiplayer de wzstats.gg, sustentando sua presença como pick de alto desempenho no multiplayer tradicional.",
-      "sources": [
-        1
+        0
       ]
     }
   ],
   "trending": [
     {
-      "weapon": "m16a4",
-      "reason": "threads do subreddit r/Battlefield e r/Battlefield6 mostram conversas amplas sobre a M16A4 ser a arma mais usada/comentada no multiplayer após as mudanças de Season 4 (posts e comentários discutindo 'everyone using M16A4').",
+      "weapon": "ef88",
+      "reason": "threads e posts no pós‑patch mostram jogadores relatando grande presença da EF88 nas partidas de multiplayer depois do lançamento da fase Top Gun.",
+      "sources": [
+        3
+      ],
+      "trend": "todo mundo testando builds do Season 4"
+    },
+    {
+      "weapon": "interdictor",
+      "reason": "a chegada do Interdictor com a fase Top Gun tem gerado debates técnicos sobre alcance e uso em multiplayer (discussões em artigos pós‑patch e fóruns), mesmo sendo divulgado como arma nova na atualização; é tópico recorrente nas análises e posts da comunidade desde o patch.",
       "sources": [
         2
       ],
-      "trend": "discussão de domínio em multiplayer"
-    },
-    {
-      "weapon": "brod-3",
-      "reason": "comunidade (discussões de Season 4 e posts sobre as armas da atualização Top Gun) e wzstats mostram BROD 3 bem posicionado no meta de carbine/assault do multiplayer, com muita menção em posts sobre as novas armas da temporada.",
-      "sources": [
-        1
-      ],
-      "trend": "build/uso depois da Season 4"
+      "trend": "novo sniper em discussão"
     }
   ],
   "sources": [
     {
-      "name": "EA / Battlefield - Patch 1.4.2.0 (Top Gun)",
+      "name": "EA - Game Update 1.4.2.0",
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-0",
+      "date": "2026-08-14",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "patch notes oficiais e changelog que mostram as alterações aplicadas a armas (correções de apresentação, anexos e bugs) para o multiplayer",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "WZStats - Multiplayer Meta",
+      "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
+      "date": "2026-08-22",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "rastreador de meta especificamente no caminho 'multiplayer', usado para avaliar posicionamento e TTK comparativo de armas no modo tradicional",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Neonsect - Top Gun / Patch analysis",
+      "url": "https://neonsect.com/battlefield-6/battlefield-6-top-gun-update/",
       "date": "2026-08-18",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "notas oficiais de atualização que listam conteúdo, correções e alterações relacionadas a armas (aplicável ao multiplayer); define a janela de validade do meta",
+      "scope": "artigo técnico/analítico pós‑patch que resume impacto da Phase 2 (Top Gun) no multiplayer e descreve as novas armas e seus papéis",
       "timeframe": "season-4"
     },
     {
-      "name": "WZStats (multiplayer meta)",
-      "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-08-21",
+      "name": "Reddit r/Battlefield6 - anúncio e reação ao patch",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1vrjcd7/bfcomms_battlefield_6_game_update_1420_is_now/",
+      "date": "2026-08-18",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "rastreador/aggregador que publica rankings e tier list específicos para o caminho 'multiplayer' (usado aqui para picks quantitativos)",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Reddit — r/Battlefield / r/Battlefield6 (discussões sobre armas e Season 4)",
-      "url": "https://www.reddit.com/r/Battlefield/comments/1mq9bh2/is_this_a_bit_shady/",
-      "date": "2026-08-21",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "evidência de trending: mostra onde a comunidade fala sobre quais armas 'todo mundo usa' no multiplayer e repercussão após o patch",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "MP1st / cobertura da Season 4 e notas de patch",
-      "url": "https://mp1st.com/news/battlefield-6-season-4-patch-notes-released-ahead-of-download",
-      "date": "2026-08-16",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "cobertura de imprensa com resumo das notas de patch e lista de novas armas da Season 4; útil para confirmar quais armas foram introduzidas na temporada",
+      "scope": "registro da comunidade sobre o lançamento do patch e observações iniciais sobre que armas e builds estão aparecendo nas partidas multiplayer",
       "timeframe": "season-4"
     }
   ]
