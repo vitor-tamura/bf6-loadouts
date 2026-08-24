@@ -1,35 +1,42 @@
 {
-  "readAt": "2026-08-23",
-  "model": "gpt-5-mini",
+  "readAt": "2026-08-24",
+  "model": "gpt-4.1",
   "patch": {
-    "name": "Game Update 1.4.2.0 (Top Gun)",
-    "date": "2026-08-14"
+    "name": "Update 1.4.2.0",
+    "date": "2026-08-18"
   },
   "picks": [
     {
-      "weapon": "tr-7",
-      "reason": "Fontes de meta multiplayer aponham o TR-7 como referência de estabilidade entre bullpups e o posicionam alto nas comparações de controle/alcance após o lançamento da Season 4; o update mais recente trouxe apenas polimentos visuais/aparência de anexos, não nerfs ou buffs de atributos.",
-      "sources": [
-        1
-      ]
-    },
-    {
-      "weapon": "sor-556-mk2",
-      "reason": "Listas de meta multiplayer pós‑patch colocam o SOR-556 Mk2 entre as melhores opções para versatilidade em média distância, com análises técnicas citando sua TTK consistente; 1.4.2.0 não alterou estatísticas de arma.",
-      "sources": [
-        1
-      ]
-    },
-    {
       "weapon": "m16a4",
-      "reason": "Análises de meta para o caminho multiplayer continuam a apontar M16A4 como escolha competitiva em médio‑curto alcance devido ao seu TTK por burst e controle; o patch 1.4.2.0 não mexeu nas estatísticas da arma, apenas em polimentos gerais.",
+      "reason": "Classificada como a melhor fuzil de assalto no ranking de meta do multiplayer tradicional.",
       "sources": [
-        1
+        0
       ]
     },
     {
-      "weapon": "vssm",
-      "reason": "O VSSM aparece em rankings de multiplayer como uma opção de DMR/marksman destacada no meta atual; o patch 1.4.2.0 removeu um modificador de recuo não intencional em anexos (correção apontada pela EA), indicando que mudanças foram corretivas e não de balanceamento direto da arma.",
+      "weapon": "pp-19",
+      "reason": "Lidera a categoria de submetralhadoras no ranking de meta do multiplayer tradicional.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "drs-iar",
+      "reason": "Destaca-se como a principal metralhadora leve no ranking de meta do multiplayer tradicional.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "m2010-esr",
+      "reason": "Considerada o melhor fuzil de precisão no ranking de meta do multiplayer tradicional.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "sg-553r",
+      "reason": "Classificada como a melhor carabina no ranking de meta do multiplayer tradicional.",
       "sources": [
         0
       ]
@@ -37,57 +44,39 @@
   ],
   "trending": [
     {
-      "weapon": "ef88",
-      "reason": "threads e posts no pós‑patch mostram jogadores relatando grande presença da EF88 nas partidas de multiplayer depois do lançamento da fase Top Gun.",
+      "weapon": "interdictor",
+      "reason": "Introduzida na atualização 1.4.2.0 como o fuzil de precisão de maior alcance do jogo, gerando discussões sobre seu impacto no meta.",
       "sources": [
-        3
+        1
       ],
-      "trend": "todo mundo testando builds do Season 4"
+      "trend": "chegou no patch"
     },
     {
-      "weapon": "interdictor",
-      "reason": "a chegada do Interdictor com a fase Top Gun tem gerado debates técnicos sobre alcance e uso em multiplayer (discussões em artigos pós‑patch e fóruns), mesmo sendo divulgado como arma nova na atualização; é tópico recorrente nas análises e posts da comunidade desde o patch.",
+      "weapon": "kord-6p67",
+      "reason": "Observada uma crescente popularidade entre os jogadores no multiplayer tradicional, conforme discussões em fóruns e comunidades.",
       "sources": [
-        2
+        0
       ],
-      "trend": "novo sniper em discussão"
+      "trend": "todo mundo usando"
     }
   ],
   "sources": [
     {
-      "name": "EA - Game Update 1.4.2.0",
-      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-0",
+      "name": "wzstats.gg",
+      "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
+      "date": "2026-08-23",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Ranking de meta do multiplayer tradicional",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "whatsnew.fyi",
+      "url": "https://whatsnew.fyi/product/battlefield-6/releases/2026-08-14-battlefield-6-update-1.4.2.0",
       "date": "2026-08-14",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "patch notes oficiais e changelog que mostram as alterações aplicadas a armas (correções de apresentação, anexos e bugs) para o multiplayer",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "WZStats - Multiplayer Meta",
-      "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-08-22",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "rastreador de meta especificamente no caminho 'multiplayer', usado para avaliar posicionamento e TTK comparativo de armas no modo tradicional",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Neonsect - Top Gun / Patch analysis",
-      "url": "https://neonsect.com/battlefield-6/battlefield-6-top-gun-update/",
-      "date": "2026-08-18",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "artigo técnico/analítico pós‑patch que resume impacto da Phase 2 (Top Gun) no multiplayer e descreve as novas armas e seus papéis",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Reddit r/Battlefield6 - anúncio e reação ao patch",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1vrjcd7/bfcomms_battlefield_6_game_update_1420_is_now/",
-      "date": "2026-08-18",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "registro da comunidade sobre o lançamento do patch e observações iniciais sobre que armas e builds estão aparecendo nas partidas multiplayer",
+      "scope": "Notas oficiais do patch 1.4.2.0",
       "timeframe": "season-4"
     }
   ]
