@@ -193,7 +193,7 @@ export const ATTACHMENTS: Attachment[] = [
   },
   {
     id: 'underbarrel-low-profile-stubby',
-    name: 'Curta de Perfil Baixo',
+    name: 'Perfil discreto',
     originalName: 'Low-Profile Stubby',
     slot: 'underbarrel',
     cost: 45,

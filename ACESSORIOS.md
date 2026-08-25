@@ -297,7 +297,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | Vertical Inclinada | Canted Vertical Grip | 30 | 9 weapons | Empunhadura vertical virada para a frente: firma o tiro de perto e acelera o saque. |
 | Curta Texturizada | Stippled Stubby | 35 | 50 weapons | Recuperação de mira mais rápida entre disparos. |
 | Vertical Clássica | Classic Vertical | 35 | 49 weapons | O maior controle de recuo vertical. |
-| Curta de Perfil Baixo | Low-Profile Stubby | 45 | quase showAll (55) | Recuperação de mira mais rápida entre disparos. |
+| Perfil discreto | Low-Profile Stubby | 45 | quase showAll (55) | Recuperação de mira mais rápida entre disparos. |
 
 ## Carregador
 
