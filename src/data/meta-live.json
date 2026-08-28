@@ -1,5 +1,5 @@
 {
-  "readAt": "2026-08-24",
+  "readAt": "2026-08-28",
   "model": "gpt-4.1",
   "patch": {
     "name": "Update 1.4.2.0",
@@ -8,35 +8,56 @@
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "Classificada como a melhor fuzil de assalto no ranking de meta do multiplayer tradicional.",
+      "reason": "Classificada como a melhor fuzil de assalto no modo multiplayer, destacando-se pelo desempenho consistente e versatilidade.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "b36a4",
+      "reason": "Posicionada como a segunda melhor fuzil de assalto no modo multiplayer, oferecendo alta precisão e controle de recuo.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "Lidera a categoria de submetralhadoras no ranking de meta do multiplayer tradicional.",
+      "reason": "Considerada a melhor submetralhadora no modo multiplayer, destacando-se pela alta cadência de tiro e mobilidade.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "kord-6p67",
+      "reason": "Classificada como a terceira melhor fuzil de assalto no modo multiplayer, conhecida por seu alto dano e estabilidade.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "Destaca-se como a principal metralhadora leve no ranking de meta do multiplayer tradicional.",
+      "reason": "Considerada a melhor metralhadora leve no modo multiplayer, oferecendo excelente controle de recuo e capacidade de munição.",
       "sources": [
         0
       ]
     },
     {
-      "weapon": "m2010-esr",
-      "reason": "Considerada o melhor fuzil de precisão no ranking de meta do multiplayer tradicional.",
+      "weapon": "sgx",
+      "reason": "Posicionada como a segunda melhor submetralhadora no modo multiplayer, equilibrando bem alcance e cadência de tiro.",
       "sources": [
         0
       ]
     },
     {
-      "weapon": "sg-553r",
-      "reason": "Classificada como a melhor carabina no ranking de meta do multiplayer tradicional.",
+      "weapon": "qbz-192",
+      "reason": "Classificada como a melhor carabina no modo multiplayer, destacando-se pela versatilidade em combates de médio alcance.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "pw5a3",
+      "reason": "Considerada a terceira melhor submetralhadora no modo multiplayer, conhecida por sua alta mobilidade e rapidez no disparo.",
       "sources": [
         0
       ]
@@ -44,39 +65,64 @@
   ],
   "trending": [
     {
-      "weapon": "interdictor",
-      "reason": "Introduzida na atualização 1.4.2.0 como o fuzil de precisão de maior alcance do jogo, gerando discussões sobre seu impacto no meta.",
+      "weapon": "ef88",
+      "reason": "Introduzida na Temporada 4, a EF88 tem sido amplamente discutida pela comunidade devido ao seu desempenho equilibrado e facilidade de uso.",
       "sources": [
         1
       ],
-      "trend": "chegou no patch"
+      "trend": "nova adição"
     },
     {
-      "weapon": "kord-6p67",
-      "reason": "Observada uma crescente popularidade entre os jogadores no multiplayer tradicional, conforme discussões em fóruns e comunidades.",
+      "weapon": "brod-3",
+      "reason": "A carabina BROD 3, adicionada recentemente, tem gerado debates sobre sua eficácia em combates de curto alcance.",
       "sources": [
-        0
+        2
       ],
-      "trend": "todo mundo usando"
+      "trend": "nova adição"
+    },
+    {
+      "weapon": "vssm",
+      "reason": "O fuzil de precisão VSSM, introduzido na última atualização, tem sido tema de discussões sobre seu potencial em mapas abertos.",
+      "sources": [
+        2
+      ],
+      "trend": "nova adição"
+    },
+    {
+      "weapon": "kts100-mk8",
+      "reason": "Jogadores têm relatado que a KTS100 MK8 está dominando as partidas, levantando questões sobre possível desequilíbrio.",
+      "sources": [
+        1
+      ],
+      "trend": "reclamações de equilíbrio"
     }
   ],
   "sources": [
     {
-      "name": "wzstats.gg",
+      "name": "WZStats.gg",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-08-23",
+      "date": "2026-08-25",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Ranking de meta do multiplayer tradicional",
+      "scope": "Análise detalhada do meta de armas no modo multiplayer tradicional.",
       "timeframe": "season-4"
     },
     {
-      "name": "whatsnew.fyi",
-      "url": "https://whatsnew.fyi/product/battlefield-6/releases/2026-08-14-battlefield-6-update-1.4.2.0",
-      "date": "2026-08-14",
+      "name": "KeenGamer",
+      "url": "https://www.keengamer.com/articles/guides/battlefield-6-season-4-meta-5-best-weapons-ranked/",
+      "date": "2026-07-28",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Notas oficiais do patch 1.4.2.0",
+      "scope": "Guia sobre as melhores armas na Temporada 4, focado no multiplayer tradicional.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Boostmatch",
+      "url": "https://boostmatch.gg/blog/battlefield-6/articles/battlefield-6-4-weapon-tier-list",
+      "date": "2026-07-21",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Tier list das armas na Temporada 4, com foco no multiplayer tradicional.",
       "timeframe": "season-4"
     }
   ]
