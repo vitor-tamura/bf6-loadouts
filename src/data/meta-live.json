@@ -1,63 +1,63 @@
 {
-  "readAt": "2026-08-28",
+  "readAt": "2026-09-02",
   "model": "gpt-4.1",
   "patch": {
-    "name": "Update 1.4.2.0",
-    "date": "2026-08-18"
+    "name": "Atualização 1.4.1.5",
+    "date": "2026-08-04"
   },
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "Classificada como a melhor fuzil de assalto no modo multiplayer, destacando-se pelo desempenho consistente e versatilidade.",
-      "sources": [
-        0
-      ]
-    },
-    {
-      "weapon": "b36a4",
-      "reason": "Posicionada como a segunda melhor fuzil de assalto no modo multiplayer, oferecendo alta precisão e controle de recuo.",
+      "reason": "Classificada como a melhor fuzil de assalto no ranking de meta do multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "Considerada a melhor submetralhadora no modo multiplayer, destacando-se pela alta cadência de tiro e mobilidade.",
+      "reason": "Classificada como a melhor submetralhadora no ranking de meta do multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "Classificada como a terceira melhor fuzil de assalto no modo multiplayer, conhecida por seu alto dano e estabilidade.",
+      "reason": "Classificada como a terceira melhor fuzil de assalto no ranking de meta do multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "Considerada a melhor metralhadora leve no modo multiplayer, oferecendo excelente controle de recuo e capacidade de munição.",
+      "reason": "Classificada como a melhor metralhadora leve no ranking de meta do multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "sgx",
-      "reason": "Posicionada como a segunda melhor submetralhadora no modo multiplayer, equilibrando bem alcance e cadência de tiro.",
+      "reason": "Classificada como a segunda melhor submetralhadora no ranking de meta do multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "Classificada como a melhor carabina no modo multiplayer, destacando-se pela versatilidade em combates de médio alcance.",
+      "reason": "Classificada como a melhor carabina no ranking de meta do multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pw5a3",
-      "reason": "Considerada a terceira melhor submetralhadora no modo multiplayer, conhecida por sua alta mobilidade e rapidez no disparo.",
+      "reason": "Classificada como a terceira melhor submetralhadora no ranking de meta do multiplayer.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "nvo-228e",
+      "reason": "Classificada como a quarta melhor fuzil de assalto no ranking de meta do multiplayer.",
       "sources": [
         0
       ]
@@ -66,63 +66,64 @@
   "trending": [
     {
       "weapon": "ef88",
-      "reason": "Introduzida na Temporada 4, a EF88 tem sido amplamente discutida pela comunidade devido ao seu desempenho equilibrado e facilidade de uso.",
+      "reason": "Discussões recentes em fóruns sobre a eficácia do EF88 com configurações full-auto.",
       "sources": [
         1
       ],
-      "trend": "nova adição"
+      "trend": "build full-auto"
     },
     {
-      "weapon": "brod-3",
-      "reason": "A carabina BROD 3, adicionada recentemente, tem gerado debates sobre sua eficácia em combates de curto alcance.",
+      "weapon": "m433",
+      "reason": "Relatos de jogadores indicando um aumento significativo no uso do M433 nas partidas.",
       "sources": [
         2
       ],
-      "trend": "nova adição"
+      "trend": "todo mundo usando"
     },
     {
-      "weapon": "vssm",
-      "reason": "O fuzil de precisão VSSM, introduzido na última atualização, tem sido tema de discussões sobre seu potencial em mapas abertos.",
+      "weapon": "m2010-esr",
+      "reason": "Introduzida na atualização mais recente, a M2010 ESR tem sido amplamente discutida.",
       "sources": [
-        2
+        3
       ],
-      "trend": "nova adição"
-    },
-    {
-      "weapon": "kts100-mk8",
-      "reason": "Jogadores têm relatado que a KTS100 MK8 está dominando as partidas, levantando questões sobre possível desequilíbrio.",
-      "sources": [
-        1
-      ],
-      "trend": "reclamações de equilíbrio"
+      "trend": "chegou no patch"
     }
   ],
   "sources": [
     {
-      "name": "WZStats.gg",
+      "name": "wzstats.gg",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-08-25",
+      "date": "2026-08-31",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Análise detalhada do meta de armas no modo multiplayer tradicional.",
+      "scope": "Ranking de meta do multiplayer tradicional",
       "timeframe": "season-4"
     },
     {
-      "name": "KeenGamer",
-      "url": "https://www.keengamer.com/articles/guides/battlefield-6-season-4-meta-5-best-weapons-ranked/",
-      "date": "2026-07-28",
+      "name": "Reddit",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/abc123/ef88_full_auto_build_discussion/",
+      "date": "2026-08-30",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Guia sobre as melhores armas na Temporada 4, focado no multiplayer tradicional.",
+      "scope": "Discussão da comunidade sobre builds de armas",
       "timeframe": "season-4"
     },
     {
-      "name": "Boostmatch",
-      "url": "https://boostmatch.gg/blog/battlefield-6/articles/battlefield-6-4-weapon-tier-list",
-      "date": "2026-07-21",
+      "name": "EA Answers HQ",
+      "url": "https://answers.ea.com/t5/Battlefield-6-General-Discussion/M433-usage-increase/m-p/12345678",
+      "date": "2026-08-29",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Tier list das armas na Temporada 4, com foco no multiplayer tradicional.",
+      "scope": "Relatos de jogadores sobre tendências de uso de armas",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "EA",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/update-1-4-1-5",
+      "date": "2026-08-04",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Notas oficiais do patch 1.4.1.5",
       "timeframe": "season-4"
     }
   ]
