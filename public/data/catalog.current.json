@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "gameVersion": "1.4.2.0",
-  "generatedAt": "2026-08-19T13:38:35.295Z",
+  "gameVersion": "1.4.2.5",
+  "generatedAt": "2026-09-03T13:07:11.588Z",
   "capabilities": {
     "weapons": true,
     "attachments": true,
@@ -28612,6 +28612,626 @@
       "weaponId": "vz61",
       "attachmentId": "stipp_stubby",
       "slot": "underbarrel"
+    },
+    {
+      "weaponId": "m2010esr",
+      "attachmentId": "ads_bolt",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "sv98",
+      "attachmentId": "ads_bolt",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "psr",
+      "attachmentId": "ads_bolt",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "l115",
+      "attachmentId": "ads_bolt",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "b36a4",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "sor556",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "ak4d",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "nvo228e",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "vcr2",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m4a1",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "ak205",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m417a2",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "grtbc",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "qbz192",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "sg553r",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "sor300sc",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "pw5a3",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "usg90",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "cz3a1",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "pp19",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "drsiar",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "rpkm",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m39emr",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "svdm",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m16a4",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "rpk74m",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "sgx",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "umg40",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "grtcps",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "ks18k",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "brod3",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "ef88",
+      "attachmentId": "buffer",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "sl9",
+      "attachmentId": "burst_mode",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "kord6p67",
+      "attachmentId": "burst_training",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "sg553r",
+      "attachmentId": "burst_training",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "pw5a3",
+      "attachmentId": "burst_training",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "kv9",
+      "attachmentId": "burst_training",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "cz3a1",
+      "attachmentId": "burst_training",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "umg40",
+      "attachmentId": "burst_training",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "p18",
+      "attachmentId": "fast_deploy",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m45a1",
+      "attachmentId": "fast_deploy",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m44",
+      "attachmentId": "fast_deploy",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "ggh22",
+      "attachmentId": "fast_deploy",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m357trait",
+      "attachmentId": "fast_deploy",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m44",
+      "attachmentId": "fast_deploy_10",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m16a4",
+      "attachmentId": "full_auto",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "vssm",
+      "attachmentId": "full_auto_vssm",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "grtbc",
+      "attachmentId": "grtbc_burst_mode",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "tr7",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m4a1",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m277",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "ak205",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "grtbc",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "sg553r",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "pw5a3",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "pw7a2",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "usg90",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "scw10",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "sl9",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "cz3a1",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "pp19",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m39emr",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "lmr27",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "svdm",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "sv98",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "psr",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "l115",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "p18",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "es57",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m45a1",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "ggh22",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "vz61",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "brod3",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "ef88",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "vssm",
+      "attachmentId": "mag_catch",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m433",
+      "attachmentId": "mag_flare",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "sor556",
+      "attachmentId": "mag_flare",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m4a1",
+      "attachmentId": "mag_flare",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m277",
+      "attachmentId": "mag_flare",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "ak205",
+      "attachmentId": "mag_flare",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m417a2",
+      "attachmentId": "mag_flare",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "sor300sc",
+      "attachmentId": "mag_flare",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "l110",
+      "attachmentId": "mag_flare",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "drsiar",
+      "attachmentId": "mag_flare",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "rpkm",
+      "attachmentId": "mag_flare",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m16a4",
+      "attachmentId": "mag_flare",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "rpk74m",
+      "attachmentId": "mag_flare",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m433",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "b36a4",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "sor556",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "ak4d",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "tr7",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "kord6p67",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "nvo228e",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "l85a3",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "vcr2",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m4a1",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m277",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "ak205",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m417a2",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "grtbc",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "qbz192",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "sg553r",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "sor300sc",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "l110",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "drsiar",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m60",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "rpkm",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "kts100",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m16a4",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "rpk74m",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "brod3",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "ef88",
+      "attachmentId": "match_trigger",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "sor556",
+      "attachmentId": "rail_cover",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m4a1",
+      "attachmentId": "rail_cover",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "qbz192",
+      "attachmentId": "rail_cover",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "sor300sc",
+      "attachmentId": "rail_cover",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "l110",
+      "attachmentId": "rail_cover",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "drsiar",
+      "attachmentId": "rail_cover",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m60",
+      "attachmentId": "rail_cover",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "kts100",
+      "attachmentId": "rail_cover",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m240l",
+      "attachmentId": "rail_cover",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "m16a4",
+      "attachmentId": "rail_cover",
+      "slot": "ergonomics"
+    },
+    {
+      "weaponId": "brod3",
+      "attachmentId": "rail_cover",
+      "slot": "ergonomics"
     }
   ],
   "ballisticsModel": {
@@ -28659,7 +29279,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "ak4d",
@@ -28680,7 +29300,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "b36a4",
@@ -28701,7 +29321,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "brod3",
@@ -28722,7 +29342,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "cz3a1",
@@ -28743,7 +29363,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "db12",
@@ -28764,7 +29384,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "drsiar",
@@ -28785,7 +29405,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "ef88",
@@ -28806,7 +29426,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "es57",
@@ -28827,7 +29447,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "ggh22",
@@ -28848,7 +29468,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "grtbc",
@@ -28869,7 +29489,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "grtcps",
@@ -28890,7 +29510,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "kord6p67",
@@ -28911,7 +29531,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "ks18k",
@@ -28932,7 +29552,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "kts100",
@@ -28953,7 +29573,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "kv9",
@@ -28974,7 +29594,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "l110",
@@ -28995,7 +29615,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "l115",
@@ -29016,7 +29636,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "l85a3",
@@ -29037,7 +29657,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "lmr27",
@@ -29058,7 +29678,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m1014",
@@ -29079,7 +29699,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m121a2",
@@ -29100,7 +29720,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m123k",
@@ -29121,7 +29741,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m16a4",
@@ -29142,7 +29762,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m2010esr",
@@ -29163,7 +29783,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m240l",
@@ -29184,7 +29804,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m250",
@@ -29205,7 +29825,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m277",
@@ -29226,7 +29846,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m357trait",
@@ -29247,7 +29867,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m39emr",
@@ -29268,7 +29888,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m417a2",
@@ -29289,7 +29909,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m433",
@@ -29310,7 +29930,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m44",
@@ -29331,7 +29951,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m45a1",
@@ -29352,7 +29972,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m4a1",
@@ -29373,7 +29993,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m60",
@@ -29394,7 +30014,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m87a1",
@@ -29415,7 +30035,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "miniscout",
@@ -29436,7 +30056,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "nvo228e",
@@ -29457,7 +30077,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "p18",
@@ -29478,7 +30098,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "pp19",
@@ -29499,7 +30119,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "psr",
@@ -29520,7 +30140,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "pw5a3",
@@ -29541,7 +30161,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "pw7a2",
@@ -29562,7 +30182,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "qbz192",
@@ -29583,7 +30203,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "rpk74m",
@@ -29604,7 +30224,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "rpkm",
@@ -29625,7 +30245,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "scw10",
@@ -29646,7 +30266,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sg553r",
@@ -29667,7 +30287,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sgx",
@@ -29688,7 +30308,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sl9",
@@ -29709,7 +30329,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sor300sc",
@@ -29730,7 +30350,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sor556",
@@ -29751,7 +30371,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sv98",
@@ -29772,7 +30392,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "svdm",
@@ -29793,7 +30413,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "svk86",
@@ -29814,7 +30434,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "tr7",
@@ -29835,7 +30455,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "umg40",
@@ -29856,7 +30476,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "usg90",
@@ -29877,7 +30497,7 @@
         "retrievedAt": "2026-08-12T13:48:00.919Z",
         "snapshot": "ttk-sheet-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "vcr2",
@@ -29898,7 +30518,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "vssm",
@@ -29919,7 +30539,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "vz61",
@@ -29940,7 +30560,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     }
   ],
   "damageModels": [
@@ -30016,7 +30636,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "ak4d",
@@ -30070,7 +30690,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "b36a4",
@@ -30124,7 +30744,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "brod3",
@@ -30198,7 +30818,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "cz3a1",
@@ -30272,7 +30892,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "db12",
@@ -30326,7 +30946,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "drsiar",
@@ -30380,7 +31000,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "ef88",
@@ -30434,7 +31054,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "es57",
@@ -30508,7 +31128,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "ggh22",
@@ -30582,7 +31202,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "grtbc",
@@ -30656,7 +31276,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "grtcps",
@@ -30710,7 +31330,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "kord6p67",
@@ -30764,7 +31384,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "ks18k",
@@ -30818,7 +31438,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "kts100",
@@ -30872,7 +31492,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "kv9",
@@ -30946,7 +31566,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "l110",
@@ -31000,7 +31620,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "l115",
@@ -31049,7 +31669,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "l85a3",
@@ -31103,7 +31723,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "lmr27",
@@ -31157,7 +31777,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m1014",
@@ -31221,7 +31841,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m121a2",
@@ -31275,7 +31895,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m123k",
@@ -31329,7 +31949,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m16a4",
@@ -31383,7 +32003,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m2010esr",
@@ -31432,7 +32052,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m240l",
@@ -31486,7 +32106,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m250",
@@ -31525,7 +32145,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m277",
@@ -31569,7 +32189,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m357trait",
@@ -31643,7 +32263,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m39emr",
@@ -31697,7 +32317,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m417a2",
@@ -31771,7 +32391,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m433",
@@ -31825,7 +32445,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m44",
@@ -31889,7 +32509,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m45a1",
@@ -31973,7 +32593,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m4a1",
@@ -32047,7 +32667,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m60",
@@ -32101,7 +32721,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m87a1",
@@ -32165,7 +32785,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "miniscout",
@@ -32209,7 +32829,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "nvo228e",
@@ -32283,7 +32903,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "p18",
@@ -32357,7 +32977,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "pp19",
@@ -32431,7 +33051,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "psr",
@@ -32480,7 +33100,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "pw5a3",
@@ -32554,7 +33174,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "pw7a2",
@@ -32608,7 +33228,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "qbz192",
@@ -32682,7 +33302,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "rpk74m",
@@ -32736,7 +33356,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "rpkm",
@@ -32810,7 +33430,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "scw10",
@@ -32884,7 +33504,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sg553r",
@@ -32958,7 +33578,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sgx",
@@ -33032,7 +33652,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sl9",
@@ -33106,7 +33726,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sor300sc",
@@ -33180,7 +33800,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sor556",
@@ -33234,7 +33854,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sv98",
@@ -33288,7 +33908,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "svdm",
@@ -33342,7 +33962,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "svk86",
@@ -33396,7 +34016,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "tr7",
@@ -33450,7 +34070,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "umg40",
@@ -33524,7 +34144,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "usg90",
@@ -33598,7 +34218,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "vcr2",
@@ -33652,7 +34272,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "vssm",
@@ -33716,7 +34336,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "vz61",
@@ -33790,7 +34410,7 @@
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     }
   ],
   "recoil": [
@@ -33842,7 +34462,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "ak4d",
@@ -33892,7 +34512,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "b36a4",
@@ -33942,7 +34562,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "brod3",
@@ -33992,7 +34612,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "cz3a1",
@@ -34042,7 +34662,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "db12",
@@ -34092,7 +34712,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "drsiar",
@@ -34142,7 +34762,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "ef88",
@@ -34192,7 +34812,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "es57",
@@ -34242,7 +34862,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "ggh22",
@@ -34292,7 +34912,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "grtbc",
@@ -34342,7 +34962,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "grtcps",
@@ -34392,7 +35012,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "kord6p67",
@@ -34442,7 +35062,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "ks18k",
@@ -34492,7 +35112,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "kts100",
@@ -34542,7 +35162,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "kv9",
@@ -34592,7 +35212,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "l110",
@@ -34642,7 +35262,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "l115",
@@ -34692,7 +35312,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "l85a3",
@@ -34742,7 +35362,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "lmr27",
@@ -34792,7 +35412,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m1014",
@@ -34842,7 +35462,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m121a2",
@@ -34892,7 +35512,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m123k",
@@ -34942,7 +35562,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m16a4",
@@ -34992,7 +35612,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m2010esr",
@@ -35042,7 +35662,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m240l",
@@ -35092,7 +35712,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m250",
@@ -35142,7 +35762,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m277",
@@ -35192,7 +35812,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m357trait",
@@ -35242,7 +35862,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m39emr",
@@ -35292,7 +35912,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m417a2",
@@ -35342,7 +35962,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m433",
@@ -35392,7 +36012,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m44",
@@ -35442,7 +36062,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m45a1",
@@ -35492,7 +36112,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m4a1",
@@ -35542,7 +36162,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m60",
@@ -35592,7 +36212,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m87a1",
@@ -35642,7 +36262,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "miniscout",
@@ -35692,7 +36312,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "nvo228e",
@@ -35742,7 +36362,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "p18",
@@ -35792,7 +36412,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "pp19",
@@ -35842,7 +36462,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "psr",
@@ -35892,7 +36512,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "pw5a3",
@@ -35942,7 +36562,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "pw7a2",
@@ -35992,7 +36612,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "qbz192",
@@ -36042,7 +36662,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "rpk74m",
@@ -36092,7 +36712,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "rpkm",
@@ -36142,7 +36762,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "scw10",
@@ -36192,7 +36812,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sg553r",
@@ -36242,7 +36862,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sgx",
@@ -36292,7 +36912,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sl9",
@@ -36342,7 +36962,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sor300sc",
@@ -36392,7 +37012,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sor556",
@@ -36442,7 +37062,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sv98",
@@ -36492,7 +37112,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "svdm",
@@ -36542,7 +37162,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "svk86",
@@ -36592,7 +37212,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "tr7",
@@ -36642,7 +37262,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "umg40",
@@ -36692,7 +37312,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "usg90",
@@ -36742,7 +37362,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "vcr2",
@@ -36792,7 +37412,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "vssm",
@@ -36842,7 +37462,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "vz61",
@@ -36892,7 +37512,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     }
   ],
   "spread": [
@@ -36959,7 +37579,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "ak4d",
@@ -37024,7 +37644,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "b36a4",
@@ -37089,7 +37709,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "brod3",
@@ -37154,7 +37774,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "cz3a1",
@@ -37219,7 +37839,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "db12",
@@ -37284,7 +37904,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "drsiar",
@@ -37349,7 +37969,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "ef88",
@@ -37414,7 +38034,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "es57",
@@ -37479,7 +38099,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "ggh22",
@@ -37544,7 +38164,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "grtbc",
@@ -37609,7 +38229,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "grtcps",
@@ -37674,7 +38294,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "kord6p67",
@@ -37739,7 +38359,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "ks18k",
@@ -37804,7 +38424,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "kts100",
@@ -37869,7 +38489,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "kv9",
@@ -37934,7 +38554,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "l110",
@@ -37999,7 +38619,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "l115",
@@ -38064,7 +38684,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "l85a3",
@@ -38129,7 +38749,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "lmr27",
@@ -38194,7 +38814,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m1014",
@@ -38259,7 +38879,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m121a2",
@@ -38324,7 +38944,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m123k",
@@ -38389,7 +39009,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m16a4",
@@ -38454,7 +39074,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m2010esr",
@@ -38519,7 +39139,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m240l",
@@ -38584,7 +39204,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m250",
@@ -38649,7 +39269,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m277",
@@ -38714,7 +39334,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m357trait",
@@ -38779,7 +39399,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m39emr",
@@ -38844,7 +39464,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m417a2",
@@ -38909,7 +39529,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m433",
@@ -38974,7 +39594,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m44",
@@ -39039,7 +39659,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m45a1",
@@ -39104,7 +39724,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m4a1",
@@ -39169,7 +39789,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m60",
@@ -39234,7 +39854,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m87a1",
@@ -39299,7 +39919,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "miniscout",
@@ -39364,7 +39984,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "nvo228e",
@@ -39429,7 +40049,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "p18",
@@ -39494,7 +40114,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "pp19",
@@ -39559,7 +40179,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "psr",
@@ -39624,7 +40244,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "pw5a3",
@@ -39689,7 +40309,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "pw7a2",
@@ -39754,7 +40374,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "qbz192",
@@ -39819,7 +40439,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "rpk74m",
@@ -39884,7 +40504,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "rpkm",
@@ -39949,7 +40569,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "scw10",
@@ -40014,7 +40634,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sg553r",
@@ -40079,7 +40699,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sgx",
@@ -40144,7 +40764,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sl9",
@@ -40209,7 +40829,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sor300sc",
@@ -40274,7 +40894,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sor556",
@@ -40339,7 +40959,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sv98",
@@ -40404,7 +41024,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "svdm",
@@ -40469,7 +41089,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "svk86",
@@ -40534,7 +41154,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "tr7",
@@ -40599,7 +41219,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "umg40",
@@ -40664,7 +41284,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "usg90",
@@ -40729,7 +41349,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "vcr2",
@@ -40794,7 +41414,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "vssm",
@@ -40859,7 +41479,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "vz61",
@@ -40924,7 +41544,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     }
   ],
   "reload": [
@@ -40944,7 +41564,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "ak4d",
@@ -40962,7 +41582,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "b36a4",
@@ -40980,7 +41600,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "brod3",
@@ -40998,7 +41618,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "cz3a1",
@@ -41016,7 +41636,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "db12",
@@ -41034,7 +41654,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "drsiar",
@@ -41052,7 +41672,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "ef88",
@@ -41070,7 +41690,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "es57",
@@ -41088,7 +41708,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "ggh22",
@@ -41106,7 +41726,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "grtbc",
@@ -41124,7 +41744,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "grtcps",
@@ -41142,7 +41762,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "kord6p67",
@@ -41160,7 +41780,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "ks18k",
@@ -41178,7 +41798,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "kts100",
@@ -41196,7 +41816,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "kv9",
@@ -41214,7 +41834,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "l110",
@@ -41232,7 +41852,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "l115",
@@ -41250,7 +41870,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "l85a3",
@@ -41268,7 +41888,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "lmr27",
@@ -41286,7 +41906,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m1014",
@@ -41304,7 +41924,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m121a2",
@@ -41322,7 +41942,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m123k",
@@ -41340,7 +41960,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m16a4",
@@ -41358,7 +41978,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m2010esr",
@@ -41376,7 +41996,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m240l",
@@ -41394,7 +42014,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m250",
@@ -41412,7 +42032,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m277",
@@ -41430,7 +42050,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m357trait",
@@ -41448,7 +42068,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m39emr",
@@ -41466,7 +42086,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m417a2",
@@ -41484,7 +42104,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m433",
@@ -41502,7 +42122,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m44",
@@ -41520,7 +42140,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m45a1",
@@ -41538,7 +42158,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m4a1",
@@ -41556,7 +42176,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m60",
@@ -41574,7 +42194,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "m87a1",
@@ -41592,7 +42212,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "miniscout",
@@ -41610,7 +42230,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "nvo228e",
@@ -41628,7 +42248,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "p18",
@@ -41646,7 +42266,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "pp19",
@@ -41664,7 +42284,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "psr",
@@ -41682,7 +42302,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "pw5a3",
@@ -41700,7 +42320,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "pw7a2",
@@ -41718,7 +42338,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "qbz192",
@@ -41736,7 +42356,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "rpk74m",
@@ -41754,7 +42374,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "rpkm",
@@ -41772,7 +42392,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "scw10",
@@ -41790,7 +42410,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sg553r",
@@ -41808,7 +42428,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sgx",
@@ -41826,7 +42446,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sl9",
@@ -41844,7 +42464,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sor300sc",
@@ -41862,7 +42482,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sor556",
@@ -41880,7 +42500,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "sv98",
@@ -41898,7 +42518,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "svdm",
@@ -41916,7 +42536,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "svk86",
@@ -41934,7 +42554,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "tr7",
@@ -41952,7 +42572,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "umg40",
@@ -41970,7 +42590,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "usg90",
@@ -41988,7 +42608,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "vcr2",
@@ -42006,7 +42626,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "vssm",
@@ -42024,7 +42644,7 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     },
     {
       "weaponId": "vz61",
@@ -42042,12 +42662,12 @@
         "retrievedAt": "2026-08-12T13:38:18.277Z",
         "snapshot": "github-7907352"
       },
-      "gameVersion": "1.4.2.0"
+      "gameVersion": "1.4.2.5"
     }
   ],
   "indexes": {
-    "gameVersion": "1.4.2.0",
-    "generatedAt": "2026-08-19T13:38:35.295Z",
+    "gameVersion": "1.4.2.5",
+    "generatedAt": "2026-09-03T13:07:11.588Z",
     "attachmentsByWeapon": {
       "ak205": [
         "120mw_blue",
@@ -42066,6 +42686,7 @@
         "ammo:standard",
         "ammo:synthetic",
         "basic",
+        "buffer",
         "canted_stubby",
         "classic_vert",
         "comp_brake",
@@ -42085,6 +42706,8 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_catch",
+        "mag_flare",
         "magazine:ak205:30_fast",
         "magazine:ak205:30_rnd",
         "magazine:ak205:36_rnd",
@@ -42093,6 +42716,7 @@
         "magazine:ak205:45_fast",
         "magazine:ak205:45_rnd",
         "magazine:ak205:50_rnd",
+        "match_trigger",
         "ribbed_stubby",
         "ribbed_vert",
         "slim_angled",
@@ -42119,6 +42743,7 @@
         "ammo:standard",
         "basic",
         "bipod",
+        "buffer",
         "canted_stubby",
         "classic_grip_pod",
         "classic_vert",
@@ -42146,6 +42771,7 @@
         "magazine:ak4d:20_fast",
         "magazine:ak4d:20_rnd",
         "magazine:ak4d:30_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
         "ribbed_stubby",
@@ -42175,6 +42801,7 @@
         "ammo:synthetic",
         "basic",
         "bipod",
+        "buffer",
         "canted_stubby",
         "classic_grip_pod",
         "classic_vert",
@@ -42207,6 +42834,7 @@
         "magazine:b36a4:40_rnd",
         "magazine:b36a4:45_fast",
         "magazine:b36a4:45_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
         "ribbed_stubby",
@@ -42234,6 +42862,7 @@
         "ammo:penetration",
         "ammo:standard",
         "basic",
+        "buffer",
         "canted_stubby",
         "classic_grip_pod",
         "classic_vert",
@@ -42254,6 +42883,7 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_catch",
         "magazine:brod3:20_fast",
         "magazine:brod3:20_rnd",
         "magazine:brod3:30_fast",
@@ -42261,8 +42891,10 @@
         "magazine:brod3:36_rnd",
         "magazine:brod3:40_fast",
         "magazine:brod3:40_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
+        "rail_cover",
         "ribbed_stubby",
         "ribbed_vert",
         "short",
@@ -42289,6 +42921,8 @@
         "ammo:subsonic",
         "ammo:subsonic_hp",
         "basic",
+        "buffer",
+        "burst_training",
         "canted_stubby",
         "classic_vert",
         "cmpct_handstop",
@@ -42307,6 +42941,7 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_catch",
         "magazine:cz3a1:20_fast",
         "magazine:cz3a1:30_fast",
         "magazine:cz3a1:30_rnd",
@@ -42371,6 +43006,7 @@
         "ammo:synthetic",
         "basic",
         "bipod",
+        "buffer",
         "canted_stubby",
         "classic_grip_pod",
         "classic_vert",
@@ -42393,6 +43029,7 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_flare",
         "magazine:drsiar:30_fast",
         "magazine:drsiar:30_rnd",
         "magazine:drsiar:36_rnd",
@@ -42402,8 +43039,10 @@
         "magazine:drsiar:45_rnd",
         "magazine:drsiar:50_rnd",
         "magazine:drsiar:60_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
+        "rail_cover",
         "ribbed_stubby",
         "ribbed_vert",
         "short",
@@ -42431,6 +43070,7 @@
         "ammo:synthetic",
         "basic",
         "bipod",
+        "buffer",
         "canted_stubby",
         "classic_grip_pod",
         "classic_vert",
@@ -42454,11 +43094,13 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_catch",
         "magazine:ef88:30_fast",
         "magazine:ef88:30_rnd",
         "magazine:ef88:36_rnd",
         "magazine:ef88:42_fast",
         "magazine:ef88:42_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
         "ribbed_stubby",
@@ -42489,6 +43131,7 @@
         "flashlight",
         "iron",
         "light",
+        "mag_catch",
         "magazine:es57:20_rnd",
         "magazine:es57:30_rnd",
         "sp_brake",
@@ -42511,10 +43154,12 @@
         "combo_red",
         "compensator",
         "cqb_supp",
+        "fast_deploy",
         "flash_hider",
         "flashlight",
         "iron",
         "light",
+        "mag_catch",
         "magazine:ggh22:15_rnd",
         "magazine:ggh22:20_rnd",
         "magazine:ggh22:22_rnd",
@@ -42538,6 +43183,7 @@
         "ammo:penetration",
         "ammo:standard",
         "basic",
+        "buffer",
         "canted_stubby",
         "classic_vert",
         "cmpct_handstop",
@@ -42553,17 +43199,20 @@
         "flashlight",
         "fold_stubby",
         "fold_vert",
+        "grtbc_burst_mode",
         "hip_taclight",
         "light",
         "light_supp",
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_catch",
         "magazine:grtbc:30_fast",
         "magazine:grtbc:30_rnd",
         "magazine:grtbc:36_rnd",
         "magazine:grtbc:45_fast",
         "magazine:grtbc:45_rnd",
+        "match_trigger",
         "ribbed_stubby",
         "ribbed_vert",
         "sp_brake",
@@ -42588,6 +43237,7 @@
         "ammo:synthetic",
         "basic",
         "bipod",
+        "buffer",
         "canted_stubby",
         "classic_grip_pod",
         "classic_vert",
@@ -42641,6 +43291,7 @@
         "ammo:standard",
         "basic",
         "bipod",
+        "burst_training",
         "canted_stubby",
         "classic_grip_pod",
         "classic_vert",
@@ -42669,6 +43320,7 @@
         "magazine:kord6p67:40_rnd",
         "magazine:kord6p67:45_fast",
         "magazine:kord6p67:45_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
         "ribbed_stubby",
@@ -42694,6 +43346,7 @@
         "ammo:flechette",
         "ammo:slugs",
         "basic",
+        "buffer",
         "canted_stubby",
         "classic_vert_ks18k",
         "compensator",
@@ -42763,8 +43416,10 @@
         "magazine:kts100:50_rnd",
         "magazine:kts100:60_fast",
         "magazine:kts100:60_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
+        "rail_cover",
         "ribbed_stubby",
         "ribbed_vert",
         "short",
@@ -42791,6 +43446,7 @@
         "ammo:subsonic",
         "ammo:subsonic_hp",
         "basic",
+        "burst_training",
         "canted_stubby",
         "classic_vert",
         "cmpct_handstop",
@@ -42856,10 +43512,13 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_flare",
         "magazine:l110:100_rnd",
         "magazine:l110:200_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
+        "rail_cover",
         "ribbed_stubby",
         "ribbed_vert",
         "slim_angled",
@@ -42875,6 +43534,7 @@
         "50mw_violet",
         "5mw_green",
         "5mw_red",
+        "ads_bolt",
         "ads_taclight",
         "ammo:frangible",
         "ammo:long_range",
@@ -42894,6 +43554,7 @@
         "light_supp",
         "long_supp",
         "lp_stubby_sr",
+        "mag_catch",
         "magazine:l115:5_rnd",
         "magazine:l115:7_fast",
         "magazine:l115:7_rnd",
@@ -42955,6 +43616,7 @@
         "magazine:l85a3:40_rnd",
         "magazine:l85a3:45_fast",
         "magazine:l85a3:45_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
         "ribbed_stubby",
@@ -43006,6 +43668,7 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_catch",
         "magazine:lmr27:10_fast",
         "magazine:lmr27:10_rnd",
         "magazine:lmr27:15_fast",
@@ -43172,6 +43835,7 @@
         "ammo:standard",
         "basic",
         "bipod",
+        "buffer",
         "canted_stubby",
         "classic_grip_pod",
         "classic_vert",
@@ -43187,6 +43851,7 @@
         "fold_stubby",
         "fold_vert",
         "full_angled",
+        "full_auto",
         "heavy",
         "heavy_ext",
         "hip_taclight",
@@ -43195,6 +43860,7 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_flare",
         "magazine:m16a4:20_fast",
         "magazine:m16a4:20_rnd",
         "magazine:m16a4:30_fast",
@@ -43202,8 +43868,10 @@
         "magazine:m16a4:36_rnd",
         "magazine:m16a4:40_fast",
         "magazine:m16a4:40_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
+        "rail_cover",
         "ribbed_stubby",
         "ribbed_vert",
         "short",
@@ -43221,6 +43889,7 @@
         "50mw_violet",
         "5mw_green",
         "5mw_red",
+        "ads_bolt",
         "ads_taclight",
         "ammo:frangible",
         "ammo:long_range",
@@ -43291,6 +43960,7 @@
         "magazine:m240l:75_rnd",
         "ptt_grip_pod",
         "qd_grip_pod",
+        "rail_cover",
         "ribbed_stubby",
         "ribbed_vert",
         "slim_angled",
@@ -43386,12 +44056,15 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_catch",
+        "mag_flare",
         "magazine:m277:15_rnd",
         "magazine:m277:20_fast",
         "magazine:m277:20_rnd",
         "magazine:m277:25_fast",
         "magazine:m277:25_rnd",
         "magazine:m277:30_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
         "ribbed_stubby",
@@ -43413,6 +44086,7 @@
         "basic",
         "combo_green",
         "combo_red",
+        "fast_deploy",
         "flashlight",
         "iron",
         "magazine:m357trait:8_fast",
@@ -43438,6 +44112,7 @@
         "ammo:standard",
         "basic",
         "bipod",
+        "buffer",
         "canted_stubby",
         "classic_grip_pod",
         "classic_vert",
@@ -43457,6 +44132,7 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_catch",
         "magazine:m39emr:15_fast",
         "magazine:m39emr:15_rnd",
         "magazine:m39emr:20_fast",
@@ -43494,6 +44170,7 @@
         "ammo:subsonic_hp",
         "basic",
         "bipod",
+        "buffer",
         "canted_stubby",
         "classic_grip_pod",
         "classic_vert",
@@ -43514,10 +44191,12 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_flare",
         "magazine:m417a2:10_rnd",
         "magazine:m417a2:20_fast",
         "magazine:m417a2:20_rnd",
         "magazine:m417a2:25_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
         "ribbed_stubby",
@@ -43567,6 +44246,7 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_flare",
         "magazine:m433:20_fast",
         "magazine:m433:20_rnd",
         "magazine:m433:30_fast",
@@ -43574,6 +44254,7 @@
         "magazine:m433:36_rnd",
         "magazine:m433:40_fast",
         "magazine:m433:40_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
         "ribbed_stubby",
@@ -43592,6 +44273,8 @@
         "ammo:standard",
         "basic",
         "extended",
+        "fast_deploy",
+        "fast_deploy_10",
         "iron",
         "magazine:m44:6_rnd",
         "short",
@@ -43611,10 +44294,12 @@
         "combo_red",
         "compensator",
         "cqb_supp",
+        "fast_deploy",
         "flash_hider",
         "flashlight",
         "iron",
         "light",
+        "mag_catch",
         "magazine:m45a1:11_rnd",
         "magazine:m45a1:7_rnd",
         "sp_brake",
@@ -43639,6 +44324,7 @@
         "ammo:standard",
         "basic",
         "bipod",
+        "buffer",
         "canted_stubby",
         "classic_grip_pod",
         "classic_vert",
@@ -43659,6 +44345,8 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_catch",
+        "mag_flare",
         "magazine:m4a1:20_fast",
         "magazine:m4a1:20_rnd",
         "magazine:m4a1:30_fast",
@@ -43666,8 +44354,10 @@
         "magazine:m4a1:36_rnd",
         "magazine:m4a1:40_fast",
         "magazine:m4a1:40_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
+        "rail_cover",
         "ribbed_stubby",
         "ribbed_vert",
         "short",
@@ -43718,8 +44408,10 @@
         "lp_stubby",
         "magazine:m60:100_rnd",
         "magazine:m60:50_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
+        "rail_cover",
         "ribbed_stubby",
         "ribbed_vert",
         "slim_angled",
@@ -43824,6 +44516,7 @@
         "ammo:standard",
         "basic",
         "bipod",
+        "buffer",
         "canted_stubby",
         "classic_grip_pod",
         "classic_vert",
@@ -43852,6 +44545,7 @@
         "magazine:nvo228e:36_rnd",
         "magazine:nvo228e:40_fast",
         "magazine:nvo228e:40_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
         "ribbed_stubby",
@@ -43879,10 +44573,12 @@
         "combo_red",
         "compensator",
         "cqb_supp",
+        "fast_deploy",
         "flash_hider",
         "flashlight",
         "iron",
         "light",
+        "mag_catch",
         "magazine:p18:17_rnd",
         "magazine:p18:21_rnd",
         "sp_brake",
@@ -43907,6 +44603,7 @@
         "ammo:subsonic_hp",
         "ammo:synthetic",
         "basic",
+        "buffer",
         "canted_stubby",
         "classic_vert",
         "cmpct_handstop",
@@ -43924,6 +44621,7 @@
         "light",
         "linear_comp",
         "lp_stubby",
+        "mag_catch",
         "magazine:pp19:20_fast",
         "magazine:pp19:30_fast",
         "magazine:pp19:30_rnd",
@@ -43941,6 +44639,7 @@
         "50mw_violet",
         "5mw_green",
         "5mw_red",
+        "ads_bolt",
         "ads_taclight",
         "ammo:frangible",
         "ammo:long_range",
@@ -43960,6 +44659,7 @@
         "light_supp",
         "long_supp",
         "lp_stubby_sr",
+        "mag_catch",
         "magazine:psr:10_rnd",
         "magazine:psr:7_rnd",
         "qd_grip_pod_sr",
@@ -43986,6 +44686,8 @@
         "ammo:subsonic_hp",
         "ammo:synthetic",
         "basic",
+        "buffer",
+        "burst_training",
         "canted_stubby",
         "classic_vert",
         "cmpct_handstop",
@@ -44005,6 +44707,7 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_catch",
         "magazine:pw5a3:20_rnd",
         "magazine:pw5a3:30_fast",
         "magazine:pw5a3:30_rnd",
@@ -44050,6 +44753,7 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_catch",
         "magazine:pw7a2:20_rnd",
         "magazine:pw7a2:30_fast",
         "magazine:pw7a2:30_rnd",
@@ -44079,6 +44783,7 @@
         "ammo:standard",
         "ammo:synthetic",
         "basic",
+        "buffer",
         "canted_stubby",
         "classic_grip_pod",
         "classic_vert",
@@ -44096,8 +44801,10 @@
         "magazine:qbz192:30_rnd",
         "magazine:qbz192:36_rnd",
         "magazine:qbz192:40_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
+        "rail_cover",
         "ribbed_stubby",
         "ribbed_vert",
         "slim_angled",
@@ -44124,6 +44831,7 @@
         "ammo:synthetic",
         "basic",
         "bipod",
+        "buffer",
         "canted_stubby",
         "classic_grip_pod",
         "classic_vert",
@@ -44143,6 +44851,7 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_flare",
         "magazine:rpk74m:30_fast",
         "magazine:rpk74m:30_rnd",
         "magazine:rpk74m:36_rnd",
@@ -44151,6 +44860,7 @@
         "magazine:rpk74m:50_rnd",
         "magazine:rpk74m:60_rnd",
         "magazine:rpk74m:95_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
         "ribbed_stubby",
@@ -44181,6 +44891,7 @@
         "ammo:synthetic",
         "basic",
         "bipod",
+        "buffer",
         "canted_stubby",
         "classic_grip_pod",
         "classic_vert",
@@ -44201,6 +44912,7 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_flare",
         "magazine:rpkm:30_fast",
         "magazine:rpkm:30_rnd",
         "magazine:rpkm:36_rnd",
@@ -44208,6 +44920,7 @@
         "magazine:rpkm:40_rnd",
         "magazine:rpkm:60_rnd",
         "magazine:rpkm:75_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
         "ribbed_stubby",
@@ -44255,6 +44968,7 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_catch",
         "magazine:scw10:15_fast",
         "magazine:scw10:15_rnd",
         "magazine:scw10:20_rnd",
@@ -44283,6 +44997,8 @@
         "ammo:subsonic",
         "ammo:subsonic_hp",
         "basic",
+        "buffer",
+        "burst_training",
         "canted_stubby",
         "classic_vert",
         "comp_brake",
@@ -44302,6 +45018,7 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_catch",
         "magazine:sg553r:20_fast",
         "magazine:sg553r:20_rnd",
         "magazine:sg553r:30_fast",
@@ -44309,6 +45026,7 @@
         "magazine:sg553r:36_rnd",
         "magazine:sg553r:40_fast",
         "magazine:sg553r:40_rnd",
+        "match_trigger",
         "ribbed_stubby",
         "ribbed_vert",
         "slim_angled",
@@ -44334,6 +45052,7 @@
         "ammo:subsonic",
         "ammo:subsonic_hp",
         "basic",
+        "buffer",
         "canted_stubby",
         "classic_vert",
         "cmpct_handstop",
@@ -44382,6 +45101,7 @@
         "ammo:subsonic_hp",
         "ammo:synthetic",
         "basic",
+        "burst_mode",
         "canted_stubby",
         "classic_vert",
         "cmpct_handstop",
@@ -44406,6 +45126,7 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_catch",
         "magazine:sl9:30_rnd",
         "magazine:sl9:60_rnd",
         "ribbed_stubby",
@@ -44433,6 +45154,7 @@
         "ammo:subsonic",
         "ammo:subsonic_hp",
         "basic",
+        "buffer",
         "canted_stubby",
         "classic_vert",
         "cmpct_handstop",
@@ -44454,6 +45176,7 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_flare",
         "magazine:sor300sc:20_fast",
         "magazine:sor300sc:20_rnd",
         "magazine:sor300sc:30_fast",
@@ -44461,6 +45184,8 @@
         "magazine:sor300sc:36_rnd",
         "magazine:sor300sc:40_fast",
         "magazine:sor300sc:40_rnd",
+        "match_trigger",
+        "rail_cover",
         "ribbed_stubby",
         "ribbed_vert",
         "short",
@@ -44489,6 +45214,7 @@
         "ammo:synthetic",
         "basic",
         "bipod",
+        "buffer",
         "canted_stubby",
         "classic_grip_pod",
         "classic_vert",
@@ -44511,6 +45237,7 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_flare",
         "magazine:sor556:20_fast",
         "magazine:sor556:20_rnd",
         "magazine:sor556:30_fast",
@@ -44520,8 +45247,10 @@
         "magazine:sor556:40_rnd",
         "magazine:sor556:45_fast",
         "magazine:sor556:45_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
+        "rail_cover",
         "ribbed_stubby",
         "ribbed_vert",
         "short",
@@ -44539,6 +45268,7 @@
         "50mw_violet",
         "5mw_green",
         "5mw_red",
+        "ads_bolt",
         "ads_taclight",
         "ammo:frangible",
         "ammo:long_range",
@@ -44556,6 +45286,7 @@
         "light",
         "light_supp",
         "lp_stubby_sr",
+        "mag_catch",
         "magazine:sv98:10_rnd",
         "qd_grip_pod_sr",
         "range_finder",
@@ -44582,6 +45313,7 @@
         "ammo:standard",
         "basic",
         "bipod_sr",
+        "buffer",
         "canted_stubby",
         "classic_grip_pod",
         "classic_vert",
@@ -44600,6 +45332,7 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_catch",
         "magazine:svdm:10_fast",
         "magazine:svdm:10_rnd",
         "magazine:svdm:20_rnd",
@@ -44701,6 +45434,7 @@
         "linear_comp",
         "long_supp",
         "lp_stubby",
+        "mag_catch",
         "magazine:tr7:10_fast",
         "magazine:tr7:15_rnd",
         "magazine:tr7:20_fast",
@@ -44708,6 +45442,7 @@
         "magazine:tr7:25_fast",
         "magazine:tr7:25_rnd",
         "magazine:tr7:30_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
         "ribbed_stubby",
@@ -44735,6 +45470,8 @@
         "ammo:subsonic_hp",
         "ammo:synthetic",
         "basic",
+        "buffer",
+        "burst_training",
         "canted_stubby",
         "classic_vert",
         "cmpct_handstop",
@@ -44784,6 +45521,7 @@
         "ammo:subsonic",
         "ammo:subsonic_hp",
         "basic",
+        "buffer",
         "comp_brake",
         "compensator",
         "cqb_supp",
@@ -44799,6 +45537,7 @@
         "light_supp",
         "linear_comp",
         "long_supp",
+        "mag_catch",
         "magazine:usg90:50_rnd",
         "sp_brake",
         "std_supp"
@@ -44821,6 +45560,7 @@
         "ammo:standard",
         "basic",
         "bipod",
+        "buffer",
         "canted_stubby",
         "classic_grip_pod",
         "classic_vert",
@@ -44848,6 +45588,7 @@
         "magazine:vcr2:36_rnd",
         "magazine:vcr2:40_fast",
         "magazine:vcr2:40_rnd",
+        "match_trigger",
         "ptt_grip_pod",
         "qd_grip_pod",
         "ribbed_stubby",
@@ -44881,8 +45622,10 @@
         "fold_stubby",
         "fold_vert",
         "full_angled",
+        "full_auto_vssm",
         "hip_taclight",
         "lp_stubby",
+        "mag_catch",
         "magazine:vssm:10_fast",
         "magazine:vssm:10_rnd",
         "magazine:vssm:20_fast",
@@ -44918,6 +45661,7 @@
         "flashlight",
         "fold_stubby",
         "iron",
+        "mag_catch",
         "magazine:vz61:10_rnd",
         "magazine:vz61:20_rnd",
         "ribbed_stubby",
@@ -45369,6 +46113,12 @@
         "svdm",
         "svk86",
         "vcr2"
+      ],
+      "ads_bolt": [
+        "l115",
+        "m2010esr",
+        "psr",
+        "sv98"
       ],
       "ads_taclight": [
         "ak205",
@@ -45935,6 +46685,47 @@
         "svdm",
         "svk86"
       ],
+      "buffer": [
+        "ak205",
+        "ak4d",
+        "b36a4",
+        "brod3",
+        "cz3a1",
+        "drsiar",
+        "ef88",
+        "grtbc",
+        "grtcps",
+        "ks18k",
+        "m16a4",
+        "m39emr",
+        "m417a2",
+        "m4a1",
+        "nvo228e",
+        "pp19",
+        "pw5a3",
+        "qbz192",
+        "rpk74m",
+        "rpkm",
+        "sg553r",
+        "sgx",
+        "sor300sc",
+        "sor556",
+        "svdm",
+        "umg40",
+        "usg90",
+        "vcr2"
+      ],
+      "burst_mode": [
+        "sl9"
+      ],
+      "burst_training": [
+        "cz3a1",
+        "kord6p67",
+        "kv9",
+        "pw5a3",
+        "sg553r",
+        "umg40"
+      ],
       "canted_stubby": [
         "ak205",
         "ak4d",
@@ -46405,6 +47196,16 @@
       "factory_angled_sl9": [
         "sl9"
       ],
+      "fast_deploy": [
+        "ggh22",
+        "m357trait",
+        "m44",
+        "m45a1",
+        "p18"
+      ],
+      "fast_deploy_10": [
+        "m44"
+      ],
       "flash_comp": [
         "ak205",
         "ak4d",
@@ -46714,6 +47515,15 @@
         "miniscout",
         "psr",
         "sv98"
+      ],
+      "full_auto": [
+        "m16a4"
+      ],
+      "full_auto_vssm": [
+        "vssm"
+      ],
+      "grtbc_burst_mode": [
+        "grtbc"
       ],
       "heavy": [
         "ak205",
@@ -47080,6 +47890,49 @@
       ],
       "lp_stubby_svk86": [
         "svk86"
+      ],
+      "mag_catch": [
+        "ak205",
+        "brod3",
+        "cz3a1",
+        "ef88",
+        "es57",
+        "ggh22",
+        "grtbc",
+        "l115",
+        "lmr27",
+        "m277",
+        "m39emr",
+        "m45a1",
+        "m4a1",
+        "p18",
+        "pp19",
+        "psr",
+        "pw5a3",
+        "pw7a2",
+        "scw10",
+        "sg553r",
+        "sl9",
+        "sv98",
+        "svdm",
+        "tr7",
+        "usg90",
+        "vssm",
+        "vz61"
+      ],
+      "mag_flare": [
+        "ak205",
+        "drsiar",
+        "l110",
+        "m16a4",
+        "m277",
+        "m417a2",
+        "m433",
+        "m4a1",
+        "rpk74m",
+        "rpkm",
+        "sor300sc",
+        "sor556"
       ],
       "magazine:ak205:30_fast": [
         "ak205"
@@ -47930,6 +48783,34 @@
       "magazine:vz61:20_rnd": [
         "vz61"
       ],
+      "match_trigger": [
+        "ak205",
+        "ak4d",
+        "b36a4",
+        "brod3",
+        "drsiar",
+        "ef88",
+        "grtbc",
+        "kord6p67",
+        "kts100",
+        "l110",
+        "l85a3",
+        "m16a4",
+        "m277",
+        "m417a2",
+        "m433",
+        "m4a1",
+        "m60",
+        "nvo228e",
+        "qbz192",
+        "rpk74m",
+        "rpkm",
+        "sg553r",
+        "sor300sc",
+        "sor556",
+        "tr7",
+        "vcr2"
+      ],
       "ptt_grip_pod": [
         "ak4d",
         "b36a4",
@@ -48004,6 +48885,19 @@
         "miniscout",
         "psr",
         "sv98"
+      ],
+      "rail_cover": [
+        "brod3",
+        "drsiar",
+        "kts100",
+        "l110",
+        "m16a4",
+        "m240l",
+        "m4a1",
+        "m60",
+        "qbz192",
+        "sor300sc",
+        "sor556"
       ],
       "range_finder": [
         "grtcps",
@@ -48456,6 +49350,12 @@
           "heavy",
           "light"
         ],
+        "ergonomics": [
+          "buffer",
+          "mag_catch",
+          "mag_flare",
+          "match_trigger"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -48522,6 +49422,10 @@
           "heavy",
           "heavy_ext",
           "short"
+        ],
+        "ergonomics": [
+          "buffer",
+          "match_trigger"
         ],
         "laser": [
           "120mw_blue",
@@ -48593,6 +49497,10 @@
           "heavy_ext",
           "light",
           "short"
+        ],
+        "ergonomics": [
+          "buffer",
+          "match_trigger"
         ],
         "laser": [
           "120mw_blue",
@@ -48666,6 +49574,12 @@
           "light",
           "short"
         ],
+        "ergonomics": [
+          "buffer",
+          "mag_catch",
+          "match_trigger",
+          "rail_cover"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -48733,6 +49647,11 @@
           "basic",
           "extended",
           "light"
+        ],
+        "ergonomics": [
+          "buffer",
+          "burst_training",
+          "mag_catch"
         ],
         "laser": [
           "120mw_blue",
@@ -48845,6 +49764,12 @@
           "light",
           "short"
         ],
+        "ergonomics": [
+          "buffer",
+          "mag_flare",
+          "match_trigger",
+          "rail_cover"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -48922,6 +49847,11 @@
           "short",
           "short_light"
         ],
+        "ergonomics": [
+          "buffer",
+          "mag_catch",
+          "match_trigger"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -48986,6 +49916,9 @@
           "basic",
           "light"
         ],
+        "ergonomics": [
+          "mag_catch"
+        ],
         "laser": [
           "50mw_green",
           "5mw_green",
@@ -49025,6 +49958,10 @@
         "barrel": [
           "basic",
           "light"
+        ],
+        "ergonomics": [
+          "fast_deploy",
+          "mag_catch"
         ],
         "laser": [
           "50mw_green",
@@ -49066,6 +50003,12 @@
           "basic",
           "extended",
           "light"
+        ],
+        "ergonomics": [
+          "buffer",
+          "grtbc_burst_mode",
+          "mag_catch",
+          "match_trigger"
         ],
         "laser": [
           "120mw_blue",
@@ -49130,6 +50073,9 @@
           "extended",
           "light",
           "short"
+        ],
+        "ergonomics": [
+          "buffer"
         ],
         "laser": [
           "120mw_blue",
@@ -49198,6 +50144,10 @@
           "heavy",
           "light"
         ],
+        "ergonomics": [
+          "burst_training",
+          "match_trigger"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -49264,6 +50214,9 @@
           "basic",
           "extended"
         ],
+        "ergonomics": [
+          "buffer"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -49319,6 +50272,10 @@
           "heavy",
           "heavy_ext",
           "short"
+        ],
+        "ergonomics": [
+          "match_trigger",
+          "rail_cover"
         ],
         "laser": [
           "120mw_blue",
@@ -49390,6 +50347,9 @@
           "extended",
           "light"
         ],
+        "ergonomics": [
+          "burst_training"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -49447,6 +50407,11 @@
           "heavy",
           "heavy_ext",
           "light"
+        ],
+        "ergonomics": [
+          "mag_flare",
+          "match_trigger",
+          "rail_cover"
         ],
         "laser": [
           "120mw_blue",
@@ -49511,6 +50476,10 @@
           "light",
           "short"
         ],
+        "ergonomics": [
+          "ads_bolt",
+          "mag_catch"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -49565,6 +50534,9 @@
           "heavy_ext",
           "light",
           "short"
+        ],
+        "ergonomics": [
+          "match_trigger"
         ],
         "laser": [
           "120mw_blue",
@@ -49637,6 +50609,9 @@
           "basic",
           "extended",
           "light"
+        ],
+        "ergonomics": [
+          "mag_catch"
         ],
         "laser": [
           "120mw_blue",
@@ -49885,6 +50860,13 @@
           "light",
           "short"
         ],
+        "ergonomics": [
+          "buffer",
+          "full_auto",
+          "mag_flare",
+          "match_trigger",
+          "rail_cover"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -49954,6 +50936,9 @@
           "extended",
           "light"
         ],
+        "ergonomics": [
+          "ads_bolt"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -50005,6 +50990,9 @@
           "heavy",
           "heavy_ext",
           "light"
+        ],
+        "ergonomics": [
+          "rail_cover"
         ],
         "laser": [
           "120mw_blue",
@@ -50131,6 +51119,11 @@
           "heavy_ext",
           "light"
         ],
+        "ergonomics": [
+          "mag_catch",
+          "mag_flare",
+          "match_trigger"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -50195,6 +51188,9 @@
         "barrel": [
           "basic"
         ],
+        "ergonomics": [
+          "fast_deploy"
+        ],
         "laser": [
           "50mw_green",
           "5mw_green",
@@ -50228,6 +51224,10 @@
           "basic",
           "extended",
           "short"
+        ],
+        "ergonomics": [
+          "buffer",
+          "mag_catch"
         ],
         "laser": [
           "120mw_blue",
@@ -50300,6 +51300,11 @@
           "extended",
           "short"
         ],
+        "ergonomics": [
+          "buffer",
+          "mag_flare",
+          "match_trigger"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -50366,6 +51371,10 @@
           "extended",
           "light",
           "short"
+        ],
+        "ergonomics": [
+          "mag_flare",
+          "match_trigger"
         ],
         "laser": [
           "120mw_blue",
@@ -50435,6 +51444,10 @@
           "extended",
           "short"
         ],
+        "ergonomics": [
+          "fast_deploy",
+          "fast_deploy_10"
+        ],
         "magazine": [
           "magazine:m44:6_rnd"
         ],
@@ -50453,6 +51466,10 @@
         "barrel": [
           "basic",
           "light"
+        ],
+        "ergonomics": [
+          "fast_deploy",
+          "mag_catch"
         ],
         "laser": [
           "50mw_green",
@@ -50494,6 +51511,13 @@
           "extended",
           "light",
           "short"
+        ],
+        "ergonomics": [
+          "buffer",
+          "mag_catch",
+          "mag_flare",
+          "match_trigger",
+          "rail_cover"
         ],
         "laser": [
           "120mw_blue",
@@ -50564,6 +51588,10 @@
           "heavy",
           "heavy_ext",
           "light"
+        ],
+        "ergonomics": [
+          "match_trigger",
+          "rail_cover"
         ],
         "laser": [
           "120mw_blue",
@@ -50738,6 +51766,10 @@
           "light",
           "short"
         ],
+        "ergonomics": [
+          "buffer",
+          "match_trigger"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -50806,6 +51838,10 @@
           "basic",
           "light"
         ],
+        "ergonomics": [
+          "fast_deploy",
+          "mag_catch"
+        ],
         "laser": [
           "50mw_green",
           "5mw_green",
@@ -50848,6 +51884,10 @@
           "cryo",
           "extended",
           "light"
+        ],
+        "ergonomics": [
+          "buffer",
+          "mag_catch"
         ],
         "laser": [
           "120mw_blue",
@@ -50903,6 +51943,10 @@
           "basic",
           "extended"
         ],
+        "ergonomics": [
+          "ads_bolt",
+          "mag_catch"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -50954,6 +51998,11 @@
           "basic",
           "cryo",
           "extended"
+        ],
+        "ergonomics": [
+          "buffer",
+          "burst_training",
+          "mag_catch"
         ],
         "laser": [
           "120mw_blue",
@@ -51015,6 +52064,9 @@
           "cryo",
           "heavy"
         ],
+        "ergonomics": [
+          "mag_catch"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -51075,6 +52127,11 @@
           "cryo",
           "extended"
         ],
+        "ergonomics": [
+          "buffer",
+          "match_trigger",
+          "rail_cover"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -51133,6 +52190,11 @@
           "heavy",
           "heavy_ext",
           "short"
+        ],
+        "ergonomics": [
+          "buffer",
+          "mag_flare",
+          "match_trigger"
         ],
         "laser": [
           "120mw_blue",
@@ -51206,6 +52268,11 @@
           "heavy_ext",
           "short"
         ],
+        "ergonomics": [
+          "buffer",
+          "mag_flare",
+          "match_trigger"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -51275,6 +52342,9 @@
           "extended",
           "light"
         ],
+        "ergonomics": [
+          "mag_catch"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -51335,6 +52405,12 @@
           "basic",
           "extended",
           "light"
+        ],
+        "ergonomics": [
+          "buffer",
+          "burst_training",
+          "mag_catch",
+          "match_trigger"
         ],
         "laser": [
           "120mw_blue",
@@ -51402,6 +52478,9 @@
           "light",
           "short"
         ],
+        "ergonomics": [
+          "buffer"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -51466,6 +52545,10 @@
           "heavy_ext",
           "light"
         ],
+        "ergonomics": [
+          "burst_mode",
+          "mag_catch"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -51528,6 +52611,12 @@
           "extended",
           "light",
           "short"
+        ],
+        "ergonomics": [
+          "buffer",
+          "mag_flare",
+          "match_trigger",
+          "rail_cover"
         ],
         "laser": [
           "120mw_blue",
@@ -51598,6 +52687,12 @@
           "heavy",
           "heavy_ext",
           "short"
+        ],
+        "ergonomics": [
+          "buffer",
+          "mag_flare",
+          "match_trigger",
+          "rail_cover"
         ],
         "laser": [
           "120mw_blue",
@@ -51671,6 +52766,10 @@
           "light",
           "short"
         ],
+        "ergonomics": [
+          "ads_bolt",
+          "mag_catch"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -51717,6 +52816,10 @@
           "extended",
           "light",
           "short"
+        ],
+        "ergonomics": [
+          "buffer",
+          "mag_catch"
         ],
         "laser": [
           "120mw_blue",
@@ -51847,6 +52950,10 @@
           "light",
           "short"
         ],
+        "ergonomics": [
+          "mag_catch",
+          "match_trigger"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -51917,6 +53024,10 @@
           "heavy_ext",
           "light"
         ],
+        "ergonomics": [
+          "buffer",
+          "burst_training"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -51981,6 +53092,10 @@
           "heavy_ext",
           "light"
         ],
+        "ergonomics": [
+          "buffer",
+          "mag_catch"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -52024,6 +53139,10 @@
           "extended",
           "light",
           "short"
+        ],
+        "ergonomics": [
+          "buffer",
+          "match_trigger"
         ],
         "laser": [
           "120mw_blue",
@@ -52092,6 +53211,10 @@
           "vssm_suppressed",
           "vssm_suppressed_asm"
         ],
+        "ergonomics": [
+          "full_auto_vssm",
+          "mag_catch"
+        ],
         "laser": [
           "120mw_blue",
           "50mw_blue",
@@ -52142,6 +53265,9 @@
         ],
         "barrel": [
           "basic"
+        ],
+        "ergonomics": [
+          "mag_catch"
         ],
         "laser": [
           "50mw_green",
@@ -52212,7 +53338,7 @@
   },
   "pending": {
     "compatibilityNeedsReview": 0,
-    "attachmentsWithoutWeapon": 23,
+    "attachmentsWithoutWeapon": 10,
     "attachmentsWithoutCost": 0,
     "attachmentsWithoutTranslation": 0
   }
