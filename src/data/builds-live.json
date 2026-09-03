@@ -1,5 +1,5 @@
 {
-  "readAt": "2026-09-02",
+  "readAt": "2026-09-03",
   "builds": [
     {
       "weapon": "ak4d",
@@ -13,28 +13,28 @@
     },
     {
       "weapon": "sor-556-mk2",
-      "advice": "Compensador leve ou supressor para reduzir recuo horizontal; cano médio/longo para alcance e estabilidade em meio alcance; empunhadura vertical para controlar subida; mira de 1–1.75x para visualizar alvos médios; munição padrão ou FMJ quando precisar de penetração — tudo para transformar a arma numa opção quase sem recuo e confiável em mid‑range.",
-      "source": "https://battlefieldmeta.gg/best-loadouts/sor-556-mk2"
+      "advice": "boca: supressor/compensador leve para reduzir flash e recuo vertical; cano: cano longo (extensão de alcance) para controlar recuo e aumentar alcance efetivo; empunhadura: empunhadura vertical/estabilizadora para reduzir tremulação horizontal; mira: mira de 1–2x (padrão para médias distâncias); munição: FMJ/padrão para penetração — objetivo: transformar a SOR-556 Mk2 numa AR de média-longa distânci",
+      "source": "https://www.bftactics.com/weapons-database"
     },
     {
       "weapon": "m433",
-      "advice": "freio de boca/compensador para reduzir subida, cano médio ou longo para melhor precisão a distância, empunhadura que melhora ADS e controle (stubby/vertical conforme preferência), mira 1× para combates próximos a médios e munição perfurante para consistência — objetivo é reduzir o padrão de recuo irregular e tornar a M433 mais confiável em trocas rápidas.",
-      "source": "https://allthings.how/battlefield-6-m433-best-loadouts-and-class-pairings-mp/"
+      "advice": "boca: compensador para controlar puxada inicial em cadência alta; cano: cano curto/médio para favorecer mobilidade sem perder muito alcance; empunhadura: empunhadura leve/stubby para melhorar ADS speed e controle; mira: 1x reflex ou 1.25x para combate próximo-médio; munição: polímero/rápida para aproveitar alta cadência — objetivo: maximizar mobilidade e taxa de acerto em combates próximos a médio",
+      "source": "https://zilliongamer.com/battlefield-6/c/weapons/best-m433-build-battlefield-6"
     },
     {
       "weapon": "kord-6p67",
-      "advice": "supressor longo ou compensador para controlar recuo/som, cano pesado/estendido para melhorar velocidade e alcance efetivo, empunhadura vertical ou ribbed para estabilidade ao segurar fogo; mira 1–1.75x para medium-range — a comunidade usa isso para transformar a arma num AR estável de média distância e reduzir o espalhamento em rajadas.",
-      "source": "https://www.reddit.com/r/LowSodiumBattlefield/comments/1vz8nv1/what_weapon_builds_have_you_found_yourself/"
+      "advice": "compensador na boca para reduzir recuo vertical, cano médio/longo para aumentar alcance efetivo e precisão, empunhadura vertical para controlar recuo horizontal; isso transforma a arma numa opção estável a médias distâncias e melhora a consistência dos tiros de burst.",
+      "source": "https://www.bf6loadouts.com/weapons/kord-6p67"
     },
     {
       "weapon": "nvo-228e",
-      "advice": "compensador/flash comp para controle de recuo, cano médio/longo para aumentar precisão e velocidade, empunhadura que melhora ADS/movimento, mira 1–2x e munição sintética; foco em equilíbrio mobilidade→controle porque a comunidade o promove como um AR consistente em várias distâncias.",
+      "advice": "compensador ou supressor conforme preferência por silêncio, cano médio para equilíbrio entre ADS e dano à distância, empunhadura vertical e mira de médio aumento; a comunidade usa isso para maximizar controle de recuo e velocidade de mira, tornando o NVO um ‘laser’ em médio alcance.",
       "source": "https://battlefieldmeta.gg/best-loadouts/nvo-228e"
     },
     {
       "weapon": "ef88",
-      "advice": "supressor longo (ou flash comp se preferir dano sonoro), cano cryo/estendido leve para maior velocidade e alcance, empunhadura vertical ou stubby para estabilidade, 30–42 fast mags e munição sintética/ponta oca; a comunidade relata que essa configuração corrige a imprecisão em movimento e torna o EF88 um laser em média/longa distância.",
-      "source": "https://www.reddit.com/r/Battlefield6/comments/1vc51m6/what_attachments_do_u_guys_use_on_the_ef88/"
+      "advice": "supressor de boca para reduzir sinal visual e ruído, cano longo (estendido) para melhorar velocidade de projétil e alcance, empunhadura que privilegia estabilidade (stubby/vertical) e mira de 1–2x para tap-fire; builds recentes visam estender o alcance da carabina e torná‑la consistente em médio-longo alcance.",
+      "source": "https://boostmatch.gg/blog/battlefield-6/articles/ef88-battlefield-6-best-loadouts-guide"
     },
     {
       "weapon": "vcr-2",
@@ -43,78 +43,78 @@
     },
     {
       "weapon": "m16a4",
-      "advice": "compensador para recuo em rajadas, cano longo ou marksman para ampliar precisão a média distância, empunhadura que estabilize ADS, mira 1.75–2.5x e munição sintética/ponta oca — comunidade prefere isso para tirar proveito do padrão em rajada e reduzir a necessidade de tap-fire extremo.",
-      "source": "https://vortexgaming.io/en/postdetail/1222907"
+      "advice": "compensador/flash hider para reduzir flancos na rajada, cano estendido para estabilidade em single/burst, empunhadura vertical leve e mira 2–3x para maximizar precisão da rajada; comunidade prioriza controle de recuo e precisão para aproveitar o modo burst do M16A4.",
+      "source": "https://dotesports.com/battlefield/news/best-m16a4-loadout-bf6"
     },
     {
       "weapon": "m4a1",
-      "advice": "Supressor longo/standard para furtividade e estabilidade, cano extendido para velocidade e alcance, empunhadura 6H64 ou stubby para controle de recuo e magazine 36/fast para sustain; a comunidade monta assim para manter versatilidade CQC com boa performance em médio alcance.",
-      "source": "https://www.pcgamer.com/games/fps/battlefield-6-m4a1-loadout-build/"
+      "advice": "compensador ou supressor dependendo do playstyle, cano curto (commando) para ADS e sprint-to-fire rápidos em builds agressivas ou cano médio para mais alcance em builds voltadas a controle; empunhadura que melhore ADS/hipfire e mira 1–1.75x — objetivo é transformar a M4A1 numa ‘laser’ versátil de curta/média distância.",
+      "source": "https://battlefieldmeta.gg/best-loadouts/m4a1"
     },
     {
       "weapon": "ak-205",
-      "advice": "compensador para reduzir recuo vertical; cano médio/curto para manter mobilidade e ADS rápido; empunhadura vertical para controle de recuo em rajadas; mira reflex ou 2x para close–mid; munição padrão (ou ponta oca se quiser potencializar dano em curta distância). A comunidade usa essa configuração para explorar a mobilidade e a boa precisão ADS do AK-205 enquanto controla o recuo em combate próxim",
+      "advice": "compensador na boca para controlar o recuo vertical; cano curto para aumentar mobilidade e ADS speed; empunhadura vertical ou handstop para reduzir espalhamento horizontal em rajadas; mira pequena (2–1x ou holográfica) para manter hipfire/ADS versátil — foco em mobilidade e controle de recuo já que a comunidade usa a AK-205 como carabina ágil e precisa em movimento.",
       "source": "https://www.reddit.com/r/Battlefield6/comments/1vi4fph/favorite_underrated_weapon/"
     },
     {
       "weapon": "m417-a2",
-      "advice": "supressor/compensador leve para diminuir flutuação de recuo e som; cano padrão ou médio para equilíbrio entre velocidade de projétil e controle; empunhadura que preserve ADS speed (evitando penalidades grandes) — vertical leve ou stubby; mira 2–2.5x (ou reflex + canted) para versatilidade close→mid; munição padrão. Comunidade recomenda esse conjunto porque deixa a M417 A2 versátil: boa precisão, A",
+      "advice": "mira 2–1x ou holográfica e compensador/anel de boca que reduz recuo inicial; cano médio para equilíbrio entre estabilidade e ADS speed; empunhadura vertical para reduzir recoil de rajada — comunidade procura construir para estabilidade de tiro e bom hip/ADS em curtas-médias distâncias, já que a arma é valorizada por controle ao full-auto.",
       "source": "https://www.reddit.com/r/Battlefield/comments/1vf86rn/hot_take_the_m417_a2_might_be_the_best_carbine_in/"
     },
     {
       "weapon": "qbz-192",
-      "advice": "supressor/compensador leve para manter controle e reduzir flash, cano curto para mobilidade quando jogando agressivo ou cano médio para melhor alcance em mapas maiores, empunhadura vertical para controle de recuo e mira de ponto vermelho; comunidade foca builds que equilibrem manejo e taxa de acerto a média distância.",
+      "advice": "compensador ou supressor dependendo do playstyle (compensador para recoil, supressor para furtividade em mapas fechados); cano médio para estabilidade e alcance efetivo; empunhadura vertical/handstop para reduzir espalhamento das rajadas; mira 2–1x para combates médios — guias recentes mostram QBZ-192 construída para controle de rajadas e alcance consistente em mid-range.",
       "source": "https://battlefieldmeta.gg/best-loadouts/qbz-192"
     },
     {
       "weapon": "sg-553r",
-      "advice": "compensador ou supressor que reduza recuo horizontal; cano curto para reduzir ADS e melhorar mobilidade em mapas pequenos; empunhadura vertical para contenção de recuo em rajadas; mira reflex ou 1–1.5x para trocas rápidas; magazine maior se preferir menos reloads. A comunidade foca em builds leves/aggresivas para tirar vantagem da taxa de tiro e mobilidade da SG 553R em combates próximos a médios.",
-      "source": "https://battlefieldmeta.gg/best-loadouts/sg-553r"
+      "advice": "compensador na boca para reduzir recuo e forçar a arma a ter maior precisão em médias distâncias; cano curto a médio para aumentar ADS speed sem perder muito controle; empunhadura vertical para estabilidade em rajada; mira 1–3x (thermal/holo dependendo do mapa) — comunidade trata a SG 553R como um “all-rounder”, montando para mobilidade controlada e bom desempenho cerrado-médio.",
+      "source": "https://vortexgaming.io/en/postdetail/1110961"
     },
     {
       "weapon": "sor-300sc",
-      "advice": "compensador/supressor para melhorar controle e furtividade; cano curto para maximizar ADS e mobilidade (trata-se quase de um SMG na prática); grip que aumente estabilidade de ADS sem penalizar muito a velocidade; mira reflex ou 1x; munição padrão — alguns guias recomendam configurações SMG-like para aproveitar o modelo de dano. A comunidade monta a SOR-300SC como uma carabina de curta distância co",
-      "source": "https://bf6loadouts.com/weapons/sor-300sc"
+      "advice": "muzzle compensador ou supressor conforme necessidade (compensador para estabilidade, supressor para flanquear); cano curto e handstop para maximizar hipfire e mobilidade; munição subsonica/ponta oca mencionada pela comunidade quando se busca flanqueio silencioso; mira pequena ou thermal para visada em curtas-médias distâncias — comunidade atual (últimas semanas) favorece builds hipfire/close-quart",
+      "source": "https://battlefieldmeta.gg/best-loadouts/sor-300sc"
     },
     {
       "weapon": "m277",
-      "advice": "compensador/compensador híbrido para reduzir recuo vertical e horizontal; cano médio (não o mais curto) para balancear estabilidade e velocidade de projétil; empunhadura vertical/ângulada leve para melhorar controle de recuo em rajada; mira de baixa ampliação (1.5–2.5x ou ponto vermelho) para manter versatilidade em médio alcance; munição ponta oca quando o objetivo é maximizar dano em curtas/médi",
-      "source": "https://battlefieldmeta.gg/best-loadouts/m277"
+      "advice": "Compensador para reduzir recuo vertical, cano pesado/estendido para melhorar estabilidade e alcance, empunhadura vertical para controlar recuo horizontal e mira entre 2×–2.5× para uso DMR; munição de ponta oca quando se busca reduzir TTK em médias distâncias.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1vw7pde/m277_mastery_250/"
     },
     {
       "weapon": "brod-3",
-      "advice": "boca: compensador para reduzir rejeição vertical em sprays; cano: cano médio/estendido para aumentar alcance efetivo; empunhadura: empunhadura vertical para controlar recuo horizontal; mira/óptica: ponto vermelho fino para mirar rápido em CQB. A comunidade aponta esse conjunto porque o BROD3 brilha em curto-médio alcance porém precisa de controle de recuo e alcance para não perder para SMGs em 0–3",
+      "advice": "Silenciador leve/compensador para manter o perfil furtivo e controlar recuo, cano carabina médio (≈14.5\") para equilíbrio alcance/ADS, empunhadura stubby ou angulada para estabilidade em média distância e mira 1×–2×; munição FMJ quando se prioriza penetração/consistência a distância.",
       "source": "https://www.reddit.com/r/Battlefield/comments/1vdh8xh/brod3_builds_that_you_need_to_try_out/"
     },
     {
       "weapon": "scw-10",
-      "advice": "boca: compensador/flash hider que priorize estabilidade do tiro; cano: cano curto para mobilidade e aceleração da mira; empunhadura: empunhadura vertical para domar o recuo vertical; mira: holográfica ou 1x para rastrear alvos em curtas distâncias. Comunidade recomenda builds que maximizem TTK em CQB mantendo controle, pois a SCW-10 é considerada uma das SMGs mais fortes no meta atual.",
-      "source": "https://astroboost.gg/tools/bf6-loadouts/scw-10"
+      "advice": "Compensador e cano curto para maximizar velocidade de ADS e eficiência em CQB, empunhadura vertical para reduzir espalhamento no burst/rápida sucessão de tiros, mira ponto vermelho/1× e munição de ponta oca para reduzir TTK nas curtas distâncias.",
+      "source": "https://battlefieldmeta.gg/best-loadouts/scw-10"
     },
     {
       "weapon": "kv9",
-      "advice": "boca: compensador para reduzir recuo extremamente alto; cano: cano estendido moderado para melhorar controle e alcance sem sacrificar muita mobilidade; empunhadura: empunhadura vertical/estabilizadora para controlar o recuo horizontal; mira: ponto 1x para engagements rápidos. Jogadores usam essas peças porque o KV9 tem taxa de tiro altíssima e precisa de controle para ser efetivo em curtas distânc",
+      "advice": "Compensador para controle de recuo, cano estendido/pesado para melhorar estabilidade e alcance efetivo, empunhadura vertical para precisão em rajadas rápidas, mira 1×–1.5× e munição ponta oca quando se busca priorizar TTK em curtas-médias distâncias.",
       "source": "https://battlefieldmeta.gg/best-loadouts/kv9"
     },
     {
       "weapon": "pw7a2",
-      "advice": "boca: supressor ou compensador leve conforme preferência de stealth/controle; cano: cano curto para maximizar mobilidade; empunhadura: empunhadura vertical para manter a arma plana ao disparar; mira: ponto reflex ou 1–1.5x para transições rápidas. A comunidade tende a construir o PW7A2 para agressão em CQB, aproveitando sua baixa oscilação e cadência alta.",
-      "source": "https://battlefieldmeta.gg/best-loadouts/pw7a2"
+      "advice": "Compensador combinado e cano longo/pesado para quase eliminar recuo visual, empunhadura vertical para estabilidade ao fogo contínuo, mira 1× para clareza em CQB e munição ponta oca para maximizar dano/TTK em combates próximos.",
+      "source": "https://battlefinity.gg/weapon/BF6/pw7a2"
     },
     {
       "weapon": "pw5a3",
-      "advice": "boca: compensador ou supressor dependendo se quer dano silencioso; cano: cano estendido/estabilizador quando for jogar mid-range, ou curto para run‑and‑gun; empunhadura: empunhadura vertical para melhorar controle de recuo; munição: munição de ponta oca quando disponível para conteúdo CQB; mira: ponto vermelho para precisão de curta distância. A comunidade recomenda builds que transformem a PW5A3 ",
-      "source": "https://dotesports.com/battlefield/news/best-pw5a3-loadout-battlefield-6"
+      "advice": "Silenciador leve ou lightened suppressor e cano curto para priorizar mobilidade/ADS rápido, empunhadura vertical slim para melhor controle sem sacrificar agilidade, ponto vermelho/1× e frequentemente munição sintética para manter cadência e efetividade em flancos rápidos.",
+      "source": "https://battlefieldmeta.gg/best-loadouts/pw5a3"
     },
     {
       "weapon": "sgx",
-      "advice": "boca: compensador para controlar subida e recuo horizontal; cano: curto para aumentar ADS e mobilidade em curtas distâncias; empunhadura: empunhadura vertical para diminuir recoil vertical; mira: 1x reflex/holosight para CQB; munição: padrão — foco em mobilidade e controle para hip‑fire/ADS rápido.",
-      "source": "https://fpsmeta.gg/battlefield-6-meta/sgx-loadout"
+      "advice": "mira 1× (red dot) para aquisição rápida; compensador padrão (suppressor) para reduzir assinatura e flash sem penalizar demais a velocidade; cano estendido curto (~8\") para aumentar velocidade de projétil; empunhadura curta/handstop compacta para melhorar tempo de mira pós-movimento; munição padrão — foco em estabilidade e rapidez no CQB-midrange.",
+      "source": "https://howtoplayhub.com/battlefield-6/best-loadouts"
     },
     {
       "weapon": "sl9",
-      "advice": "compensador/silenciador leve para controlar o recuo sem sacrificar muito a velocidade de mira; cano curto ou médio para melhorar mobilidade mantendo precisão a média distância; empunhadura vertical ou angulada para estabilizar ADS e facilitar tiros na cabeça — a comunidade usa isso porque o SL9 brilha por precisão e precisa de controle de recuo + mobilidade para vencer em médio alcance.",
-      "source": "https://battlefieldmeta.gg/best-loadouts/sl9"
+      "advice": "mira de média ampliação ou 1–1.5× conforme preferência (visada para médio alcance); supressor longo para reduzir recuo e detecção; cano heavy/extended para melhor velocidade e controle sem perder muito ADS; empunhadura ADS (grip de mira) em vez da vertical cara; munição sintética/soft-point quando disponível — o conjunto corrige recoil e aumenta precisão a médias distâncias.",
+      "source": "https://www.reddit.com/r/LowSodiumBattlefield/comments/1v08rod/sl9_build/"
     },
     {
       "weapon": "umg-40",
@@ -123,8 +123,8 @@
     },
     {
       "weapon": "usg-90",
-      "advice": "silenciador híbrido/compensador leve para reduzir o recuo horizontal; cano médio para aumentar velocidade do projétil e alcance efetivo; empunhadura vertical e mira red dot para controlar subida e manter tracking em combates rápidos — recomendado porque a comunidade busca transformar a arma num SMG estável em distâncias curtas-médias.",
-      "source": "https://vortexgaming.io/en/postdetail/1256861"
+      "advice": "mira pequena (Mini Flex 1.00×) para hipfire/ADS rápido; cano flutuado/264 mm fluted para reduzir recoil e melhorar estabilidade; supressor leve (lightened suppressor) ou flash comp quando precisar de melhor controle visual; empunhadura/ergonomia para melhorar troca de alvo e mag catch melhorado com carregador de alta capacidade (50r) se quiser sustain; munição de ponta oca (hollow point) ou polyme",
+      "source": "https://battlefieldmeta.gg/best-loadouts/usg-90"
     },
     {
       "weapon": "cz3a1",
@@ -148,33 +148,33 @@
     },
     {
       "weapon": "svdm",
-      "advice": "compensador + cano longo + empunhadura vertical + mira 6–8x; a comunidade busca reduzir o recuo vertical e a oscilação para manter precisão em rajadas de médio-longo alcance, transformando a SVDM numa DMR consistente para follow-up shots.",
-      "source": "https://steamcommunity.com/app/2807960/discussions/0/579425059539536336/"
+      "advice": "compensador ou compensador leve para reduzir recuo vertical, cano médio para balancear alcance e manejo, empunhadura vertical para controlar subida, mira 6x/8x (termal se preferir marcar inimigos) — tudo para tornar o SVDM mais perdoável nas rajadas e melhorar precisão em médias distâncias.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1qh64dh/svdm_in_battlefield_6/"
     },
     {
       "weapon": "svk-86",
-      "advice": "supressor/compensador discreto + cano longo (estabilidade) + empunhadura vertical + mira 8–10x; jogadores priorizam precisão e velocidade de follow-up para garantir dois tiros rápidos à distância e vantagem contra outros snipers.",
-      "source": "https://www.reddit.com/r/Battlefield6/comments/1un5es7/what_dmr_to_use/"
+      "advice": "silenciador leve (compensador com supressor) para manter perfil furtivo, cano longo para aumentar velocidade e alcance efetivo, empunhadura vertical para estabilizar recoil vertical, mira 10x/6x dependendo da preferência — comunidade usa isso para garantir 2‑taps confiáveis em distâncias maiores.",
+      "source": "https://battlefinity.gg/weapon/BF6/svk-86"
     },
     {
       "weapon": "vssm",
-      "advice": "compensador curto + cano médio + empunhadura vertical + mira 4–6x; builds recentes focam em reduzir recuo e aumentar controle em médio alcance porque o VSSM fica impreciso sem controle de subida.",
-      "source": "https://www.reddit.com/r/LowSodiumBattlefield/comments/1v4pjws/after_spending_the_first_day_trying_to_level_up/"
+      "advice": "silenciador (priorizar supressor que preserve alcance/velocidade), cano médio/curto para melhorar manejo e ADS mais rápido, empunhadura leve (ou sem empunhadura pesada) para manter mobilidade, mira 6x para tiro tático — a ideia é explorar o perfil silencioso do VSSM sacrificando pouca velocidade para ser efetivo em longo alcance furtivo.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1v2l09i/my_favorite_weapon_so_far_in_season_4/"
     },
     {
       "weapon": "grt-cps",
-      "advice": "cano longo/estendido e compensador para melhorar velocidade e estabilidade a média/longa distância; mira 6–10x dependendo do mapa; munição de ponta oca/hollow point ou de maior velocidade conforme preferência para maximizar dano em alcances médios.",
+      "advice": "silenciador leve para ficar oculto sem penalizar muito alcance, cano curto/atendimento para melhor ADS e manejo em mid‑range, bipé/grip estável (empunhadura vertical ou bipé) para controlar o recuo quase vertical, mira 6x/8x conforme o alvo — comunidade monta assim para maximizar precisão a média distância mantendo stealth e mobilidade.",
       "source": "https://bf6loadouts.com/weapons/grt-cps"
     },
     {
       "weapon": "psr",
-      "advice": "compensador no cano para controlar o recuo vertical; cano longo para manter velocidade de projétil em distâncias extremas; mira de alta ampliação e empunhadura leve para estabilidade de ADS — isso reduz recuo e melhora precisão a longo alcance.",
+      "advice": "compensador na boca para reduzir recuo/oscilações, cano longo para aumentar velocidade de projétil e alcance efetivo, empunhadura que melhora estabilidade/controle do recuo e mira de alta ampliação (6x–8x) para tirar proveito do alcance; isso corrige recuo e baixa velocidade padrão, tornando a arma mais consistente a médias e longas distâncias.",
       "source": "https://battlefieldmeta.gg/best-loadouts/psr"
     },
     {
       "weapon": "mini-scout",
-      "advice": "boca com supressor ou compensador leve para ficar menos detectável e controlar recuo; cano médio para balancear velocidade e ADS; mira média (3–5x) e empunhadura vertical para mira mais rápida — a comunidade busca taxa de tiro e mobilidade preservadas para dominar até ~200–250 m.",
-      "source": "https://www.reddit.com/r/Battlefield6/comments/1otkb07/the_miniscout_is_the_best_sniper_in_the_game/"
+      "advice": "mira 6x (ou 8x para preferência pessoal), foco em acessórios que aumentem ADS/tempo de saque e precisão ao mover-se, cano estendido/ajuste de alcance quando disponível para melhorar velocidade e sweet spot; comunidade escolhe isso para preservar a rapidez de tiro da arma enquanto reduz perda de precisão em alvos a média distância.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1vh6c1g/is_mini_scout_still_worth_using_since_updates/"
     },
     {
       "weapon": "l115",
@@ -183,13 +183,13 @@
     },
     {
       "weapon": "interdictor",
-      "advice": "cano muito longo e boca que preserve velocidade (evitar supressão que corte muito a velocidade); mira de altíssima ampliação e empunhadura estável para reduzir o forte recuo de calibre; comunidade usa essas peças para tentar transformar sua alta penetração/dano em consistência em extreme-range.",
+      "advice": "boca/compensador para controlar recuo de longo alcance, cano longo e munição para longo alcance para maximizar velocidade e reduzir queda, mira de alta ampliação para aproveitar alcance; recomendação comum para transformar o Interdictor em um sniper de alcance extremo e reduzir inconsistências de balística.",
       "source": "https://www.reddit.com/r/Battlefield6/comments/1vr45dr/info_on_the_new_attachments_coming_out_tomorrow/"
     },
     {
       "weapon": "m1014",
-      "advice": "munição de slug ou cartucho #00 buck para maximizar dano em curta distância; cano curto/sem choke para ADS mais rápido e melhor mobilidade; empunhadura que ajuda estabilidade de hipfire e supressor quando se quer furtividade — comunidade prefere slugs para alcance e buck para cleaver CQB.",
-      "source": "https://www.reddit.com/r/Battlefield6/comments/1uyf3cu/give_me_something_gooooooooood/"
+      "advice": "boca/arreio que concentre o espalhamento (tipo choke), cano equilibrado para combinar alcance hip/near‑range e manejo, empunhadura que reduz recuo e recarga/munição otimizada (priorizar munição sólida/slug quando precisar de maior alcance); comunidade monta assim para melhorar um-TTK a curta distância e tornar os acertos mais confiáveis em encontros corpo a corpo.",
+      "source": "https://rnkd.gg/battlefield6/weapons/m1014"
     },
     {
       "weapon": "18-5ks-k",
@@ -198,13 +198,13 @@
     },
     {
       "weapon": "m87a1",
-      "advice": "boca: escolha munição slug para transformar a arma em um ‘shotgun-sniper’ em média distância; cano: cano mais longo para melhorar alcance efetivo; empunhadura: empunhadura inclinada/vertical leve para reduzir recuo e estabilizar o tiro hipfire; mira: mira de aumento (pequeno 1.5–2×) quando usar slug; por quê: a comunidade recomenda slugs+mira para conseguir one-shot ou dois-shot a distâncias maior",
-      "source": "https://astroboost.gg/tools/bf6-loadouts/m87a1"
+      "advice": "boca compensadora (reduz recuo vertical/controle de disper-são), cano estendido/long barrel (melhora alcance efetivo e tightens spread), empunhadura completa ou empunhadura vertical (controle de recuo), mira iron/sem holográfica para hipfire rápido, munição 00 buck (maior dano em curta distância) — comunidade usa isso para transformar a M87A1 em um shotgun de alto impacto e controle em CQB.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1vr4dan/dont_think_ill_top_this_win/"
     },
     {
       "weapon": "db-12",
-      "advice": "boca: maioria usa buckshot ou evita o uso de munição exótica; cano: cano curto/compromissado para mobilidade se for usar em CQB; empunhadura: foco em empunhadura para hipfire; por quê: comunidade recente critica fortemente a arma por dano inconsistente e recarga lenta, então os jogadores tentam builds hipfire ou simplesmente a evitam.",
-      "source": "https://www.reddit.com/r/Battlefield6/comments/1ty0a55/db12_build/"
+      "advice": "munição slug ou buck otimizada e cano que estreita a dispersão (tentar builds que favoreçam tiros ADS), empunhadura para reduzir recuo; porém a comunidade aponta que, mesmo com ajustes, o DB-12 sofre por espalhamento/TTK ruim e muitos pedem rework (usa-se builds defensivos enquanto espera buff).",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1vosju2/how_would_you_fix_the_db12/"
     },
     {
       "weapon": "m45a1",
@@ -218,43 +218,43 @@
     },
     {
       "weapon": "m44",
-      "advice": "boca: munição de alta perfuração/ponta oca quando possível; cano: cano que favoreça ADS (estabilidade); empunhadura: empunhadura vertical para reduzir recuo no tiro único; mira: mira pequena/acuada para headshots; por quê: comunidade recente aponta o M44 como a pistola com maior dano por tiro — builds focam em precisão e ADS rápido para capitalizar headshots e two-tap.",
-      "source": "https://www.reddit.com/r/Battlefield6/comments/1vf3vy3/pistol_balance_is_really_bad/"
+      "advice": "cano curto/compacto e mira simples + munição de ponta oca/hollow points (maximiza dano por tiro e aumenta chance de 1-tap na cabeça), empunhadura que melhora estabilidade de mira; comunidade recomenda focar dano e precisão já que o revolver recompensa headshots.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1vf3vy3/pistol_balance_is_really_bad"
     },
     {
       "weapon": "p18",
-      "advice": "boca: munição padrão para conservas de pontos; cano: cano curto para mobilidade; empunhadura: empunhadura para hipfire/controle; mira: preferência por ponto vermelho ou nenhuma mira para troca rápida; por quê: comunidade descreve o P18 como ‘all‑arounder’ e o monta para rapidez de saque e hipfire para finalizar inimigos em CQB.",
-      "source": "https://battlefieldmeta.gg/best-loadouts/p18"
+      "advice": "cano curto (mobilidade/hipfire), silenciador padrão se quiser stealth (mas custa pontos), underbarrel laser/laser verde para hipfire e tiro rápido, munição FMJ/penetrante quando usada como finishing gun — guias recentes de loadouts apontam builds voltadas para hipfire e mobilidade por ser secundária de curta distância.",
+      "source": "https://astroboost.gg/tools/bf6-loadouts/p18"
     },
     {
       "weapon": "ggh-22",
-      "advice": "Compensador na boca para reduzir recuo vertical e espalhamento nas rajadas curtas; cano curto para maior mobilidade/ADS mais rápido em trocas de tiro; mira holográfica de baixo aumento ou sem lente para manter boa visada em CQC — a comunidade usa isso para transformar a GGH-22 em um sidearm mais controlável em combates próximos e rotacionais.",
-      "source": "https://wzstats.gg/battlefield-6/best-loadouts/ggh-22"
+      "advice": "compensador na boca para reduzir recuo vertical, cano curto para maior mobilidade e tempo de mira menor, empunhadura vertical para estabilidade ao atirar em rajadas e mira de ponto (dot) para auxílio em tiros rápidos — comunidade monta assim para transformar a GGH-22 numa pistola de combate próximo/medianamente precisa, corrigindo recuo e lentidão na resposta.",
+      "source": "https://battlefinity.gg/weapon/BF6/ggh-22"
     },
     {
       "weapon": "vz-61",
-      "advice": "priorizar o carregador de 20 tiros (a comunidade diz que é o ponto-chave do build) e evitar Hollow Points (relatos recentes mostram pouco ganho); montar compensador/empunhadura que ajudem a controlar o disparo rápido, já que a prioridade é aumentar munição e controle de recoil, não dano por tiro.",
-      "source": "https://ssr.wzstats.gg/battlefield-6/multiplayer/loadouts"
+      "advice": "compensador na boca para domar o recuo alto, carregador estendido para resolver o problema do pente pequeno, empunhadura vertical/estabilizadora para controle de rajada e mira de ponto para melhor aquisição de alvo — isso transforma a vz.61 numa alternativa tipo machine‑pistol, corrigindo recuo e autonomia de fogo.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1vcdbzz/pistol_rankings_use_cases/"
     },
     {
       "weapon": "b36a4",
-      "advice": "compensador/que reduz recuo vertical, cano estendido para aumentar velocidade de projétil e alcance efetivo, empunhadura vertical/ribbed para controlar recuo horizontal e melhorar ADS, mira 1–2× (mini reflex ou 2×) para versatilidade a média distância, munição padrão ou perfurante para consistência — tudo para transformar a B36A4 numa AR estável e precisa a média/longa distância.",
-      "source": "https://battlefieldmeta.gg/best-loadouts/b36a4"
+      "advice": "boca: compensador moderado ou supressor para controlar recuo inicial; cano: cano médio/long para estender alcance e made ficar mais estável em 20–40 m; empunhadura: empunhadura vertical ou stubby para reduzir recuo vertical; mira: 1–1.75x para segurar ângulos em bandeiras; munição: polímero padrão para balancear cadência e controle — objetivo: domar recuo e manter precisão em confrontos de médio a",
+      "source": "https://astroboost.gg/tools/bf6-loadouts/b36a4"
     },
     {
       "weapon": "l85a3",
-      "advice": "compensador ou freio de boca para domar o recuo inicial, cano pesado/long barrel para precisão e estabilidade em rajadas, empunhadura firme para ADS mais rápido e controle horizontal, mira 1–3× dependendo do mapa e munição de ponta oca/sintética se disponível para aumentar lethality — foco em controlar recuo alto e tirar proveito da letalidade a médio alcance.",
+      "advice": "boca: supressor para esconder som e reduzir flash em jogadas defensivas; cano: cano médio para melhorar estabilidade sem perder muito ADS speed; empunhadura: empunhadura vertical para reduzir recuo vertical; mira: 1–1.75x (foco em médio alcance); munição: ponta oca/padrão para TTK consistente — objetivo: transformar a L85A3 numa arma estável e confiável para segurar pontos e vencer trocas em média",
       "source": "https://battlefieldmeta.gg/best-loadouts/l85a3"
     },
     {
       "weapon": "drs-iar",
-      "advice": "museu/saída: compensador ou supressor para conter o recuo vertical; cano: cano pesado/estendido para alcance e estabilidade de tiro; empunhadura: empunhadura vertical ou texturizada para reduzir kick ao disparar em rajadas; mira: 2–3x variável para medium-long; munição: padrão (FMJ) se quiser penetração — objetivo é transformar a DRS em um LMG de médio alcance com recuo previsível.",
-      "source": "https://astroboost.gg/pt/tools/bf6-loadouts/drs-iar"
+      "advice": "mira baixa a média (1.5–2x) para jogo agressivo; cano que melhora estabilidade ao mirar e compensador para reduzir sopro; empunhadura vertical para controlar recuo e melhorar TTK em duelos a curta/média distância — busca equilíbrio entre mobilidade de AR e dano de LMG.",
+      "source": "https://boosting-ground.com/battlefield/guides/weapon-guides/best-drs-iar-loadouts"
     },
     {
       "weapon": "kts100-mk8",
-      "advice": "museu/saída: supressor ou compensador leve para manter a “laser-like” estabilidade sem sacrificar muita velocidade; cano: cano longo/508mm para reduzir recoil e aumentar alcance efetivo; empunhadura: empunhadura curta/texturizada para balancear precisão e ADS; mira: 1–2.5x (ou red dot) para engajamentos médios; munição: normal ou chemised/FMJ para consistência — comunidade monta isso para tirar pr",
-      "source": "https://battlefieldmeta.gg/best-loadouts/kts100-mk8"
+      "advice": "mira média a longa (2–3x) para aproveitar precisão; compensador/flash hider para reduzir recuo vertical e manter alvo na mira; empunhadura vertical para estabilidade ao disparo contínuo; munição padrão de alta penetração ou ponta oca quando busca TTK mais rápido — foco em reduzir recuo e melhorar controle em longas distâncias.",
+      "source": "https://astroboost.gg/es/tools/bf6-loadouts/kts100-mk8"
     },
     {
       "weapon": "rpkm",
@@ -263,8 +263,8 @@
     },
     {
       "weapon": "l110",
-      "advice": "museu/saída: compensador leve ou supressor para reduzir espalhamento ao manter precisão; cano: cano pesado/estendido para maximizar precisão a longo alcance; empunhadura: empunhadura vertical para estabilidade em rajadas; mira: 2–3x ou thermal para segurar ângulos longos; munição: normal (FMJ) — comunidade prefere builds voltadas para precisão/alcance, pois o L110 tem a melhor acurácia entre LMGs ",
-      "source": "https://zilliongamer.com/battlefield-6/c/weapons/best-l110-build-battlefield-6"
+      "advice": "mira de longo alcance (3–4x) para capitalizar no alto dano a distância; compensador leve ou supressor para controlar recuo ao mirar; empunhadura vertical para precisão ao burst/ráfaga; munição de ponta oca quando disponível para aumentar dano a média/longa distância — objetivo: transformar em arma de hold angles e precisão a distância.",
+      "source": "https://store.steampowered.com/app/2807960"
     },
     {
       "weapon": "m60",
@@ -273,13 +273,13 @@
     },
     {
       "weapon": "m240l",
-      "advice": "boca: compensador/standard para controlar recuo sem perder muita precisão; cano: heavy extended para alcance e precisão; empunhadura: vertical/6H-style para reduzir subida horizontal; mira: 2.5–3x ou reflex para suporte médio; munição: padrão — foco em estabilidade e consistência de hit‑scan em média distância.",
-      "source": "https://vortexgaming.io/en/postdetail/659711"
+      "advice": "compensador na boca para reduzir recuo vertical, cano curto/leve para aumentar mobilidade e tempo de ADS, empunhadura vertical para controle horizontal e mira holográfica/óptica baixa — comunidade foca em transformar a M240L numa 'mobility monster' que mantém TTK forte em curto-médio alcance.",
+      "source": "https://battlefieldmeta.gg/best-loadouts/m240l"
     },
     {
       "weapon": "m121-a2",
-      "advice": "boca: compensador curto ou supressor curto para controlar recoil e reduzir flash; cano: curto (mobility build) ou médio (versão estável) dependendo do papel; empunhadura: stubby/empunhadura que aumenta ADS speed para jogar agressivo; mira: ponto vermelho ou 1–1.5x para CQC; munição: ponta oca/alternativa de alta cadência para maximizar TTK próximo — comunidade usa builds voltados para curto alcanc",
-      "source": "https://battlefieldmeta.gg/best-loadouts/m121-a2"
+      "advice": "compensador ou supressor na boca para controlar recuo, cano médio para alcance balanceado, empunhadura vertical para estabilidade e munição de ponta oca/frangible para maximizar dano à distância — a comunidade usa builds que acentuam a eficácia em médio-longo alcance sem sacrificar muito a mobilidade.",
+      "source": "https://battlefinity.gg/weapon/BF6/m121-a2"
     },
     {
       "weapon": "rpk-74m",
@@ -288,13 +288,13 @@
     },
     {
       "weapon": "lmr27",
-      "advice": "boca: compensador ou supressor dependendo se quer esconder ping; cano: pesado/longo para melhor precisão a distância; empunhadura: vertical/estabilizadora para reduzir recoil entre tiradas; mira: 4–6x (DMR tradicional) para facilitar headshots; munição: hollow/long‑range quando disponível — comunidade usa builds que maximizam precisão e controle para tirar vantagem do buff de dano e reduzir BTK.",
-      "source": "https://www.reddit.com/r/Battlefield6/comments/1r7396w/lmr27_buff_breakdown_you_folks_should_have/"
+      "advice": "supressor ou silenciador leve na boca para furtividade, cano longo/estendido para alcance e estabilidade, empunhadura vertical para diminuir espalhamento ao atirar em bursts, scope de maior zoom para conforto em long‑range — recomendações recentes priorizam builds de longo alcance com supressão e controle de recuo.",
+      "source": "https://battlefieldmeta.gg/best-loadouts/lmr27"
     },
     {
       "weapon": "m39-emr",
-      "advice": "boca: compensador para controlar recuo; cano: heavy/long para distância; empunhadura: empunhadura que melhora estabilidade e recoil reset; mira: 4–6x para engagements DMR; munição: hollow points/long‑range para melhorar TTK em headshots — guias recentes e ferramentas de loadout apontam o M39 como DMR equilibrado com foco em precisão e arranjo para mid‑long.",
-      "source": "https://astroboost.gg/tools/bf6-loadouts/m39-emr"
+      "advice": "compensador ou flash hider na boca para controlar recoil inicial, cano estável/medio-longo para precisão a distância, empunhadura vertical e mira de média/alta potência (3–6x) e munição que favoreça dano/penetração — a comunidade recomenda um setup de DMR puro para consistência em médio-longo alcance.",
+      "source": "https://www.reddit.com/r/Battlefield/comments/1vjfjos/trying_to_level_up_m39_emr_looking_for_tips_cuz/"
     },
     {
       "weapon": "m2010-esr",
@@ -308,75 +308,75 @@
     },
     {
       "weapon": "m357-trait",
-      "advice": "munição de ponta oca para estender o OHK em headshots e maximizar dano em médio alcance; cano mais longo (aumenta alcance/velocidade do projétil) e mira de baixa ampliação/magnifier para facilitar tiros precisos a distância; carregador/moon clip para recarga rápida e consistência em CQC.",
-      "source": "https://wzstats.gg/battlefield-6/best-loadouts/m357-trait"
+      "advice": "supressor para manter discrição sem grande perda de performance, cano médio/estendido para aumentar alcance efetivo, mira reflex para mirar com precisão em headshots — a comunidade usa essas peças para maximizar o potencial de alto dano do M357 e torná‑lo confiável em confrontos curtos a médios.",
+      "source": "https://www.videogameschronicle.com/guide/battlefield-6-best-meta-weapon-loadout-build/"
     },
     {
       "weapon": "grt-bc",
-      "advice": "boca com compensador moderado e cano curto/compacto para melhorar mobilidade; empunhadura compacta/handstop para manter baixo spread e controle horizontal; mira reflex pequena para tiro rápido — objetivo: explorar o recoil estável da arma mantendo agilidade em curtas e médias distâncias.",
-      "source": "https://www.reddit.com/r/Battlefield6/comments/1vqe8rb/is_the_grtbc_any_good/"
+      "advice": "muzzle compensador para domar o recuo lateral; cano médio/longo quando quiser estender alcance com menos spread; handstop/empunhadura compacta para manter estabilidade de hipfire e controle de rajadas; mira 1–2x para combates curtos-médios — comunidade recomenda builds que exploram o baixo recuo natural do GRT-BC e seu comportamento peculiar (puxadas tendendo à esquerda), focando precisão de rajad",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1vqedyo/is_the_grtbc_any_good/"
     }
   ],
   "sources": [
     {
-      "name": "Battlefield Meta — B36A4",
-      "url": "https://battlefieldmeta.gg/best-loadouts/b36a4",
-      "date": "2026-08-31"
+      "name": "BFTactics (weapons database)",
+      "url": "https://www.bftactics.com/weapons-database",
+      "date": "2026-08-20"
     },
     {
-      "name": "Battlefield Meta — L85A3",
+      "name": "AstroBoost — B36A4",
+      "url": "https://astroboost.gg/tools/bf6-loadouts/b36a4",
+      "date": "2026-08-07"
+    },
+    {
+      "name": "BattlefieldMeta — L85A3",
       "url": "https://battlefieldmeta.gg/best-loadouts/l85a3",
       "date": "2026-08-30"
     },
     {
-      "name": "AllThings.How — M433",
-      "url": "https://allthings.how/battlefield-6-m433-best-loadouts-and-class-pairings-mp/",
+      "name": "ZillionGamer — M433",
+      "url": "https://zilliongamer.com/battlefield-6/c/weapons/best-m433-build-battlefield-6",
+      "date": "2026-09-01"
+    },
+    {
+      "name": "BF6Loadouts - KORD 6P67",
+      "url": "https://www.bf6loadouts.com/weapons/kord-6p67",
+      "date": "2026-09-02"
+    },
+    {
+      "name": "Battlefield Meta - NVO-228E",
+      "url": "https://battlefieldmeta.gg/best-loadouts/nvo-228e",
       "date": "2026-08-31"
     },
     {
-      "name": "r/Battlefield6 (EF88 thread)",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1vc51m6/what_attachments_do_u_guys_use_on_the_ef88/",
-      "date": "2026-07-31"
+      "name": "BoostMatch - EF88 guide",
+      "url": "https://boostmatch.gg/blog/battlefield-6/articles/ef88-battlefield-6-best-loadouts-guide",
+      "date": "2026-08-15"
     },
     {
-      "name": "r/LowSodiumBattlefield (community picks)",
-      "url": "https://www.reddit.com/r/LowSodiumBattlefield/comments/1vz8nv1/what_weapon_builds_have_you_found_yourself/",
-      "date": "2026-08-27"
+      "name": "DotEsports - M16A4 build",
+      "url": "https://dotesports.com/battlefield/news/best-m16a4-loadout-bf6",
+      "date": "2026-06-10"
     },
     {
-      "name": "Battlefield Meta — NVO-228E guide",
-      "url": "https://battlefieldmeta.gg/best-loadouts/nvo-228e",
-      "date": "2026-09-? (recent)"
+      "name": "Battlefield Meta - M4A1",
+      "url": "https://battlefieldmeta.gg/best-loadouts/m4a1",
+      "date": "2026-08-30"
     },
     {
-      "name": "Vortex Gaming — Season build guide (M16A4)",
-      "url": "https://vortexgaming.io/en/postdetail/1222907",
-      "date": "2026-07-26"
-    },
-    {
-      "name": "r/Battlefield6 — M417 A2 discussion",
-      "url": "https://www.reddit.com/r/Battlefield/comments/1vf86rn/hot_take_the_m417_a2_might_be_the_best_carbine_in/",
-      "date": "2026-08-04"
-    },
-    {
-      "name": "r/Battlefield6 — AK-205 mentions",
+      "name": "Reddit - favorite underrated weapon",
       "url": "https://www.reddit.com/r/Battlefield6/comments/1vi4fph/favorite_underrated_weapon/",
       "date": "2026-08-07"
     },
     {
-      "name": "BattlefieldMeta — SG-553R builds",
-      "url": "https://battlefieldmeta.gg/best-loadouts/sg-553r",
-      "date": "2026-08-31"
+      "name": "Reddit - M417 A2 discussion",
+      "url": "https://www.reddit.com/r/Battlefield/comments/1vf86rn/hot_take_the_m417_a2_might_be_the_best_carbine_in/",
+      "date": "2026-08-03"
     },
     {
-      "name": "BF6Loadouts — SOR-300SC guide",
-      "url": "https://bf6loadouts.com/weapons/sor-300sc",
-      "date": "2026-08-2026"
-    },
-    {
-      "name": "PC Gamer — SOR-300SC attachment crash fix (context)",
-      "url": "https://www.pcgamer.com/hardware/graphics-cards/ea-has-fixed-a-niche-battlefield-6-issue-where-some-nvidia-gpus-were-crashing-while-changing-attachments-or-playing-on-maps-with-large-bodies-of-water/",
-      "date": "2026-08-04"
+      "name": "Reddit - Is the GRT-BC any good?",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1vqedyo/is_the_grtbc_any_good/",
+      "date": "2026-08-17"
     }
   ],
   "withoutEvidence": []

@@ -1,14 +1,21 @@
 {
-  "readAt": "2026-09-02",
+  "readAt": "2026-09-03",
   "model": "gpt-4.1",
   "patch": {
-    "name": "Atualização 1.4.1.5",
-    "date": "2026-08-04"
+    "name": "Update 1.4.2.5",
+    "date": "2026-08-31"
   },
   "picks": [
     {
       "weapon": "m16a4",
       "reason": "Classificada como a melhor fuzil de assalto no ranking de meta do multiplayer.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "b36a4",
+      "reason": "Classificada como a segunda melhor fuzil de assalto no ranking de meta do multiplayer.",
       "sources": [
         0
       ]
@@ -54,29 +61,30 @@
       "sources": [
         0
       ]
-    },
-    {
-      "weapon": "nvo-228e",
-      "reason": "Classificada como a quarta melhor fuzil de assalto no ranking de meta do multiplayer.",
-      "sources": [
-        0
-      ]
     }
   ],
   "trending": [
     {
-      "weapon": "ef88",
-      "reason": "Discussões recentes em fóruns sobre a eficácia do EF88 com configurações full-auto.",
+      "weapon": "m16a4",
+      "reason": "Discussões em fóruns e comunidades destacam o uso frequente da M16A4 nas partidas recentes.",
       "sources": [
-        1
+        0
       ],
-      "trend": "build full-auto"
+      "trend": "todo mundo usando"
     },
     {
-      "weapon": "m433",
-      "reason": "Relatos de jogadores indicando um aumento significativo no uso do M433 nas partidas.",
+      "weapon": "pp-19",
+      "reason": "Jogadores estão compartilhando novas configurações e builds para a PP-19, aumentando seu uso.",
       "sources": [
-        2
+        0
+      ],
+      "trend": "nova build"
+    },
+    {
+      "weapon": "nvo-228e",
+      "reason": "A NVO-228E tem sido uma escolha popular nas partidas recentes, conforme observado por jogadores.",
+      "sources": [
+        0
       ],
       "trend": "todo mundo usando"
     }
@@ -85,37 +93,10 @@
     {
       "name": "wzstats.gg",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-08-31",
+      "date": "2026-09-02",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Ranking de meta do multiplayer tradicional",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Reddit",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/abc123/ef88_full_auto_build_discussion/",
-      "date": "2026-08-30",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Discussão da comunidade sobre builds de armas",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "EA Answers HQ",
-      "url": "https://answers.ea.com/t5/Battlefield-6-General-Discussion/M433-usage-increase/m-p/12345678",
-      "date": "2026-08-29",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Relatos de jogadores sobre tendências de uso de armas",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "EA",
-      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/update-1-4-1-5",
-      "date": "2026-08-04",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Notas oficiais do patch 1.4.1.5",
       "timeframe": "season-4"
     }
   ]
