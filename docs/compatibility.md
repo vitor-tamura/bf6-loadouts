@@ -58,10 +58,22 @@ de empunhadura. O conserto parece óbvio, e mesmo assim o pipeline não o faz:
 decidir qual lado da fonte está certo é decisão de quem tem o jogo aberto. As
 cinco estão como `needs_review`.
 
-**Munição e ergonomia.** 28 peças existem no catálogo sem nenhuma relação. A
-tentação de escrever "toda arma aceita munição padrão" é forte e seria
-exatamente o tipo de dedução que esta página proíbe. Elas aparecem no catálogo
-como peças sem arma até uma fonte dizer em quais entram.
+**Dez peças sem arma.** Eram 23, e treze eram de ergonomia: a matriz da planilha
+mestra cobre sete slots e `ergonomics` não é um deles, então o slot inteiro
+ficava sem uma linha sequer. `catalog:import-analyzer-compat` as ligou, lendo
+`WEAPON_ERGO` do dataset da comunidade — 124 vínculos em 54 armas, e para a M16A4
+exatamente as cinco peças que uma print do jogo já tinha confirmado.
+
+As dez restantes seguem sem arma porque **nenhuma fonte alcançável diz em quais
+elas entram**: quatro miras que o Analyzer só enumera para as secundárias, quatro
+variantes VSSM de underbarrel, `extended_barrel` e a `1p86_lpvo` — anunciada no
+patch note 1.4.1.0 sem matriz de compatibilidade. A tentação de escrever "toda
+arma aceita munição padrão" é forte e seria exatamente o tipo de dedução que esta
+página proíbe. Elas continuam como peças sem arma até uma fonte dizer.
+
+Oito armas ficam sem ergonomia — três escopetas, três metralhadoras, `miniscout`
+e `svk86`. Isso não é pendência: `WEAPON_ERGO` enumera arma por arma, e ausência
+em fonte que enumera é evidência contrária, não silêncio.
 
 ## Índices
 

@@ -203,12 +203,8 @@ describe('nomes das peças', () => {
 
   it('mantém os custos de ergonomia que a tela do jogo mostra', () => {
     /*
-     * A compatibilidade de ergonomia saiu do catálogo: a matriz da planilha tem
-     * sete slots e `ergonomics` não é um deles, e as cinco relações que a print
-     * da M16A4 havia confirmado não sobreviveram à substituição.
-     *
-     * Os custos, esses continuam certos — a planilha traz os mesmos números da
-     * tela, o que é uma confirmação independente deles.
+     * Os custos vêm da print e a planilha traz os mesmos números, o que é
+     * confirmação independente deles.
      */
     const porId = Object.fromEntries(catalog.attachments.map((peça) => [peça.id, peça.cost]));
 
@@ -217,8 +213,47 @@ describe('nomes das peças', () => {
     expect(porId.mag_flare).toBe(10);
     expect(porId.match_trigger).toBe(15);
     expect(porId.full_auto).toBe(25);
+  });
 
-    expect(getWeaponAttachmentsBySlot('m16a4').get('ergonomics') ?? []).toHaveLength(0);
+  it('liga a ergonomia da M16A4 às mesmas cinco peças que a print mostrou', () => {
+    /*
+     * Esta relação já esteve no catálogo, saiu e voltou.
+     *
+     * Ela nasceu de uma print da tela do jogo. Sumiu quando a matriz da planilha
+     * mestra substituiu o import inicial: a planilha tem sete slots e
+     * `ergonomics` não é um deles, então as treze peças de ergonomia ficaram no
+     * catálogo sem arma nenhuma — e este teste, na época, fixava a ausência.
+     *
+     * Voltou por `import-analyzer-compat`, que lê `WEAPON_ERGO` do dataset da
+     * comunidade. O que faz este teste valer a pena é o encontro: a fonte
+     * enumerou para a M16A4 exatamente as cinco peças que a print tinha
+     * mostrado, sem que uma soubesse da outra. Se a lista mudar, mudou por
+     * decisão de alguém — e é para essa decisão aparecer que o teste existe.
+     */
+    const ergonomia = getWeaponAttachmentsBySlot('m16a4').get('ergonomics') ?? [];
+
+    expect(ergonomia.map((peça) => peça.id).sort()).toEqual([
+      'buffer',
+      'full_auto',
+      'mag_flare',
+      'match_trigger',
+      'rail_cover',
+    ]);
+  });
+
+  it('não estende a ergonomia a arma que a fonte não enumerou', () => {
+    /*
+     * `WEAPON_ERGO` enumera arma por arma, e oito não têm entrada nenhuma: três
+     * escopetas, três metralhadoras, a `miniscout` e a `svk86`. Ausência em
+     * fonte que enumera é evidência contrária, não silêncio — o mesmo princípio
+     * que rege o `catalog:compat`.
+     *
+     * Se isto virar não-vazio sem que a fonte mude, alguém preencheu lacuna com
+     * dedução, que é o que o catálogo inteiro se organiza para não fazer.
+     */
+    for (const arma of ['db12', 'm1014', 'm87a1', 'm121a2', 'm123k', 'm250', 'miniscout', 'svk86']) {
+      expect(getWeaponAttachmentsBySlot(arma).get('ergonomics') ?? [], arma).toHaveLength(0);
+    }
   });
 
   it('não deixam nenhuma peça ativa em inglês', () => {

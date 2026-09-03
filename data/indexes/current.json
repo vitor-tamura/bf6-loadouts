@@ -1,6 +1,6 @@
 {
-  "gameVersion": "1.4.2.0",
-  "generatedAt": "2026-08-19T13:38:33.985Z",
+  "gameVersion": "1.4.2.5",
+  "generatedAt": "2026-09-03T13:07:11.112Z",
   "attachmentsByWeapon": {
     "ak205": [
       "120mw_blue",
@@ -19,6 +19,7 @@
       "ammo:standard",
       "ammo:synthetic",
       "basic",
+      "buffer",
       "canted_stubby",
       "classic_vert",
       "comp_brake",
@@ -38,6 +39,8 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_catch",
+      "mag_flare",
       "magazine:ak205:30_fast",
       "magazine:ak205:30_rnd",
       "magazine:ak205:36_rnd",
@@ -46,6 +49,7 @@
       "magazine:ak205:45_fast",
       "magazine:ak205:45_rnd",
       "magazine:ak205:50_rnd",
+      "match_trigger",
       "ribbed_stubby",
       "ribbed_vert",
       "slim_angled",
@@ -72,6 +76,7 @@
       "ammo:standard",
       "basic",
       "bipod",
+      "buffer",
       "canted_stubby",
       "classic_grip_pod",
       "classic_vert",
@@ -99,6 +104,7 @@
       "magazine:ak4d:20_fast",
       "magazine:ak4d:20_rnd",
       "magazine:ak4d:30_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
       "ribbed_stubby",
@@ -128,6 +134,7 @@
       "ammo:synthetic",
       "basic",
       "bipod",
+      "buffer",
       "canted_stubby",
       "classic_grip_pod",
       "classic_vert",
@@ -160,6 +167,7 @@
       "magazine:b36a4:40_rnd",
       "magazine:b36a4:45_fast",
       "magazine:b36a4:45_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
       "ribbed_stubby",
@@ -187,6 +195,7 @@
       "ammo:penetration",
       "ammo:standard",
       "basic",
+      "buffer",
       "canted_stubby",
       "classic_grip_pod",
       "classic_vert",
@@ -207,6 +216,7 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_catch",
       "magazine:brod3:20_fast",
       "magazine:brod3:20_rnd",
       "magazine:brod3:30_fast",
@@ -214,8 +224,10 @@
       "magazine:brod3:36_rnd",
       "magazine:brod3:40_fast",
       "magazine:brod3:40_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
+      "rail_cover",
       "ribbed_stubby",
       "ribbed_vert",
       "short",
@@ -242,6 +254,8 @@
       "ammo:subsonic",
       "ammo:subsonic_hp",
       "basic",
+      "buffer",
+      "burst_training",
       "canted_stubby",
       "classic_vert",
       "cmpct_handstop",
@@ -260,6 +274,7 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_catch",
       "magazine:cz3a1:20_fast",
       "magazine:cz3a1:30_fast",
       "magazine:cz3a1:30_rnd",
@@ -324,6 +339,7 @@
       "ammo:synthetic",
       "basic",
       "bipod",
+      "buffer",
       "canted_stubby",
       "classic_grip_pod",
       "classic_vert",
@@ -346,6 +362,7 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_flare",
       "magazine:drsiar:30_fast",
       "magazine:drsiar:30_rnd",
       "magazine:drsiar:36_rnd",
@@ -355,8 +372,10 @@
       "magazine:drsiar:45_rnd",
       "magazine:drsiar:50_rnd",
       "magazine:drsiar:60_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
+      "rail_cover",
       "ribbed_stubby",
       "ribbed_vert",
       "short",
@@ -384,6 +403,7 @@
       "ammo:synthetic",
       "basic",
       "bipod",
+      "buffer",
       "canted_stubby",
       "classic_grip_pod",
       "classic_vert",
@@ -407,11 +427,13 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_catch",
       "magazine:ef88:30_fast",
       "magazine:ef88:30_rnd",
       "magazine:ef88:36_rnd",
       "magazine:ef88:42_fast",
       "magazine:ef88:42_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
       "ribbed_stubby",
@@ -442,6 +464,7 @@
       "flashlight",
       "iron",
       "light",
+      "mag_catch",
       "magazine:es57:20_rnd",
       "magazine:es57:30_rnd",
       "sp_brake",
@@ -464,10 +487,12 @@
       "combo_red",
       "compensator",
       "cqb_supp",
+      "fast_deploy",
       "flash_hider",
       "flashlight",
       "iron",
       "light",
+      "mag_catch",
       "magazine:ggh22:15_rnd",
       "magazine:ggh22:20_rnd",
       "magazine:ggh22:22_rnd",
@@ -491,6 +516,7 @@
       "ammo:penetration",
       "ammo:standard",
       "basic",
+      "buffer",
       "canted_stubby",
       "classic_vert",
       "cmpct_handstop",
@@ -506,17 +532,20 @@
       "flashlight",
       "fold_stubby",
       "fold_vert",
+      "grtbc_burst_mode",
       "hip_taclight",
       "light",
       "light_supp",
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_catch",
       "magazine:grtbc:30_fast",
       "magazine:grtbc:30_rnd",
       "magazine:grtbc:36_rnd",
       "magazine:grtbc:45_fast",
       "magazine:grtbc:45_rnd",
+      "match_trigger",
       "ribbed_stubby",
       "ribbed_vert",
       "sp_brake",
@@ -541,6 +570,7 @@
       "ammo:synthetic",
       "basic",
       "bipod",
+      "buffer",
       "canted_stubby",
       "classic_grip_pod",
       "classic_vert",
@@ -594,6 +624,7 @@
       "ammo:standard",
       "basic",
       "bipod",
+      "burst_training",
       "canted_stubby",
       "classic_grip_pod",
       "classic_vert",
@@ -622,6 +653,7 @@
       "magazine:kord6p67:40_rnd",
       "magazine:kord6p67:45_fast",
       "magazine:kord6p67:45_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
       "ribbed_stubby",
@@ -647,6 +679,7 @@
       "ammo:flechette",
       "ammo:slugs",
       "basic",
+      "buffer",
       "canted_stubby",
       "classic_vert_ks18k",
       "compensator",
@@ -716,8 +749,10 @@
       "magazine:kts100:50_rnd",
       "magazine:kts100:60_fast",
       "magazine:kts100:60_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
+      "rail_cover",
       "ribbed_stubby",
       "ribbed_vert",
       "short",
@@ -744,6 +779,7 @@
       "ammo:subsonic",
       "ammo:subsonic_hp",
       "basic",
+      "burst_training",
       "canted_stubby",
       "classic_vert",
       "cmpct_handstop",
@@ -809,10 +845,13 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_flare",
       "magazine:l110:100_rnd",
       "magazine:l110:200_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
+      "rail_cover",
       "ribbed_stubby",
       "ribbed_vert",
       "slim_angled",
@@ -828,6 +867,7 @@
       "50mw_violet",
       "5mw_green",
       "5mw_red",
+      "ads_bolt",
       "ads_taclight",
       "ammo:frangible",
       "ammo:long_range",
@@ -847,6 +887,7 @@
       "light_supp",
       "long_supp",
       "lp_stubby_sr",
+      "mag_catch",
       "magazine:l115:5_rnd",
       "magazine:l115:7_fast",
       "magazine:l115:7_rnd",
@@ -908,6 +949,7 @@
       "magazine:l85a3:40_rnd",
       "magazine:l85a3:45_fast",
       "magazine:l85a3:45_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
       "ribbed_stubby",
@@ -959,6 +1001,7 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_catch",
       "magazine:lmr27:10_fast",
       "magazine:lmr27:10_rnd",
       "magazine:lmr27:15_fast",
@@ -1125,6 +1168,7 @@
       "ammo:standard",
       "basic",
       "bipod",
+      "buffer",
       "canted_stubby",
       "classic_grip_pod",
       "classic_vert",
@@ -1140,6 +1184,7 @@
       "fold_stubby",
       "fold_vert",
       "full_angled",
+      "full_auto",
       "heavy",
       "heavy_ext",
       "hip_taclight",
@@ -1148,6 +1193,7 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_flare",
       "magazine:m16a4:20_fast",
       "magazine:m16a4:20_rnd",
       "magazine:m16a4:30_fast",
@@ -1155,8 +1201,10 @@
       "magazine:m16a4:36_rnd",
       "magazine:m16a4:40_fast",
       "magazine:m16a4:40_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
+      "rail_cover",
       "ribbed_stubby",
       "ribbed_vert",
       "short",
@@ -1174,6 +1222,7 @@
       "50mw_violet",
       "5mw_green",
       "5mw_red",
+      "ads_bolt",
       "ads_taclight",
       "ammo:frangible",
       "ammo:long_range",
@@ -1244,6 +1293,7 @@
       "magazine:m240l:75_rnd",
       "ptt_grip_pod",
       "qd_grip_pod",
+      "rail_cover",
       "ribbed_stubby",
       "ribbed_vert",
       "slim_angled",
@@ -1339,12 +1389,15 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_catch",
+      "mag_flare",
       "magazine:m277:15_rnd",
       "magazine:m277:20_fast",
       "magazine:m277:20_rnd",
       "magazine:m277:25_fast",
       "magazine:m277:25_rnd",
       "magazine:m277:30_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
       "ribbed_stubby",
@@ -1366,6 +1419,7 @@
       "basic",
       "combo_green",
       "combo_red",
+      "fast_deploy",
       "flashlight",
       "iron",
       "magazine:m357trait:8_fast",
@@ -1391,6 +1445,7 @@
       "ammo:standard",
       "basic",
       "bipod",
+      "buffer",
       "canted_stubby",
       "classic_grip_pod",
       "classic_vert",
@@ -1410,6 +1465,7 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_catch",
       "magazine:m39emr:15_fast",
       "magazine:m39emr:15_rnd",
       "magazine:m39emr:20_fast",
@@ -1447,6 +1503,7 @@
       "ammo:subsonic_hp",
       "basic",
       "bipod",
+      "buffer",
       "canted_stubby",
       "classic_grip_pod",
       "classic_vert",
@@ -1467,10 +1524,12 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_flare",
       "magazine:m417a2:10_rnd",
       "magazine:m417a2:20_fast",
       "magazine:m417a2:20_rnd",
       "magazine:m417a2:25_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
       "ribbed_stubby",
@@ -1520,6 +1579,7 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_flare",
       "magazine:m433:20_fast",
       "magazine:m433:20_rnd",
       "magazine:m433:30_fast",
@@ -1527,6 +1587,7 @@
       "magazine:m433:36_rnd",
       "magazine:m433:40_fast",
       "magazine:m433:40_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
       "ribbed_stubby",
@@ -1545,6 +1606,8 @@
       "ammo:standard",
       "basic",
       "extended",
+      "fast_deploy",
+      "fast_deploy_10",
       "iron",
       "magazine:m44:6_rnd",
       "short",
@@ -1564,10 +1627,12 @@
       "combo_red",
       "compensator",
       "cqb_supp",
+      "fast_deploy",
       "flash_hider",
       "flashlight",
       "iron",
       "light",
+      "mag_catch",
       "magazine:m45a1:11_rnd",
       "magazine:m45a1:7_rnd",
       "sp_brake",
@@ -1592,6 +1657,7 @@
       "ammo:standard",
       "basic",
       "bipod",
+      "buffer",
       "canted_stubby",
       "classic_grip_pod",
       "classic_vert",
@@ -1612,6 +1678,8 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_catch",
+      "mag_flare",
       "magazine:m4a1:20_fast",
       "magazine:m4a1:20_rnd",
       "magazine:m4a1:30_fast",
@@ -1619,8 +1687,10 @@
       "magazine:m4a1:36_rnd",
       "magazine:m4a1:40_fast",
       "magazine:m4a1:40_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
+      "rail_cover",
       "ribbed_stubby",
       "ribbed_vert",
       "short",
@@ -1671,8 +1741,10 @@
       "lp_stubby",
       "magazine:m60:100_rnd",
       "magazine:m60:50_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
+      "rail_cover",
       "ribbed_stubby",
       "ribbed_vert",
       "slim_angled",
@@ -1777,6 +1849,7 @@
       "ammo:standard",
       "basic",
       "bipod",
+      "buffer",
       "canted_stubby",
       "classic_grip_pod",
       "classic_vert",
@@ -1805,6 +1878,7 @@
       "magazine:nvo228e:36_rnd",
       "magazine:nvo228e:40_fast",
       "magazine:nvo228e:40_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
       "ribbed_stubby",
@@ -1832,10 +1906,12 @@
       "combo_red",
       "compensator",
       "cqb_supp",
+      "fast_deploy",
       "flash_hider",
       "flashlight",
       "iron",
       "light",
+      "mag_catch",
       "magazine:p18:17_rnd",
       "magazine:p18:21_rnd",
       "sp_brake",
@@ -1860,6 +1936,7 @@
       "ammo:subsonic_hp",
       "ammo:synthetic",
       "basic",
+      "buffer",
       "canted_stubby",
       "classic_vert",
       "cmpct_handstop",
@@ -1877,6 +1954,7 @@
       "light",
       "linear_comp",
       "lp_stubby",
+      "mag_catch",
       "magazine:pp19:20_fast",
       "magazine:pp19:30_fast",
       "magazine:pp19:30_rnd",
@@ -1894,6 +1972,7 @@
       "50mw_violet",
       "5mw_green",
       "5mw_red",
+      "ads_bolt",
       "ads_taclight",
       "ammo:frangible",
       "ammo:long_range",
@@ -1913,6 +1992,7 @@
       "light_supp",
       "long_supp",
       "lp_stubby_sr",
+      "mag_catch",
       "magazine:psr:10_rnd",
       "magazine:psr:7_rnd",
       "qd_grip_pod_sr",
@@ -1939,6 +2019,8 @@
       "ammo:subsonic_hp",
       "ammo:synthetic",
       "basic",
+      "buffer",
+      "burst_training",
       "canted_stubby",
       "classic_vert",
       "cmpct_handstop",
@@ -1958,6 +2040,7 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_catch",
       "magazine:pw5a3:20_rnd",
       "magazine:pw5a3:30_fast",
       "magazine:pw5a3:30_rnd",
@@ -2003,6 +2086,7 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_catch",
       "magazine:pw7a2:20_rnd",
       "magazine:pw7a2:30_fast",
       "magazine:pw7a2:30_rnd",
@@ -2032,6 +2116,7 @@
       "ammo:standard",
       "ammo:synthetic",
       "basic",
+      "buffer",
       "canted_stubby",
       "classic_grip_pod",
       "classic_vert",
@@ -2049,8 +2134,10 @@
       "magazine:qbz192:30_rnd",
       "magazine:qbz192:36_rnd",
       "magazine:qbz192:40_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
+      "rail_cover",
       "ribbed_stubby",
       "ribbed_vert",
       "slim_angled",
@@ -2077,6 +2164,7 @@
       "ammo:synthetic",
       "basic",
       "bipod",
+      "buffer",
       "canted_stubby",
       "classic_grip_pod",
       "classic_vert",
@@ -2096,6 +2184,7 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_flare",
       "magazine:rpk74m:30_fast",
       "magazine:rpk74m:30_rnd",
       "magazine:rpk74m:36_rnd",
@@ -2104,6 +2193,7 @@
       "magazine:rpk74m:50_rnd",
       "magazine:rpk74m:60_rnd",
       "magazine:rpk74m:95_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
       "ribbed_stubby",
@@ -2134,6 +2224,7 @@
       "ammo:synthetic",
       "basic",
       "bipod",
+      "buffer",
       "canted_stubby",
       "classic_grip_pod",
       "classic_vert",
@@ -2154,6 +2245,7 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_flare",
       "magazine:rpkm:30_fast",
       "magazine:rpkm:30_rnd",
       "magazine:rpkm:36_rnd",
@@ -2161,6 +2253,7 @@
       "magazine:rpkm:40_rnd",
       "magazine:rpkm:60_rnd",
       "magazine:rpkm:75_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
       "ribbed_stubby",
@@ -2208,6 +2301,7 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_catch",
       "magazine:scw10:15_fast",
       "magazine:scw10:15_rnd",
       "magazine:scw10:20_rnd",
@@ -2236,6 +2330,8 @@
       "ammo:subsonic",
       "ammo:subsonic_hp",
       "basic",
+      "buffer",
+      "burst_training",
       "canted_stubby",
       "classic_vert",
       "comp_brake",
@@ -2255,6 +2351,7 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_catch",
       "magazine:sg553r:20_fast",
       "magazine:sg553r:20_rnd",
       "magazine:sg553r:30_fast",
@@ -2262,6 +2359,7 @@
       "magazine:sg553r:36_rnd",
       "magazine:sg553r:40_fast",
       "magazine:sg553r:40_rnd",
+      "match_trigger",
       "ribbed_stubby",
       "ribbed_vert",
       "slim_angled",
@@ -2287,6 +2385,7 @@
       "ammo:subsonic",
       "ammo:subsonic_hp",
       "basic",
+      "buffer",
       "canted_stubby",
       "classic_vert",
       "cmpct_handstop",
@@ -2335,6 +2434,7 @@
       "ammo:subsonic_hp",
       "ammo:synthetic",
       "basic",
+      "burst_mode",
       "canted_stubby",
       "classic_vert",
       "cmpct_handstop",
@@ -2359,6 +2459,7 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_catch",
       "magazine:sl9:30_rnd",
       "magazine:sl9:60_rnd",
       "ribbed_stubby",
@@ -2386,6 +2487,7 @@
       "ammo:subsonic",
       "ammo:subsonic_hp",
       "basic",
+      "buffer",
       "canted_stubby",
       "classic_vert",
       "cmpct_handstop",
@@ -2407,6 +2509,7 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_flare",
       "magazine:sor300sc:20_fast",
       "magazine:sor300sc:20_rnd",
       "magazine:sor300sc:30_fast",
@@ -2414,6 +2517,8 @@
       "magazine:sor300sc:36_rnd",
       "magazine:sor300sc:40_fast",
       "magazine:sor300sc:40_rnd",
+      "match_trigger",
+      "rail_cover",
       "ribbed_stubby",
       "ribbed_vert",
       "short",
@@ -2442,6 +2547,7 @@
       "ammo:synthetic",
       "basic",
       "bipod",
+      "buffer",
       "canted_stubby",
       "classic_grip_pod",
       "classic_vert",
@@ -2464,6 +2570,7 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_flare",
       "magazine:sor556:20_fast",
       "magazine:sor556:20_rnd",
       "magazine:sor556:30_fast",
@@ -2473,8 +2580,10 @@
       "magazine:sor556:40_rnd",
       "magazine:sor556:45_fast",
       "magazine:sor556:45_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
+      "rail_cover",
       "ribbed_stubby",
       "ribbed_vert",
       "short",
@@ -2492,6 +2601,7 @@
       "50mw_violet",
       "5mw_green",
       "5mw_red",
+      "ads_bolt",
       "ads_taclight",
       "ammo:frangible",
       "ammo:long_range",
@@ -2509,6 +2619,7 @@
       "light",
       "light_supp",
       "lp_stubby_sr",
+      "mag_catch",
       "magazine:sv98:10_rnd",
       "qd_grip_pod_sr",
       "range_finder",
@@ -2535,6 +2646,7 @@
       "ammo:standard",
       "basic",
       "bipod_sr",
+      "buffer",
       "canted_stubby",
       "classic_grip_pod",
       "classic_vert",
@@ -2553,6 +2665,7 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_catch",
       "magazine:svdm:10_fast",
       "magazine:svdm:10_rnd",
       "magazine:svdm:20_rnd",
@@ -2654,6 +2767,7 @@
       "linear_comp",
       "long_supp",
       "lp_stubby",
+      "mag_catch",
       "magazine:tr7:10_fast",
       "magazine:tr7:15_rnd",
       "magazine:tr7:20_fast",
@@ -2661,6 +2775,7 @@
       "magazine:tr7:25_fast",
       "magazine:tr7:25_rnd",
       "magazine:tr7:30_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
       "ribbed_stubby",
@@ -2688,6 +2803,8 @@
       "ammo:subsonic_hp",
       "ammo:synthetic",
       "basic",
+      "buffer",
+      "burst_training",
       "canted_stubby",
       "classic_vert",
       "cmpct_handstop",
@@ -2737,6 +2854,7 @@
       "ammo:subsonic",
       "ammo:subsonic_hp",
       "basic",
+      "buffer",
       "comp_brake",
       "compensator",
       "cqb_supp",
@@ -2752,6 +2870,7 @@
       "light_supp",
       "linear_comp",
       "long_supp",
+      "mag_catch",
       "magazine:usg90:50_rnd",
       "sp_brake",
       "std_supp"
@@ -2774,6 +2893,7 @@
       "ammo:standard",
       "basic",
       "bipod",
+      "buffer",
       "canted_stubby",
       "classic_grip_pod",
       "classic_vert",
@@ -2801,6 +2921,7 @@
       "magazine:vcr2:36_rnd",
       "magazine:vcr2:40_fast",
       "magazine:vcr2:40_rnd",
+      "match_trigger",
       "ptt_grip_pod",
       "qd_grip_pod",
       "ribbed_stubby",
@@ -2834,8 +2955,10 @@
       "fold_stubby",
       "fold_vert",
       "full_angled",
+      "full_auto_vssm",
       "hip_taclight",
       "lp_stubby",
+      "mag_catch",
       "magazine:vssm:10_fast",
       "magazine:vssm:10_rnd",
       "magazine:vssm:20_fast",
@@ -2871,6 +2994,7 @@
       "flashlight",
       "fold_stubby",
       "iron",
+      "mag_catch",
       "magazine:vz61:10_rnd",
       "magazine:vz61:20_rnd",
       "ribbed_stubby",
@@ -3322,6 +3446,12 @@
       "svdm",
       "svk86",
       "vcr2"
+    ],
+    "ads_bolt": [
+      "l115",
+      "m2010esr",
+      "psr",
+      "sv98"
     ],
     "ads_taclight": [
       "ak205",
@@ -3888,6 +4018,47 @@
       "svdm",
       "svk86"
     ],
+    "buffer": [
+      "ak205",
+      "ak4d",
+      "b36a4",
+      "brod3",
+      "cz3a1",
+      "drsiar",
+      "ef88",
+      "grtbc",
+      "grtcps",
+      "ks18k",
+      "m16a4",
+      "m39emr",
+      "m417a2",
+      "m4a1",
+      "nvo228e",
+      "pp19",
+      "pw5a3",
+      "qbz192",
+      "rpk74m",
+      "rpkm",
+      "sg553r",
+      "sgx",
+      "sor300sc",
+      "sor556",
+      "svdm",
+      "umg40",
+      "usg90",
+      "vcr2"
+    ],
+    "burst_mode": [
+      "sl9"
+    ],
+    "burst_training": [
+      "cz3a1",
+      "kord6p67",
+      "kv9",
+      "pw5a3",
+      "sg553r",
+      "umg40"
+    ],
     "canted_stubby": [
       "ak205",
       "ak4d",
@@ -4358,6 +4529,16 @@
     "factory_angled_sl9": [
       "sl9"
     ],
+    "fast_deploy": [
+      "ggh22",
+      "m357trait",
+      "m44",
+      "m45a1",
+      "p18"
+    ],
+    "fast_deploy_10": [
+      "m44"
+    ],
     "flash_comp": [
       "ak205",
       "ak4d",
@@ -4667,6 +4848,15 @@
       "miniscout",
       "psr",
       "sv98"
+    ],
+    "full_auto": [
+      "m16a4"
+    ],
+    "full_auto_vssm": [
+      "vssm"
+    ],
+    "grtbc_burst_mode": [
+      "grtbc"
     ],
     "heavy": [
       "ak205",
@@ -5033,6 +5223,49 @@
     ],
     "lp_stubby_svk86": [
       "svk86"
+    ],
+    "mag_catch": [
+      "ak205",
+      "brod3",
+      "cz3a1",
+      "ef88",
+      "es57",
+      "ggh22",
+      "grtbc",
+      "l115",
+      "lmr27",
+      "m277",
+      "m39emr",
+      "m45a1",
+      "m4a1",
+      "p18",
+      "pp19",
+      "psr",
+      "pw5a3",
+      "pw7a2",
+      "scw10",
+      "sg553r",
+      "sl9",
+      "sv98",
+      "svdm",
+      "tr7",
+      "usg90",
+      "vssm",
+      "vz61"
+    ],
+    "mag_flare": [
+      "ak205",
+      "drsiar",
+      "l110",
+      "m16a4",
+      "m277",
+      "m417a2",
+      "m433",
+      "m4a1",
+      "rpk74m",
+      "rpkm",
+      "sor300sc",
+      "sor556"
     ],
     "magazine:ak205:30_fast": [
       "ak205"
@@ -5883,6 +6116,34 @@
     "magazine:vz61:20_rnd": [
       "vz61"
     ],
+    "match_trigger": [
+      "ak205",
+      "ak4d",
+      "b36a4",
+      "brod3",
+      "drsiar",
+      "ef88",
+      "grtbc",
+      "kord6p67",
+      "kts100",
+      "l110",
+      "l85a3",
+      "m16a4",
+      "m277",
+      "m417a2",
+      "m433",
+      "m4a1",
+      "m60",
+      "nvo228e",
+      "qbz192",
+      "rpk74m",
+      "rpkm",
+      "sg553r",
+      "sor300sc",
+      "sor556",
+      "tr7",
+      "vcr2"
+    ],
     "ptt_grip_pod": [
       "ak4d",
       "b36a4",
@@ -5957,6 +6218,19 @@
       "miniscout",
       "psr",
       "sv98"
+    ],
+    "rail_cover": [
+      "brod3",
+      "drsiar",
+      "kts100",
+      "l110",
+      "m16a4",
+      "m240l",
+      "m4a1",
+      "m60",
+      "qbz192",
+      "sor300sc",
+      "sor556"
     ],
     "range_finder": [
       "grtcps",
@@ -6409,6 +6683,12 @@
         "heavy",
         "light"
       ],
+      "ergonomics": [
+        "buffer",
+        "mag_catch",
+        "mag_flare",
+        "match_trigger"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -6475,6 +6755,10 @@
         "heavy",
         "heavy_ext",
         "short"
+      ],
+      "ergonomics": [
+        "buffer",
+        "match_trigger"
       ],
       "laser": [
         "120mw_blue",
@@ -6546,6 +6830,10 @@
         "heavy_ext",
         "light",
         "short"
+      ],
+      "ergonomics": [
+        "buffer",
+        "match_trigger"
       ],
       "laser": [
         "120mw_blue",
@@ -6619,6 +6907,12 @@
         "light",
         "short"
       ],
+      "ergonomics": [
+        "buffer",
+        "mag_catch",
+        "match_trigger",
+        "rail_cover"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -6686,6 +6980,11 @@
         "basic",
         "extended",
         "light"
+      ],
+      "ergonomics": [
+        "buffer",
+        "burst_training",
+        "mag_catch"
       ],
       "laser": [
         "120mw_blue",
@@ -6798,6 +7097,12 @@
         "light",
         "short"
       ],
+      "ergonomics": [
+        "buffer",
+        "mag_flare",
+        "match_trigger",
+        "rail_cover"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -6875,6 +7180,11 @@
         "short",
         "short_light"
       ],
+      "ergonomics": [
+        "buffer",
+        "mag_catch",
+        "match_trigger"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -6939,6 +7249,9 @@
         "basic",
         "light"
       ],
+      "ergonomics": [
+        "mag_catch"
+      ],
       "laser": [
         "50mw_green",
         "5mw_green",
@@ -6978,6 +7291,10 @@
       "barrel": [
         "basic",
         "light"
+      ],
+      "ergonomics": [
+        "fast_deploy",
+        "mag_catch"
       ],
       "laser": [
         "50mw_green",
@@ -7019,6 +7336,12 @@
         "basic",
         "extended",
         "light"
+      ],
+      "ergonomics": [
+        "buffer",
+        "grtbc_burst_mode",
+        "mag_catch",
+        "match_trigger"
       ],
       "laser": [
         "120mw_blue",
@@ -7083,6 +7406,9 @@
         "extended",
         "light",
         "short"
+      ],
+      "ergonomics": [
+        "buffer"
       ],
       "laser": [
         "120mw_blue",
@@ -7151,6 +7477,10 @@
         "heavy",
         "light"
       ],
+      "ergonomics": [
+        "burst_training",
+        "match_trigger"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -7217,6 +7547,9 @@
         "basic",
         "extended"
       ],
+      "ergonomics": [
+        "buffer"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -7272,6 +7605,10 @@
         "heavy",
         "heavy_ext",
         "short"
+      ],
+      "ergonomics": [
+        "match_trigger",
+        "rail_cover"
       ],
       "laser": [
         "120mw_blue",
@@ -7343,6 +7680,9 @@
         "extended",
         "light"
       ],
+      "ergonomics": [
+        "burst_training"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -7400,6 +7740,11 @@
         "heavy",
         "heavy_ext",
         "light"
+      ],
+      "ergonomics": [
+        "mag_flare",
+        "match_trigger",
+        "rail_cover"
       ],
       "laser": [
         "120mw_blue",
@@ -7464,6 +7809,10 @@
         "light",
         "short"
       ],
+      "ergonomics": [
+        "ads_bolt",
+        "mag_catch"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -7518,6 +7867,9 @@
         "heavy_ext",
         "light",
         "short"
+      ],
+      "ergonomics": [
+        "match_trigger"
       ],
       "laser": [
         "120mw_blue",
@@ -7590,6 +7942,9 @@
         "basic",
         "extended",
         "light"
+      ],
+      "ergonomics": [
+        "mag_catch"
       ],
       "laser": [
         "120mw_blue",
@@ -7838,6 +8193,13 @@
         "light",
         "short"
       ],
+      "ergonomics": [
+        "buffer",
+        "full_auto",
+        "mag_flare",
+        "match_trigger",
+        "rail_cover"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -7907,6 +8269,9 @@
         "extended",
         "light"
       ],
+      "ergonomics": [
+        "ads_bolt"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -7958,6 +8323,9 @@
         "heavy",
         "heavy_ext",
         "light"
+      ],
+      "ergonomics": [
+        "rail_cover"
       ],
       "laser": [
         "120mw_blue",
@@ -8084,6 +8452,11 @@
         "heavy_ext",
         "light"
       ],
+      "ergonomics": [
+        "mag_catch",
+        "mag_flare",
+        "match_trigger"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -8148,6 +8521,9 @@
       "barrel": [
         "basic"
       ],
+      "ergonomics": [
+        "fast_deploy"
+      ],
       "laser": [
         "50mw_green",
         "5mw_green",
@@ -8181,6 +8557,10 @@
         "basic",
         "extended",
         "short"
+      ],
+      "ergonomics": [
+        "buffer",
+        "mag_catch"
       ],
       "laser": [
         "120mw_blue",
@@ -8253,6 +8633,11 @@
         "extended",
         "short"
       ],
+      "ergonomics": [
+        "buffer",
+        "mag_flare",
+        "match_trigger"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -8319,6 +8704,10 @@
         "extended",
         "light",
         "short"
+      ],
+      "ergonomics": [
+        "mag_flare",
+        "match_trigger"
       ],
       "laser": [
         "120mw_blue",
@@ -8388,6 +8777,10 @@
         "extended",
         "short"
       ],
+      "ergonomics": [
+        "fast_deploy",
+        "fast_deploy_10"
+      ],
       "magazine": [
         "magazine:m44:6_rnd"
       ],
@@ -8406,6 +8799,10 @@
       "barrel": [
         "basic",
         "light"
+      ],
+      "ergonomics": [
+        "fast_deploy",
+        "mag_catch"
       ],
       "laser": [
         "50mw_green",
@@ -8447,6 +8844,13 @@
         "extended",
         "light",
         "short"
+      ],
+      "ergonomics": [
+        "buffer",
+        "mag_catch",
+        "mag_flare",
+        "match_trigger",
+        "rail_cover"
       ],
       "laser": [
         "120mw_blue",
@@ -8517,6 +8921,10 @@
         "heavy",
         "heavy_ext",
         "light"
+      ],
+      "ergonomics": [
+        "match_trigger",
+        "rail_cover"
       ],
       "laser": [
         "120mw_blue",
@@ -8691,6 +9099,10 @@
         "light",
         "short"
       ],
+      "ergonomics": [
+        "buffer",
+        "match_trigger"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -8759,6 +9171,10 @@
         "basic",
         "light"
       ],
+      "ergonomics": [
+        "fast_deploy",
+        "mag_catch"
+      ],
       "laser": [
         "50mw_green",
         "5mw_green",
@@ -8801,6 +9217,10 @@
         "cryo",
         "extended",
         "light"
+      ],
+      "ergonomics": [
+        "buffer",
+        "mag_catch"
       ],
       "laser": [
         "120mw_blue",
@@ -8856,6 +9276,10 @@
         "basic",
         "extended"
       ],
+      "ergonomics": [
+        "ads_bolt",
+        "mag_catch"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -8907,6 +9331,11 @@
         "basic",
         "cryo",
         "extended"
+      ],
+      "ergonomics": [
+        "buffer",
+        "burst_training",
+        "mag_catch"
       ],
       "laser": [
         "120mw_blue",
@@ -8968,6 +9397,9 @@
         "cryo",
         "heavy"
       ],
+      "ergonomics": [
+        "mag_catch"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -9028,6 +9460,11 @@
         "cryo",
         "extended"
       ],
+      "ergonomics": [
+        "buffer",
+        "match_trigger",
+        "rail_cover"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -9086,6 +9523,11 @@
         "heavy",
         "heavy_ext",
         "short"
+      ],
+      "ergonomics": [
+        "buffer",
+        "mag_flare",
+        "match_trigger"
       ],
       "laser": [
         "120mw_blue",
@@ -9159,6 +9601,11 @@
         "heavy_ext",
         "short"
       ],
+      "ergonomics": [
+        "buffer",
+        "mag_flare",
+        "match_trigger"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -9228,6 +9675,9 @@
         "extended",
         "light"
       ],
+      "ergonomics": [
+        "mag_catch"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -9288,6 +9738,12 @@
         "basic",
         "extended",
         "light"
+      ],
+      "ergonomics": [
+        "buffer",
+        "burst_training",
+        "mag_catch",
+        "match_trigger"
       ],
       "laser": [
         "120mw_blue",
@@ -9355,6 +9811,9 @@
         "light",
         "short"
       ],
+      "ergonomics": [
+        "buffer"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -9419,6 +9878,10 @@
         "heavy_ext",
         "light"
       ],
+      "ergonomics": [
+        "burst_mode",
+        "mag_catch"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -9481,6 +9944,12 @@
         "extended",
         "light",
         "short"
+      ],
+      "ergonomics": [
+        "buffer",
+        "mag_flare",
+        "match_trigger",
+        "rail_cover"
       ],
       "laser": [
         "120mw_blue",
@@ -9551,6 +10020,12 @@
         "heavy",
         "heavy_ext",
         "short"
+      ],
+      "ergonomics": [
+        "buffer",
+        "mag_flare",
+        "match_trigger",
+        "rail_cover"
       ],
       "laser": [
         "120mw_blue",
@@ -9624,6 +10099,10 @@
         "light",
         "short"
       ],
+      "ergonomics": [
+        "ads_bolt",
+        "mag_catch"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -9670,6 +10149,10 @@
         "extended",
         "light",
         "short"
+      ],
+      "ergonomics": [
+        "buffer",
+        "mag_catch"
       ],
       "laser": [
         "120mw_blue",
@@ -9800,6 +10283,10 @@
         "light",
         "short"
       ],
+      "ergonomics": [
+        "mag_catch",
+        "match_trigger"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -9870,6 +10357,10 @@
         "heavy_ext",
         "light"
       ],
+      "ergonomics": [
+        "buffer",
+        "burst_training"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -9934,6 +10425,10 @@
         "heavy_ext",
         "light"
       ],
+      "ergonomics": [
+        "buffer",
+        "mag_catch"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -9977,6 +10472,10 @@
         "extended",
         "light",
         "short"
+      ],
+      "ergonomics": [
+        "buffer",
+        "match_trigger"
       ],
       "laser": [
         "120mw_blue",
@@ -10045,6 +10544,10 @@
         "vssm_suppressed",
         "vssm_suppressed_asm"
       ],
+      "ergonomics": [
+        "full_auto_vssm",
+        "mag_catch"
+      ],
       "laser": [
         "120mw_blue",
         "50mw_blue",
@@ -10095,6 +10598,9 @@
       ],
       "barrel": [
         "basic"
+      ],
+      "ergonomics": [
+        "mag_catch"
       ],
       "laser": [
         "50mw_green",

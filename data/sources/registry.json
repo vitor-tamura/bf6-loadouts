@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "sobre": "Quem cumpre cada papel de fonte hoje. Só a EA é parte do desenho; as demais linhas são substituíveis, e trocá-las é editar este arquivo — não um script. Ver docs/data-sources.md.",
+  "papeis": {
+    "estado_atual": "que peças esta arma aceita hoje",
+    "numeros_de_simulacao": "curva de dano, velocidade, arrasto, recuo, espalhamento, recarga",
+    "enumeracao_de_slot": "a lista fechada de um slot numa arma, em que ausência vale como negativa"
+  },
+  "fontes": [
+    {
+      "id": "bf6loadouts",
+      "papel": "estado_atual",
+      "tipo": "current_state",
+      "url": "https://bf6loadouts.com",
+      "ativo": true,
+      "env": "CATALOG_LOADOUTS_URL",
+      "nota": "Aplicativo Next.js: o HTML não traz custo em pontos nem lista de acessórios por arma. Ver docs/data-sources.md."
+    },
+    {
+      "id": "bf6-weapon-analyzer",
+      "papel": "numeros_de_simulacao",
+      "tipo": "community",
+      "repo": "raymdl/BF6-Weapon-Analyzer",
+      "branch": "main",
+      "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+      "ativo": true,
+      "env": "CATALOG_GITHUB_REPO",
+      "envBranch": "CATALOG_GITHUB_BRANCH",
+      "nota": "Declara em data/ballistics.json de que versão do jogo é o levantamento. Desde fb7a214 a declaração é indireta, por data/provenance/live-baseline.json."
+    },
+    {
+      "id": "rnkd",
+      "papel": "enumeracao_de_slot",
+      "tipo": "community",
+      "url": "https://rnkd.gg/battlefield6/weapons",
+      "ativo": true,
+      "env": "CATALOG_ARSENAL_URL",
+      "nota": "Publica a ficha por arma com o slot inteiro listado. É o que permite ler ausência como negativa."
+    }
+  ]
+}

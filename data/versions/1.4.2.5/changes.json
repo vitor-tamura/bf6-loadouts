@@ -1,0 +1,31 @@
+{
+  "gameVersion": "1.4.2.5",
+  "events": [
+    {
+      "id": "evt-1.4.2.5-compatibility-carried-0",
+      "gameVersion": "1.4.2.5",
+      "timestamp": "2026-09-03",
+      "type": "source_conflict",
+      "entityType": "compatibility",
+      "entityId": null,
+      "changes": {
+        "carried": 2753,
+        "closed": 0
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-4-2-5",
+          "version": "1.4.2.5",
+          "retrievedAt": "2026-09-03T13:07:08.725Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "A matriz veio da versão anterior sem confirmação do estado atual. Rode catalog:fetch-loadouts e confirme antes de publicar."
+      }
+    }
+  ]
+}

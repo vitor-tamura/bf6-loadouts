@@ -41,7 +41,8 @@
  */
 
 import { join } from 'node:path';
-import { ENDPOINTS, fetchText } from './lib/http.ts';
+import { fetchText } from './lib/http.ts';
+import { fonteAtiva } from './lib/sources.ts';
 import { IMPORTS, NOW, SOURCES, TODAY, log, readJsonIf, writeJson } from './lib/io.ts';
 
 /**
@@ -76,7 +77,7 @@ export async function fetchLoadouts(): Promise<{
   embedded: unknown | null;
   html: string;
 }> {
-  const url = ENDPOINTS.loadouts;
+  const url = fonteAtiva('estado_atual').url;
   const html = await fetchText(url);
   return { url, embedded: extractEmbedded(html), html };
 }

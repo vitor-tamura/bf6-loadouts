@@ -1,0 +1,3853 @@
+{
+  "gameVersion": "1.4.2.5",
+  "models": [
+    {
+      "weaponId": "ak205",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 17.74,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 17.74,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 15.07,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 15.07,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 14.62,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.62,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 12.76,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "ak4d",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 20.67,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "b36a4",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.4,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "brod3",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.4,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 21.56,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 21.56,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 17.74,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 17.74,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.62,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Exact GRT-BC donor dropoff model; BROD 3 panel endpoints display rounded values only and do not override donor precision; pending Sym full statistics",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "cz3a1",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.4,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 14.62,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.62,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 12.76,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "db12",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1,
+        "limb": 1,
+        "body": 1,
+        "limbClass": null,
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 5.6,
+          "source": "Sym"
+        },
+        {
+          "distance": 15,
+          "damage": 5.6,
+          "source": "Sym"
+        },
+        {
+          "distance": 16,
+          "damage": 3.3,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 3.3,
+          "source": "Sym"
+        },
+        {
+          "distance": 22,
+          "damage": 2.5,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); per-pellet damage with a 1 m blend at each tier boundary",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "drsiar",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "ef88",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.4,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Exact B36A4/L85A3 donor dropoff model; EF88 panel endpoints display rounded values only and do not override donor precision; pending Sym full statistics",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "es57",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 1,
+        "body": 1,
+        "limbClass": null,
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 20,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 20,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 17.7,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 17.7,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 15,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 15,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 14.3,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.3,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 12.5,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "ggh22",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 1,
+        "body": 1,
+        "limbClass": null,
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 25,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 25,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 21.5,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 21.5,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 17.7,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 17.7,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 16.7,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 16.7,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.3,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "grtbc",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 21.56,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 21.56,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 17.74,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 17.74,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.62,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "grtcps",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.91,
+        "body": 1,
+        "limbClass": "dmr",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 29.4,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 29.4,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 27.5,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 27.5,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 26.2,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "kord6p67",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.62,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "ks18k",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1,
+        "limb": 1,
+        "body": 1,
+        "limbClass": null,
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 5,
+          "source": "Sym"
+        },
+        {
+          "distance": 15,
+          "damage": 5,
+          "source": "Sym"
+        },
+        {
+          "distance": 16,
+          "damage": 2.8,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 2.8,
+          "source": "Sym"
+        },
+        {
+          "distance": 22,
+          "damage": 2,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); per-pellet damage with a 1 m blend at each tier boundary",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "kts100",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "kv9",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 14.62,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.62,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 12.76,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "l110",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "l115",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.75,
+        "limb": 0.67,
+        "body": 1,
+        "limbClass": "sniper",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 75,
+          "damage": 80,
+          "source": "Sym"
+        },
+        {
+          "distance": 100,
+          "damage": 100,
+          "source": "Sym"
+        },
+        {
+          "distance": 133,
+          "damage": 100,
+          "source": "Sym"
+        },
+        {
+          "distance": 175,
+          "damage": 62,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); linear sweet-spot falloff",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "l85a3",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "lmr27",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.91,
+        "body": 1,
+        "limbClass": "dmr",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 29.4,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 29.4,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 27.5,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 27.5,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 26.2,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "m1014",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1,
+        "limb": 1,
+        "body": 1,
+        "limbClass": null,
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 7.2,
+          "source": "Sym"
+        },
+        {
+          "distance": 8,
+          "damage": 7.2,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 5,
+          "source": "Sym"
+        },
+        {
+          "distance": 15,
+          "damage": 5,
+          "source": "Sym"
+        },
+        {
+          "distance": 16,
+          "damage": 3.1,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 3.1,
+          "source": "Sym"
+        },
+        {
+          "distance": 22,
+          "damage": 2.3,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); per-pellet damage with a 1 m blend at each tier boundary",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "m121a2",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.4,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 20.67,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "m123k",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "m16a4",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.4,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "m2010esr",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.75,
+        "limb": 0.67,
+        "body": 1,
+        "limbClass": "sniper",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 54,
+          "damage": 80,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 100,
+          "source": "Sym"
+        },
+        {
+          "distance": 100,
+          "damage": 100,
+          "source": "Sym"
+        },
+        {
+          "distance": 133,
+          "damage": 62,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); linear sweet-spot falloff",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "m240l",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 20.67,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "m250",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 15,
+          "damage": 26.05,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); special damage profile: no falloff at any range (user-confirmed)",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "m277",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 20.67,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "m357trait",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 1,
+        "body": 1,
+        "limbClass": null,
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 50,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 50,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 37.5,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 37.5,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 27.3,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 27.3,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 25,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 25,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 20,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "m39emr",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.5,
+        "limb": 0.91,
+        "body": 1,
+        "limbClass": "dmr",
+        "byAmmo": {
+          "hollowPoint": 1.75,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 41.5,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 41.5,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 37.6,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 37.6,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 34.4,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "m417a2",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 27.48,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 27.48,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 21.56,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 21.56,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "m433",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "m44",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.5,
+        "limb": 1,
+        "body": 1,
+        "limbClass": null,
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 66.7,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 66.7,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 59.9,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 59.9,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 33.4,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 33.4,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 25,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "m45a1",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 1,
+        "body": 1,
+        "limbClass": null,
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 33.4,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 33.4,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 25,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 25,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 20,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 16.7,
+          "source": "Sym"
+        },
+        {
+          "distance": 54,
+          "damage": 16.7,
+          "source": "Sym"
+        },
+        {
+          "distance": 54,
+          "damage": 14.3,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.3,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 12.5,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "m4a1",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 21.56,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 21.56,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 17.74,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 17.74,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.62,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "m60",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 20.67,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "m87a1",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1,
+        "limb": 1,
+        "body": 1,
+        "limbClass": null,
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 8.4,
+          "source": "Sym"
+        },
+        {
+          "distance": 8,
+          "damage": 8.4,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 7.2,
+          "source": "Sym"
+        },
+        {
+          "distance": 15,
+          "damage": 7.2,
+          "source": "Sym"
+        },
+        {
+          "distance": 16,
+          "damage": 5.6,
+          "source": "Sym"
+        },
+        {
+          "distance": 30,
+          "damage": 5.6,
+          "source": "Sym"
+        },
+        {
+          "distance": 31,
+          "damage": 3.8,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); per-pellet damage with a 1 m blend at each tier boundary",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "miniscout",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.75,
+        "limb": 0.67,
+        "body": 1,
+        "limbClass": "sniper",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 62,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 62,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 58,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); linear falloff, no sweet spot",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "nvo228e",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 27.48,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 27.48,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 21.56,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 21.56,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "p18",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 1,
+        "body": 1,
+        "limbClass": null,
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 25,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 25,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 20,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 16.7,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 16.7,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 14.3,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.3,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 12.5,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "pp19",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.4,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 14.62,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.62,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 12.76,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "psr",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.75,
+        "limb": 0.67,
+        "body": 1,
+        "limbClass": "sniper",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 75,
+          "damage": 80,
+          "source": "Sym"
+        },
+        {
+          "distance": 90,
+          "damage": 100,
+          "source": "Sym"
+        },
+        {
+          "distance": 120,
+          "damage": 100,
+          "source": "Sym"
+        },
+        {
+          "distance": 160,
+          "damage": 62,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); linear sweet-spot falloff",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "pw5a3",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 14.62,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.62,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 12.76,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "pw7a2",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 14.62,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.62,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 12.76,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "qbz192",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 21.56,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 21.56,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 17.74,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 17.74,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.62,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "rpk74m",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.4,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.62,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "rpkm",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 27.48,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 27.48,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 21.56,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 21.56,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "scw10",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.62,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "sg553r",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.62,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "sgx",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 14.62,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.62,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 12.76,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "sl9",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 14.62,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.62,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 12.76,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "sor300sc",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.4,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.62,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "sor556",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "sv98",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.75,
+        "limb": 0.67,
+        "body": 1,
+        "limbClass": "sniper",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 80,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 80,
+          "source": "Sym"
+        },
+        {
+          "distance": 54,
+          "damage": 100,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 100,
+          "source": "Sym"
+        },
+        {
+          "distance": 100,
+          "damage": 62,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); linear sweet-spot falloff",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "svdm",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.5,
+        "limb": 0.91,
+        "body": 1,
+        "limbClass": "dmr",
+        "byAmmo": {
+          "hollowPoint": 1.75,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 41.5,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 41.5,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 37.6,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 37.6,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 34.4,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "svk86",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.5,
+        "limb": 0.91,
+        "body": 1,
+        "limbClass": "dmr",
+        "byAmmo": {
+          "hollowPoint": 1.75,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 66.7,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 66.7,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 57.2,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 57.2,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 52.4,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "tr7",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 35.22,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 20.67,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "umg40",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 21.56,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 21.56,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 17.74,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 17.74,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.62,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "usg90",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.34,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 17.74,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 17.74,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 15.07,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 15.07,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 14.62,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 14.62,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 12.76,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "vcr2",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.4,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 26.05,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 20.67,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 17.13,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "vssm",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.8,
+        "limb": 0.91,
+        "body": 1,
+        "limbClass": "dmr",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 35.22,
+          "source": "in-game"
+        },
+        {
+          "distance": 9,
+          "damage": 35.22,
+          "source": "in-game"
+        },
+        {
+          "distance": 9,
+          "damage": 27.48,
+          "source": "in-game"
+        },
+        {
+          "distance": 21,
+          "damage": 27.48,
+          "source": "in-game"
+        },
+        {
+          "distance": 21,
+          "damage": 21.56,
+          "source": "in-game"
+        },
+        {
+          "distance": 36,
+          "damage": 21.56,
+          "source": "in-game"
+        },
+        {
+          "distance": 36,
+          "damage": 20.67,
+          "source": "in-game"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "In-game reading: NVO-228E tiers without the 75 m step; 20.67 is retained past 36 m. The datamined changelist 28877515 table lists a further 17.13 tier past 75 m that the weapon does not apply.",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    },
+    {
+      "weaponId": "vz61",
+      "model": "piecewise_linear",
+      "zones": {
+        "head": 1.4,
+        "limb": 0.84,
+        "body": 1,
+        "limbClass": "auto",
+        "byAmmo": {
+          "hollowPoint": 1.57,
+          "synthetic": 1.8
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 17.13,
+          "source": "Sym"
+        },
+        {
+          "distance": 9,
+          "damage": 15.07,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 15.07,
+          "source": "Sym"
+        },
+        {
+          "distance": 21,
+          "damage": 13.09,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 13.09,
+          "source": "Sym"
+        },
+        {
+          "distance": 36,
+          "damage": 12.76,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 12.76,
+          "source": "Sym"
+        },
+        {
+          "distance": 75,
+          "damage": 11.32,
+          "source": "Sym"
+        }
+      ],
+      "status": "provisional",
+      "declaredSource": "Sym.gg 1.3.3.0 game-file curve (retrieved 2026-07-25); stepped tiers, provisional pending in-game confirmation",
+      "source": {
+        "provider": "BF6 MASTER (planilha)",
+        "type": "verified",
+        "url": null,
+        "dataset": "BF6_MASTER_Armas_Attachments_Stats_Compatibilidade_1.4.1.5.xlsx",
+        "commit": null,
+        "version": null,
+        "retrievedAt": "2026-08-12T15:17:01.745Z",
+        "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.2.5"
+    }
+  ]
+}

@@ -17,7 +17,7 @@
  */
 
 import { join } from 'node:path';
-import { ENDPOINTS, fetchText, htmlToText } from './lib/http.ts';
+import { EA_NEWS, fetchText, htmlToText } from './lib/http.ts';
 import { NOW, PATCHES, isGameVersion, log, writeJson } from './lib/io.ts';
 
 export interface PatchNote {
@@ -45,7 +45,7 @@ export interface PatchNote {
  */
 export function patchNoteUrl(version: string): string {
   const slug = version.replace(/\./g, '-');
-  return `${ENDPOINTS.eaNews}/battlefield-6-game-update-${slug}`;
+  return `${EA_NEWS}/battlefield-6-game-update-${slug}`;
 }
 
 /** A data de publicação, quando a página a declara em formato de máquina. */
