@@ -150,6 +150,20 @@ async function processVersion(update: DiscoveredUpdate, options: Options): Promi
     if (!run('import-analyzer.ts').ok) {
       log(`${version}: a importação dos números falhou — eles seguem herdados`);
     }
+
+    /*
+     * A compatibilidade de ergonomia é passo próprio, e roda mesmo quando a
+     * importação dos números não roda.
+     *
+     * As duas travas são diferentes de propósito: número velho sobrescrevendo
+     * número novo é regressão, e por isso o `import-analyzer` para quando o
+     * dataset está atrasado; "que armas aceitam Gatilho" não regride com o
+     * patch, e segurar isso pela mesma trava deixaria treze peças sem arma por
+     * tempo indeterminado. Ver `import-analyzer-compat.ts`.
+     */
+    if (!run('import-analyzer-compat.ts').ok) {
+      log(`${version}: a ergonomia não pôde ser ligada às armas — segue como pendência`);
+    }
   } else {
     log(`${version}: o dataset da comunidade não pôde ser lido — números herdados`);
   }
@@ -179,16 +193,32 @@ async function main(): Promise<void> {
   let updates: DiscoveredUpdate[];
 
   if (options.version) {
-    // Versão na mão: o endereço padrão vale, e quem o mudou passa a URL no
-    // fetch. Não se consulta a EA para saber se ela existe — quem pediu sabe.
+    /*
+     * Versão na mão: quem pediu sabe que ela existe, e não se consulta a EA
+     * para confirmar isso.
+     *
+     * O que se consulta é o endereço. A EA pendura o mesmo Game Update ora em
+     * `battlefield-6`, ora em `redsec` — a 1.4.2.5 saiu na segunda —, e o
+     * endereço montado aqui só chega lá porque hoje há redirecionamento. Se a
+     * página de novidades anunciar a versão, o endereço dela é o que vale; o
+     * montado fica de reserva, para quando a listagem estiver fora do ar ou a
+     * versão ainda não tiver aparecido nela.
+     */
+    const built = `https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-${options.version.replace(/\./g, '-')}`;
+    let announced: DiscoveredUpdate | undefined;
+
+    try {
+      announced = (await discover()).published.find((u) => u.version === options.version);
+    } catch (error) {
+      log('a página de novidades não respondeu — seguindo com o endereço padrão', {
+        erro: error instanceof Error ? error.message : String(error),
+      });
+    }
+
     updates = [
-      {
-        version: options.version,
-        url: `https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-${options.version.replace(/\./g, '-')}`,
-        title: null,
-        publishedAt: null,
-      },
+      announced ?? { version: options.version, url: built, title: null, publishedAt: null },
     ];
+    log(`${options.version}: patch note em`, updates[0].url);
   } else {
     const found = await discover();
     updates = found.updates;

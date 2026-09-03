@@ -129,19 +129,17 @@ export function htmlToText(html: string): string {
     .trim();
 }
 
-/** Os endereços que o pipeline conhece, todos sobrescrevíveis por ambiente. */
-export const ENDPOINTS = {
-  eaNews: process.env.CATALOG_EA_NEWS_URL ?? 'https://www.ea.com/games/battlefield/battlefield-6/news',
-  loadouts: process.env.CATALOG_LOADOUTS_URL ?? 'https://bf6loadouts.com',
-  githubRepo: process.env.CATALOG_GITHUB_REPO ?? 'raymdl/BF6-Weapon-Analyzer',
-  githubBranch: process.env.CATALOG_GITHUB_BRANCH ?? 'main',
-  /**
-   * A ficha por arma do rnkd.gg, que enumera o slot inteiro.
-   *
-   * É a única fonte alcançável daqui que lista, arma por arma, todos os
-   * acessórios de cada slot — inclusive os que a temporada acrescentou. Enumerar
-   * é o que a separa das outras: quando a peça não está lá, isso é evidência
-   * contrária, e não silêncio.
-   */
-  arsenal: process.env.CATALOG_ARSENAL_URL ?? 'https://rnkd.gg/battlefield6/weapons',
-};
+/**
+ * O único endereço que este módulo conhece.
+ *
+ * A EA é a fonte oficial, e é a única cujo nome é parte do desenho do catálogo:
+ * ela responde "o que mudou neste patch" com autoridade, e não há substituta.
+ * Por isso mora aqui, no código.
+ *
+ * As outras três — estado atual, números de simulação, enumeração de slot —
+ * estão no pipeline pelo papel que cumprem, não por serem quem são, e qualquer
+ * uma pode ser trocada por outra melhor sem que nada no desenho mude. Elas vivem
+ * em `data/sources/registry.json` e se pedem por `fonteAtiva(papel)`, em
+ * `lib/sources.ts`.
+ */
+export { EA_NEWS } from './sources.ts';

@@ -39,6 +39,7 @@ import {
   NOW,
   TODAY,
   compareVersions,
+  isGameVersion,
   log,
   readJson,
   versionDir,
@@ -112,11 +113,24 @@ function hitMultipliers(weaponId: string, tables: BalanceTables) {
 }
 
 interface AnalyzerBallistics {
-  release: string;
+  /** O esquema antigo: a versão do jogo, escrita direto. */
+  release?: string;
+  /**
+   * O esquema novo, desde `fb7a214`. Traz um rótulo — `current-live` — em vez
+   * da versão, e aponta em `source` o arquivo de proveniência que a declara.
+   */
+  baseline?: string;
+  /** `data/provenance/live-baseline.json#sym-bf6-json`, quando há `baseline`. */
+  source?: string;
   gravityMps2: number;
   baseDragPerMeter: number;
   weaponIds: string[];
   ammoDragPerMeter: Record<string, unknown>;
+}
+
+/** O arquivo apontado por `AnalyzerBallistics.source`. */
+interface LiveBaseline {
+  sources?: { id?: string; sourceVersion?: string }[];
 }
 
 interface Snapshot {
@@ -155,6 +169,65 @@ function quality(declared: string | null | undefined, hasValue: boolean): Qualit
   return 'verified';
 }
 
+/**
+ * Que versão do jogo este instantâneo descreve.
+ *
+ * Só existe porque a resposta mudou de lugar. Até `7907352` a versão estava em
+ * `data/ballistics.json` como `release: "1.3.3.0"`. Em `fb7a214` o campo virou
+ * `baseline: "current-live"` — um rótulo, não uma versão — com a versão real
+ * empurrada para o arquivo que `source` aponta, que continuava dizendo
+ * `1.3.3.0`.
+ *
+ * O estrago não foi perder a proveniência: foi a trava de dataset atrasado ler
+ * `release` ausente como "sem objeção" e liberar a importação. Um dataset de
+ * 1.3.3.0 sobrescreveu a balística curada da 1.4.2.0 — arrasto, velocidade de
+ * saída, multiplicador de cabeça, marca de provisório —, e a 1.4.2.5 quebrou
+ * seis testes no CI sem que nada aqui tivesse mudado.
+ *
+ * Por isso a busca é em cadeia e o fracasso dela é `null`, que agora **bloqueia**
+ * a importação em vez de liberá-la. Rótulo não vira versão: `current-live` diz
+ * o que o dataset gostaria de ser, e o que vale é a versão que ele declara ter
+ * lido.
+ */
+export function declaredRelease(
+  ballistics: AnalyzerBallistics,
+  files: Record<string, unknown>,
+): { version: string | null; how: string } {
+  for (const [field, value] of [
+    ['release', ballistics.release],
+    ['baseline', ballistics.baseline],
+  ] as const) {
+    if (isGameVersion(value)) return { version: value, how: `data/ballistics.json#${field}` };
+  }
+
+  const pointer = ballistics.source;
+  if (!pointer) return { version: null, how: 'o instantâneo não declara versão em lugar nenhum' };
+
+  const [path, anchor] = pointer.split('#');
+  const provenance = files[path] as LiveBaseline | undefined;
+  if (!provenance?.sources?.length) {
+    return { version: null, how: `${pointer} não está no instantâneo, ou não lista fontes` };
+  }
+
+  /*
+   * A mais nova entre as fontes, e não a apontada pela âncora.
+   *
+   * A trava pergunta se o dataset alcançou o patch, e quem responde por isso é
+   * a leitura mais recente que ele declara ter feito — travar numa fonte só
+   * seguraria uma importação legítima no dia em que o upstream atualizasse as
+   * outras primeiro.
+   */
+  const versions = provenance.sources
+    .map((entry) => entry.sourceVersion)
+    .filter((value): value is string => isGameVersion(value))
+    .sort(compareVersions);
+
+  const newest = versions[versions.length - 1];
+  if (!newest) return { version: null, how: `${pointer} não declara sourceVersion utilizável` };
+
+  return { version: newest, how: `${path}${anchor ? ` (âncora ${anchor})` : ''} → sourceVersion` };
+}
+
 function main(): void {
   const version = currentVersion();
   const snapshot = latestSnapshot();
@@ -170,22 +243,39 @@ function main(): void {
   /*
    * A versão que o dataset descreve não é a versão em que ele está sendo
    * escrito, e confundir as duas é como um número de 1.3.3.0 entra no catálogo
-   * carimbado como medição de 1.4.2.0. O `release` é o que o Analyzer declara
-   * sobre si; sem ele, a proveniência fica nula, que é a resposta honesta.
+   * carimbado como medição de 1.4.2.0.
    */
-  const release = analyzerBallistics.release ?? null;
+  const { version: release, how } = declaredRelease(analyzerBallistics, snapshot.files);
+  const forced = process.argv.includes('--force');
 
   /*
-   * Dataset atrasado não sobrescreve dado melhor.
+   * Dataset atrasado não sobrescreve dado melhor — e dataset que não diz de
+   * quando é conta como atrasado.
    *
    * A comunidade demora dias para reprocessar um patch, e o pipeline roda no
    * dia. Sem esta trava, a primeira execução depois da atualização substituiria
    * a curva de dano medida da versão anterior pela de duas versões atrás — e a
    * regressão viria assinada como importação nova.
+   *
+   * A versão ausente era a brecha: `release` indefinido curto-circuitava a
+   * comparação e liberava exatamente a importação que a trava existia para
+   * barrar. Agora a dúvida para o passo, como manda a regra do pipeline.
    */
-  if (release && compareVersions(release, version) < 0 && !process.argv.includes('--force')) {
+  if (!release && !forced) {
+    log('nada importado', {
+      'o dataset descreve': 'não declara versão',
+      'onde se procurou': how,
+      'a versão corrente é': version,
+      'o que fazer':
+        'conferir se o esquema do Analyzer mudou de novo, ou passar --force para sobrescrever assumindo o risco',
+    });
+    return;
+  }
+
+  if (release && compareVersions(release, version) < 0 && !forced) {
     log('nada importado', {
       'o dataset descreve': release,
+      'lido em': how,
       'a versão corrente é': version,
       'o que fazer': 'esperar o dataset alcançar o patch, ou passar --force para sobrescrever',
     });
@@ -525,4 +615,13 @@ function main(): void {
   if (ignored.length) log('armas fora do catálogo, ignoradas', ignored);
 }
 
-main();
+/*
+ * Só executa quando é ele que foi chamado.
+ *
+ * Era a única exceção da pasta: um `main()` solto, que rodava a importação
+ * inteira — e escrevia em `data/versions/` — no ato de alguém importar este
+ * arquivo. Enquanto ninguém o importava, não incomodava; o teste de
+ * `declaredRelease` passou a importar, e a suíte reescreveria o catálogo no meio
+ * da execução se a trava do dataset atrasado não estivesse fechada.
+ */
+if (process.argv[1] && process.argv[1].endsWith('import-analyzer.ts')) main();

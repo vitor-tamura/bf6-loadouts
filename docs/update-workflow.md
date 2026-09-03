@@ -173,8 +173,15 @@ para falso, e o TTK e os gráficos deixariam de existir da noite para o dia.
 | Variável | Para quê |
 | --- | --- |
 | `GITHUB_TOKEN` | eleva o limite da API do GitHub |
-| `CATALOG_EA_NEWS_URL` | muda a página de novidades |
-| `CATALOG_LOADOUTS_URL` | muda o endereço do estado atual |
-| `CATALOG_GITHUB_REPO` | troca o dataset da comunidade |
+| `CATALOG_EA_NEWS_URL` | muda a página de novidades da EA |
+| `CATALOG_LOADOUTS_URL` | troca a fonte de `estado_atual` numa execução |
+| `CATALOG_GITHUB_REPO` | troca a fonte de `numeros_de_simulacao` numa execução |
+| `CATALOG_GITHUB_BRANCH` | o branch dela (padrão `main`) |
+| `CATALOG_ARSENAL_URL` | troca a fonte de `enumeracao_de_slot` numa execução |
 | `CATALOG_HTTP_TIMEOUT_MS` | tempo de cada requisição (padrão 30 s) |
 | `CATALOG_HTTP_RETRIES` | tentativas por requisição (padrão 3) |
+
+As três últimas trocas de fonte valem só para aquela execução. Troca permanente é
+edição de [`data/sources/registry.json`](../data/sources/registry.json) — a EA é
+a única fonte que mora no código. Ver
+[data-sources.md](data-sources.md).

@@ -29,7 +29,8 @@
 
 import { setTimeout as sleep } from 'node:timers/promises';
 import { join } from 'node:path';
-import { ENDPOINTS, fetchText } from './lib/http.ts';
+import { fetchText } from './lib/http.ts';
+import { fonteAtiva } from './lib/sources.ts';
 import { IMPORTS, NOW, TODAY, SOURCES, log, readJsonIf, writeJson } from './lib/io.ts';
 import { weapons } from './lib/store.ts';
 
@@ -90,11 +91,11 @@ async function main(): Promise<void> {
   const collected: Record<string, WeaponAttachment[]> = {};
   const failed: string[] = [];
 
-  log(`lendo ${list.length} armas`, `${ENDPOINTS.loadouts}/weapons/<arma>`);
+  log(`lendo ${list.length} armas`, `${fonteAtiva('estado_atual').url}/weapons/<arma>`);
 
   for (const [index, weapon] of list.entries()) {
     try {
-      const html = await fetchText(`${ENDPOINTS.loadouts}/weapons/${weapon.id}`);
+      const html = await fetchText(`${fonteAtiva('estado_atual').url}/weapons/${weapon.id}`);
       const attachments = extractWeaponPage(html);
 
       if (!attachments.length) {
@@ -121,7 +122,7 @@ async function main(): Promise<void> {
   writeJson(path, {
     provider: 'bf6loadouts',
     type: 'current_state',
-    url: `${ENDPOINTS.loadouts}/weapons/<arma>`,
+    url: `${fonteAtiva('estado_atual').url}/weapons/<arma>`,
     retrievedAt: NOW,
     weapons: collected,
     failed,
@@ -130,7 +131,7 @@ async function main(): Promise<void> {
   const registryPath = join(SOURCES, 'bf6loadouts.json');
   const registry = readJsonIf<{ snapshots: unknown[] }>(registryPath, {
     provider: 'bf6loadouts',
-    url: ENDPOINTS.loadouts,
+    url: fonteAtiva('estado_atual').url,
     type: 'current_state',
     snapshots: [],
   } as never);

@@ -18,9 +18,10 @@
  * o jogo aceita hoje quem diz é o estado atual; o que mudou, quem diz é a EA.
  */
 
-import { join } from 'node:path';
-import { ENDPOINTS, fetchJson } from './lib/http.ts';
-import { IMPORTS, NOW, SOURCES, log, readJsonIf, writeJson } from './lib/io.ts';
+import { join, relative, sep } from 'node:path';
+import { fetchJson } from './lib/http.ts';
+import { fonteAtiva } from './lib/sources.ts';
+import { IMPORTS, NOW, ROOT, SOURCES, log, readJsonIf, writeJson } from './lib/io.ts';
 
 interface TreeEntry {
   path: string;
@@ -52,8 +53,23 @@ export async function fetchDataset(): Promise<{
   files: Record<string, unknown>;
   skipped: string[];
 }> {
-  const repo = ENDPOINTS.githubRepo;
-  const branch = ENDPOINTS.githubBranch;
+  /*
+   * Quem cumpre o papel hoje — o registro decide, não este script.
+   *
+   * O importador sabe ler um repositório do GitHub; ele não sabe, e não precisa
+   * saber, que o repositório se chama `raymdl/BF6-Weapon-Analyzer`. Trocar a
+   * fonte dos números de simulação é editar `data/sources/registry.json`.
+   */
+  const registrada = fonteAtiva('numeros_de_simulacao');
+  const repo = registrada.repo;
+  const branch = registrada.branch ?? 'main';
+
+  if (!repo) {
+    throw new Error(
+      `a fonte '${registrada.id}' cumpre 'numeros_de_simulacao' e não declara repositório — ` +
+        'este importador só lê do GitHub',
+    );
+  }
 
   const [head] = await fetchJson<Commit[]>(
     `${API}/repos/${repo}/commits?sha=${branch}&per_page=1`,
@@ -147,7 +163,15 @@ async function main(): Promise<void> {
         retrievedAt: NOW,
         files: Object.keys(dataset.files).length,
         skipped: dataset.skipped.length,
-        file: path.replace(`${process.cwd()}/`, ''),
+        /*
+         * Caminho relativo à raiz, montado com `relative`.
+         *
+         * O recorte de prefixo que estava aqui presumia separador `/` e não
+         * casava no Windows: o registro guardava o caminho absoluto da máquina
+         * de quem rodou, versionado num arquivo que descreve a fonte para todo
+         * mundo.
+         */
+        file: relative(ROOT, path).split(sep).join('/'),
       },
     ];
 

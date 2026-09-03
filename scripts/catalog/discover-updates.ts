@@ -23,12 +23,21 @@
  * afirmação da própria EA de que aquela versão existe.
  */
 
-import { ENDPOINTS, fetchText } from './lib/http.ts';
+import { EA_NEWS, fetchText } from './lib/http.ts';
 import { compareVersions, isGameVersion, listVersions, log } from './lib/io.ts';
 
-/** `/news/battlefield-6-game-update-1-4-1-5` → `1.4.1.5`. */
+/**
+ * `/news/battlefield-6-game-update-1-4-1-5` → `1.4.1.5`.
+ *
+ * O jogo no meio do endereço é curinga de propósito. A EA publica o mesmo Game
+ * Update ora sob `battlefield-6`, ora sob `redsec` — a 1.4.2.5 saiu em
+ * `/games/battlefield/redsec/news/battlefield-6-game-update-1-4-2-5`, e a versão
+ * ficou invisível para este extrator por doze dias enquanto o padrão estava
+ * fixo em `battlefield-6`. Quem afirma que a versão existe é o `game-update-` do
+ * slug do artigo, não a seção do site em que a EA resolveu pendurá-lo.
+ */
 const UPDATE_LINK =
-  /href="((?:https:\/\/www\.ea\.com)?\/games\/battlefield\/battlefield-6\/news\/[a-z0-9-]*game-update-([\d-]+))"/gi;
+  /href="((?:https:\/\/www\.ea\.com)?\/games\/battlefield\/[a-z0-9-]+\/news\/[a-z0-9-]*game-update-([\d-]+))"/gi;
 
 /** A data do card, no formato que a EA escreve: `August 3, 2026`. */
 const CARD_DATE = />([A-Z][a-z]+ \d{1,2}, \d{4})</;
@@ -92,7 +101,7 @@ export async function discover(): Promise<{
   published: DiscoveredUpdate[];
   updates: DiscoveredUpdate[];
 }> {
-  const html = await fetchText(ENDPOINTS.eaNews);
+  const html = await fetchText(EA_NEWS);
   const published = extractUpdates(html);
   const known = listVersions();
 

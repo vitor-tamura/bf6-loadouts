@@ -63,7 +63,8 @@
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { WEAPONS } from '../../src/data/weapons.ts';
-import { ENDPOINTS, fetchText, htmlToText } from './lib/http.ts';
+import { fetchText, htmlToText } from './lib/http.ts';
+import { fonteAtiva } from './lib/sources.ts';
 import { DATA, INDEXES, log, readJson } from './lib/io.ts';
 
 const API_KEY = process.env.OPENAI_API_KEY;
@@ -225,7 +226,7 @@ async function varrer(candidatos: Candidato[], hoje: string) {
         let ficha: Map<string, Map<string, number | null>> | null = null;
 
         try {
-          ficha = lerFicha(await fetchText(`${ENDPOINTS.arsenal}/${endereco}/`));
+          ficha = lerFicha(await fetchText(`${fonteAtiva('enumeracao_de_slot').url}/${endereco}/`));
         } catch (erro) {
           falhas.push(`${arma.id}: ${(erro as Error).message}`);
         }
@@ -266,7 +267,7 @@ async function varrer(candidatos: Candidato[], hoje: string) {
     ];
 
     const enumerado: Enumerado = {
-      fonte: ENDPOINTS.arsenal,
+      fonte: fonteAtiva('enumeracao_de_slot').url,
       quando: hoje,
       confirmado,
       conflito: de('conflito'),
@@ -528,7 +529,7 @@ async function main(): Promise<void> {
   const hoje = new Date().toISOString().slice(0, 10);
 
   log('varrendo o arsenal', {
-    fonte: ENDPOINTS.arsenal,
+    fonte: fonteAtiva('enumeracao_de_slot').url,
     pecas: investigacao.candidatos.length,
     'versão': gameVersion,
   });
@@ -537,7 +538,7 @@ async function main(): Promise<void> {
 
   investigacao.varreduraDoArsenal = {
     quando: hoje,
-    fonte: ENDPOINTS.arsenal,
+    fonte: fonteAtiva('enumeracao_de_slot').url,
     porQue:
       'a única fonte alcançável que enumera o slot inteiro de cada arma, o que permite ler ausência como negativa',
     armasLidas: varredura.armasLidas,
