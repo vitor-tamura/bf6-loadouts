@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { chavePagina, confiabilidade, montarLeitura, normalizarPatch } from './leitura.mjs';
+import {
+  chavePagina,
+  confiabilidade,
+  montarLeitura,
+  normalizarLista,
+  normalizarPatch,
+} from './leitura.mjs';
 
 /**
  * As travas da leitura diária, testadas contra o que já foi publicado errado.
@@ -352,5 +358,144 @@ describe('critério do topo', () => {
       nome: 'L85A3',
       motivo: 'motivo é elogio sem fato: serve para qualquer arma',
     });
+  });
+});
+
+/**
+ * Novidade é a única afirmação do modelo que este repositório sabe conferir
+ * sozinho: `arma.season` diz quando ela entrou no arsenal, e `0` é lançamento.
+ *
+ * A leitura de 31/08 publicou a **M2010 ESR** com `chegou no patch` e o motivo
+ * "Introduzida na atualização mais recente". A M2010 é arma de lançamento, está
+ * no jogo desde o primeiro dia. Todas as travas até então mediam a forma da
+ * resposta — motivo curto, rótulo genérico, fonte que não resolve; nenhuma
+ * conferia o conteúdo contra o que o site já sabe.
+ */
+describe('novidade conferida contra o catálogo', () => {
+  // A frase abaixo é a que a leitura de 31/08 publicou, palavra por palavra.
+  it('descarta arma de lançamento anunciada como novidade', () => {
+    const { conteudo, descartes } = leitura({
+      picks: META_BOM,
+      trending: [
+        trend('VSSM', 'build full-auto', 'A configuração automática virou assunto depois de aparecer em vídeo de dano em CQB.'),
+        trend('M2010 ESR', 'chegou no patch', 'Introduzida na atualização mais recente, a M2010 ESR tem sido amplamente discutida.'),
+        trend('RPK-74M', 'buff de recuo', 'O 4.2 reduziu o coice vertical e o suporte voltou às listas de recomendação.'),
+        trend('EF88', 'chegou no patch', 'Entrou com a fase Pacific Front e já aparece em builds recomendadas de engenheiro.'),
+      ],
+    });
+
+    expect(conteudo.trending.map((t) => t.weapon)).toEqual(['vssm', 'rpk-74m', 'ef88']);
+    expect(descartes).toContainEqual({
+      nome: 'M2010 ESR',
+      motivo: 'diz que chegou agora, e é arma de lançamento',
+    });
+  });
+
+  it('derruba a leitura quando sobra pouco depois do corte', () => {
+    /*
+     * É o que teria acontecido em 31/08: a leitura tinha três cartões de
+     * tendência e um deles era a M2010. Sem o terceiro, `MIN_TRENDING` não
+     * fecha, e a leitura inteira volta para a fila — `meta-search.mjs` tenta o
+     * próximo modelo em vez de gravar.
+     *
+     * Recusar a leitura é melhor que publicar duas armas: a tela completa o
+     * bloco pelo catálogo, que sabe de verdade quem chegou na temporada.
+     */
+    expect(() =>
+      leitura({
+        picks: META_BOM,
+        trending: [
+          trend('EF88', 'build full-auto', 'A configuração automática virou assunto depois de aparecer em vídeo de dano em CQB.'),
+          trend('M433', 'todo mundo usando', 'Relatos de jogadores indicando um aumento significativo no uso nas partidas.'),
+          trend('M2010 ESR', 'chegou no patch', 'Introduzida na atualização mais recente, a M2010 ESR tem sido amplamente discutida.'),
+        ],
+      }),
+    ).toThrow(/arma de lançamento/);
+  });
+
+  it('deixa passar a arma que de fato chegou na temporada', () => {
+    /*
+     * O outro lado da trava, e ele importa tanto quanto: a EF88 e a Interdictor
+     * entraram na Temporada 4, e "chegou no patch" nelas é verdade. Trava que
+     * recusa novidade legítima apaga justamente o cartão mais informativo do
+     * bloco.
+     */
+    const { conteudo } = leitura({
+      picks: META_BOM,
+      trending: [
+        trend('EF88', 'chegou no patch', 'Entrou com a fase Pacific Front e já aparece em builds recomendadas de engenheiro.'),
+        trend('Interdictor', 'nova arma do passe', 'Chegou na 1.4.2.0 pelo Passe de Batalha e domina as discussões de alcance extremo.'),
+        trend('VSSM', 'build full-auto', 'A configuração automática virou assunto depois de aparecer em vídeo de dano em CQB.'),
+      ],
+    });
+
+    expect(conteudo.trending.map((t) => t.weapon)).toEqual(['ef88', 'interdictor', 'vssm']);
+  });
+
+  it('não confunde mudança de balanceamento com chegada', () => {
+    /*
+     * "Voltou às listas depois do buff" é afirmação sobre ajuste, não sobre
+     * estreia — e a RPK-74M é de lançamento. Se a trava pegasse isso, ela
+     * derrubaria metade do bloco, porque buff é o assunto mais comum ali.
+     */
+    const { conteudo } = leitura({
+      picks: META_BOM,
+      trending: [
+        trend('RPK-74M', 'buff de recuo', 'O 4.2 reduziu o coice vertical e o suporte voltou às listas de recomendação.'),
+        trend('M433', 'todo mundo usando', 'Relatos de jogadores indicando um aumento significativo no uso nas partidas.'),
+        trend('VSSM', 'build full-auto', 'A configuração automática virou assunto depois de aparecer em vídeo de dano em CQB.'),
+      ],
+    });
+
+    expect(conteudo.trending.map((t) => t.weapon)).toEqual(['rpk-74m', 'm433', 'vssm']);
+  });
+
+  it('confere o meta também, onde o erro é pior', () => {
+    // O bloco de cima promete medição; afirmação errada ali pesa mais.
+    const { conteudo, descartes } = leitura({
+      picks: [
+        ...META_BOM,
+        pick('M2010 ESR', 'Recém-adicionada no patch, já lidera o ranking de precisão entre as de ferrolho.'),
+      ],
+      trending: [],
+    });
+
+    expect(conteudo.picks.map((p) => p.weapon)).not.toContain('m2010-esr');
+    expect(descartes.some((d) => d.motivo.startsWith('diz que chegou agora'))).toBe(true);
+  });
+
+  it('diz de que temporada a arma é, quando não é de lançamento', () => {
+    /*
+     * Errar por uma temporada é diferente de errar por todo o jogo, e quem for
+     * ler o log de descartes precisa dessa diferença para decidir se o modelo
+     * alucinou ou se o catálogo é que está atrasado.
+     *
+     * Vai direto em `normalizarLista` porque a temporada aqui é a 5, que ainda
+     * não existe em `SEASONS`: por `montarLeitura` a conferência se desligaria,
+     * e é justamente esse desligamento que o teste seguinte cobre.
+     */
+    const { descartes } = normalizarLista(
+      [trend('EF88', 'chegou no patch', 'Introduzida agora, a EF88 domina as discussões desta semana.')],
+      { max: 6, rotulo: true, resolverFonte: () => [0], temporada: 5 },
+    );
+
+    expect(descartes).toContainEqual({
+      nome: 'EF88',
+      motivo: 'diz que chegou agora, e entrou na Temporada 4',
+    });
+  });
+
+  it('não confere nada quando a leitura não declara temporada', () => {
+    /*
+     * Sem temporada declarada não há com o que comparar, e inventar uma —
+     * lendo o relógio, por exemplo — faria a trava mudar de veredito na virada
+     * da temporada sem que a resposta do modelo tivesse mudado.
+     */
+    const { items } = normalizarLista(
+      [trend('M2010 ESR', 'chegou no patch', 'Introduzida na atualização mais recente, tem sido amplamente discutida.')],
+      { max: 6, rotulo: true, resolverFonte: () => [0] },
+    );
+
+    expect(items.map((t) => t.weapon)).toEqual(['m2010-esr']);
   });
 });

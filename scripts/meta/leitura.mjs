@@ -111,6 +111,32 @@ const TREND_VAZIO = new Set([
   'rising',
 ]);
 
+/**
+ * Frases que afirmam que a arma é nova.
+ *
+ * Não é rótulo vazio — é o contrário: diz algo concreto, verificável, e por isso
+ * mesmo pode estar errado. A leitura de 31/08 saiu com a **M2010 ESR** marcada
+ * `chegou no patch`, com o motivo "Introduzida na atualização mais recente". A
+ * M2010 é arma de lançamento, `season: 0`, está no jogo desde o primeiro dia.
+ *
+ * O modelo não tinha como saber, e o catálogo tinha: novidade é a única coisa
+ * que este dataset prova sozinho, sem depender de fonte nenhuma. Toda trava
+ * daqui até agora media a *forma* da resposta — motivo curto, rótulo genérico,
+ * fonte que não resolve. Esta mede o **conteúdo**, contra o que o site sabe.
+ */
+const NOVIDADE = [
+  /cheg(ou|ando|a) (n[oa]|com|junto)/,
+  /introduzid[ao]/,
+  /adicionad[ao]/,
+  /lancad[ao] (n[oa]|recent|agora)/,
+  /rec(em|ente)[- ]?(lancad|chegad|adicionad|introduzid)/,
+  /nov[ao] (arma|adicao|entrada|no jogo|do patch|da temporada|no arsenal)/,
+  /arma nov[ao]/,
+  /estrei(a|ou)/,
+  /(entrou|entra) (n[oa]|com) (patch|atualizacao|temporada)/,
+  /acab(ou|a) de (chegar|sair|entrar)/,
+];
+
 /** Sem acentos e sem pontuação: "SG 553R" e "sg553r" viram a mesma coisa. */
 export const chave = (nome) =>
   String(nome ?? '')
@@ -412,6 +438,13 @@ export function normalizarLista(
     fonteForte = () => true,
     jaNoMeta = new Set(),
     maxRepetidas = Infinity,
+    /**
+     * A temporada que a leitura declara ter olhado, para conferir quem é novo.
+     *
+     * `null` desliga a conferência — é o caso de quem chama sem declarar
+     * temporada, e aí não há com o que comparar.
+     */
+    temporada = null,
   },
 ) {
   const armasVistas = new Set();
@@ -455,6 +488,34 @@ export function normalizarLista(
       }
       if (TREND_VAZIO.has(texto(trend))) {
         descartar(arma.name, `rótulo "${trend}" não diz o que mudou`);
+        continue;
+      }
+    }
+
+    /*
+      Novidade é conferida contra o catálogo, não aceita como dita.
+
+      Quem afirma que a arma chegou agora está afirmando um fato que este
+      repositório conhece: `arma.season` diz em que temporada ela entrou no
+      arsenal, e `0` é lançamento. Quando a afirmação não bate, o cartão inteiro
+      cai — não só o rótulo. O motivo repetiria a mesma coisa em prosa
+      ("Introduzida na atualização mais recente"), e um cartão que erra o fato
+      mais fácil de conferir não tem crédito no resto do que diz.
+
+      Cai o cartão e não a leitura: o bloco se completa pelo catálogo, que sabe
+      de verdade quem chegou na temporada. Ver `completarTendencia`.
+    */
+    if (temporada !== null && arma.season !== temporada) {
+      const afirma = [trend, reason].some((frase) =>
+        NOVIDADE.some((padrao) => padrao.test(texto(frase))),
+      );
+      if (afirma) {
+        descartar(
+          arma.name,
+          arma.season === 0
+            ? 'diz que chegou agora, e é arma de lançamento'
+            : `diz que chegou agora, e entrou na Temporada ${arma.season}`,
+        );
         continue;
       }
     }
@@ -529,9 +590,15 @@ function listasBrutas(bruto) {
   };
 }
 
+/** A temporada que a leitura declara ter olhado, como número. */
+function numeroDaTemporada(timeframe) {
+  const numero = Number(String(timeframe ?? '').replace('season-', ''));
+  return SEASONS.some((temporada) => temporada.number === numero) ? numero : null;
+}
+
 /** O começo da temporada que a leitura declara — o piso do que ela pode citar. */
 function inicioDaTemporada(timeframe) {
-  const numero = Number(String(timeframe ?? '').replace('season-', ''));
+  const numero = numeroDaTemporada(timeframe);
   return SEASONS.find((temporada) => temporada.number === numero)?.startsOn ?? null;
 }
 
@@ -617,11 +684,16 @@ export function montarLeitura({ bruto, anotacoes = [], buscou = null, modelo, ho
   const resolverFonte = resolvedorDeFonte(sources);
   const fonteForte = (indice) => sustentaForca(sources[indice]?.url);
 
+  // A conferência de novidade vale para as duas listas: o meta também já disse
+  // "arma nova" de arma velha, e ali o erro é pior — aquele bloco promete medição.
+  const temporada = numeroDaTemporada(timeframe);
+
   const meta = normalizarLista(listas.picks, {
     max: MAX_PICKS,
     resolverFonte,
     exigirForca: true,
     fonteForte,
+    temporada,
   });
   exigirMinimo(meta, enviadosPicks, MIN_PICKS, 'armas do meta');
 
@@ -631,6 +703,7 @@ export function montarLeitura({ bruto, anotacoes = [], buscou = null, modelo, ho
     resolverFonte,
     jaNoMeta: new Set(meta.items.map((item) => item.weapon)),
     maxRepetidas: MAX_REPETIDAS_NO_TRENDING,
+    temporada,
   });
   exigirMinimo(trends, enviadosTrending, MIN_TRENDING, 'armas em trending');
 
