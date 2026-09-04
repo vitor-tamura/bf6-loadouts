@@ -47,6 +47,26 @@ const MAX_FONTES = 8;
 const MIN_PICKS = 4;
 const MIN_TRENDING = 3;
 
+/**
+ * Os limites, para o prompt poder prometer o que o código cumpre.
+ *
+ * O prompt pedia no máximo cinco fontes e o código guarda oito, e a diferença
+ * derrubou a leitura de 04/09: com os picks citando as páginas que medem, os
+ * três slots restantes não davam para o trending, que precisa citar a thread em
+ * que a conversa aconteceu. Duas armas apontaram páginas fora da lista de
+ * cinco, não resolveram e caíram — sobraram duas de quatro, abaixo do piso.
+ *
+ * Número escrito à mão no prompt é número que envelhece contra o que decide.
+ */
+export const LIMITES = {
+  picks: MAX_PICKS,
+  trending: MAX_TRENDING,
+  fontes: MAX_FONTES,
+  minimoDePicks: MIN_PICKS,
+  minimoDeTrending: MIN_TRENDING,
+};
+
+
 /** Uma arma pode ser das mais fortes e das mais faladas. Seis não podem — isso é a mesma lista duas vezes. */
 const MAX_REPETIDAS_NO_TRENDING = 2;
 

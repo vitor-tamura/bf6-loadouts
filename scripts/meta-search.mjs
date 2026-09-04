@@ -35,7 +35,13 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { HIGHLIGHTS, SOURCES, TRENDING } from '../src/data/meta.ts';
 import { SEASONS, phaseOn, seasonOn } from '../src/data/season.ts';
 import { WEAPONS } from '../src/data/weapons.ts';
-import { confiabilidade, dominiosQueSustentamPicks, extrairJson, montarLeitura } from './meta/leitura.mjs';
+import {
+  LIMITES,
+  confiabilidade,
+  dominiosQueSustentamPicks,
+  extrairJson,
+  montarLeitura,
+} from './meta/leitura.mjs';
 import { briefingDoPatch, patchAtual } from './meta/patch-atual.mjs';
 
 const API_KEY = process.env.OPENAI_API_KEY;
@@ -245,9 +251,11 @@ As duas se cruzam de vez em quando — arma forte costuma ser usada —, mas uma
 
 ## 6. Limites
 
-- No máximo 8 armas em picks, da mais forte para a menos forte.
-- No máximo 8 armas em trending, da mais comentada ou usada para a menos.
-- No máximo 5 fontes, e nenhuma publicada antes de ${TEMPORADA.startsOn} — data anterior ao começo da temporada é descartada, e a arma que dependia dela cai junto.
+- No máximo ${LIMITES.picks} armas em picks, da mais forte para a menos forte.
+- No máximo ${LIMITES.trending} armas em trending, da mais comentada ou usada para a menos.
+- No máximo ${LIMITES.fontes} fontes, e nenhuma publicada antes de ${TEMPORADA.startsOn} — data anterior ao começo da temporada é descartada, e a arma que dependia dela cai junto.
+- **Toda página que você citar em \`source\` tem de estar em \`sources\`.** O código resolve o \`source\` de cada arma contra essa lista, e arma que aponta endereço de fora é descartada — foi assim que a rodada de 04/09 perdeu duas de quatro armas em trending. Se uma thread sustenta uma arma, liste a thread. Use as ${LIMITES.fontes} vagas: as páginas que medem ocupam as primeiras, e o trending precisa das outras para citar onde a conversa aconteceu.
+- Repetir a mesma fonte em duas armas é permitido quando é verdade. Inventar uma segunda fonte para não repetir, não.
 - Use exatamente estes nomes de arma, sem apelido e sem acessório junto: ${ARMAS_PERMITIDAS}.
 - Não invente pick rate, TTK, tendência nem fala de comunidade. Sem evidência, a arma fica de fora: quatro armas sustentadas valem mais que oito preenchidas.
 

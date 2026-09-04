@@ -7,6 +7,7 @@ import {
   normalizarPatch,
   normalizarPatchConhecido,
   dominiosQueSustentamPicks,
+  LIMITES,
 } from './leitura.mjs';
 
 /**
@@ -567,5 +568,25 @@ describe('novidade conferida contra o catálogo', () => {
     );
 
     expect(items.map((t) => t.weapon)).toEqual(['m2010-esr']);
+  });
+});
+
+describe('os limites que o prompt promete', () => {
+  /*
+   * O prompt pedia no máximo cinco fontes e o código guarda oito. Com os picks
+   * ocupando as vagas das páginas que medem, o trending não tinha onde citar a
+   * thread em que a conversa aconteceu: duas armas apontaram endereço fora da
+   * lista, não resolveram, e a leitura de 04/09 caiu abaixo do piso.
+   *
+   * O prompt passou a gerar os números daqui. Este teste é o que impede a lista
+   * de vagas de voltar a ser menor do que o que se pede para caber nela.
+   */
+  it('comportam o que as duas listas precisam citar', () => {
+    expect(LIMITES.fontes).toBeGreaterThanOrEqual(LIMITES.minimoDePicks + LIMITES.minimoDeTrending);
+  });
+
+  it('não prometem mais armas do que a tela mostra', () => {
+    expect(LIMITES.minimoDePicks).toBeLessThanOrEqual(LIMITES.picks);
+    expect(LIMITES.minimoDeTrending).toBeLessThanOrEqual(LIMITES.trending);
   });
 });
