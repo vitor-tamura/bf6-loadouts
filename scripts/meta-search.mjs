@@ -35,7 +35,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { HIGHLIGHTS, SOURCES, TRENDING } from '../src/data/meta.ts';
 import { SEASONS, phaseOn, seasonOn } from '../src/data/season.ts';
 import { WEAPONS } from '../src/data/weapons.ts';
-import { extrairJson, montarLeitura } from './meta/leitura.mjs';
+import { confiabilidade, dominiosQueSustentamPicks, extrairJson, montarLeitura } from './meta/leitura.mjs';
 import { briefingDoPatch, patchAtual } from './meta/patch-atual.mjs';
 
 const API_KEY = process.env.OPENAI_API_KEY;
@@ -104,6 +104,35 @@ const TIMEFRAME = `season-${TEMPORADA.number}`;
 const ARMAS_PERMITIDAS = WEAPONS.map((w) => w.name).join(', ');
 
 /*
+ * Os domínios que podem pôr uma arma no topo, ditos por quem decide.
+ *
+ * Estavam escritos duas vezes — uma no prompt, outra no classificador de
+ * `meta/leitura.mjs` — e as duas listas já tinham divergido: o prompt nomeava
+ * cinco sites de análise e o código aceita oito. Três fontes boas eram
+ * recusadas antes de existir, porque o modelo não sabia que podia abri-las.
+ */
+const DOMINIOS_DE_PICKS = dominiosQueSustentamPicks()
+  .map((dominio) => `\`${dominio}\``)
+  .join(', ');
+
+/*
+ * As páginas que medem, com endereço, tiradas da curadoria do próprio site.
+ *
+ * A rodada de 04/09 é o motivo: o modelo fez quatro buscas, voltou com oito
+ * armas sustentadas em fórum e Reddit e perdeu as oito na trava — nunca chegou
+ * a abrir uma página que mede. Procurar por elas é gasto e é sorte; o endereço
+ * está em `src/data/meta.ts` desde sempre.
+ *
+ * Sai de `SOURCES` filtrado pelo mesmo classificador que julga a resposta, e
+ * não de uma lista à parte: assim, o dia em que alguém curar uma fonte de
+ * análise nova, ela entra aqui sozinha — e o dia em que uma sair, ela some
+ * daqui junto.
+ */
+const PAGINAS_QUE_MEDEM = SOURCES.filter((fonte) => confiabilidade(fonte.url) === 'analise')
+  .map((fonte) => `- ${fonte.url}\n  ${fonte.scope}`)
+  .join('\n');
+
+/*
  * A atualização em vigor vem do catálogo, e não da busca.
  *
  * Antes, a primeira coisa que o prompt mandava fazer era descobrir na busca
@@ -149,7 +178,19 @@ Informação mais recente pesa mais. Não repita tier list antiga.
 
 ## 3. Onde procurar
 
-As duas listas não se abastecem no mesmo lugar.
+As duas listas não se abastecem no mesmo lugar, e a ordem importa: **os picks primeiro**, porque são eles que dependem de uma página específica. Tendência se acha em qualquer lugar, e por isso pode esperar.
+
+### 3.0. Abra estas páginas antes de qualquer busca
+
+São as que medem arma por arma no multiplayer, e o endereço delas já está apurado. Não procure por elas — abra:
+
+${PAGINAS_QUE_MEDEM}
+
+Isto não é sugestão. A rodada de 04/09 gastou quatro buscas e voltou com oito armas sustentadas em fórum e Reddit: as oito foram descartadas pelo código e o dia ficou sem leitura nenhuma. Fórum e Reddit provam que se **fala** da arma — nunca que ela é forte, e força é o que o topo afirma.
+
+**Não tente abrir \`ea.com\`.** As páginas de Battlefield no site da EA ficam atrás de um portão de verificação de idade, e o que volta de lá é o formulário de data de nascimento, não o patch note — gastar busca ali é gastar duas vezes, porque depois falta a que resolveria. As palavras oficiais você já tem: estão na seção 1, transcritas da página. Cite o endereço da EA quando a evidência for o changelog, e leia o changelog na seção 1 ou no \`bf6balancelog.com\`, que existe justamente para publicar cada linha da EA sem esse portão.
+
+Se, depois de abertas, essas páginas sustentarem menos de oito armas, entregue as que elas sustentarem. Quatro armas com número valem mais que oito com conversa, e a lista curta o código aceita. A lista inteira apoiada em thread, não.
 
 **Para picks**, procure quem testa e argumenta desempenho depois do patch: análise de balanceamento, tier list ou ranking de meta que explique **por que** a arma é forte, tabela de TTK, dano, recuo ou alcance, discussão técnica em fórum e comunidade especializada. Termos que costumam achar: "meta", "best weapons", "tier list", "weapon ranking", "TTK chart", "after patch", com o número da temporada junto. Posição em ranking de meta vale como julgamento de força da fonte. Uso alto sozinho não põe arma em picks — isso é trending.
 
@@ -163,7 +204,7 @@ O que a atualização mexeu você já tem na seção 1 e não precisa procurar. 
 
 **Quem pode sustentar cada lista.** Isto é verificado no código, e arma que não passar é descartada antes de a leitura ser gravada:
 
-- **picks** só aceitam fonte oficial da EA/DICE — \`ea.com\`, \`battlefield.com\`, \`forums.ea.com/blog\` — ou quem mede arma por arma: \`wzstats.gg\` em caminho de multiplayer, \`bf6balancelog.com\`, \`battlefieldmeta.gg\`, \`bfhub.gg\`, \`battlefinity.gg\`, ou análise equivalente com número publicado;
+- **picks** só aceitam estes domínios: ${DOMINIOS_DE_PICKS} — mais análise equivalente que publique número. Em \`wzstats.gg\`, só caminho de multiplayer;
 - **trending** aceita qualquer uma dessas mais fórum, Reddit, Steam, vídeo e comentário — é onde a conversa está, e conversa é o que essa lista mede.
 
 Fórum e Reddit **não** põem arma em picks, por mais convincente que seja a thread: eles provam que se fala da arma, não que ela é forte. Se a única evidência que você achou para uma arma forte é conversa, ponha a arma em trending e diga isso no motivo. Material de marketing — site de VPN, loja, guia patrocinado — não sustenta nenhuma das duas.

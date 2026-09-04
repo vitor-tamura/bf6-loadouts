@@ -247,7 +247,19 @@ export function briefingDoPatch(patch) {
 
   const data = patch.releasedAt ? `, publicada em ${patch.releasedAt}` : '';
   const anterior = patch.anterior ? ` A anterior era a ${patch.anterior}.` : '';
-  const notas = patch.url ? `\n- Notas oficiais: ${patch.url}` : '';
+  /*
+   * O endereço entra para ser citado, não aberto.
+   *
+   * As páginas de Battlefield na EA ficam atrás de verificação de idade, e o
+   * que uma ferramenta de busca traz de lá é o formulário de data de
+   * nascimento — não o changelog. Quem lê o HTML direto passa (é assim que
+   * `fetch-patch-note.ts` guardou o texto que está logo abaixo), mas o modelo
+   * não lê HTML direto. Sem esta ressalva, ele gasta uma busca no endereço e
+   * volta sem nada.
+   */
+  const notas = patch.url
+    ? `\n- Notas oficiais, para citar como fonte — **não abra, o site pede verificação de idade e devolve o formulário**: ${patch.url}`
+    : '';
 
   const mudancas = patch.linhasDeArma.length
     ? `O que ela mexeu em arma, peça ou acessório no multiplayer, transcrito do changelog oficial:\n\n${patch.linhasDeArma

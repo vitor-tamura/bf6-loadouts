@@ -6,6 +6,7 @@ import {
   normalizarLista,
   normalizarPatch,
   normalizarPatchConhecido,
+  dominiosQueSustentamPicks,
 } from './leitura.mjs';
 
 /**
@@ -317,6 +318,30 @@ describe('o patch apurado pelo catálogo', () => {
 
   it('devolve nulo sem catálogo, e a resposta do modelo volta a valer', () => {
     expect(normalizarPatchConhecido(null, HOJE)).toBeNull();
+  });
+});
+
+describe('os domínios que o prompt oferece', () => {
+  /*
+   * As duas listas já divergiram: o prompt nomeava cinco sites de análise e o
+   * classificador aceita oito. Três fontes boas ficavam invisíveis para o
+   * modelo, que não sabia que podia abri-las — e a leitura de 04/09 caiu
+   * inteira por falta de fonte que existia. O prompt passou a gerar a lista
+   * daqui; este teste é o que impede as duas de se separarem de novo.
+   */
+  it('são exatamente os que o classificador deixa sustentar um pick', () => {
+    for (const dominio of dominiosQueSustentamPicks()) {
+      const url = `https://${dominio.includes('/') ? dominio : `${dominio}/`}`;
+      expect(['oficial', 'analise']).toContain(confiabilidade(url));
+    }
+  });
+
+  it('não oferecem o que só sustenta tendência', () => {
+    const oferecidos = dominiosQueSustentamPicks();
+
+    expect(oferecidos).not.toContain('reddit.com');
+    expect(oferecidos).not.toContain('forums.ea.com');
+    expect(oferecidos).not.toContain('steamcommunity.com');
   });
 });
 

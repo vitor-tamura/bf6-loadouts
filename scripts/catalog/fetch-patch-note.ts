@@ -64,6 +64,22 @@ function title(html: string): string | null {
   return match ? match[1].trim() : null;
 }
 
+/**
+ * O portão de idade da EA, e por que ele não impede este download.
+ *
+ * As páginas de Battlefield no site da EA abrem com um formulário de data de
+ * nascimento — "Please enter your date of birth", "Sorry, you are not eligible
+ * to view this content" —, e é por isso que o `rawContent` guardado começa com
+ * esse trecho. O portão é do navegador: o HTML servido já traz o artigo
+ * inteiro, e quem lê o HTML direto, como aqui, passa por ele sem perceber.
+ *
+ * Quem não passa é ferramenta de busca de modelo, que renderiza a página e
+ * volta com o formulário. Foi assim que a leitura do meta de 04/09 se perdeu:
+ * o prompt mandava abrir `ea.com`, o modelo voltava de mãos vazias e caía em
+ * Reddit, que não sustenta força. Por isso o prompt de `meta-search.mjs` proíbe
+ * abrir a EA e entrega o changelog já transcrito — e por isso o
+ * `registro_de_patch` vale o que vale.
+ */
 export async function fetchPatchNote(version: string, url?: string): Promise<PatchNote> {
   const address = url ?? patchNoteUrl(version);
   const html = await fetchText(address);

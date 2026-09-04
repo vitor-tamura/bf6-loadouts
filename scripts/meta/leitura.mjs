@@ -235,6 +235,19 @@ const FONTES_DE_ANALISE = new Set([
 ]);
 
 /**
+ * Os domínios que podem pôr uma arma no topo.
+ *
+ * Existe para o prompt poder dizê-los sem repeti-los. As duas listas já
+ * discordavam: o prompt nomeava cinco sites de análise e o classificador aceita
+ * oito, então três fontes boas eram recusadas na origem — o modelo nem tentava
+ * abri-las. Uma lista que o prompt copia à mão envelhece contra a que decide, e
+ * quem paga é a leitura do dia, que cai por falta de fonte que existia.
+ */
+export function dominiosQueSustentamPicks() {
+  return [...FONTES_OFICIAIS, 'forums.ea.com/blog', ...FONTES_DE_ANALISE];
+}
+
+/**
  * O que esta página pode sustentar.
  *
  * A tela pergunta duas coisas diferentes, e elas não se provam no mesmo lugar. O
