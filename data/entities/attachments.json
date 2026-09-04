@@ -35,7 +35,9 @@
       "status": "active",
       "introducedIn": "1.4.1.0",
       "removedIn": null,
-      "aliases": [],
+      "aliases": [
+        "1P86"
+      ],
       "source": {
         "provider": "EA",
         "type": "official",

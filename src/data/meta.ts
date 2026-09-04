@@ -111,6 +111,13 @@ export interface RedsecContrast {
 /**
  * As fontes, todas de multiplayer e todas de depois da 1.4.2.0.
  *
+ * As posições abaixo foram lidas na 1.4.2.0. A 1.4.2.5, de 31/08, é a
+ * atualização em vigor e não as invalida: ela mexeu em uma coisa só de arma no
+ * multiplayer — o Match Trigger deixou de afetar o tiro automático da BROD 3 e
+ * da EF88 —, e o resto do equilíbrio é o que a 1.4.2.0 deixou. Quando um patch
+ * de arma de verdade sair, esta lista precisa de uma releitura, não de um
+ * remendo de data.
+ *
  * A leitura de agosto de 2026 trocou de lastro. O que sustentava as posições
  * antes eram guias editoriais — Game Rant, TheGamer, KeenGamer —, e foi de lá
  * que veio o erro que a tela publicou: a KTS100 MK8 como "melhor metralhadora
@@ -151,7 +158,7 @@ export const SOURCES: MetaSource[] = [
     date: '2026-08-18',
     country: 'INT',
     mode: 'multiplayer',
-    scope: 'Notas oficiais da atualização em vigor. O REDSEC tem seção própria no texto, então a seção de armas citada aqui é a da partida comum.',
+    scope: 'Notas oficiais da 1.4.2.0, que é o patch que esta curadoria leu. O REDSEC tem seção própria no texto, então a seção de armas citada aqui é a da partida comum. Deixou de ser a atualização em vigor em 31/08, com a 1.4.2.5.',
     timeframe: 'season-4',
   },
   {
@@ -179,6 +186,16 @@ export const SOURCES: MetaSource[] = [
     country: 'INT',
     mode: 'multiplayer',
     scope: 'Relato no fórum oficial sobre o que a peça faz em partida: desliga o aumento de dispersão por tiro e baixa o recuo em três degraus. A data é a da leitura — a página não declara a de publicação.',
+    timeframe: 'season-4',
+  },
+  {
+    name: 'EA — Battlefield 6 Game Update 1.4.2.5',
+    url: 'https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-5',
+    date: '2026-08-31',
+    country: 'INT',
+    mode: 'multiplayer',
+    scope:
+      'A atualização em vigor. Mexeu em uma coisa só de arma no multiplayer: o Match Trigger deixou de afetar o tiro automático da BROD 3 e da EF88 — o que o comunicado de 19/08 já tinha anunciado, agora no changelog. Nada mais do equilíbrio mudou, e é por isso que as posições abaixo, lidas na 1.4.2.0, seguem de pé.',
     timeframe: 'season-4',
   },
   {

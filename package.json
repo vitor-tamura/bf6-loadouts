@@ -42,7 +42,9 @@
     "builds:search": "node --experimental-strip-types scripts/builds-search.mjs",
     "catalog:compat": "node --experimental-strip-types scripts/catalog/compat.ts",
     "catalog:barris": "node --experimental-strip-types scripts/catalog/barris.ts",
-    "catalog:perguntar-acessorios": "node --experimental-strip-types scripts/catalog/perguntar-acessorios.ts"
+    "catalog:perguntar-acessorios": "node --experimental-strip-types scripts/catalog/perguntar-acessorios.ts",
+    "catalog:fetch-balance-log": "node --experimental-strip-types scripts/catalog/fetch-balance-log.ts",
+    "catalog:nomes": "node --experimental-strip-types scripts/catalog/nomes.ts"
   },
   "dependencies": {
     "@ai-sdk/google": "^4.0.39",

@@ -32,11 +32,13 @@
  *   vira issue.
  */
 
+import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import type { AutomationLevel } from '../../src/catalog/catalog.types.ts';
 import { PATCHES, isGameVersion, log, readJson, writeJson } from './lib/io.ts';
 import { attachments, weapons } from './lib/store.ts';
 import type { PatchNote } from './fetch-patch-note.ts';
+import { BALANCE_LOG_PATH, type BalanceLog, type BalancePatch } from './fetch-balance-log.ts';
 
 /**
  * O corpo útil do patch note.
@@ -324,6 +326,29 @@ const CHANGE_VERB =
   /\b(increased|reduced|decreased|lowered|raised|buffed|nerfed|adjusted|tuned|changed|updated|rebalanced|now deals|no longer deals)\b/i;
 
 /**
+ * A peça parou de valer em alguma arma.
+ *
+ * "The Match Trigger attachment no longer affects fully automatic fire on the
+ * BROD and EF88" foi a única mudança de arma da 1.4.2.5, e o parser a largou:
+ * não tem número, não diz "removed", e nenhum dos campos de `FIELDS` aparece
+ * nela — "fully automatic fire" não é `fire rate`. Sem mudança nenhuma
+ * reconhecida e com o texto tendo cara de patch note, o pipeline concluiu
+ * "patch de correções" e escreveu a 1.4.2.5 como cópia da 1.4.2.0.
+ *
+ * O que a frase diz é que a relação entre uma peça e umas armas acabou — que é
+ * `compatibility_removed`, e não uma estatística sem número. Vai para revisão,
+ * nunca para aplicação automática: "deixou de afetar" pode ser a peça sumindo
+ * do Gunsmith daquelas armas ou apenas o efeito dela zerando nelas, e o texto
+ * não distingue as duas. Quem revisa distingue; adivinhar aqui apagaria uma
+ * compatibilidade que talvez continue existindo.
+ */
+const STOPS_AFFECTING =
+  /\bno longer\b[^.\n]*?\b(affects?|applies|applied|works?|functions?|grants?|provides?|modifies|impacts?)\b/i;
+
+/** "on the BROD and EF88", "for the M87A1" — em que armas a peça deixou de valer. */
+const AFFECTED_WEAPONS = /\b(?:on|for|with|to)\s+(?:the\s+)?([^.\n]+?)(?:\.|$)/i;
+
+/**
  * O nome do que entrou, quando a frase o diz.
  *
  * Um nome próprio seguido do tipo: "Interdictor sniper rifle", "EOD Bot Arm
@@ -393,7 +418,71 @@ function newlyNamed(line: string): string | null {
 const RELEVANT =
   /\b(weapon|attachment|rifle|carbine|smg|lmg|dmr|sniper|shotgun|sidearm|barrel|muzzle|magazine|grip|laser|optic|sight|ammo|recoil|damage|rpm|reload|spread|velocity|attachment points?)\b/i;
 
-export function parseLine(line: string, known: Known): PatchChange | null {
+/**
+ * O que a fonte de registro diz sobre uma linha, quando ela a tem.
+ *
+ * O BF6 Balance Log publica o mesmo changelog com duas coisas que a página da
+ * EA não tem: a categoria em que a linha está — `WEAPONS` é afirmação de que a
+ * linha é de arma, e não inferência a partir do texto — e os identificadores
+ * das armas e peças que ela nomeia. É como a BROD 3 aparece numa frase em que a
+ * EA escreveu só "BROD": o casamento vem feito por quem lê o jogo.
+ *
+ * É contexto, não veredito. Quando ele existe, decide o que o texto sozinho não
+ * decidiu; quando não existe, o parser trabalha como sempre trabalhou.
+ */
+export interface LineContext {
+  /** O subtítulo em que a fonte agrupou a linha — `WEAPONS`, `ATTACHMENTS`. */
+  group: string | null;
+  weaponIds: string[];
+  attachmentIds: string[];
+}
+
+/** Os identificadores da fonte de registro traduzidos para ids do catálogo. */
+export function resolveItems(items: string[], known: Known): Omit<LineContext, 'group'> {
+  const weaponIds: string[] = [];
+  const attachmentIds: string[] = [];
+
+  for (const item of items) {
+    const key = normalize(item);
+    const weapon = known.weapons.get(key);
+    if (weapon) {
+      weaponIds.push(weapon);
+      continue;
+    }
+
+    /*
+     * O que não resolve é ignorado sem alarde: a fonte marca slot e classe na
+     * mesma lista dos nomes — `scopes`, `barrels`, `recon` —, e isso é
+     * vocabulário dela, não peça que o catálogo devesse ter.
+     */
+    const attachment = known.attachments.get(key);
+    if (attachment) attachmentIds.push(attachment);
+  }
+
+  return { weaponIds: [...new Set(weaponIds)], attachmentIds: [...new Set(attachmentIds)] };
+}
+
+/** A fonte de registro classificou esta linha como mudança de arma ou de peça. */
+const WEAPON_GROUP = /^(WEAPONS?|ATTACHMENTS?|GUNSMITH)$/i;
+
+/**
+ * A linha conserta como a arma aparece, não como ela se comporta.
+ *
+ * A categoria `WEAPONS` da fonte de registro é ampla: cabe o ajuste de dano e
+ * cabe "The EF88 Canted Iron Sight icon now displays in the correct position".
+ * A segunda não muda nada que este catálogo guarde — ele registra número, custo
+ * e compatibilidade, não posição de ícone —, e mandá-la para revisão gasta a
+ * atenção de quem revisa no que não tem o que decidir. Seis linhas dessas por
+ * patch ensinam a passar os olhos, e é a sétima, que importava, que se perde.
+ */
+const PRESENTATION =
+  /\b(icons?|texts?|descriptions?|labels?|displays?|displayed|animations?|poses?|visuals?|models?|alignment|aligned?|clipping|clip into|appears?|appearance|floating|VFX|sound|audio|subtitles?|menus?|HUD)\b/i;
+
+export function parseLine(
+  line: string,
+  known: Known,
+  contexto: LineContext | null = null,
+): PatchChange | null {
   const clean = line.trim();
   if (clean.length < 12 || !RELEVANT.test(clean)) return null;
 
@@ -486,6 +575,51 @@ export function parseLine(line: string, known: Known): PatchChange | null {
     };
   }
 
+  /* --------------------------- a peça deixou de valer --------------------------- */
+
+  const parou = STOPS_AFFECTING.exec(clean);
+  if (parou) {
+    const attachment = findAttachment(clean, known);
+
+    /*
+     * A lista de armas se procura depois do verbo, e não na frase inteira: "no
+     * longer affects fully automatic fire on the BROD and EF88" tem um "on" só,
+     * mas frase com dois — "on the M4A1 when used with the Extended Barrel" —
+     * pediria a primeira e traria a errada.
+     */
+    const depois = clean.slice(parou.index + parou[0].length);
+    const alvo = depois.match(AFFECTED_WEAPONS);
+    const daFrase = alvo ? weaponsIn(alvo[1], known) : { ids: [], unresolved: [] };
+
+    /*
+     * A fonte de registro completa o que a EA abreviou. Ela escreveu "the BROD"
+     * e o catálogo tem `brod3`: a frase sozinha resolve uma arma das duas, e o
+     * `data-item` da fonte resolve as duas.
+     */
+    const ids = [...new Set([...daFrase.ids, ...(contexto?.weaponIds ?? [])])];
+    const peca = attachment?.id ?? contexto?.attachmentIds[0] ?? null;
+
+    if (peca && ids.length) {
+      const naoResolvidas = daFrase.unresolved.filter(
+        (nome) => !known.weapons.get(normalize(nome)),
+      );
+
+      return {
+        ...base,
+        kind: 'compatibility_removed',
+        entityType: 'attachment',
+        entityId: peca,
+        weaponIds: ids,
+        operation: 'none',
+        automation: 'review',
+        reason:
+          'A peça deixou de valer nestas armas. Conferir se ela saiu do Gunsmith delas ou se só o efeito zerou' +
+          (naoResolvidas.length ? `; nomes não reconhecidos na frase: ${naoResolvidas.join(', ')}` : '') +
+          '.',
+      };
+    }
+  }
+
   /* -------------------------------- números -------------------------------- */
 
   const fromTo = clean.match(FROM_TO) ?? clean.match(ARROW);
@@ -559,6 +693,41 @@ export function parseLine(line: string, known: Known): PatchChange | null {
       reason: entity
         ? 'Mudança descrita sem número: precisa de medição de outra fonte.'
         : 'Mudança descrita sem número, e a entidade citada não existe no catálogo.',
+    };
+  }
+
+  /* ------------------------- a rede embaixo de tudo ------------------------- */
+
+  /*
+   * Linha que a fonte de registro pôs sob `WEAPONS` não some calada.
+   *
+   * Tudo acima é o parser decidindo, pelo texto, se a frase é do catálogo. Ele
+   * erra por omissão — e a omissão é o erro caro, porque produz o mesmo zero de
+   * um patch que legitimamente não mexeu em arma. Foi assim que a 1.4.2.5 virou
+   * cópia da 1.4.2.0.
+   *
+   * Aqui a classificação não é inferida: veio de fora, de quem separou o
+   * changelog por categoria. Se a fonte diz que a linha é de arma e nomeia
+   * entidades que o catálogo tem, ela vira pendência com nome e id — o revisor
+   * lê uma frase e decide. É o que separa "o patch não mexeu em arma" de "o
+   * parser não entendeu a frase", que era exatamente a distinção que faltava.
+   */
+  if (contexto && WEAPON_GROUP.test(contexto.group ?? '') && !PRESENTATION.test(clean)) {
+    const ids = contexto.weaponIds;
+    const peca = contexto.attachmentIds[0] ?? null;
+    if (!ids.length && !peca) return null;
+
+    return {
+      ...base,
+      kind: 'unknown',
+      entityType: peca ? 'attachment' : 'weapon',
+      entityId: peca ?? ids[0] ?? null,
+      weaponIds: ids.length ? ids : undefined,
+      mentioned: base.mentioned,
+      operation: 'none',
+      automation: 'review',
+      reason:
+        'A fonte de registro classificou esta linha como mudança de arma, e o texto não diz campo nem número — ler a frase e decidir.',
     };
   }
 
@@ -642,12 +811,48 @@ export function parseAnnouncements(body: string, known: Known): PatchChange[] {
   return changes;
 }
 
-export function parseNote(note: PatchNote, known: Known): PatchChange[] {
+/**
+ * O contexto de cada linha, indexado pelo texto que a EA publicou.
+ *
+ * A chave é o texto normalizado porque é a única coisa que as duas fontes têm
+ * em comum: a fonte de registro transcreve a EA palavra por palavra, e o que
+ * varia entre as duas é espaço em branco e aspas tipográficas.
+ */
+function contextos(registro: BalancePatch | null, known: Known): Map<string, LineContext> {
+  const mapa = new Map<string, LineContext>();
+  if (!registro) return mapa;
+
+  for (const linha of registro.weaponLines) {
+    mapa.set(chaveDeLinha(linha.text), {
+      group: linha.group,
+      ...resolveItems(linha.items, known),
+    });
+  }
+
+  return mapa;
+}
+
+/** Espaço, aspas e travessão não distinguem uma frase da mesma frase. */
+const chaveDeLinha = (texto: string) =>
+  texto
+    .replace(/[‘’]/g, "'")
+    .replace(/[“”]/g, '"')
+    .replace(/[–—]/g, '-')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+
+export function parseNote(
+  note: PatchNote,
+  known: Known,
+  registro: BalancePatch | null = null,
+): PatchChange[] {
   const body = bodyOf(note.rawContent);
+  const contexto = contextos(registro, known);
 
   const lines = body
     .split('\n')
-    .map((line) => parseLine(line, known))
+    .map((line) => parseLine(line, known, contexto.get(chaveDeLinha(line)) ?? null))
     .filter((change): change is PatchChange => change !== null);
 
   /*
@@ -661,6 +866,24 @@ export function parseNote(note: PatchNote, known: Known): PatchChange[] {
   return [...lines.filter((change) => !announced.has(change.line)), ...announcements];
 }
 
+/**
+ * O registro desta versão, se `catalog:fetch-balance-log` já tiver rodado.
+ *
+ * Ausente não é erro: o parser existia antes desta fonte e continua lendo o
+ * texto da EA sozinho. O que ela acrescenta é a categoria e os ids — e é por
+ * isso que rodá-la antes vale a pena, não por ela ser obrigatória.
+ */
+export function registroDe(version: string): BalancePatch | null {
+  if (!existsSync(BALANCE_LOG_PATH)) return null;
+
+  try {
+    const balanceLog = readJson<BalanceLog>(BALANCE_LOG_PATH);
+    return balanceLog.patches.find((patch) => patch.version === version) ?? null;
+  } catch {
+    return null;
+  }
+}
+
 function main(): void {
   const version = process.argv[2];
 
@@ -671,7 +894,7 @@ function main(): void {
 
   const path = join(PATCHES, `${version}.json`);
   const note = readJson<PatchNote>(path);
-  const changes = parseNote(note, knownEntities());
+  const changes = parseNote(note, knownEntities(), registroDe(version));
 
   writeJson(path, { ...note, changes });
 

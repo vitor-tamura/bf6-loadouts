@@ -2,9 +2,40 @@
   "gameVersion": "1.4.2.5",
   "events": [
     {
+      "id": "evt-1.4.2.5-review-0",
+      "gameVersion": "1.4.2.5",
+      "timestamp": "2026-09-04",
+      "type": "compatibility_removed",
+      "entityType": "attachment",
+      "entityId": "match_trigger",
+      "changes": {
+        "field": null,
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "The Match",
+        "line": "The Match Trigger attachment no longer affects fully automatic fire on the BROD and EF88."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-4-2-5",
+          "version": "1.4.2.5",
+          "retrievedAt": "2026-09-03T13:07:08.725Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "A peça deixou de valer nestas armas. Conferir se ela saiu do Gunsmith delas ou se só o efeito zerou."
+      }
+    },
+    {
       "id": "evt-1.4.2.5-compatibility-carried-0",
       "gameVersion": "1.4.2.5",
-      "timestamp": "2026-09-03",
+      "timestamp": "2026-09-04",
       "type": "source_conflict",
       "entityType": "compatibility",
       "entityId": null,

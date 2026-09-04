@@ -39,18 +39,22 @@ export const maxDuration = 15;
  * fila de reserva do próprio gateway, para o caso de o primeiro estar fora do
  * ar, e os reservas também são dos baratos.
  */
-const MODEL = 'openai/gpt-5-nano';
+const MODEL = 'openai/gpt-5.6-luna';
 const FALLBACK_MODELS = ['anthropic/claude-haiku-4.5', 'google/gemini-3-flash'];
 
 /**
- * Os modelos da OpenAI, na ordem em que se tenta.
+ * O modelo da OpenAI. Um só, o mesmo do resto do projeto.
  *
- * O `gpt-5-nano` abre a fila por ser o mais barato do catálogo — US$ 0,05 por
- * milhão de tokens de entrada, um quinto do mini — e redigir três frases a
- * partir de números prontos é tarefa para ele. O `gpt-4.1-nano` é o plano B
- * de outra família, para o dia em que o nome sair do ar.
+ * O `gpt-5.6-luna` é o degrau nano da geração atual, e redigir três frases a
+ * partir de números prontos é tarefa para ele — com a resposta guardada por um
+ * dia, o custo desta rota fica perto de zero de qualquer forma.
+ *
+ * A reserva que sobrou é a de outra casa: `FALLBACK_MODELS`, no gateway, e o
+ * Google no fim da fila. Elas não são fila de modelo, são fila de provedor —
+ * existem para o dia em que o crédito da Vercel acabar ou a chave sair do ar,
+ * e um nome da OpenAI atrás de outro não resolveria nenhuma das duas coisas.
  */
-const OPENAI_MODELS = ['gpt-5-nano', 'gpt-4.1-nano'];
+const OPENAI_MODELS = ['gpt-5.6-luna'];
 
 /**
  * Os modelos gratuitos do Google, na ordem em que se tenta.
@@ -81,9 +85,14 @@ const GOOGLE_MODELS = ['gemini-3.6-flash', 'gemini-flash-latest'];
  * que é o que acontece em qualquer cópia recém-clonada do repositório.
  *
  * Cada candidato carrega as próprias opções de provedor porque o jeito de
- * desligar o raciocínio muda de casa: `reasoningEffort` na OpenAI (que o
- * `gpt-4.1-nano`, sem raciocínio, não aceita), `thinkingBudget` no Google —
- * e o gateway leva junto a fila de reserva e o cache.
+ * desligar o raciocínio muda de casa: `reasoningEffort` na OpenAI,
+ * `thinkingBudget` no Google — e o gateway leva junto a fila de reserva e o
+ * cache.
+ *
+ * O esforço é `none`, e não `minimal`: `minimal` era da geração anterior e o
+ * `gpt-5.6-luna` responde 400 a ele. Dizê-lo também deixou de ser opcional —
+ * o padrão do `luna` é `medium`, e três frases sobre números prontos não têm
+ * o que deliberar.
  */
 function candidates() {
   if (process.env.VERCEL_ENV !== 'production') return [];
@@ -109,7 +118,7 @@ function candidates() {
            */
           cacheControl: 'max-age=86400',
         },
-        openai: { reasoningEffort: 'minimal' },
+        openai: { reasoningEffort: 'none' },
       },
     },
     ...(openai
@@ -117,7 +126,7 @@ function candidates() {
           model: openai(name),
           name,
           providerOptions: name.startsWith('gpt-5')
-            ? { openai: { reasoningEffort: 'minimal' } }
+            ? { openai: { reasoningEffort: 'none' } }
             : undefined,
         }))
       : []),

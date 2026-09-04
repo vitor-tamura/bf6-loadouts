@@ -30,7 +30,7 @@ import { spawnSync } from 'node:child_process';
 import { PATCHES, ROOT, log, readJson, versionDir } from './lib/io.ts';
 import { discover, type DiscoveredUpdate } from './discover-updates.ts';
 import { fetchPatchNote, type PatchNote } from './fetch-patch-note.ts';
-import { knownEntities, parseNote, type PatchChange } from './parse-patch-note.ts';
+import { knownEntities, parseNote, registroDe, type PatchChange } from './parse-patch-note.ts';
 import { writeJson } from './lib/io.ts';
 
 interface Options {
@@ -104,8 +104,25 @@ async function processVersion(update: DiscoveredUpdate, options: Options): Promi
 
   /* -------------------------------- leitura -------------------------------- */
 
+  /*
+   * O registro de patch vem antes da leitura, e não depois.
+   *
+   * Ele é o que diz a categoria de cada linha e quais armas ela nomeia — e é
+   * disso que o parser precisa para não largar uma frase como "The Match
+   * Trigger attachment no longer affects fully automatic fire on the BROD and
+   * EF88", que não tem número, não tem "removed" e não cita campo nenhum que
+   * ele reconheça. Sem esta atualização, ele lê o registro da execução
+   * anterior; sem arquivo nenhum, lê só o texto da EA, como sempre leu.
+   *
+   * Falhar aqui não derruba a versão. É fonte de terceiro, e a oficial já está
+   * baixada — o que se perde é a conferência, não o patch.
+   */
+  if (!options.dryRun && !run('fetch-balance-log.ts').ok) {
+    log(`${version}: o registro de patch não pôde ser lido — vale o texto da EA sozinho`);
+  }
+
   const note = readJson<PatchNote>(patchPath);
-  const changes = parseNote(note, knownEntities());
+  const changes = parseNote(note, knownEntities(), registroDe(version));
   const summary = summarize(changes);
 
   log(`${version}: mudanças reconhecidas`, summary);

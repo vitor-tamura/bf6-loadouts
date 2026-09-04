@@ -5,6 +5,7 @@ import {
   montarLeitura,
   normalizarLista,
   normalizarPatch,
+  normalizarPatchConhecido,
 } from './leitura.mjs';
 
 /**
@@ -272,6 +273,50 @@ describe('patch da leitura', () => {
     expect(
       normalizarPatch({ patch: { name: 'Game Update 1.4.1.0', date: '2026-07-21' } }, HOJE, '2026-07-21'),
     ).toEqual({ name: 'Game Update 1.4.1.0', date: '2026-07-21' });
+  });
+});
+
+describe('o patch apurado pelo catálogo', () => {
+  /*
+   * A leitura de 02/09 anunciou na tela a 1.4.1.5, de 04/08, com a 1.4.2.5 no ar
+   * desde 31/08 e já processada em `data/versions`. O modelo tinha ido buscar o
+   * patch na busca, e o índice das ferramentas de busca alcança patch novo
+   * devagar — enquanto o repositório já sabia a resposta, apurada da página
+   * oficial da EA.
+   */
+  it('vence a resposta do modelo, que pode estar atrasada', () => {
+    const { conteudo } = leitura(
+      { picks: [pick('M16A4', 'Primeira no ranking de fuzis do multiplayer, com TTK medido.')] },
+      // O resto do arquivo lê o meta de 11/08; esta leitura é a de 04/09, que é
+      // o dia em que a tela ainda anunciava a 1.4.1.5.
+      { hoje: '2026-09-04', patchConhecido: { name: 'Atualização 1.4.2.5', date: '2026-08-31' } },
+    );
+
+    expect(conteudo.patch).toEqual({ name: 'Atualização 1.4.2.5', date: '2026-08-31' });
+  });
+
+  /*
+   * Este número não passa pela trava de temporada, e não deve: aquela trava
+   * existe para pegar patch que o modelo trouxe do índice. Este veio do
+   * pipeline que lê a EA — se estiver errado, o problema é o catálogo, e
+   * escondê-lo aqui só faria a tela mentir com mais um passo no meio.
+   */
+  it('não passa pela trava de temporada, que é para resposta de busca', () => {
+    expect(normalizarPatchConhecido({ name: 'Atualização 1.3.2.0', date: '2026-06-10' }, HOJE)).toEqual({
+      name: 'Atualização 1.3.2.0',
+      date: '2026-06-10',
+    });
+  });
+
+  it('recusa data no futuro, que é relógio torto ou patch que não saiu', () => {
+    expect(normalizarPatchConhecido({ name: 'Atualização 9.9.9.9', date: '2026-12-01' }, HOJE)).toEqual({
+      name: 'Atualização 9.9.9.9',
+      date: null,
+    });
+  });
+
+  it('devolve nulo sem catálogo, e a resposta do modelo volta a valer', () => {
+    expect(normalizarPatchConhecido(null, HOJE)).toBeNull();
   });
 });
 

@@ -610,6 +610,28 @@ function inicioDaTemporada(timeframe) {
  * apoiada em tier lists de duas semanas antes. Data no futuro é alucinação — o
  * patch de amanhã ainda não mexeu em arma nenhuma.
  */
+/**
+ * A atualização apurada pelo catálogo, pronta para a tela.
+ *
+ * Não passa pela trava de temporada que `normalizarPatch` aplica, e não deve
+ * passar: aquela trava existe para pegar patch que o modelo foi buscar no
+ * índice e trouxe de dois meses atrás. Este número veio do pipeline que lê a
+ * página oficial da EA — se ele estiver errado, o problema é o catálogo, e
+ * escondê-lo aqui só faria a tela mentir com mais um passo no meio.
+ *
+ * Data no futuro continua sendo recusada. Ela só apareceria por relógio torto
+ * ou por patch anunciado antes de sair, e nos dois casos "revisado hoje sobre
+ * um patch de amanhã" é uma frase que não se sustenta.
+ */
+export function normalizarPatchConhecido(patch, hoje) {
+  if (!patch || typeof patch !== 'object') return null;
+
+  const name = String(patch.name ?? '').trim().slice(0, 80) || null;
+  const date = ehData(patch.date) && patch.date <= hoje ? patch.date : null;
+
+  return name || date ? { name, date } : null;
+}
+
 export function normalizarPatch(bruto, hoje, inicioDaTemporada = null) {
   const patch = bruto?.patch;
   if (!patch || typeof patch !== 'object') return null;
@@ -637,7 +659,15 @@ export function normalizarPatch(bruto, hoje, inicioDaTemporada = null) {
  * Lança quando a resposta não se sustenta — é o sinal para `meta-search.mjs`
  * tentar o próximo modelo da fila em vez de gravar.
  */
-export function montarLeitura({ bruto, anotacoes = [], buscou = null, modelo, hoje, timeframe }) {
+export function montarLeitura({
+  bruto,
+  anotacoes = [],
+  buscou = null,
+  modelo,
+  hoje,
+  timeframe,
+  patchConhecido = null,
+}) {
   const listas = listasBrutas(bruto);
   const enviadosPicks = Array.isArray(listas.picks) ? listas.picks.length : 0;
   const enviadosTrending = Array.isArray(listas.trending) ? listas.trending.length : 0;
@@ -711,7 +741,19 @@ export function montarLeitura({ bruto, anotacoes = [], buscou = null, modelo, ho
     conteudo: {
       readAt: hoje,
       model: modelo,
-      patch: normalizarPatch(bruto, hoje, inicioDaTemporada(timeframe)),
+      /*
+       * O catálogo tem precedência sobre a resposta.
+       *
+       * `patchConhecido` vem de `data/versions`, escrito pelo pipeline que lê a
+       * página oficial da EA — é apuração, não leitura de índice de busca. A
+       * resposta do modelo só entra quando ele não veio: repositório sem
+       * catálogo em disco, e os testes, que montam a leitura direto.
+       *
+       * A diferença não é acadêmica. A leitura de 02/09 anunciou na tela a
+       * 1.4.1.5, de 04/08, com a 1.4.2.5 no ar desde 31/08 e já processada aqui.
+       */
+      patch: normalizarPatchConhecido(patchConhecido, hoje) ??
+        normalizarPatch(bruto, hoje, inicioDaTemporada(timeframe)),
       picks: meta.items,
       trending: trends.items,
       sources,

@@ -1,0 +1,290 @@
+{
+  "fonte": {
+    "provider": "bf6balancelog",
+    "url": "https://bf6balancelog.com/",
+    "retrievedAt": "2026-09-04T13:15:41.000Z"
+  },
+  "provados": [],
+  "emAberto": [
+    {
+      "linha": "Extended Barrels on all weapons now cost 5 points, reduced from 15 points, and no longer provide an aiming down sights time benefit. This change is intended to support greater attachment and weapon build diversity, especially on weapons with fewer barrel options.",
+      "versao": "1.3.2.0",
+      "idsSemNome": [
+        "extended_barrel"
+      ],
+      "nomesSemId": [],
+      "porQue": "a fonte afirma a entidade e a frase não escreve nome nenhum que sirva de apelido"
+    },
+    {
+      "linha": "Fixed multiple weapon attachment visual issues, including lasers, flashlights, and optic alignment.",
+      "versao": "1.2.1.0",
+      "idsSemNome": [
+        "flashlight"
+      ],
+      "nomesSemId": [],
+      "porQue": "a fonte afirma a entidade e a frase não escreve nome nenhum que sirva de apelido"
+    },
+    {
+      "linha": "Fixed the LMR27s Fast 15- and 20-round magazines not reducing reload time as intended.",
+      "versao": "1.2.1.0",
+      "idsSemNome": [
+        "lmr27"
+      ],
+      "nomesSemId": [
+        "LMR27s Fast",
+        "20-round"
+      ],
+      "porQue": "1 entidades sem nome para 2 nomes sem entidade — a frase não força um par só"
+    }
+  ],
+  "semEntidade": [
+    {
+      "item": "barrels",
+      "versoes": [
+        "1.4.2.0",
+        "1.3.3.0",
+        "1.3.2.0",
+        "1.2.1.0",
+        "1.1.3.5",
+        "1.1.2.0"
+      ],
+      "linhas": [
+        "An unintended recoil modifier has been removed from VSSM barrel attachments.",
+        "The VSSM 200mm Barrel now displays the correct weight value.",
+        "Updated the description of the L115 32” Custom Extended Barrel to display the correct weight value."
+      ]
+    },
+    {
+      "item": "combat-knife",
+      "versoes": [
+        "1.1.3.5"
+      ],
+      "linhas": [
+        "Improved attack speed for knife melee attacks.",
+        "Improved buffering behaviour for knife and sledgehammer attacks."
+      ]
+    },
+    {
+      "item": "eastwood",
+      "versoes": [
+        "1.3.3.0"
+      ],
+      "linhas": [
+        "Thermal Scopes no longer cause sudden full-screen brightness spikes while playing on Eastwood."
+      ]
+    },
+    {
+      "item": "extended-fast-mag",
+      "versoes": [
+        "1.3.3.0"
+      ],
+      "linhas": [
+        "The Extended Fast Magazine on the L115 now uses the correct 3D asset."
+      ]
+    },
+    {
+      "item": "fmj",
+      "versoes": [
+        "1.1.3.0"
+      ],
+      "linhas": [
+        "Fixed an issue where the effects of FMJ ammunition were incorrectly applied to additional ammunition types."
+      ]
+    },
+    {
+      "item": "grim-150x",
+      "versoes": [
+        "1.1.3.5"
+      ],
+      "linhas": [
+        "Fixed an issue where the GRIM 1.50x optic on the DB-12 cost fewer loadout points than intended (15 instead of 25)."
+      ]
+    },
+    {
+      "item": "hunting-knife",
+      "versoes": [
+        "1.1.3.5"
+      ],
+      "linhas": [
+        "Improved attack speed for knife melee attacks.",
+        "Improved buffering behaviour for knife and sledgehammer attacks."
+      ]
+    },
+    {
+      "item": "ice-axe",
+      "versoes": [
+        "1.1.3.5"
+      ],
+      "linhas": [
+        "Improved attack speed for knife melee attacks.",
+        "Improved buffering behaviour for knife and sledgehammer attacks."
+      ]
+    },
+    {
+      "item": "light-barrel",
+      "versoes": [
+        "1.1.3.5"
+      ],
+      "linhas": [
+        "Fixed an issue where the TR-7 Light Barrel incorrectly improved muzzle velocity."
+      ]
+    },
+    {
+      "item": "m18",
+      "versoes": [
+        "1.2.1.0"
+      ],
+      "linhas": [
+        "Fixed an issue where Scope glints and laser sight lens flares would be visible through the cover of smoke grenades."
+      ]
+    },
+    {
+      "item": "magazines",
+      "versoes": [
+        "1.3.3.0",
+        "1.3.2.0",
+        "1.3.1.0",
+        "1.2.1.0",
+        "1.1.3.0",
+        "1.1.2.0"
+      ],
+      "linhas": [
+        "M2010 5-round magazine now sits correctly in third-person view.",
+        "M87A1 magazine tubes no longer become invisible in third-person view.",
+        "The Extended Fast Magazine on the L115 now uses the correct 3D asset."
+      ]
+    },
+    {
+      "item": "magnifier",
+      "versoes": [
+        "1.3.1.0"
+      ],
+      "linhas": [
+        "Added the Magnifier as a shared optic accessory."
+      ]
+    },
+    {
+      "item": "recon",
+      "versoes": [
+        "1.4.2.0",
+        "1.1.1.0"
+      ],
+      "linhas": [
+        "Sniper Rifles used by non-Recon classes now transition into aim down sights more smoothly and apply the intended aim offset immediately, reducing jitter while preserving the intended quickscoping penalty compared with Recon.",
+        "Using Sniper Rifles with any class other than Recon will no longer increase weapon spread. Instead, weapon sway will now begin during the zoom transition, maintaining balance and distinguishing Recon’s precision advantage."
+      ]
+    },
+    {
+      "item": "ro-m-175x",
+      "versoes": [
+        "1.2.1.0"
+      ],
+      "linhas": [
+        "Fixed the SGX RO-M 1.75x sight to function consistently with other weapons."
+      ]
+    },
+    {
+      "item": "scopes",
+      "versoes": [
+        "1.4.2.0",
+        "1.4.1.5",
+        "1.3.3.0",
+        "1.3.2.0",
+        "1.3.1.0",
+        "1.2.3.0",
+        "1.2.1.0",
+        "1.1.3.5",
+        "1.1.3.0",
+        "1.1.2.0",
+        "1.1.1.0"
+      ],
+      "linhas": [
+        "Mini Scout 50 mW Violet attachments now correctly adjust to the lower rail when used alongside larger optics.",
+        "The description for the 1/4x LPVO 5 sight now matches its intended behaviour.",
+        "The LMR27 no longer causes canted red dot sights and larger optics to clip into the first-person camera."
+      ]
+    },
+    {
+      "item": "serrated-blade",
+      "versoes": [
+        "1.1.3.5"
+      ],
+      "linhas": [
+        "Improved attack speed for knife melee attacks.",
+        "Improved buffering behaviour for knife and sledgehammer attacks."
+      ]
+    },
+    {
+      "item": "short-barrel",
+      "versoes": [
+        "1.1.3.5"
+      ],
+      "linhas": [
+        "Fixed an issue where the RPKM iron sights would shoot low when using the short barrel."
+      ]
+    },
+    {
+      "item": "sledgehammer",
+      "versoes": [
+        "1.1.3.5",
+        "1.1.1.0"
+      ],
+      "linhas": [
+        "Improved buffering behaviour for knife and sledgehammer attacks.",
+        "Balanced sledgehammer damage against world objects for better consistency."
+      ]
+    },
+    {
+      "item": "ss26",
+      "versoes": [
+        "1.4.1.0",
+        "1.3.2.0"
+      ],
+      "linhas": [
+        "SS26 Incendiary Rounds no longer ignite the ocean floor when fired underwater.",
+        "SS26 aim position has been improved so shots and hit indicators align correctly with the front sight."
+      ]
+    },
+    {
+      "item": "su-230-lpvo",
+      "versoes": [
+        "1.1.2.0"
+      ],
+      "linhas": [
+        "Fixed the issue where the SU-230 LPVO 4x variable scope lacked a smooth transition and audible zoom toggle when aiming down sights."
+      ]
+    },
+    {
+      "item": "synthetic-tip",
+      "versoes": [
+        "1.3.3.0",
+        "1.2.3.0"
+      ],
+      "linhas": [
+        "Hollow Point and Synthetic Tip Ammo descriptions now correctly reflect their lower penetration values.",
+        "Hollow Point and Synthetic Tip ammunition now cost less on most weapons."
+      ]
+    },
+    {
+      "item": "taclight-hip",
+      "versoes": [
+        "1.3.3.0",
+        "1.2.2.0"
+      ],
+      "linhas": [
+        "The Taclight-Hip icon now displays correctly.",
+        "Added Taclight - Hip rifle weapon attachment."
+      ]
+    },
+    {
+      "item": "th-rds-100x",
+      "versoes": [
+        "1.2.3.0"
+      ],
+      "linhas": [
+        "Fixed camera recoil being lower than intended on the TH-RDS 1.00x optic attachment.",
+        "The TH-RDS optic now appears correctly on the B36A4 and SVDM."
+      ]
+    }
+  ]
+}

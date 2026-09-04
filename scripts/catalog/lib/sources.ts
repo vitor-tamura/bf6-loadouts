@@ -20,7 +20,11 @@
 import { join } from 'node:path';
 import { SOURCES, readJson } from './io.ts';
 
-export type Papel = 'estado_atual' | 'numeros_de_simulacao' | 'enumeracao_de_slot';
+export type Papel =
+  | 'estado_atual'
+  | 'numeros_de_simulacao'
+  | 'enumeracao_de_slot'
+  | 'registro_de_patch';
 
 export interface FonteRegistrada {
   id: string;

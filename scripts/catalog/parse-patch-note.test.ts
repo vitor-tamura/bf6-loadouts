@@ -375,3 +375,80 @@ describe('números de versão', () => {
     expect(toIsoDate('December 12, 2025')).toBe('2025-12-12');
   });
 });
+
+describe('a peça que deixou de valer numa arma', () => {
+  /*
+   * O caso que motivou este bloco: era a única mudança de arma da 1.4.2.5, e o
+   * parser a largava. Sem número, sem "removed", sem campo reconhecível — o
+   * texto caía por todas as portas e saía como nulo. O pipeline então lia zero
+   * mudanças num texto com cara de patch note, concluía "patch de correções" e
+   * escrevia a 1.4.2.5 como cópia da 1.4.2.0.
+   */
+  it('lê "no longer affects" como compatibilidade retirada, e não como silêncio', () => {
+    const change = parse(
+      'The Match Trigger attachment no longer affects fully automatic fire on the BROD and EF88.',
+    );
+
+    expect(change).toBeTruthy();
+    expect(change!.kind).toBe('compatibility_removed');
+    expect(change!.entityId).toBe('match_trigger');
+    expect(change!.weaponIds).toEqual(expect.arrayContaining(['ef88', 'brod3']));
+  });
+
+  it('nunca aplica sozinha: o texto não diz se a peça saiu ou se só o efeito zerou', () => {
+    const change = parse(
+      'The Match Trigger attachment no longer affects fully automatic fire on the BROD and EF88.',
+    );
+
+    expect(change!.automation).toBe('review');
+  });
+
+  it('não confunde defeito corrigido com peça retirada', () => {
+    const change = parse('The reload animation no longer plays twice on the M4A1.');
+
+    // Não há peça na frase — não há compatibilidade a retirar de nada.
+    expect(change?.kind).not.toBe('compatibility_removed');
+  });
+});
+
+describe('o que a fonte de registro acrescenta', () => {
+  const contexto = (group: string, weaponIds: string[], attachmentIds: string[] = []) => ({
+    group,
+    weaponIds,
+    attachmentIds,
+  });
+
+  /*
+   * A distinção que faltava: "o patch não mexeu em arma" e "o parser não
+   * entendeu a frase" produziam o mesmo zero. A categoria vem da fonte, não de
+   * inferência sobre o texto — por isso ela pode decidir o que o texto não
+   * decidiu.
+   */
+  it('não deixa sumir a linha que a fonte classificou como de arma', () => {
+    const linha = 'Match Grade Ammo on the M2010 ESR and SVK-8.6 behaves as intended again.';
+
+    expect(parseLine(linha, known)).toBeNull();
+
+    const comRegistro = parseLine(linha, known, contexto('WEAPONS', ['m2010esr', 'svk86']));
+    expect(comRegistro).toBeTruthy();
+    expect(comRegistro!.automation).toBe('review');
+    expect(comRegistro!.weaponIds).toEqual(['m2010esr', 'svk86']);
+  });
+
+  /*
+   * A categoria `WEAPONS` da fonte é ampla: cabe ajuste de dano e cabe conserto
+   * de ícone. Mandar as duas para revisão gasta a atenção de quem revisa no que
+   * não tem o que decidir, e é a linha seguinte, que importava, que se perde.
+   */
+  it('deixa passar o conserto de apresentação, que este catálogo não guarda', () => {
+    const linha = 'The EF88 Canted Iron Sight icon now displays in the correct position.';
+
+    expect(parseLine(linha, known, contexto('WEAPONS', ['ef88']))).toBeNull();
+  });
+
+  it('ignora a linha de outra categoria, mesmo citando arma', () => {
+    const linha = 'Helicopter miniguns can now damage enemy soldiers who are in the water.';
+
+    expect(parseLine(linha, known, contexto('VEHICLES', []))).toBeNull();
+  });
+});

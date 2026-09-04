@@ -24,6 +24,7 @@
  */
 
 import { EA_NEWS, fetchText } from './lib/http.ts';
+import { fetchBalanceLog } from './fetch-balance-log.ts';
 import { compareVersions, isGameVersion, listVersions, log } from './lib/io.ts';
 
 /**
@@ -96,14 +97,67 @@ export function extractUpdates(html: string): DiscoveredUpdate[] {
   return [...found.values()].sort((a, b) => compareVersions(a.version, b.version));
 }
 
+/**
+ * A segunda testemunha de que uma versão existe.
+ *
+ * A listagem da EA já escondeu patch: a 1.4.2.5 foi publicada sob `redsec` e
+ * ficou invisível para o extrator por doze dias. O padrão do endereço foi
+ * consertado, mas a lição não é sobre aquele padrão — é que uma fonte só,
+ * quando falha, falha em silêncio, e silêncio aqui parece "nenhum patch novo".
+ *
+ * O BF6 Balance Log arquiva todo Game Update com versão, data e o endereço
+ * oficial. Ele entra como conferência, e só para a frente: versões mais
+ * antigas que a última do catálogo ficam de fora, porque ele guarda o histórico
+ * desde o lançamento e reprocessar 2025 inteiro não é o que se está pedindo.
+ *
+ * Nunca derruba a descoberta. É site de terceiro, e a fonte oficial continua
+ * sendo a EA — quando ele não responde, o que se perde é a conferência, não a
+ * rodada.
+ */
+async function conferirComRegistro(publicadas: DiscoveredUpdate[], maisNova: string | null) {
+  const encontradas = new Set(publicadas.map((update) => update.version));
+
+  try {
+    const { patches } = await fetchBalanceLog();
+
+    return patches
+      .filter((patch) => !encontradas.has(patch.version))
+      .filter((patch) => !maisNova || compareVersions(patch.version, maisNova) > 0)
+      .map(
+        (patch): DiscoveredUpdate => ({
+          version: patch.version,
+          url: patch.url ?? `${EA_NEWS}/battlefield-6-game-update-${patch.version.replace(/\./g, '-')}`,
+          title: null,
+          publishedAt: patch.publishedAt,
+        }),
+      );
+  } catch (error) {
+    console.warn(
+      `[catalog] a conferência com o registro de patch falhou: ${error instanceof Error ? error.message : error}`,
+    );
+    return [];
+  }
+}
+
 export async function discover(): Promise<{
   known: string[];
   published: DiscoveredUpdate[];
   updates: DiscoveredUpdate[];
 }> {
   const html = await fetchText(EA_NEWS);
-  const published = extractUpdates(html);
+  const daEa = extractUpdates(html);
   const known = listVersions();
+  const maisNova = known.length ? [...known].sort(compareVersions).at(-1)! : null;
+
+  const soNoRegistro = await conferirComRegistro(daEa, maisNova);
+  for (const update of soNoRegistro) {
+    console.warn(
+      `[catalog] ${update.version} está no registro de patch e não na listagem da EA — ` +
+        'a listagem pode ter mudado de forma, ou a EA pendurou o artigo fora da seção esperada',
+    );
+  }
+
+  const published = [...daEa, ...soNoRegistro].sort((a, b) => compareVersions(a.version, b.version));
 
   return {
     known,

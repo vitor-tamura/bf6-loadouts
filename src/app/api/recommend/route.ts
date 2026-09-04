@@ -87,24 +87,19 @@ function positiveInt(value: string | undefined, fallback: number) {
 const WEB_SEARCH = process.env.OPENAI_RECOMMEND_WEB_SEARCH === 'on';
 
 /**
- * A fila começa pelo mais barato que dá conta.
+ * Um modelo só, ligado ou desligada a busca: o `gpt-5.6-luna`.
  *
- * O `gpt-5-nano` já esteve fora daqui, e o motivo era a busca: o guia da
- * ferramenta nunca o citou, e a execução do meta de 11/08 confirmou que ele
- * recusava a chamada — modelo que só sabe recusar não é barato, é uma chamada
- * perdida antes de cada resposta.
+ * A fila era diferente nos dois modos, e por um motivo que deixou de existir. O
+ * `gpt-5-nano` esteve fora daqui por causa da busca — o guia da ferramenta
+ * nunca o citou, e a execução do meta de 11/08 confirmou que ele recusava a
+ * chamada —, então com a busca ligada a fila tinha de subir para os `mini`.
  *
- * Com a busca desligada, esse motivo deixou de valer: o que se pede agora é
- * escolher peças de uma lista dada e devolver um JSON de uma linha, que é
- * trabalho de modelo pequeno. Por isso os `nano` voltam à frente, e os `mini`
- * ficam de reserva para quando eles recusarem.
- *
- * Com a busca ligada, a fila volta a ser a dos `mini` — não adianta pôr na
- * frente quem não usa a ferramenta.
+ * O `luna` é o degrau nano da geração atual e aceita `web_search`, o que faz os
+ * dois casos caberem no mesmo nome. Escolher peças de uma lista dada e devolver
+ * um JSON de uma linha é trabalho de modelo pequeno; o que fazia falta era um
+ * modelo pequeno que não recusasse a ferramenta.
  */
-const DEFAULT_MODELS = WEB_SEARCH
-  ? 'gpt-5-mini,gpt-4.1-mini'
-  : 'gpt-5-nano,gpt-4.1-nano,gpt-5-mini';
+const DEFAULT_MODELS = 'gpt-5.6-luna';
 
 const MODELS = (process.env.OPENAI_RECOMMEND_MODELS ?? DEFAULT_MODELS)
   .split(',')
@@ -230,14 +225,20 @@ function retryDelayMs(response: Response, message: string, attempt: number) {
  * E era ela que estava custando a espera: o `gpt-5-nano` gastava os catorze
  * segundos pensando antes de escrever a primeira linha, e a rota desistia com
  * "sem resposta em 14 s". Escolher peças de uma lista dada não precisa de
- * deliberação longa — `minimal` é o esforço à altura da tarefa.
+ * deliberação longa.
+ *
+ * O esforço é `none`, e não `minimal`: o `gpt-5.6-luna` aceita `none`, `low`,
+ * `medium`, `high`, `xhigh` e `max` — `minimal` era da geração anterior e, no
+ * nome novo, volta como 400. Dizer o esforço deixou de ser economia e virou
+ * obrigação: o padrão do `luna` é `medium`, e é este mesmo teto de saída que o
+ * raciocínio consome antes de sobrar linha para a resposta.
  *
  * Só vale para a família gpt-5, que é a que aceita o parâmetro. Com a busca
  * ligada, nada disso é enviado, e o JSON continua vindo em texto corrido para
  * `extractJson` recortar.
  */
 const reasoningFor = (model: string) =>
-  !WEB_SEARCH && model.startsWith('gpt-5') ? { reasoning: { effort: 'minimal' } } : {};
+  !WEB_SEARCH && model.startsWith('gpt-5') ? { reasoning: { effort: 'none' } } : {};
 
 function requestBody(model: string, prompt: string) {
   return {

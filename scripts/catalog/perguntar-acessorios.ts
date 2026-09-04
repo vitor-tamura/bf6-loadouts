@@ -68,7 +68,14 @@ import { fonteAtiva } from './lib/sources.ts';
 import { DATA, INDEXES, log, readJson } from './lib/io.ts';
 
 const API_KEY = process.env.OPENAI_API_KEY;
-const MODELOS = ['gpt-5-mini', 'gpt-4.1'];
+
+/*
+ * Um modelo só, o mesmo das leituras diárias. A varredura enumerada já fechou
+ * o que dava para fechar sem modelo nenhum, e o que sobra para esta pergunta é
+ * pouco e vai para `armasRelatadas`, que ninguém promove sem conferir. Não é
+ * lugar de gastar com modelo grande. Ver `MODELOS` em scripts/meta-search.mjs.
+ */
+const MODELOS = ['gpt-5.6-luna'];
 
 /** Quantas fichas ler ao mesmo tempo. Baixo de propósito: é o site de outra pessoa. */
 const EM_PARALELO = 4;

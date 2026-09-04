@@ -54,7 +54,12 @@ const MAX_TENTATIVAS = numeroConfig(process.env.OPENAI_BUILDS_RETRIES, 3);
 
 /* A busca é o ponto desta rotina, então nada de modo JSON — a API recusa os
    dois juntos. O JSON vem em texto e `extrairJson` o recorta, como no meta. */
-const MODELOS = (process.env.OPENAI_BUILDS_MODELS ?? 'gpt-5-mini,gpt-4.1-mini')
+
+/* Um modelo só, o mesmo do meta: as duas leituras rodam na mesma execução
+   diária e responder a mesma pergunta com modelos diferentes só faria a
+   divergência entre os dois arquivos ser difícil de explicar. Ver o cabeçalho
+   de `MODELOS` em scripts/meta-search.mjs para a conta. */
+const MODELOS = (process.env.OPENAI_BUILDS_MODELS ?? 'gpt-5.6-luna')
   .split(',')
   .map((modelo) => modelo.trim())
   .filter(Boolean);

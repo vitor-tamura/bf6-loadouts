@@ -1,0 +1,1729 @@
+{
+  "source": {
+    "provider": "bf6balancelog",
+    "type": "community",
+    "url": "https://bf6balancelog.com/",
+    "retrievedAt": "2026-09-04T13:29:11.542Z"
+  },
+  "patches": [
+    {
+      "version": "1.4.2.5",
+      "publishedAt": "2026-08-31",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-5",
+      "categories": [
+        "player",
+        "weapons",
+        "vehicles",
+        "gadgets",
+        "redsec",
+        "ui",
+        "portal",
+        "ai",
+        "misc"
+      ],
+      "weaponLines": [
+        {
+          "text": "The Match Trigger attachment no longer affects fully automatic fire on the BROD and EF88.",
+          "group": "WEAPONS",
+          "items": [
+            "brod-3",
+            "ef88",
+            "match-trigger"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.4.2.0",
+      "publishedAt": "2026-08-14",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-0",
+      "categories": [
+        "player",
+        "weapons",
+        "vehicles",
+        "gadgets",
+        "maps",
+        "redsec",
+        "progression",
+        "ui",
+        "audio",
+        "portal",
+        "ai",
+        "misc"
+      ],
+      "weaponLines": [
+        {
+          "text": "Additional presentation and attachment consistency improvements have been made to the EF88.",
+          "group": "WEAPONS",
+          "items": [
+            "ef88"
+          ]
+        },
+        {
+          "text": "An unintended recoil modifier has been removed from VSSM barrel attachments.",
+          "group": "WEAPONS",
+          "items": [
+            "barrels",
+            "vssm"
+          ]
+        },
+        {
+          "text": "Corrected an animation pose issue affecting the RPK-74M.",
+          "group": "WEAPONS",
+          "items": [
+            "rpk-74m"
+          ]
+        },
+        {
+          "text": "L115 muzzle attachment text now displays correctly.",
+          "group": "WEAPONS",
+          "items": [
+            "l115"
+          ]
+        },
+        {
+          "text": "Match Grade Ammo now deals the intended damage against swimming soldiers.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Match Grade Ammo on the M2010 ESR and SVK-8.6 no longer applies unintended damage reductions.",
+          "group": "WEAPONS",
+          "items": [
+            "m2010-esr",
+            "svk-86"
+          ]
+        },
+        {
+          "text": "Mini Scout 50 mW Violet attachments now correctly adjust to the lower rail when used alongside larger optics.",
+          "group": "WEAPONS",
+          "items": [
+            "50mw-violet",
+            "mini-scout",
+            "scopes"
+          ]
+        },
+        {
+          "text": "Missing visual effects and material behaviour have been added to the EF88 and VSSM.",
+          "group": "WEAPONS",
+          "items": [
+            "ef88",
+            "vssm"
+          ]
+        },
+        {
+          "text": "The BROD 3 now uses the correct zoom level with the 3.00x Thermal Sight.",
+          "group": "WEAPONS",
+          "items": [
+            "brod-3"
+          ]
+        },
+        {
+          "text": "The description for the 1/4x LPVO 5 sight now matches its intended behaviour.",
+          "group": "WEAPONS",
+          "items": [
+            "scopes"
+          ]
+        },
+        {
+          "text": "The EF88 Canted Iron Sight icon now displays in the correct position.",
+          "group": "WEAPONS",
+          "items": [
+            "ef88",
+            "iron-sights"
+          ]
+        },
+        {
+          "text": "The LMR27 no longer causes canted red dot sights and larger optics to clip into the first-person camera.",
+          "group": "WEAPONS",
+          "items": [
+            "lmr27",
+            "scopes"
+          ]
+        },
+        {
+          "text": "The NVO-228E’s left arm animation now displays correctly while reloading.",
+          "group": "WEAPONS",
+          "items": [
+            "nvo-228e"
+          ]
+        },
+        {
+          "text": "The VSSM 200mm Barrel now displays the correct weight value.",
+          "group": "WEAPONS",
+          "items": [
+            "barrels",
+            "vssm"
+          ]
+        },
+        {
+          "text": "VSSM limb damage multipliers have been adjusted.",
+          "group": "WEAPONS",
+          "items": [
+            "vssm"
+          ]
+        },
+        {
+          "text": "Sniper Rifles used by non-Recon classes now transition into aim down sights more smoothly and apply the intended aim offset immediately, reducing jitter while preserving the intended quickscoping penalty compared with Recon.",
+          "group": "WEAPONS",
+          "items": [
+            "recon"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.4.1.5",
+      "publishedAt": "2026-08-03",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-1-5",
+      "categories": [
+        "player",
+        "weapons",
+        "vehicles",
+        "maps",
+        "redsec",
+        "progression",
+        "ui",
+        "portal",
+        "misc"
+      ],
+      "weaponLines": [
+        {
+          "text": "The 1P86 Variable Scope can no longer be used while operating an underbarrel launcher.",
+          "group": "WEAPONS",
+          "items": [
+            "1p86-lpvo",
+            "scopes"
+          ]
+        },
+        {
+          "text": "Underbarrel attachment models on the M123K now update correctly when changing the equipped underbarrel attachment.",
+          "group": "WEAPONS",
+          "items": [
+            "m123k"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.4.1.0",
+      "publishedAt": "2026-07-16",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-1-0",
+      "categories": [
+        "player",
+        "weapons",
+        "vehicles",
+        "gadgets",
+        "maps",
+        "redsec",
+        "ui",
+        "audio",
+        "portal",
+        "ai",
+        "misc"
+      ],
+      "weaponLines": [
+        {
+          "text": "Muzzle visual effects now align correctly when using the Compensator attachment on the UMG-40, SCW-10, and PW5A3.",
+          "group": "WEAPONS",
+          "items": [
+            "compensator",
+            "pw5a3",
+            "scw-10",
+            "umg-40"
+          ]
+        },
+        {
+          "text": "Projectile behaviour when interacting with water has been updated. Bullets now lose damage while travelling through water, and may deal no damage after travelling far enough underwater.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "SS26 Incendiary Rounds no longer ignite the ocean floor when fired underwater.",
+          "group": "WEAPONS",
+          "items": [
+            "ss26"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.3.3.0",
+      "publishedAt": "2026-06-26",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-3-0",
+      "categories": [
+        "player",
+        "weapons",
+        "vehicles",
+        "gadgets",
+        "maps",
+        "redsec",
+        "progression",
+        "ui",
+        "audio",
+        "portal",
+        "ai",
+        "misc"
+      ],
+      "weaponLines": [
+        {
+          "text": "Angled Grips on the M16A4 and RPK-74M now apply the intended recoil reduction values.",
+          "group": "WEAPONS",
+          "items": [
+            "m16a4",
+            "rpk-74m"
+          ]
+        },
+        {
+          "text": "Hollow Point and Synthetic Tip Ammo descriptions now correctly reflect their lower penetration values.",
+          "group": "WEAPONS",
+          "items": [
+            "hollow-point",
+            "synthetic-tip"
+          ]
+        },
+        {
+          "text": "L115 iron sight attachment cost increased from 5 to 15, bringing it in line with other Bolt-Action Rifles.",
+          "group": "WEAPONS",
+          "items": [
+            "iron-sights",
+            "l115"
+          ]
+        },
+        {
+          "text": "M2010 5-round magazine now sits correctly in third-person view.",
+          "group": "WEAPONS",
+          "items": [
+            "magazines"
+          ]
+        },
+        {
+          "text": "M45A1 and Vz.61 sidearms now use Subsonic Ammo by default.",
+          "group": "WEAPONS",
+          "items": [
+            "m45a1",
+            "vz-61"
+          ]
+        },
+        {
+          "text": "M87A1 magazine tubes no longer become invisible in third-person view.",
+          "group": "WEAPONS",
+          "items": [
+            "m87a1",
+            "magazines"
+          ]
+        },
+        {
+          "text": "Speedloader attachments now play the correct animation in third-person view.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "The Extended Fast Magazine on the L115 now uses the correct 3D asset.",
+          "group": "WEAPONS",
+          "items": [
+            "extended-fast-mag",
+            "l115",
+            "magazines"
+          ]
+        },
+        {
+          "text": "The PP-19 no longer clips through the character model while in the Loadout screen.",
+          "group": "WEAPONS",
+          "items": [
+            "pp-19"
+          ]
+        },
+        {
+          "text": "The Taclight-Hip icon now displays correctly.",
+          "group": "WEAPONS",
+          "items": [
+            "taclight-hip"
+          ]
+        },
+        {
+          "text": "Thermal Scopes no longer cause sudden full-screen brightness spikes while playing on Eastwood.",
+          "group": "WEAPONS",
+          "items": [
+            "eastwood",
+            "scopes"
+          ]
+        },
+        {
+          "text": "Updated the description of the L115 32” Custom Extended Barrel to display the correct weight value.",
+          "group": "WEAPONS",
+          "items": [
+            "barrels",
+            "extended-barrel",
+            "l115"
+          ]
+        },
+        {
+          "text": "USG-90 hip-fire weapon position has been lowered to reduce how much screen space it occupies.",
+          "group": "WEAPONS",
+          "items": [
+            "usg-90"
+          ]
+        },
+        {
+          "text": "Weapon and camera sway no longer becomes disabled after firing and zooming in quick succession.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Weapon parts now appear correctly in the Customization menu and when viewed as loot on the ground.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "AK-205 314mm Fluted Barrel icon now better reflects the attachment model.",
+          "group": "AK-205",
+          "items": [
+            "ak-205",
+            "barrels"
+          ]
+        },
+        {
+          "text": "AK-205 barrel icons now display correctly.",
+          "group": "AK-205",
+          "items": [
+            "ak-205",
+            "barrels"
+          ]
+        },
+        {
+          "text": "AK-205 ergonomic attachments now correctly update weapon stat values.",
+          "group": "AK-205",
+          "items": [
+            "ak-205"
+          ]
+        },
+        {
+          "text": "M16A4 Carry Handle Iron Sight naming now displays correctly.",
+          "group": "M16A4",
+          "items": [
+            "iron-sights",
+            "m16a4"
+          ]
+        },
+        {
+          "text": "M16A4 Carry Handle Iron Sight no longer disconnects from the weapon when reloading or rotating quickly.",
+          "group": "M16A4",
+          "items": [
+            "iron-sights",
+            "m16a4"
+          ]
+        },
+        {
+          "text": "M16A4 Flip-Up Iron Sight naming now displays correctly.",
+          "group": "M16A4",
+          "items": [
+            "iron-sights",
+            "m16a4"
+          ]
+        },
+        {
+          "text": "M16A4 single-fire behaviour in third-person now ejects one shell casing per shot.",
+          "group": "M16A4",
+          "items": [
+            "m16a4"
+          ]
+        },
+        {
+          "text": "M16A4 third-person reload animations now correctly press the magazine catch and release.",
+          "group": "M16A4",
+          "items": [
+            "m16a4",
+            "magazines"
+          ]
+        },
+        {
+          "text": "RPK-74M Ballistic Tip attachment cost set to 20.",
+          "group": "RPK-74M",
+          "items": [
+            "rpk-74m"
+          ]
+        },
+        {
+          "text": "RPK-74M soldier finger animation now behaves correctly after firing a single shot.",
+          "group": "RPK-74M",
+          "items": [
+            "rpk-74m"
+          ]
+        },
+        {
+          "text": "RPK-74M third-person crouch pose no longer hyperextends when using underbarrel grips.",
+          "group": "RPK-74M",
+          "items": [
+            "rpk-74m"
+          ]
+        },
+        {
+          "text": "RPK-74M third-person prone pose no longer clips the hand through the magazine.",
+          "group": "RPK-74M",
+          "items": [
+            "magazines",
+            "rpk-74m"
+          ]
+        },
+        {
+          "text": "Bullet Drag has been increased by 40% across all weapons and by 100% when using Match Grade ammo.",
+          "group": "WEAPON BALLISTIC CHANGES",
+          "items": []
+        },
+        {
+          "text": "Muzzle Velocity reduced for most primary weapons.",
+          "group": "WEAPON BALLISTIC CHANGES",
+          "items": []
+        }
+      ]
+    },
+    {
+      "version": "1.3.2.0",
+      "publishedAt": "2026-06-05",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-2-0",
+      "categories": [
+        "player",
+        "weapons",
+        "vehicles",
+        "gadgets",
+        "maps",
+        "redsec",
+        "ui",
+        "audio",
+        "portal",
+        "ai",
+        "misc"
+      ],
+      "weaponLines": [
+        {
+          "text": "Adjusted the Kord 6P67 underbarrel slot so attachments are now properly centered.",
+          "group": "WEAPONS",
+          "items": [
+            "kord-6p67"
+          ]
+        },
+        {
+          "text": "Burst Fire attachments on the GRT-BC, UMG-40, PW5A3, CZ3A1, SG 553R, and Kord 6P67 now apply their effects only to burst fire modes, ensuring the attachment has the intended impact on weapon performance.",
+          "group": "WEAPONS",
+          "items": [
+            "cz3a1",
+            "grt-bc",
+            "kord-6p67",
+            "pw5a3",
+            "sg-553r",
+            "umg-40"
+          ]
+        },
+        {
+          "text": "Corrected a typo in the LMR27 weapon description.",
+          "group": "WEAPONS",
+          "items": [
+            "lmr27"
+          ]
+        },
+        {
+          "text": "Corrected an issue where unlocked attachment slots could appear locked in the customisation screen.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Extended Barrels on all weapons now cost 5 points, reduced from 15 points, and no longer provide an aiming down sights time benefit. This change is intended to support greater attachment and weapon build diversity, especially on weapons with fewer barrel options.",
+          "group": "WEAPONS",
+          "items": [
+            "barrels",
+            "extended-barrel"
+          ]
+        },
+        {
+          "text": "Hand grips on M16A4 underbarrel attachments now display properly.",
+          "group": "WEAPONS",
+          "items": [
+            "m16a4"
+          ]
+        },
+        {
+          "text": "Incorrect 1.50x Thermal Sight cost has been updated from 15 to 25 points for the L115.",
+          "group": "WEAPONS",
+          "items": [
+            "l115"
+          ]
+        },
+        {
+          "text": "Melee attacks now behave more consistently around very thin walls, reducing cases where players could melee through cover or take armour damage while standing too close to it.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "P18 and Vz.61 tactical reloads can no longer be skipped by repeatedly pressing reload during an empty reload.",
+          "group": "WEAPONS",
+          "items": [
+            "p18",
+            "vz-61"
+          ]
+        },
+        {
+          "text": "RPKM and RPK-74M magazine placement has been improved during prone-on-back tactical reloads.",
+          "group": "WEAPONS",
+          "items": [
+            "magazines",
+            "rpk-74m",
+            "rpkm"
+          ]
+        },
+        {
+          "text": "SS26 aim position has been improved so shots and hit indicators align correctly with the front sight.",
+          "group": "WEAPONS",
+          "items": [
+            "ss26"
+          ]
+        },
+        {
+          "text": "Tac-Light Hip and Tac-Light ADS are now unlocked by default for the M45A1 and available to all players.",
+          "group": "WEAPONS",
+          "items": [
+            "m45a1"
+          ]
+        },
+        {
+          "text": "Tac-Light Hip description text has been updated for the RPK-74M and L115.",
+          "group": "WEAPONS",
+          "items": [
+            "l115",
+            "rpk-74m"
+          ]
+        },
+        {
+          "text": "The USG-90 alignment has been updated so that it is now centered correctly in the character’s hands on the Character Customisation screen.",
+          "group": "WEAPONS",
+          "items": [
+            "usg-90"
+          ]
+        },
+        {
+          "text": "Thermal optics now apply exposure more consistently while zoomed, reducing overexposure in the surrounding world view.",
+          "group": "WEAPONS",
+          "items": [
+            "scopes"
+          ]
+        },
+        {
+          "text": "Weapon attachment poses have been improved for the GRT-CPS, VCR-2, SV-98, Mini Scout, M121 A2, M2010 ESR, and SOR-556 Mk2.",
+          "group": "WEAPONS",
+          "items": [
+            "grt-cps",
+            "m121-a2",
+            "m2010-esr",
+            "mini-scout",
+            "sor-556-mk2",
+            "sv-98",
+            "vcr-2"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.3.1.5",
+      "publishedAt": "2026-05-22",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-5",
+      "categories": [
+        "player",
+        "vehicles",
+        "gadgets",
+        "maps",
+        "redsec",
+        "portal",
+        "misc"
+      ],
+      "weaponLines": []
+    },
+    {
+      "version": "1.3.1.0",
+      "publishedAt": "2026-05-08",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-3-1-0",
+      "categories": [
+        "player",
+        "weapons",
+        "vehicles",
+        "gadgets",
+        "maps",
+        "redsec",
+        "ui",
+        "audio",
+        "portal",
+        "ai",
+        "misc"
+      ],
+      "weaponLines": [
+        {
+          "text": "Added a unique reload animation for the M87A1 Shotgun to prevent camera clipping and hand pose issues while aiming down sights.",
+          "group": "WEAPONS",
+          "items": [
+            "m87a1"
+          ]
+        },
+        {
+          "text": "Added Shotgun Speedloaders as a magazine attachment to the M87A1 and M1014.",
+          "group": "WEAPONS",
+          "items": [
+            "m1014",
+            "m87a1",
+            "magazines"
+          ]
+        },
+        {
+          "text": "Added the Magnifier as a shared optic accessory.",
+          "group": "WEAPONS",
+          "items": [
+            "magnifier",
+            "scopes"
+          ]
+        },
+        {
+          "text": "Additionally increased recoil for the high DPS automatic weapons, reducing their long and mid range capabilities and giving them outsized opportunity costs and making other weapons more attractive to use. ** Weapons most affected: SG553R, SCW-10, KV9, CZ3A1, SGX, TR-7, M4A1, M121 A2, VCR-2, M433, PW5A3, M123K, and GRT-BC.",
+          "group": "WEAPONS",
+          "items": [
+            "cz3a1",
+            "grt-bc",
+            "kv9",
+            "m121-a2",
+            "m123k",
+            "m433",
+            "m4a1",
+            "pw5a3",
+            "scw-10",
+            "sg-553r",
+            "sgx",
+            "tr-7",
+            "vcr-2"
+          ]
+        },
+        {
+          "text": "Adjusted the PW5A3 reload animation to reduce clipping.",
+          "group": "WEAPONS",
+          "items": [
+            "pw5a3"
+          ]
+        },
+        {
+          "text": "Adjusted the QBZ192 reload animation to reduce clipping.",
+          "group": "WEAPONS",
+          "items": [
+            "qbz-192"
+          ]
+        },
+        {
+          "text": "Corrected an issue preventing the CZ3A1 SMG from mounting to surfaces.",
+          "group": "WEAPONS",
+          "items": [
+            "cz3a1"
+          ]
+        },
+        {
+          "text": "Corrected an issue where a flash hider could remain visible on the SOR-556 Mk2 when no muzzle attachment was equipped.",
+          "group": "WEAPONS",
+          "items": [
+            "flash-hider",
+            "sor-556-mk2"
+          ]
+        },
+        {
+          "text": "Corrected an issue where some secondary sights were incorrectly placed in the customization menu, leading to clipping or being positioned in such a way that they were not properly visible.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Corrected an issue where the Canted Reflex was using the main sight reticle on several weapons.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Corrected an issue where the character’s hands could appear misaligned in first-person when reloading the SVK-8.6 while using the Bipod.",
+          "group": "WEAPONS",
+          "items": [
+            "bipod",
+            "svk-86"
+          ]
+        },
+        {
+          "text": "Corrected clipping issues with the M240L ammo belt when reloading with an ammo box.",
+          "group": "WEAPONS",
+          "items": [
+            "m240l"
+          ]
+        },
+        {
+          "text": "Improved weapon light behaviour and on/off states when used while mounted.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Recoil for all automatic weapons has been slightly increased to compensate for the recoil compensation bug fixes that came out in Game Update 1.2.1.0.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Reduced the amount of recoil reduction applied when using controller input so recoil behaviour is more closely aligned across control schemes, helping avoid a large handling advantage on one input over another.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Weapons can no longer be mounted while actively using an underbarrel grenade launcher. This does not affect using the weapon itself with a grenade launcher attached.",
+          "group": "WEAPONS",
+          "items": []
+        }
+      ]
+    },
+    {
+      "version": "1.2.3.5",
+      "publishedAt": "2026-05-04",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-2-3-5",
+      "categories": [
+        "player",
+        "redsec",
+        "progression",
+        "ui",
+        "ai"
+      ],
+      "weaponLines": []
+    },
+    {
+      "version": "1.2.3.0",
+      "publishedAt": "2026-04-10",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-2-3-0",
+      "categories": [
+        "player",
+        "weapons",
+        "vehicles",
+        "gadgets",
+        "redsec",
+        "progression",
+        "ui",
+        "audio",
+        "portal",
+        "ai",
+        "misc"
+      ],
+      "weaponLines": [
+        {
+          "text": "Added the Ripper 14” Machete melee weapon as a part of the Hunter/Prey Battlepass Progression.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Hollow Point and Synthetic Tip ammunition now cost less on most weapons.",
+          "group": "WEAPONS",
+          "items": [
+            "hollow-point",
+            "synthetic-tip"
+          ]
+        },
+        {
+          "text": "Range Finder now plays sound cues when a range check starts and when it completes.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Corrected an issue on the CZ3A1 where throwing grenades while it was equipped could introduce a delay before the grenade was thrown.",
+          "group": "WEAPONS",
+          "items": [
+            "cz3a1"
+          ]
+        },
+        {
+          "text": "Corrected an issue on the DB-12 where certain attachments did not animate correctly during pump-action and reloads.",
+          "group": "WEAPONS",
+          "items": [
+            "db-12"
+          ]
+        },
+        {
+          "text": "Tweaked and retuned DB-12 animation tags to smooth transitions into and out of aiming down sights.",
+          "group": "WEAPONS",
+          "items": [
+            "db-12"
+          ]
+        },
+        {
+          "text": "Fixed camera recoil being lower than intended on the TH-RDS 1.00x optic attachment.",
+          "group": "WEAPONS",
+          "items": [
+            "scopes",
+            "th-rds-100x"
+          ]
+        },
+        {
+          "text": "The TH-RDS optic now appears correctly on the B36A4 and SVDM.",
+          "group": "WEAPONS",
+          "items": [
+            "b36a4",
+            "scopes",
+            "svdm",
+            "th-rds-100x"
+          ]
+        },
+        {
+          "text": "Tweaked and retuned M87A1 animation values to smooth transitions into and out of reloads while aiming down sights.",
+          "group": "WEAPONS",
+          "items": [
+            "m87a1"
+          ]
+        },
+        {
+          "text": "Corrected an issue where aiming sideways when using melee weapons could cause missing yaw rotation while a melee weapon was equipped.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Corrected an issue where the Violet Laser was not providing its intended benefit when attached to the NVO-228E Assault Rifle.",
+          "group": "WEAPONS",
+          "items": [
+            "nvo-228e"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.2.2.0",
+      "publishedAt": "2026-03-13",
+      "url": "https://www.ea.com/en/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-2-2-0",
+      "categories": [
+        "player",
+        "weapons",
+        "vehicles",
+        "gadgets",
+        "maps",
+        "redsec",
+        "progression",
+        "ui",
+        "audio",
+        "portal",
+        "ai",
+        "misc"
+      ],
+      "weaponLines": [
+        {
+          "text": "Added the CZ3A1 SMG.",
+          "group": "WEAPONS",
+          "items": [
+            "cz3a1"
+          ]
+        },
+        {
+          "text": "Added the Hybrid Sight attachment for the CZ3A1 and adjusted the sight positioning on the M121 A2.",
+          "group": "WEAPONS",
+          "items": [
+            "cz3a1",
+            "m121-a2"
+          ]
+        },
+        {
+          "text": "Added the vz. 6.1 automatic sidearm.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Added 50 mW Violet laser weapon attachment.",
+          "group": "WEAPONS",
+          "items": [
+            "50mw-violet"
+          ]
+        },
+        {
+          "text": "Added Taclight - Hip rifle weapon attachment.",
+          "group": "WEAPONS",
+          "items": [
+            "taclight-hip"
+          ]
+        },
+        {
+          "text": "Added Taclight - Aimed rifle weapon attachment.",
+          "group": "WEAPONS",
+          "items": [
+            "taclight-aimed"
+          ]
+        },
+        {
+          "text": "Added Taclight - Aimed pistol weapon attachment.",
+          "group": "WEAPONS",
+          "items": [
+            "taclight-aimed"
+          ]
+        },
+        {
+          "text": "Adjusted DB-12 recoil values to align with intended performance.",
+          "group": "WEAPONS",
+          "items": [
+            "db-12"
+          ]
+        },
+        {
+          "text": "Adjusted grip positioning on the KORD 6P67 to prevent clipping.",
+          "group": "WEAPONS",
+          "items": [
+            "kord-6p67"
+          ]
+        },
+        {
+          "text": "Corrected misaligned attachment indicators and icons on multiple weapons.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Improved bipod behaviour in third person for the M250.",
+          "group": "WEAPONS",
+          "items": [
+            "bipod",
+            "m250"
+          ]
+        },
+        {
+          "text": "Improved consistency for the bipod recoil animation.",
+          "group": "WEAPONS",
+          "items": [
+            "bipod"
+          ]
+        },
+        {
+          "text": "Improved reload rattle sound effects for the B36A4.",
+          "group": "WEAPONS",
+          "items": [
+            "b36a4"
+          ]
+        },
+        {
+          "text": "Improved third-person M121 A2 reload presentation and hand placement.",
+          "group": "WEAPONS",
+          "items": [
+            "m121-a2"
+          ]
+        },
+        {
+          "text": "Resolved an issue where attachments on picked-up weapons could appear misaligned.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Resolved an issue where attempting to aim down sights after reloading the VCR-2 could temporarily misalign the weapon pose.",
+          "group": "WEAPONS",
+          "items": [
+            "vcr-2"
+          ]
+        },
+        {
+          "text": "Resolved an issue where bipod recoil behaviour could incorrectly carry over previous firing state settings.",
+          "group": "WEAPONS",
+          "items": [
+            "bipod"
+          ]
+        },
+        {
+          "text": "Resolved an issue where dispersion was too high when re-entering ADS shortly after previously leaving ADS.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Resolved an issue where the M250 bipod behaved incorrectly in third-person view.",
+          "group": "WEAPONS",
+          "items": [
+            "bipod",
+            "m250"
+          ]
+        },
+        {
+          "text": "Resolved an issue where weapons displayed in menus, pickups, and dropped states could show incorrect attachment placement due to presentation inconsistencies.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Resolved incorrect weapon presentations across menus, pickups, and dropped states.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Resolved multiple third-person reload clipping issues for the M121 A2, including improved hand placement during reload animations.",
+          "group": "WEAPONS",
+          "items": [
+            "m121-a2"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.2.1.0",
+      "publishedAt": "2026-02-13",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-2-1-0",
+      "categories": [
+        "player",
+        "weapons",
+        "vehicles",
+        "gadgets",
+        "maps",
+        "redsec",
+        "progression",
+        "ui",
+        "audio",
+        "portal",
+        "misc"
+      ],
+      "weaponLines": [
+        {
+          "text": "M121 A2: A belt-fed machine gun delivering high damage, especially effective at close range.",
+          "group": "New Weapons",
+          "items": [
+            "m121-a2"
+          ]
+        },
+        {
+          "text": "GRT-CPS: A semi-automatic designated marksman rifle designed for mid- to long-range engagements, featuring a high-capacity magazine for sustained fire.",
+          "group": "New Weapons",
+          "items": [
+            "grt-cps",
+            "magazines"
+          ]
+        },
+        {
+          "text": "VCR-2: A short-range assault rifle with a rapid rate of fire, built for intense close-quarters combat.",
+          "group": "New Weapons",
+          "items": [
+            "vcr-2"
+          ]
+        },
+        {
+          "text": "Adjusted in-world spotting range when firing a weapon without a suppressor or flash hider, reducing it from 75 to 54 metres.",
+          "group": "WEAPONS",
+          "items": [
+            "flash-hider"
+          ]
+        },
+        {
+          "text": "Adjusted minimap spotting range when firing suppressed weapons, increasing it from 15 to 21 metres to better align with intended balance.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Fixed consistency with recoil compensation, making sure that the amount of aim input needed to compensate for recoil matches the amount of recoil.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Fixed a visual issue with the standard fire mode on the SL9 being incorrectly set to safe; it is now set to full auto by default.",
+          "group": "WEAPONS",
+          "items": [
+            "sl9"
+          ]
+        },
+        {
+          "text": "Fixed an issue where locked weapon skins could be used in the Firing Range.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Fixed an issue where shooting the first target dummy could generate particle effects at the player’s position.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Fixed an issue where the 5 mW Green Laser was too expensive to equip on the DRS-IAR.",
+          "group": "WEAPONS",
+          "items": [
+            "5mw-green",
+            "drs-iar"
+          ]
+        },
+        {
+          "text": "Fixed an issue where the Flashlight could appear slightly misaligned when equipped on the MP5.",
+          "group": "WEAPONS",
+          "items": [
+            "flashlight"
+          ]
+        },
+        {
+          "text": "Fixed an issue where the LA-23 Laser pad could appear floating when equipped on the RPKM.",
+          "group": "WEAPONS",
+          "items": [
+            "rpkm"
+          ]
+        },
+        {
+          "text": "Fixed an issue where Scope glints and laser sight lens flares would be visible through the cover of smoke grenades.",
+          "group": "WEAPONS",
+          "items": [
+            "m18",
+            "scopes"
+          ]
+        },
+        {
+          "text": "Fixed inconsistent knife melee timing to improve reliability during close-quarters combat.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Fixed multiple weapon attachment visual issues, including lasers, flashlights, and optic alignment.",
+          "group": "WEAPONS",
+          "items": [
+            "flashlight",
+            "scopes"
+          ]
+        },
+        {
+          "text": "Fixed the LMR27s Fast 15- and 20-round magazines not reducing reload time as intended.",
+          "group": "WEAPONS",
+          "items": [
+            "lmr27",
+            "magazines"
+          ]
+        },
+        {
+          "text": "Fixed the SGX RO-M 1.75x sight to function consistently with other weapons.",
+          "group": "WEAPONS",
+          "items": [
+            "ro-m-175x",
+            "sgx"
+          ]
+        },
+        {
+          "text": "Fixed visual issues with bolt-action rifle animations, including intrusive ADS motion and incorrect finger placement.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Improved scope glint orientation at long distances so enemy aim direction is more accurately telegraphed.",
+          "group": "WEAPONS",
+          "items": [
+            "scopes"
+          ]
+        },
+        {
+          "text": "Knife takedowns against enemies who are prone on their back now correctly connect with the defender.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Reduced the Mini Scout muzzle velocity from 880 to 800 m/s.",
+          "group": "WEAPONS",
+          "items": [
+            "mini-scout"
+          ]
+        },
+        {
+          "text": "Reduced the Mini Scout limb damage to better align with lower-torso damage values.",
+          "group": "WEAPONS",
+          "items": [
+            "mini-scout"
+          ]
+        },
+        {
+          "text": "Updated the M433 Level 50 Mastery Package to use the correct magazine mesh.",
+          "group": "WEAPONS",
+          "items": [
+            "m433",
+            "magazines"
+          ]
+        },
+        {
+          "text": "Updated the Range Finder custom zeroing to not apply its effect instantly; it now requires a short delay before taking effect.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Updated player-facing descriptions for non-sniper grippod attachments to better reflect their gameplay effects.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Updated player-facing name of the TR-7's fluted barrel to match the formatting of its other barrels.",
+          "group": "WEAPONS",
+          "items": [
+            "barrels",
+            "tr-7"
+          ]
+        },
+        {
+          "text": "Weapon Recoil Tuning: Adjusted recoil behaviour across automatic weapons to better reflect real combat ranges and ease-of-use expectations, improving ranged consistency while preserving intended weapon roles. AK-205: Adjusted recoil behaviour to better match expectations for a 5.45×39mm weapon, with minimal impact on overall handling.",
+          "group": "WEAPONS",
+          "items": [
+            "ak-205"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.1.3.5",
+      "publishedAt": "2026-01-16",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-1-3-5",
+      "categories": [
+        "weapons",
+        "vehicles",
+        "gadgets",
+        "redsec",
+        "ui",
+        "misc"
+      ],
+      "weaponLines": [
+        {
+          "text": "Bipod attachments no longer display as always providing a hipfire accuracy bonus, as this bonus only applies while the bipod is deployed.",
+          "group": "WEAPONS",
+          "items": [
+            "bipod"
+          ]
+        },
+        {
+          "text": "Fixed an issue where the GRIM 1.50x optic on the DB-12 cost fewer loadout points than intended (15 instead of 25).",
+          "group": "WEAPONS",
+          "items": [
+            "db-12",
+            "grim-150x",
+            "scopes"
+          ]
+        },
+        {
+          "text": "Fixed an issue where the RPKM iron sights would shoot low when using the short barrel.",
+          "group": "WEAPONS",
+          "items": [
+            "barrels",
+            "iron-sights",
+            "rpkm",
+            "scopes",
+            "short-barrel"
+          ]
+        },
+        {
+          "text": "Fixed an issue where the TR-7 Light Barrel incorrectly improved muzzle velocity.",
+          "group": "WEAPONS",
+          "items": [
+            "barrels",
+            "light-barrel",
+            "tr-7"
+          ]
+        },
+        {
+          "text": "Fixed bipod mount input behaviour for Alternate, Lefty Alternate, Southpaw, and Legacy Southpaw presets so the bipod mount now follows the melee button.",
+          "group": "WEAPONS",
+          "items": [
+            "bipod"
+          ]
+        },
+        {
+          "text": "Improved attack speed for knife melee attacks.",
+          "group": "WEAPONS",
+          "items": [
+            "combat-knife",
+            "hunting-knife",
+            "ice-axe",
+            "serrated-blade"
+          ]
+        },
+        {
+          "text": "Improved buffering behaviour for knife and sledgehammer attacks.",
+          "group": "WEAPONS",
+          "items": [
+            "combat-knife",
+            "hunting-knife",
+            "ice-axe",
+            "serrated-blade",
+            "sledgehammer"
+          ]
+        },
+        {
+          "text": "Improved consistency of melee damage timing against enemies and the environment.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Improved consistency of recoil modifiers when using a controller across different weapons.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Improved how sprint is interrupted when performing melee attacks. Sprint is now only interrupted until the attack reaches its target, rather than for the full duration of the animation.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "In the Firing Range, target dummies can now take damage while in the process of getting back up.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Shooting with a suppressor now emits a small muzzle flash when viewed from close range only.",
+          "group": "WEAPONS",
+          "items": []
+        }
+      ]
+    },
+    {
+      "version": "1.1.3.0",
+      "publishedAt": "2025-12-05",
+      "url": "https://www.ea.com/en/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-1-3-0",
+      "categories": [
+        "player",
+        "weapons",
+        "vehicles",
+        "gadgets",
+        "maps",
+        "redsec",
+        "progression",
+        "ui",
+        "audio",
+        "portal",
+        "ai",
+        "misc"
+      ],
+      "weaponLines": [
+        {
+          "text": "Fixed a bug where players could become stuck in the weapon inspect animation when entering a vehicle.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Fixed a rare visual glitch that could cause scopes to be displayed incorrectly.",
+          "group": "WEAPONS",
+          "items": [
+            "scopes"
+          ]
+        },
+        {
+          "text": "Fixed a visual issue where the Adjustable Angled Grip sat slightly higher on the weapon than intended.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Fixed an issue causing the first bullet fired during early zoom transitions on certain weapons and scopes to be more inaccurate than intended.",
+          "group": "WEAPONS",
+          "items": [
+            "scopes"
+          ]
+        },
+        {
+          "text": "Fixed an issue that caused quick melee attacks to sometimes not return the player to their previous weapon after striking.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Fixed an issue where some scopes unintentionally received thermal or depth-of-field blur.",
+          "group": "WEAPONS",
+          "items": [
+            "scopes"
+          ]
+        },
+        {
+          "text": "Fixed an issue where target dummies in the firing range remained down after being shot.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Fixed an issue where the effects of FMJ ammunition were incorrectly applied to additional ammunition types.",
+          "group": "WEAPONS",
+          "items": [
+            "fmj"
+          ]
+        },
+        {
+          "text": "Fixed an issue where underslung attachments were not always restored correctly when picking up another soldier’s kit.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Fixed an issue with the flashlight weapon attachment being misaligned when sprinting at high FOV values.",
+          "group": "WEAPONS",
+          "items": [
+            "flashlight"
+          ]
+        },
+        {
+          "text": "Fixed the “peekaboo” timing bug affecting target dummies on the firing range.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Increased the minimum time between shots by 100 ms on the Mini Scout to improve pacing and reduce rapid-fire inconsistencies.",
+          "group": "WEAPONS",
+          "items": [
+            "mini-scout"
+          ]
+        },
+        {
+          "text": "Reduced recoil magnitude but increased recoil variation on the M250, NVO-228E, RPKM, SG 553R, and SOR-300SC. These weapons now perform less effectively at long range, with the SG 553R receiving the most noticeable adjustment.",
+          "group": "WEAPONS",
+          "items": [
+            "m250",
+            "nvo-228e",
+            "rpkm",
+            "sg-553r",
+            "sor-300sc"
+          ]
+        },
+        {
+          "text": "Reduced the cost of the L110 and M123K 200-round magazines from 55 to 50, and removed the penalty to ADS movement dispersion.",
+          "group": "WEAPONS",
+          "items": [
+            "l110",
+            "m123k",
+            "magazines"
+          ]
+        },
+        {
+          "text": "Tweaked haptic feedback for weapon reloads on PS5 controllers.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Updated melee behaviour to allow players equipped with a melee weapon to choose between a takedown (F/RS) or a bash attack (Mouse 1/RT).",
+          "group": "WEAPONS",
+          "items": []
+        }
+      ]
+    },
+    {
+      "version": "1.1.2.0",
+      "publishedAt": "2025-11-17",
+      "url": "https://www.ea.com/en/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-1-2-0",
+      "categories": [
+        "player",
+        "weapons",
+        "vehicles",
+        "gadgets",
+        "maps",
+        "redsec",
+        "ui",
+        "audio",
+        "portal",
+        "misc"
+      ],
+      "weaponLines": [
+        {
+          "text": "Dispersion tuning pass: dispersion has been globally reduced slightly to reduce its impact on the experience",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Fixed multiple instances of Canted Reflex and Canted Iron Sight optics clipping with higher-magnification scopes",
+          "group": "WEAPONS",
+          "items": [
+            "iron-sights",
+            "scopes"
+          ]
+        },
+        {
+          "text": "Fixed several issues with underbarrel attachment alignment",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Fixed minor misplacements or clipping on sights and barrels",
+          "group": "WEAPONS",
+          "items": [
+            "barrels"
+          ]
+        },
+        {
+          "text": "Fixed missing or incorrect magazine icons, naming, and mesh assignments.",
+          "group": "WEAPONS",
+          "items": [
+            "magazines"
+          ]
+        },
+        {
+          "text": "Fixed the issue where the SV-98 displayed lower damage stats when equipping the 5 MW Red attachment.",
+          "group": "WEAPONS",
+          "items": [
+            "5mw-red",
+            "sv-98"
+          ]
+        },
+        {
+          "text": "Fixed the issue where slug ammunition despawned too quickly after being fired from shotguns.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Fixed the issue where the SU-230 LPVO 4x variable scope lacked a smooth transition and audible zoom toggle when aiming down sights.",
+          "group": "WEAPONS",
+          "items": [
+            "scopes",
+            "su-230-lpvo"
+          ]
+        },
+        {
+          "text": "Fixed the issue where two Green Lasers for the DRS-IAR shared identical Hipfire stat boosts.",
+          "group": "WEAPONS",
+          "items": [
+            "drs-iar"
+          ]
+        },
+        {
+          "text": "Fixed the issue where impact sparks failed to meet photosensitivity compliance standards.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Fixed an issue in third-person where the Mini Scout could clip with the player’s head while aiming.",
+          "group": "WEAPONS",
+          "items": [
+            "mini-scout"
+          ]
+        },
+        {
+          "text": "Fixed animation and posture issues affecting the PSR and other rifles when moving or looking at extreme angles.",
+          "group": "WEAPONS",
+          "items": [
+            "psr"
+          ]
+        },
+        {
+          "text": "Increased weight of long-range performance in balance for automatic weapons; benefiting PW7A2 and KV9, with minor adjustments elsewhere.",
+          "group": "WEAPONS",
+          "items": [
+            "kv9",
+            "pw7a2"
+          ]
+        },
+        {
+          "text": "Reduced recoil and variation for LMR27, M39, and SVDM for improved long-range reliability.",
+          "group": "WEAPONS",
+          "items": [
+            "lmr27",
+            "svdm"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.1.1.0",
+      "publishedAt": "2025-10-24",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-update-1-1-1-0",
+      "categories": [
+        "player",
+        "weapons",
+        "vehicles",
+        "gadgets",
+        "maps",
+        "ui",
+        "audio",
+        "portal",
+        "misc"
+      ],
+      "weaponLines": [
+        {
+          "text": "Weapon dispersion has been rebalanced to better match each weapon’s damage profile across all ranges. Lower-damage weapons will now see a slightly higher increase in dispersion when firing, while higher-damage weapons will experience slightly less.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Using Sniper Rifles with any class other than Recon will no longer increase weapon spread. Instead, weapon sway will now begin during the zoom transition, maintaining balance and distinguishing Recon’s precision advantage.",
+          "group": "WEAPONS",
+          "items": [
+            "recon"
+          ]
+        },
+        {
+          "text": "Fixed a misalignment issue with top-mounted red dot sights.",
+          "group": "WEAPONS",
+          "items": [
+            "scopes"
+          ]
+        },
+        {
+          "text": "Fixed an issue where mounting a bipod while zoomed only changed the FOV instead of using the correct optic.",
+          "group": "WEAPONS",
+          "items": [
+            "bipod",
+            "scopes"
+          ]
+        },
+        {
+          "text": "Fixed an issue where the Long Suppressor used the wrong attachment point cost for some weapons.",
+          "group": "WEAPONS",
+          "items": [
+            "long-suppressor"
+          ]
+        },
+        {
+          "text": "Improved reticle settling for automatic weapons to make burst firing more efficient.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Fixed an issue where using a bipod too close to complex geometry could throw the player off position while prone.",
+          "group": "WEAPONS",
+          "items": [
+            "bipod"
+          ]
+        },
+        {
+          "text": "Balanced sledgehammer damage against world objects for better consistency.",
+          "group": "WEAPONS",
+          "items": [
+            "sledgehammer"
+          ]
+        },
+        {
+          "text": "Fixed an issue preventing players from leaving the Firing Range.",
+          "group": "WEAPONS",
+          "items": []
+        }
+      ]
+    },
+    {
+      "version": "1.0.1.0",
+      "publishedAt": "2025-10-09",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-update-notes-1-0-1-0",
+      "categories": [
+        "player",
+        "weapons",
+        "vehicles",
+        "gadgets",
+        "maps",
+        "ui",
+        "audio",
+        "portal",
+        "misc"
+      ],
+      "weaponLines": [
+        {
+          "text": "General recoil adjustments across multiple weapons.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Weapon accuracy adjusted to be more stable when aiming down sights while moving, but less accurate when firing mid-jump.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Numerous weapon attachments updated to appear correctly.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Increased bullet spread when firing automatic weapons while aiming down sights.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "M87A1 shotgun now requires more pellets to secure a kill, rewarding more accurate hits.",
+          "group": "WEAPONS",
+          "items": [
+            "m87a1"
+          ]
+        },
+        {
+          "text": "Fixed an issue where the crosshair appeared larger than the actual bullet spread when using shotguns with slug ammunition.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Bolt-action rifles: first-shot boost now applies to every fired shot.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Added glow to a variety of reticles and improved visibility of reticles",
+          "group": "WEAPONS",
+          "items": []
+        }
+      ]
+    }
+  ]
+}

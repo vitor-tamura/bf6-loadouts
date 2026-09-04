@@ -4,9 +4,19 @@
   "papeis": {
     "estado_atual": "que peças esta arma aceita hoje",
     "numeros_de_simulacao": "curva de dano, velocidade, arrasto, recuo, espalhamento, recarga",
-    "enumeracao_de_slot": "a lista fechada de um slot numa arma, em que ausência vale como negativa"
+    "enumeracao_de_slot": "a lista fechada de um slot numa arma, em que ausência vale como negativa",
+    "registro_de_patch": "o changelog oficial linha a linha, agrupado por categoria e ligado às armas que cada linha nomeia"
   },
   "fontes": [
+    {
+      "id": "bf6balancelog",
+      "papel": "registro_de_patch",
+      "tipo": "community",
+      "url": "https://bf6balancelog.com/",
+      "ativo": true,
+      "env": "CATALOG_BALANCE_LOG_URL",
+      "nota": "Transcreve cada Game Update nas palavras da EA, separado por categoria e com data-item nomeando as armas e peças de cada linha. É a segunda testemunha de que uma versão existe e a única que já entrega a linha de arma resolvida. Ver docs/data-sources.md."
+    },
     {
       "id": "bf6loadouts",
       "papel": "estado_atual",

@@ -10,6 +10,7 @@ aparência de confirmado.
 | `estado_atual` | que peças esta arma aceita hoje | `current_state` | no registro |
 | `numeros_de_simulacao` | dano, velocidade, arrasto, recuo, espalhamento, recarga | `community` | no registro |
 | `enumeracao_de_slot` | a lista fechada de um slot numa arma | `community` | no registro |
+| `registro_de_patch` | o changelog linha a linha, por categoria e ligado às armas que nomeia | `community` | no registro |
 
 ## Só uma fonte é estática
 
@@ -30,6 +31,7 @@ Quem cumpre cada papel hoje:
 | `estado_atual` | [BF6 Loadouts](https://bf6loadouts.com) | `CATALOG_LOADOUTS_URL` |
 | `numeros_de_simulacao` | [raymdl/BF6-Weapon-Analyzer](https://github.com/raymdl/BF6-Weapon-Analyzer) | `CATALOG_GITHUB_REPO` |
 | `enumeracao_de_slot` | [rnkd.gg](https://rnkd.gg/battlefield6/weapons) | `CATALOG_ARSENAL_URL` |
+| `registro_de_patch` | [BF6 Balance Log](https://bf6balancelog.com/) | `CATALOG_BALANCE_LOG_URL` |
 
 Esta tabela envelhece; a de cima, não.
 
@@ -40,6 +42,87 @@ O Game Update 1.4.2.5 saiu em `/games/battlefield/**redsec**/news/`, e não em
 endereço e ficou doze dias reportando "nenhuma versão a processar" com a versão
 publicada. Hoje o segmento do jogo é curinga: quem afirma que a versão existe é o
 `game-update-` do slug do artigo, não a seção do site.
+
+## Uma fonte oficial só, quando falha, falha em silêncio
+
+O `registro_de_patch` existe por causa de dois acidentes que têm a mesma raiz.
+
+**O primeiro foi de visão.** A 1.4.2.5 saiu sob `redsec` e o extrator ficou doze
+dias dizendo "nenhuma versão a processar" com a versão publicada. O padrão do
+endereço foi consertado, mas a lição não é sobre aquele padrão: uma fonte só,
+quando deixa de enxergar, não avisa — ela responde "nada de novo", que é
+exatamente o que o pipeline esperava ouvir num dia normal.
+
+**O segundo foi de leitura.** A 1.4.2.5 mexeu em uma coisa de arma:
+
+> The Match Trigger attachment no longer affects fully automatic fire on the
+> BROD and EF88.
+
+O parser largou a frase. Não tem número, não tem "removed", e "fully automatic
+fire" não é nenhum dos campos que ele reconhece. Com zero mudanças num texto que
+tem cara de patch note, o pipeline concluiu "patch de correções" e escreveu a
+1.4.2.5 como cópia byte a byte da 1.4.2.0. Uma peça saiu de duas armas e o
+catálogo não ficou sabendo — sem erro, sem aviso, sem issue.
+
+O [BF6 Balance Log](https://bf6balancelog.com/) responde às duas coisas porque
+publica o changelog **estruturado**, e não em prosa:
+
+```html
+<li data-item="brod-3 ef88 match-trigger">The Match Trigger attachment no longer…
+```
+
+- **a categoria é afirmada, não inferida.** A linha está sob `WEAPONS` porque
+  quem lê o jogo a pôs lá. O parser não precisa deduzir do texto se a frase é de
+  arma — e é justamente aí que ele errava por omissão, que é o erro caro:
+  produz o mesmo zero de um patch que legitimamente não mexeu em nada.
+- **as entidades vêm resolvidas.** A EA escreveu "the BROD"; o catálogo guarda
+  `brod3`. O `data-item` diz que são a mesma coisa, e isso é casamento por
+  identificador — não por parecença de texto, que casaria "M4" com "M4A1".
+
+Ele **não** substitui a EA. Segue sendo um terceiro transcrevendo, e quando os
+dois discordarem vale a página oficial, guardada inteira em
+`data/patches/<versão>.json`. O que ele acrescenta é a segunda testemunha:
+
+- `catalog:discover` confere a listagem da EA contra ele, **só para a frente** —
+  ele arquiva desde o lançamento, e reprocessar 2025 não é o que se está
+  pedindo. Versão que só ele vê sai com aviso no log.
+- `catalog:fetch-balance-log` grava `data/sources/balance-log.json`, e
+  `catalog:update` o atualiza antes de ler o patch note.
+- `catalog:nomes` cruza os identificadores dele com o dataset — ver abaixo.
+
+Quando ele não responde, o que se perde é a conferência, nunca a rodada.
+
+## Nome de fonte vira id do catálogo só com prova
+
+`catalog:nomes` casa a forma que a fonte escreve com o id que o catálogo guarda,
+e a regra é uma só: **a frase precisa forçar o par**.
+
+Descontadas todas as entidades que o texto já nomeia por uma forma conhecida, se
+restar exatamente um id sem nome e exatamente um nome sem id, não há outra
+atribuição possível. Foi assim que "BROD" virou apelido de `brod3`: o texto
+nomeia a EF88 por um nome que o catálogo tem, a fonte afirma `brod-3` e `ef88`,
+e sobra um de cada lado.
+
+Dois de cada lado é escolha, e escolha aqui é chute: vai para `emAberto` no
+relatório, com a linha inteira, para uma pessoa decidir. Identificador que a
+fonte tem e o catálogo não conhece vai para `semEntidade` — nunca vira entidade
+nova, porque id novo precisa de categoria, calibre e compatibilidade, que
+nenhuma linha de changelog publica.
+
+O relatório é `data/entities/nomes-das-fontes.json`. Gravar os apelidos no
+dataset é um segundo comando, deliberado:
+
+```bash
+npm run catalog:nomes              # o relatório
+npm run catalog:nomes -- --aplicar # grava os apelidos provados
+```
+
+Duas recusas que já custaram apelido errado, e por isso estão testadas: sem
+descartar o que não tem letra, "cost 5 points, reduced from 15 points" propunha
+que o Extended Barrel também se chama "15"; sem tirar o artigo, o apelido do
+1P86 LPVO saía "The 1P86". Apelido errado é pior que apelido nenhum — ele passa
+a casar frases que não falam daquela peça, e o erro reaparece como mudança
+atribuída à arma errada, já com aparência de apurada.
 
 ## Enumerar é diferente de mencionar
 

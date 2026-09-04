@@ -36,6 +36,7 @@ import { HIGHLIGHTS, SOURCES, TRENDING } from '../src/data/meta.ts';
 import { SEASONS, phaseOn, seasonOn } from '../src/data/season.ts';
 import { WEAPONS } from '../src/data/weapons.ts';
 import { extrairJson, montarLeitura } from './meta/leitura.mjs';
+import { briefingDoPatch, patchAtual } from './meta/patch-atual.mjs';
 
 const API_KEY = process.env.OPENAI_API_KEY;
 const DESTINO = new URL('../src/data/meta-live.json', import.meta.url);
@@ -66,18 +67,25 @@ const MAX_TENTATIVAS = numeroConfig(process.env.OPENAI_META_RETRIES, 3);
 const FALHAR_SEM_ATUALIZAR = process.env.OPENAI_META_STRICT === '1';
 
 /*
- * A chave é paga por uso, então a fila não existe por causa de cota — ela
- * existe porque nem todo modelo aceita a ferramenta de busca, e porque modelo
- * pequeno demais para uma leitura como esta responde clichê.
+ * Um modelo só, e é o `gpt-5.6-luna`.
  *
- * A execução de 11/08 mostrou os dois problemas de uma vez: quem gravou foi o
- * último da fila, o `gpt-4.1-mini` — ou seja, os dois primeiros recusaram —, e
- * o que ele gravou foi o trending genérico que motivou as travas. O `gpt-5-nano`
- * saiu da fila por nunca ter respondido, e o `gpt-4.1` entrou antes do mini:
- * uma chamada por dia com um modelo maior continua custando centavos, e é ele
- * quem tem de sustentar oito armas com evidência datada.
+ * A fila existia porque nem todo modelo aceita a ferramenta de busca, e porque
+ * modelo pequeno demais para uma leitura como esta responde clichê. A execução
+ * de 11/08 mostrou os dois problemas de uma vez: quem gravou foi o último da
+ * fila, o `gpt-4.1-mini`, e o que ele gravou foi o trending genérico que
+ * motivou as travas de `meta/leitura.mjs`.
+ *
+ * O `luna` é o degrau nano da geração atual, e é onde a conta fecha: US$ 0,20
+ * por milhão de entrada e US$ 1,25 de saída — mesma entrada do `gpt-5.4-nano`
+ * com saída mais barata, e a diferença para o `gpt-5-nano`, quatro vezes menor,
+ * é fração de centavo numa chamada por dia. Não vale: o `gpt-5-nano` saiu desta
+ * fila justamente por nunca ter respondido, e chamada recusada custa o dia
+ * inteiro de leitura, não tokens.
+ *
+ * A fila continua sendo uma lista para `OPENAI_META_MODELS` poder trocar o
+ * modelo sem publicar versão — o que ela não tem mais é reserva por padrão.
  */
-const MODELOS = (process.env.OPENAI_META_MODELS ?? 'gpt-5-mini,gpt-4.1,gpt-4.1-mini')
+const MODELOS = (process.env.OPENAI_META_MODELS ?? 'gpt-5.6-luna')
   .split(',')
   .map((modelo) => modelo.trim())
   .filter(Boolean);
@@ -95,18 +103,41 @@ const TIMEFRAME = `season-${TEMPORADA.number}`;
 
 const ARMAS_PERMITIDAS = WEAPONS.map((w) => w.name).join(', ');
 
-const PROMPT = `Hoje é ${HOJE}. Monte a leitura de hoje do meta de armas do Battlefield 6, considerando SOMENTE o multiplayer tradicional. REDSEC, battle royale e modos derivados ficam de fora, inclusive quando a fonte só fala deles.
+/*
+ * A atualização em vigor vem do catálogo, e não da busca.
+ *
+ * Antes, a primeira coisa que o prompt mandava fazer era descobrir na busca
+ * qual é o patch mais recente — uma pergunta cuja resposta está em disco, num
+ * arquivo que o pipeline do catálogo escreve a cada versão nova. Sair
+ * perguntando custava chamadas de busca e o contexto das páginas abertas, e
+ * ainda errava: índice de busca alcança patch novo devagar, e a leitura de
+ * 02/09 saiu apontando a 1.4.1.5, de 04/08, com a 1.4.2.5 no ar desde 31/08.
+ *
+ * Com o fato dado, a busca inteira desta rodada vai para o que só a comunidade
+ * sabe: que armas estão fortes e do que se fala.
+ */
+const PATCH = patchAtual();
 
-O jogo está na Temporada ${TEMPORADA.number} — ${TEMPORADA.name}, começada em ${TEMPORADA.startsOn}, fase "${FASE.name}" desde ${FASE.startsOn}.
-
-## 1. Antes de classificar qualquer arma
+/*
+ * Sem catálogo em disco, a pergunta antiga volta — é pior e mais cara, mas o
+ * silêncio seria a tela anunciar um jogo sem dizer de que versão fala.
+ */
+const SECAO_DO_PATCH =
+  briefingDoPatch(PATCH) ||
+  `## 1. Antes de classificar qualquer arma
 
 Descubra na busca:
 - qual é a atualização mais recente do jogo e em que dia ela saiu;
 - que armas ela mexeu — dano, TTK, recuo, cadência, alcance, munição, acessórios;
 - se ela mudou o equilíbrio ou não encostou em arma.
 
-Essa data manda no resto da leitura. Guia ou tier list publicado antes dela só vale se alguma coisa posterior o confirmar.
+Essa data manda no resto da leitura. Guia ou tier list publicado antes dela só vale se alguma coisa posterior o confirmar.`;
+
+const PROMPT = `Hoje é ${HOJE}. Monte a leitura de hoje do meta de armas do Battlefield 6, considerando SOMENTE o multiplayer tradicional. REDSEC, battle royale e modos derivados ficam de fora, inclusive quando a fonte só fala deles.
+
+O jogo está na Temporada ${TEMPORADA.number} — ${TEMPORADA.name}, começada em ${TEMPORADA.startsOn}, fase "${FASE.name}" desde ${FASE.startsOn}.
+
+${SECAO_DO_PATCH}
 
 ## 2. Janela de tempo
 
@@ -128,7 +159,7 @@ As duas listas não se abastecem no mesmo lugar.
 - comentários e relatos de quem joga sobre o que anda aparecendo em toda partida;
 - tracker ou comparador que publique uso, quando houver — é a única coisa parecida com medição que existe aqui.
 
-Patch notes oficiais da EA/DICE ancoram as duas: é de lá que sai o que a atualização mexeu.
+O que a atualização mexeu você já tem na seção 1 e não precisa procurar. Se ainda assim faltar o histórico de uma arma específica — que patches mexeram nela e o que cada um fez —, \`bf6balancelog.com\` transcreve o changelog oficial arma por arma e tem página por arma e por peça. É uma consulta dirigida, não uma varredura: só vale a pena quando uma arma que você já escolheu precisa da frase exata do patch.
 
 **Quem pode sustentar cada lista.** Isto é verificado no código, e arma que não passar é descartada antes de a leitura ser gravada:
 
@@ -183,7 +214,7 @@ As duas se cruzam de vez em quando — arma forte costuma ser usada —, mas uma
 
 Responda SOMENTE com este JSON, sem cercas de código e sem texto antes ou depois:
 
-{"patch":{"name":"nome ou número da atualização","date":"YYYY-MM-DD"},"picks":[{"weapon":"NOME EXATO DA ARMA","reason":"o que mostra que ela está forte depois do patch e por que esta forte agora","source":"https://..."}],"trending":[{"weapon":"NOME EXATO DA ARMA","trend":"do que se fala nela","reason":"onde a conversa ou o uso recente foi visto","source":"https://..."}],"sources":[{"name":"nome curto da fonte","url":"https://...","date":"YYYY-MM-DD","scope":"por que essa fonte vale para o multiplayer"}]}`;
+{"picks":[{"weapon":"NOME EXATO DA ARMA","reason":"o que mostra que ela está forte depois do patch e por que esta forte agora","source":"https://..."}],"trending":[{"weapon":"NOME EXATO DA ARMA","trend":"do que se fala nela","reason":"onde a conversa ou o uso recente foi visto","source":"https://..."}],"sources":[{"name":"nome curto da fonte","url":"https://...","date":"YYYY-MM-DD","scope":"por que essa fonte vale para o multiplayer"}]}`;
 
 const esperar = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -225,6 +256,18 @@ const ferramentaDeBusca = (modelo) =>
     ? { type: 'web_search' }
     : { type: 'web_search_preview' };
 
+/**
+ * O esforço de raciocínio, dito em voz alta.
+ *
+ * Passou a ser obrigatório em vez de conveniente: o `gpt-5.6-luna` tem
+ * `medium` como padrão, e `max_output_tokens` cobre raciocínio, busca e texto
+ * no mesmo bolo. Deixar no padrão é reviver o erro que já derrubou esta rotina
+ * — o modelo pensa até o teto e a mensagem chega vazia, que sobe daqui como
+ * "resposta cortada" e custa a rodada inteira.
+ *
+ * `low` e não `none` porque conciliar oito armas com o que a busca trouxe é
+ * onde um pouco de deliberação paga; o que não cabe é deliberação solta.
+ */
 const raciocinio = (modelo) =>
   modelo.startsWith('gpt-5') ? { reasoning: { effort: 'low' } } : {};
 
@@ -294,7 +337,31 @@ async function chamarOpenAI(modelo, opcoes) {
   // a citação no texto. Os tipos vão junto: quando algo falha, é por eles que
   // se vê o que o modelo fez em vez de adivinhar pelo texto que não veio.
   const buscou = itens.some((item) => item.type === 'web_search_call');
-  return { texto, anotacoes, buscou, tipos: [...new Set(itens.map((i) => i.type))] };
+
+  /*
+   * O que a rodada custou, em números, no log.
+   *
+   * Sem isto, "está caro" é impressão e "ficou mais barato" é fé. As três
+   * parcelas não se comportam igual: a entrada cresce com o prompt e com o que
+   * a busca traz das páginas, o raciocínio some dentro da saída e é onde o
+   * orçamento evaporava, e as buscas são cobradas por chamada. Quem for
+   * apertar o custo depois precisa saber qual das três apertar.
+   */
+  const uso = corpo.usage ?? null;
+  const buscas = itens.filter((item) => item.type === 'web_search_call').length;
+
+  return {
+    texto,
+    anotacoes,
+    buscou,
+    tipos: [...new Set(itens.map((i) => i.type))],
+    custo: uso && {
+      entrada: uso.input_tokens ?? 0,
+      saida: uso.output_tokens ?? 0,
+      raciocinio: uso.output_tokens_details?.reasoning_tokens ?? 0,
+      buscas,
+    },
+  };
 }
 
 /**
@@ -354,8 +421,14 @@ async function main() {
   for (const modelo of MODELOS) {
     try {
       console.log(`Perguntando ao ${modelo}…`);
-      const { texto, anotacoes, buscou, tipos } = await perguntar(modelo);
+      const { texto, anotacoes, buscou, tipos, custo } = await perguntar(modelo);
       console.log(`  ${modelo}: ${tipos.join(', ') || 'resposta vazia'}${buscou ? '' : ' — sem busca'}`);
+      if (custo) {
+        console.log(
+          `  ${modelo}: ${custo.entrada} tokens de entrada, ${custo.saida} de saída ` +
+            `(${custo.raciocinio} de raciocínio), ${custo.buscas} busca(s).`,
+        );
+      }
 
       const bruto = extrairJson(texto);
       if (!bruto) {
@@ -370,6 +443,18 @@ async function main() {
         modelo,
         hoje: HOJE,
         timeframe: TIMEFRAME,
+        /*
+         * A atualização que a tela anuncia sai do catálogo, e não da resposta.
+         *
+         * O modelo não é mais perguntado sobre isso — o prompt já lhe deu o
+         * número —, e pedir de volta o que se acabou de informar seria pagar
+         * tokens para receber ou a mesma coisa, ou uma pior. Quando o catálogo
+         * não tem a versão em disco, `patchConhecido` vem nulo e a resposta do
+         * modelo volta a valer, que é o caminho antigo.
+         */
+        // O rótulo da EA vem em caixa alta — "BATTLEFIELD 6 GAME UPDATE
+        // 1.4.2.5" —, e quem lê a tela quer o número, não o grito.
+        patchConhecido: PATCH && { name: `Atualização ${PATCH.version}`, date: PATCH.releasedAt },
       });
 
       for (const { nome, motivo } of descartes) console.warn(`Descartada — ${nome}: ${motivo}`);

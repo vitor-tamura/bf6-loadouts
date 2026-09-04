@@ -117,6 +117,23 @@ jobs:
         if: steps.existe.outputs.pular != '1'
         run: npm run catalog:compat -- --candidatos
 
+      # Como a EA escreve o nome de cada arma, contra como o catálogo o guarda.
+      #
+      # A 1.4.2.5 escreveu "the BROD" para a `brod3`, e o parser não a
+      # reconheceu — foi por isso que a única mudança de arma do patch quase se
+      # perdeu. O registro de patch nomeia as entidades de cada linha, e daí sai
+      # a prova de que as duas formas são a mesma coisa.
+      #
+      # Roda sem `--aplicar` de propósito. O relatório entra no Pull Request e
+      # quem revisa decide: escrever apelido no dataset muda como toda frase
+      # futura é lida, e um apelido errado passa a atribuir mudança à arma
+      # errada com cara de apurada. A regra do script já recusa o que não é
+      # forçado pela frase; este passo é a segunda tranca, não a primeira.
+      - name: Nomes das fontes contra o dataset
+        if: steps.existe.outputs.pular != '1'
+        continue-on-error: true
+        run: npm run catalog:nomes
+
       # A auditoria vai atrás de em que armas a peça nova entra, em duas etapas.
       #
       # Primeiro varre a ficha de cada arma numa fonte que **enumera o slot

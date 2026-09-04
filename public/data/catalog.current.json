@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "gameVersion": "1.4.2.5",
-  "generatedAt": "2026-09-03T13:07:11.588Z",
+  "generatedAt": "2026-09-04T13:29:15.924Z",
   "capabilities": {
     "weapons": true,
     "attachments": true,
@@ -252,7 +252,9 @@
       "status": "active",
       "introducedIn": "1.3.3.0",
       "removedIn": null,
-      "aliases": [],
+      "aliases": [
+        "BROD"
+      ],
       "source": {
         "provider": "raymdl/BF6-Weapon-Analyzer",
         "type": "community",
@@ -2116,7 +2118,9 @@
       "status": "active",
       "introducedIn": "1.4.1.0",
       "removedIn": null,
-      "aliases": [],
+      "aliases": [
+        "1P86"
+      ],
       "source": {
         "provider": "EA",
         "type": "official",
@@ -42667,7 +42671,7 @@
   ],
   "indexes": {
     "gameVersion": "1.4.2.5",
-    "generatedAt": "2026-09-03T13:07:11.588Z",
+    "generatedAt": "2026-09-04T13:29:15.924Z",
     "attachmentsByWeapon": {
       "ak205": [
         "120mw_blue",
