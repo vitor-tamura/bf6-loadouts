@@ -1,63 +1,49 @@
 {
-  "readAt": "2026-09-03",
-  "model": "gpt-4.1",
+  "readAt": "2026-09-05",
+  "model": "gpt-5.6-luna",
   "patch": {
-    "name": "Update 1.4.2.5",
+    "name": "Atualização 1.4.2.5",
     "date": "2026-08-31"
   },
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "Classificada como a melhor fuzil de assalto no ranking de meta do multiplayer.",
+      "reason": "A página de meta do multiplayer coloca o M16A4 em 1º entre os fuzis de assalto, acima dos demais rifles no ranking geral da atualização vigente.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "Classificada como a segunda melhor fuzil de assalto no ranking de meta do multiplayer.",
+      "reason": "O ranking de multiplayer posiciona o B36A4 em 2º entre os fuzis de assalto, e a página de classe o mantém entre os rifles mais bem avaliados para partidas tradicionais.",
       "sources": [
-        0
+        1
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "Classificada como a melhor submetralhadora no ranking de meta do multiplayer.",
-      "sources": [
-        0
-      ]
-    },
-    {
-      "weapon": "kord-6p67",
-      "reason": "Classificada como a terceira melhor fuzil de assalto no ranking de meta do multiplayer.",
+      "reason": "O PP-19 aparece como a submetralhadora nº 1 no ranking geral do multiplayer, ficando à frente das demais armas da classe.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "Classificada como a melhor metralhadora leve no ranking de meta do multiplayer.",
+      "reason": "O DRS-IAR é o LMG nº 1 no ranking de multiplayer, indicando a melhor posição da classe entre as armas avaliadas para os modos tradicionais.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "sgx",
-      "reason": "Classificada como a segunda melhor submetralhadora no ranking de meta do multiplayer.",
+      "reason": "O SGX ocupa a 2ª posição entre as submetralhadoras no ranking de multiplayer, atrás apenas do PP-19.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "Classificada como a melhor carabina no ranking de meta do multiplayer.",
-      "sources": [
-        0
-      ]
-    },
-    {
-      "weapon": "pw5a3",
-      "reason": "Classificada como a terceira melhor submetralhadora no ranking de meta do multiplayer.",
+      "reason": "O QBZ-192 aparece como a carabina nº 1 no ranking geral de multiplayer, com posição superior às demais carabinas listadas.",
       "sources": [
         0
       ]
@@ -65,38 +51,65 @@
   ],
   "trending": [
     {
-      "weapon": "m16a4",
-      "reason": "Discussões em fóruns e comunidades destacam o uso frequente da M16A4 nas partidas recentes.",
+      "weapon": "m4a1",
+      "reason": "Uma discussão recente no Reddit, atualizada em 1º de setembro, descreve o M4A1 como usado por metade dos jogadores e cita a arma repetidamente nas recomendações de meta da comunidade.",
       "sources": [
-        0
+        2
       ],
       "trend": "todo mundo usando"
     },
     {
-      "weapon": "pp-19",
-      "reason": "Jogadores estão compartilhando builds full-auto da PP-19 que têm se mostrado eficazes no multiplayer.",
+      "weapon": "m433",
+      "reason": "A mesma discussão recente inclui o M433 entre as armas mais recomendadas depois da Temporada 4 e o cita como escolha para mapas maiores.",
       "sources": [
-        0
+        2
       ],
-      "trend": "build full-auto"
+      "trend": "lista recorrente de armas meta"
     },
     {
-      "weapon": "nvo-228e",
-      "reason": "A NVO-228E tem sido uma escolha frequente nas partidas recentes, conforme relatos de jogadores.",
+      "weapon": "lmr27",
+      "reason": "Relatos publicados em 4 de setembro destacam o LMR27 como arma pouco usada, mas com desempenho estatístico forte, incluindo 4º em KD, 2º em KDA e 2º em dano por vida.",
       "sources": [
-        0
+        3
       ],
-      "trend": "todo mundo usando"
+      "trend": "defesa da arma nas partidas"
     }
   ],
   "sources": [
     {
-      "name": "wzstats.gg",
+      "name": "WZStats Multiplayer Meta",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-09-02",
+      "date": "2026-09-05",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Ranking de meta do multiplayer tradicional",
+      "scope": "Ranking geral atualizado do multiplayer tradicional, separado de REDSEC.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "WZStats Multiplayer Assault Rifles",
+      "url": "https://wzstats.gg/battlefield-6/multiplayer/best-gun/best-assault-rifles-in-battlefield",
+      "date": "2026-09-05",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Ranking de fuzis de assalto dentro do multiplayer tradicional.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit — meta guns after Season 4",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1v745rt/getting_back_to_bf6_after_season_4_what_are_the_meta_guns_after_patches/",
+      "date": "2026-09-01",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Percepção recente da comunidade sobre armas usadas e meta no multiplayer.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit — BF6 Class Pick Rates",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1w6ujba/82326_9326_bf6_class_pick_rates/",
+      "date": "2026-09-04",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Discussão recente com relatos de uso, desempenho e presença de armas nas partidas.",
       "timeframe": "season-4"
     }
   ]
