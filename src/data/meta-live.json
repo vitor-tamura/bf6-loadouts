@@ -1,5 +1,5 @@
 {
-  "readAt": "2026-09-11",
+  "readAt": "2026-09-12",
   "model": "gpt-5.6-luna",
   "patch": {
     "name": "Atualização 1.4.2.5",
@@ -8,28 +8,56 @@
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "O rastreador de multiplayer atualizado em 11 de setembro coloca a M16A4 em #1 entre os fuzis de assalto, acima das demais armas da classe.",
+      "reason": "O rastreador de multiplayer atualizado em 12/09 coloca o M16A4 em #1 entre os fuzis de assalto, acima dos demais rifles da classe no estado atual do jogo.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "A mesma classificação de multiplayer a mantém em #2 entre os fuzis de assalto, indicando força consistente no estado atual do jogo.",
+      "reason": "A página de meta do multiplayer coloca o B36A4 em #2 entre os fuzis de assalto, mantendo-o no topo da classificação atual após a atualização 1.4.2.5.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "pp-19",
+      "reason": "O PP-19 aparece como a submetralhadora #1 na página de meta exclusiva do multiplayer, sendo o SMG mais bem colocado do rastreador.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "A lista de multiplayer posiciona a KORD 6P67 em #3 entre os fuzis de assalto, mantendo-a no bloco superior da classe após a atualização vigente.",
+      "reason": "O KORD 6P67 é o terceiro fuzil de assalto e o quarto armamento geral no ranking de multiplayer, evidência de força consistente no estado atual.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "O rastreador de multiplayer classifica a DRS-IAR como a metralhadora leve #1 e a quinta arma geral da página, sustentando sua inclusão entre os picks mais fortes.",
+      "reason": "O DRS-IAR aparece como a metralhadora leve #1 e ocupa a quinta posição geral na medição atual do multiplayer.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "sgx",
+      "reason": "A SGX é a segunda submetralhadora do ranking de multiplayer e está em sexto lugar geral, permanecendo entre os principais picks por classe.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "qbz-192",
+      "reason": "O QBZ-192 aparece como a carabina #1 no ranking exclusivo de multiplayer e ocupa a sétima posição geral.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "pw5a3",
+      "reason": "A PW5A3 é a terceira submetralhadora do rastreador de multiplayer e está em oitavo lugar geral, à frente de outras opções da classe.",
       "sources": [
         0
       ]
@@ -37,73 +65,82 @@
   ],
   "trending": [
     {
-      "weapon": "m433",
-      "reason": "Uma discussão publicada em 2 de setembro sobre um rastreador de partidas com janela móvel de sete dias destaca a M433 como opção universal e afirma que ela é uma das melhores para confrontos de médio e longo alcance.",
-      "sources": [
-        2
-      ],
-      "trend": "universal para médio e longo alcance"
-    },
-    {
       "weapon": "m4a1",
-      "reason": "Na discussão de 1º de setembro sobre as armas meta depois dos patches da Temporada 4, jogadores citam a M4A1 entre as escolhas ainda fortes e relatam que ela voltou a ser uma opção principal.",
+      "reason": "Em discussão recente sobre a meta da Temporada 4, jogadores afirmaram que a M4A1 aparece com frequência em metade das partidas e a citaram como escolha recorrente de curto a médio alcance.",
       "sources": [
-        3
+        4
       ],
-      "trend": "volta ao meta nas discussões da Temporada 4"
+      "trend": "metralhadora mais usada"
     },
     {
-      "weapon": "cz3a1",
-      "reason": "A mesma discussão recente sobre a Temporada 4 cita a CZ3A1 repetidamente entre as armas encontradas nas partidas e a coloca ao lado da M16 como fonte frequente de eliminações.",
+      "weapon": "tr-7",
+      "reason": "A mesma discussão recente lista a TR-7 entre as três armas de curta distância mais presentes após os patches da Temporada 4, embora o comentário seja evidência de conversa comunitária, não de medição de força.",
       "sources": [
-        3
+        4
       ],
-      "trend": "arma recorrente nos relatos de eliminações"
+      "trend": "top 3 de curta distância"
     },
     {
-      "weapon": "brod-3",
-      "reason": "O tópico de 1º de setembro sobre o meta após os patches inclui a BROD 3 entre as armas que os jogadores continuam apontando como escolhas fortes na Temporada 4.",
+      "weapon": "sg-553r",
+      "reason": "Jogadores que voltaram na Temporada 4 citaram a SG 553R entre as três armas de curta distância que continuam no centro da conversa de meta.",
       "sources": [
-        3
+        4
       ],
-      "trend": "build lembrada nas listas pós-patch"
+      "trend": "top 3 de curta distância"
+    },
+    {
+      "weapon": "vssm",
+      "reason": "A discussão recente também destaca a VSSM com configuração totalmente automática como uma das armas usadas nas partidas e incluídas nas listas informais de meta da comunidade.",
+      "sources": [
+        4
+      ],
+      "trend": "build full-auto"
     }
   ],
   "sources": [
     {
-      "name": "WZStats multiplayer meta",
+      "name": "WZStats — meta multiplayer",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-09-11",
+      "date": "2026-09-12",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Ranking atualizado exclusivamente para o multiplayer tradicional, com posição geral e por classe.",
+      "scope": "Ranking atualizado de armas exclusivamente do multiplayer tradicional, separado de REDSEC.",
       "timeframe": "season-4"
     },
     {
-      "name": "EA Game Update 1.4.2.5",
+      "name": "WZStats — melhores fuzis de assalto",
+      "url": "https://wzstats.gg/battlefield-6/multiplayer/best-gun/best-assault-rifles-in-battlefield",
+      "date": "2026-09-12",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Classificação completa dos fuzis de assalto no multiplayer tradicional.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "BF6 Balance Log",
+      "url": "https://bf6balancelog.com/",
+      "date": "2026-09-12",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Histórico transcrito de alterações oficiais de armas e acessórios; usado para conferir o contexto do patch.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "EA — Game Update 1.4.2.5",
       "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-5",
       "date": "2026-08-31",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Changelog oficial da atualização vigente; no multiplayer, registra apenas a alteração do Match Trigger na BROD e na EF88.",
+      "scope": "Changelog oficial; no multiplayer, registra que o Match Trigger deixou de afetar o disparo automático de BROD e EF88.",
       "timeframe": "season-4"
     },
     {
-      "name": "Reddit — BF6 weapon meta stats tracker",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1w5fjku/bf6_weapon_meta_stats_tracker_based_on_real_match/",
-      "date": "2026-09-02",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Discussão comunitária recente sobre rastreamento de armas em partidas, usada somente para trending.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Reddit — meta guns after Season 4 patches",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1v745rt/getting_back_to_bf6_after_season_4_what_are_the_meta_guns_after_patches/",
+      "name": "Reddit — Getting back to BF6 after Season 4",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1v745rt/getting_back_to_bf6_after_season_4_what_are_the/",
       "date": "2026-09-01",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Discussão comunitária da Temporada 4 sobre armas encontradas e consideradas fortes nas partidas, usada somente para trending.",
+      "scope": "Discussão comunitária recente sobre armas usadas e builds comentadas na Temporada 4; sustenta apenas trending.",
       "timeframe": "season-4"
     }
   ]
