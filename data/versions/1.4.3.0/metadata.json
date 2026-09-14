@@ -1,11 +1,18 @@
 {
-  "version": "1.4.2.5",
-  "label": "BATTLEFIELD 6 GAME UPDATE 1.4.2.5",
-  "releasedAt": "2026-08-31",
-  "importedAt": "2026-09-04",
-  "previousVersion": "1.4.2.0",
-  "status": "historical",
+  "version": "1.4.3.0",
+  "label": "BATTLEFIELD 6 GAME UPDATE 1.4.3.0",
+  "releasedAt": "2026-09-14",
+  "importedAt": "2026-09-14",
+  "previousVersion": "1.4.2.5",
+  "status": "current",
   "sources": [
+    {
+      "provider": "EA",
+      "type": "official",
+      "url": "https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-4-3-0",
+      "version": "1.4.3.0",
+      "retrievedAt": "2026-09-14T21:45:02.752Z"
+    },
     {
       "provider": "EA",
       "type": "official",
@@ -58,7 +65,7 @@
   "counts": {
     "weapons": 62,
     "attachments": 402,
-    "compatibility": 2753,
+    "compatibility": 2877,
     "stats": 62,
     "effects": 400
   }

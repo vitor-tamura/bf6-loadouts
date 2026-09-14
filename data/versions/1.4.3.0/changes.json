@@ -1,0 +1,93 @@
+{
+  "gameVersion": "1.4.3.0",
+  "events": [
+    {
+      "id": "evt-1.4.3.0-review-0",
+      "gameVersion": "1.4.3.0",
+      "timestamp": "2026-09-14",
+      "type": "stat_changed",
+      "entityType": "catalog",
+      "entityId": null,
+      "changes": {
+        "field": "damage",
+        "operation": "percentage",
+        "value": -50,
+        "before": null,
+        "after": null,
+        "mentioned": null,
+        "line": "Decreased Minigun damage dealt to RCB90 Patrol Boats and ATPs by 50%."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-4-3-0",
+          "version": "1.4.3.0",
+          "retrievedAt": "2026-09-14T21:45:02.752Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Proporção reconhecida, mas a entidade citada não existe no catálogo."
+      }
+    },
+    {
+      "id": "evt-1.4.3.0-review-1",
+      "gameVersion": "1.4.3.0",
+      "timestamp": "2026-09-14",
+      "type": "stat_changed",
+      "entityType": "catalog",
+      "entityId": null,
+      "changes": {
+        "field": "damage",
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "The Interdictor",
+        "line": "Developer comment: The Interdictor&#x27;s damage didn&#x27;t always match its powerful feel, so we&#x27;ve increased its effectiveness and consistency. It now deals 80 damage to the chest and limbs at all ranges, making two-hit kills much more reliable and one-hit kills on damaged foes more common. To better counter players using armor plates, especially in REDSEC, we&#x27;ve also increased its damage against them. With these adjustments, the old \"sweeter spot\" mechanic was redundant, so we have normalized the damage for more predictable performance."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-4-3-0",
+          "version": "1.4.3.0",
+          "retrievedAt": "2026-09-14T21:45:02.752Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Mudança descrita sem número, e a entidade citada não existe no catálogo."
+      }
+    },
+    {
+      "id": "evt-1.4.3.0-compatibility-carried-0",
+      "gameVersion": "1.4.3.0",
+      "timestamp": "2026-09-14",
+      "type": "source_conflict",
+      "entityType": "compatibility",
+      "entityId": null,
+      "changes": {
+        "carried": 2877,
+        "closed": 0
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-4-3-0",
+          "version": "1.4.3.0",
+          "retrievedAt": "2026-09-14T21:45:02.752Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "A matriz veio da versão anterior sem confirmação do estado atual. Rode catalog:fetch-loadouts e confirme antes de publicar."
+      }
+    }
+  ]
+}
