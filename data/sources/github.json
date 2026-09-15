@@ -38,6 +38,15 @@
       "files": 8,
       "skipped": 15,
       "file": "data/sources/imports/github-fb7a214.json"
+    },
+    {
+      "snapshot": "github-d9daf96",
+      "commit": "d9daf96bcf25ee87b250ca3d4856ad826f6ed961",
+      "committedAt": "2026-09-14T19:05:12Z",
+      "retrievedAt": "2026-09-14T21:45:06.262Z",
+      "files": 11,
+      "skipped": 126,
+      "file": "data/sources/imports/github-d9daf96.json"
     }
   ]
 }
