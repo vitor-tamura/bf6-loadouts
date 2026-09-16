@@ -1,49 +1,49 @@
 {
-  "readAt": "2026-09-14",
+  "readAt": "2026-09-16",
   "model": "gpt-5.6-luna",
   "patch": {
-    "name": "Atualização 1.4.2.5",
-    "date": "2026-08-31"
+    "name": "Atualização 1.4.3.0",
+    "date": "2026-09-14"
   },
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "Está em #1 entre os fuzis de assalto na página de meta do multiplayer, atualizada em 2026-09-14; o patch 1.4.2.5 não alterou o M16A4.",
+      "reason": "O rastreador de multiplayer atualizado em 16/09 coloca o M16A4 em 1º entre os fuzis de assalto, acima de todas as opções da classe no cenário atual.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "Ocupa #2 entre os fuzis de assalto e aparece no grupo de topo da página de multiplayer atualizada em 2026-09-14; não foi afetado pela mudança do patch 1.4.2.5.",
+      "reason": "O ranking exclusivo do multiplayer posiciona o B36A4 em 2º entre os fuzis de assalto, mantendo-o como uma das principais escolhas da classe após a atualização.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "pp-19",
+      "reason": "O PP-19 aparece como a SMG nº 1 no ranking de meta do multiplayer, liderando sua classe na leitura atualizada de 16/09.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "É a metralhadora leve #1 na página de meta do multiplayer, à frente de RPK-74M e L110 na mesma medição de 2026-09-14.",
+      "reason": "O DRS-IAR é o LMG nº 1 do ranking de multiplayer, ficando à frente das demais metralhadoras leves na atualização vigente.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "sgx",
-      "reason": "Ocupa o posto de SMG #2 no multiplayer, logo atrás do PP-19, e permanece no grupo de topo da página atualizada em 2026-09-14.",
+      "reason": "O SGX aparece como a 2ª SMG do multiplayer, atrás apenas do PP-19, o que o coloca entre as escolhas mais fortes da classe nesta versão.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "É o carabina #1 na página exclusiva de meta do multiplayer, com posição geral acima das demais carabinas listadas.",
-      "sources": [
-        0
-      ]
-    },
-    {
-      "weapon": "m2010-esr",
-      "reason": "Está em #1 entre os rifles de precisão na medição do multiplayer, superando Mini Scout, PSR e L115 na ordenação atual.",
+      "reason": "O QBZ-192 lidera a categoria de carabinas no ranking exclusivo de multiplayer, com posição superior às demais armas da classe.",
       "sources": [
         0
       ]
@@ -51,82 +51,64 @@
   ],
   "trending": [
     {
-      "weapon": "m16a4",
-      "reason": "Uma tier list em vídeo publicada há duas semanas dedica um segmento ao M16A4 ao discutir as armas mais fortes da Temporada 4.",
-      "sources": [
-        3
-      ],
-      "trend": "tier list da Temporada 4"
-    },
-    {
-      "weapon": "pp-19",
-      "reason": "A página de meta do multiplayer atualizada em 2026-09-14 coloca o PP-19 como o SMG #1 e o inclui entre as builds destacadas do modo tradicional.",
-      "sources": [
-        0
-      ],
-      "trend": "build de SMG para multiplayer"
-    },
-    {
-      "weapon": "kord-6p67",
-      "reason": "A tier list publicada em 2026-09-04 coloca o KORD 6P67 sozinho no S-Tier dos fuzis de assalto, tornando-o um dos principais assuntos de ranking da semana.",
+      "weapon": "m277",
+      "reason": "Na discussão recente sobre as armas da Temporada 4, jogadores relatam que o M277 ficou menos utilizável e procuram substitutos para mapas de médio alcance.",
       "sources": [
         2
       ],
-      "trend": "S-Tier nos fuzis de assalto"
+      "trend": "migração após o nerf percebido"
     },
     {
-      "weapon": "sgx",
-      "reason": "A página de meta do multiplayer mostra o SGX como o segundo SMG, imediatamente atrás do PP-19, posição que o coloca no núcleo das escolhas comentadas da classe.",
+      "weapon": "tr-7",
+      "reason": "A mesma discussão recente cita o TR-7 como escolha recorrente para combate próximo, embora com críticas ao desempenho em médio alcance.",
       "sources": [
-        0
+        2
       ],
-      "trend": "disputa pelo topo dos SMGs"
+      "trend": "build de curta distância"
+    },
+    {
+      "weapon": "m4a1",
+      "reason": "Comentários na discussão da comunidade descrevem o M4A1 como uma escolha vista por metade dos jogadores e recomendam-no para curto e médio alcance.",
+      "sources": [
+        2
+      ],
+      "trend": "arma mais usada"
+    },
+    {
+      "weapon": "sg-553r",
+      "reason": "Na conversa recente sobre o meta pós-Temporada 4, jogadores incluem o SG 553R entre as armas que estão usando como padrão.",
+      "sources": [
+        2
+      ],
+      "trend": "menção como escolha principal"
     }
   ],
   "sources": [
     {
       "name": "WZStats Multiplayer Meta",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-09-14",
+      "date": "2026-09-16",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Ranking arma por arma exclusivamente no caminho de multiplayer tradicional.",
+      "scope": "Ranking atualizado arma por arma exclusivamente para o multiplayer tradicional.",
       "timeframe": "season-4"
     },
     {
       "name": "WZStats Best Multiplayer Assault Rifles",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/best-gun/best-assault-rifles-in-battlefield",
-      "date": "2026-09-14",
+      "date": "2026-09-16",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Ordem completa dos fuzis de assalto exclusivamente no multiplayer.",
+      "scope": "Página de classe exclusiva do multiplayer para conferir a ordem dos fuzis de assalto.",
       "timeframe": "season-4"
     },
     {
-      "name": "BF6 Weapon Tier List — God is a Geek",
-      "url": "https://godisageek.com/2026/09/bf6-weapon-tier-list/",
-      "date": "2026-09-04",
+      "name": "Discussão sobre meta após a Temporada 4",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1v745rt/getting_back_to_bf6_after_season_4_what_are_the/",
+      "date": "2026-09-01",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Análise de tier list publicada durante a Temporada 4; usada apenas para o julgamento de força das armas, não para dados de REDSEC.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Ultimate Battlefield 6 Season 4 Weapon Tier List",
-      "url": "https://www.youtube.com/watch?v=hH5j7Axk38g",
-      "date": "2026-08-31",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Vídeo recente de ranking da Temporada 4 usado como evidência de conversa sobre armas.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Battlefield 6 Game Update 1.4.2.5",
-      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-5",
-      "date": "2026-08-31",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Changelog oficial; no multiplayer, registra apenas que o Match Trigger deixou de afetar o fogo totalmente automático da BROD e da EF88.",
+      "scope": "Discussão comunitária recente sobre uso, substituições e percepção das armas no multiplayer.",
       "timeframe": "season-4"
     }
   ]
