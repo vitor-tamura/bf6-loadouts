@@ -1,5 +1,5 @@
 {
-  "readAt": "2026-09-16",
+  "readAt": "2026-09-17",
   "model": "gpt-5.6-luna",
   "patch": {
     "name": "Atualização 1.4.3.0",
@@ -8,42 +8,35 @@
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "O rastreador de multiplayer atualizado em 16/09 coloca o M16A4 em 1º entre os fuzis de assalto, acima de todas as opções da classe no cenário atual.",
+      "reason": "A página de meta do multiplayer atualizada em 17 de setembro coloca o M16A4 em 1º entre os fuzis de assalto, à frente de todos os demais rifles da classe.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "O ranking exclusivo do multiplayer posiciona o B36A4 em 2º entre os fuzis de assalto, mantendo-o como uma das principais escolhas da classe após a atualização.",
+      "reason": "O ranking atualizado do multiplayer coloca o B36A4 em 2º entre os fuzis de assalto, mantendo-o no topo da classe após a 1.4.3.0.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "O PP-19 aparece como a SMG nº 1 no ranking de meta do multiplayer, liderando sua classe na leitura atualizada de 16/09.",
+      "reason": "O PP-19 aparece como a submetralhadora nº 1 no ranking de meta do multiplayer; o comparador atualizado também o mantém entre as opções competitivas de curta distância.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "O DRS-IAR é o LMG nº 1 do ranking de multiplayer, ficando à frente das demais metralhadoras leves na atualização vigente.",
-      "sources": [
-        0
-      ]
-    },
-    {
-      "weapon": "sgx",
-      "reason": "O SGX aparece como a 2ª SMG do multiplayer, atrás apenas do PP-19, o que o coloca entre as escolhas mais fortes da classe nesta versão.",
+      "reason": "O DRS-IAR aparece como a metralhadora leve nº 1 no ranking do multiplayer e também figura entre as armas META do comparador atualizado em 16 de setembro.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "O QBZ-192 lidera a categoria de carabinas no ranking exclusivo de multiplayer, com posição superior às demais armas da classe.",
+      "reason": "O QBZ-192 aparece em 7º no ranking geral do multiplayer, liderando a categoria de carabinas e permanecendo classificado como META no comparador atualizado.",
       "sources": [
         0
       ]
@@ -51,43 +44,43 @@
   ],
   "trending": [
     {
-      "weapon": "m277",
-      "reason": "Na discussão recente sobre as armas da Temporada 4, jogadores relatam que o M277 ficou menos utilizável e procuram substitutos para mapas de médio alcance.",
+      "weapon": "tr-7",
+      "reason": "Uma discussão recente no Reddit cita o TR-7 como parte do grupo das três armas de curta distância mais usadas e relata que ele continua aparecendo nas recomendações da comunidade.",
       "sources": [
         2
       ],
-      "trend": "migração após o nerf percebido"
+      "trend": "meta de curta distância"
     },
     {
-      "weapon": "tr-7",
-      "reason": "A mesma discussão recente cita o TR-7 como escolha recorrente para combate próximo, embora com críticas ao desempenho em médio alcance.",
+      "weapon": "scw-10",
+      "reason": "A mesma discussão recente descreve o SCW-10 como parte do trio de armas de curta distância que permanece no topo da conversa da comunidade após os patches da Temporada 4.",
       "sources": [
         2
       ],
-      "trend": "build de curta distância"
+      "trend": "trio de armas close range"
     },
     {
       "weapon": "m4a1",
-      "reason": "Comentários na discussão da comunidade descrevem o M4A1 como uma escolha vista por metade dos jogadores e recomendam-no para curto e médio alcance.",
+      "reason": "Na discussão de 1º de setembro, jogadores afirmam que o M4A1 aparece em cerca de metade das partidas e o descrevem como uma escolha recorrente de curta a média distância.",
       "sources": [
         2
       ],
       "trend": "arma mais usada"
     },
     {
-      "weapon": "sg-553r",
-      "reason": "Na conversa recente sobre o meta pós-Temporada 4, jogadores incluem o SG 553R entre as armas que estão usando como padrão.",
+      "weapon": "vssm",
+      "reason": "A discussão recente inclui o VSSM em configuração totalmente automática entre as escolhas do meta comunitário, citando-o junto de TR-7, M4A1, M433 e DRS-IAR.",
       "sources": [
         2
       ],
-      "trend": "menção como escolha principal"
+      "trend": "build full-auto"
     }
   ],
   "sources": [
     {
       "name": "WZStats Multiplayer Meta",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-09-16",
+      "date": "2026-09-17",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Ranking atualizado arma por arma exclusivamente para o multiplayer tradicional.",
@@ -96,19 +89,19 @@
     {
       "name": "WZStats Best Multiplayer Assault Rifles",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/best-gun/best-assault-rifles-in-battlefield",
-      "date": "2026-09-16",
+      "date": "2026-09-17",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Página de classe exclusiva do multiplayer para conferir a ordem dos fuzis de assalto.",
+      "scope": "Ranking completo dos fuzis de assalto no multiplayer tradicional.",
       "timeframe": "season-4"
     },
     {
-      "name": "Discussão sobre meta após a Temporada 4",
+      "name": "Discussão Reddit sobre meta da Temporada 4",
       "url": "https://www.reddit.com/r/Battlefield6/comments/1v745rt/getting_back_to_bf6_after_season_4_what_are_the/",
       "date": "2026-09-01",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Discussão comunitária recente sobre uso, substituições e percepção das armas no multiplayer.",
+      "scope": "Evidência de conversa comunitária recente sobre armas usadas e builds no multiplayer.",
       "timeframe": "season-4"
     }
   ]
