@@ -1,10 +1,10 @@
 {
-  "readAt": "2026-09-18",
+  "readAt": "2026-09-19",
   "builds": [
     {
       "weapon": "ak4d",
-      "advice": "A comunidade recente recomenda montar a AK4D para médio e longo alcance: mira de 1x, empunhadura de alto controle e cano pesado, evitando ampliações maiores que aumentam o recuo visual. A ideia é corrigir o recuo forte e aproveitar a precisão da arma; munição de ponta oca aparece como opção para melhorar a letalidade em curta distância, mas o carregador pequeno continua sendo a principal limitação",
-      "source": "https://www.reddit.com/r/Battlefield6/comments/1w7oxr5/i_see_very_few_people_using_the_ak4d_is_there/"
+      "advice": "A comunidade recomenda uma mira de 1× para não ampliar demais o recuo visual; para uma configuração de médio a longo alcance, aparecem supressor, cano pesado estendido, carregador de 30 tiros e munição de ponta oca. A ideia é compensar o recuo, a baixa cadência e o carregador pequeno, mantendo o dano alto em trocas mais longas.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1w7oxr5/i_see_very_few_people_using_the_ak4d/"
     },
     {
       "weapon": "tr-7",
@@ -23,32 +23,32 @@
     },
     {
       "weapon": "kord-6p67",
-      "advice": "A comunidade tem preferido uma configuração de controle e alcance: compensador ou freio de boca, cano de maior velocidade, empunhadura vertical, carregador de 30 ou 36 tiros, munição de penetração e mira entre 1,75x e 3x. Isso reduz o recuo e mantém a arma consistente nas trocas de média distância, onde ela se destaca pelo controle fácil.",
-      "source": "https://battlefield-6.wiki/tools/loadouts/"
+      "advice": "A comunidade favorece cano voltado para velocidade, supressor leve, empunhadura vertical, carregador de 36 tiros, munição de maior velocidade ou FMJ e mira de 1,75x a 3x; o conjunto preserva o baixo recuo e melhora o desempenho em combates médios, onde a arma é mais consistente.",
+      "source": "https://wzstats.gg/battlefield-6/best-loadouts/kord-6p67"
     },
     {
       "weapon": "nvo-228e",
-      "advice": "A recomendação mais consistente é usar cano criogênico, laser violeta e empunhadura curta, porque o NVO sofre com dispersão depois das mudanças recentes; esse conjunto reduz a dispersão e mantém a arma viável no médio alcance sem perder sua boa capacidade de curta distância.",
-      "source": "https://www.reddit.com/r/Battlefield/comments/1w3aqe6/nvo228e_has_way_too_much_dispersion_for_what_it_is/"
+      "advice": "A montagem mais recomendada usa cano longo ou criogênico, supressor leve em partidas gerais, empunhadura vertical, carregador de 36 tiros, munição FMJ e mira de 1,75x; ela corrige o recuo durante rajadas e aproveita o dano e a precisão da arma a média distância.",
+      "source": "https://wzstats.gg/battlefield-6/best-loadouts/nvo-228e"
     },
     {
       "weapon": "ef88",
-      "advice": "A comunidade trata o EF88 como um fuzil versátil de médio alcance e costuma combiná-lo com munição sintética, empunhadura curta ou sem empunhadura e laser verde para melhorar o controle e acelerar os confrontos próximos. O laser ajuda a compensar a transição para a mira, enquanto a munição sintética favorece a consistência do dano.",
-      "source": "https://www.reddit.com/r/Battlefield6/comments/1v96ymt/how_to_find_your_way_in_this_game/"
+      "advice": "Para o EF88, a preferência recente é por cano pesado ou criogênico, supressor leve, empunhadura vertical ou empunhadura curta, munição FMJ, carregador de 30 tiros, melhoria de ergonomia e mira de 1,75x a 3x; isso estabiliza a arma e mantém boa velocidade de projétil sem sacrificar mobilidade.",
+      "source": "https://wzstats.gg/battlefield-6/best-loadouts/ef88"
     },
     {
       "weapon": "vcr-2",
-      "advice": "Não encontrei, nos últimos 30 dias, evidência recente suficiente de uma montagem específica recomendada pela comunidade para o VCR-2 no multiplayer; por isso, a arma fica fora da resposta.",
-      "source": "https://www.reddit.com/r/Battlefield6/comments/1wfgjml/vcr2_is_still_unavailable/"
+      "advice": "A recomendação é usar cano de precisão, supressor leve, empunhadura vertical, carregador de 40 tiros, munição FMJ e mira de 1x; a montagem controla o recuo e dá mais margem para sustentar fogo em combates de média distância.",
+      "source": "https://wzstats.gg/battlefield-6/best-loadouts/vcr-2"
     },
     {
       "weapon": "m16a4",
-      "advice": "Para uma configuração de assalto versátil, aparecem recomendações de seletor automático, mira de ampliação moderada, cano estendido, empunhadura vertical, laser verde e munição leve; isso transforma a arma em uma opção mais flexível no curto e médio alcance, compensando a limitação do modo de rajada. Também há jogadores que preferem manter a rajada e usar cano curto, mira holográfica, carregador r",
-      "source": "https://www.reddit.com/r/Battlefield/comments/1v04lde/best-m16a4-build-for-bf6/"
+      "advice": "A montagem mais aceita combina cano pesado de 20 polegadas, supressor leve, empunhadura vertical ou angular, carregador de 30 tiros, munição FMJ e mira de 1,75x a 3x; o objetivo é maximizar precisão e velocidade de projétil, aproveitando a eficácia das rajadas em média e longa distância.",
+      "source": "https://wzstats.gg/battlefield-6/best-loadouts/m16a4"
     },
     {
       "weapon": "m4a1",
-      "advice": "A montagem mais usada combina cano curto de carabina, empunhadura vertical ou empunhadura curta de baixo perfil, supressor leve — ou compensador em mapas pequenos —, munição FMJ, carregador de 36 tiros e mira de 1x a 1,75x. Ela preserva a mobilidade e melhora o controle do recuo, reforçando o desempenho agressivo da arma em curta e média distância.",
+      "advice": "No multiplayer, a recomendação é cano curto de carabina, supressor leve, empunhadura vertical ou stubby de baixo perfil, carregador de 30 ou 36 tiros, munição FMJ e mira de 1x a 1,75x; isso melhora a mobilidade e reduz o recuo para combates agressivos de curta e média distância.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/m4a1"
     },
     {
@@ -63,8 +63,8 @@
     },
     {
       "weapon": "qbz-192",
-      "advice": "A montagem recomendada é supressor padrão, cano estendido, empunhadura vertical, carregador de 36 tiros, munição padrão e mira de baixa ampliação. Ela aproveita o recuo mais previsível da QBZ-192 e compensa sua menor eficácia em alcance com mais velocidade de projétil e controle durante disparos contínuos.",
-      "source": "https://www.bftactics.com/weapons-database"
+      "advice": "A comunidade recomenda supressor híbrido, cano estendido, empunhadura curta, carregador rápido de 30 tiros e mira de 1x; essa combinação mantém o bom controle da arma, melhora o alcance e ainda preserva velocidade de mira para combates de curta e média distância.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1vxvtvv/which_carbine_is_most_like_the_b36/"
     },
     {
       "weapon": "sg-553r",
@@ -73,18 +73,18 @@
     },
     {
       "weapon": "sor-300sc",
-      "advice": "A montagem mais recomendada combina supressor padrão, cano estendido, empunhadura angular, carregador de 36 tiros, munição padrão e mira de 2x ou 3x. Ela mantém o forte dano da SOR-300SC, melhora a mobilidade ao mirar e ajuda a lidar com o carregador pequeno e o recuo inicial da arma.",
-      "source": "https://www.bftactics.com/weapons-database"
+      "advice": "Para uma configuração agressiva, aparecem com frequência cano curto, laser, carregador de 20 tiros, supressor de curto alcance e mira de 1,75x ou 2x; o conjunto maximiza mobilidade, precisão em movimento e desempenho no curto alcance. Outra preferência recorrente é munição subsônica com mira térmica e laser, usando a furtividade no minimapa para compensar o alcance e a velocidade de projétil mais ",
+      "source": "https://www.reddit.com/r/LowSodiumBattlefield/comments/1vxt6y9/sor_300sc_builds/"
     },
     {
       "weapon": "m277",
-      "advice": "A comunidade tem priorizado um supressor híbrido ou outro supressor que reduza o recuo, combinado com empunhadura de controle de recuo, mira de 2x–2,5x e laser verde. A montagem corrige o recuo visual e mantém a arma competitiva no médio alcance sem perder totalmente a resposta no combate próximo.",
+      "advice": "A comunidade recente prioriza compensador ou supressor híbrido para reduzir o recuo, junto de empunhadura voltada ao controle; mira de 2,5x e laser verde aparecem como opções para manter precisão média e ainda reagir bem de perto. O conjunto corrige o salto vertical e a imprecisão do M277 sem sacrificar sua vantagem entre média e longa distância.",
       "source": "https://www.reddit.com/r/Battlefield6/comments/1vw7u7u/m277_mastery_250/"
     },
     {
       "weapon": "brod-3",
-      "advice": "Para uma configuração agressiva e versátil, os relatos recentes recomendam supressor padrão, cano estendido, empunhadura inclinada ou de controle, carregador estendido de 40 tiros, laser verde e mira holográfica ou de 1x. O conjunto aumenta o alcance e a capacidade do carregador, ao mesmo tempo que reduz a dificuldade de controlar a arma em rajadas.",
-      "source": "https://www.reddit.com/r/BF6/comments/1vt7b07/fav_cqb_builds/"
+      "advice": "O consenso recente favorece supressor — especialmente o híbrido —, cano estendido, empunhadura angulada ou de controle, carregador estendido e munição perfurante; para uma configuração mais agressiva, laser verde e mira de 1x também são comuns. Isso amplia a autonomia do carregador, melhora o desempenho em média distância e mantém a carabina competitiva no combate próximo.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1vw8iq6/brod3_is_actually_insane/"
     },
     {
       "weapon": "scw-10",
@@ -108,13 +108,13 @@
     },
     {
       "weapon": "sgx",
-      "advice": "A comunidade está priorizando cano estendido, empunhadura vertical ou angular, compensador para controlar o recuo e munição FMJ; a combinação mantém a alta cadência utilizável em médio alcance sem sacrificar o desempenho de curta distância. Para jogar mais furtivamente, o supressor padrão é a alternativa recorrente.",
-      "source": "https://battlefieldmeta.gg/best-loadouts/sgx"
+      "advice": "Para curta distância, a comunidade recomenda manter a SGX agressiva, com carregador estendido e cano estendido quando a ideia é transformá-la em uma espécie de fuzil de assalto compacto; isso aumenta a autonomia e melhora o desempenho no médio alcance sem sacrificar a cadência.",
+      "source": "https://www.reddit.com/r/LowSodiumBattlefield/comments/1vhpr1z/finished_all_smgs_to_lvl_50/"
     },
     {
       "weapon": "sl9",
-      "advice": "A montagem mais recomendada usa carregador de 60 tiros, munição FMJ, mira holográfica de 1,00x e cano padrão; isso compensa o dano por disparo e a cadência mais baixa com maior margem para abater vários inimigos sem recarregar. Para reduzir a subida da arma, a comunidade também recorre a empunhadura vertical ou compensador.",
-      "source": "https://battlefieldmeta.gg/best-loadouts/sl9"
+      "advice": "A montagem mais elogiada combina munição de ponta oca ou munição sintética com conversão para rajada de dois tiros; a munição melhora a eficiência por disparo, enquanto a rajada aumenta a cadência efetiva e deixa o recuo muito mais fácil de controlar.",
+      "source": "https://www.reddit.com/r/LowSodiumBattlefield/comments/1vhpr1z/finished_all_smgs_to_lvl_50/"
     },
     {
       "weapon": "umg-40",
@@ -123,28 +123,28 @@
     },
     {
       "weapon": "usg-90",
-      "advice": "A recomendação recente é usar cano estriado longo, munição de polímero, supressor leve, carregador de 50 tiros, mira de 1,00x e acessório de recarga rápida; isso amplia o alcance útil, reduz a queda de dano e corrige a necessidade de recarregar após enfrentar vários alvos. Para mapas apertados, a alternativa é compensador linear e lanterna para maximizar o fogo de quadril.",
+      "advice": "A recomendação atual é usar carregador de 50 tiros, cano pesado ou cano alongado, munição de ponta oca e mira de baixa ampliação; o conjunto aproveita a grande capacidade do carregador, melhora o alcance útil e compensa a necessidade de acertar vários tiros consecutivos.",
       "source": "https://battlefieldmeta.gg/best-loadouts/usg-90"
     },
     {
       "weapon": "cz3a1",
-      "advice": "A comunidade trata a CZ3A1 como uma especialista de curta distância: cano curto, empunhadura voltada para velocidade, compensador e munição de ponta oca são as escolhas recorrentes, combinadas com mira de 1,00x e, quando possível, carregador ampliado. Essa configuração maximiza a velocidade de mira e o dano em curta distância, compensando o recuo elevado e a perda de eficácia fora do alcance ideal",
-      "source": "https://battlefieldmeta.gg/best-loadouts/cz3a1"
+      "advice": "Para combate fechado, a comunidade prioriza uma montagem que preserve a altíssima cadência, normalmente com supressor, empunhadura vertical, carregador padrão e mira simples; o foco é controlar o recuo sem reduzir a velocidade de eliminação, que é justamente o principal ponto forte da arma.",
+      "source": "https://www.reddit.com/r/LowSodiumBattlefield/comments/1vhpr1z/finished-all-smgs-to-lvl-50/"
     },
     {
       "weapon": "pp-19",
-      "advice": "A recomendação mais consistente é o carregador de tambor de 50 tiros, usando a PP-19 como uma versão mais precisa da USG-90 para médio alcance; a capacidade e a precisão compensam o tempo para eliminar um pouco pior em duelos frontais.",
-      "source": "https://www.reddit.com/r/LowSodiumBattlefield/comments/1vhpr1z/finished_all_smgs_to_lvl_50/"
+      "advice": "A montagem equilibrada recomendada usa compensador de clarão, cano criogênico, empunhadura angulada, munição de ponta oca e carregador padrão; isso reduz a dispersão durante fogo contínuo, melhora a mobilidade e torna a arma mais eficiente no médio alcance. Para jogar de forma mais agressiva, parte da comunidade prefere o carregador de tambor de 50 tiros, aceitando o recarregamento mais lento em t",
+      "source": "https://vortexgaming.io/en/postdetail/1040375"
     },
     {
       "weapon": "m123k",
-      "advice": "Para multiplayer agressivo, a recomendação recente é mira de 1x, supressor híbrido, laser e cano voltado à precisão, com empunhadura vertical ou angulada conforme o controle de recuo; outra variação popular usa empunhadura inclinada, cano curto e laser verde para maximizar o tiro de quadril e aproveitar a alta cadência em curta distância.",
-      "source": "https://www.reddit.com/r/Battlefield6/comments/1wf0w98/which_lmg/"
+      "advice": "Para curto alcance, a comunidade trata a M123K como uma das melhores opções e recomenda enfatizar mobilidade, com empunhadura e mira que acelerem a resposta; para médias distâncias, aparecem cano pesado e rajadas controladas para aproveitar o baixo recuo. Em funções contra veículos aéreos, também foi citada a combinação de cano estendido com carregador de 200 tiros.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1u2341p/what_lmgs_are_peoples_recommendations_for_aa/"
     },
     {
       "weapon": "m250",
-      "advice": "A montagem mais citada para jogar de média e longa distância usa compensador com supressor de clarão, cano pesado, carregador de 100 tiros e mira de médio alcance; isso ajuda a controlar o recuo visual e evita que a arma fique limitada pelo carregador de 50 tiros, aproveitando o dano consistente em todas as distâncias.",
-      "source": "https://www.reddit.com/r/Battlefield/comments/1wab6w2/the_m250_doesnt_feel_ya_know/"
+      "advice": "A preferência recente é montar a M250 para médias e longas distâncias, com mira de 3,5x, compensador ou freio de boca e carregador de 100 tiros. Essa configuração aproveita o dano consistente em qualquer distância e reduz o coice inicial, compensando a capacidade menor e a recarga mais lenta do carregador padrão.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1xaj5u/sell_me_on_other_lmg/"
     },
     {
       "weapon": "svdm",
@@ -163,43 +163,43 @@
     },
     {
       "weapon": "grt-cps",
-      "advice": "A recomendação é montar o GRT-CPS em torno de estabilidade e capacidade: cano voltado ao controle, empunhadura estabilizadora, munição de maior capacidade ou carregador ampliado e uma mira de aumento médio. A configuração aceita o dano menor da arma em troca de recuo previsível, mais tiros disponíveis e maior consistência em trocas prolongadas.",
-      "source": "https://timesaver.gg/blog/battlefield-6-best-dmr-loadout-svdm"
+      "advice": "A recomendação atual prioriza cano de 20 polegadas, empunhadura angulada, munição de polímero e supressor leve, com mira de aumento moderado. O conjunto busca preservar alcance e controle enquanto reduz o som e o recuo, corrigindo a tendência da arma a perder consistência em trocas de média e longa distância.",
+      "source": "https://battlefieldmeta.gg/best-loadouts/grt-cps"
     },
     {
       "weapon": "psr",
-      "advice": "A comunidade e os guias recentes favorecem cano longo, empunhadura angular, munição de precisão de longo alcance, supressor, revestimento antirreflexo e mira de 8x, com telêmetro opcional. A montagem prioriza velocidade do projétil, estabilidade e discrição para corrigir o desempenho inconsistente em tiros distantes.",
+      "advice": "A comunidade recomenda cano longo, munição de precisão, supressor padrão, empunhadura angular, mira de alta ampliação e telêmetro. O conjunto maximiza velocidade do projétil e estabilidade para tiros de longa distância, enquanto o supressor reduz a exposição no minimapa.",
       "source": "https://battlefieldmeta.gg/best-loadouts/psr"
     },
     {
       "weapon": "mini-scout",
-      "advice": "A comunidade recomenda uma mira térmica de 6x para jogar em média distância, aproveitando a velocidade de recarga e o tiro na cabeça para pressionar os objetivos. A preferência pela térmica melhora a identificação dos inimigos e facilita o uso agressivo sem transformar a arma em uma escolha exclusivamente de longo alcance.",
-      "source": "https://www.reddit.com/r/Battlefield6/comments/1vpmpc4/thought_of_this_while_playing/"
+      "advice": "Prefere-se cano estendido, munição de alta velocidade, supressor padrão, carregador ampliado, mira de 6x, revestimento antirreflexo e telêmetro. A montagem preserva a mobilidade e a velocidade de mira da arma, mas corrige sua queda de projétil e melhora a capacidade para vários alvos.",
+      "source": "https://battlefieldmeta.gg/best-loadouts/mini-scout"
     },
     {
       "weapon": "l115",
-      "advice": "Não encontrei evidência recente suficiente, nos últimos 30 dias, para sustentar uma montagem comunitária completa no multiplayer; há apenas menções a preferência por visores variáveis, sem consenso sobre boca, cano, empunhadura ou munição.",
-      "source": "https://www.reddit.com/r/Battlefield6/comments/1vkc706/l115_sniper_rifle/"
+      "advice": "A recomendação mais consistente é cano longo, munição de precisão, supressor padrão, empunhadura angular, carregador de cinco tiros, mira de 6x, revestimento antirreflexo e telêmetro. Isso reforça o papel de sniper de longo alcance, aumentando velocidade do projétil, precisão e discrição sem sacrificar tanto a ergonomia.",
+      "source": "https://battlefieldmeta.gg/best-loadouts/l115"
     },
     {
       "weapon": "interdictor",
-      "advice": "Não há consenso de montagem competitiva no multiplayer recente: a recomendação recorrente é evitar a arma, porque ela tem mira mais lenta, baixa cadência, recarga demorada, pouca munição e não permite manter a mira ao recarregar o ferrolho. Quando usada, a comunidade tende a priorizar mira de longo alcance, supressor e munição que preserve o desempenho balístico, mas isso não corrige os problemas ",
-      "source": "https://www.reddit.com/r/Battlefield/comments/1vs03mb/hows_everyone_else_liking_the_interdictor_so_far/"
+      "advice": "Para torná-lo menos lento, jogadores vêm usando cano leve, carregador de três tiros e laser violeta; outra opção é trocar o cano leve por um cano estendido e munição de longo alcance para compensar a velocidade baixa do projétil. A primeira configuração melhora mira e mobilidade, atacando os maiores problemas da arma, mas reduz seu desempenho em distância.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1w47gf6/interdictor_i_rather_die_than_picking_you_up_ever/"
     },
     {
       "weapon": "m1014",
-      "advice": "Para multiplayer de curta distância, a recomendação recente é supressor para combate aproximado, cano padrão de 18,5 polegadas, empunhadura curta, tubo de seis cartuchos, munição de chumbo grosso e mira aberta. O conjunto melhora a consistência do disparo, a capacidade antes de recarregar e a eficácia no quadril.",
-      "source": "https://battlefinity.gg/weapon/BF6/m1014"
+      "advice": "A montagem mais recomendada leva cano de 18,5 polegadas, supressor para combate aproximado, empunhadura curta, munição de chumbo, tubo de seis cartuchos, mira simples e laser verde. Ela aumenta a consistência do disparo de quadril e a capacidade antes de recarregar, corrigindo a limitação do carregador tubular.",
+      "source": "https://battlefieldmeta.gg/best-loadouts/m1014"
     },
     {
       "weapon": "18-5ks-k",
-      "advice": "A recomendação recente é usar munição de chumbo grosso calibre 00, que transforma a arma em uma opção muito mais consistente no combate próximo e permite derrubar inimigos em dois ou três disparos até cerca de 25 metros. A escolha corrige a perda de eficiência da arma fora do alcance imediato sem depender de recargas frequentes.",
-      "source": "https://www.reddit.com/r/Battlefield6/comments/1vobb4t/what_are_your_favoritebest_weapons_to_use_in/"
+      "advice": "A comunidade e os guias recentes priorizam cano de 430 milímetros, supressor para combate aproximado, empunhadura curta, munição de chumbo, carregador de quatro tiros, mira simples e laser verde. O foco é manter o espalhamento controlável e a letalidade a curta distância, sem transformar a arma em uma opção de médio alcance.",
+      "source": "https://battlefieldmeta.gg/best-loadouts/185ks-k"
     },
     {
       "weapon": "m87a1",
-      "advice": "A recomendação recente para multiplayer é usar cano longo, tubo de 7 cartuchos, empunhadura angular ajustável, supressor para combate aproximado, munição flechette e mira de ferro. Essa combinação amplia a consistência e o alcance efetivo dos disparos, melhora o controle e mantém a arma discreta em combates fechados.",
-      "source": "https://astroboost.gg/tools/bf6-loadouts/m87a1"
+      "advice": "A combinação mais apoiada recentemente é munição de chumbo grosso, supressor para combate próximo, cano estendido, empunhadura angulada, laser verde e tubo de cinco cartuchos. Ela mantém o alto dano no curto alcance, melhora a consistência do disparo sem mirar e reduz a necessidade de recarregar após cada eliminação.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1vr4dan/dont_think_ill_top_this_win/"
     },
     {
       "weapon": "db-12",
@@ -233,8 +233,8 @@
     },
     {
       "weapon": "vz-61",
-      "advice": "A recomendação atual é usar carregador de 20 tiros, munição comum ou perfurante, supressor e mira aberta; o carregador corrige a baixa capacidade, enquanto o supressor mantém a arma discreta sem sacrificar o papel de submetralhadora de emergência em curta distância.",
-      "source": "https://wzstats.gg/battlefield-6/best-loadouts/vz-61"
+      "advice": "Priorize o carregador estendido; a comunidade considera essa a melhoria essencial porque o carregador inicial é pequeno e a arma precisa de muitos disparos para eliminar um inimigo. O restante pode ficar simples, já que a função principal é servir como arma reserva de curta distância e permitir continuar atirando sem recarregar no meio do combate.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1vcdbzz/pistol_rankings_use_cases/"
     },
     {
       "weapon": "b36a4",
@@ -248,23 +248,23 @@
     },
     {
       "weapon": "drs-iar",
-      "advice": "A comunidade tem preferido uma montagem de médio alcance com supressor comum, cano pesado, empunhadura vertical ou angulada e carregador de 36 tiros; isso reduz o recuo e melhora a consistência sem transformar a arma em uma LMG lenta. Também aparecem montagens mais agressivas com cano leve, empunhadura angulada e munição leve, focadas em mobilidade e mira rápida.",
-      "source": "https://www.reddit.com/r/Battlefield6/comments/1ryz72a/my_drs_best_build/"
+      "advice": "Para jogar agressivo, a comunidade recomenda uma configuração de curto alcance com mira de baixa ampliação, laser e empunhadura que acelere a mira; em combates mais longos, prefira cano pesado e controle de recuo, usando rajadas em vez de fogo contínuo. Isso corrige a dispersão e o recuo que aparecem quando se tenta usar a arma como uma LMG de distância.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1wf0w98/which_lmg/"
     },
     {
       "weapon": "kts100-mk8",
-      "advice": "A comunidade tende a montar a KTS100 MK8 para médio e longo alcance, priorizando cano que aumente a precisão e empunhadura que reduza o recuo; a arma já tem recuo muito controlável, então o objetivo é transformá-la em uma plataforma de tiro sustentado e controle de área, compensando a baixa cadência.",
-      "source": "https://www.reddit.com/r/Battlefield6/comments/1w7uxz8/lf_weapon_recommendations_for_support_player/"
+      "advice": "A evidência recente encontrada sustenta a KTS100 como arma de controle e domínio de linhas, mas não traz uma recomendação de acessórios suficientemente recente e específica para cumprir o critério desta pesquisa; por isso, ela foi deixada de fora.",
+      "source": "https://wzstats.gg/battlefield-6/multiplayer/best-gun/best-lmg-in-battlefield"
     },
     {
       "weapon": "rpkm",
-      "advice": "A evidência recente aponta para uma configuração de curta distância focada em tiro de quadril, usando empunhadura e acessórios que aumentem essa precisão; ela transforma a RPKM em uma opção agressiva para limpar salas, embora a fonte não detalhe uma combinação completa de peças.",
-      "source": "https://www.reddit.com/r/Battlefield6/comments/1vv6rod/the_hip_fire_amount_on_this_rpkm_build_is_crazy/"
+      "advice": "A recomendação recente é usar mira de 3,5x ou 4x e uma configuração voltada para controle, aproveitando a estabilidade para dominar médias e longas distâncias; carregadores de capacidade intermediária também aparecem como escolha prática para reduzir o tempo de recarga. A montagem corrige a dificuldade de acompanhar alvos móveis sem sacrificar o alcance.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1xaj5u/sell_me_on_other_lmg/"
     },
     {
       "weapon": "l110",
-      "advice": "A L110 é montada como uma metralhadora de sustentação: carregador de 100 tiros, cano pesado, compensador com supressor de clarão, empunhadura vertical e mira variável de médio alcance; a configuração corrige parte do recuo e da dispersão, preservando a grande capacidade para travar corredores e objetivos.",
-      "source": "https://www.reddit.com/r/Battlefield6/comments/1w8ep41/i_tried_making_some_builds_to_try_to_match_75th/"
+      "advice": "A comunidade continua usando a L110 como uma LMG versátil, especialmente com carregador de cinta de 100 tiros, bipé para médias distâncias e uma mira de baixa ampliação ou térmica; a montagem deve priorizar controle, precisão e velocidade do projétil. Isso transforma a arma em uma plataforma de supressão estável, corrigindo sua dispersão durante fogo prolongado.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1u6xfst/i_wanna_be_able_to_use_this_gun_but_its_awful/"
     },
     {
       "weapon": "m60",
@@ -273,18 +273,18 @@
     },
     {
       "weapon": "m240l",
-      "advice": "Para curto/médio alcance, a comunidade tende a usar compensador ou supressor leve, empunhadura vertical, carregador estendido e mira de 1,5x a 2x; o foco é controlar o recuo e aumentar a capacidade sem perder mobilidade. O carregador de 75 tiros aparece como prioridade para reduzir a frequência das recargas.",
+      "advice": "A comunidade vem tratando a M240L como uma LMG de médio alcance: priorize peças de controle de recuo, uma mira de baixa ampliação e carregador ampliado quando disponível. Isso reduz a dispersão e torna mais consistente o dano da arma em rajadas controladas, sem transformá-la numa arma de curta distância.",
       "source": "https://www.reddit.com/r/Battlefield6/comments/1wf0w98/which_lmg/"
     },
     {
       "weapon": "m121-a2",
-      "advice": "A montagem mais recomendada é voltada para combate próximo/médio: empunhadura vertical, carregador estendido e mira de baixa ampliação, usando compensador para suavizar o recuo lateral. A arma já tem ótimo dano e cadência, então a comunidade compensa principalmente o recuo e a recarga longa.",
-      "source": "https://www.reddit.com/r/Battlefield6/comments/1v4jxfyo/any_lmg_build_recommendations/"
+      "advice": "A recomendação recente é montar a M121 A2 para médio alcance, com compensador ou outra peça de controle de recuo, mira de baixa ampliação e carregador ampliado. O objetivo é compensar o recuo lateral e o recarregamento mais demorado, aproveitando a cadência alta e o bom dano em combates próximos.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1wf0w98/which_lmg/"
     },
     {
       "weapon": "rpk-74m",
-      "advice": "Para uma configuração agressiva, a comunidade recomenda laser de alta potência, empunhadura inclinada ou empunhadura para tiro sem mirar, mira térmica de 1,5x e carregador estendido; isso transforma a arma em uma opção forte no hipfire sem deixá-la inútil à distância. Para mapas maiores, guias recentes preferem supressor, cano longo, empunhadura vertical, munição perfurante e mira de aproximadamen",
-      "source": "https://battlefield-6.wiki/tools/loadouts/"
+      "advice": "Para a RPK-74M, jogadores recomendam uma mira térmica de baixa ampliação, empunhadura inclinada e laser verde de baixa potência, formando uma configuração híbrida de tiro pelo quadril e médio alcance. Essa montagem melhora a eficácia em corredores e combates próximos sem abandonar o recuo controlável da arma.",
+      "source": "https://www.reddit.com/r/Battlefield6/comments/1wf0w98/which_lmg/"
     },
     {
       "weapon": "lmr27",
@@ -293,12 +293,12 @@
     },
     {
       "weapon": "m39-emr",
-      "advice": "A montagem mais consistente usa cano estendido, empunhadura vertical de baixo perfil, munição FMJ, compensador e carregador de 20 tiros com mira de aproximadamente 3x; ela reduz o recuo, melhora a velocidade do projétil e dá mais margem para errar um disparo. Para uma versão agressiva, a comunidade também usa cano curto, laser de alta potência, empunhadura leve, munição de polímero e mira de 3x, c",
-      "source": "https://battlefieldmeta.gg/best-loadouts/m39-emr"
+      "advice": "A montagem recente mais repetida combina munição de ponta oca com mira de 4x a 6x; a munição reduz a quantidade de disparos necessários, enquanto a mira cobre o médio e o longo alcance. Para uma versão mais versátil, também aparece a combinação de supressor leve, cano estendido e mira variável de baixa ampliação.",
+      "source": "https://www.reddit.com/r/Battlefield/comments/1vjfjos/trying_to_level_up_m39_emr_looking_for_tips_cuz_its_taking_forever/"
     },
     {
       "weapon": "m2010-esr",
-      "advice": "Para multiplayer, a recomendação recente é montar a M2010 ESR para longo alcance, usando uma mira de 6x, 8x ou 10x; o zoom maior aproveita a alta velocidade do projétil e facilita os tiros na cabeça à distância.",
+      "advice": "A montagem mais votada usa supressor, cano longo, empunhadura angulada, carregador rápido de 5 tiros, munição de precisão, mira de 8x e revestimento antirreflexo. A ideia é aumentar velocidade do projétil e alcance efetivo, acelerar a operação e diminuir o brilho da luneta, corrigindo a baixa mobilidade e a exposição do atirador.",
       "source": "https://www.bf6loadouts.com/weapons/m2010-esr"
     },
     {
@@ -319,64 +319,64 @@
   ],
   "sources": [
     {
-      "name": "Discussão recente sobre a AK4D",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1w7oxr5/i_see_very_few_people_using_the_ak4d_is_there/",
+      "name": "Discussão recente sobre AK4D",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1w7oxr5/i_see_very_few_people_using_the_ak4d/",
       "date": "2026-09-05"
     },
     {
-      "name": "NVO-228E e dispersão",
-      "url": "https://www.reddit.com/r/Battlefield/comments/1w3aqe6/nvo228e_has_way_too_much_dispersion_for_what_it_is/",
-      "date": "2026-08-31"
+      "name": "Meta multiplayer BF6",
+      "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
+      "date": "2026-09-19"
     },
     {
-      "name": "EF88 e montagem versátil",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1v96ymt/how_to_find_your_way_in_this_game/",
-      "date": "2026-09-06"
+      "name": "KORD 6P67 — builds",
+      "url": "https://wzstats.gg/battlefield-6/best-loadouts/kord-6p67",
+      "date": "2026-09-19"
     },
     {
-      "name": "M16A4: configurações recentes",
-      "url": "https://www.reddit.com/r/Battlefield/comments/1v04lde/best-m16a4-build-for-bf6/",
-      "date": "2026-08-20"
+      "name": "NVO-228E — builds",
+      "url": "https://wzstats.gg/battlefield-6/best-loadouts/nvo-228e",
+      "date": "2026-09-19"
     },
     {
-      "name": "VCR-2: discussão recente",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1wfgjml/vcr2_is_still_unavailable/",
-      "date": "2026-09-13"
-    },
-    {
-      "name": "M277 Mastery 250",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1vw7u7u/m277_mastery_250/",
-      "date": "2026-08-23"
-    },
-    {
-      "name": "BROD 3 em CQB",
-      "url": "https://www.reddit.com/r/BF6/comments/1vt7b07/fav_cqb_builds/",
-      "date": "2026-08-20"
-    },
-    {
-      "name": "Alternativas ao SCW-10",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1vtmufr/any_replacement_for_the_scw10/",
-      "date": "2026-08-20"
-    },
-    {
-      "name": "Battlefield Meta — SGX",
-      "url": "https://battlefieldmeta.gg/best-loadouts/sgx",
-      "date": "2026-09-17"
-    },
-    {
-      "name": "Battlefield Meta — SL9",
-      "url": "https://battlefieldmeta.gg/best-loadouts/sl9",
+      "name": "EF88 — builds",
+      "url": "https://wzstats.gg/battlefield-6/best-loadouts/ef88",
       "date": "2026-09-18"
     },
     {
-      "name": "Battlefield Meta — UMG-40",
-      "url": "https://battlefieldmeta.gg/best-loadouts/umg-40",
-      "date": "2026-09-18"
+      "name": "VCR-2 — builds",
+      "url": "https://wzstats.gg/battlefield-6/best-loadouts/vcr-2",
+      "date": "2026-09-19"
     },
     {
-      "name": "Battlefield Meta — USG-90",
-      "url": "https://battlefieldmeta.gg/best-loadouts/usg-90",
-      "date": "2026-09-16"
+      "name": "M16A4 — builds",
+      "url": "https://wzstats.gg/battlefield-6/best-loadouts/m16a4",
+      "date": "2026-09-19"
+    },
+    {
+      "name": "M4A1 — builds",
+      "url": "https://wzstats.gg/battlefield-6/best-loadouts/m4a1",
+      "date": "2026-09-19"
+    },
+    {
+      "name": "Guia de carregamentos da Temporada 4",
+      "url": "https://battlefield-6.wiki/tools/loadouts/",
+      "date": "2026-09-12"
+    },
+    {
+      "name": "QBZ-192 recomendado pela comunidade",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1vxvtvv/which_carbine_is_most_like_the_b36/",
+      "date": "2026-08-25"
+    },
+    {
+      "name": "Configurações da SOR-300SC",
+      "url": "https://www.reddit.com/r/LowSodiumBattlefield/comments/1vxt6y9/sor_300sc_builds/",
+      "date": "2026-08-25"
+    },
+    {
+      "name": "Armas favoritas e configurações",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1vobb4t/what_are_your_favoritebest_weapons_to_use/",
+      "date": "2026-08-14"
     }
   ],
   "withoutEvidence": []
