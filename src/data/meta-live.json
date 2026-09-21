@@ -1,5 +1,5 @@
 {
-  "readAt": "2026-09-19",
+  "readAt": "2026-09-21",
   "model": "gpt-5.6-luna",
   "patch": {
     "name": "Atualização 1.4.3.0",
@@ -8,35 +8,56 @@
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "Está em 1º entre os fuzis de assalto na página de meta do multiplayer atualizada em 19/09/2026.",
+      "reason": "O rastreador de multiplayer atualizado em 21/09 coloca o M16A4 em #1 entre os fuzis de assalto, acima dos demais rifles da classe.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "Ocupa o 2º lugar entre os fuzis de assalto no ranking de multiplayer atualizado em 19/09/2026.",
+      "reason": "O ranking de multiplayer atualizado em 21/09 coloca o B36A4 em #2 entre os fuzis de assalto, sustentando-o como uma das principais opções da classe após a 1.4.3.0.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "É o SMG nº 1 no ranking geral de multiplayer atualizado em 19/09/2026.",
+      "reason": "O ranking específico de multiplayer coloca o PP-19 em #1 entre as submetralhadoras e no grupo geral de topo da página.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "kord-6p67",
+      "reason": "O KORD 6P67 aparece em #3 entre os fuzis de assalto no ranking de multiplayer atualizado em 21/09.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "É a metralhadora leve nº 1 no ranking atual de multiplayer e aparece entre as LMGs S-tier da análise de setembro.",
+      "reason": "O DRS-IAR ocupa #1 entre as metralhadoras leves no ranking de multiplayer atualizado em 21/09.",
       "sources": [
         0
       ]
     },
     {
-      "weapon": "m87a1",
-      "reason": "É a espingarda nº 1 no ranking de multiplayer atualizado em 19/09/2026.",
+      "weapon": "sgx",
+      "reason": "O SGX aparece em #2 entre as submetralhadoras no ranking de multiplayer atualizado em 21/09, atrás apenas do PP-19.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "qbz-192",
+      "reason": "O QBZ-192 ocupa #1 entre as carabinas no ranking de multiplayer atualizado em 21/09.",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "pw5a3",
+      "reason": "O PW5A3 aparece em #3 entre as submetralhadoras no ranking de multiplayer atualizado em 21/09.",
       "sources": [
         0
       ]
@@ -44,81 +65,57 @@
   ],
   "trending": [
     {
-      "weapon": "cz3a1",
-      "reason": "Foi citada na discussão comunitária de retorno à Temporada 4 como uma das armas meta e como opção de curto alcance.",
+      "weapon": "m16a4",
+      "reason": "A medição comunitária publicada em 18/09 registra 5,5% de escolha para o M16A4 no intervalo de 10/09 a 17/09.",
       "sources": [
         3
       ],
-      "trend": "build de curta distância"
+      "trend": "pick rate de fuzil de assalto"
     },
     {
-      "weapon": "m433",
-      "reason": "A discussão comunitária de 01/09 inclui a M433 entre as armas que os jogadores estavam considerando para a meta da Temporada 4.",
+      "weapon": "pp-19",
+      "reason": "A mesma medição comunitária da semana de 10/09 a 17/09 lista o PP-19 entre as principais escolhas de submetralhadora.",
       "sources": [
         3
       ],
-      "trend": "lista de armas meta da Temporada 4"
-    },
-    {
-      "weapon": "brod-3",
-      "reason": "A análise pós-Tidal Strike destaca que a correção do Match Trigger em 1.4.2.5 alterou a build full-auto da BROD 3, mantendo o assunto ativo na conversa de meta.",
-      "sources": [
-        2
-      ],
-      "trend": "correção de Match Trigger"
-    },
-    {
-      "weapon": "ef88",
-      "reason": "A mesma análise registra a correção do Match Trigger em 1.4.2.5 para a EF88, tema ainda associado às discussões recentes de builds após a Temporada 4.",
-      "sources": [
-        2
-      ],
-      "trend": "correção de Match Trigger"
-    },
-    {
-      "weapon": "pw5a3",
-      "reason": "A análise de setembro descreve a PW5A3 como o SMG que subiu para S-tier, tornando-a um foco recente de builds e discussão.",
-      "sources": [
-        2
-      ],
-      "trend": "SMG S-tier"
+      "trend": "pick rate de submetralhadora"
     }
   ],
   "sources": [
     {
-      "name": "WZStats multiplayer meta",
+      "name": "WZStats Multiplayer Meta",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-09-19",
+      "date": "2026-09-21",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Ranking atualizado exclusivamente para o multiplayer tradicional, separado de REDSEC.",
+      "scope": "Ranking atualizado arma por arma no caminho exclusivo do multiplayer tradicional.",
       "timeframe": "season-4"
     },
     {
-      "name": "Battlefield 6 multiplayer AR ranking",
+      "name": "WZStats Best Multiplayer Assault Rifles",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/best-gun/best-assault-rifles-in-battlefield",
-      "date": "2026-09-19",
+      "date": "2026-09-20",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Ordem completa dos fuzis de assalto no multiplayer tradicional.",
+      "scope": "Ranking específico dos fuzis de assalto no multiplayer tradicional.",
       "timeframe": "season-4"
     },
     {
-      "name": "BF6 weapon tier list September 2026",
-      "url": "https://battlefield-6.wiki/tier-list/weapons/",
-      "date": "2026-09-15",
+      "name": "BF6 Balance Log",
+      "url": "https://bf6balancelog.com/",
+      "date": "2026-09-21",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Análise pós-Tidal Strike voltada a All-Out Warfare, não à tabela de saque de REDSEC.",
+      "scope": "Histórico transcrito de alterações oficiais de armas e acessórios; usado como referência de patch do multiplayer.",
       "timeframe": "season-4"
     },
     {
-      "name": "Discussão comunitária sobre meta da Temporada 4",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1v745rt/getting_back_to_bf6_after_season_4_what_are_the_meta_guns_after_patches/",
-      "date": "2026-09-01",
+      "name": "Battlefield 6 weapon pick rates 9/10/26–9/17/26",
+      "url": "https://www.reddit.com/r/Battlefield/comments/1wjhakc/battlefield_6_class_and_weapon_pick_rates_9_10_26-9_17_26/",
+      "date": "2026-09-18",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Conversa recente da comunidade sobre armas usadas e consideradas meta na Temporada 4.",
+      "scope": "Medição comunitária recente de escolhas de armas, sem separar REDSEC como base da leitura apresentada.",
       "timeframe": "season-4"
     }
   ]
