@@ -1,5 +1,5 @@
 {
-  "readAt": "2026-09-21",
+  "readAt": "2026-09-22",
   "model": "gpt-5.6-luna",
   "patch": {
     "name": "Atualização 1.4.3.0",
@@ -8,56 +8,56 @@
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "O rastreador de multiplayer atualizado em 21/09 coloca o M16A4 em #1 entre os fuzis de assalto, acima dos demais rifles da classe.",
+      "reason": "Está em #1 entre os fuzis de assalto na página de meta multiplayer atualizada em 22/09/2026, depois da 1.4.3.0.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "O ranking de multiplayer atualizado em 21/09 coloca o B36A4 em #2 entre os fuzis de assalto, sustentando-o como uma das principais opções da classe após a 1.4.3.0.",
+      "reason": "Está em #2 entre os fuzis de assalto na classificação de multiplayer atualizada em 22/09/2026.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "O ranking específico de multiplayer coloca o PP-19 em #1 entre as submetralhadoras e no grupo geral de topo da página.",
+      "reason": "Está em #1 entre as submetralhadoras na classificação de multiplayer atualizada em 22/09/2026.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "O KORD 6P67 aparece em #3 entre os fuzis de assalto no ranking de multiplayer atualizado em 21/09.",
+      "reason": "Está em #3 entre os fuzis de assalto e aparece na faixa principal da meta de multiplayer após a atualização 1.4.3.0.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "O DRS-IAR ocupa #1 entre as metralhadoras leves no ranking de multiplayer atualizado em 21/09.",
+      "reason": "Está em #1 entre as metralhadoras leves na classificação de multiplayer atualizada em 22/09/2026.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "sgx",
-      "reason": "O SGX aparece em #2 entre as submetralhadoras no ranking de multiplayer atualizado em 21/09, atrás apenas do PP-19.",
+      "reason": "Está em #2 entre as submetralhadoras na classificação de multiplayer atualizada em 22/09/2026.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "O QBZ-192 ocupa #1 entre as carabinas no ranking de multiplayer atualizado em 21/09.",
+      "reason": "Está em #1 entre as carabinas na classificação de multiplayer atualizada em 22/09/2026.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pw5a3",
-      "reason": "O PW5A3 aparece em #3 entre as submetralhadoras no ranking de multiplayer atualizado em 21/09.",
+      "reason": "Está em #3 entre as submetralhadoras e na faixa principal da meta de multiplayer atualizada em 22/09/2026.",
       "sources": [
         0
       ]
@@ -65,57 +65,57 @@
   ],
   "trending": [
     {
-      "weapon": "m16a4",
-      "reason": "A medição comunitária publicada em 18/09 registra 5,5% de escolha para o M16A4 no intervalo de 10/09 a 17/09.",
+      "weapon": "kord-6p67",
+      "reason": "Uma discussão recente da comunidade descreveu o KORD 6P67 como uma arma muito precisa e destacou seu uso com gatilho Match Trigger; o tópico teve 53 votos.",
       "sources": [
         3
       ],
-      "trend": "pick rate de fuzil de assalto"
+      "trend": "discussão sobre laser beam e build de alcance médio"
     },
     {
-      "weapon": "pp-19",
-      "reason": "A mesma medição comunitária da semana de 10/09 a 17/09 lista o PP-19 entre as principais escolhas de submetralhadora.",
+      "weapon": "m16a4",
+      "reason": "O levantamento comunitário de pick rates de 10/09 a 17/09 acompanha as escolhas de armas em Conquest, Breakthrough e Escalation durante a semana de lançamento da Tidal Strike.",
       "sources": [
-        3
+        2
       ],
-      "trend": "pick rate de submetralhadora"
+      "trend": "aparição entre as armas mais escolhidas"
     }
   ],
   "sources": [
     {
-      "name": "WZStats Multiplayer Meta",
+      "name": "WZStats multiplayer meta",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-09-21",
+      "date": "2026-09-22",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Ranking atualizado arma por arma no caminho exclusivo do multiplayer tradicional.",
+      "scope": "Classificação atualizada de armas exclusivamente no multiplayer tradicional.",
       "timeframe": "season-4"
     },
     {
-      "name": "WZStats Best Multiplayer Assault Rifles",
+      "name": "WZStats melhores fuzis de assalto",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/best-gun/best-assault-rifles-in-battlefield",
-      "date": "2026-09-20",
+      "date": "2026-09-22",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Ranking específico dos fuzis de assalto no multiplayer tradicional.",
+      "scope": "Ranking completo dos fuzis de assalto no caminho exclusivo de multiplayer.",
       "timeframe": "season-4"
     },
     {
-      "name": "BF6 Balance Log",
-      "url": "https://bf6balancelog.com/",
-      "date": "2026-09-21",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Histórico transcrito de alterações oficiais de armas e acessórios; usado como referência de patch do multiplayer.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Battlefield 6 weapon pick rates 9/10/26–9/17/26",
-      "url": "https://www.reddit.com/r/Battlefield/comments/1wjhakc/battlefield_6_class_and_weapon_pick_rates_9_10_26-9_17_26/",
+      "name": "Levantamento comunitário de pick rates",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1wjhc5n/battlefield_6_class_and_weapon_pick_rates_91026/",
       "date": "2026-09-18",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Medição comunitária recente de escolhas de armas, sem separar REDSEC como base da leitura apresentada.",
+      "scope": "Relato comunitário de uso em modos tradicionais como Conquest, Breakthrough e Escalation.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Discussão sobre KORD 6P67",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1v9b4tt/what_are_your_favoritebest_weapons_to_use_in/",
+      "date": "2026-08-14",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Discussão da comunidade sobre armas usadas no multiplayer.",
       "timeframe": "season-4"
     }
   ]
