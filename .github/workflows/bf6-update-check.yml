@@ -10,7 +10,7 @@
 # versão que não existe.
 #
 # Este workflow não escreve nada no repositório. Quem escreve é o de
-# processamento, e mesmo ele só escreve em branch.
+# processamento, que aplica e publica em `main` sem esperar revisão.
 
 name: Verificar atualização do BF6
 
@@ -25,16 +25,9 @@ concurrency:
   group: bf6-update-check
   cancel-in-progress: false
 
-# `pull-requests: read` está aqui porque declarar um bloco `permissions` zera
-# todo escopo que não aparece nele, e o `gh pr list` da última etapa precisa
-# desse. Hoje ele funciona sem: o repositório é público, e dado público o token
-# lê de qualquer jeito. É uma dependência que ninguém escolheu — no dia em que o
-# repositório virar privado, a etapa passa a responder 403 e nenhuma versão
-# nova é disparada, sem que nada aqui tenha mudado.
 permissions:
   contents: read
   actions: write
-  pull-requests: read
 
 jobs:
   verificar:
@@ -66,33 +59,12 @@ jobs:
           echo "versions=$versoes" >> "$GITHUB_OUTPUT"
           echo "Versões a processar: ${versoes:-nenhuma}"
 
-      # Uma execução por versão, da mais antiga para a mais nova: cada uma parte
-      # do estado deixado pela anterior.
-      #
-      # A lista chega por variável de ambiente, e não interpolada no meio do
-      # script: `${{ }}` cola o texto antes de o shell existir, então um valor
-      # torto viraria comando. Aqui ele é só um dado, e o `case` recusa o que
-      # não tiver a cara de uma versão da EA.
-      #
-      # A busca por Pull Request aberto procura pelo branch, não pelo título: o
-      # `--search ... in:title` depende do índice de busca do GitHub, que demora
-      # a enxergar PR recém-aberto e devolvia vazio para um PR que existia.
+      # Um disparo só, sem versão: o processamento pega todas as que faltam, da
+      # mais antiga até a mais recente publicada até hoje, e publica em `main`.
+      # Um disparo por versão punha as execuções na mesma fila de concorrência,
+      # e o GitHub guarda só uma pendente — as do meio seriam canceladas.
       - name: Disparar o processamento
         if: steps.discover.outputs.versions != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VERSOES: ${{ steps.discover.outputs.versions }}
-        run: |
-          for versao in $VERSOES; do
-            case "$versao" in
-              [0-9]*.[0-9]*.[0-9]*.[0-9]*) ;;
-              *) echo "::warning::'$versao' não tem formato de versão — ignorada."; continue ;;
-            esac
-
-            if [ -n "$(gh pr list --state open --head "automation/bf6-update-$versao" --json number --jq '.[].number')" ]; then
-              echo "::notice::Já existe Pull Request aberto para $versao — pulando."
-              continue
-            fi
-            echo "Disparando processamento de $versao"
-            gh workflow run bf6-update-process.yml -f version="$versao"
-          done
+        run: gh workflow run bf6-update-process.yml

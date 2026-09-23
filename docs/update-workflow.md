@@ -47,27 +47,32 @@ Em `.github/workflows/`:
 | Arquivo | Quando | O que faz |
 | --- | --- | --- |
 | `bf6-update-check.yml` | a cada 6 h | pergunta à EA se há versão nova |
-| `bf6-update-process.yml` | disparado pelo anterior | processa e abre Pull Request |
-| `catalog-validation.yml` | em PR e push | valida o catálogo |
+| `bf6-update-process.yml` | disparado pelo anterior | processa todas as versões que faltam e publica em `main` |
+| `ci.yml` | em PR e push | testes, lint, tipos, build e arquivos gerados do catálogo |
 
-## A regra que não se quebra
+## Sem revisão manual
 
-**A automação nunca escreve em `main`.**
+A automação aplica e publica em `main` sozinha. O site não fica mais parado no
+patch anterior esperando alguém aprovar um Pull Request.
 
-Nem quando a mudança é óbvia, nem quando a validação passa limpa. O que sai do
-processamento é sempre um branch `automation/bf6-update/<versão>` e um Pull
-Request. O
-catálogo alimenta um site que diz às pessoas o que montar; uma leitura errada
-publicada sozinha é uma recomendação errada dada em nome do projeto.
+O que segura a publicação é a validação, não uma pessoa: testes, lint, tipos,
+compatibilidade e build rodam antes do push. Falhando qualquer um, nada vai para
+`main` e abre-se uma issue com o link da execução.
+
+O que o patch note diz com certeza (🟢) é aplicado. O que ele diz de forma
+ambígua (🟡) fica registrado no catálogo como evento `review` — marcado, nunca
+adivinhado.
 
 ## Verificação
 
 Roda de seis em seis horas e faz uma pergunta só: apareceu na página de
-novidades da EA algum número de versão que `data/versions` ainda não tem. Na
-maioria das execuções a resposta é não e o workflow termina em segundos.
+novidades da EA algum número de versão que `data/versions` ainda não tem, com
+data de publicação até hoje. Artigo com data futura fica para a rodada em que a
+data chegar.
 
-Quando há várias versões novas, o processamento é disparado uma vez por versão,
-da mais antiga para a mais nova.
+Quando há versões novas, o processamento é disparado **uma vez**, e processa
+todas elas da mais antiga até a mais recente: cada versão parte do estado da
+anterior, e é assim que a mudança entre uma atualização e outra entra inteira.
 
 Se a página responder e **nenhum** número de versão for encontrado, o workflow
 falha de propósito: isso não significa "não há patch", significa que a página
@@ -77,11 +82,9 @@ justamente quando o pipeline parou de enxergar.
 ## Processamento
 
 ```
-baixa patch note → lê → concilia → índices → valida
-      → diff → build → cobertura → branch → Pull Request
+baixa patch note → lê → concilia → índices → valida → diff → build
+      → cobertura → apelidos → auditoria de acessórios → checagens → push em main
 ```
-
-Branch: `automation/bf6-update-<versão>`.
 
 ## O que o patch note consegue aplicar sozinho
 
@@ -103,33 +106,18 @@ Rodar de novo não duplica nada:
 
 - versão já em `data/versions` é pulada;
 - patch note já baixado não é rebaixado;
-- Pull Request já aberto para a versão impede outro.
+- duas execuções nunca correm juntas: o processamento tem uma fila só.
 
-## Quando algo falha, não há Pull Request
+## Quando algo falha
 
-Testes, lint, tipos, validação e build rodam antes de abrir o PR. Falhando
-qualquer um, abre-se uma **issue** com o link da execução e o catálogo em `main`
-fica intacto. Um PR vermelho seria aprovado por engano num dia corrido; uma
-issue não se confunde com trabalho pronto.
+Nada é publicado: abre-se uma **issue** com o link da execução, e o site segue na
+última versão que passou.
 
 Um caso não é falha: patch note **sem mudanças de catálogo**. Um update de
 correções — deploy, animação, som, interface — legitimamente não altera arma
 nenhuma, e o pipeline segue com zero mudanças. O que separa isso de "o parser
 não entendeu" é a estrutura do texto: tendo changelog e seções, zero é resposta;
 não tendo, é falha.
-
-## O corpo do Pull Request
-
-Título: `feat(data): update Battlefield 6 to <versão>`
-
-Gerado por `scripts/catalog/pr-body.ts`. Traz o diff resumido, a contagem por
-nível e cada mudança com a frase de origem ao lado:
-
-```
-🟢 aplicadas automaticamente   3
-🟡 precisam de revisão         2
-🔴 não puderam ser lidas       0
-```
 
 ## Revisar
 

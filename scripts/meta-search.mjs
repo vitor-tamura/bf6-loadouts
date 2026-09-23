@@ -9,13 +9,17 @@
  * é onde a discussão acontece e onde as ferramentas de busca comuns não chegam
  * para robôs. O resultado vai para `src/data/meta-live.json`, que a tela lê.
  *
- * ## Por que OpenAI e não Gemini
+ * ## Por que OpenAI, e o Gemini só de reserva
  *
- * A versão anterior perguntava ao Gemini com a busca do Google ligada, numa
+ * A versão anterior perguntava só ao Gemini com a busca do Google ligada, numa
  * chave do free tier. Nunca publicou uma leitura: todas as execuções do
  * workflow falharam na chamada. Esta versão usa uma chave paga da OpenAI, e o
  * custo é de centavos: uma chamada por dia, com uma busca (~US$ 0,01) e um
  * punhado de tokens.
+ *
+ * O Gemini gratuito voltou como reserva, e só para o dia em que o crédito da
+ * OpenAI acabar — ver `meta/provedores.mjs`. A resposta dele passa pelas
+ * mesmas travas, e a leitura gravada diz qual modelo a escreveu.
  *
  * ## O que impede bobagem de entrar
  *
@@ -43,8 +47,8 @@ import {
   montarLeitura,
 } from './meta/leitura.mjs';
 import { briefingDoPatch, patchAtual } from './meta/patch-atual.mjs';
+import { candidatos, perguntarComBusca, temAlgumaChave } from './meta/provedores.mjs';
 
-const API_KEY = process.env.OPENAI_API_KEY;
 const DESTINO = new URL('../src/data/meta-live.json', import.meta.url);
 
 function numeroConfig(valor, padrao) {
@@ -265,184 +269,6 @@ Responda SOMENTE com este JSON, sem cercas de código e sem texto antes ou depoi
 
 {"picks":[{"weapon":"NOME EXATO DA ARMA","reason":"o que mostra que ela está forte depois do patch e por que esta forte agora","source":"https://..."}],"trending":[{"weapon":"NOME EXATO DA ARMA","trend":"do que se fala nela","reason":"onde a conversa ou o uso recente foi visto","source":"https://..."}],"sources":[{"name":"nome curto da fonte","url":"https://...","date":"YYYY-MM-DD","scope":"por que essa fonte vale para o multiplayer"}]}`;
 
-const esperar = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-function retryDepoisMs(resposta, mensagem, tentativa) {
-  const header = resposta.headers.get('retry-after');
-  if (header && !Number.isNaN(Number(header))) return Number(header) * 1000;
-
-  const match = mensagem.match(/try again in ([0-9.]+)s/i);
-  if (match) return Math.ceil(Number(match[1]) * 1000);
-
-  return Math.min(30_000, 1500 * 2 ** (tentativa - 1));
-}
-
-/*
- * Nada de modo JSON aqui.
- *
- * A API recusa o modo JSON junto com a busca — "Web Search cannot be used with
- * JSON mode" é o 400 que vinha derrubando esta rotina. Como a busca é o ponto
- * do script, quem sai é o modo JSON: o objeto vem em texto corrido e
- * `extrairJson` o recorta, que é para isso que ele existe.
- *
- * Raciocínio, esse convive com a busca — o comentário anterior dizia o
- * contrário e estava velho. Ele volta no ajuste mais baixo, e por economia:
- * `max_output_tokens` cobre raciocínio, busca e texto no mesmo bolo, e era o
- * raciocínio solto que consumia o orçamento do gpt-5-mini antes de sobrar
- * linha para a resposta.
- */
-
-/**
- * A ferramenta de busca tem dois nomes, e o certo depende da geração.
- *
- * `web_search` é o atual; os modelos gpt-4.1 conhecem a versão anterior,
- * `web_search_preview`, e diante do nome novo não chamavam ferramenta nenhuma
- * — respondiam de memória, que é como os dois caíam na trava do outro lado
- * mesmo com a busca marcada como obrigatória.
- */
-const ferramentaDeBusca = (modelo) =>
-  modelo.startsWith('gpt-5') || modelo.startsWith('o')
-    ? { type: 'web_search' }
-    : { type: 'web_search_preview' };
-
-/**
- * O esforço de raciocínio, dito em voz alta.
- *
- * Passou a ser obrigatório em vez de conveniente: o `gpt-5.6-luna` tem
- * `medium` como padrão, e `max_output_tokens` cobre raciocínio, busca e texto
- * no mesmo bolo. Deixar no padrão é reviver o erro que já derrubou esta rotina
- * — o modelo pensa até o teto e a mensagem chega vazia, que sobe daqui como
- * "resposta cortada" e custa a rodada inteira.
- *
- * `low` e não `none` porque conciliar oito armas com o que a busca trouxe é
- * onde um pouco de deliberação paga; o que não cabe é deliberação solta.
- */
-const raciocinio = (modelo) =>
-  modelo.startsWith('gpt-5') ? { reasoning: { effort: 'low' } } : {};
-
-function payload(modelo) {
-  return {
-    model: modelo,
-    tools: [ferramentaDeBusca(modelo)],
-    ...raciocinio(modelo),
-    /*
-     * A busca é obrigatória, não uma opção.
-     *
-     * Com o padrão `auto`, o modelo decide se pesquisa — e decidia que não:
-     * respondia de memória, com a mesma cara segura. Uma leitura do meta sem
-     * página aberta não é leitura do meta.
-     *
-     * `'required'` e não `{ type: 'web_search' }`: a forma nomeada precisa
-     * bater com o nome da ferramenta na lista, e como esse nome muda conforme
-     * o modelo, ela erraria em metade da fila.
-     */
-    tool_choice: 'required',
-    input: PROMPT,
-    max_output_tokens: MAX_OUTPUT_TOKENS,
-    store: false,
-  };
-}
-
-async function chamarOpenAI(modelo, opcoes) {
-  const resposta = await fetch('https://api.openai.com/v1/responses', {
-    method: 'POST',
-    headers: {
-      authorization: `Bearer ${API_KEY}`,
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify(payload(modelo)),
-  });
-
-  const corpo = await resposta.json();
-  if (!resposta.ok || corpo.error) {
-    const erro = new Error(corpo.error?.message ? `${resposta.status} ${corpo.error.message}` : `${resposta.status} ${resposta.statusText}`);
-    erro.status = resposta.status;
-    erro.retryAfterMs = retryDepoisMs(resposta, erro.message, opcoes.tentativa);
-    throw erro;
-  }
-
-  // A resposta vem como uma lista de itens — raciocínio, chamadas de busca,
-  // mensagem. O texto está na mensagem, e os links que a busca abriu vêm como
-  // anotações `url_citation` penduradas nele.
-  // Resposta cortada tem diagnóstico próprio: o texto vem vazio ou pela metade,
-  // e sem esta checagem o erro que sobe é "resposta sem JSON" — que manda
-  // procurar defeito no prompt quando o que faltou foi orçamento.
-  if (corpo.status === 'incomplete') {
-    throw new Error(
-      `resposta cortada (${corpo.incomplete_details?.reason ?? 'motivo não informado'}) — ` +
-        `o teto é ${MAX_OUTPUT_TOKENS} tokens`,
-    );
-  }
-
-  const itens = corpo.output ?? [];
-  const mensagem = itens.find((item) => item.type === 'message');
-  const partes = (mensagem?.content ?? []).filter((p) => p.type === 'output_text');
-  const texto = partes.map((p) => p.text ?? '').join('');
-  const anotacoes = partes
-    .flatMap((p) => p.annotations ?? [])
-    .filter((a) => a.type === 'url_citation');
-
-  // A prova de que a busca rodou é o item `web_search_call` na resposta, e não
-  // a citação no texto. Os tipos vão junto: quando algo falha, é por eles que
-  // se vê o que o modelo fez em vez de adivinhar pelo texto que não veio.
-  const buscou = itens.some((item) => item.type === 'web_search_call');
-
-  /*
-   * O que a rodada custou, em números, no log.
-   *
-   * Sem isto, "está caro" é impressão e "ficou mais barato" é fé. As três
-   * parcelas não se comportam igual: a entrada cresce com o prompt e com o que
-   * a busca traz das páginas, o raciocínio some dentro da saída e é onde o
-   * orçamento evaporava, e as buscas são cobradas por chamada. Quem for
-   * apertar o custo depois precisa saber qual das três apertar.
-   */
-  const uso = corpo.usage ?? null;
-  const buscas = itens.filter((item) => item.type === 'web_search_call').length;
-
-  return {
-    texto,
-    anotacoes,
-    buscou,
-    tipos: [...new Set(itens.map((i) => i.type))],
-    custo: uso && {
-      entrada: uso.input_tokens ?? 0,
-      saida: uso.output_tokens ?? 0,
-      raciocinio: uso.output_tokens_details?.reasoning_tokens ?? 0,
-      buscas,
-    },
-  };
-}
-
-/**
- * Pergunta ao modelo, insistindo só onde insistir resolve.
- *
- * Limite de taxa é temporário e pede espera. Qualquer outra recusa é do
- * modelo, e quem cuida dela é a fila de `MODELOS` — repetir o mesmo pedido ao
- * mesmo modelo daria o mesmo 400.
- */
-async function perguntar(modelo) {
-  let ultimoErro = null;
-
-  for (let tentativa = 1; tentativa <= MAX_TENTATIVAS; tentativa += 1) {
-    try {
-      return await chamarOpenAI(modelo, { tentativa });
-    } catch (erro) {
-      ultimoErro = erro;
-
-      if (erro.status === 429 && tentativa < MAX_TENTATIVAS) {
-        console.warn(
-          `${modelo}: rate limit, aguardando ${Math.ceil(erro.retryAfterMs / 1000)}s antes de tentar de novo.`,
-        );
-        await esperar(erro.retryAfterMs);
-        continue;
-      }
-      throw erro;
-    }
-  }
-
-  throw ultimoErro;
-}
-
 function temMetaLiveValida() {
   try {
     const atual = JSON.parse(readFileSync(DESTINO, 'utf8'));
@@ -460,17 +286,21 @@ async function main() {
     return;
   }
 
-  if (!API_KEY) {
-    console.error('Falta OPENAI_API_KEY.');
+  if (!temAlgumaChave()) {
+    console.error('Falta OPENAI_API_KEY (ou GEMINI_API_KEY, para o modelo gratuito).');
     process.exit(1);
   }
 
   let ultimoErro = null;
 
-  for (const modelo of MODELOS) {
+  for await (const candidato of candidatos(MODELOS)) {
+    const { modelo } = candidato;
     try {
-      console.log(`Perguntando ao ${modelo}…`);
-      const { texto, anotacoes, buscou, tipos, custo } = await perguntar(modelo);
+      console.log(`Perguntando ao ${modelo} (${candidato.provedor})…`);
+      const { texto, anotacoes, buscou, tipos, custo } = await perguntarComBusca(candidato, PROMPT, {
+        maxOutputTokens: MAX_OUTPUT_TOKENS,
+        tentativas: MAX_TENTATIVAS,
+      });
       console.log(`  ${modelo}: ${tipos.join(', ') || 'resposta vazia'}${buscou ? '' : ' — sem busca'}`);
       if (custo) {
         console.log(

@@ -29,8 +29,8 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { WEAPONS } from '../src/data/weapons.ts';
 import { SHORT_CATEGORY_NAMES } from '../src/data/classes.ts';
 import { armaPorNome, extrairJson } from './meta/leitura.mjs';
+import { candidatos, perguntarComBusca, temAlgumaChave } from './meta/provedores.mjs';
 
-const API_KEY = process.env.OPENAI_API_KEY;
 const DESTINO = new URL('../src/data/builds-live.json', import.meta.url);
 
 function numeroConfig(valor, padrao) {
@@ -72,8 +72,6 @@ const MODELOS = (process.env.OPENAI_BUILDS_MODELS ?? 'gpt-5.6-luna')
  */
 const MAX_FONTES = 12;
 
-const espera = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
 /**
  * O nome da arma sem o rótulo que a própria pergunta pôs ali.
  *
@@ -83,17 +81,6 @@ const espera = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * recusada. Foi assim que 46 armas lidas viraram 3 gravadas.
  */
 const nomeDeArma = (bruto) => String(bruto ?? '').replace(/\s*\([^)]*\)\s*$/, '').trim();
-
-/* Mesmos ajustes do meta, pelos mesmos motivos: os modelos gpt-4.1 só conhecem
-   a busca pelo nome antigo, e o raciocínio disputa o teto de tokens com o
-   texto. Ver o cabeçalho de `payload` em scripts/meta-search.mjs. */
-const ferramentaDeBusca = (modelo) =>
-  modelo.startsWith('gpt-5') || modelo.startsWith('o')
-    ? { type: 'web_search' }
-    : { type: 'web_search_preview' };
-
-const raciocinio = (modelo) =>
-  modelo.startsWith('gpt-5') ? { reasoning: { effort: 'low' } } : {};
 
 function promptDoLote(armas) {
   const lista = armas
@@ -123,73 +110,32 @@ Responda SOMENTE com este JSON, sem cercas de código:
 {"builds":[{"weapon":"NOME DA ARMA, sem o rótulo entre parênteses","advice":"o que a comunidade monta nela e por quê","source":"https://..."}],"sources":[{"name":"nome curto da fonte","url":"https://...","date":"YYYY-MM-DD"}]}`;
 }
 
-async function chamar(modelo, prompt, tentativa) {
-  const resposta = await fetch('https://api.openai.com/v1/responses', {
-    method: 'POST',
-    headers: { authorization: `Bearer ${API_KEY}`, 'content-type': 'application/json' },
-    body: JSON.stringify({
-      model: modelo,
-      tools: [ferramentaDeBusca(modelo)],
-      ...raciocinio(modelo),
-      // Obrigatória, não opcional: com o padrão `auto` o modelo responde de
-      // memória e o arquivo passa a guardar palpite com cara de leitura.
-      tool_choice: 'required',
-      input: prompt,
-      max_output_tokens: MAX_OUTPUT_TOKENS,
-      store: false,
-    }),
-  });
-
-  const corpo = await resposta.json();
-  if (!resposta.ok || corpo.error) {
-    const erro = new Error(
-      corpo.error?.message
-        ? `${resposta.status} ${corpo.error.message}`
-        : `${resposta.status} ${resposta.statusText}`,
-    );
-    erro.status = resposta.status;
-    erro.esperar = /try again in ([0-9.]+)s/i.exec(erro.message)
-      ? Math.ceil(Number(/try again in ([0-9.]+)s/i.exec(erro.message)[1]) * 1000)
-      : Math.min(30_000, 1500 * 2 ** (tentativa - 1));
-    throw erro;
-  }
-
-  if (corpo.status === 'incomplete') {
-    throw new Error(
-      `resposta cortada (${corpo.incomplete_details?.reason ?? 'motivo não informado'}) — ` +
-        `o teto é ${MAX_OUTPUT_TOKENS} tokens`,
-    );
-  }
-
-  const itens = corpo.output ?? [];
-  const mensagem = itens.find((item) => item.type === 'message');
-  const partes = (mensagem?.content ?? []).filter((p) => p.type === 'output_text');
-
-  // Sem busca não houve leitura, e sim memória do modelo. O lote cai e o
-  // próximo modelo da fila tenta — a mesma trava do meta, e pela mesma prova:
-  // o `web_search_call`, não a citação, que o modelo pode simplesmente omitir.
-  if (!itens.some((item) => item.type === 'web_search_call')) {
-    throw new Error(`o modelo não chamou a busca (${[...new Set(itens.map((i) => i.type))].join(', ') || 'resposta vazia'})`);
-  }
-
-  return partes.map((p) => p.text ?? '').join('');
-}
-
+/**
+ * Pergunta pelo lote, descendo a fila até alguém responder com busca.
+ *
+ * A fila é a de `meta/provedores.mjs`: a OpenAI e, quando o crédito dela
+ * acaba, o Gemini gratuito — e esgotar num lote vale para os seguintes, que já
+ * começam pelo gratuito.
+ */
 async function perguntar(prompt) {
   let ultimoErro = null;
 
-  for (const modelo of MODELOS) {
-    for (let tentativa = 1; tentativa <= MAX_TENTATIVAS; tentativa += 1) {
-      try {
-        return { texto: await chamar(modelo, prompt, tentativa), modelo };
-      } catch (erro) {
-        ultimoErro = erro;
-        if (erro.status === 429 && tentativa < MAX_TENTATIVAS) {
-          await espera(erro.esperar ?? 1000);
-          continue;
-        }
-        break;
+  for await (const candidato of candidatos(MODELOS)) {
+    try {
+      const resposta = await perguntarComBusca(candidato, prompt, {
+        maxOutputTokens: MAX_OUTPUT_TOKENS,
+        tentativas: MAX_TENTATIVAS,
+      });
+
+      // Sem busca não houve leitura, e sim memória do modelo. O lote cai para o
+      // próximo da fila — a prova é a chamada de busca, não a citação, que o
+      // modelo pode simplesmente omitir.
+      if (!resposta.buscou) {
+        throw new Error(`o modelo não chamou a busca (${resposta.tipos.join(', ') || 'resposta vazia'})`);
       }
+      return { texto: resposta.texto, modelo: resposta.modelo };
+    } catch (erro) {
+      ultimoErro = erro;
     }
   }
 
@@ -206,8 +152,8 @@ function leituraAnterior() {
 }
 
 async function main() {
-  if (!API_KEY) {
-    console.error('OPENAI_API_KEY não definida.');
+  if (!temAlgumaChave()) {
+    console.error('OPENAI_API_KEY não definida (nem GEMINI_API_KEY, para o modelo gratuito).');
     process.exit(1);
   }
 

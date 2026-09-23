@@ -12,7 +12,7 @@
 # escrevendo em `main` disputam o push e a perdedora some sem aviso. Uma
 # execução por dia, os dois arquivos no mesmo commit.
 #
-# Diferente do `sync-data.yml`, este publica direto em `main`: o que ele grava é
+# Este publica direto em `main`: o que ele grava é
 # leitura de opinião pública, já filtrada contra o dataset — só entra arma que
 # existe no jogo —, e a tela diz na cara que a lista é automática. Segurar isso
 # atrás de um clique diário faria a tela congelar no último dia em que alguém
@@ -68,6 +68,8 @@ jobs:
       - name: Ler o meta do dia
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          # Reserva gratuita para quando o crédito da OpenAI acabar (scripts/meta/provedores.mjs).
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run meta:search
 
       # Roda mesmo que a leitura do meta falhe: são perguntas independentes, e
@@ -83,6 +85,8 @@ jobs:
         if: ${{ !cancelled() }}
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          # Reserva gratuita para quando o crédito da OpenAI acabar (scripts/meta/provedores.mjs).
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run builds:search ${{ inputs.apenasFaltantes && '-- --faltantes' || '' }}
 
       - name: Publicar em main se mudou

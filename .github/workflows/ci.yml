@@ -1,10 +1,11 @@
 # A rede de segurança de todo commit.
 #
-# Até agora ela não existia para o site: `catalog-validation.yml` roda em Pull
-# Request, mas só quando o diff toca `data/**`, `public/data/**` ou
-# `scripts/catalog/**`. Mudança em `src/` — o dataset das armas, os acessórios,
-# a tela — passava sem um teste rodar, e foi assim que o Gunsmith do site ficou
-# meses sem o Acessório Esquerdo da L115 com o repositório inteiro verde.
+# Antes havia um `catalog-validation.yml` à parte, que só rodava quando o diff
+# tocava `data/**`: mudança em `src/` passava sem um teste rodar, e foi assim
+# que o Gunsmith do site ficou meses sem o Acessório Esquerdo da L115 com o
+# repositório inteiro verde. Ele repetia testes e tipos daqui, e a única coisa
+# que só ele fazia — conferir que os arquivos gerados do catálogo estão
+# commitados — mora agora no fim deste job.
 #
 # São quatro perguntas, na ordem em que ficam mais caras de responder: o código
 # faz o que diz (testes), está escrito como o resto (lint), os tipos fecham, e o
@@ -16,7 +17,7 @@ name: CI
 
 on:
   push:
-    branches: [main, dev]
+    branches: [main]
   pull_request:
 
 # Push seguido de push na mesma branch não precisa das duas execuções: a
@@ -62,3 +63,23 @@ jobs:
       # de plantão a cadastrar peça sem conferir, só para voltar ao verde.
       - name: Compatibilidade do montador com as fontes
         run: npm run catalog:compat
+
+      # Índice e artefato do catálogo são derivados: se o que está commitado
+      # diferir do que o pipeline gera, o repositório tem duas versões dos fatos.
+      # `generatedAt` fica de fora porque muda a cada geração sem dado mudar, e
+      # arquivo novo é conferido à parte porque `git diff` não o enxerga.
+      - name: Arquivos gerados do catálogo em dia
+        run: |
+          npm run catalog:indexes
+          npm run catalog:validate
+          npm run catalog:build
+          novos=$(git ls-files --others --exclude-standard -- data/indexes public/data)
+
+          if ! git diff --quiet -I '"generatedAt"' -- data/indexes public/data || [ -n "$novos" ]; then
+            echo "::error::Os arquivos gerados estão defasados. Rode 'npm run catalog' e commite o resultado."
+            git diff --stat -- data/indexes public/data
+            [ -n "$novos" ] && printf 'Sem commitar:
+%s
+' "$novos"
+            exit 1
+          fi

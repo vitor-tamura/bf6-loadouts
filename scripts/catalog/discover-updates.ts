@@ -139,6 +139,21 @@ async function conferirComRegistro(publicadas: DiscoveredUpdate[], maisNova: str
   }
 }
 
+/**
+ * Só o que já saiu, contado a partir de hoje.
+ *
+ * O pipeline publica sozinho em `main` e processa até a versão mais recente, e
+ * "mais recente" é a de data mais nova que não passou de hoje. Artigo agendado
+ * — a EA às vezes anuncia o patch antes do dia — descreveria um jogo que ainda
+ * não está no ar; ele entra na rodada em que a data chegar. Sem data no cartão,
+ * vale o endereço, que já é a afirmação da EA de que a versão existe.
+ */
+export function ateHoje(updates: DiscoveredUpdate[], hoje = new Date().toISOString().slice(0, 10)) {
+  return updates.filter(
+    (update) => !update.publishedAt || !/^\d{4}-\d{2}-\d{2}$/.test(update.publishedAt) || update.publishedAt <= hoje,
+  );
+}
+
 export async function discover(): Promise<{
   known: string[];
   published: DiscoveredUpdate[];
@@ -157,7 +172,9 @@ export async function discover(): Promise<{
     );
   }
 
-  const published = [...daEa, ...soNoRegistro].sort((a, b) => compareVersions(a.version, b.version));
+  const published = ateHoje([...daEa, ...soNoRegistro]).sort((a, b) =>
+    compareVersions(a.version, b.version),
+  );
 
   return {
     known,

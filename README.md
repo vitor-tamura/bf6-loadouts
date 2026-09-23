@@ -40,8 +40,9 @@ npm run dev      # http://localhost:3000
 | `npm run docs:attachments` | regenera `ACESSORIOS.md` a partir do dataset |
 | `npm run docs:weapons` | regenera `ARMAS.md` a partir do dataset |
 
-A sincronização também roda sozinha toda segunda, pelo GitHub Actions, e abre um
-Pull Request quando o jogo muda alguma coisa — ver [`ATUALIZAR.md`](./ATUALIZAR.md).
+As atualizações do jogo entram sozinhas: a cada seis horas o GitHub Actions
+procura patch novo na EA, aplica e publica em `main` se testes e build passarem
+— ver [`docs/update-workflow.md`](./docs/update-workflow.md).
 
 ## Publicando
 
@@ -64,8 +65,8 @@ npx serve out    # conferência local do build
 ### Branches e versões
 
 Trabalho novo entra em `dev` e só vai para `main` depois de conferido — `main` é
-o que se publica. A sincronização automática de dados abre o Pull Request contra
-`dev` pelo mesmo motivo: dado de jogo também passa por teste.
+o que se publica. As automações de dados — patch do jogo e leitura diária do
+meta — são a exceção e publicam direto, depois de passar pelas próprias travas.
 
 A `main` é protegida: entra por Pull Request, com uma aprovação do dono do código
 (ver [`.github/CODEOWNERS`](./.github/CODEOWNERS)), sem force-push e sem apagar a
@@ -82,9 +83,10 @@ nenhuma.
 
 - **Base do produto publicada:** montador, catálogo e comparação funcionando em
 	produção na Vercel.
-- **Sincronização automática de dados:** workflow
-	[`.github/workflows/sync-data.yml`](./.github/workflows/sync-data.yml) executa
-	semanalmente, detecta diferenças no catálogo e abre Pull Request automático.
+- **Atualização automática do catálogo:** workflows
+	[`bf6-update-check.yml`](./.github/workflows/bf6-update-check.yml) e
+	[`bf6-update-process.yml`](./.github/workflows/bf6-update-process.yml)
+	detectam patch novo, aplicam e publicam em `main`.
 - **Fluxo de release automatizado:** workflow
 	[`.github/workflows/release.yml`](./.github/workflows/release.yml) cria tag e
 	release quando há mudança de versão no `package.json`.

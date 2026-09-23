@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { extractUpdates, toIsoDate } from './discover-updates.ts';
+import { ateHoje, extractUpdates, toIsoDate } from './discover-updates.ts';
 
 /**
  * O cartão da listagem da EA, reduzido ao que o extrator lê.
@@ -85,5 +85,23 @@ describe('data do cartão', () => {
   it('devolve o texto quando não reconhece o mês', () => {
     // Melhor um texto que não parece data do que uma data inventada.
     expect(toIsoDate('Agosto 3, 2026')).toBe('Agosto 3, 2026');
+  });
+});
+
+describe('ateHoje', () => {
+  const update = (version: string, publishedAt: string | null) => ({
+    version,
+    url: `https://www.ea.com/x/${version}`,
+    title: null,
+    publishedAt,
+  });
+
+  it('deixa para depois o artigo com data futura', () => {
+    const lista = [update('1.4.2.5', '2026-08-31'), update('1.4.3.0', '2026-09-23'), update('1.4.3.5', '2026-09-30')];
+    expect(ateHoje(lista, '2026-09-23').map((u) => u.version)).toEqual(['1.4.2.5', '1.4.3.0']);
+  });
+
+  it('não descarta versão cujo cartão veio sem data', () => {
+    expect(ateHoje([update('1.4.3.0', null), update('1.4.3.1', 'September 3')], '2026-09-23')).toHaveLength(2);
   });
 });

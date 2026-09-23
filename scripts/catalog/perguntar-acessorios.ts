@@ -39,8 +39,9 @@
  * O que a varredura não fechou vai para um modelo com busca ligada, que alcança
  * páginas que este ambiente não alcança. É o acesso que se terceiriza, não o
  * julgamento: o que volta é relato com endereço, e a escala de evidência do
- * ATUALIZAR.md continua valendo. Sem `OPENAI_API_KEY` esta etapa não roda, e a
- * varredura já terá escrito o que descobriu.
+ * ATUALIZAR.md continua valendo. Quem responde é a OpenAI e, quando o crédito
+ * dela acaba, o Gemini gratuito (`meta/provedores.mjs`). Sem nenhuma das duas
+ * chaves esta etapa não roda, e a varredura já terá escrito o que descobriu.
  *
  * ## O que a rotina não pode fazer
  *
@@ -66,8 +67,7 @@ import { WEAPONS } from '../../src/data/weapons.ts';
 import { fetchText, htmlToText } from './lib/http.ts';
 import { fonteAtiva } from './lib/sources.ts';
 import { DATA, INDEXES, log, readJson } from './lib/io.ts';
-
-const API_KEY = process.env.OPENAI_API_KEY;
+import { candidatos, perguntarComBusca, temAlgumaChave } from '../meta/provedores.mjs';
 
 /*
  * Um modelo só, o mesmo das leituras diárias. A varredura enumerada já fechou
@@ -371,37 +371,6 @@ Só este JSON, sem cercas de código e sem texto em volta:
 
 O id é o da lista acima, e é por ele que a resposta é casada — não troque por nome.`;
 
-async function perguntar(modelo: string, texto: string) {
-  const busca = modelo.startsWith('gpt-5') ? 'web_search' : 'web_search_preview';
-  const resposta = await fetch('https://api.openai.com/v1/responses', {
-    method: 'POST',
-    headers: { authorization: `Bearer ${API_KEY}`, 'content-type': 'application/json' },
-    body: JSON.stringify({
-      model: modelo,
-      tools: [{ type: busca }],
-      ...(modelo.startsWith('gpt-5') ? { reasoning: { effort: 'low' } } : {}),
-      tool_choice: 'required',
-      input: texto,
-      max_output_tokens: 4000,
-      store: false,
-    }),
-  });
-
-  const corpo = await resposta.json();
-  if (!resposta.ok || corpo.error) {
-    throw new Error(`${resposta.status} ${corpo.error?.message ?? resposta.statusText}`);
-  }
-
-  const saida = JSON.stringify(corpo.output ?? corpo);
-  const buscou = saida.includes('web_search_call');
-  const texto_ = (corpo.output ?? [])
-    .flatMap((item: { content?: { text?: string }[] }) => item.content ?? [])
-    .map((parte: { text?: string }) => parte.text ?? '')
-    .join('\n');
-
-  return { buscou, texto: texto_ };
-}
-
 function extrairJson(bruto: string) {
   const inicio = bruto.indexOf('{');
   const fim = bruto.lastIndexOf('}');
@@ -431,13 +400,17 @@ async function auditar(
   hoje: string,
 ): Promise<number | null> {
   let bruto: { pecas?: Resposta[] } | null = null;
+  const respondidoPor: string[] = [];
 
-  for (const modelo of MODELOS) {
+  for await (const candidato of candidatos(MODELOS)) {
+    const { modelo } = candidato;
     try {
-      const { buscou, texto } = await perguntar(
-        modelo,
+      const { buscou, texto } = await perguntarComBusca(
+        candidato,
         prompt(pendentes, hoje, investigacao.gameVersion),
+        { maxOutputTokens: 4000 },
       );
+      respondidoPor.push(modelo);
       if (!buscou) {
         log('recusado', { modelo, motivo: 'não chamou a busca — responderia de memória' });
         continue;
@@ -511,7 +484,7 @@ async function auditar(
 
   investigacao.perguntaAoModelo = {
     quando: hoje,
-    modelos: MODELOS,
+    modelos: respondidoPor,
     oQueFoiPedido: 'a lista de armas das peças que a varredura não achou, com a URL de onde ela saiu',
     pecas: pendentes.map((c) => c.nome),
     status: 'relatado — nada aqui é dado confirmado, e nada disso entra no dataset',
@@ -529,7 +502,7 @@ async function main(): Promise<void> {
     atualização sem uma linha de mudança. Sem PATCH_VERSION, vale a corrente.
   */
   const gameVersion =
-    process.env.PATCH_VERSION ??
+    process.env.PATCH_VERSION ||
     readJson<{ gameVersion: string }>(join(INDEXES, 'current.json')).gameVersion;
   const arquivo = join(DATA, 'compatibility', `acessorios-a-confirmar-${gameVersion}.json`);
   const investigacao = readJson<Investigacao>(arquivo);
@@ -591,9 +564,9 @@ async function main(): Promise<void> {
     return;
   }
 
-  if (!API_KEY) {
+  if (!temAlgumaChave()) {
     log('pergunta', {
-      pulada: 'sem OPENAI_API_KEY',
+      pulada: 'sem OPENAI_API_KEY nem GEMINI_API_KEY',
       pendentes: pendentes.map((c) => c.nome),
       comoRodar: 'OPENAI_API_KEY=... npm run catalog:perguntar-acessorios',
     });

@@ -11,9 +11,9 @@ npm run images:download    # busca a foto das armas que ainda não têm
 npm test                  # a rede de segurança
 ```
 
-No repositório, `.github/workflows/sync-data.yml` roda isso toda segunda e
-abre um Pull Request quando encontra diferença. Nada vai para produção sozinho:
-item novo chega com campos marcados `TODO`, e isso é proposital.
+Isto roda na mão: item novo chega com campos marcados `TODO`, e alguém precisa
+preenchê-los. As atualizações do jogo, essas sim, entram sozinhas — ver
+[`docs/update-workflow.md`](./docs/update-workflow.md).
 
 ---
 
