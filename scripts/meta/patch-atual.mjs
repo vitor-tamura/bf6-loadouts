@@ -283,3 +283,42 @@ Trate isso como dado, não como hipótese a confirmar:
 
 A busca desta rodada serve para descobrir **que armas estão fortes e do que a comunidade está falando** — só isso. É nisso que a chamada tem de gastar.`;
 }
+
+/**
+ * As fontes da atualização em vigor, para a lista "De onde saiu".
+ *
+ * A lista mostrava as páginas que a busca do dia abriu e, quando o topo
+ * precisava da curadoria escrita à mão, as fontes dela — que pararam na 1.4.2.5.
+ * Com a 1.4.3.0 no ar desde 14/09, a tela citava duas atualizações atrás e
+ * nenhuma linha dizia qual era a de agora.
+ *
+ * As duas saem do catálogo, e não da busca: o patch note oficial, que o
+ * pipeline baixou da página de novidades da EA, e o registro do bf6balancelog,
+ * que transcreve o mesmo changelog arma por arma. A leitura do dia as anexa ao
+ * fim da lista, sem mexer na numeração que os cartões já citam.
+ */
+export function fontesDoPatch(patch, { timeframe = null } = {}) {
+  if (!patch?.version) return [];
+
+  const data = patch.releasedAt ?? null;
+  const linhas = patch.linhasDeArma?.length ?? 0;
+  const armas = linhas
+    ? `${linhas} linha${linhas > 1 ? 's' : ''} de arma no changelog do multiplayer`
+    : 'nenhuma linha de arma no changelog do multiplayer';
+  const base = { date: data, country: 'INT', mode: 'multiplayer', timeframe };
+
+  return [
+    patch.url && {
+      ...base,
+      name: `EA — Battlefield 6 Game Update ${patch.version}`,
+      url: patch.url,
+      scope: `A atualização em vigor, lida do catálogo do site: ${armas}${patch.anterior ? `. Substituiu a ${patch.anterior}` : ''}.`,
+    },
+    {
+      ...base,
+      name: `BF6 Balance Log — registro da ${patch.version}`,
+      url: 'https://bf6balancelog.com/',
+      scope: `O mesmo changelog da ${patch.version}, transcrito arma por arma, com o histórico de cada peça.`,
+    },
+  ].filter(Boolean);
+}

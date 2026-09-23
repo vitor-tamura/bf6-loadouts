@@ -13,7 +13,7 @@
  */
 
 import { describe, expect, it } from 'vitest';
-import { briefingDoPatch, changelogDeMultiplayer, linhasDeArma } from './patch-atual.mjs';
+import { briefingDoPatch, changelogDeMultiplayer, fontesDoPatch, linhasDeArma } from './patch-atual.mjs';
 
 /*
  * O sumário é a armadilha desta página: `TABLE OF CONTENTS:` lista `NEW
@@ -124,5 +124,33 @@ describe('o briefing', () => {
 
   it('não inventa briefing quando o catálogo não tem a versão', () => {
     expect(briefingDoPatch(null)).toBe('');
+  });
+});
+
+describe('as fontes da atualização em vigor', () => {
+  const patch = {
+    version: '1.4.3.0',
+    releasedAt: '2026-09-14',
+    anterior: '1.4.2.5',
+    url: 'https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-4-3-0',
+    linhasDeArma: ['Minimum damage increased from 62 to 80.', 'Iron Sight attachment now costs 15 points.'],
+  };
+
+  it('cita o patch note oficial e o registro, datados da atualização', () => {
+    const [ea, registro] = fontesDoPatch(patch, { timeframe: 'season-4' });
+
+    expect(ea).toMatchObject({
+      name: 'EA — Battlefield 6 Game Update 1.4.3.0',
+      url: patch.url,
+      date: '2026-09-14',
+      mode: 'multiplayer',
+      timeframe: 'season-4',
+    });
+    expect(ea.scope).toMatch(/2 linhas de arma.*Substituiu a 1\.4\.2\.5/);
+    expect(registro).toMatchObject({ name: 'BF6 Balance Log — registro da 1.4.3.0', date: '2026-09-14' });
+  });
+
+  it('sem catálogo, não inventa fonte', () => {
+    expect(fontesDoPatch(null)).toEqual([]);
   });
 });

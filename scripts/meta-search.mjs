@@ -46,7 +46,7 @@ import {
   extrairJson,
   montarLeitura,
 } from './meta/leitura.mjs';
-import { briefingDoPatch, patchAtual } from './meta/patch-atual.mjs';
+import { briefingDoPatch, fontesDoPatch, patchAtual } from './meta/patch-atual.mjs';
 import { candidatos, perguntarComBusca, temAlgumaChave } from './meta/provedores.mjs';
 
 const DESTINO = new URL('../src/data/meta-live.json', import.meta.url);
@@ -337,6 +337,11 @@ async function main() {
       });
 
       for (const { nome, motivo } of descartes) console.warn(`Descartada — ${nome}: ${motivo}`);
+
+      // A atualização em vigor entra na lista de fontes pelo catálogo, no fim,
+      // sem mexer na numeração que os cartões já citam.
+      const citadas = new Set(conteudo.sources.map((f) => f.name));
+      conteudo.sources.push(...fontesDoPatch(PATCH, { timeframe: TIMEFRAME }).filter((f) => !citadas.has(f.name)));
 
       const anterior = (() => {
         try {

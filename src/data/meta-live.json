@@ -117,6 +117,24 @@
       "mode": "multiplayer",
       "scope": "Discussão da comunidade sobre armas usadas no multiplayer.",
       "timeframe": "season-4"
+    },
+    {
+      "date": "2026-09-14",
+      "country": "INT",
+      "mode": "multiplayer",
+      "timeframe": "season-4",
+      "name": "EA — Battlefield 6 Game Update 1.4.3.0",
+      "url": "https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-4-3-0",
+      "scope": "A atualização em vigor, lida do catálogo do site: 12 linhas de arma no changelog do multiplayer. Substituiu a 1.4.2.5."
+    },
+    {
+      "date": "2026-09-14",
+      "country": "INT",
+      "mode": "multiplayer",
+      "timeframe": "season-4",
+      "name": "BF6 Balance Log — registro da 1.4.3.0",
+      "url": "https://bf6balancelog.com/",
+      "scope": "O mesmo changelog da 1.4.3.0, transcrito arma por arma, com o histórico de cada peça."
     }
   ]
 }

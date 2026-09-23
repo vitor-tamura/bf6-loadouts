@@ -195,7 +195,7 @@ export const SOURCES: MetaSource[] = [
     country: 'INT',
     mode: 'multiplayer',
     scope:
-      'A atualização em vigor. Mexeu em uma coisa só de arma no multiplayer: o Match Trigger deixou de afetar o tiro automático da BROD 3 e da EF88 — o que o comunicado de 19/08 já tinha anunciado, agora no changelog. Nada mais do equilíbrio mudou, e é por isso que as posições abaixo, lidas na 1.4.2.0, seguem de pé.',
+      'Mexeu em uma coisa só de arma no multiplayer: o Match Trigger deixou de afetar o tiro automático da BROD 3 e da EF88 — o que o comunicado de 19/08 já tinha anunciado, agora no changelog. Deixou de ser a atualização em vigor em 14/09, com a 1.4.3.0.',
     timeframe: 'season-4',
   },
   {
