@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Alert, Card, Col, Divider, Row, Tag, Typography } from 'antd';
 import { AppHeader } from '@/components/header';
 import { SeasonTag } from '@/components/season-tag';
+import { SlidingText } from '@/components/sliding-text';
 import { SiteFooter } from '@/components/site-footer';
 import { WeaponPreview } from '@/components/weapon-preview';
 import { CATEGORY_NAMES, CLASSES } from '@/data/classes';
@@ -435,14 +436,14 @@ function TrendingCard({ pick, rank }: { pick: TrendingPick; rank: number }) {
             </span>
           </span>
           <Tag
-            className="bevel-sm m-0 max-w-[45%] whitespace-normal px-1.5 py-0 text-right text-[9px] leading-snug font-semibold uppercase"
+            className="bevel-sm m-0 min-w-0 max-w-[45%] shrink-0 px-1.5 py-0 text-[9px] leading-snug font-semibold uppercase"
             style={{
               color: 'var(--accent)',
               border: '1px solid color-mix(in oklab, var(--accent) 45%, transparent)',
               background: 'color-mix(in oklab, var(--accent) 10%, transparent)',
             }}
           >
-            {pick.trend}
+            <SlidingText>{pick.trend}</SlidingText>
           </Tag>
         </div>
 

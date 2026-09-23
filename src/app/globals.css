@@ -741,6 +741,53 @@ figure canvas {
 }
 
 /*
+ * Texto que desliza quando não cabe (`src/components/sliding-text.tsx`).
+ *
+ * Vai até o fim e volta, com pausa nas duas pontas. Sem movimento pedido pelo
+ * sistema, a regra acima encurtaria a animação a um salto — então ali o texto
+ * simplesmente quebra linha e aparece inteiro.
+ */
+.sliding-text {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.sliding-text__inner {
+  display: inline-block;
+}
+
+.sliding-text--on .sliding-text__inner {
+  animation: sliding-text var(--slide-duration, 6s) ease-in-out infinite alternate;
+}
+
+.sliding-text--on:hover .sliding-text__inner {
+  animation-play-state: paused;
+}
+
+@keyframes sliding-text {
+  0%,
+  15% {
+    transform: translateX(0);
+  }
+  85%,
+  100% {
+    transform: translateX(var(--slide));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sliding-text--on {
+    white-space: normal;
+  }
+
+  .sliding-text--on .sliding-text__inner {
+    display: inline;
+    animation: none;
+  }
+}
+
+/*
  * O item do menu inteiro é clicável, não só a palavra.
  *
  * O `Menu` do antd monta `<li>` com preenchimento próprio e põe o link dentro,
