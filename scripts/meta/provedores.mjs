@@ -168,16 +168,16 @@ const ferramentaDeBusca = (modelo) =>
  */
 const raciocinio = (modelo) => (modelo.startsWith('gpt-5') ? { reasoning: { effort: 'low' } } : {});
 
-async function chamarOpenAI(modelo, prompt, { maxOutputTokens, tentativa }) {
+async function chamarOpenAI(modelo, prompt, { maxOutputTokens, tentativa, busca = true }) {
   const resposta = await fetch(OPENAI_URL, {
     method: 'POST',
     headers: { authorization: `Bearer ${chaveOpenAI()}`, 'content-type': 'application/json' },
     body: JSON.stringify({
       model: modelo,
-      tools: [ferramentaDeBusca(modelo)],
+      // Obrigatória quando pedida: com `auto` o modelo decide não buscar e
+      // responde de memória. Sem busca, o modelo lê só o que vai no prompt.
+      ...(busca ? { tools: [ferramentaDeBusca(modelo)], tool_choice: 'required' } : {}),
       ...raciocinio(modelo),
-      // Obrigatória: com `auto` o modelo decide não buscar e responde de memória.
-      tool_choice: 'required',
       input: prompt,
       max_output_tokens: maxOutputTokens,
       store: false,
@@ -306,13 +306,13 @@ export function lerRespostaGemini(corpo, maxOutputTokens) {
   };
 }
 
-async function chamarGemini(modelo, prompt, { maxOutputTokens, tentativa }) {
+async function chamarGemini(modelo, prompt, { maxOutputTokens, tentativa, busca = true }) {
   const resposta = await fetch(`${GEMINI_URL}/models/${modelo}:generateContent`, {
     method: 'POST',
     headers: { 'x-goog-api-key': chaveGoogle(), 'content-type': 'application/json' },
     body: JSON.stringify({
       contents: [{ role: 'user', parts: [{ text: prompt }] }],
-      tools: [{ google_search: {} }],
+      ...(busca ? { tools: [{ google_search: {} }] } : {}),
       generationConfig: { maxOutputTokens },
     }),
   });
@@ -348,13 +348,13 @@ async function chamarGemini(modelo, prompt, { maxOutputTokens, tentativa }) {
  *
  * @returns {Promise<{texto: string, anotacoes: {url: string, title?: string}[], buscou: boolean, tipos: string[], custo: object | null, modelo: string, provedor: string}>}
  */
-export async function perguntarComBusca({ provedor, modelo }, prompt, { maxOutputTokens, tentativas = 3 }) {
+export async function perguntarComBusca({ provedor, modelo }, prompt, { maxOutputTokens, tentativas = 3, busca = true }) {
   const chamar = provedor === 'google' ? chamarGemini : chamarOpenAI;
   let ultimoErro = null;
 
   for (let tentativa = 1; tentativa <= tentativas; tentativa += 1) {
     try {
-      const resposta = await chamar(modelo, prompt, { maxOutputTokens, tentativa });
+      const resposta = await chamar(modelo, prompt, { maxOutputTokens, tentativa, busca });
       return { ...resposta, modelo, provedor };
     } catch (erro) {
       ultimoErro = erro;
@@ -380,3 +380,13 @@ export async function perguntarComBusca({ provedor, modelo }, prompt, { maxOutpu
 
   throw ultimoErro;
 }
+
+/**
+ * A mesma fila, sem busca: para quando o texto a ler já está no prompt.
+ *
+ * É o caso da análise do patch (`catalog/analisar-patch.ts`), que recebe o
+ * patch note baixado da EA e as linhas do bf6balancelog. Buscar ali só abriria
+ * espaço para o modelo trazer número de fora do texto oficial.
+ */
+export const perguntarSemBusca = (candidato, prompt, opcoes) =>
+  perguntarComBusca(candidato, prompt, { ...opcoes, busca: false });

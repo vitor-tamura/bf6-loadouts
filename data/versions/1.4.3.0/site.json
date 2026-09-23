@@ -1,0 +1,29 @@
+{
+  "version": "1.4.3.0",
+  "analisadoEm": "2026-09-23",
+  "modelo": null,
+  "observacao": "Aplicada à mão, antes de a análise automática existir (commit 5278219). A mudança de peso dos supressores Longo e Leve na L115 não foi aplicada: o site guarda o efeito da peça igual em todas as armas.",
+  "fontes": {
+    "ea": "data/patches/1.4.3.0.json",
+    "balancelog": "bf6balancelog.com"
+  },
+  "aplicadas": [
+    {
+      "weapon": "interdictor",
+      "field": "damage",
+      "value": [[80, 0], [100, 120], [80, 160]],
+      "evidence": [
+        "Minimum damage increased from 62 to 80.",
+        "Sweet spot damage decreased from 150 to 100",
+        "Sweet spot range adjusted to 120m to 160m"
+      ]
+    },
+    {
+      "attachment": "sight-iron-sights",
+      "weapon": "interdictor",
+      "cost": 15,
+      "evidence": ["Iron Sight attachment now costs 15 points."]
+    }
+  ],
+  "recusadas": []
+}

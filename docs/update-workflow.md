@@ -83,8 +83,33 @@ justamente quando o pipeline parou de enxergar.
 
 ```
 baixa patch note → lê → concilia → índices → valida → diff → build
-      → cobertura → apelidos → auditoria de acessórios → checagens → push em main
+      → cobertura → análise para o site → apelidos → auditoria de acessórios
+      → checagens → push em main
 ```
+
+### Análise para o site
+
+O parser acima lê frase por frase com regra fixa e grava no catálogo versionado.
+O site lê `src/data`, e o patch nem sempre fala a língua de uma regra — na
+1.4.3.0 a Interdictor só aparecia no título "Interdictor Balance Updates", e o
+comentário do desenvolvedor dizia "80 damage to the chest and limbs at all
+ranges" em vez de um "de X para Y".
+
+`npm run catalog:analisar-patch` faz essa leitura com as mesmas duas fontes de
+uma revisão manual: o patch note da EA (baixado da página de novidades) e as
+linhas de arma do bf6balancelog. Um modelo (OpenAI, ou o Gemini gratuito quando o
+crédito acaba) propõe as mudanças; o código só aplica a proposta que:
+
+- cita frases que existem, palavra por palavra, no patch ou no balancelog;
+- tem todos os números nessas frases;
+- fala da arma certa — pelo nome na frase, pelo título da seção logo acima, ou
+  pela ligação que o balancelog faz;
+- mexe em peça que a arma aceita.
+
+O resultado, aplicado e recusado com o motivo, fica em
+`data/versions/<versão>/site.json`. Versão sem esse arquivo continua pendente, e
+a verificação de seis em seis horas dispara o processamento de novo até a
+análise fechar.
 
 ## O que o patch note consegue aplicar sozinho
 

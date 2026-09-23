@@ -63,8 +63,22 @@ jobs:
       # mais antiga até a mais recente publicada até hoje, e publica em `main`.
       # Um disparo por versão punha as execuções na mesma fila de concorrência,
       # e o GitHub guarda só uma pendente — as do meio seriam canceladas.
+      # Versão já no catálogo cuja análise para o site não fechou — a API caiu,
+      # ou o crédito e a cota gratuita acabaram no dia. Ela volta para a fila
+      # aqui, sem esperar o próximo patch.
+      - name: Análises pendentes
+        id: analise
+        run: |
+          pendentes=$(npm run --silent catalog:analisar-patch -- --pendentes | node -e '
+            let raw = "";
+            process.stdin.on("data", (chunk) => (raw += chunk));
+            process.stdin.on("end", () => process.stdout.write(JSON.parse(raw).pendentes.join(" ")));
+          ')
+          echo "pendentes=$pendentes" >> "$GITHUB_OUTPUT"
+          echo "Análises pendentes: ${pendentes:-nenhuma}"
+
       - name: Disparar o processamento
-        if: steps.discover.outputs.versions != ''
+        if: steps.discover.outputs.versions != '' || steps.analise.outputs.pendentes != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh workflow run bf6-update-process.yml

@@ -101,6 +101,22 @@ jobs:
             npm run catalog:update 2>&1 | tee /tmp/update.log
           fi
 
+      # A leitura que o parser de regra fixa não faz: o patch note da EA e as
+      # linhas do bf6balancelog vão para um modelo (OpenAI, ou o Gemini gratuito
+      # quando o crédito acaba), que propõe o que muda nas armas e peças do site.
+      # O código só aplica o que cita frase existente no texto oficial, com os
+      # mesmos números e sobre a arma certa — ver scripts/catalog/analisar-patch.ts.
+      #
+      # `continue-on-error` porque depende de API de terceiro. Falhou, a versão
+      # fica sem `data/versions/<v>/site.json`, continua pendente, e a próxima
+      # verificação dispara esta análise de novo.
+      - name: Analisar o patch e aplicar no site
+        continue-on-error: true
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: npm run catalog:analisar-patch
+
       # Como a EA escreve o nome de cada arma, contra como o catálogo o guarda —
       # e, agora, gravado. A regra do script só aplica o apelido que a frase do
       # patch e o registro provam juntos; o resto continua só no relatório.
