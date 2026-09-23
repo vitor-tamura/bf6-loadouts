@@ -244,6 +244,26 @@
       }
     },
     {
+      "id": "interdictor",
+      "name": "Interdictor",
+      "category": "sniper_rifle",
+      "caliber": null,
+      "status": "active",
+      "introducedIn": "1.4.2.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "EA",
+        "type": "official",
+        "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-0",
+        "dataset": null,
+        "commit": null,
+        "version": "1.4.2.0",
+        "retrievedAt": null,
+        "snapshot": null
+      }
+    },
+    {
       "id": "kord6p67",
       "name": "KORD 6P67",
       "category": "assault_rifle",

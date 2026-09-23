@@ -24,19 +24,7 @@
  */
 
 import { getWeapons } from '../catalog.service';
-
-/**
- * As renomeações que a normalização não pega.
- *
- * Chave: id do dataset antigo. Valor: id do catálogo.
- */
-const RENAMED: Record<string, string> = {
-  // O nome mudou de lado: "18.5 KS-K" virou "KS-18K" na leitura do Analyzer.
-  '18-5ks-k': 'ks18k',
-  // O sufixo de modelo caiu no catálogo.
-  'kts100-mk8': 'kts100',
-  'sor-556-mk2': 'sor556',
-};
+import { RENAMED, siteIdFor } from './renamed-ids';
 
 /**
  * As armas que o catálogo não tem.
@@ -47,7 +35,6 @@ const RENAMED: Record<string, string> = {
  */
 const ABSENT = new Set([
   'bighorn-hk-16',
-  'interdictor',
   'kbr-mark-ii',
   'nomad-cx-12',
   'ripper-14',
@@ -74,11 +61,7 @@ export function toCatalogId(legacyId: string): string | null {
 
 /** O caminho inverso, para quem já está no catálogo e precisa falar com o antigo. */
 export function toLegacyId(catalogId: string, legacyIds: string[]): string | null {
-  const renamed = Object.entries(RENAMED).find(([, id]) => id === catalogId);
-  if (renamed) return renamed[0];
-
-  const target = normalize(catalogId);
-  return legacyIds.find((id) => normalize(id) === target) ?? null;
+  return siteIdFor(catalogId, legacyIds);
 }
 
 /** As armas antigas que sabidamente não existem no catálogo. */

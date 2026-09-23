@@ -45,7 +45,8 @@
     "catalog:perguntar-acessorios": "node --experimental-strip-types scripts/catalog/perguntar-acessorios.ts",
     "catalog:fetch-balance-log": "node --experimental-strip-types scripts/catalog/fetch-balance-log.ts",
     "catalog:nomes": "node --experimental-strip-types scripts/catalog/nomes.ts",
-    "catalog:analisar-patch": "node --experimental-strip-types scripts/catalog/analisar-patch.ts"
+    "catalog:analisar-patch": "node --experimental-strip-types scripts/catalog/analisar-patch.ts",
+    "catalog:aplicar-no-site": "node --experimental-strip-types scripts/catalog/aplicar-no-site.ts"
   },
   "dependencies": {
     "@ai-sdk/google": "^4.0.39",

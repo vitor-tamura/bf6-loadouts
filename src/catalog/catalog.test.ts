@@ -54,7 +54,8 @@ describe('a versão publicada', () => {
   });
 
   it('traz o arsenal inteiro', () => {
-    expect(getWeapons()).toHaveLength(62);
+    // As 62 do levantamento original + a Interdictor, que estreou na 1.4.2.0.
+    expect(getWeapons()).toHaveLength(63);
     // 400 do import inicial + as duas peças que a Temporada 4 anunciou.
     expect(catalog.attachments).toHaveLength(402);
   });

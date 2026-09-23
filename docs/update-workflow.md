@@ -83,9 +83,25 @@ justamente quando o pipeline parou de enxergar.
 
 ```
 baixa patch note → lê → concilia → índices → valida → diff → build
-      → cobertura → análise para o site → apelidos → auditoria de acessórios
+      → cobertura → regras no site → análise para o site → apelidos → auditoria de acessórios
       → checagens → push em main
 ```
+
+### Regras no site
+
+O parser grava no catálogo versionado, e o site lê `src/data`. A ponte é
+`npm run catalog:aplicar-no-site`, que leva ao dataset do site só o que o parser
+leu com certeza (`automation: 'auto'`):
+
+- "de X para Y" num número da arma, e só se o site mostra X hoje — se mostra
+  outra coisa, o número do site veio de outra fonte e a mudança é recusada;
+- numa curva de dano, só o degrau que vale X muda;
+- "now costs N points" com a peça e a arma resolvidas — a peça se divide
+  quando o preço muda numa arma só.
+
+O parser sabe a arma de uma linha pelo nome escrito nela, pela ligação que o
+bf6balancelog faz, ou pelo título da seção logo acima ("Interdictor Balance
+Updates"). O relatório fica em `data/versions/<versão>/site-regras.json`.
 
 ### Análise para o site
 

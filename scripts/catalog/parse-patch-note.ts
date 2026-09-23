@@ -159,7 +159,13 @@ export function knownEntities(): Known {
  * reconhecer "M/60" e `18.5ks-k` reconhecer "18.5KS-K".
  */
 function namePattern(key: string): RegExp {
-  const body = key.split('').join('[^a-z0-9]*');
+  /*
+   * O plural do fim é opcional: o catálogo tem "Iron Sights" e a 1.4.3.0
+   * escreveu "Iron Sight attachment now costs 15 points".
+   */
+  const plural = key.length > 4 && key.endsWith('s');
+  const letras = plural ? key.slice(0, -1) : key;
+  const body = letras.split('').join('[^a-z0-9]*') + (plural ? 's?' : '');
   return new RegExp(`(?<![a-z0-9])${body}(?![a-z0-9])`, 'i');
 }
 
@@ -233,6 +239,14 @@ const FROM_TO = /\bfrom\s+([\d.,]+)\s+to\s+([\d.,]+)/i;
 const ARROW = /([\d.,]+)\s*(?:→|->|=>)\s*([\d.,]+)/;
 
 const DOWNWARD = /\b(reduced|decreased|lowered|nerfed)\b/i;
+
+/**
+ * "Iron Sight attachment now costs 15 points." — o preço novo, sem o antigo.
+ *
+ * Não é "from X to Y", mas é o número inteiro que o Gunsmith mostra, dito pela
+ * EA: não há proporção a converter nem valor anterior de que depender.
+ */
+const NOW_COSTS = /\bnow costs?\s+(\d+)\s*(?:attachment\s+)?(?:points?|pts)\b/i;
 
 const number = (value: string) => Number(value.replace(/\./g, '').replace(',', '.'));
 
@@ -478,15 +492,42 @@ const WEAPON_GROUP = /^(WEAPONS?|ATTACHMENTS?|GUNSMITH)$/i;
 const PRESENTATION =
   /\b(icons?|texts?|descriptions?|labels?|displays?|displayed|animations?|poses?|visuals?|models?|alignment|aligned?|clipping|clip into|appears?|appearance|floating|VFX|sound|audio|subtitles?|menus?|HUD)\b/i;
 
+/** A arma que o título da seção nomeou, emprestada às linhas embaixo dele. */
+export interface Herdada {
+  id: string;
+  key: string;
+}
+
 export function parseLine(
   line: string,
   known: Known,
   contexto: LineContext | null = null,
+  herdada: Herdada | null = null,
 ): PatchChange | null {
   const clean = line.trim();
-  if (clean.length < 12 || !RELEVANT.test(clean)) return null;
+  // Sob o título de uma arma, a linha é dela mesmo sem palavra de arma:
+  // "Sweet spot range adjusted to 120m to 160m" não diz "damage" nem "weapon".
+  if (clean.length < 12 || (!herdada && !RELEVANT.test(clean))) return null;
 
-  const entity = findEntity(clean, known);
+  /*
+   * De quem é a frase, em ordem de certeza.
+   *
+   * O nome escrito nela vem primeiro. Depois, a fonte de registro, quando ela
+   * liga a linha a uma arma só — é leitura de quem separou o changelog, e não
+   * palpite. Por último, o título da seção: a EA escreve "Interdictor Balance
+   * Updates" uma vez e as linhas embaixo não repetem o nome. Foi assim que a
+   * 1.4.3.0 chegou ao catálogo com a Interdictor inteira em revisão.
+   */
+  const propria = findEntity(clean, known);
+  const doRegistro =
+    !propria && contexto?.weaponIds.length === 1
+      ? { entityType: 'weapon' as const, id: contexto.weaponIds[0], key: normalize(contexto.weaponIds[0]) }
+      : null;
+  const daSecao = herdada ? { entityType: 'weapon' as const, ...herdada } : null;
+  const entity = propria ?? doRegistro ?? daSecao;
+  /** A arma de que a frase fala, mesmo quando o nome escrito nela é de uma peça. */
+  const armaDaFrase =
+    propria?.entityType === 'weapon' ? propria.id : (doRegistro?.id ?? daSecao?.id ?? null);
   const field = findField(clean);
 
   const base: PatchChange = {
@@ -522,7 +563,9 @@ export function parseLine(
     return {
       ...base,
       kind: entity?.entityType === 'attachment' ? 'attachment_added' : 'weapon_added',
-      mentioned: entity ? base.mentioned : named,
+      // O nome como a frase o escreve — "Interdictor", e não "On Tuesday", a
+      // primeira maiúscula de um parágrafo de anúncio.
+      mentioned: entity ? (matchName(clean, entity.key)?.[0] ?? base.mentioned) : named,
       operation: 'none',
       /*
        * Coisa nova nunca entra sozinha.
@@ -618,6 +661,38 @@ export function parseLine(
           '.',
       };
     }
+  }
+
+  /* ------------------------------- custo novo ------------------------------- */
+
+  const custo = clean.match(NOW_COSTS);
+  if (custo) {
+    const peca = findAttachment(clean, known);
+    const valor = Number(custo[1]);
+
+    return {
+      ...base,
+      kind: 'cost_changed',
+      entityType: 'attachment',
+      entityId: peca?.id ?? null,
+      weaponIds: armaDaFrase ? [armaDaFrase] : undefined,
+      field: 'cost',
+      operation: 'set',
+      value: valor,
+      before: null,
+      after: valor,
+      /*
+       * Sem a arma, "now costs 15" seria o preço da peça em todas — e o patch
+       * quase sempre fala de uma arma só. Com os dois lados resolvidos, o número
+       * é o que a EA escreveu; faltando um, quem decide é gente.
+       */
+      automation: peca && armaDaFrase ? 'auto' : 'review',
+      reason: !peca
+        ? 'Custo novo de uma peça que o catálogo não reconheceu.'
+        : !armaDaFrase
+          ? 'Custo novo sem arma identificada — pode valer para todas ou para uma só.'
+          : null,
+    };
   }
 
   /* -------------------------------- números -------------------------------- */
@@ -842,6 +917,32 @@ const chaveDeLinha = (texto: string) =>
     .trim()
     .toLowerCase();
 
+/** Palavra que um título de seção pode ter em minúscula. */
+const PALAVRA_DE_TITULO = /^(of|and|the|for|to|in|on|&|-)$/i;
+
+/**
+ * A linha é título de seção? E, se for, de que arma?
+ *
+ * Título, no texto da EA, é linha curta, sem ponto final e com cada palavra em
+ * maiúscula — "BROD3", "Interdictor Balance Updates", "RCB90 Patrol Boat",
+ * "VEHICLES". Frase de changelog pode ser curta e sem ponto ("Limb damage now
+ * matches chest damage"), mas não capitaliza cada palavra.
+ *
+ * Devolve `undefined` quando não é título (a seção continua), `null` quando é
+ * título que não nomeia arma (a seção anterior acabou) e a arma quando nomeia.
+ */
+export function tituloDeSecao(line: string, known: Known): Herdada | null | undefined {
+  const clean = line.trim();
+  if (!clean || clean.length > 60 || /[.!?:;,]$/.test(clean)) return undefined;
+
+  const palavras = clean.split(/\s+/);
+  if (palavras.length > 6) return undefined;
+  if (!palavras.every((p) => /^[A-Z0-9(]/.test(p) || PALAVRA_DE_TITULO.test(p))) return undefined;
+
+  const arma = search(clean, known.weapons);
+  return arma ? { id: arma.id, key: arma.key } : null;
+}
+
 export function parseNote(
   note: PatchNote,
   known: Known,
@@ -850,10 +951,18 @@ export function parseNote(
   const body = bodyOf(note.rawContent);
   const contexto = contextos(registro, known);
 
-  const lines = body
-    .split('\n')
-    .map((line) => parseLine(line, known, contexto.get(chaveDeLinha(line)) ?? null))
-    .filter((change): change is PatchChange => change !== null);
+  let herdada: Herdada | null = null;
+  const lines: PatchChange[] = [];
+
+  for (const line of body.split('\n')) {
+    const titulo = tituloDeSecao(line, known);
+    if (titulo !== undefined) {
+      herdada = titulo;
+      continue;
+    }
+    const change = parseLine(line, known, contexto.get(chaveDeLinha(line)) ?? null, herdada);
+    if (change) lines.push(change);
+  }
 
   /*
    * As duas leituras se completam e podem repetir a mesma frase — a linha a

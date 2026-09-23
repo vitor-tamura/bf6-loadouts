@@ -101,6 +101,13 @@ jobs:
             npm run catalog:update 2>&1 | tee /tmp/update.log
           fi
 
+      # O catálogo versionado não é o que o site lê. Esta etapa leva ao
+      # `src/data` o que o parser leu com certeza — "de X para Y" só onde o site
+      # mostra X, e custo novo de peça com a arma resolvida. O resto fica no
+      # relatório `data/versions/<v>/site-regras.json`, e a análise abaixo lê.
+      - name: Aplicar no site o que o patch diz com número
+        run: npm run catalog:aplicar-no-site -- --desde "$ANTERIOR"
+
       # A leitura que o parser de regra fixa não faz: o patch note da EA e as
       # linhas do bf6balancelog vão para um modelo (OpenAI, ou o Gemini gratuito
       # quando o crédito acaba), que propõe o que muda nas armas e peças do site.

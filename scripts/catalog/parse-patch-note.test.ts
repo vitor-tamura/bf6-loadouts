@@ -15,7 +15,9 @@ import {
   parseAnnouncements,
   parseLine,
   parseNote,
+  tituloDeSecao,
 } from './parse-patch-note.ts';
+import { readFileSync } from 'node:fs';
 import { compareVersions, isGameVersion } from './lib/io.ts';
 import { extractUpdates, toIsoDate } from './discover-updates.ts';
 
@@ -98,8 +100,11 @@ describe('adições e remoções', () => {
         'two new fighter jets, the Interdictor sniper rifle, a new Crashed Carrier POI in Fort Lyndon.',
     );
 
+    // Desde que a Interdictor entrou no catálogo, o anúncio a reconhece pelo id
+    // — e continua em revisão, porque pode ser reintrodução.
     expect(change!.kind).toBe('weapon_added');
-    expect(change!.mentioned).toBe('Interdictor sniper rifle');
+    expect(change!.entityId).toBe('interdictor');
+    expect(change!.mentioned).toBe('Interdictor');
     expect(change!.automation).toBe('review');
   });
 
@@ -450,5 +455,73 @@ describe('o que a fonte de registro acrescenta', () => {
     const linha = 'Helicopter miniguns can now damage enemy soldiers who are in the water.';
 
     expect(parseLine(linha, known, contexto('VEHICLES', []))).toBeNull();
+  });
+});
+
+describe('a arma do título da seção', () => {
+  /*
+    A 1.4.3.0 real, como a descoberta a baixou: "Interdictor Balance Updates"
+    uma vez, e as linhas embaixo sem o nome. Antes, a leitura inteira ia para
+    revisão e o site ficou com a Interdictor da 1.4.2.5 até alguém aplicar à mão.
+  */
+  const nota = JSON.parse(
+    readFileSync(new URL('../../data/patches/1.4.3.0.json', import.meta.url), 'utf8'),
+  );
+  const mudancas = parseNote(nota, known);
+  const daInterdictor = mudancas.filter(
+    (c) => c.entityId === 'interdictor' || c.weaponIds?.includes('interdictor'),
+  );
+
+  it('reconhece o título e o que não é título', () => {
+    expect(tituloDeSecao(' Interdictor Balance Updates ', known)).toEqual({ id: 'interdictor', key: 'interdictor' });
+    expect(tituloDeSecao('RCB90 Patrol Boat', known)).toBeNull();
+    expect(tituloDeSecao('Limb damage now matches chest damage', known)).toBeUndefined();
+    expect(tituloDeSecao('Minimum damage increased from 62 to 80.', known)).toBeUndefined();
+  });
+
+  it('leva a Interdictor para as linhas sem nome, com os números da EA', () => {
+    const minimo = daInterdictor.find((c) => c.line.startsWith('Minimum damage'));
+    expect(minimo).toMatchObject({ field: 'damage', before: 62, after: 80, automation: 'auto' });
+
+    const ideal = daInterdictor.find((c) => c.line.startsWith('Sweet spot damage'));
+    expect(ideal).toMatchObject({ field: 'damage', before: 150, after: 100, automation: 'auto' });
+  });
+
+  it('lê o custo novo da peça, na arma da seção', () => {
+    const custo = daInterdictor.find((c) => c.kind === 'cost_changed');
+    expect(custo).toMatchObject({
+      entityId: 'iron',
+      weaponIds: ['interdictor'],
+      before: null,
+      after: 15,
+      automation: 'auto',
+    });
+  });
+
+  it('o que não traz número continua em revisão', () => {
+    const alcance = daInterdictor.find((c) => c.line.startsWith('Sweet spot range'));
+    expect(alcance?.automation).toBe('review');
+  });
+
+  it('a seção acaba no próximo título', () => {
+    // "Corrected an issue where the BROD 3 Handguard..." é da seção BROD3, e
+    // nada da seção de veículos depois da Interdictor pode ser dela.
+    expect(daInterdictor.every((c) => !/RCB90|Patrol Boat|tanks?\b/i.test(c.line))).toBe(true);
+  });
+});
+
+describe('a arma que a fonte de registro liga à linha', () => {
+  const contexto = (group: string, weaponIds: string[]) => ({ group, weaponIds, attachmentIds: [] });
+
+  it('resolve a linha sem nome quando o registro aponta uma arma só', () => {
+    const change = parseLine('Minimum damage increased from 62 to 80.', known, contexto('WEAPONS', ['interdictor']));
+    expect(change).toMatchObject({ entityId: 'interdictor', before: 62, after: 80, automation: 'auto' });
+  });
+
+  it('com duas armas no registro, não aplica o número em nenhuma', () => {
+    const change = parseLine('Minimum damage increased from 62 to 80.', known, contexto('WEAPONS', ['interdictor', 'psr']));
+    // A rede do fim do parser ainda a marca para revisão, com as duas armas.
+    expect(change?.automation).toBe('review');
+    expect(change?.weaponIds).toEqual(['interdictor', 'psr']);
   });
 });

@@ -279,6 +279,24 @@
       "gameVersion": "1.4.3.0"
     },
     {
+      "weaponId": "interdictor",
+      "muzzleVelocity": 1020,
+      "drag": null,
+      "gravity": -9.81,
+      "status": "provisional",
+      "source": {
+        "provider": "bf6-loadouts (src/data/weapons.ts)",
+        "type": "inferred",
+        "url": null,
+        "dataset": "curadoria manual da Temporada 4",
+        "commit": null,
+        "version": "1.4.3.0",
+        "retrievedAt": null,
+        "snapshot": null
+      },
+      "gameVersion": "1.4.3.0"
+    },
+    {
       "weaponId": "kord6p67",
       "muzzleVelocity": 760,
       "drag": {

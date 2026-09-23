@@ -770,6 +770,50 @@
       "gameVersion": "1.4.3.0"
     },
     {
+      "weaponId": "interdictor",
+      "model": "piecewise_constant",
+      "zones": {
+        "head": 1.75,
+        "limb": 1,
+        "body": 1,
+        "limbClass": "sniper",
+        "byAmmo": {
+          "hollowPoint": null,
+          "synthetic": null
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 80,
+          "source": "EA"
+        },
+        {
+          "distance": 120,
+          "damage": 100,
+          "source": "EA"
+        },
+        {
+          "distance": 160,
+          "damage": 80,
+          "source": "EA"
+        }
+      ],
+      "status": "verified",
+      "declaredSource": "Patch note 1.4.3.0: \"Minimum damage increased from 62 to 80\", \"Sweet spot damage decreased from 150 to 100\", \"Sweet spot range adjusted to 120m to 160m\", \"Limb damage now matches chest damage\". Multiplicador de cabeça da curadoria do site.",
+      "source": {
+        "provider": "EA",
+        "type": "official",
+        "url": "https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-4-3-0",
+        "dataset": null,
+        "commit": null,
+        "version": "1.4.3.0",
+        "retrievedAt": null,
+        "snapshot": null
+      },
+      "gameVersion": "1.4.3.0"
+    },
+    {
       "weaponId": "kord6p67",
       "model": "piecewise_linear",
       "zones": {

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "gameVersion": "1.4.3.0",
-  "generatedAt": "2026-09-14T21:45:09.633Z",
+  "generatedAt": "2026-09-23T17:19:34.942Z",
   "capabilities": {
     "weapons": true,
     "attachments": true,
@@ -10,12 +10,12 @@
     "ammo": true,
     "costs": false,
     "effects": false,
-    "ballistics": true,
+    "ballistics": false,
     "damageCurves": true,
     "velocity": true,
-    "drag": true,
+    "drag": false,
     "ads": false,
-    "recoil": true,
+    "recoil": false,
     "ttk": true
   },
   "categories": [
@@ -523,6 +523,34 @@
         "verticalRecoil": 1.059495487512401,
         "horizontalRecoil": 8,
         "spreadMax": 9
+      }
+    },
+    {
+      "id": "interdictor",
+      "name": "Interdictor",
+      "category": "sniper_rifle",
+      "caliber": null,
+      "status": "active",
+      "introducedIn": "1.4.2.0",
+      "removedIn": null,
+      "aliases": [],
+      "source": {
+        "provider": "EA",
+        "type": "official",
+        "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-2-0",
+        "dataset": null,
+        "commit": null,
+        "version": "1.4.2.0",
+        "retrievedAt": null,
+        "snapshot": null
+      },
+      "stats": {
+        "rpm": 30,
+        "magazineCapacity": 5,
+        "adsMs": 780,
+        "reload": 4.6,
+        "emptyReload": 5.6,
+        "velocity": 1020
       }
     },
     {
@@ -29517,6 +29545,24 @@
       "gameVersion": "1.4.3.0"
     },
     {
+      "weaponId": "interdictor",
+      "muzzleVelocity": 1020,
+      "drag": null,
+      "gravity": -9.81,
+      "status": "provisional",
+      "source": {
+        "provider": "bf6-loadouts (src/data/weapons.ts)",
+        "type": "inferred",
+        "url": null,
+        "dataset": "curadoria manual da Temporada 4",
+        "commit": null,
+        "version": "1.4.3.0",
+        "retrievedAt": null,
+        "snapshot": null
+      },
+      "gameVersion": "1.4.3.0"
+    },
+    {
       "weaponId": "kord6p67",
       "muzzleVelocity": 760,
       "drag": {
@@ -31333,6 +31379,50 @@
         "version": null,
         "retrievedAt": "2026-08-12T15:17:01.745Z",
         "snapshot": "master-2026-08-12"
+      },
+      "gameVersion": "1.4.3.0"
+    },
+    {
+      "weaponId": "interdictor",
+      "model": "piecewise_constant",
+      "zones": {
+        "head": 1.75,
+        "limb": 1,
+        "body": 1,
+        "limbClass": "sniper",
+        "byAmmo": {
+          "hollowPoint": null,
+          "synthetic": null
+        }
+      },
+      "curve": [
+        {
+          "distance": 0,
+          "damage": 80,
+          "source": "EA"
+        },
+        {
+          "distance": 120,
+          "damage": 100,
+          "source": "EA"
+        },
+        {
+          "distance": 160,
+          "damage": 80,
+          "source": "EA"
+        }
+      ],
+      "status": "verified",
+      "declaredSource": "Patch note 1.4.3.0: \"Minimum damage increased from 62 to 80\", \"Sweet spot damage decreased from 150 to 100\", \"Sweet spot range adjusted to 120m to 160m\", \"Limb damage now matches chest damage\". Multiplicador de cabeça da curadoria do site.",
+      "source": {
+        "provider": "EA",
+        "type": "official",
+        "url": "https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-4-3-0",
+        "dataset": null,
+        "commit": null,
+        "version": "1.4.3.0",
+        "retrievedAt": null,
+        "snapshot": null
       },
       "gameVersion": "1.4.3.0"
     },
@@ -41769,6 +41859,24 @@
       "gameVersion": "1.4.3.0"
     },
     {
+      "weaponId": "interdictor",
+      "tactical": 4.6,
+      "empty": 5.6,
+      "speed": 1,
+      "status": "provisional",
+      "source": {
+        "provider": "bf6-loadouts (src/data/weapons.ts)",
+        "type": "inferred",
+        "url": null,
+        "dataset": "curadoria manual da Temporada 4",
+        "commit": null,
+        "version": "1.4.3.0",
+        "retrievedAt": null,
+        "snapshot": null
+      },
+      "gameVersion": "1.4.3.0"
+    },
+    {
       "weaponId": "kord6p67",
       "tactical": 2.45,
       "empty": 3.017,
@@ -42671,7 +42779,7 @@
   ],
   "indexes": {
     "gameVersion": "1.4.3.0",
-    "generatedAt": "2026-09-14T21:45:09.633Z",
+    "generatedAt": "2026-09-23T17:19:34.942Z",
     "attachmentsByWeapon": {
       "ak205": [
         "120mw_blue",
@@ -53311,12 +53419,12 @@
   "dataQuality": {
     "ballistics": {
       "verified": 62,
-      "provisional": 0,
+      "provisional": 1,
       "estimated": 0,
       "unavailable": 0
     },
     "damage": {
-      "verified": 0,
+      "verified": 1,
       "provisional": 62,
       "estimated": 0,
       "unavailable": 0
@@ -53335,7 +53443,7 @@
     },
     "reload": {
       "verified": 56,
-      "provisional": 0,
+      "provisional": 1,
       "estimated": 0,
       "unavailable": 6
     }
