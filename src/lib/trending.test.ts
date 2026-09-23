@@ -156,7 +156,9 @@ describe('ficha da arma', () => {
   });
 
   it('arma de um tiro não mostra tempo até a morte', () => {
-    const ficha = fichaDaArma(WEAPONS_BY_ID.get('interdictor')!);
+    // Era a Interdictor até a 1.4.3.0, que a pôs em dois tiros ao peito. A L115
+    // segue matando com um tiro de perto.
+    const ficha = fichaDaArma(WEAPONS_BY_ID.get('l115')!);
 
     expect(ficha.tiros).toBe(1);
     expect(ficha.ttk).toBeNull();

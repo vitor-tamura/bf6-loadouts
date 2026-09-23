@@ -3280,7 +3280,20 @@ export const ATTACHMENTS: Attachment[] = [
       `data/versions/1.4.1.5/changes.json`. Uma print do Gunsmith encerra a
       dúvida; até lá, é isto.
     */
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm44', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm44', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    provenance: 'game',
+  },
+  {
+    id: 'sight-iron-sights-interdictor',
+    name: 'Alça de Ferro',
+    originalName: 'Iron Sights',
+    slot: 'sight',
+    cost: 15,
+    description: 'Mira de fábrica, a que menos pesa no manejo.',
+    mods: { hipfire: { add: 3 } },
+    // A 1.4.3.0, de 14/09/2026, fixou o preço dela na Interdictor: "Iron Sight
+    // attachment now costs 15 points". Nas outras armas ela segue em 5.
+    compat: { weapons: ['interdictor'] },
     provenance: 'game',
   },
   {

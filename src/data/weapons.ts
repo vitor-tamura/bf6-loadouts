@@ -1642,12 +1642,18 @@ const SNIPERS: WeaponEntry[] = [
     name: 'Interdictor',
     category: 'sniper',
     archetype: 'sniper-bolt',
-    summary: 'Antimaterial da Temporada 4: um tiro ao peito em qualquer distância, e lentíssima.',
+    summary: 'Antimaterial da Temporada 4: dois tiros no peito em qualquer distância, um só entre 120 e 160 m.',
+    /*
+      A curva da atualização 1.4.3.0, de 14/09/2026, confirmada pela EA e pelo
+      bf6balancelog: dano mínimo de 62 para 80, membro igual ao peito, e o ponto
+      ideal caiu de 150 para 100, agora entre 120 e 160 m. "It now deals 80
+      damage to the chest and limbs at all ranges" — fora do ponto ideal, a curva
+      é plana.
+    */
     damage: [
-      [125, 0],
-      [113.3, 50],
-      [101.7, 125],
-      [90.0, 200],
+      [80, 0],
+      [100, 120],
+      [80, 160],
     ],
     rpm: 30,
     velocity: 1020,

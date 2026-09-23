@@ -44,39 +44,6 @@ As atualizações do jogo entram sozinhas: a cada seis horas o GitHub Actions
 procura patch novo na EA, aplica e publica em `main` se testes e build passarem
 — ver [`docs/update-workflow.md`](./docs/update-workflow.md).
 
-## Publicando
-
-No ar em **https://bf6-loadouts.vercel.app**.
-
-A Vercel publica a partir do GitHub, sem passo manual: push na `main` atualiza a
-produção, e `dev` e cada Pull Request ganham uma URL de preview própria — é lá
-que a mudança se confere antes de virar o site que todo mundo vê.
-
-O build gera HTML estático em `out/`, sem backend nem banco — o loadout inteiro
-viaja dentro da URL. Serve em qualquer hospedagem estática (Vercel, Netlify,
-GitHub Pages, S3, nginx), mas o domínio precisa ser a raiz: o link compartilhado
-é montado com `window.location.origin`, que descarta subcaminho.
-
-```bash
-npm run build
-npx serve out    # conferência local do build
-```
-
-### Branches e versões
-
-Trabalho novo entra em `dev` e só vai para `main` depois de conferido — `main` é
-o que se publica. As automações de dados — patch do jogo e leitura diária do
-meta — são a exceção e publicam direto, depois de passar pelas próprias travas.
-
-A `main` é protegida: entra por Pull Request, com uma aprovação do dono do código
-(ver [`.github/CODEOWNERS`](./.github/CODEOWNERS)), sem force-push e sem apagar a
-branch.
-
-A release sai da versão, não do push. Ao promover para `main` com um `version`
-novo no `package.json`, o Actions cria a tag `vX.Y.Z` e publica a release com os
-commits desde a anterior; promoção que não mexe na versão não gera release
-nenhuma.
-
 ## Milestones (GitHub)
 
 ### Concluídas
