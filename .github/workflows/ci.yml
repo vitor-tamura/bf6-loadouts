@@ -78,8 +78,6 @@ jobs:
           if ! git diff --quiet -I '"generatedAt"' -- data/indexes public/data || [ -n "$novos" ]; then
             echo "::error::Os arquivos gerados estão defasados. Rode 'npm run catalog' e commite o resultado."
             git diff --stat -- data/indexes public/data
-            [ -n "$novos" ] && printf 'Sem commitar:
-%s
-' "$novos"
+            [ -n "$novos" ] && printf 'Sem commitar:\n%s\n' "$novos"
             exit 1
           fi
