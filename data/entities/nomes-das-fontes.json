@@ -2,7 +2,7 @@
   "fonte": {
     "provider": "bf6balancelog",
     "url": "https://bf6balancelog.com/",
-    "retrievedAt": "2026-09-14T21:45:05.875Z"
+    "retrievedAt": "2026-09-29T22:10:02.882Z"
   },
   "provados": [],
   "emAberto": [
@@ -186,6 +186,7 @@
     {
       "item": "scopes",
       "versoes": [
+        "1.4.3.0",
         "1.4.2.0",
         "1.4.1.5",
         "1.3.3.0",
@@ -199,9 +200,9 @@
         "1.1.1.0"
       ],
       "linhas": [
+        "There is a new option allowing players to turn off the Picture-in-Picture zoom functionality on optics, which will change zoom to only use full-screen FOV rather than combine FOV and additional zoom inside the optic. Changing this does not change the total magnification scale but ensures the total zoom is only changing FOV.",
         "Mini Scout 50 mW Violet attachments now correctly adjust to the lower rail when used alongside larger optics.",
-        "The description for the 1/4x LPVO 5 sight now matches its intended behaviour.",
-        "The LMR27 no longer causes canted red dot sights and larger optics to clip into the first-person camera."
+        "The description for the 1/4x LPVO 5 sight now matches its intended behaviour."
       ]
     },
     {

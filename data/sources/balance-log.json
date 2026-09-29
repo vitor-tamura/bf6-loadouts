@@ -3,9 +3,86 @@
     "provider": "bf6balancelog",
     "type": "community",
     "url": "https://bf6balancelog.com/",
-    "retrievedAt": "2026-09-14T21:45:05.875Z"
+    "retrievedAt": "2026-09-29T22:10:02.882Z"
   },
   "patches": [
+    {
+      "version": "1.4.3.0",
+      "publishedAt": "2026-09-14",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-3-0",
+      "categories": [
+        "player",
+        "weapons",
+        "vehicles",
+        "gadgets",
+        "maps",
+        "redsec",
+        "progression",
+        "ui",
+        "audio",
+        "portal",
+        "misc"
+      ],
+      "weaponLines": [
+        {
+          "text": "Resolved an issue where the icon for the canted irons on the EF88 was misplaced",
+          "group": "WEAPONS",
+          "items": [
+            "ef88"
+          ]
+        },
+        {
+          "text": "Fixed an issue where match ammo for the M2010 and SVK had unintended amounts of damage reduction versus opponents in water.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "Corrected issues related to weapon stats not updating correctly for the EF88, BROD and VSSM.",
+          "group": "WEAPONS",
+          "items": [
+            "brod-3",
+            "ef88",
+            "vssm"
+          ]
+        },
+        {
+          "text": "Updated descriptions on several weapons, including mention of subsonic ammo, which is a default attribute on the M45A1 and vz.61.",
+          "group": "WEAPONS",
+          "items": [
+            "m45a1",
+            "vz-61"
+          ]
+        },
+        {
+          "text": "The weight of the long and lightened suppressor in the L115 has been swapped.",
+          "group": "WEAPONS",
+          "items": [
+            "l115",
+            "lightened-suppressor"
+          ]
+        },
+        {
+          "text": "Corrected an issue where Vertical Grips on RPKM and RPK-74M have an offset hand position when a laser or light is equipped.",
+          "group": "WEAPONS",
+          "items": [
+            "rpk-74m",
+            "rpkm"
+          ]
+        },
+        {
+          "text": "Reticles have been improved for clearer visibility, with better readability against bright backgrounds.",
+          "group": "WEAPONS",
+          "items": []
+        },
+        {
+          "text": "There is a new option allowing players to turn off the Picture-in-Picture zoom functionality on optics, which will change zoom to only use full-screen FOV rather than combine FOV and additional zoom inside the optic. Changing this does not change the total magnification scale but ensures the total zoom is only changing FOV.",
+          "group": "WEAPONS",
+          "items": [
+            "scopes"
+          ]
+        }
+      ]
+    },
     {
       "version": "1.4.2.5",
       "publishedAt": "2026-08-31",

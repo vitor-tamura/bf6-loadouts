@@ -47,6 +47,15 @@
       "files": 11,
       "skipped": 126,
       "file": "data/sources/imports/github-d9daf96.json"
+    },
+    {
+      "snapshot": "github-2495ca1",
+      "commit": "2495ca1793824d335bcdf82384206bcdc0f1a834",
+      "committedAt": "2026-09-29T06:29:23Z",
+      "retrievedAt": "2026-09-29T22:10:03.440Z",
+      "files": 12,
+      "skipped": 75,
+      "file": "data/sources/imports/github-2495ca1.json"
     }
   ]
 }

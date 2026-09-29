@@ -1,0 +1,11 @@
+{
+  "version": "1.4.3.5",
+  "analisadoEm": "2026-09-29",
+  "modelo": "gemini-flash-lite-latest",
+  "fontes": {
+    "ea": "ata/patches/1.4.3.5.json",
+    "balancelog": null
+  },
+  "aplicadas": [],
+  "recusadas": []
+}
