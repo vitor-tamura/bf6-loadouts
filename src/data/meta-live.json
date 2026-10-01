@@ -8,56 +8,56 @@
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "ocupa o primeiro lugar geral e a primeira posição na classe Assault Rifle no ranking de multiplayer do wzstats.gg.",
+      "reason": "ocupa a primeira posição geral e o primeiro lugar entre os fuzis de assalto no ranking atualizado da wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "ocupa a segunda posição geral e o segundo lugar na classe Assault Rifle no ranking de multiplayer do wzstats.gg.",
+      "reason": "figura na segunda posição geral e como o segundo melhor fuzis de assalto do multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "ocupa a primeira posição na classe SMG e o terceiro lugar geral no ranking de multiplayer do wzstats.gg.",
+      "reason": "lidera a categoria de submetralhadoras e ocupa a terceira colocação geral na listagem da wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "ocupa a terceira posição na classe Assault Rifle e o quarto lugar geral no ranking de multiplayer do wzstats.gg.",
+      "reason": "alcança o terceiro lugar na classe de fuzis de assalto e a quarta posição no ranking geral.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "ocupa a primeira posição na classe LMG e o quinto lugar geral no ranking de multiplayer do wzstats.gg.",
+      "reason": "registra o primeiro lugar na categoria de metralhadoras leves e a quinta colocação no cenário geral do multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "sgx",
-      "reason": "ocupa a segunda posição na classe SMG e o sexto lugar geral no ranking de multiplayer do wzstats.gg.",
+      "reason": "ocupa a segunda colocação entre as submetralhadoras e o sexto lugar na tabela geral de desempenho.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "ocupa a primeira posição na classe Carbine e o sétimo lugar geral no ranking de multiplayer do wzstats.gg.",
+      "reason": "aparece no topo da classe de carabinas e na sétima posição geral do levantamento.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pw5a3",
-      "reason": "ocupa a terceira posição na classe SMG e o oitavo lugar geral no ranking de multiplayer do wzstats.gg.",
+      "reason": "classifica-se em terceiro lugar entre as submetralhadoras e na oitava posição geral do meta.",
       "sources": [
         0
       ]
@@ -66,39 +66,39 @@
   "trending": [
     {
       "weapon": "tr-7",
-      "reason": "foi alvo de discussões no Reddit sobre o motivo de parte da comunidade criticar o seu funcionamento e considerá-la fraca.",
+      "reason": "discussão aberta no Reddit sobre o motivo de parte da comunidade criticar e rejeitar esta arma.",
       "sources": [
         1
       ],
-      "trend": "reclamação de desempenho"
+      "trend": "questionamento sobre desempenho"
     },
     {
       "weapon": "brod-3",
-      "reason": "foi citada em relato de testes no campo de tiro do Reddit sobre um suposto aumento perceptível no recuo e perda de precisão.",
+      "reason": "relato de testes em campo de tiro indicando alteração negativa na precisão e no comportamento do coice.",
       "sources": [
         5
       ],
-      "trend": "alteração de recuo"
-    },
-    {
-      "weapon": "sor-300sc",
-      "reason": "gerou debate no Reddit sobre seu posicionamento, lentidão de projétil, dispersão ao mirar e semelhanças de dano com a SG 553R.",
-      "sources": [
-        3
-      ],
-      "trend": "dúvida sobre papel"
+      "trend": "reclamação de recuo"
     },
     {
       "weapon": "rpkm",
-      "reason": "foi mencionada em relato no Reddit sobre instabilidade no registro de acertos e falhas no marcador de dano durante partidas.",
+      "reason": "relato de jogador apontando registro de tiro falho e variação de dano durante confrontos.",
       "sources": [
         2
       ],
-      "trend": "inconsistência de acerto"
+      "trend": "inconsistência de registro"
+    },
+    {
+      "weapon": "sor-300sc",
+      "reason": "discussão na comunidade sobre a baixa velocidade de projétil e o posicionamento ineficiente desta carabina frente a alternativas.",
+      "sources": [
+        3
+      ],
+      "trend": "dúvida de papel tático"
     },
     {
       "weapon": "interdictor",
-      "reason": "foi apontada em discussões no Reddit como uma arma problemática devido ao seu uso dominante que elimina alvos rapidamente sem exigência de mira precisa.",
+      "reason": "reclamações recorrentes no Reddit sobre o comportamento da arma operando com mecânica de tiro equivalente a escopeta.",
       "sources": [
         4
       ],
