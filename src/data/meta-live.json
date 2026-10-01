@@ -1,63 +1,63 @@
 {
-  "readAt": "2026-09-22",
-  "model": "gpt-5.6-luna",
+  "readAt": "2026-10-01",
+  "model": "gemini-flash-lite-latest",
   "patch": {
-    "name": "Atualização 1.4.3.0",
-    "date": "2026-09-14"
+    "name": "Atualização 1.4.3.5",
+    "date": "2026-09-28"
   },
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "Está em #1 entre os fuzis de assalto na página de meta multiplayer atualizada em 22/09/2026, depois da 1.4.3.0.",
+      "reason": "A arma ocupa o posto de #1 Assault Rifle e #1 geral no ranking de fuzis e no meta do multiplayer.",
       "sources": [
-        0
+        1
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "Está em #2 entre os fuzis de assalto na classificação de multiplayer atualizada em 22/09/2026.",
+      "reason": "Registrada como #2 Assault Rifle na classe e no ranking geral do multiplayer.",
       "sources": [
-        0
+        1
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "Está em #1 entre as submetralhadoras na classificação de multiplayer atualizada em 22/09/2026.",
+      "reason": "Aparece classificada na posição #1 SMG no ranking de armamentos do multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "Está em #3 entre os fuzis de assalto e aparece na faixa principal da meta de multiplayer após a atualização 1.4.3.0.",
+      "reason": "Posicionada como #3 Assault Rifle tanto no ranking geral quanto na página dedicada de fuzis.",
       "sources": [
-        0
+        1
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "Está em #1 entre as metralhadoras leves na classificação de multiplayer atualizada em 22/09/2026.",
+      "reason": "Conquista o posto de #1 LMG no ranking de armamentos do multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "sgx",
-      "reason": "Está em #2 entre as submetralhadoras na classificação de multiplayer atualizada em 22/09/2026.",
+      "reason": "Aparece como a segunda colocada na categoria de submetralhadoras (#2 SMG) no multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "Está em #1 entre as carabinas na classificação de multiplayer atualizada em 22/09/2026.",
+      "reason": "Classificada na primeira posição da categoria de carabinas (#1 Carbine) no multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pw5a3",
-      "reason": "Está em #3 entre as submetralhadoras e na faixa principal da meta de multiplayer atualizada em 22/09/2026.",
+      "reason": "Figura na terceira posição entre as submetralhadoras (#3 SMG) no ranking do multiplayer.",
       "sources": [
         0
       ]
@@ -65,76 +65,144 @@
   ],
   "trending": [
     {
-      "weapon": "kord-6p67",
-      "reason": "Uma discussão recente da comunidade descreveu o KORD 6P67 como uma arma muito precisa e destacou seu uso com gatilho Match Trigger; o tópico teve 53 votos.",
-      "sources": [
-        3
-      ],
-      "trend": "discussão sobre laser beam e build de alcance médio"
-    },
-    {
-      "weapon": "m16a4",
-      "reason": "O levantamento comunitário de pick rates de 10/09 a 17/09 acompanha as escolhas de armas em Conquest, Breakthrough e Escalation durante a semana de lançamento da Tidal Strike.",
+      "weapon": "tr-7",
+      "reason": "Discussão iniciada no Reddit sobre o motivo pelo qual jogadores criticam o desempenho da arma.",
       "sources": [
         2
       ],
-      "trend": "aparição entre as armas mais escolhidas"
+      "trend": "reclamação de desempenho"
+    },
+    {
+      "weapon": "brod-3",
+      "reason": "Discussão na comunidade sobre teste em campo de tiro indicando possível aumento no recuo global da arma.",
+      "sources": [
+        6
+      ],
+      "trend": "alteração de recuo"
+    },
+    {
+      "weapon": "sor-300sc",
+      "reason": "Tópico no Reddit questionando a utilidade da arma e comparando seus valores de dano com a SG 553R.",
+      "sources": [
+        4
+      ],
+      "trend": "dúvida de papel tático"
+    },
+    {
+      "weapon": "interdictor",
+      "reason": "Reclamação de jogadores no Reddit apontando o uso excessivo da arma como espingarda de acionamento rápido.",
+      "sources": [
+        7
+      ],
+      "trend": "abuso de mira"
+    },
+    {
+      "weapon": "db-12",
+      "reason": "Discussão na comunidade relatando o baixo desempenho e a ausência de nicho útil para a arma.",
+      "sources": [
+        5
+      ],
+      "trend": "frustração de uso"
+    },
+    {
+      "weapon": "rpkm",
+      "reason": "Relato de jogador no Reddit mencionando instabilidade no registro de acertos e inconsistência de dano.",
+      "sources": [
+        3
+      ],
+      "trend": "problema de registro"
     }
   ],
   "sources": [
     {
-      "name": "WZStats multiplayer meta",
+      "name": "wzstats.gg — ranking do multiplayer",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-09-22",
+      "date": "2026-10-01",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Classificação atualizada de armas exclusivamente no multiplayer tradicional.",
+      "scope": "Tem página só de multiplayer, separada das de REDSEC e de REDSEC Ranqueado, e ordena arma por arma dentro de cada classe.",
       "timeframe": "season-4"
     },
     {
-      "name": "WZStats melhores fuzis de assalto",
+      "name": "wzstats.gg — fuzis de assalto no multiplayer",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/best-gun/best-assault-rifles-in-battlefield",
-      "date": "2026-09-22",
+      "date": "2026-10-01",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Ranking completo dos fuzis de assalto no caminho exclusivo de multiplayer.",
+      "scope": "Página de classe do mesmo rastreador, também só de multiplayer: publica a ordem completa dos onze fuzis, que a página de resumo corta no quinto.",
       "timeframe": "season-4"
     },
     {
-      "name": "Levantamento comunitário de pick rates",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1wjhc5n/battlefield_6_class_and_weapon_pick_rates_91026/",
-      "date": "2026-09-18",
+      "name": "Reddit — Why do people hate this gun?””",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1wuljg9/why_do_people_hate_this_gun/",
+      "date": "2026-10-01",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Relato comunitário de uso em modos tradicionais como Conquest, Breakthrough e Escalation.",
+      "scope": "Thread do r/Battlefield6 que cita TR-7. Mostra do que se fala, não mede força.",
       "timeframe": "season-4"
     },
     {
-      "name": "Discussão sobre KORD 6P67",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1v9b4tt/what_are_your_favoritebest_weapons_to_use_in/",
-      "date": "2026-08-14",
+      "name": "Reddit — Hit reg",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1wrgn6n/hit_reg/",
+      "date": "2026-09-27",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Discussão da comunidade sobre armas usadas no multiplayer.",
+      "scope": "Thread do r/Battlefield6 que cita RPKM. Mostra do que se fala, não mede força.",
       "timeframe": "season-4"
     },
     {
-      "date": "2026-09-14",
+      "name": "Reddit — The SOR-300SC confuses me.",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1wqqjy9/the_sor300sc_confuses_me/",
+      "date": "2026-09-26",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita M417 A2, SG 553R, SOR-300SC. Mostra do que se fala, não mede força.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit — What is the trick to the DB-12?",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1wpkbc7/what_is_the_trick_to_the_db12/",
+      "date": "2026-09-25",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita DB-12. Mostra do que se fala, não mede força.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit — Has Brod 3 got a nerf?",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1wpd43d/has_brod_3_got_a_nerf/",
+      "date": "2026-09-24",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita BROD 3. Mostra do que se fala, não mede força.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit — Interdictor",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1wor6ly/interdictor/",
+      "date": "2026-09-24",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita Interdictor. Mostra do que se fala, não mede força.",
+      "timeframe": "season-4"
+    },
+    {
+      "date": "2026-09-28",
       "country": "INT",
       "mode": "multiplayer",
       "timeframe": "season-4",
-      "name": "EA — Battlefield 6 Game Update 1.4.3.0",
-      "url": "https://www.ea.com/games/battlefield/redsec/news/battlefield-6-game-update-1-4-3-0",
-      "scope": "A atualização em vigor, lida do catálogo do site: 12 linhas de arma no changelog do multiplayer. Substituiu a 1.4.2.5."
+      "name": "EA — Battlefield 6 Game Update 1.4.3.5",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-3-5",
+      "scope": "A atualização em vigor, lida do catálogo do site: 2 linhas de arma no changelog do multiplayer. Substituiu a 1.4.3.0."
     },
     {
-      "date": "2026-09-14",
+      "date": "2026-09-28",
       "country": "INT",
       "mode": "multiplayer",
       "timeframe": "season-4",
-      "name": "BF6 Balance Log — registro da 1.4.3.0",
+      "name": "BF6 Balance Log — registro da 1.4.3.5",
       "url": "https://bf6balancelog.com/",
-      "scope": "O mesmo changelog da 1.4.3.0, transcrito arma por arma, com o histórico de cada peça."
+      "scope": "O mesmo changelog da 1.4.3.5, transcrito arma por arma, com o histórico de cada peça."
     }
   ]
 }
