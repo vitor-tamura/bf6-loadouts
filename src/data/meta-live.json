@@ -8,56 +8,56 @@
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "A arma ocupa o posto de #1 Assault Rifle e #1 geral no ranking de fuzis e no meta do multiplayer.",
+      "reason": "ocupa o primeiro lugar geral e a primeira posição na classe Assault Rifle no ranking de multiplayer do wzstats.gg.",
       "sources": [
-        1
+        0
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "Registrada como #2 Assault Rifle na classe e no ranking geral do multiplayer.",
+      "reason": "ocupa a segunda posição geral e o segundo lugar na classe Assault Rifle no ranking de multiplayer do wzstats.gg.",
       "sources": [
-        1
+        0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "Aparece classificada na posição #1 SMG no ranking de armamentos do multiplayer.",
+      "reason": "ocupa a primeira posição na classe SMG e o terceiro lugar geral no ranking de multiplayer do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "Posicionada como #3 Assault Rifle tanto no ranking geral quanto na página dedicada de fuzis.",
+      "reason": "ocupa a terceira posição na classe Assault Rifle e o quarto lugar geral no ranking de multiplayer do wzstats.gg.",
       "sources": [
-        1
+        0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "Conquista o posto de #1 LMG no ranking de armamentos do multiplayer.",
+      "reason": "ocupa a primeira posição na classe LMG e o quinto lugar geral no ranking de multiplayer do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "sgx",
-      "reason": "Aparece como a segunda colocada na categoria de submetralhadoras (#2 SMG) no multiplayer.",
+      "reason": "ocupa a segunda posição na classe SMG e o sexto lugar geral no ranking de multiplayer do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "Classificada na primeira posição da categoria de carabinas (#1 Carbine) no multiplayer.",
+      "reason": "ocupa a primeira posição na classe Carbine e o sétimo lugar geral no ranking de multiplayer do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pw5a3",
-      "reason": "Figura na terceira posição entre as submetralhadoras (#3 SMG) no ranking do multiplayer.",
+      "reason": "ocupa a terceira posição na classe SMG e o oitavo lugar geral no ranking de multiplayer do wzstats.gg.",
       "sources": [
         0
       ]
@@ -66,51 +66,43 @@
   "trending": [
     {
       "weapon": "tr-7",
-      "reason": "Discussão iniciada no Reddit sobre o motivo pelo qual jogadores criticam o desempenho da arma.",
+      "reason": "foi alvo de discussões no Reddit sobre o motivo de parte da comunidade criticar o seu funcionamento e considerá-la fraca.",
       "sources": [
-        2
+        1
       ],
       "trend": "reclamação de desempenho"
     },
     {
       "weapon": "brod-3",
-      "reason": "Discussão na comunidade sobre teste em campo de tiro indicando possível aumento no recuo global da arma.",
+      "reason": "foi citada em relato de testes no campo de tiro do Reddit sobre um suposto aumento perceptível no recuo e perda de precisão.",
       "sources": [
-        6
+        5
       ],
       "trend": "alteração de recuo"
     },
     {
       "weapon": "sor-300sc",
-      "reason": "Tópico no Reddit questionando a utilidade da arma e comparando seus valores de dano com a SG 553R.",
-      "sources": [
-        4
-      ],
-      "trend": "dúvida de papel tático"
-    },
-    {
-      "weapon": "interdictor",
-      "reason": "Reclamação de jogadores no Reddit apontando o uso excessivo da arma como espingarda de acionamento rápido.",
-      "sources": [
-        7
-      ],
-      "trend": "abuso de mira"
-    },
-    {
-      "weapon": "db-12",
-      "reason": "Discussão na comunidade relatando o baixo desempenho e a ausência de nicho útil para a arma.",
-      "sources": [
-        5
-      ],
-      "trend": "frustração de uso"
-    },
-    {
-      "weapon": "rpkm",
-      "reason": "Relato de jogador no Reddit mencionando instabilidade no registro de acertos e inconsistência de dano.",
+      "reason": "gerou debate no Reddit sobre seu posicionamento, lentidão de projétil, dispersão ao mirar e semelhanças de dano com a SG 553R.",
       "sources": [
         3
       ],
-      "trend": "problema de registro"
+      "trend": "dúvida sobre papel"
+    },
+    {
+      "weapon": "rpkm",
+      "reason": "foi mencionada em relato no Reddit sobre instabilidade no registro de acertos e falhas no marcador de dano durante partidas.",
+      "sources": [
+        2
+      ],
+      "trend": "inconsistência de acerto"
+    },
+    {
+      "weapon": "interdictor",
+      "reason": "foi apontada em discussões no Reddit como uma arma problemática devido ao seu uso dominante que elimina alvos rapidamente sem exigência de mira precisa.",
+      "sources": [
+        4
+      ],
+      "trend": "abuso de dano"
     }
   ],
   "sources": [
@@ -121,15 +113,6 @@
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Tem página só de multiplayer, separada das de REDSEC e de REDSEC Ranqueado, e ordena arma por arma dentro de cada classe.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "wzstats.gg — fuzis de assalto no multiplayer",
-      "url": "https://wzstats.gg/battlefield-6/multiplayer/best-gun/best-assault-rifles-in-battlefield",
-      "date": "2026-10-01",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Página de classe do mesmo rastreador, também só de multiplayer: publica a ordem completa dos onze fuzis, que a página de resumo corta no quinto.",
       "timeframe": "season-4"
     },
     {
@@ -160,12 +143,12 @@
       "timeframe": "season-4"
     },
     {
-      "name": "Reddit — What is the trick to the DB-12?",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1wpkbc7/what_is_the_trick_to_the_db12/",
-      "date": "2026-09-25",
+      "name": "Reddit — Pls Fix",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1wquge8/pls_fix/",
+      "date": "2026-09-26",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita DB-12. Mostra do que se fala, não mede força.",
+      "scope": "Thread do r/Battlefield6 que cita Interdictor. Mostra do que se fala, não mede força.",
       "timeframe": "season-4"
     },
     {
@@ -175,15 +158,6 @@
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Thread do r/Battlefield6 que cita BROD 3. Mostra do que se fala, não mede força.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Reddit — Interdictor",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1wor6ly/interdictor/",
-      "date": "2026-09-24",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita Interdictor. Mostra do que se fala, não mede força.",
       "timeframe": "season-4"
     },
     {
