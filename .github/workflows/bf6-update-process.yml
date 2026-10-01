@@ -109,8 +109,9 @@ jobs:
         run: npm run catalog:aplicar-no-site -- --desde "$ANTERIOR"
 
       # A leitura que o parser de regra fixa não faz: o patch note da EA e as
-      # linhas do bf6balancelog vão para um modelo (OpenAI, ou o Gemini gratuito
-      # quando o crédito acaba), que propõe o que muda nas armas e peças do site.
+      # linhas do bf6balancelog vão para um modelo (pelo OpenRouter, ou o Gemini
+      # gratuito quando o crédito acaba), que propõe o que muda nas armas e peças
+      # do site.
       # O código só aplica o que cita frase existente no texto oficial, com os
       # mesmos números e sobre a arma certa — ver scripts/catalog/analisar-patch.ts.
       #
@@ -120,7 +121,8 @@ jobs:
       - name: Analisar o patch e aplicar no site
         continue-on-error: true
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          # Reserva gratuita para quando o crédito do OpenRouter acabar (scripts/meta/provedores.mjs).
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run catalog:analisar-patch
 
@@ -143,8 +145,8 @@ jobs:
       - name: Auditar os acessórios novos
         continue-on-error: true
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          # Reserva gratuita para quando o crédito da OpenAI acabar (scripts/meta/provedores.mjs).
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          # Reserva gratuita para quando o crédito do OpenRouter acabar (scripts/meta/provedores.mjs).
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PATCH_VERSION: ${{ inputs.version }}
         run: npm run catalog:perguntar-acessorios

@@ -2,24 +2,27 @@
 /**
  * Relê o meta a partir de uma busca, uma vez por dia.
  *
- *   OPENAI_API_KEY=... node --experimental-strip-types scripts/meta-search.mjs
+ *   OPENROUTER_API_KEY=... node --experimental-strip-types scripts/meta-search.mjs
  *
- * Pergunta a um modelo da OpenAI, com a busca na web ligada, o que a comunidade
+ * Pergunta a um modelo, pelo OpenRouter e com a busca na web ligada, o que a comunidade
  * está dizendo agora sobre as armas do multiplayer — dando peso ao Reddit, que
  * é onde a discussão acontece e onde as ferramentas de busca comuns não chegam
  * para robôs. O resultado vai para `src/data/meta-live.json`, que a tela lê.
  *
- * ## Por que OpenAI, e o Gemini só de reserva
+ * ## Por que o OpenRouter
  *
- * A versão anterior perguntava só ao Gemini com a busca do Google ligada, numa
- * chave do free tier. Nunca publicou uma leitura: todas as execuções do
- * workflow falharam na chamada. Esta versão usa uma chave paga da OpenAI, e o
- * custo é de centavos: uma chamada por dia, com uma busca (~US$ 0,01) e um
- * punhado de tokens.
+ * A primeira versão perguntava ao Gemini numa chave do free tier e nunca
+ * publicou uma leitura; a segunda usava uma chave paga da OpenAI, com o Gemini
+ * gratuito de reserva para o dia em que o crédito acabasse. Eram duas chaves e
+ * dois formatos de pedido para manter.
  *
- * O Gemini gratuito voltou como reserva, e só para o dia em que o crédito da
- * OpenAI acabar — ver `meta/provedores.mjs`. A resposta dele passa pelas
- * mesmas travas, e a leitura gravada diz qual modelo a escreveu.
+ * Agora a chave paga é a do OpenRouter, e o modelo é um nome do catálogo dele
+ * — ver `meta/provedores.mjs`. O custo segue de centavos: uma chamada por dia,
+ * com busca e um punhado de tokens.
+ *
+ * O Gemini gratuito continua de reserva, e só para o dia em que o crédito do
+ * OpenRouter acabar. A resposta dele passa pelas mesmas travas, e a leitura
+ * gravada diz qual modelo a escreveu.
  *
  * ## O que impede bobagem de entrar
  *
@@ -47,7 +50,7 @@ import {
   montarLeitura,
 } from './meta/leitura.mjs';
 import { briefingDoPatch, fontesDoPatch, patchAtual } from './meta/patch-atual.mjs';
-import { candidatos, perguntarComBusca, temAlgumaChave } from './meta/provedores.mjs';
+import { candidatos, modelosDe, perguntarComBusca, temAlgumaChave } from './meta/provedores.mjs';
 
 const DESTINO = new URL('../src/data/meta-live.json', import.meta.url);
 
@@ -72,9 +75,9 @@ function numeroConfig(valor, padrao) {
  * não encarece a rodada boa — evita a rodada perdida, que custa a chamada
  * inteira e não entrega nada.
  */
-const MAX_OUTPUT_TOKENS = numeroConfig(process.env.OPENAI_META_MAX_OUTPUT_TOKENS, 12_000);
-const MAX_TENTATIVAS = numeroConfig(process.env.OPENAI_META_RETRIES, 3);
-const FALHAR_SEM_ATUALIZAR = process.env.OPENAI_META_STRICT === '1';
+const MAX_OUTPUT_TOKENS = numeroConfig(process.env.OPENROUTER_META_MAX_OUTPUT_TOKENS, 12_000);
+const MAX_TENTATIVAS = numeroConfig(process.env.OPENROUTER_META_RETRIES, 3);
+const FALHAR_SEM_ATUALIZAR = process.env.OPENROUTER_META_STRICT === '1';
 
 /*
  * Um modelo só, e é o `gpt-5.6-luna`.
@@ -92,13 +95,12 @@ const FALHAR_SEM_ATUALIZAR = process.env.OPENAI_META_STRICT === '1';
  * fila justamente por nunca ter respondido, e chamada recusada custa o dia
  * inteiro de leitura, não tokens.
  *
- * A fila continua sendo uma lista para `OPENAI_META_MODELS` poder trocar o
- * modelo sem publicar versão — o que ela não tem mais é reserva por padrão.
+ * A fila continua sendo uma lista para `OPENROUTER_META_MODELS` poder trocar o
+ * modelo sem publicar versão — o que ela não tem mais é reserva por padrão. Os
+ * nomes são os do catálogo do OpenRouter, com a casa na frente
+ * (`openai/gpt-5.6-luna`); o padrão está em `meta/provedores.mjs`.
  */
-const MODELOS = (process.env.OPENAI_META_MODELS ?? 'gpt-5.6-luna')
-  .split(',')
-  .map((modelo) => modelo.trim())
-  .filter(Boolean);
+const MODELOS = modelosDe(process.env.OPENROUTER_META_MODELS);
 
 const HOJE = new Date().toISOString().slice(0, 10);
 
@@ -287,7 +289,7 @@ async function main() {
   }
 
   if (!temAlgumaChave()) {
-    console.error('Falta OPENAI_API_KEY (ou GEMINI_API_KEY, para o modelo gratuito).');
+    console.error('Falta OPENROUTER_API_KEY (ou GEMINI_API_KEY, para o modelo gratuito).');
     process.exit(1);
   }
 

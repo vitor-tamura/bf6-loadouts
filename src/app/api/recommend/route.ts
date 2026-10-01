@@ -20,6 +20,7 @@ import {
   type LoadoutAdvice,
   type RawAdvice,
 } from '@/lib/recommend';
+import { chat, modelsFrom, openRouterKey, type OpenRouterError } from '@/lib/openrouter';
 import { dedupeCitations, type CitedSource } from '@/lib/sources';
 
 /**
@@ -59,8 +60,6 @@ export const maxDuration = 300;
  */
 const ROUNDS = 1;
 
-const API_KEY = process.env.OPENAI_API_KEY;
-
 function positiveInt(value: string | undefined, fallback: number) {
   const parsed = Number(value);
   return Number.isFinite(parsed) && parsed > 0 ? Math.floor(parsed) : fallback;
@@ -82,9 +81,9 @@ function positiveInt(value: string | undefined, fallback: number) {
  * O que se perde está dito na tela: `unsourced` continua verdadeiro quando
  * nenhuma página é citada, e o painel avisa que aquilo é o que o modelo já
  * sabia, não leitura de discussão recente. Ligar de volta é
- * `OPENAI_RECOMMEND_WEB_SEARCH=on`, sem publicar versão nova.
+ * `OPENROUTER_RECOMMEND_WEB_SEARCH=on`, sem publicar versão nova.
  */
-const WEB_SEARCH = process.env.OPENAI_RECOMMEND_WEB_SEARCH === 'on';
+const WEB_SEARCH = process.env.OPENROUTER_RECOMMEND_WEB_SEARCH === 'on';
 
 /**
  * Um modelo só, ligado ou desligada a busca: o `gpt-5.6-luna`.
@@ -98,13 +97,12 @@ const WEB_SEARCH = process.env.OPENAI_RECOMMEND_WEB_SEARCH === 'on';
  * dois casos caberem no mesmo nome. Escolher peças de uma lista dada e devolver
  * um JSON de uma linha é trabalho de modelo pequeno; o que fazia falta era um
  * modelo pequeno que não recusasse a ferramenta.
+ *
+ * Ele agora é chamado pelo OpenRouter, e o nome leva a casa na frente
+ * (`openai/gpt-5.6-luna`, o padrão de `src/lib/openrouter.ts`).
+ * `OPENROUTER_RECOMMEND_MODELS` troca a fila sem publicar versão nova.
  */
-const DEFAULT_MODELS = 'gpt-5.6-luna';
-
-const MODELS = (process.env.OPENAI_RECOMMEND_MODELS ?? DEFAULT_MODELS)
-  .split(',')
-  .map((model) => model.trim())
-  .filter(Boolean);
+const MODELS = modelsFrom(process.env.OPENROUTER_RECOMMEND_MODELS);
 /*
  * A resposta deixou de ser uma frase.
  *
@@ -129,8 +127,8 @@ const MODELS = (process.env.OPENAI_RECOMMEND_MODELS ?? DEFAULT_MODELS)
  * metade não é montagem. O que economiza tempo é a resposta curta, não o teto
  * apertado — só se paga o que for gerado.
  */
-const MAX_OUTPUT_TOKENS = positiveInt(process.env.OPENAI_RECOMMEND_MAX_OUTPUT_TOKENS, 3000);
-const MAX_RETRIES = positiveInt(process.env.OPENAI_RECOMMEND_RETRIES, 3);
+const MAX_OUTPUT_TOKENS = positiveInt(process.env.OPENROUTER_RECOMMEND_MAX_OUTPUT_TOKENS, 3000);
+const MAX_RETRIES = positiveInt(process.env.OPENROUTER_RECOMMEND_RETRIES, 3);
 
 /*
  * O relógio da rota.
@@ -148,8 +146,8 @@ const MAX_RETRIES = positiveInt(process.env.OPENAI_RECOMMEND_RETRIES, 3);
  * desde o clique, e o que falta é só a leitura da comunidade. Estourar o
  * relógio custa a leitura, não a build.
  */
-const REQUEST_TIMEOUT_MS = positiveInt(process.env.OPENAI_RECOMMEND_REQUEST_TIMEOUT_MS, 20_000);
-const TIME_BUDGET_MS = positiveInt(process.env.OPENAI_RECOMMEND_TIME_BUDGET_MS, 22_000);
+const REQUEST_TIMEOUT_MS = positiveInt(process.env.OPENROUTER_RECOMMEND_REQUEST_TIMEOUT_MS, 20_000);
+const TIME_BUDGET_MS = positiveInt(process.env.OPENROUTER_RECOMMEND_TIME_BUDGET_MS, 22_000);
 
 /** O erro de quem ficou sem tempo — reconhecível no log e no fim da fila. */
 const timeout = (message: string) => Object.assign(new Error(message), { timedOut: true });
@@ -185,73 +183,33 @@ function overDailyLimit(request: Request) {
   return false;
 }
 
-interface ResponsePart {
-  type?: string;
-  text?: string;
-  /** Os links que a busca abriu, pendurados no texto que ela sustentou. */
-  annotations?: { type?: string; url?: string; title?: string }[];
-}
-
-interface ResponseBody {
-  error?: { message?: string };
-  output?: { type?: string; content?: ResponsePart[] }[];
-  status?: string;
-  incomplete_details?: { reason?: string };
-}
-
-type ApiError = Error & { status?: number; retryAfterMs?: number };
-
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-/** Quanto esperar antes de insistir: o que o servidor mandou, ou recuo exponencial. */
-function retryDelayMs(response: Response, message: string, attempt: number) {
-  const header = response.headers.get('retry-after');
-  if (header && !Number.isNaN(Number(header))) return Number(header) * 1000;
-
-  const match = message.match(/try again in ([0-9.]+)s/i);
-  if (match) return Math.ceil(Number(match[1]) * 1000);
-
-  return Math.min(30_000, 1500 * 2 ** (attempt - 1));
-}
 
 /*
  * O raciocínio volta quando a busca sai.
  *
- * `reasoning` e modo JSON foram removidos daqui porque a API os recusa junto
- * com a busca na web — "Web Search cannot be used with JSON mode" foi o 400 que
- * derrubou a rota em produção. Com a busca desligada, a incompatibilidade
- * deixou de existir.
+ * `reasoning` e modo JSON foram removidos daqui porque a API da OpenAI os
+ * recusava junto com a busca na web — "Web Search cannot be used with JSON
+ * mode" foi o 400 que derrubou a rota em produção. Com a busca desligada, a
+ * incompatibilidade deixou de existir.
  *
  * E era ela que estava custando a espera: o `gpt-5-nano` gastava os catorze
  * segundos pensando antes de escrever a primeira linha, e a rota desistia com
  * "sem resposta em 14 s". Escolher peças de uma lista dada não precisa de
  * deliberação longa.
  *
- * O esforço é `none`, e não `minimal`: o `gpt-5.6-luna` aceita `none`, `low`,
- * `medium`, `high`, `xhigh` e `max` — `minimal` era da geração anterior e, no
- * nome novo, volta como 400. Dizer o esforço deixou de ser economia e virou
- * obrigação: o padrão do `luna` é `medium`, e é este mesmo teto de saída que o
- * raciocínio consome antes de sobrar linha para a resposta.
+ * O esforço é `none`, e não `minimal`: `minimal` era da geração anterior e, no
+ * `gpt-5.6-luna`, volta como 400. Dizer o esforço deixou de ser economia e
+ * virou obrigação: o padrão do `luna` é `medium`, e é este mesmo teto de saída
+ * que o raciocínio consome antes de sobrar linha para a resposta.
  *
- * Só vale para a família gpt-5, que é a que aceita o parâmetro. Com a busca
- * ligada, nada disso é enviado, e o JSON continua vindo em texto corrido para
- * `extractJson` recortar.
+ * Pelo OpenRouter o parâmetro é um só para todas as casas, e modelo que não
+ * raciocina o ignora. Com a busca ligada, nada disso é enviado, e o JSON
+ * continua vindo em texto corrido para `extractJson` recortar.
  */
-const reasoningFor = (model: string) =>
-  !WEB_SEARCH && model.startsWith('gpt-5') ? { reasoning: { effort: 'none' } } : {};
+const REASONING_EFFORT = WEB_SEARCH ? undefined : 'none';
 
-function requestBody(model: string, prompt: string) {
-  return {
-    model,
-    ...(WEB_SEARCH ? { tools: [{ type: 'web_search' }] } : {}),
-    ...reasoningFor(model),
-    input: prompt,
-    max_output_tokens: MAX_OUTPUT_TOKENS,
-    store: false,
-  };
-}
-
-async function callOpenAI(
+async function callModel(
   model: string,
   prompt: string,
   attempt: number,
@@ -268,20 +226,18 @@ async function callOpenAI(
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), allowance);
 
-  let response: Response;
-  let body: ResponseBody;
   try {
-    response = await fetch('https://api.openai.com/v1/responses', {
-      method: 'POST',
-      headers: {
-        authorization: `Bearer ${API_KEY}`,
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(requestBody(model, prompt)),
+    const { text, citations } = await chat({
+      model,
+      prompt,
+      maxTokens: MAX_OUTPUT_TOKENS,
+      webSearch: WEB_SEARCH,
+      reasoningEffort: REASONING_EFFORT,
       signal: controller.signal,
+      attempt,
     });
 
-    body = (await response.json()) as ResponseBody;
+    return { text, sources: dedupeCitations(citations) };
   } catch (error) {
     if (controller.signal.aborted) {
       throw timeout(`sem resposta em ${Math.round(allowance / 1000)} s`);
@@ -290,41 +246,6 @@ async function callOpenAI(
   } finally {
     clearTimeout(timer);
   }
-
-  if (!response.ok || body.error) {
-    const error: ApiError = new Error(
-      body.error?.message
-        ? `${response.status} ${body.error.message}`
-        : `${response.status} ${response.statusText}`,
-    );
-    error.status = response.status;
-    error.retryAfterMs = retryDelayMs(response, error.message, attempt);
-    throw error;
-  }
-
-  const message = (body.output ?? []).find((item) => item.type === 'message');
-  const parts = (message?.content ?? []).filter((part) => part.type === 'output_text');
-
-  /*
-   * Resposta cortada não é resposta.
-   *
-   * Nos modelos gpt-5 o teto de saída conta também os tokens de raciocínio, e o
-   * `gpt-5-mini` vinha estourando o teto durante a busca: chegava aqui uma
-   * mensagem vazia, que o extrator reportava como "resposta sem JSON" — erro
-   * que manda procurar no lugar errado. Agora ele se identifica.
-   */
-  if (body.status === 'incomplete') {
-    throw new Error(`resposta cortada (${body.incomplete_details?.reason ?? 'motivo não informado'})`);
-  }
-
-  return {
-    text: parts.map((part) => part.text ?? '').join(''),
-    sources: dedupeCitations(
-      parts
-        .flatMap((part) => part.annotations ?? [])
-        .filter((annotation) => annotation.type === 'url_citation'),
-    ),
-  };
 }
 
 /**
@@ -339,10 +260,10 @@ async function ask(model: string, prompt: string, deadline: number) {
 
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt += 1) {
     try {
-      return await callOpenAI(model, prompt, attempt, deadline);
+      return await callModel(model, prompt, attempt, deadline);
     } catch (error) {
       lastError = error;
-      const apiError = error as ApiError;
+      const apiError = error as OpenRouterError;
 
       if (apiError.status === 429 && attempt < MAX_RETRIES) {
         const delay = apiError.retryAfterMs ?? 1000;
@@ -654,9 +575,9 @@ export async function GET(request: Request) {
    * ausente, ambiente errado e modelo fora do ar com a mesma frase — e quem
    * está depurando não tem por onde começar.
    */
-  if (!API_KEY) {
+  if (!openRouterKey()) {
     return Response.json(
-      { error: 'modelo indisponível', reason: 'OPENAI_API_KEY não configurada neste ambiente' },
+      { error: 'modelo indisponível', reason: 'OPENROUTER_API_KEY não configurada neste ambiente' },
       { status: 502 },
     );
   }

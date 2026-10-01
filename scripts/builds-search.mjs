@@ -2,7 +2,7 @@
 /**
  * O que a comunidade monta em cada arma, lido uma vez por dia.
  *
- *   OPENAI_API_KEY=... node --experimental-strip-types scripts/builds-search.mjs
+ *   OPENROUTER_API_KEY=... node --experimental-strip-types scripts/builds-search.mjs
  *
  * A leitura do meta (`meta-search.mjs`) responde que armas estão fortes — oito
  * por dia, com evidência. Esta rotina responde outra pergunta: **o que se põe
@@ -29,7 +29,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { WEAPONS } from '../src/data/weapons.ts';
 import { SHORT_CATEGORY_NAMES } from '../src/data/classes.ts';
 import { armaPorNome, extrairJson } from './meta/leitura.mjs';
-import { candidatos, perguntarComBusca, temAlgumaChave } from './meta/provedores.mjs';
+import { candidatos, modelosDe, perguntarComBusca, temAlgumaChave } from './meta/provedores.mjs';
 
 const DESTINO = new URL('../src/data/builds-live.json', import.meta.url);
 
@@ -46,11 +46,11 @@ function numeroConfig(valor, padrao) {
  * aconteceu com o meta. Seis é o meio-termo: cabe numa resposta e mantém a
  * varredura em pouco mais de dez chamadas.
  */
-const LOTE = numeroConfig(process.env.OPENAI_BUILDS_LOTE, 6);
+const LOTE = numeroConfig(process.env.OPENROUTER_BUILDS_LOTE, 6);
 /* O teto cobre raciocínio, busca e texto — não só o texto. Seis armas com
    pesquisa em cada uma não cabem em dois mil tokens. */
-const MAX_OUTPUT_TOKENS = numeroConfig(process.env.OPENAI_BUILDS_MAX_OUTPUT_TOKENS, 8000);
-const MAX_TENTATIVAS = numeroConfig(process.env.OPENAI_BUILDS_RETRIES, 3);
+const MAX_OUTPUT_TOKENS = numeroConfig(process.env.OPENROUTER_BUILDS_MAX_OUTPUT_TOKENS, 8000);
+const MAX_TENTATIVAS = numeroConfig(process.env.OPENROUTER_BUILDS_RETRIES, 3);
 
 /* A busca é o ponto desta rotina, então nada de modo JSON — a API recusa os
    dois juntos. O JSON vem em texto e `extrairJson` o recorta, como no meta. */
@@ -59,10 +59,7 @@ const MAX_TENTATIVAS = numeroConfig(process.env.OPENAI_BUILDS_RETRIES, 3);
    diária e responder a mesma pergunta com modelos diferentes só faria a
    divergência entre os dois arquivos ser difícil de explicar. Ver o cabeçalho
    de `MODELOS` em scripts/meta-search.mjs para a conta. */
-const MODELOS = (process.env.OPENAI_BUILDS_MODELS ?? 'gpt-5.6-luna')
-  .split(',')
-  .map((modelo) => modelo.trim())
-  .filter(Boolean);
+const MODELOS = modelosDe(process.env.OPENROUTER_BUILDS_MODELS);
 
 /*
  * Quantas fontes o arquivo guarda.
@@ -113,9 +110,9 @@ Responda SOMENTE com este JSON, sem cercas de código:
 /**
  * Pergunta pelo lote, descendo a fila até alguém responder com busca.
  *
- * A fila é a de `meta/provedores.mjs`: a OpenAI e, quando o crédito dela
- * acaba, o Gemini gratuito — e esgotar num lote vale para os seguintes, que já
- * começam pelo gratuito.
+ * A fila é a de `meta/provedores.mjs`: os modelos de `MODELOS`, pelo
+ * OpenRouter, e, quando o crédito dele acaba, o Gemini gratuito — e esgotar
+ * num lote vale para os seguintes, que já começam pelo gratuito.
  */
 async function perguntar(prompt) {
   let ultimoErro = null;
@@ -153,7 +150,7 @@ function leituraAnterior() {
 
 async function main() {
   if (!temAlgumaChave()) {
-    console.error('OPENAI_API_KEY não definida (nem GEMINI_API_KEY, para o modelo gratuito).');
+    console.error('OPENROUTER_API_KEY não definida (nem GEMINI_API_KEY, para o modelo gratuito).');
     process.exit(1);
   }
 

@@ -1,6 +1,3 @@
-import { generateText, APICallError } from 'ai';
-import { createGoogleGenerativeAI } from '@ai-sdk/google';
-import { createOpenAI } from '@ai-sdk/openai';
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import { SHORT_CATEGORY_NAMES } from '@/data/classes';
 import {
@@ -11,7 +8,9 @@ import {
   timeToKill,
 } from '@/lib/ballistics';
 import { baseStats } from '@/lib/stats';
+import { GEMINI_MODELS, generate, geminiKey } from '@/lib/gemini';
 import { GAME_MODES, type GameMode } from '@/lib/matchup';
+import { chat, modelsFrom, openRouterKey, type OpenRouterError } from '@/lib/openrouter';
 
 /**
  * A leitura do confronto escrita por um modelo de linguagem.
@@ -30,43 +29,26 @@ import { GAME_MODES, type GameMode } from '@/lib/matchup';
 /** Um texto curto não justifica esperar mais do que isto. */
 export const maxDuration = 15;
 
-/*
- * Modelo pequeno de propósito, também no gateway.
- *
- * A tarefa é redigir três frases a partir de números já mastigados — não há
- * raciocínio a fazer, e um modelo grande gastaria o crédito do mês em pouca
- * coisa. O nano é o mais barato do catálogo do gateway também; `models` é a
- * fila de reserva do próprio gateway, para o caso de o primeiro estar fora do
- * ar, e os reservas também são dos baratos.
- */
-const MODEL = 'openai/gpt-5.6-luna';
-const FALLBACK_MODELS = ['anthropic/claude-haiku-4.5', 'google/gemini-3-flash'];
-
 /**
- * O modelo da OpenAI. Um só, o mesmo do resto do projeto.
+ * A fila paga, pelo OpenRouter.
  *
- * O `gpt-5.6-luna` é o degrau nano da geração atual, e redigir três frases a
- * partir de números prontos é tarefa para ele — com a resposta guardada por um
- * dia, o custo desta rota fica perto de zero de qualquer forma.
+ * Modelo pequeno de propósito. A tarefa é redigir três frases a partir de
+ * números já mastigados — não há raciocínio a fazer, e um modelo grande
+ * gastaria crédito em pouca coisa. Com a resposta guardada por um dia na
+ * borda, o custo desta rota fica perto de zero de qualquer forma.
  *
- * A reserva que sobrou é a de outra casa: `FALLBACK_MODELS`, no gateway, e o
- * Google no fim da fila. Elas não são fila de modelo, são fila de provedor —
- * existem para o dia em que o crédito da Vercel acabar ou a chave sair do ar,
- * e um nome da OpenAI atrás de outro não resolveria nenhuma das duas coisas.
+ * `OPENROUTER_MATCHUP_MODELS` aceita mais de um nome do catálogo do
+ * OpenRouter, separados por vírgula, para o dia em que o primeiro sair do ar.
  */
-const OPENAI_MODELS = ['gpt-5.6-luna'];
+const MODELS = modelsFrom(process.env.OPENROUTER_MATCHUP_MODELS);
 
-/**
- * Os modelos gratuitos do Google, na ordem em que se tenta.
- *
- * A lista existe porque o nome do modelo é a parte que envelhece, e o log da
- * função foi quem disse quais valem: `gemini-2.5-flash`, `2.5-flash-lite` e
- * `gemini-3-flash` respondem 404 com "no longer available to new users" numa
- * conta criada agora. Quem atende é o `gemini-3.6-flash`, e é ele que abre a
- * fila; o apelido `gemini-flash-latest` fica logo atrás, para o dia em que a
- * Google promover outro Flash e aposentar este.
- */
-const GOOGLE_MODELS = ['gemini-3.6-flash', 'gemini-flash-latest'];
+/** Quanto uma ida ao modelo pode durar. Abaixo do `maxDuration`, com folga para responder. */
+const REQUEST_TIMEOUT_MS = 12_000;
+
+interface Candidate {
+  provider: 'openrouter' | 'google';
+  model: string;
+}
 
 /**
  * De onde vem o modelo, na ordem em que se tenta.
@@ -74,79 +56,30 @@ const GOOGLE_MODELS = ['gemini-3.6-flash', 'gemini-flash-latest'];
  * Generativa é coisa de produção: preview e dev renderizam a mesma tela com a
  * análise por regras, sem gastar crédito nenhum em teste.
  *
- * Em produção, o gateway da Vercel abre a fila porque é o único caminho de
- * custo zero: todo time ganha US$ 5 de crédito por mês, e sem auto top-up o
- * gasto para aí — esgotou, a resposta vira 402 e a fila desce para a chave
- * paga da OpenAI. O Google fecha a fila por herança: a chave gratuita que o
- * atendia morreu para contas novas, mas se um dia voltar, volta a valer sem
- * mexer aqui.
+ * Em produção, o OpenRouter abre a fila e o Gemini gratuito, direto no Google,
+ * fecha. A reserva não é fila de modelo, é fila de provedor: existe para o dia
+ * em que o crédito do OpenRouter acabar ou a chave sair do ar, e um nome do
+ * mesmo catálogo atrás de outro não resolveria nenhuma das duas coisas.
  *
- * Sem nenhum dos três, a rota falha e a tela fica com a análise por regras —
- * que é o que acontece em qualquer cópia recém-clonada do repositório.
- *
- * Cada candidato carrega as próprias opções de provedor porque o jeito de
- * desligar o raciocínio muda de casa: `reasoningEffort` na OpenAI,
- * `thinkingBudget` no Google — e o gateway leva junto a fila de reserva e o
- * cache.
- *
- * O esforço é `none`, e não `minimal`: `minimal` era da geração anterior e o
- * `gpt-5.6-luna` responde 400 a ele. Dizê-lo também deixou de ser opcional —
- * o padrão do `luna` é `medium`, e três frases sobre números prontos não têm
- * o que deliberar.
+ * Sem nenhuma das duas chaves, a rota falha e a tela fica com a análise por
+ * regras — que é o que acontece em qualquer cópia recém-clonada do repositório.
  */
-function candidates() {
+function candidates(): Candidate[] {
   if (process.env.VERCEL_ENV !== 'production') return [];
 
-  const openaiKey = process.env.OPENAI_API_KEY;
-  const googleKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
-  const openai = openaiKey ? createOpenAI({ apiKey: openaiKey }) : null;
-  const google = googleKey ? createGoogleGenerativeAI({ apiKey: googleKey }) : null;
-
   return [
-    {
-      model: MODEL,
-      name: MODEL,
-      providerOptions: {
-        gateway: {
-          models: FALLBACK_MODELS,
-          tags: ['feature:matchup'],
-          /*
-           * As combinações são finitas — 63 armas em dois modos — e a
-           * resposta não depende de quem perguntou. Guardar por um dia
-           * derruba o custo para perto de zero e devolve na hora quem
-           * repetir a comparação.
-           */
-          cacheControl: 'max-age=86400',
-        },
-        openai: { reasoningEffort: 'none' },
-      },
-    },
-    ...(openai
-      ? OPENAI_MODELS.map((name) => ({
-          model: openai(name),
-          name,
-          providerOptions: name.startsWith('gpt-5')
-            ? { openai: { reasoningEffort: 'none' } }
-            : undefined,
-        }))
-      : []),
-    ...(google
-      ? GOOGLE_MODELS.map((name) => ({
-          model: google(name),
-          name,
-          providerOptions: { google: { thinkingConfig: { thinkingBudget: 0 } } },
-        }))
-      : []),
+    ...(openRouterKey() ? MODELS.map((model) => ({ provider: 'openrouter' as const, model })) : []),
+    ...(geminiKey() ? GEMINI_MODELS.map((model) => ({ provider: 'google' as const, model })) : []),
   ];
 }
 
+const statusOf = (error: unknown) => (error as OpenRouterError | null)?.status;
+
 /** Nome de modelo errado ou fora da conta — vale tentar o próximo da fila. */
-const isModelProblem = (error: unknown) =>
-  APICallError.isInstance(error) && (error.statusCode === 404 || error.statusCode === 400);
+const isModelProblem = (error: unknown) => statusOf(error) === 404 || statusOf(error) === 400;
 
 /** Crédito esgotado num provedor não esgota o outro — a fila continua. */
-const isOutOfCredit = (error: unknown) =>
-  APICallError.isInstance(error) && error.statusCode === 402;
+const isOutOfCredit = (error: unknown) => statusOf(error) === 402;
 
 /*
  * O freio de gasto por visitante.
@@ -273,43 +206,52 @@ export async function POST(request: Request) {
    * Tenta os modelos em ordem e para no primeiro que responder.
    *
    * Só vale insistir quando a recusa é local ao candidato — 404 de modelo que
-   * saiu do ar, 400 de nome que a conta não conhece, 402 de crédito que
-   * acabou naquele provedor (o gateway sem o crédito do mês não diz nada
-   * sobre a chave da OpenAI). Chave inválida ou rede fora valem para a fila
-   * inteira, e repetir só gastaria o tempo de quem está esperando na tela.
+   * saiu do ar, 400 de nome que a conta não conhece, 402 de crédito que acabou
+   * no OpenRouter (que não diz nada sobre a chave gratuita do Google). Chave
+   * inválida ou rede fora valem para a fila inteira, e repetir só gastaria o
+   * tempo de quem está esperando na tela.
    */
   let lastError: unknown = new Error('nenhum modelo configurado');
+  let openRouterOutOfCredit = false;
 
-  for (const { model, name, providerOptions } of candidates()) {
+  const prompt = [
+    `Modo: ${MODE_BRIEF[mode as GameMode]}`,
+    `Arma A: ${JSON.stringify(weaponA)}`,
+    `Arma B: ${JSON.stringify(weaponB)}`,
+    'Escreva a leitura do confronto entre as duas neste modo.',
+  ].join('\n\n');
+
+  /*
+   * Teto alto para três frases, e por um motivo.
+   *
+   * Modelo que raciocina gasta parte do orçamento de saída pensando antes de
+   * escrever, e esses tokens contam aqui: com 220 a resposta chegava cortada
+   * no meio da primeira frase. Cada provedor desliga o raciocínio do próprio
+   * jeito — `reasoning.effort` no OpenRouter, `thinkingBudget` no Google —,
+   * porque ele não tem o que fazer numa tarefa de redigir a partir de números
+   * já comparados, e o teto folgado cobre o resto.
+   *
+   * Dizer o esforço não é opcional: o padrão do `gpt-5.6-luna` é `medium`.
+   * Modelo que não raciocina ignora o parâmetro.
+   */
+  const maxTokens = 800;
+
+  for (const { provider, model } of candidates()) {
+    // O crédito é da conta: sem ele, os outros nomes do OpenRouter dariam o mesmo 402.
+    if (provider === 'openrouter' && openRouterOutOfCredit) continue;
+
     try {
-      const { text } = await generateText({
-        model,
-        system: SYSTEM,
-        prompt: [
-          `Modo: ${MODE_BRIEF[mode as GameMode]}`,
-          `Arma A: ${JSON.stringify(weaponA)}`,
-          `Arma B: ${JSON.stringify(weaponB)}`,
-          'Escreva a leitura do confronto entre as duas neste modo.',
-        ].join('\n\n'),
-        /*
-         * Teto alto para três frases, e por um motivo.
-         *
-         * Modelo que raciocina gasta parte do orçamento de saída pensando
-         * antes de escrever, e esses tokens contam aqui: com 220 a resposta
-         * chegava cortada no meio da primeira frase. As opções de cada
-         * candidato desligam o raciocínio — que não tem o que fazer numa
-         * tarefa de redigir a partir de números já comparados — e o teto
-         * folgado cobre o resto.
-         */
-        maxOutputTokens: 800,
-        providerOptions,
-      });
+      const signal = AbortSignal.timeout(REQUEST_TIMEOUT_MS);
+      const text =
+        provider === 'google'
+          ? await generate({ model, system: SYSTEM, prompt, maxTokens, signal })
+          : (await chat({ model, system: SYSTEM, prompt, maxTokens, reasoningEffort: 'none', signal })).text;
 
       const answer = text.trim();
       if (!answer) throw new Error('resposta vazia');
 
       // Uma linha por resposta: é o que diz, no log, de qual bolso saiu.
-      console.log('[matchup] respondeu', { name });
+      console.log('[matchup] respondeu', { provider, model });
 
       return Response.json(
         { text: answer },
@@ -318,19 +260,20 @@ export async function POST(request: Request) {
       );
     } catch (error) {
       lastError = error;
-      if (!isModelProblem(error) && !isOutOfCredit(error)) break;
-      console.warn('[matchup] modelo recusado, tentando o próximo', { name });
+      if (isOutOfCredit(error)) openRouterOutOfCredit = true;
+      else if (!isModelProblem(error)) break;
+      console.warn('[matchup] modelo recusado, tentando o próximo', { provider, model });
     }
   }
 
-  const status = APICallError.isInstance(lastError) ? lastError.statusCode : undefined;
+  const status = statusOf(lastError);
 
   /*
    * O motivo fica no log da função, não na resposta.
    *
    * Quem chama não tem o que fazer com "sem crédito" ou "chave inválida" — a
    * tela cai para a análise por regras de qualquer jeito. Mas sem isto aqui, um
-   * 502 na produção não diz se o gateway está desligado, se a cota acabou ou se
+   * 502 na produção não diz se a chave está ausente, se o crédito acabou ou se
    * o nome do modelo mudou de novo.
    */
   console.error('[matchup] falha no modelo', {

@@ -3,7 +3,7 @@
  * Descobre em que armas as peças novas entram — enumerando primeiro, perguntando depois.
  *
  *   npm run catalog:perguntar-acessorios              # só a varredura
- *   OPENAI_API_KEY=... npm run catalog:perguntar-acessorios   # varredura + pergunta
+ *   OPENROUTER_API_KEY=... npm run catalog:perguntar-acessorios   # varredura + pergunta
  *
  * Existe porque a lista de armas de uma peça de temporada não aparece em lugar
  * nenhum no dia do patch. A EA anuncia a peça e descreve o efeito; ela não
@@ -39,9 +39,10 @@
  * O que a varredura não fechou vai para um modelo com busca ligada, que alcança
  * páginas que este ambiente não alcança. É o acesso que se terceiriza, não o
  * julgamento: o que volta é relato com endereço, e a escala de evidência do
- * ATUALIZAR.md continua valendo. Quem responde é a OpenAI e, quando o crédito
- * dela acaba, o Gemini gratuito (`meta/provedores.mjs`). Sem nenhuma das duas
- * chaves esta etapa não roda, e a varredura já terá escrito o que descobriu.
+ * ATUALIZAR.md continua valendo. Quem responde é um modelo pelo OpenRouter e,
+ * quando o crédito dele acaba, o Gemini gratuito (`meta/provedores.mjs`). Sem
+ * nenhuma das duas chaves esta etapa não roda, e a varredura já terá escrito o
+ * que descobriu.
  *
  * ## O que a rotina não pode fazer
  *
@@ -67,7 +68,7 @@ import { WEAPONS } from '../../src/data/weapons.ts';
 import { fetchText, htmlToText } from './lib/http.ts';
 import { fonteAtiva } from './lib/sources.ts';
 import { DATA, INDEXES, log, readJson } from './lib/io.ts';
-import { candidatos, perguntarComBusca, temAlgumaChave } from '../meta/provedores.mjs';
+import { MODELO_PADRAO, candidatos, perguntarComBusca, temAlgumaChave } from '../meta/provedores.mjs';
 
 /*
  * Um modelo só, o mesmo das leituras diárias. A varredura enumerada já fechou
@@ -75,7 +76,7 @@ import { candidatos, perguntarComBusca, temAlgumaChave } from '../meta/provedore
  * pouco e vai para `armasRelatadas`, que ninguém promove sem conferir. Não é
  * lugar de gastar com modelo grande. Ver `MODELOS` em scripts/meta-search.mjs.
  */
-const MODELOS = ['gpt-5.6-luna'];
+const MODELOS = [MODELO_PADRAO];
 
 /** Quantas fichas ler ao mesmo tempo. Baixo de propósito: é o site de outra pessoa. */
 const EM_PARALELO = 4;
@@ -566,9 +567,9 @@ async function main(): Promise<void> {
 
   if (!temAlgumaChave()) {
     log('pergunta', {
-      pulada: 'sem OPENAI_API_KEY nem GEMINI_API_KEY',
+      pulada: 'sem OPENROUTER_API_KEY nem GEMINI_API_KEY',
       pendentes: pendentes.map((c) => c.nome),
-      comoRodar: 'OPENAI_API_KEY=... npm run catalog:perguntar-acessorios',
+      comoRodar: 'OPENROUTER_API_KEY=... npm run catalog:perguntar-acessorios',
     });
     return;
   }

@@ -48,7 +48,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { WEAPONS } from '../../src/data/weapons.ts';
 import { ATTACHMENTS } from '../../src/data/attachments.ts';
-import { candidatos, perguntarSemBusca, temAlgumaChave } from '../meta/provedores.mjs';
+import { candidatos, modelosDe, perguntarSemBusca, temAlgumaChave } from '../meta/provedores.mjs';
 import { extrairJson } from '../meta/leitura.mjs';
 import { fetchBalanceLog, type BalanceLine } from './fetch-balance-log.ts';
 import { PATCHES, ROOT, compareVersions, listVersions, log, readJson, versionDir } from './lib/io.ts';
@@ -64,10 +64,7 @@ export const ANALISE_DESDE = '1.4.3.0';
 const WEAPONS_TS = join(ROOT, 'src', 'data', 'weapons.ts');
 const ATTACHMENTS_TS = join(ROOT, 'src', 'data', 'attachments.ts');
 
-const MODELOS = (process.env.ANALISE_MODELS ?? 'gpt-5.6-luna')
-  .split(',')
-  .map((m) => m.trim())
-  .filter(Boolean);
+const MODELOS = modelosDe(process.env.ANALISE_MODELS);
 
 /** Os campos da arma que um patch costuma mexer e que o site guarda como número. */
 export const CAMPOS = ['damage', 'rpm', 'velocity', 'magazine', 'reload', 'emptyReload', 'headshot'] as const;
@@ -625,7 +622,7 @@ async function main(): Promise<void> {
     return;
   }
   if (!temAlgumaChave()) {
-    console.error('Sem OPENAI_API_KEY nem GEMINI_API_KEY: a análise não roda.');
+    console.error('Sem OPENROUTER_API_KEY nem GEMINI_API_KEY: a análise não roda.');
     process.exit(1);
   }
 

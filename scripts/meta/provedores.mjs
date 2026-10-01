@@ -1,37 +1,55 @@
 /**
- * Quem responde às perguntas com busca: a OpenAI, e o Gemini gratuito quando o
- * crédito dela acaba.
+ * Quem responde às perguntas das rotinas: o OpenRouter, e o Gemini gratuito
+ * quando o crédito dele acaba.
  *
- * As três rotinas que perguntam a um modelo com a busca ligada — o meta do dia
- * (`meta-search.mjs`), as montagens (`builds-search.mjs`) e a auditoria de
- * acessórios (`catalog/perguntar-acessorios.ts`) — dependiam de uma chave paga
- * só. Crédito esgotado era o 429 `insufficient_quota`, que nenhuma espera
- * resolve: a rodada inteira caía, e a tela ficava com a leitura da véspera até
- * alguém pôr dinheiro na conta.
+ * As rotinas que perguntam a um modelo — o meta do dia (`meta-search.mjs`), as
+ * montagens (`builds-search.mjs`), a auditoria de acessórios
+ * (`catalog/perguntar-acessorios.ts`) e a análise do patch
+ * (`catalog/analisar-patch.ts`) — falavam direto com a OpenAI. Agora a chave
+ * paga é a do OpenRouter, que fala o formato de chat da OpenAI com qualquer
+ * modelo do catálogo dele: trocar de modelo — ou de casa — é trocar um nome na
+ * fila, sem mexer aqui.
+ *
+ * ## A fila paga
+ *
+ * É a lista de modelos que cada rotina passa, na ordem em que se tenta. Os
+ * nomes são os do catálogo do OpenRouter, com a casa na frente:
+ * `openai/gpt-5.6-luna`, `anthropic/claude-haiku-4.5`.
  *
  * ## Quando o gratuito entra
  *
- * Só quando a OpenAI não pode responder por falta de crédito — ou quando não há
- * chave dela no ambiente. Resposta ruim da OpenAI (sem JSON, sem busca, barrada
- * nas travas) não abre a porta: aí o problema é a pergunta ou o modelo, e trocar
- * para um modelo gratuito seria publicar uma leitura pior para esconder isso.
+ * Só quando o OpenRouter não pode responder por falta de crédito — o 402, que
+ * nenhuma espera resolve — ou quando não há chave dele no ambiente. Resposta
+ * ruim do modelo pago (sem JSON, sem busca, barrada nas travas) não abre a
+ * porta: aí o problema é a pergunta ou o modelo, e trocar para um modelo
+ * gratuito seria publicar uma leitura pior para esconder isso.
  *
- * Esgotou uma vez, fica esgotado pelo resto do processo. A varredura de
- * montagens são onze lotes; bater onze vezes no mesmo 429 só atrasaria cada um.
+ * O crédito é da conta, não do modelo. Esgotou uma vez, fica esgotado pelo
+ * resto do processo: a varredura de montagens são onze lotes, e bater onze
+ * vezes no mesmo 402 só atrasaria cada um.
  *
  * ## Qual gratuito
  *
- * O Gemini, porque é o gratuito que traz busca própria — a do Google — e sem
- * busca estas rotinas não têm o que ler. A fila começa pelos nomes de
- * `GEMINI_MODELS` (ou os padrões abaixo) e termina no que a própria conta
- * disser que existe: o nome do modelo é a parte que envelhece, e o confronto já
- * viu três Flash sumirem para contas novas (ver `src/app/api/matchup/route.ts`).
+ * O Gemini, direto na API do Google e com a chave gratuita dela — pelo
+ * OpenRouter ele sairia do mesmo crédito que acabou. É o gratuito que traz
+ * busca própria, e sem busca estas rotinas não têm o que ler. A fila começa
+ * pelos nomes de `GEMINI_MODELS` (ou os padrões abaixo) e termina no que a
+ * própria conta disser que existe: o nome do modelo é a parte que envelhece.
  * Modelo que responde 404, 403 ou cota diária esgotada sai da fila e não é
  * tentado de novo nesta execução.
  */
 
-const OPENAI_URL = 'https://api.openai.com/v1/responses';
+const OPENROUTER_URL = 'https://openrouter.ai/api/v1/chat/completions';
 const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta';
+
+/**
+ * O modelo pago de todas as rotinas, quando a rotina não diz outro.
+ *
+ * É o mesmo de antes da troca, agora pelo OpenRouter: o degrau nano da geração
+ * atual, que aceita busca e custa centavos por rodada. Ver o cabeçalho de
+ * `MODELOS` em scripts/meta-search.mjs para a conta.
+ */
+export const MODELO_PADRAO = 'openai/gpt-5.6-luna';
 
 /** A fila gratuita quando `GEMINI_MODELS` não diz outra. Os apelidos seguem o Flash da vez. */
 export const GRATUITOS_PADRAO = ['gemini-3.6-flash', 'gemini-flash-latest', 'gemini-flash-lite-latest'];
@@ -40,7 +58,7 @@ export const GRATUITOS_PADRAO = ['gemini-3.6-flash', 'gemini-flash-latest', 'gem
 const ESPERA_MAXIMA_MS = 65_000;
 
 const estado = {
-  openaiSemCredito: false,
+  semCredito: false,
   /** @type {Set<string>} */
   gratuitosFora: new Set(),
   /** @type {string[] | null} */
@@ -48,33 +66,48 @@ const estado = {
   avisouSemChaveGratuita: false,
 };
 
-const chaveOpenAI = () => process.env.OPENAI_API_KEY;
+const chaveOpenRouter = () => process.env.OPENROUTER_API_KEY;
 const chaveGoogle = () => process.env.GEMINI_API_KEY ?? process.env.GOOGLE_GENERATIVE_AI_API_KEY;
 
 /** Há com quem falar? Sem nenhuma das duas chaves, a rotina não tem o que fazer. */
-export const temAlgumaChave = () => Boolean(chaveOpenAI() || chaveGoogle());
+export const temAlgumaChave = () => Boolean(chaveOpenRouter() || chaveGoogle());
 
 /** Para os testes: o estado é do processo, e cada teste quer começar do zero. */
 export function reiniciarEstado() {
-  estado.openaiSemCredito = false;
+  estado.semCredito = false;
   estado.gratuitosFora.clear();
   estado.gratuitosDescobertos = null;
   estado.avisouSemChaveGratuita = false;
 }
 
 /**
+ * A lista de modelos de uma rotina, a partir da variável de ambiente dela.
+ *
+ * Vazia ou ausente, vale o padrão — é o que deixa trocar o modelo de uma
+ * rotina sem publicar versão nova.
+ */
+export function modelosDe(valor, padrao = MODELO_PADRAO) {
+  return (valor || padrao)
+    .split(',')
+    .map((modelo) => modelo.trim())
+    .filter(Boolean);
+}
+
+/**
  * O erro é falta de crédito, e não limite de taxa?
  *
- * Os dois chegam como 429 na OpenAI, e a diferença é tudo: limite de taxa passa
- * com espera, crédito esgotado não passa nunca. O código `insufficient_quota` é
- * o sinal oficial; a mensagem ("You exceeded your current quota, please check
- * your plan and billing details") é o plano B para quando o código não vier.
+ * No OpenRouter o sinal é o 402 — "Your account or API key has insufficient
+ * credits". A mensagem é o plano B para quando a casa por trás do modelo
+ * devolve a própria recusa de cobrança num 429, que nenhuma espera resolve.
  */
 export function ehFaltaDeCredito(status, erro) {
   if (status === 402) return true;
-  const codigo = `${erro?.code ?? ''} ${erro?.type ?? ''}`;
-  if (/insufficient_quota|billing_hard_limit_reached|billing_not_active/i.test(codigo)) return true;
-  return status === 429 && /exceeded your current quota|billing details|out of credits/i.test(erro?.message ?? '');
+  return (
+    status === 429 &&
+    /insufficient (credits|quota)|exceeded your current quota|billing details|out of credits/i.test(
+      erro?.message ?? '',
+    )
+  );
 }
 
 /**
@@ -106,7 +139,7 @@ async function modelosGratuitos() {
       });
       if (resposta.ok) estado.gratuitosDescobertos = filtrarGratuitos((await resposta.json()).models);
     } catch {
-      // Sem a lista, a fila fica com os nomes configurados — que é o que havia antes.
+      // Sem a lista, a fila fica com os nomes configurados.
     }
   }
 
@@ -116,18 +149,18 @@ async function modelosGratuitos() {
 /**
  * A fila de quem pode responder, na ordem em que se tenta.
  *
- * É gerador, e não lista, porque a parte gratuita só se decide depois de a
- * OpenAI ter sido tentada: é o 429 dela que libera o resto da fila.
+ * É gerador, e não lista, porque a parte gratuita só se decide depois de o
+ * OpenRouter ter sido tentado: é o 402 dele que libera o resto da fila.
  */
-export async function* candidatos(modelosOpenAI) {
-  if (chaveOpenAI()) {
-    for (const modelo of modelosOpenAI) {
-      if (estado.openaiSemCredito) break;
-      yield { provedor: 'openai', modelo };
+export async function* candidatos(modelos) {
+  if (chaveOpenRouter()) {
+    for (const modelo of modelos) {
+      if (estado.semCredito) break;
+      yield { provedor: 'openrouter', modelo };
     }
   }
 
-  if (chaveOpenAI() && !estado.openaiSemCredito) return;
+  if (chaveOpenRouter() && !estado.semCredito) return;
 
   if (!chaveGoogle()) {
     if (!estado.avisouSemChaveGratuita) {
@@ -149,85 +182,115 @@ function recuo(tentativa) {
 }
 
 /* ========================================================================== *
- * OpenAI
+ * OpenRouter
  * ========================================================================== */
 
 /**
- * A ferramenta de busca tem dois nomes: `web_search` na geração atual,
- * `web_search_preview` nos gpt-4.1 — que diante do nome novo respondiam de
- * memória.
+ * O texto da mensagem, que pode chegar inteiro ou em partes.
+ *
+ * O formato de chat admite os dois: uma string, ou uma lista de partes em que
+ * só as de texto interessam.
  */
-const ferramentaDeBusca = (modelo) =>
-  modelo.startsWith('gpt-5') || modelo.startsWith('o')
-    ? { type: 'web_search' }
-    : { type: 'web_search_preview' };
+function textoDaMensagem(conteudo) {
+  if (typeof conteudo === 'string') return conteudo;
+  if (!Array.isArray(conteudo)) return '';
+  return conteudo
+    .filter((parte) => parte?.type === 'text' || parte?.type === 'output_text')
+    .map((parte) => parte.text ?? '')
+    .join('');
+}
 
 /**
- * O esforço de raciocínio dito em voz alta: o padrão do `gpt-5.6-luna` é
- * `medium`, e `max_output_tokens` cobre raciocínio, busca e texto no mesmo bolo.
+ * A resposta do OpenRouter, no formato que as rotinas leem.
+ *
+ * Separado da chamada para poder ser testado sem rede.
  */
-const raciocinio = (modelo) => (modelo.startsWith('gpt-5') ? { reasoning: { effort: 'low' } } : {});
+export function lerRespostaOpenRouter(corpo, maxOutputTokens) {
+  const escolha = corpo?.choices?.[0];
+  if (!escolha) throw new Error('resposta sem mensagem');
 
-async function chamarOpenAI(modelo, prompt, { maxOutputTokens, tentativa, busca = true }) {
-  const resposta = await fetch(OPENAI_URL, {
+  /*
+   * Erro com status 200: a casa por trás do modelo caiu no meio da resposta, e
+   * o OpenRouter entrega o que tinha com `finish_reason: "error"`. Texto pela
+   * metade é JSON inválido — melhor a recusa dizer de onde veio.
+   */
+  if (escolha.error || escolha.finish_reason === 'error') {
+    throw new Error(`o modelo falhou no meio da resposta (${escolha.error?.message ?? 'motivo não informado'})`);
+  }
+
+  // O teto cobre raciocínio e texto juntos: quem pensa demais devolve `length`
+  // com a mensagem vazia, e isso não é "resposta sem JSON".
+  if (escolha.finish_reason === 'length') {
+    throw new Error(`resposta cortada (length) — o teto é ${maxOutputTokens} tokens`);
+  }
+
+  const mensagem = escolha.message ?? {};
+  const texto = textoDaMensagem(mensagem.content);
+  const anotacoes = (mensagem.annotations ?? [])
+    .filter((a) => a?.type === 'url_citation' && a.url_citation?.url)
+    .map((a) => ({ url: a.url_citation.url, title: a.url_citation.title }));
+
+  const uso = corpo.usage ?? null;
+  const buscas = uso?.server_tool_use?.web_search_requests ?? 0;
+
+  return {
+    texto,
+    anotacoes,
+    // A prova de que a busca rodou é a contagem do servidor; a citação é o
+    // plano B, para a casa que busca e não conta.
+    buscou: buscas > 0 || anotacoes.length > 0,
+    tipos: [buscas > 0 || anotacoes.length ? 'web_search' : null, texto ? 'message' : null].filter(Boolean),
+    custo: uso && {
+      entrada: uso.prompt_tokens ?? 0,
+      saida: uso.completion_tokens ?? 0,
+      raciocinio: uso.completion_tokens_details?.reasoning_tokens ?? 0,
+      buscas,
+    },
+  };
+}
+
+async function chamarOpenRouter(modelo, prompt, { maxOutputTokens, tentativa, busca = true }) {
+  const resposta = await fetch(OPENROUTER_URL, {
     method: 'POST',
-    headers: { authorization: `Bearer ${chaveOpenAI()}`, 'content-type': 'application/json' },
+    headers: {
+      authorization: `Bearer ${chaveOpenRouter()}`,
+      'content-type': 'application/json',
+      'x-title': 'bf6-loadouts',
+    },
     body: JSON.stringify({
       model: modelo,
-      // Obrigatória quando pedida: com `auto` o modelo decide não buscar e
-      // responde de memória. Sem busca, o modelo lê só o que vai no prompt.
-      ...(busca ? { tools: [ferramentaDeBusca(modelo)], tool_choice: 'required' } : {}),
-      ...raciocinio(modelo),
-      input: prompt,
-      max_output_tokens: maxOutputTokens,
-      store: false,
+      messages: [{ role: 'user', content: prompt }],
+      /*
+       * A busca é a ferramenta do próprio OpenRouter: usa a busca nativa da
+       * casa quando ela tem uma, e a do Exa quando não tem. Quem decide buscar
+       * é o modelo — não há como obrigar —, e por isso quem chama confere
+       * `buscou` antes de aceitar a resposta. Sem busca, o modelo lê só o que
+       * vai no prompt.
+       */
+      ...(busca ? { tools: [{ type: 'openrouter:web_search' }] } : {}),
+      // Dito em voz alta: o padrão das casas é `medium`, e `max_tokens` cobre
+      // raciocínio e texto no mesmo bolo. Modelo que não raciocina ignora.
+      reasoning: { effort: 'low' },
+      max_tokens: maxOutputTokens,
     }),
   });
 
   const corpo = await resposta.json().catch(() => ({}));
   if (!resposta.ok || corpo.error) {
+    // O erro pode vir com status 200 e o código de verdade dentro do corpo.
+    const status = resposta.ok ? Number(corpo.error?.code) || resposta.status : resposta.status;
     const erro = new Error(
-      corpo.error?.message ? `${resposta.status} ${corpo.error.message}` : `${resposta.status} ${resposta.statusText}`,
+      corpo.error?.message ? `${status} ${corpo.error.message}` : `${status} ${resposta.statusText}`,
     );
-    erro.status = resposta.status;
-    erro.semCredito = ehFaltaDeCredito(resposta.status, corpo.error);
+    erro.status = status;
+    erro.semCredito = ehFaltaDeCredito(status, corpo.error);
 
     const header = resposta.headers.get('retry-after');
-    const dito = /try again in ([0-9.]+)s/i.exec(erro.message);
-    erro.esperarMs =
-      header && !Number.isNaN(Number(header))
-        ? Number(header) * 1000
-        : dito
-          ? Math.ceil(Number(dito[1]) * 1000)
-          : recuo(tentativa);
+    erro.esperarMs = header && !Number.isNaN(Number(header)) ? Number(header) * 1000 : recuo(tentativa);
     throw erro;
   }
 
-  if (corpo.status === 'incomplete') {
-    throw new Error(
-      `resposta cortada (${corpo.incomplete_details?.reason ?? 'motivo não informado'}) — o teto é ${maxOutputTokens} tokens`,
-    );
-  }
-
-  const itens = corpo.output ?? [];
-  const mensagem = itens.find((item) => item.type === 'message');
-  const partes = (mensagem?.content ?? []).filter((p) => p.type === 'output_text');
-  const uso = corpo.usage ?? null;
-  const buscas = itens.filter((item) => item.type === 'web_search_call').length;
-
-  return {
-    texto: partes.map((p) => p.text ?? '').join(''),
-    anotacoes: partes.flatMap((p) => p.annotations ?? []).filter((a) => a.type === 'url_citation'),
-    // A prova de que a busca rodou é o `web_search_call`, não a citação no texto.
-    buscou: buscas > 0,
-    tipos: [...new Set(itens.map((i) => i.type))],
-    custo: uso && {
-      entrada: uso.input_tokens ?? 0,
-      saida: uso.output_tokens ?? 0,
-      raciocinio: uso.output_tokens_details?.reasoning_tokens ?? 0,
-      buscas,
-    },
-  };
+  return lerRespostaOpenRouter(corpo, maxOutputTokens);
 }
 
 /* ========================================================================== *
@@ -268,7 +331,7 @@ function esperaDoGoogle(erro) {
 }
 
 /**
- * O texto da resposta do Gemini, no mesmo formato que a OpenAI devolve.
+ * O texto da resposta do Gemini, no mesmo formato que o OpenRouter devolve.
  *
  * Separado da chamada para poder ser testado sem rede.
  */
@@ -349,7 +412,7 @@ async function chamarGemini(modelo, prompt, { maxOutputTokens, tentativa, busca 
  * @returns {Promise<{texto: string, anotacoes: {url: string, title?: string}[], buscou: boolean, tipos: string[], custo: object | null, modelo: string, provedor: string}>}
  */
 export async function perguntarComBusca({ provedor, modelo }, prompt, { maxOutputTokens, tentativas = 3, busca = true }) {
-  const chamar = provedor === 'google' ? chamarGemini : chamarOpenAI;
+  const chamar = provedor === 'google' ? chamarGemini : chamarOpenRouter;
   let ultimoErro = null;
 
   for (let tentativa = 1; tentativa <= tentativas; tentativa += 1) {
@@ -360,8 +423,8 @@ export async function perguntarComBusca({ provedor, modelo }, prompt, { maxOutpu
       ultimoErro = erro;
 
       if (erro.semCredito) {
-        estado.openaiSemCredito = true;
-        console.warn(`${modelo}: a OpenAI está sem crédito — o resto da execução vai para o modelo gratuito.`);
+        estado.semCredito = true;
+        console.warn(`${modelo}: o OpenRouter está sem crédito — o resto da execução vai para o modelo gratuito.`);
         throw erro;
       }
       if (erro.modeloFora) {

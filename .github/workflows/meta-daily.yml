@@ -67,8 +67,8 @@ jobs:
 
       - name: Ler o meta do dia
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          # Reserva gratuita para quando o crédito da OpenAI acabar (scripts/meta/provedores.mjs).
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          # Reserva gratuita para quando o crédito do OpenRouter acabar (scripts/meta/provedores.mjs).
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run meta:search
 
@@ -84,8 +84,8 @@ jobs:
       - name: Ler as montagens da comunidade
         if: ${{ !cancelled() }}
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          # Reserva gratuita para quando o crédito da OpenAI acabar (scripts/meta/provedores.mjs).
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          # Reserva gratuita para quando o crédito do OpenRouter acabar (scripts/meta/provedores.mjs).
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run builds:search ${{ inputs.apenasFaltantes && '-- --faltantes' || '' }}
 

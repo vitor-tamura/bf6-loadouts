@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
    * mudou para quem só monta loadout, e o loadout inteiro segue vivendo na URL,
    * sem servidor guardando nada. O que passou a existir é uma única rota de
    * servidor, `/api/matchup`, que escreve a leitura do confronto com um modelo
-   * de linguagem. Ela precisa rodar do lado de lá porque a chave do AI Gateway
+   * de linguagem. Ela precisa rodar do lado de lá porque a chave do OpenRouter
    * não pode chegar ao navegador.
    *
    * O preço é este: o site deixou de ser hospedável em qualquer CDN. Se algum
