@@ -29,7 +29,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { WEAPONS } from '../src/data/weapons.ts';
 import { SHORT_CATEGORY_NAMES } from '../src/data/classes.ts';
 import { armaPorNome, extrairJson } from './meta/leitura.mjs';
-import { candidatos, modelosDe, perguntarComBusca, temAlgumaChave } from './meta/provedores.mjs';
+import { candidatos, filaEsgotada, modelosDe, perguntarComBusca, temAlgumaChave } from './meta/provedores.mjs';
 
 const DESTINO = new URL('../src/data/builds-live.json', import.meta.url);
 
@@ -238,6 +238,22 @@ async function main() {
     } catch (erro) {
       naoPerguntadas.push(...lote.map((arma) => arma.id));
       console.warn(`[builds] falhou em ${rotulo}: ${erro.message}`);
+
+      /*
+       * Sem ninguém para perguntar, os lotes que faltam dariam a mesma recusa.
+       *
+       * A rodada de 01/10 seguiu até o fim com a chave do Google sem cota: onze
+       * lotes, dez modelos, três tentativas cada. Crédito e cota são da conta,
+       * não do lote — acabou num, acabou nos outros.
+       */
+      if (filaEsgotada()) {
+        const restantes = armas.slice(inicio + LOTE);
+        naoPerguntadas.push(...restantes.map((arma) => arma.id));
+        if (restantes.length) {
+          console.warn(`[builds] ninguém para perguntar: ${restantes.length} armas ficam para a próxima rodada.`);
+        }
+        break;
+      }
     }
   }
 

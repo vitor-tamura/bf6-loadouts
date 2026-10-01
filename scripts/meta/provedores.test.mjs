@@ -2,11 +2,13 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   MODELO_PADRAO,
   candidatos,
+  cotaDoGoogle,
   ehFaltaDeCredito,
   ehGratuito,
   filtrarGratuitos,
   lerRespostaGemini,
   lerRespostaOpenRouter,
+  filaEsgotada,
   modelosDe,
   perguntarComBusca,
   perguntarSemBusca,
@@ -392,6 +394,112 @@ describe('a fila', () => {
     const [candidato] = await coletar(candidatos([]));
     await expect(perguntarComBusca(candidato, 'p', { maxOutputTokens: 100 })).rejects.toThrow(/429/);
     expect(await coletar(candidatos([]))).toEqual([]);
+  });
+
+  it('429 do Google sem tempo de espera tira o modelo da fila na primeira recusa', async () => {
+    delete process.env.OPENROUTER_API_KEY;
+    const fetch = vi.fn(async (url) =>
+      String(url).endsWith('/models?pageSize=200')
+        ? json(200, { models: [] })
+        : json(429, {
+            error: {
+              message: 'You exceeded your current quota, please check your plan and billing details.',
+              details: [
+                {
+                  '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+                  violations: [{ quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier' }],
+                },
+              ],
+            },
+          }),
+    );
+    vi.stubGlobal('fetch', fetch);
+
+    const [candidato] = await coletar(candidatos([]));
+    await expect(perguntarComBusca(candidato, 'p', { maxOutputTokens: 100 })).rejects.toThrow(
+      /cota: GenerateRequestsPerDayPerProjectPerModel-FreeTier/,
+    );
+    // Uma chamada só ao modelo: sem `RetryInfo`, esperar não muda a resposta.
+    expect(fetch.mock.calls.filter(([url]) => String(url).includes(':generateContent'))).toHaveLength(1);
+  });
+
+  it('limite do minuto, com tempo de espera, ainda espera e insiste', async () => {
+    delete process.env.OPENROUTER_API_KEY;
+    let chamadas = 0;
+    const fetch = vi.fn(async (url) => {
+      if (String(url).endsWith('/models?pageSize=200')) return json(200, { models: [] });
+      chamadas += 1;
+      return chamadas === 1
+        ? json(429, {
+            error: {
+              message: 'You exceeded your current quota',
+              details: [{ '@type': 'type.googleapis.com/google.rpc.RetryInfo', retryDelay: '0.01s' }],
+            },
+          })
+        : json(200, respostaGemini);
+    });
+    vi.stubGlobal('fetch', fetch);
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    const [candidato] = await coletar(candidatos([]));
+    expect(await perguntarComBusca(candidato, 'p', { maxOutputTokens: 100 })).toMatchObject({ texto: '{"ok":true}' });
+    expect(chamadas).toBe(2);
+  });
+
+  it('três modelos do Google recusando por cota em seguida fecham o Gemini inteiro', async () => {
+    delete process.env.OPENROUTER_API_KEY;
+    process.env.GEMINI_MODELS = 'g-1,g-2,g-3,g-4,g-5';
+    const fetch = vi.fn(async (url) =>
+      String(url).endsWith('/models?pageSize=200')
+        ? json(200, { models: [] })
+        : json(429, { error: { message: 'You exceeded your current quota, please check your plan and billing details.' } }),
+    );
+    vi.stubGlobal('fetch', fetch);
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    const usados = [];
+    for await (const candidato of candidatos([])) {
+      usados.push(candidato.modelo);
+      await expect(perguntarComBusca(candidato, 'p', { maxOutputTokens: 100 })).rejects.toThrow(/429/);
+    }
+
+    // g-4 e g-5 nem são tentados, e a pergunta seguinte já começa sem ninguém.
+    expect(usados).toEqual(['g-1', 'g-2', 'g-3']);
+    expect(filaEsgotada()).toBe(true);
+    expect(await coletar(candidatos([]))).toEqual([]);
+  });
+
+  it('um modelo do Google que responde zera a contagem de recusas', async () => {
+    delete process.env.OPENROUTER_API_KEY;
+    process.env.GEMINI_MODELS = 'g-1,g-2,g-3,g-4,g-5';
+    const fetch = vi.fn(async (url) => {
+      if (String(url).endsWith('/models?pageSize=200')) return json(200, { models: [] });
+      return String(url).includes('/g-3:')
+        ? json(200, respostaGemini)
+        : json(429, { error: { message: 'You exceeded your current quota' } });
+    });
+    vi.stubGlobal('fetch', fetch);
+
+    for await (const candidato of candidatos([])) {
+      try {
+        await perguntarComBusca(candidato, 'p', { maxOutputTokens: 100 });
+        break;
+      } catch {
+        // próximo da fila
+      }
+    }
+
+    expect(filaEsgotada()).toBe(false);
+    expect(await coletar(candidatos([]))).toEqual([
+      { provedor: 'google', modelo: 'g-3' },
+      { provedor: 'google', modelo: 'g-4' },
+      { provedor: 'google', modelo: 'g-5' },
+    ]);
+  });
+
+  it('cotaDoGoogle lê o nome da cota e não quebra sem detalhes', () => {
+    expect(cotaDoGoogle({ message: 'x' })).toBe('');
+    expect(cotaDoGoogle(undefined)).toBe('');
   });
 
   it('modelo pago recusado não fecha a fila para o seguinte, nem abre o gratuito', async () => {

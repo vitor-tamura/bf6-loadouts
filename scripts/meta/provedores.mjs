@@ -79,7 +79,29 @@ const estado = {
   /** @type {string[] | null} */
   gratuitosDescobertos: null,
   avisouSemChaveGratuita: false,
+  /** Modelos do Google que recusaram por cota, um atrás do outro, sem nenhum responder. */
+  recusasDeCotaSeguidas: 0,
+  googleSemCota: false,
 };
+
+/**
+ * Quantos modelos do Google precisam recusar por cota, em seguida, para a
+ * recusa deixar de ser do modelo e passar a ser da chave.
+ *
+ * Cada modelo tem a própria cota, e por isso a fila anda. Mas quando três
+ * nomes diferentes devolvem a mesma recusa sem nenhum responder no meio, o
+ * problema é o projeto da chave — cota zerada, cobrança — e os outros sete da
+ * lista diriam a mesma coisa. A rodada de 01/10 perguntou aos dez, três vezes
+ * cada, em cada um dos onze lotes: 330 chamadas para ler a mesma frase.
+ */
+const RECUSAS_QUE_FECHAM_O_GOOGLE = 3;
+
+/** Não há mais a quem perguntar nesta execução? Quem varre em lotes para por aqui. */
+export function filaEsgotada() {
+  const semOpenRouter = !chaveOpenRouter() || estado.semCredito;
+  const semGoogle = !chaveGoogle() || estado.googleSemCota;
+  return semOpenRouter && semGoogle;
+}
 
 const chaveOpenRouter = () => process.env.OPENROUTER_API_KEY;
 const chaveGoogle = () => process.env.GEMINI_API_KEY ?? process.env.GOOGLE_GENERATIVE_AI_API_KEY;
@@ -93,6 +115,8 @@ export function reiniciarEstado() {
   estado.gratuitosFora.clear();
   estado.gratuitosDescobertos = null;
   estado.avisouSemChaveGratuita = false;
+  estado.recusasDeCotaSeguidas = 0;
+  estado.googleSemCota = false;
 }
 
 /**
@@ -201,7 +225,10 @@ export async function* candidatos(modelos, { busca = true } = {}) {
     return;
   }
 
+  if (estado.googleSemCota) return;
+
   for (const modelo of await modelosGratuitos()) {
+    if (estado.googleSemCota) return;
     if (!estado.gratuitosFora.has(modelo)) yield { provedor: 'google', modelo };
   }
 }
@@ -362,6 +389,23 @@ function esperaDoGoogle(erro) {
 }
 
 /**
+ * Qual cota estourou, pelo nome que o Google dá a ela.
+ *
+ * A mensagem do 429 é a mesma frase para tudo — "You exceeded your current
+ * quota, please check your plan and billing details" —, seja o limite do
+ * minuto, o do dia ou um projeto sem cota nenhuma. Quem diz qual foi é o
+ * `QuotaFailure` nos detalhes do erro, e sem ele no log a única saída é
+ * adivinhar.
+ */
+export function cotaDoGoogle(erro) {
+  const falha = (erro?.details ?? []).find((d) => String(d['@type'] ?? '').endsWith('QuotaFailure'));
+  return (falha?.violations ?? [])
+    .map((v) => v.quotaId ?? v.quotaMetric)
+    .filter(Boolean)
+    .join(', ');
+}
+
+/**
  * O texto da resposta do Gemini, no mesmo formato que o OpenRouter devolve.
  *
  * Separado da chamada para poder ser testado sem rede.
@@ -413,20 +457,37 @@ async function chamarGemini(modelo, prompt, { maxOutputTokens, tentativa, busca 
 
   const corpo = await resposta.json().catch(() => ({}));
   if (!resposta.ok || corpo.error) {
-    const erro = new Error(`${resposta.status} ${corpo.error?.message ?? resposta.statusText}`);
+    const cota = cotaDoGoogle(corpo.error);
+    const erro = new Error(
+      `${resposta.status} ${corpo.error?.message ?? resposta.statusText}${cota ? ` [cota: ${cota}]` : ''}`,
+    );
     erro.status = resposta.status;
-    erro.esperarMs = esperaDoGoogle(corpo.error) ?? recuo(tentativa);
+
+    const mandouEsperar = esperaDoGoogle(corpo.error);
+    erro.esperarMs = mandouEsperar ?? recuo(tentativa);
+    /*
+     * Cota que espera nenhuma resolve: a do dia, a de limite zero, a que
+     * manda esperar mais que o teto — e a que não manda esperar nada. Limite
+     * do minuto vem com `RetryInfo` dizendo quantos segundos faltam; 429 sem
+     * ele é o projeto sem cota, e insistir dois segundos depois devolve a
+     * mesma frase.
+     */
+    erro.semCota =
+      resposta.status === 429 &&
+      (mandouEsperar === null ||
+        mandouEsperar > ESPERA_MAXIMA_MS ||
+        /per ?day|PerDay|limit: 0/i.test(JSON.stringify(corpo.error ?? {})));
     /*
      * Modelo fora: nome que a conta não tem, pedido que ele não aceita, ou a
-     * cota gratuita do dia gasta. Nenhum dos três passa com espera, e cada
-     * modelo tem a própria cota — o próximo da fila pode ter.
+     * cota gasta. Nenhum dos três passa com espera, e cada modelo tem a
+     * própria cota — o próximo da fila pode ter.
      */
-    erro.modeloFora =
-      [400, 403, 404].includes(resposta.status) ||
-      (resposta.status === 429 &&
-        (/per ?day|PerDay|limit: 0/i.test(JSON.stringify(corpo.error ?? {})) || erro.esperarMs > ESPERA_MAXIMA_MS));
+    erro.modeloFora = [400, 403, 404].includes(resposta.status) || erro.semCota;
     throw erro;
   }
+
+  // Um modelo respondeu: a recusa dos anteriores era deles, não da chave.
+  estado.recusasDeCotaSeguidas = 0;
 
   const { web, ...lido } = lerRespostaGemini(corpo, maxOutputTokens);
   return { ...lido, anotacoes: await resolverLinks(web) };
@@ -460,6 +521,16 @@ export async function perguntarComBusca({ provedor, modelo }, prompt, { maxOutpu
       }
       if (erro.modeloFora) {
         estado.gratuitosFora.add(modelo);
+        if (erro.semCota) {
+          estado.recusasDeCotaSeguidas += 1;
+          if (estado.recusasDeCotaSeguidas >= RECUSAS_QUE_FECHAM_O_GOOGLE && !estado.googleSemCota) {
+            estado.googleSemCota = true;
+            console.warn(
+              `${RECUSAS_QUE_FECHAM_O_GOOGLE} modelos do Google recusaram por cota em seguida: a recusa é da chave, ` +
+                'não do modelo. O Gemini fica de fora pelo resto da execução.',
+            );
+          }
+        }
         throw erro;
       }
       // Espera maior que o teto é cota do dia — a dos gratuitos do OpenRouter
