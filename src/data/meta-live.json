@@ -8,56 +8,56 @@
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "ocupa a primeira posição geral e o primeiro lugar entre os fuzis de assalto no ranking atualizado da wzstats.gg.",
+      "reason": "Ocupa a 1ª posição geral de fuzis de assalto no ranking do multiplayer e é o fuzil número um da categoria.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "figura na segunda posição geral e como o segundo melhor fuzis de assalto do multiplayer.",
+      "reason": "Classificada como a 2ª melhor arma de assalto no ranking geral e também a 2ª colocada na categoria de fuzis.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "lidera a categoria de submetralhadoras e ocupa a terceira colocação geral na listagem da wzstats.gg.",
+      "reason": "Aparece na 3ª posição do ranking geral do multiplayer e lidera a categoria de submetralhadoras como a número um.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "alcança o terceiro lugar na classe de fuzis de assalto e a quarta posição no ranking geral.",
+      "reason": "Posicionada em 3º lugar entre os fuzis de assalto e na 4ª colocação geral do ranking de multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "registra o primeiro lugar na categoria de metralhadoras leves e a quinta colocação no cenário geral do multiplayer.",
+      "reason": "Lidera a categoria de metralhadoras leves (LMG) e ocupa a 5ª posição geral no ranking do multiplayer tradicional.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "sgx",
-      "reason": "ocupa a segunda colocação entre as submetralhadoras e o sexto lugar na tabela geral de desempenho.",
+      "reason": "Registrada na 6ª posição geral do ranking do multiplayer e figura como a segunda melhor submetralhadora.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "aparece no topo da classe de carabinas e na sétima posição geral do levantamento.",
+      "reason": "Ocupa a 7ª posição geral no ranking do multiplayer e lidera a categoria de carabinas como a número um.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pw5a3",
-      "reason": "classifica-se em terceiro lugar entre as submetralhadoras e na oitava posição geral do meta.",
+      "reason": "Classificada na 8ª posição geral do ranking de multiplayer e aparece como a terceira melhor submetralhadora.",
       "sources": [
         0
       ]
@@ -66,43 +66,51 @@
   "trending": [
     {
       "weapon": "tr-7",
-      "reason": "discussão aberta no Reddit sobre o motivo de parte da comunidade criticar e rejeitar esta arma.",
+      "reason": "Discussão na comunidade sobre o motivo de muitos jogadores criticarem o fuzil e considerarem que ele tem desempenho fraco.",
       "sources": [
         1
       ],
-      "trend": "questionamento sobre desempenho"
+      "trend": "reclamação sobre desempenho"
     },
     {
       "weapon": "brod-3",
-      "reason": "relato de testes em campo de tiro indicando alteração negativa na precisão e no comportamento do coice.",
+      "reason": "Tópico de teste em campo de tiro apontando que a carabina aparenta estar com recuo modificado e precisão diferente da anterior.",
       "sources": [
-        5
+        6
       ],
-      "trend": "reclamação de recuo"
+      "trend": "alteração de recuo"
     },
     {
-      "weapon": "rpkm",
-      "reason": "relato de jogador apontando registro de tiro falho e variação de dano durante confrontos.",
+      "weapon": "scw-10",
+      "reason": "Menção em thread de jogadores que utilizam a arma combinando combates de curto a médio alcance em modos variados.",
       "sources": [
         2
       ],
-      "trend": "inconsistência de registro"
+      "trend": "busca por build agressiva"
     },
     {
       "weapon": "sor-300sc",
-      "reason": "discussão na comunidade sobre a baixa velocidade de projétil e o posicionamento ineficiente desta carabina frente a alternativas.",
+      "reason": "Discussão técnica sobre os motivos da baixa velocidade de projétil, dispersão e o nicho pretendido para esta carabina.",
       "sources": [
         3
       ],
-      "trend": "dúvida de papel tático"
+      "trend": "dúvida sobre papel tático"
     },
     {
       "weapon": "interdictor",
-      "reason": "reclamações recorrentes no Reddit sobre o comportamento da arma operando com mecânica de tiro equivalente a escopeta.",
+      "reason": "Várias postagens na comunidade relatando que o rifle de precisão está funcionando com estatísticas problemáticas de dano rápido.",
       "sources": [
         4
       ],
-      "trend": "abuso de dano"
+      "trend": "reclamação de balanceamento"
+    },
+    {
+      "weapon": "db-12",
+      "reason": "Reclamações na comunidade sobre a falta de um nicho útil e o estado de desempenho fraco da escopeta no jogo.",
+      "sources": [
+        5
+      ],
+      "trend": "frustração com eficácia"
     }
   ],
   "sources": [
@@ -125,12 +133,12 @@
       "timeframe": "season-4"
     },
     {
-      "name": "Reddit — Hit reg",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1wrgn6n/hit_reg/",
-      "date": "2026-09-27",
+      "name": "Reddit — Which gun can I enjoy next?",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1wt9bid/which_gun_can_i_enjoy_next/",
+      "date": "2026-09-29",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita RPKM. Mostra do que se fala, não mede força.",
+      "scope": "Thread do r/Battlefield6 que cita B36A4, BROD 3, SCW-10. Mostra do que se fala, não mede força.",
       "timeframe": "season-4"
     },
     {
@@ -149,6 +157,15 @@
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Thread do r/Battlefield6 que cita Interdictor. Mostra do que se fala, não mede força.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit — What is the trick to the DB-12?",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1wpkbc7/what_is_the_trick_to_the_db12/",
+      "date": "2026-09-25",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita DB-12. Mostra do que se fala, não mede força.",
       "timeframe": "season-4"
     },
     {
