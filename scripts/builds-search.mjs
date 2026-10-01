@@ -55,10 +55,11 @@ const MAX_TENTATIVAS = numeroConfig(process.env.OPENROUTER_BUILDS_RETRIES, 3);
 /* A busca é o ponto desta rotina, então nada de modo JSON — a API recusa os
    dois juntos. O JSON vem em texto e `extrairJson` o recorta, como no meta. */
 
-/* Um modelo só, o mesmo do meta: as duas leituras rodam na mesma execução
-   diária e responder a mesma pergunta com modelos diferentes só faria a
-   divergência entre os dois arquivos ser difícil de explicar. Ver o cabeçalho
-   de `MODELOS` em scripts/meta-search.mjs para a conta. */
+/* A mesma fila do meta: as duas leituras rodam na mesma execução diária e
+   responder a mesma pergunta com modelos diferentes só faria a divergência
+   entre os dois arquivos ser difícil de explicar. Por padrão quem lê é o
+   Gemini gratuito, porque a busca do OpenRouter é cobrada — ver o cabeçalho
+   de `MODELOS` em scripts/meta-search.mjs. */
 const MODELOS = modelosDe(process.env.OPENROUTER_BUILDS_MODELS);
 
 /*
@@ -110,9 +111,9 @@ Responda SOMENTE com este JSON, sem cercas de código:
 /**
  * Pergunta pelo lote, descendo a fila até alguém responder com busca.
  *
- * A fila é a de `meta/provedores.mjs`: os modelos de `MODELOS`, pelo
- * OpenRouter, e, quando o crédito dele acaba, o Gemini gratuito — e esgotar
- * num lote vale para os seguintes, que já começam pelo gratuito.
+ * A fila é a de `meta/provedores.mjs`: com busca, os gratuitos do OpenRouter
+ * ficam de fora e quem responde é o Gemini gratuito. Modelo dele que gasta a
+ * cota do dia num lote sai da fila para os seguintes.
  */
 async function perguntar(prompt) {
   let ultimoErro = null;
@@ -150,7 +151,7 @@ function leituraAnterior() {
 
 async function main() {
   if (!temAlgumaChave()) {
-    console.error('OPENROUTER_API_KEY não definida (nem GEMINI_API_KEY, para o modelo gratuito).');
+    console.error('GEMINI_API_KEY não definida (nem OPENROUTER_API_KEY, com um modelo pago na fila).');
     process.exit(1);
   }
 

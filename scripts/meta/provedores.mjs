@@ -1,55 +1,70 @@
 /**
- * Quem responde às perguntas das rotinas: o OpenRouter, e o Gemini gratuito
- * quando o crédito dele acaba.
+ * Quem responde às perguntas das rotinas: os modelos gratuitos do OpenRouter
+ * e o Gemini gratuito, direto no Google.
  *
  * As rotinas que perguntam a um modelo — o meta do dia (`meta-search.mjs`), as
  * montagens (`builds-search.mjs`), a auditoria de acessórios
  * (`catalog/perguntar-acessorios.ts`) e a análise do patch
- * (`catalog/analisar-patch.ts`) — falavam direto com a OpenAI. Agora a chave
- * paga é a do OpenRouter, que fala o formato de chat da OpenAI com qualquer
- * modelo do catálogo dele: trocar de modelo — ou de casa — é trocar um nome na
- * fila, sem mexer aqui.
+ * (`catalog/analisar-patch.ts`) — já falaram direto com a OpenAI e, depois,
+ * com um modelo pago pelo OpenRouter. A chave paga parou no teto de gasto dela
+ * na primeira varredura, e a decisão foi não depender de crédito: por padrão,
+ * só modelo gratuito.
  *
- * ## A fila paga
+ * ## A fila do OpenRouter
  *
  * É a lista de modelos que cada rotina passa, na ordem em que se tenta. Os
- * nomes são os do catálogo do OpenRouter, com a casa na frente:
- * `openai/gpt-5.6-luna`, `anthropic/claude-haiku-4.5`.
+ * nomes são os do catálogo do OpenRouter: gratuito é o que termina em `:free`,
+ * e `openrouter/free` é o roteador que escolhe um gratuito disponível.
  *
- * ## Quando o gratuito entra
+ * ## A busca não é gratuita
  *
- * Só quando o OpenRouter não pode responder por falta de crédito — o 402, que
- * nenhuma espera resolve — ou quando não há chave dele no ambiente. Resposta
- * ruim do modelo pago (sem JSON, sem busca, barrada nas travas) não abre a
- * porta: aí o problema é a pergunta ou o modelo, e trocar para um modelo
- * gratuito seria publicar uma leitura pior para esconder isso.
+ * O modelo gratuito não cobra tokens, mas a busca na web do OpenRouter cobra
+ * por consulta, de qualquer modelo — e é esse gasto que bate no teto da chave.
+ * Por isso, pergunta com busca não vai a modelo gratuito do OpenRouter: vai
+ * direto ao Gemini, que traz a busca do Google dentro da cota gratuita dele.
+ * Modelo pago posto na fila pela variável de ambiente da rotina continua
+ * buscando pelo OpenRouter, por conta de quem o pôs lá.
+ *
+ * ## Quando o Gemini entra
+ *
+ * - na pergunta com busca, sempre que a fila do OpenRouter só tiver gratuito;
+ * - na pergunta sem busca, depois dos gratuitos do OpenRouter, como reserva —
+ *   os dois são gratuitos, e a cota do dia de um não diz nada sobre o outro;
+ * - quando o OpenRouter recusa por crédito (o 402 da conta ou o 403 do teto da
+ *   chave) ou quando não há chave dele no ambiente.
+ *
+ * O que continua fechando a porta é a resposta ruim de um modelo **pago** (sem
+ * JSON, sem busca, barrada nas travas): aí o problema é a pergunta ou o
+ * modelo, e trocar para um gratuito seria publicar uma leitura pior para
+ * esconder isso.
  *
  * O crédito é da conta, não do modelo. Esgotou uma vez, fica esgotado pelo
  * resto do processo: a varredura de montagens são onze lotes, e bater onze
- * vezes no mesmo 402 só atrasaria cada um.
+ * vezes na mesma recusa só atrasaria cada um.
  *
- * ## Qual gratuito
+ * ## Qual Gemini
  *
- * O Gemini, direto na API do Google e com a chave gratuita dela — pelo
- * OpenRouter ele sairia do mesmo crédito que acabou. É o gratuito que traz
- * busca própria, e sem busca estas rotinas não têm o que ler. A fila começa
- * pelos nomes de `GEMINI_MODELS` (ou os padrões abaixo) e termina no que a
- * própria conta disser que existe: o nome do modelo é a parte que envelhece.
- * Modelo que responde 404, 403 ou cota diária esgotada sai da fila e não é
- * tentado de novo nesta execução.
+ * Direto na API do Google e com a chave gratuita dela. A fila começa pelos
+ * nomes de `GEMINI_MODELS` (ou os padrões abaixo) e termina no que a própria
+ * conta disser que existe: o nome do modelo é a parte que envelhece. Modelo
+ * que responde 404, 403 ou cota diária esgotada sai da fila e não é tentado de
+ * novo nesta execução.
  */
 
 const OPENROUTER_URL = 'https://openrouter.ai/api/v1/chat/completions';
 const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta';
 
 /**
- * O modelo pago de todas as rotinas, quando a rotina não diz outro.
+ * O modelo do OpenRouter de todas as rotinas, quando a rotina não diz outro.
  *
- * É o mesmo de antes da troca, agora pelo OpenRouter: o degrau nano da geração
- * atual, que aceita busca e custa centavos por rodada. Ver o cabeçalho de
- * `MODELOS` em scripts/meta-search.mjs para a conta.
+ * É o roteador de gratuitos, e não um nome: a lista de modelos `:free` muda de
+ * mês em mês, e um nome fixo viraria 404 sem ninguém ter mexido no código. O
+ * roteador escolhe, entre os gratuitos no ar, um que aceite o pedido.
  */
-export const MODELO_PADRAO = 'openai/gpt-5.6-luna';
+export const MODELO_PADRAO = 'openrouter/free';
+
+/** O modelo não cobra tokens? É o que termina em `:free`, ou o roteador de gratuitos. */
+export const ehGratuito = (modelo) => modelo === 'openrouter/free' || /:free$/.test(modelo);
 
 /** A fila gratuita quando `GEMINI_MODELS` não diz outra. Os apelidos seguem o Flash da vez. */
 export const GRATUITOS_PADRAO = ['gemini-3.6-flash', 'gemini-flash-latest', 'gemini-flash-lite-latest'];
@@ -96,17 +111,22 @@ export function modelosDe(valor, padrao = MODELO_PADRAO) {
 /**
  * O erro é falta de crédito, e não limite de taxa?
  *
- * No OpenRouter o sinal é o 402 — "Your account or API key has insufficient
- * credits". A mensagem é o plano B para quando a casa por trás do modelo
- * devolve a própria recusa de cobrança num 429, que nenhuma espera resolve.
+ * No OpenRouter o sinal oficial é o 402 — "Your account or API key has
+ * insufficient credits". Mas a chave também pode ter teto de gasto próprio, e
+ * esse chega como 403: "Key limit exceeded (total limit)". Foi o que derrubou
+ * a varredura de montagens de 01/10 — onze lotes, onze 403, e a reserva
+ * gratuita parada porque só o 402 a liberava.
+ *
+ * A mensagem é também o plano B para quando a casa por trás do modelo devolve
+ * a própria recusa de cobrança num 429, que nenhuma espera resolve.
  */
 export function ehFaltaDeCredito(status, erro) {
   if (status === 402) return true;
+  const mensagem = erro?.message ?? '';
+  if (status === 403 && /key limit exceeded/i.test(mensagem)) return true;
   return (
     status === 429 &&
-    /insufficient (credits|quota)|exceeded your current quota|billing details|out of credits/i.test(
-      erro?.message ?? '',
-    )
+    /insufficient (credits|quota)|exceeded your current quota|billing details|out of credits/i.test(mensagem)
   );
 }
 
@@ -149,23 +169,34 @@ async function modelosGratuitos() {
 /**
  * A fila de quem pode responder, na ordem em que se tenta.
  *
- * É gerador, e não lista, porque a parte gratuita só se decide depois de o
- * OpenRouter ter sido tentado: é o 402 dele que libera o resto da fila.
+ * É gerador, e não lista, porque a parte do Gemini só se decide depois de o
+ * OpenRouter ter sido tentado: a recusa por crédito dele muda o resto da fila.
+ *
+ * `busca` diz se a pergunta vai com a busca ligada — é o que decide se os
+ * gratuitos do OpenRouter entram (ver "A busca não é gratuita", no cabeçalho).
  */
-export async function* candidatos(modelos) {
+export async function* candidatos(modelos, { busca = true } = {}) {
+  let ofereceuPago = false;
+
   if (chaveOpenRouter()) {
     for (const modelo of modelos) {
       if (estado.semCredito) break;
+      // A busca do OpenRouter é cobrada por consulta, inclusive em modelo
+      // gratuito: com busca, o gratuito daqui fica de fora e quem lê é o Gemini.
+      if (busca && ehGratuito(modelo)) continue;
+      if (!ehGratuito(modelo)) ofereceuPago = true;
       yield { provedor: 'openrouter', modelo };
     }
   }
 
-  if (chaveOpenRouter() && !estado.semCredito) return;
+  // Modelo pago respondeu mal: o problema é dele ou da pergunta, e o gratuito
+  // não entra para esconder isso.
+  if (ofereceuPago && !estado.semCredito) return;
 
   if (!chaveGoogle()) {
     if (!estado.avisouSemChaveGratuita) {
       estado.avisouSemChaveGratuita = true;
-      console.warn('Sem GEMINI_API_KEY nem GOOGLE_GENERATIVE_AI_API_KEY: não há modelo gratuito para cair.');
+      console.warn('Sem GEMINI_API_KEY nem GOOGLE_GENERATIVE_AI_API_KEY: não há Gemini gratuito para responder.');
     }
     return;
   }
@@ -431,7 +462,9 @@ export async function perguntarComBusca({ provedor, modelo }, prompt, { maxOutpu
         estado.gratuitosFora.add(modelo);
         throw erro;
       }
-      if (erro.status === 429 && tentativa < tentativas) {
+      // Espera maior que o teto é cota do dia — a dos gratuitos do OpenRouter
+      // é contada por dia —, e insistir só gastaria a execução parada.
+      if (erro.status === 429 && tentativa < tentativas && (erro.esperarMs ?? 0) <= ESPERA_MAXIMA_MS) {
         const ms = Math.min(erro.esperarMs ?? 1000, ESPERA_MAXIMA_MS);
         console.warn(`${modelo}: limite de taxa, aguardando ${Math.ceil(ms / 1000)}s.`);
         await esperar(ms);

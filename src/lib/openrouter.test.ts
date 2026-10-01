@@ -116,9 +116,26 @@ describe('chat', () => {
     });
   });
 
-  it('crédito esgotado chega como 402', async () => {
+  it('crédito esgotado chega como 402, e o teto da chave como 403', async () => {
     vi.stubGlobal('fetch', vi.fn(async () => json(402, { error: { code: 402, message: 'Insufficient credits' } })));
-    await expect(chat({ model: 'casa/a', prompt: 'p', maxTokens: 100 })).rejects.toMatchObject({ status: 402 });
+    await expect(chat({ model: 'casa/a', prompt: 'p', maxTokens: 100 })).rejects.toMatchObject({
+      status: 402,
+      outOfCredit: true,
+    });
+
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => json(403, { error: { code: 403, message: 'Key limit exceeded (total limit). Manage it using …' } })),
+    );
+    await expect(chat({ model: 'casa/a', prompt: 'p', maxTokens: 100 })).rejects.toMatchObject({
+      status: 403,
+      outOfCredit: true,
+    });
+  });
+
+  it('403 de moderação e limite de taxa não são falta de crédito', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => json(403, { error: { code: 403, message: 'Input flagged' } })));
+    await expect(chat({ model: 'casa/a', prompt: 'p', maxTokens: 100 })).rejects.toMatchObject({ outOfCredit: false });
   });
 
   it('erro que chega com status 200 sobe com o código de dentro do corpo', async () => {

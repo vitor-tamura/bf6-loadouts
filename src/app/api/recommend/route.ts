@@ -86,7 +86,8 @@ function positiveInt(value: string | undefined, fallback: number) {
 const WEB_SEARCH = process.env.OPENROUTER_RECOMMEND_WEB_SEARCH === 'on';
 
 /**
- * Um modelo só, ligado ou desligada a busca: o `gpt-5.6-luna`.
+ * A fila de modelos — e a história de por que ela já foi um modelo só, o
+ * `gpt-5.6-luna`, ligada ou desligada a busca.
  *
  * A fila era diferente nos dois modos, e por um motivo que deixou de existir. O
  * `gpt-5-nano` esteve fora daqui por causa da busca — o guia da ferramenta
@@ -98,9 +99,11 @@ const WEB_SEARCH = process.env.OPENROUTER_RECOMMEND_WEB_SEARCH === 'on';
  * um JSON de uma linha é trabalho de modelo pequeno; o que fazia falta era um
  * modelo pequeno que não recusasse a ferramenta.
  *
- * Ele agora é chamado pelo OpenRouter, e o nome leva a casa na frente
- * (`openai/gpt-5.6-luna`, o padrão de `src/lib/openrouter.ts`).
- * `OPENROUTER_RECOMMEND_MODELS` troca a fila sem publicar versão nova.
+ * O `luna` saiu do padrão: a chave paga parou no teto de gasto dela, e a fila
+ * agora é o roteador de gratuitos do OpenRouter (`openrouter/free`, o padrão
+ * de `src/lib/openrouter.ts`). `OPENROUTER_RECOMMEND_MODELS` troca a fila sem
+ * publicar versão nova. A busca, se for ligada de volta, é cobrada por
+ * consulta mesmo em modelo gratuito.
  */
 const MODELS = modelsFrom(process.env.OPENROUTER_RECOMMEND_MODELS);
 /*

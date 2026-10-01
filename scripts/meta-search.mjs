@@ -80,25 +80,22 @@ const MAX_TENTATIVAS = numeroConfig(process.env.OPENROUTER_META_RETRIES, 3);
 const FALHAR_SEM_ATUALIZAR = process.env.OPENROUTER_META_STRICT === '1';
 
 /*
- * Um modelo só, e é o `gpt-5.6-luna`.
+ * Quem lê o meta, por padrão, é o Gemini gratuito.
  *
- * A fila existia porque nem todo modelo aceita a ferramenta de busca, e porque
- * modelo pequeno demais para uma leitura como esta responde clichê. A execução
- * de 11/08 mostrou os dois problemas de uma vez: quem gravou foi o último da
- * fila, o `gpt-4.1-mini`, e o que ele gravou foi o trending genérico que
- * motivou as travas de `meta/leitura.mjs`.
+ * Esta pergunta precisa de busca, e a busca do OpenRouter é cobrada por
+ * consulta até em modelo gratuito — foi ela que estourou o teto da chave. A
+ * fila padrão do OpenRouter é de gratuitos, que com busca ficam de fora, e a
+ * leitura vai direto ao Gemini, com a busca do Google na cota gratuita dele
+ * (ver `meta/provedores.mjs`).
  *
- * O `luna` é o degrau nano da geração atual, e é onde a conta fecha: US$ 0,20
- * por milhão de entrada e US$ 1,25 de saída — mesma entrada do `gpt-5.4-nano`
- * com saída mais barata, e a diferença para o `gpt-5-nano`, quatro vezes menor,
- * é fração de centavo numa chamada por dia. Não vale: o `gpt-5-nano` saiu desta
- * fila justamente por nunca ter respondido, e chamada recusada custa o dia
- * inteiro de leitura, não tokens.
+ * Já foi diferente: a fila teve o `gpt-4.1-mini`, que gravou o trending
+ * genérico que motivou as travas de `meta/leitura.mjs`, e depois o
+ * `gpt-5.6-luna`, pago. As travas continuam valendo para quem quer que
+ * responda.
  *
- * A fila continua sendo uma lista para `OPENROUTER_META_MODELS` poder trocar o
- * modelo sem publicar versão — o que ela não tem mais é reserva por padrão. Os
- * nomes são os do catálogo do OpenRouter, com a casa na frente
- * (`openai/gpt-5.6-luna`); o padrão está em `meta/provedores.mjs`.
+ * `OPENROUTER_META_MODELS` ainda aceita um modelo pago do catálogo do
+ * OpenRouter (`openai/gpt-5.6-luna`): ele busca pelo OpenRouter, por conta do
+ * crédito de quem o configurar.
  */
 const MODELOS = modelosDe(process.env.OPENROUTER_META_MODELS);
 
@@ -289,7 +286,7 @@ async function main() {
   }
 
   if (!temAlgumaChave()) {
-    console.error('Falta OPENROUTER_API_KEY (ou GEMINI_API_KEY, para o modelo gratuito).');
+    console.error('Falta GEMINI_API_KEY (ou OPENROUTER_API_KEY, com um modelo pago na fila).');
     process.exit(1);
   }
 

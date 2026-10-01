@@ -19,11 +19,17 @@ const OPENROUTER_URL = 'https://openrouter.ai/api/v1/chat/completions';
 /**
  * O modelo das rotas, quando a variável de ambiente não diz outro.
  *
- * O mesmo de antes da troca e o mesmo das rotinas diárias: o degrau nano da
- * geração atual. Redigir três frases ou escolher peças de uma lista dada é
- * trabalho de modelo pequeno.
+ * É o roteador de gratuitos do OpenRouter, e não um nome: a chave paga parou
+ * no teto de gasto dela, e a decisão foi não depender de crédito. A lista de
+ * modelos `:free` muda de mês em mês, e um nome fixo viraria 404 sem ninguém
+ * ter mexido no código; o roteador escolhe, entre os gratuitos no ar, um que
+ * aceite o pedido. Redigir três frases ou escolher peças de uma lista dada é
+ * trabalho que modelo pequeno faz.
+ *
+ * O preço é a cota: os gratuitos têm teto de pedidos por minuto e por dia, e
+ * respondem 429 quando ele acaba.
  */
-export const DEFAULT_MODEL = 'openai/gpt-5.6-luna';
+export const DEFAULT_MODEL = 'openrouter/free';
 
 /** A chave, lida na hora: a rota responde 502 com o motivo quando ela falta. */
 export const openRouterKey = () => process.env.OPENROUTER_API_KEY;
@@ -36,7 +42,17 @@ export function modelsFrom(value: string | undefined, fallback = DEFAULT_MODEL):
     .filter(Boolean);
 }
 
-export type OpenRouterError = Error & { status?: number; retryAfterMs?: number };
+export type OpenRouterError = Error & { status?: number; retryAfterMs?: number; outOfCredit?: boolean };
+
+/**
+ * A recusa é falta de crédito?
+ *
+ * O sinal oficial é o 402. Mas a chave pode ter teto de gasto próprio, e esse
+ * chega como 403 — "Key limit exceeded (total limit)". Os dois valem para a
+ * conta inteira: nenhum outro nome do catálogo responderia.
+ */
+export const isOutOfCredit = (status: number, message = '') =>
+  status === 402 || (status === 403 && /key limit exceeded/i.test(message));
 
 export interface Citation {
   url: string;
@@ -49,7 +65,7 @@ export interface ChatRequest {
   prompt: string;
   /** O teto de saída — raciocínio e texto contam juntos. */
   maxTokens: number;
-  /** Liga a busca na web do OpenRouter. O modelo decide se a usa. */
+  /** Liga a busca na web do OpenRouter, cobrada por consulta até em modelo gratuito. O modelo decide se a usa. */
   webSearch?: boolean;
   /** Dito quando importa: o padrão das casas é `medium`. */
   reasoningEffort?: 'none' | 'minimal' | 'low' | 'medium' | 'high';
@@ -144,7 +160,7 @@ function retryDelayMs(response: Response, attempt: number) {
 /**
  * Uma ida ao modelo. Lança `OpenRouterError` com o status quando a API recusa.
  *
- * Os status que importam a quem chama: 402 é crédito esgotado — vale para a
+ * O que importa a quem chama: `outOfCredit` é crédito esgotado — vale para a
  * conta inteira, não só para o modelo —, 429 é limite de taxa e passa com
  * espera, 400 e 404 são do modelo e pedem o próximo da fila.
  */
@@ -169,6 +185,7 @@ export async function chat(request: ChatRequest): Promise<ChatAnswer> {
       body.error?.message ? `${status} ${body.error.message}` : `${status} ${response.statusText}`,
     );
     error.status = status;
+    error.outOfCredit = isOutOfCredit(status, body.error?.message);
     error.retryAfterMs = retryDelayMs(response, request.attempt ?? 1);
     throw error;
   }

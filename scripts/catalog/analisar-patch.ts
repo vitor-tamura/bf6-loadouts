@@ -64,6 +64,8 @@ export const ANALISE_DESDE = '1.4.3.0';
 const WEAPONS_TS = join(ROOT, 'src', 'data', 'weapons.ts');
 const ATTACHMENTS_TS = join(ROOT, 'src', 'data', 'attachments.ts');
 
+/* Sem busca, esta é a rotina que usa os gratuitos do OpenRouter: o texto a
+   ler já vai no prompt. O Gemini gratuito fica de reserva atrás deles. */
 const MODELOS = modelosDe(process.env.ANALISE_MODELS);
 
 /** Os campos da arma que um patch costuma mexer e que o site guarda como número. */
@@ -529,7 +531,7 @@ async function analisar(versao: string, dryRun: boolean): Promise<boolean> {
   let proposta: Proposta | null = null;
   let modelo: string | null = null;
 
-  for await (const candidato of candidatos(MODELOS)) {
+  for await (const candidato of candidatos(MODELOS, { busca: false })) {
     try {
       const resposta = await perguntarSemBusca(candidato, promptDaAnalise(versao, ctx, citadas, pecasCitadas), {
         maxOutputTokens: 8000,

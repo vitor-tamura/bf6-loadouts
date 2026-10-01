@@ -3,6 +3,7 @@ import {
   MODELO_PADRAO,
   candidatos,
   ehFaltaDeCredito,
+  ehGratuito,
   filtrarGratuitos,
   lerRespostaGemini,
   lerRespostaOpenRouter,
@@ -45,6 +46,8 @@ describe('ehFaltaDeCredito', () => {
   it('reconhece o 402 do OpenRouter e a recusa de cobrança da casa por trás', () => {
     expect(ehFaltaDeCredito(402, null)).toBe(true);
     expect(ehFaltaDeCredito(402, { code: 402, message: 'Insufficient credits' })).toBe(true);
+    // O teto de gasto da própria chave chega como 403, não como 402.
+    expect(ehFaltaDeCredito(403, { code: 403, message: 'Key limit exceeded (total limit). Manage it using https://openrouter.ai/…' })).toBe(true);
     expect(
       ehFaltaDeCredito(429, {
         message: 'You exceeded your current quota, please check your plan and billing details.',
@@ -55,6 +58,18 @@ describe('ehFaltaDeCredito', () => {
   it('não confunde limite de taxa com crédito', () => {
     expect(ehFaltaDeCredito(429, { code: 429, message: 'Rate limit exceeded' })).toBe(false);
     expect(ehFaltaDeCredito(400, { message: 'bad request' })).toBe(false);
+    // 403 de moderação ou de permissão é do pedido, não da conta.
+    expect(ehFaltaDeCredito(403, { code: 403, message: 'Input flagged by moderation' })).toBe(false);
+  });
+});
+
+describe('ehGratuito', () => {
+  it('reconhece o sufixo :free e o roteador de gratuitos', () => {
+    expect(ehGratuito('qwen/qwen3.8-27b:free')).toBe(true);
+    expect(ehGratuito('openrouter/free')).toBe(true);
+    expect(ehGratuito(MODELO_PADRAO)).toBe(true);
+    expect(ehGratuito('openai/gpt-5.6-luna')).toBe(false);
+    expect(ehGratuito('casa/freeze')).toBe(false);
   });
 });
 
@@ -272,6 +287,73 @@ describe('a fila', () => {
 
     // Na pergunta seguinte, o OpenRouter já fica de fora.
     expect(await coletar(candidatos(['casa/a']))).toEqual([{ provedor: 'google', modelo: 'gemini-teste-flash' }]);
+  });
+
+  it('o teto da chave (403) libera o gratuito do mesmo jeito', async () => {
+    const fetch = vi.fn(async (url) => {
+      if (String(url).includes('openrouter')) {
+        return json(403, { error: { code: 403, message: 'Key limit exceeded (total limit). Manage it using …' } });
+      }
+      if (String(url).endsWith('/models?pageSize=200')) return json(200, { models: [] });
+      return json(200, respostaGemini);
+    });
+    vi.stubGlobal('fetch', fetch);
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    const usados = [];
+    let resposta = null;
+    for await (const candidato of candidatos(['casa/a', 'casa/b'])) {
+      usados.push(candidato.modelo);
+      try {
+        resposta = await perguntarComBusca(candidato, 'p', { maxOutputTokens: 100 });
+        break;
+      } catch {
+        // próximo da fila
+      }
+    }
+
+    expect(usados).toEqual(['casa/a', 'gemini-teste-flash']);
+    expect(resposta).toMatchObject({ provedor: 'google', texto: '{"ok":true}' });
+    expect(fetch.mock.calls.filter(([url]) => String(url).includes('openrouter'))).toHaveLength(1);
+  });
+
+  it('com busca, o gratuito do OpenRouter fica de fora e quem lê é o Gemini', async () => {
+    const fetch = vi.fn(async () => json(200, { models: [] }));
+    vi.stubGlobal('fetch', fetch);
+
+    expect(await coletar(candidatos(['openrouter/free', 'casa/a:free']))).toEqual([
+      { provedor: 'google', modelo: 'gemini-teste-flash' },
+    ]);
+    // Nenhuma chamada paga: só a lista de modelos do Google.
+    expect(fetch.mock.calls.every(([url]) => String(url).includes('googleapis'))).toBe(true);
+  });
+
+  it('com busca, modelo pago posto na fila ainda busca pelo OpenRouter', async () => {
+    vi.stubGlobal('fetch', vi.fn());
+    expect(await coletar(candidatos(['casa/a:free', 'casa/pago']))).toEqual([
+      { provedor: 'openrouter', modelo: 'casa/pago' },
+    ]);
+  });
+
+  it('sem busca, os gratuitos do OpenRouter vêm primeiro e o Gemini fica de reserva', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => json(200, { models: [] })));
+    expect(await coletar(candidatos(['openrouter/free', 'casa/a:free'], { busca: false }))).toEqual([
+      { provedor: 'openrouter', modelo: 'openrouter/free' },
+      { provedor: 'openrouter', modelo: 'casa/a:free' },
+      { provedor: 'google', modelo: 'gemini-teste-flash' },
+    ]);
+  });
+
+  it('cota do dia do gratuito não fica esperando: sobe para o próximo da fila', async () => {
+    const fetch = vi.fn(async () =>
+      json(429, { error: { code: 429, message: 'Rate limit exceeded: free-models-per-day' } }, { 'retry-after': '3600' }),
+    );
+    vi.stubGlobal('fetch', fetch);
+
+    await expect(
+      perguntarSemBusca({ provedor: 'openrouter', modelo: 'openrouter/free' }, 'p', { maxOutputTokens: 100 }),
+    ).rejects.toMatchObject({ status: 429 });
+    expect(fetch).toHaveBeenCalledTimes(1);
   });
 
   it('crédito esgotado sem chave gratuita encerra a fila', async () => {

@@ -68,7 +68,7 @@ jobs:
       - name: Ler o meta do dia
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          # Reserva gratuita para quando o crédito do OpenRouter acabar (scripts/meta/provedores.mjs).
+          # O Gemini gratuito lê o que precisa de busca e é a reserva do resto (scripts/meta/provedores.mjs).
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run meta:search
 
@@ -85,7 +85,7 @@ jobs:
         if: ${{ !cancelled() }}
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          # Reserva gratuita para quando o crédito do OpenRouter acabar (scripts/meta/provedores.mjs).
+          # O Gemini gratuito lê o que precisa de busca e é a reserva do resto (scripts/meta/provedores.mjs).
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run builds:search ${{ inputs.apenasFaltantes && '-- --faltantes' || '' }}
 

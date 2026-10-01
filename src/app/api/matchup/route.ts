@@ -30,15 +30,14 @@ import { chat, modelsFrom, openRouterKey, type OpenRouterError } from '@/lib/ope
 export const maxDuration = 15;
 
 /**
- * A fila paga, pelo OpenRouter.
+ * A fila do OpenRouter — gratuita, por padrão.
  *
- * Modelo pequeno de propósito. A tarefa é redigir três frases a partir de
- * números já mastigados — não há raciocínio a fazer, e um modelo grande
- * gastaria crédito em pouca coisa. Com a resposta guardada por um dia na
- * borda, o custo desta rota fica perto de zero de qualquer forma.
+ * A tarefa é redigir três frases a partir de números já mastigados — não há
+ * raciocínio a fazer, e modelo gratuito dá conta. Com a resposta guardada por
+ * um dia na borda, a cota diária dos gratuitos rende.
  *
  * `OPENROUTER_MATCHUP_MODELS` aceita mais de um nome do catálogo do
- * OpenRouter, separados por vírgula, para o dia em que o primeiro sair do ar.
+ * OpenRouter, separados por vírgula — `:free` para continuar sem custo.
  */
 const MODELS = modelsFrom(process.env.OPENROUTER_MATCHUP_MODELS);
 
@@ -57,9 +56,9 @@ interface Candidate {
  * análise por regras, sem gastar crédito nenhum em teste.
  *
  * Em produção, o OpenRouter abre a fila e o Gemini gratuito, direto no Google,
- * fecha. A reserva não é fila de modelo, é fila de provedor: existe para o dia
- * em que o crédito do OpenRouter acabar ou a chave sair do ar, e um nome do
- * mesmo catálogo atrás de outro não resolveria nenhuma das duas coisas.
+ * fecha. A reserva não é fila de modelo, é fila de provedor: existe para
+ * quando a cota gratuita do OpenRouter acabar ou a chave dele for recusada, e
+ * um nome do mesmo catálogo atrás de outro não resolveria nenhuma das duas.
  *
  * Sem nenhuma das duas chaves, a rota falha e a tela fica com a análise por
  * regras — que é o que acontece em qualquer cópia recém-clonada do repositório.
@@ -78,8 +77,20 @@ const statusOf = (error: unknown) => (error as OpenRouterError | null)?.status;
 /** Nome de modelo errado ou fora da conta — vale tentar o próximo da fila. */
 const isModelProblem = (error: unknown) => statusOf(error) === 404 || statusOf(error) === 400;
 
-/** Crédito esgotado num provedor não esgota o outro — a fila continua. */
-const isOutOfCredit = (error: unknown) => statusOf(error) === 402;
+/**
+ * Cota esgotada — do minuto ou do dia. Com modelo gratuito é a recusa mais
+ * comum, e ela é do candidato: a cota do OpenRouter não diz nada sobre a do
+ * Google. Aqui não se espera — quem está na tela não tem um minuto.
+ */
+const isRateLimited = (error: unknown) => statusOf(error) === 429;
+
+/**
+ * Crédito esgotado num provedor não esgota o outro — a fila continua.
+ *
+ * Vale o 402 da conta e o 403 do teto da chave; quem distingue é
+ * `src/lib/openrouter.ts`.
+ */
+const isOutOfCredit = (error: unknown) => (error as OpenRouterError | null)?.outOfCredit === true;
 
 /*
  * O freio de gasto por visitante.
@@ -206,8 +217,8 @@ export async function POST(request: Request) {
    * Tenta os modelos em ordem e para no primeiro que responder.
    *
    * Só vale insistir quando a recusa é local ao candidato — 404 de modelo que
-   * saiu do ar, 400 de nome que a conta não conhece, 402 de crédito que acabou
-   * no OpenRouter (que não diz nada sobre a chave gratuita do Google). Chave
+   * saiu do ar, 400 de nome que a conta não conhece, 429 de cota gasta, crédito
+   * que acabou no OpenRouter (que não diz nada sobre a chave gratuita do Google). Chave
    * inválida ou rede fora valem para a fila inteira, e repetir só gastaria o
    * tempo de quem está esperando na tela.
    */
@@ -231,8 +242,8 @@ export async function POST(request: Request) {
    * porque ele não tem o que fazer numa tarefa de redigir a partir de números
    * já comparados, e o teto folgado cobre o resto.
    *
-   * Dizer o esforço não é opcional: o padrão do `gpt-5.6-luna` é `medium`.
-   * Modelo que não raciocina ignora o parâmetro.
+   * Dizer o esforço não é opcional: o padrão de quem raciocina costuma ser
+   * `medium`. Modelo que não raciocina ignora o parâmetro.
    */
   const maxTokens = 800;
 
@@ -261,7 +272,7 @@ export async function POST(request: Request) {
     } catch (error) {
       lastError = error;
       if (isOutOfCredit(error)) openRouterOutOfCredit = true;
-      else if (!isModelProblem(error)) break;
+      else if (!isModelProblem(error) && !isRateLimited(error)) break;
       console.warn('[matchup] modelo recusado, tentando o próximo', { provider, model });
     }
   }
@@ -283,5 +294,5 @@ export async function POST(request: Request) {
 
   // 402 é crédito esgotado: a tela já tem o que mostrar, então a rota só avisa
   // que não veio nada.
-  return Response.json({ error: 'modelo indisponível' }, { status: status === 402 ? 402 : 502 });
+  return Response.json({ error: 'modelo indisponível' }, { status: isOutOfCredit(lastError) ? 402 : 502 });
 }

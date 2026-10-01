@@ -3,7 +3,7 @@
  * Descobre em que armas as peças novas entram — enumerando primeiro, perguntando depois.
  *
  *   npm run catalog:perguntar-acessorios              # só a varredura
- *   OPENROUTER_API_KEY=... npm run catalog:perguntar-acessorios   # varredura + pergunta
+ *   GEMINI_API_KEY=... npm run catalog:perguntar-acessorios   # varredura + pergunta
  *
  * Existe porque a lista de armas de uma peça de temporada não aparece em lugar
  * nenhum no dia do patch. A EA anuncia a peça e descreve o efeito; ela não
@@ -39,10 +39,10 @@
  * O que a varredura não fechou vai para um modelo com busca ligada, que alcança
  * páginas que este ambiente não alcança. É o acesso que se terceiriza, não o
  * julgamento: o que volta é relato com endereço, e a escala de evidência do
- * ATUALIZAR.md continua valendo. Quem responde é um modelo pelo OpenRouter e,
- * quando o crédito dele acaba, o Gemini gratuito (`meta/provedores.mjs`). Sem
- * nenhuma das duas chaves esta etapa não roda, e a varredura já terá escrito o
- * que descobriu.
+ * ATUALIZAR.md continua valendo. Quem responde é o Gemini gratuito, que traz
+ * busca na cota dele — a do OpenRouter é cobrada (`meta/provedores.mjs`). Sem
+ * chave nenhuma esta etapa não roda, e a varredura já terá escrito o que
+ * descobriu.
  *
  * ## O que a rotina não pode fazer
  *
@@ -71,10 +71,11 @@ import { DATA, INDEXES, log, readJson } from './lib/io.ts';
 import { MODELO_PADRAO, candidatos, perguntarComBusca, temAlgumaChave } from '../meta/provedores.mjs';
 
 /*
- * Um modelo só, o mesmo das leituras diárias. A varredura enumerada já fechou
- * o que dava para fechar sem modelo nenhum, e o que sobra para esta pergunta é
+ * A mesma fila das leituras diárias. A varredura enumerada já fechou o que
+ * dava para fechar sem modelo nenhum, e o que sobra para esta pergunta é
  * pouco e vai para `armasRelatadas`, que ninguém promove sem conferir. Não é
- * lugar de gastar com modelo grande. Ver `MODELOS` em scripts/meta-search.mjs.
+ * lugar de gastar com modelo grande: a pergunta é com busca, e por padrão vai
+ * ao Gemini gratuito. Ver `MODELOS` em scripts/meta-search.mjs.
  */
 const MODELOS = [MODELO_PADRAO];
 
@@ -569,7 +570,7 @@ async function main(): Promise<void> {
     log('pergunta', {
       pulada: 'sem OPENROUTER_API_KEY nem GEMINI_API_KEY',
       pendentes: pendentes.map((c) => c.nome),
-      comoRodar: 'OPENROUTER_API_KEY=... npm run catalog:perguntar-acessorios',
+      comoRodar: 'GEMINI_API_KEY=... npm run catalog:perguntar-acessorios',
     });
     return;
   }

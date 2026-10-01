@@ -113,8 +113,8 @@ ranges" em vez de um "de X para Y".
 
 `npm run catalog:analisar-patch` faz essa leitura com as mesmas duas fontes de
 uma revisão manual: o patch note da EA (baixado da página de novidades) e as
-linhas de arma do bf6balancelog. Um modelo (pelo OpenRouter, ou o Gemini gratuito
-quando o crédito acaba) propõe as mudanças; o código só aplica a proposta que:
+linhas de arma do bf6balancelog. Um modelo gratuito (do OpenRouter, ou o Gemini de
+reserva) propõe as mudanças; o código só aplica a proposta que:
 
 - cita frases que existem, palavra por palavra, no patch ou no balancelog;
 - tem todos os números nessas frases;

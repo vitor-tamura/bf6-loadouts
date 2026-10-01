@@ -284,7 +284,7 @@ ver `data/compatibility/acessorios-a-confirmar-1.4.2.0.json` como modelo.
 
 ```bash
 npm run catalog:perguntar-acessorios                    # varre e escreve
-OPENROUTER_API_KEY=... npm run catalog:perguntar-acessorios   # varre e, no que sobrar, pergunta
+GEMINI_API_KEY=... npm run catalog:perguntar-acessorios   # varre e, no que sobrar, pergunta
 ```
 
 É a pergunta mais difícil de um patch, e a que menos gente publica: a EA anuncia
