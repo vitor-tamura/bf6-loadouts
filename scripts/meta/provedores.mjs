@@ -96,9 +96,18 @@ const estado = {
  */
 const RECUSAS_QUE_FECHAM_O_GOOGLE = 3;
 
-/** Não há mais a quem perguntar nesta execução? Quem varre em lotes para por aqui. */
-export function filaEsgotada() {
-  const semOpenRouter = !chaveOpenRouter() || estado.semCredito;
+/**
+ * Não há mais a quem perguntar nesta execução? Quem varre em lotes para por aqui.
+ *
+ * Recebe a mesma fila e o mesmo `busca` de `candidatos`, porque ter a chave do
+ * OpenRouter não basta: com busca, os gratuitos dele ficam de fora, e uma fila
+ * só de gratuitos não tem ninguém para oferecer. A primeira versão olhava só a
+ * chave, e a varredura de 01/10 seguiu por dez lotes respondendo "sem
+ * resposta" com o Gemini já fechado.
+ */
+export function filaEsgotada(modelos = [], { busca = true } = {}) {
+  const temQuemOferecer = modelos.some((modelo) => !(busca && ehGratuito(modelo)));
+  const semOpenRouter = !chaveOpenRouter() || estado.semCredito || !temQuemOferecer;
   const semGoogle = !chaveGoogle() || estado.googleSemCota;
   return semOpenRouter && semGoogle;
 }

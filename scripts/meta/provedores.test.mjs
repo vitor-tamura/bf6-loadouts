@@ -469,6 +469,26 @@ describe('a fila', () => {
     expect(await coletar(candidatos([]))).toEqual([]);
   });
 
+  it('com busca, a chave do OpenRouter não segura a fila aberta se ela só tem gratuitos', async () => {
+    process.env.GEMINI_MODELS = 'g-1,g-2,g-3';
+    const fetch = vi.fn(async (url) =>
+      String(url).endsWith('/models?pageSize=200')
+        ? json(200, { models: [] })
+        : json(429, { error: { message: 'You exceeded your current quota' } }),
+    );
+    vi.stubGlobal('fetch', fetch);
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    for await (const candidato of candidatos(['openrouter/free'])) {
+      await expect(perguntarComBusca(candidato, 'p', { maxOutputTokens: 100 })).rejects.toThrow(/429/);
+    }
+
+    expect(filaEsgotada(['openrouter/free'])).toBe(true);
+    // Sem busca o gratuito do OpenRouter ainda responde, e com modelo pago também.
+    expect(filaEsgotada(['openrouter/free'], { busca: false })).toBe(false);
+    expect(filaEsgotada(['casa/pago'])).toBe(false);
+  });
+
   it('um modelo do Google que responde zera a contagem de recusas', async () => {
     delete process.env.OPENROUTER_API_KEY;
     process.env.GEMINI_MODELS = 'g-1,g-2,g-3,g-4,g-5';

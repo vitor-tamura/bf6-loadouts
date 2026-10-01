@@ -246,7 +246,7 @@ async function main() {
        * lotes, dez modelos, três tentativas cada. Crédito e cota são da conta,
        * não do lote — acabou num, acabou nos outros.
        */
-      if (filaEsgotada()) {
+      if (filaEsgotada(MODELOS)) {
         const restantes = armas.slice(inicio + LOTE);
         naoPerguntadas.push(...restantes.map((arma) => arma.id));
         if (restantes.length) {

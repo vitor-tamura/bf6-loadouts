@@ -33,6 +33,10 @@ on:
         description: 'Montagens: ler só as armas que ainda não têm leitura'
         type: boolean
         default: false
+      diagnostico:
+        description: 'Testar a chave do Gemini antes de ler (mostra a resposta inteira do Google)'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -64,6 +68,16 @@ jobs:
           cache: npm
 
       - run: npm ci
+
+      # Só na rodada manual, quando pedido. O secret não pode ser lido de volta,
+      # então a única forma de saber qual chave o workflow usa — e qual cota o
+      # Google está negando a ela — é perguntar daqui. A chave não é impressa.
+      - name: Diagnóstico da chave do Gemini
+        if: ${{ inputs.diagnostico }}
+        continue-on-error: true
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: npm run meta:diagnostico
 
       - name: Ler o meta do dia
         env:
