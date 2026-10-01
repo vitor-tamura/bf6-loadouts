@@ -4,10 +4,16 @@
  *
  *   OPENROUTER_API_KEY=... node --experimental-strip-types scripts/meta-search.mjs
  *
- * Pergunta a um modelo, pelo OpenRouter e com a busca na web ligada, o que a comunidade
- * está dizendo agora sobre as armas do multiplayer — dando peso ao Reddit, que
- * é onde a discussão acontece e onde as ferramentas de busca comuns não chegam
- * para robôs. O resultado vai para `src/data/meta-live.json`, que a tela lê.
+ * Lê o que a comunidade está dizendo agora sobre as armas do multiplayer e
+ * grava em `src/data/meta-live.json`, que a tela lê. São dois caminhos:
+ *
+ * 1. **Sem busca** — o script baixa as páginas que medem e as threads da
+ *    semana (`meta/paginas.mjs`) e um modelo gratuito do OpenRouter só lê o que
+ *    recebeu. É o caminho de todo dia.
+ * 2. **Com busca** — um modelo com a busca na web ligada procura por conta
+ *    própria. Entra quando o primeiro não fecha: página fora do ar, Reddit
+ *    recusando o rastreador, trending sem conversa suficiente. Quando os picks
+ *    do primeiro caminho se sustentam, a busca só completa o trending.
  *
  * ## Por que o OpenRouter
  *
@@ -47,8 +53,10 @@ import {
   confiabilidade,
   dominiosQueSustentamPicks,
   extrairJson,
+  listasBrutas,
   montarLeitura,
 } from './meta/leitura.mjs';
+import { ancorarFontes, lerConversa, lerPaginasQueMedem } from './meta/paginas.mjs';
 import { briefingDoPatch, fontesDoPatch, patchAtual } from './meta/patch-atual.mjs';
 import { candidatos, modelosDe, perguntarComBusca, temAlgumaChave } from './meta/provedores.mjs';
 
@@ -76,17 +84,23 @@ function numeroConfig(valor, padrao) {
  * inteira e não entrega nada.
  */
 const MAX_OUTPUT_TOKENS = numeroConfig(process.env.OPENROUTER_META_MAX_OUTPUT_TOKENS, 12_000);
+/*
+ * O teto da leitura sem busca é menor: não há chamada de busca para caber
+ * nele, só o raciocínio e o JSON. E modelo gratuito tem teto de saída próprio,
+ * que um pedido de doze mil tokens pode estourar antes de começar.
+ */
+const MAX_OUTPUT_TOKENS_SEM_BUSCA = numeroConfig(process.env.OPENROUTER_META_READ_MAX_OUTPUT_TOKENS, 6000);
 const MAX_TENTATIVAS = numeroConfig(process.env.OPENROUTER_META_RETRIES, 3);
 const FALHAR_SEM_ATUALIZAR = process.env.OPENROUTER_META_STRICT === '1';
 
 /*
- * Quem lê o meta, por padrão, é o Gemini gratuito.
+ * A fila de modelos, que vale para os dois caminhos.
  *
- * Esta pergunta precisa de busca, e a busca do OpenRouter é cobrada por
- * consulta até em modelo gratuito — foi ela que estourou o teto da chave. A
- * fila padrão do OpenRouter é de gratuitos, que com busca ficam de fora, e a
- * leitura vai direto ao Gemini, com a busca do Google na cota gratuita dele
- * (ver `meta/provedores.mjs`).
+ * Sem busca, quem lê são os gratuitos do OpenRouter, com o Gemini gratuito de
+ * reserva. Com busca, os gratuitos do OpenRouter ficam de fora — a busca dele
+ * é cobrada por consulta até em modelo gratuito, e foi ela que estourou o teto
+ * da chave — e quem procura é o Gemini, com a busca do Google na cota gratuita
+ * dele (ver `meta/provedores.mjs`).
  *
  * Já foi diferente: a fila teve o `gpt-4.1-mini`, que gravou o trending
  * genérico que motivou as travas de `meta/leitura.mjs`, e depois o
@@ -171,13 +185,20 @@ Descubra na busca:
 
 Essa data manda no resto da leitura. Guia ou tier list publicado antes dela só vale se alguma coisa posterior o confirmar.`;
 
-const PROMPT = `Hoje é ${HOJE}. Monte a leitura de hoje do meta de armas do Battlefield 6, considerando SOMENTE o multiplayer tradicional. REDSEC, battle royale e modos derivados ficam de fora, inclusive quando a fonte só fala deles.
+/*
+ * O prompt em três partes, porque os dois caminhos só diferem no meio.
+ *
+ * A abertura (data, temporada, patch) e as regras (o que é cada lista, como
+ * escrever, limites, formato) valem para qualquer leitura. O que muda é de
+ * onde vem a evidência: da busca do modelo, ou do material que o script baixou.
+ */
+const ABERTURA = `Hoje é ${HOJE}. Monte a leitura de hoje do meta de armas do Battlefield 6, considerando SOMENTE o multiplayer tradicional. REDSEC, battle royale e modos derivados ficam de fora, inclusive quando a fonte só fala deles.
 
 O jogo está na Temporada ${TEMPORADA.number} — ${TEMPORADA.name}, começada em ${TEMPORADA.startsOn}, fase "${FASE.name}" desde ${FASE.startsOn}.
 
-${SECAO_DO_PATCH}
+${SECAO_DO_PATCH}`;
 
-## 2. Janela de tempo
+const ONDE_PROCURAR = `## 2. Janela de tempo
 
 - Últimas 24 h: mudança quente, prioridade máxima.
 - Últimos 7 dias: é o que sustenta trending.
@@ -235,9 +256,9 @@ O teste de sanidade é a KTS100 MK8: ela é a primeira colocada **geral** do RED
 
 Guia editorial que não diz de que modo fala está no mesmo caso: por padrão essas matérias descrevem o battle royale, porque é dele que vêm os vídeos. Sem uma frase que prove o modo, a fonte não entra.
 
-Fonte publicada antes de ${TEMPORADA.startsOn} — o começo da temporada — não sustenta posição nenhuma. Ela pode aparecer como contexto no motivo, nunca como a evidência que põe a arma na lista. E o campo "patch" precisa ser uma atualização desta temporada: apontar um patch anterior a ${TEMPORADA.startsOn} anula a leitura inteira, porque a tela passa a anunciar hoje o jogo de dois meses atrás.
+Fonte publicada antes de ${TEMPORADA.startsOn} — o começo da temporada — não sustenta posição nenhuma. Ela pode aparecer como contexto no motivo, nunca como a evidência que põe a arma na lista. E o campo "patch" precisa ser uma atualização desta temporada: apontar um patch anterior a ${TEMPORADA.startsOn} anula a leitura inteira, porque a tela passa a anunciar hoje o jogo de dois meses atrás.`;
 
-## 4. Uma lista é força, a outra é conversa
+const REGRAS = `## 4. Uma lista é força, a outra é conversa
 
 META: as armas **mais fortes depois da atualização mais recente**, segundo quem testa e analisa — TTK, dano, controle, alcance, versatilidade, consistência, desempenho no jogo de nível alto. Uso alto sozinho não põe arma aqui; força que só apareceu antes do patch, também não.
 
@@ -268,6 +289,8 @@ Responda SOMENTE com este JSON, sem cercas de código e sem texto antes ou depoi
 
 {"picks":[{"weapon":"NOME EXATO DA ARMA","reason":"o que mostra que ela está forte depois do patch e por que esta forte agora","source":"https://..."}],"trending":[{"weapon":"NOME EXATO DA ARMA","trend":"do que se fala nela","reason":"onde a conversa ou o uso recente foi visto","source":"https://..."}],"sources":[{"name":"nome curto da fonte","url":"https://...","date":"YYYY-MM-DD","scope":"por que essa fonte vale para o multiplayer"}]}`;
 
+const PROMPT = [ABERTURA, ONDE_PROCURAR, REGRAS].join('\n\n');
+
 function temMetaLiveValida() {
   try {
     const atual = JSON.parse(readFileSync(DESTINO, 'utf8'));
@@ -277,98 +300,273 @@ function temMetaLiveValida() {
   }
 }
 
-async function main() {
-  // O prompt muda sozinho todo dia — data, temporada, fase, arsenal. Ver o que
-  // vai ser perguntado hoje não deveria custar uma chamada paga.
-  if (process.argv.includes('--prompt')) {
-    console.log(PROMPT);
-    return;
+/**
+ * O prompt da leitura sem busca: a mesma abertura e as mesmas regras, com o
+ * material baixado no lugar das instruções de onde procurar.
+ */
+function promptSemBusca({ paginas, conversa }) {
+  const blocosDePagina = paginas
+    .map((pagina, i) => `[P${i + 1}] ${pagina.name}\nURL: ${pagina.url}\nEscopo: ${pagina.scope}\nTexto:\n"""\n${pagina.texto}\n"""`)
+    .join('\n\n');
+
+  const blocosDeConversa = conversa.length
+    ? conversa
+        .map(
+          (thread, i) =>
+            `[T${i + 1}] ${thread.date ?? 'sem data'} — ${thread.title}\nURL: ${thread.url}\nArmas citadas: ${thread.armas.join(', ')}\nTrecho: ${thread.text || '(só o título)'}`,
+        )
+        .join('\n\n')
+    : 'Hoje não foi possível baixar conversa nenhuma. Devolva "trending": [] — não preencha a lista com o ranking.';
+
+  return [
+    ABERTURA,
+    `## 2. O material desta leitura
+
+Você **não tem busca**. Tudo o que pode usar está transcrito abaixo, baixado hoje pelo script desta rotina. Não cite página, número, thread ou fala que não esteja aqui: endereço de fora deste material é descartado pelo código, e a arma cai junto.
+
+### 2.1. Páginas que medem — sustentam os picks
+
+Cada bloco é o texto de uma página de ranking do multiplayer, na ordem em que a página lista as armas. A posição no ranking é o julgamento de força da fonte.
+
+${blocosDePagina}
+
+### 2.2. Conversa da semana — sustenta o trending
+
+Threads do r/Battlefield6 dos últimos sete dias que citam arma do arsenal, da mais recente para a mais antiga. Elas provam que se **fala** da arma; não provam que ela é forte.
+
+${blocosDeConversa}
+
+### 2.3. Como usar o material
+
+- Em "source", copie a URL exatamente como aparece acima.
+- **Picks** saem só das páginas de 2.1. No motivo, diga a posição da arma no ranking — a geral e a da classe — e, quando a seção 1 disser o que o patch fez com ela, diga também. Duas armas nunca com a mesma frase.
+- **Trending** sai só das threads de 2.2. Uma arma entra quando alguma thread fala dela de fato — reclamação, dúvida, build, comparação. Citação de passagem numa lista de armas não é conversa. Diga no motivo o que a thread discute.
+- Thread sobre REDSEC, battle royale ou Gauntlet não sustenta nada aqui.
+- Se o material sustentar menos armas que o limite, entregue as que ele sustentar. Lista curta o código aceita; lista preenchida de memória, não.`,
+    REGRAS,
+  ].join('\n\n');
+}
+
+/** Pergunta a um candidato e põe no log o que a resposta custou. */
+async function perguntar(candidato, prompt, opcoes) {
+  const { modelo } = candidato;
+  console.log(`Perguntando ao ${modelo} (${candidato.provedor}${opcoes.busca === false ? ', sem busca' : ''})…`);
+
+  const resposta = await perguntarComBusca(candidato, prompt, { tentativas: MAX_TENTATIVAS, ...opcoes });
+  const { texto, buscou, tipos, custo } = resposta;
+
+  console.log(`  ${modelo}: ${tipos.join(', ') || 'resposta vazia'}${buscou || opcoes.busca === false ? '' : ' — sem busca'}`);
+  if (custo) {
+    console.log(
+      `  ${modelo}: ${custo.entrada} tokens de entrada, ${custo.saida} de saída ` +
+        `(${custo.raciocinio} de raciocínio), ${custo.buscas} busca(s).`,
+    );
   }
 
-  if (!temAlgumaChave()) {
-    console.error('Falta GEMINI_API_KEY (ou OPENROUTER_API_KEY, com um modelo pago na fila).');
-    process.exit(1);
+  const bruto = extrairJson(texto);
+  if (!bruto) {
+    const amostra = texto.replace(/\s+/g, ' ').slice(0, 220);
+    throw new Error(`resposta sem JSON${amostra ? `: ${amostra}` : ''}`);
   }
+  return { ...resposta, bruto };
+}
 
-  let ultimoErro = null;
+/*
+ * A atualização que a tela anuncia sai do catálogo, e não da resposta.
+ *
+ * O modelo não é mais perguntado sobre isso — o prompt já lhe deu o número —, e
+ * pedir de volta o que se acabou de informar seria pagar tokens para receber ou
+ * a mesma coisa, ou uma pior. Quando o catálogo não tem a versão em disco,
+ * `patchConhecido` vem nulo e a resposta do modelo volta a valer, que é o
+ * caminho antigo.
+ *
+ * O rótulo da EA vem em caixa alta — "BATTLEFIELD 6 GAME UPDATE 1.4.2.5" —, e
+ * quem lê a tela quer o número, não o grito.
+ */
+const CONTEXTO_DA_LEITURA = {
+  hoje: HOJE,
+  timeframe: TIMEFRAME,
+  patchConhecido: PATCH && { name: `Atualização ${PATCH.version}`, date: PATCH.releasedAt },
+};
 
-  for await (const candidato of candidatos(MODELOS)) {
+/**
+ * O que o script consegue baixar hoje.
+ *
+ * As duas idas são independentes: página de ranking fora do ar não impede a
+ * conversa, e o Reddit recusando não impede os picks.
+ */
+async function juntarMaterial() {
+  const [paginas, conversa] = await Promise.all([
+    lerPaginasQueMedem(SOURCES, { hoje: HOJE }),
+    lerConversa({ desde: TEMPORADA.startsOn }),
+  ]);
+  console.log(`Material baixado: ${paginas.length} página(s) que medem, ${conversa.length} thread(s) que citam arma.`);
+  return { paginas, conversa };
+}
+
+/**
+ * O primeiro caminho: um modelo sem busca lê o material baixado.
+ *
+ * Devolve a leitura pronta, ou `null` quando nenhum modelo da fila entregou
+ * uma que passe nas travas.
+ */
+async function lerSemBusca(material) {
+  const prompt = promptSemBusca(material);
+
+  for await (const candidato of candidatos(MODELOS, { busca: false })) {
     const { modelo } = candidato;
     try {
-      console.log(`Perguntando ao ${modelo} (${candidato.provedor})…`);
-      const { texto, anotacoes, buscou, tipos, custo } = await perguntarComBusca(candidato, PROMPT, {
-        maxOutputTokens: MAX_OUTPUT_TOKENS,
-        tentativas: MAX_TENTATIVAS,
+      const resposta = await perguntar(candidato, prompt, {
+        maxOutputTokens: MAX_OUTPUT_TOKENS_SEM_BUSCA,
+        busca: false,
       });
-      console.log(`  ${modelo}: ${tipos.join(', ') || 'resposta vazia'}${buscou ? '' : ' — sem busca'}`);
-      if (custo) {
-        console.log(
-          `  ${modelo}: ${custo.entrada} tokens de entrada, ${custo.saida} de saída ` +
-            `(${custo.raciocinio} de raciocínio), ${custo.buscas} busca(s).`,
-        );
-      }
 
-      const bruto = extrairJson(texto);
-      if (!bruto) {
-        const amostra = texto.replace(/\s+/g, ' ').slice(0, 220);
-        throw new Error(`resposta sem JSON${amostra ? `: ${amostra}` : ''}`);
-      }
+      // As listas com o nome canônico, e as fontes presas ao que foi baixado.
+      const bruto = ancorarFontes({ ...resposta.bruto, ...listasBrutas(resposta.bruto) }, material);
 
-      const { conteudo, descartes } = montarLeitura({
+      const leitura = montarLeitura({
         bruto,
-        anotacoes,
-        buscou,
+        // Não houve busca do modelo, e não precisava: as páginas foram abertas
+        // pelo script, e as fontes acima são exatamente elas.
+        buscou: true,
         modelo,
-        hoje: HOJE,
-        timeframe: TIMEFRAME,
-        /*
-         * A atualização que a tela anuncia sai do catálogo, e não da resposta.
-         *
-         * O modelo não é mais perguntado sobre isso — o prompt já lhe deu o
-         * número —, e pedir de volta o que se acabou de informar seria pagar
-         * tokens para receber ou a mesma coisa, ou uma pior. Quando o catálogo
-         * não tem a versão em disco, `patchConhecido` vem nulo e a resposta do
-         * modelo volta a valer, que é o caminho antigo.
-         */
-        // O rótulo da EA vem em caixa alta — "BATTLEFIELD 6 GAME UPDATE
-        // 1.4.2.5" —, e quem lê a tela quer o número, não o grito.
-        patchConhecido: PATCH && { name: `Atualização ${PATCH.version}`, date: PATCH.releasedAt },
+        ...CONTEXTO_DA_LEITURA,
       });
 
-      for (const { nome, motivo } of descartes) console.warn(`Descartada — ${nome}: ${motivo}`);
-
-      // A atualização em vigor entra na lista de fontes pelo catálogo, no fim,
-      // sem mexer na numeração que os cartões já citam.
-      const citadas = new Set(conteudo.sources.map((f) => f.name));
-      conteudo.sources.push(...fontesDoPatch(PATCH, { timeframe: TIMEFRAME }).filter((f) => !citadas.has(f.name)));
-
-      const anterior = (() => {
-        try {
-          return readFileSync(DESTINO, 'utf8');
-        } catch {
-          return null;
-        }
-      })();
-
-      const novo = `${JSON.stringify(conteudo, null, 2)}\n`;
-      if (anterior === novo) {
-        console.log('Nada mudou.');
-        return;
-      }
-
-      writeFileSync(DESTINO, novo);
-      const patch = conteudo.patch ? `${conteudo.patch.name ?? 'patch'} de ${conteudo.patch.date ?? 'data desconhecida'}` : 'patch não identificado';
-      console.log(
-        `Gravado: ${conteudo.picks.length} armas, ${conteudo.trending.length} trending, ${conteudo.sources.length} fontes (${patch}).`,
-      );
-      return;
+      return {
+        ...leitura,
+        picks: bruto.picks,
+        fontesDosPicks: ancorarFontes({ picks: bruto.picks }, material).sources,
+        modelo,
+      };
     } catch (erro) {
-      ultimoErro = erro;
       console.warn(`${modelo}: ${erro.message}`);
     }
   }
 
-  console.error(`Nenhum modelo respondeu. Último erro: ${ultimoErro?.message}`);
+  return null;
+}
+
+/**
+ * O segundo caminho: um modelo com busca procura por conta própria.
+ *
+ * Com `base`, os picks já foram lidos sem busca e ficam como estão: a resposta
+ * daqui só entra com o trending. As páginas dos picks vão na frente da lista
+ * de fontes, como páginas abertas — foram, pelo script —, para não perderem o
+ * lugar para as que a busca abrir.
+ */
+async function lerComBusca(base) {
+  let ultimoErro = null;
+
+  for await (const candidato of candidatos(MODELOS)) {
+    try {
+      const resposta = await perguntar(candidato, PROMPT, { maxOutputTokens: MAX_OUTPUT_TOKENS });
+
+      let { bruto, anotacoes } = resposta;
+      let modelo = candidato.modelo;
+
+      if (base) {
+        bruto = {
+          ...bruto,
+          ...listasBrutas(bruto),
+          picks: base.picks,
+          sources: [...base.fontesDosPicks, ...(bruto.sources ?? [])],
+        };
+        anotacoes = [...base.fontesDosPicks.map((fonte) => ({ url: fonte.url, title: fonte.name })), ...anotacoes];
+        modelo = `${base.modelo} + ${modelo}`;
+      }
+
+      return {
+        ...montarLeitura({ bruto, anotacoes, buscou: resposta.buscou, modelo, ...CONTEXTO_DA_LEITURA }),
+        modelo,
+      };
+    } catch (erro) {
+      ultimoErro = erro;
+      console.warn(`${candidato.modelo}: ${erro.message}`);
+    }
+  }
+
+  if (ultimoErro) console.warn(`Leitura com busca não saiu. Último erro: ${ultimoErro.message}`);
+  return null;
+}
+
+/** Grava a leitura, se ela mudou. */
+function gravar({ conteudo, descartes }) {
+  for (const { nome, motivo } of descartes) console.warn(`Descartada — ${nome}: ${motivo}`);
+
+  // A atualização em vigor entra na lista de fontes pelo catálogo, no fim,
+  // sem mexer na numeração que os cartões já citam.
+  const citadas = new Set(conteudo.sources.map((f) => f.name));
+  conteudo.sources.push(...fontesDoPatch(PATCH, { timeframe: TIMEFRAME }).filter((f) => !citadas.has(f.name)));
+
+  const anterior = (() => {
+    try {
+      return readFileSync(DESTINO, 'utf8');
+    } catch {
+      return null;
+    }
+  })();
+
+  const novo = `${JSON.stringify(conteudo, null, 2)}\n`;
+  if (anterior === novo) {
+    console.log('Nada mudou.');
+    return;
+  }
+
+  writeFileSync(DESTINO, novo);
+  const patch = conteudo.patch ? `${conteudo.patch.name ?? 'patch'} de ${conteudo.patch.date ?? 'data desconhecida'}` : 'patch não identificado';
+  console.log(
+    `Gravado por ${conteudo.model}: ${conteudo.picks.length} armas, ${conteudo.trending.length} trending, ${conteudo.sources.length} fontes (${patch}).`,
+  );
+}
+
+async function main() {
+  // O prompt muda sozinho todo dia — data, temporada, fase, arsenal. Ver o que
+  // vai ser perguntado hoje não deveria custar uma chamada.
+  if (process.argv.includes('--prompt')) {
+    console.log(PROMPT);
+    return;
+  }
+  // O mesmo para a leitura sem busca: baixa o material e mostra o que o modelo
+  // receberia, sem perguntar a ninguém.
+  if (process.argv.includes('--material')) {
+    console.log(promptSemBusca(await juntarMaterial()));
+    return;
+  }
+
+  if (!temAlgumaChave()) {
+    console.error('Falta OPENROUTER_API_KEY ou GEMINI_API_KEY.');
+    process.exit(1);
+  }
+
+  const material = await juntarMaterial();
+  const semBusca = material.paginas.length ? await lerSemBusca(material) : null;
+
+  if (semBusca && semBusca.conteudo.trending.length >= LIMITES.minimoDeTrending) {
+    gravar(semBusca);
+    return;
+  }
+
+  console.log(
+    semBusca
+      ? `Picks lidos sem busca; o trending ficou em ${semBusca.conteudo.trending.length} — a busca tenta completar.`
+      : 'A leitura sem busca não saiu — vai para a leitura com busca.',
+  );
+
+  const comBusca = await lerComBusca(semBusca);
+  if (comBusca) {
+    gravar(comBusca);
+    return;
+  }
+
+  // Picks sustentados com trending curto ainda são leitura: a tela completa a
+  // tendência pelo catálogo, e dizer menos é melhor que repetir a de ontem.
+  if (semBusca) {
+    gravar(semBusca);
+    return;
+  }
+
+  console.error('Nenhum modelo entregou leitura utilizável.');
 
   if (!FALHAR_SEM_ATUALIZAR && temMetaLiveValida()) {
     console.warn(

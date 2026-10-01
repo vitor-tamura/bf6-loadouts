@@ -616,7 +616,7 @@ function exigirMinimo({ items, descartes }, enviados, minimo, nome) {
 }
 
 /** O nome das listas muda conforme o humor do modelo; o conteúdo, não. */
-function listasBrutas(bruto) {
+export function listasBrutas(bruto) {
   return {
     picks: bruto?.picks ?? bruto?.meta ?? bruto?.weapons ?? bruto?.armas ?? [],
     trending: bruto?.trending ?? bruto?.trends ?? bruto?.emAlta ?? [],
