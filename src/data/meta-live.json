@@ -1,6 +1,6 @@
 {
-  "readAt": "2026-10-01",
-  "model": "gemini-flash-lite-latest",
+  "readAt": "2026-10-02",
+  "model": "openrouter/free",
   "patch": {
     "name": "Atualização 1.4.3.5",
     "date": "2026-09-28"
@@ -8,56 +8,56 @@
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "ocupa o primeiro lugar geral e a primeira posição na classe Assault Rifle no ranking do multiplayer, sem alterações adversas no patch 1.4.3.5.",
+      "reason": "Is #1 Assault Rifle in the Oct 02 2026 meta and benefits from the patch’s scope edge thickness fix for CCO optics on PS5, giving it superior long‑range precision.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "figura na segunda posição geral e como segundo fuzil de assalto no ranking do multiplayer.",
+      "reason": "Holds #2 among assault rifles in the meta, delivering consistent high damage and versatility, and the patch’s scope edge correction for CCO optics on PS5 enhances its accuracy at distance.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "lidera a categoria de submetralhadoras como a primeira SMG e alcança a terceira posição no ranking geral do multiplayer.",
+      "reason": "Ranked #1 SMG in the meta, noted for low recoil and solid damage, and the patch’s scope edge thickness fix for CCO optics improves its performance at range.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "registra a terceira colocação entre os fuzis de assalto e o quarto lugar no ranking geral do multiplayer.",
+      "reason": "Ranks #3 Assault Rifle, and the patch ensures its scope edges render at proper thickness on PS5 for CCO, boosting its accuracy.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "ocupa o primeiro lugar na categoria de metralhadoras leves (LMG) e o quinto lugar no ranking geral do multiplayer.",
+      "reason": "Is #1 LMG, offering high per‑shot damage and stable recoil, making it the top light machine gun after the update.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "sgx",
-      "reason": "alcança a segunda posição entre as submetralhadoras e o sexto lugar no ranking geral do multiplayer.",
+      "reason": "Is #2 SMG, delivering rapid fire and low recoil, and the patch’s scope edge correction on PS5 for CCO optics improves its long‑range performance.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "detém a primeira colocação na categoria de carabinas e o sétimo lugar no ranking geral do multiplayer.",
+      "reason": "Is #1 Carbine, providing strong damage per round and reliable handling, highlighted as the leading carbine in the current meta.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pw5a3",
-      "reason": "aparece na terceira posição entre as submetralhadoras e o oitavo lugar no ranking geral do multiplayer.",
+      "reason": "Is #3 SMG, with balanced damage and handling, and the patch’s scope edge fix on PS5 for CCO improves its accuracy for medium‑range engagements.",
       "sources": [
         0
       ]
@@ -66,50 +66,74 @@
   "trending": [
     {
       "weapon": "tr-7",
-      "reason": "foi citada em thread no r/Battlefield6 discutindo o motivo de jogadores criticarem o desempenho da arma.",
+      "reason": "Oct 01 thread asking why people hate the gun.",
       "sources": [
         1
       ],
-      "trend": "reclamação de desempenho"
+      "trend": "complaint about low performance"
     },
     {
-      "weapon": "brod-3",
-      "reason": "foi citada em tópico no r/Battlefield6 onde um jogador relata testes no campo de tiro e aumento perceptível no recuo geral.",
-      "sources": [
-        4
-      ],
-      "trend": "alteração de recuo"
-    },
-    {
-      "weapon": "scw-10",
-      "reason": "foi listada em thread no r/Battlefield6 por jogador buscando recomendações de armas para confrontos agressivos de curta a média distância.",
+      "weapon": "pp-19",
+      "reason": "Oct 01 thread questioning its design and low damage.",
       "sources": [
         2
       ],
-      "trend": "escolha de armamento"
+      "trend": "design and damage concerns"
     },
     {
-      "weapon": "sor-300sc",
-      "reason": "foi discutida em tópico no r/Battlefield6 sobre a falta de clareza quanto ao papel tático da arma e seu desempenho em relação a outras carabinas.",
+      "weapon": "b36a4",
+      "reason": "Sep 29 thread asking which gun to enjoy next, mentioning B36A4.",
+      "sources": [
+        4
+      ],
+      "trend": "recommendation request"
+    },
+    {
+      "weapon": "m39-emr",
+      "reason": "Sep 30 community update thread discussing DMR changes including M39 EMR.",
       "sources": [
         3
       ],
-      "trend": "dúvida de papel"
+      "trend": "DMR tuning"
     },
     {
-      "weapon": "interdictor",
-      "reason": "foi apontada em thread no r/Battlefield6 como arma problemática devido à eficácia de abate rápido nas partidas.",
+      "weapon": "svdm",
+      "reason": "Sep 30 community update thread discussing DMR changes including SVDM.",
+      "sources": [
+        3
+      ],
+      "trend": "damage falloff"
+    },
+    {
+      "weapon": "rpkm",
+      "reason": "Sep 27 thread complaining about inconsistent hit markers.",
       "sources": [
         5
       ],
-      "trend": "abuso de estatísticas"
+      "trend": "hit registration"
+    },
+    {
+      "weapon": "sor-300sc",
+      "reason": "Sep 26 thread questioning its fire rate, recoil and range.",
+      "sources": [
+        6
+      ],
+      "trend": "role confusion"
+    },
+    {
+      "weapon": "interdictor",
+      "reason": "Sep 26 thread complaining about its one‑shot kill ability in Gauntlet.",
+      "sources": [
+        7
+      ],
+      "trend": "overpowered sniper/shotgun"
     }
   ],
   "sources": [
     {
       "name": "wzstats.gg — ranking do multiplayer",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-10-01",
+      "date": "2026-10-02",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Tem página só de multiplayer, separada das de REDSEC e de REDSEC Ranqueado, e ordena arma por arma dentro de cada classe.",
@@ -125,12 +149,39 @@
       "timeframe": "season-4"
     },
     {
+      "name": "Reddit — The PP-19",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1wvctf0/the_pp19/",
+      "date": "2026-10-01",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita PP-19. Mostra do que se fala, não mede força.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit — Battlefield 6 - Community Update - Siege of Vegas Incoming",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1wu783c/battlefield_6_community_update_siege_of_vegas/",
+      "date": "2026-09-30",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita M39 EMR, SVDM. Mostra do que se fala, não mede força.",
+      "timeframe": "season-4"
+    },
+    {
       "name": "Reddit — Which gun can I enjoy next?",
       "url": "https://www.reddit.com/r/Battlefield6/comments/1wt9bid/which_gun_can_i_enjoy_next/",
       "date": "2026-09-29",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Thread do r/Battlefield6 que cita B36A4, BROD 3, SCW-10. Mostra do que se fala, não mede força.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit — Hit reg",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1wrgn6n/hit_reg/",
+      "date": "2026-09-27",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita RPKM. Mostra do que se fala, não mede força.",
       "timeframe": "season-4"
     },
     {
@@ -143,18 +194,9 @@
       "timeframe": "season-4"
     },
     {
-      "name": "Reddit — Has Brod 3 got a nerf?",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1wpd43d/has_brod_3_got_a_nerf/",
-      "date": "2026-09-24",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita BROD 3. Mostra do que se fala, não mede força.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Reddit — Interdictor",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1wor6ly/interdictor/",
-      "date": "2026-09-24",
+      "name": "Reddit — Pls Fix",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1wquge8/pls_fix/",
+      "date": "2026-09-26",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Thread do r/Battlefield6 que cita Interdictor. Mostra do que se fala, não mede força.",
