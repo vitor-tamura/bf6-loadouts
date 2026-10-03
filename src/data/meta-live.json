@@ -1,5 +1,5 @@
 {
-  "readAt": "2026-10-02",
+  "readAt": "2026-10-03",
   "model": "openrouter/free",
   "patch": {
     "name": "Atualização 1.4.3.5",
@@ -8,56 +8,56 @@
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "Is #1 Assault Rifle in the Oct 02 2026 meta and benefits from the patch’s scope edge thickness fix for CCO optics on PS5, giving it superior long‑range precision.",
+      "reason": "Líder incontestável do ranking geral (#1) e da classe de fuzis de assalto (#1) no wzstats.gg, mantida forte mesmo após a atualização 1.4.3.5, que não mexeu em dano ou recuo",
       "sources": [
         0
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "Holds #2 among assault rifles in the meta, delivering consistent high damage and versatility, and the patch’s scope edge correction for CCO optics on PS5 enhances its accuracy at distance.",
+      "reason": "Segundo fuzi de assalto mais forte do jogo (rank #2 geral, #2 na classe) segundo wzstats.gg, com desempenho consistente pós-patch",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "Ranked #1 SMG in the meta, noted for low recoil and solid damage, and the patch’s scope edge thickness fix for CCO optics improves its performance at range.",
+      "reason": "Classificada como #1 em SMGs no ranking geral do wzstats.gg, liderança estendida desde antes do patch sem alterações que afeta seu desempenho",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "Ranks #3 Assault Rifle, and the patch ensures its scope edges render at proper thickness on PS5 for CCO, boosting its accuracy.",
+      "reason": "#3 em fuzis de assalto e #3 geral no wzstats.gg, mantendo posição de força pós-patch 1.4.3.5",
       "sources": [
         0
       ]
     },
     {
-      "weapon": "drs-iar",
-      "reason": "Is #1 LMG, offering high per‑shot damage and stable recoil, making it the top light machine gun after the update.",
+      "weapon": "nvo-228e",
+      "reason": "#4 em fuzis de assalto e #9 geral no wzstats.gg, mantendo alto desempenho consistente após atualização recente",
       "sources": [
         0
       ]
     },
     {
-      "weapon": "sgx",
-      "reason": "Is #2 SMG, delivering rapid fire and low recoil, and the patch’s scope edge correction on PS5 for CCO optics improves its long‑range performance.",
+      "weapon": "ef88",
+      "reason": "#5 em fuzis de assalto e #5 geral no wzstats.gg, com posição estável pós-patch",
       "sources": [
         0
       ]
     },
     {
-      "weapon": "qbz-192",
-      "reason": "Is #1 Carbine, providing strong damage per round and reliable handling, highlighted as the leading carbine in the current meta.",
+      "weapon": "l85a3",
+      "reason": "#6 em fuzis de assalto e #6 geral no wzstats.gg, mantendo desempenho robusto após atualização 1.4.3.5",
       "sources": [
         0
       ]
     },
     {
-      "weapon": "pw5a3",
-      "reason": "Is #3 SMG, with balanced damage and handling, and the patch’s scope edge fix on PS5 for CCO improves its accuracy for medium‑range engagements.",
+      "weapon": "vcr-2",
+      "reason": "#7 em fuzis de assalto e #7 geral no wzstats.gg, com posição consistente na elite do meta pós-patch",
       "sources": [
         0
       ]
@@ -65,78 +65,96 @@
   ],
   "trending": [
     {
-      "weapon": "tr-7",
-      "reason": "Oct 01 thread asking why people hate the gun.",
-      "sources": [
-        1
-      ],
-      "trend": "complaint about low performance"
-    },
-    {
-      "weapon": "pp-19",
-      "reason": "Oct 01 thread questioning its design and low damage.",
+      "weapon": "vssm",
+      "reason": "Tema de discussão na thread 'A guide to using the mental lunacy that is the semi auto VSSM', em que o autor questiona sua eficácia sem modo automático e compara deliberadamente com o DB-12 como uma das armas mais fracas do jogo — mas ainda é usada em builds de precisão",
       "sources": [
         2
       ],
-      "trend": "design and damage concerns"
+      "trend": "uso conturbado como DMR semi-atômico"
     },
     {
-      "weapon": "b36a4",
-      "reason": "Sep 29 thread asking which gun to enjoy next, mentioning B36A4.",
+      "weapon": "scw-10",
+      "reason": "Citada como 'a melhor SMG do jogo' (A-tier) na thread sobre conclusão da coleção de nível 50 de SMGs, destacando TTK rápido, precisão e controle de recuo — além de ser mencionada em outra thread como arma preferida por jogadores agressivos",
+      "sources": [
+        1
+      ],
+      "trend": "consenso como melhor SMG do jogo"
+    },
+    {
+      "weapon": "tr-7",
+      "reason": "Tema central na thread 'Why do people hate this gun?', em que o autor questiona diretamente a popularidade negativa da arma e pede explicações sobre por que a comunidade a desvaloriza",
+      "sources": [
+        3
+      ],
+      "trend": "debate sobre percepção negativa da comunidade"
+    },
+    {
+      "weapon": "pp-19",
+      "reason": "Foco de análise na thread 'The PP-19', em que um jogador que levou todas as SMGs a nível 50 questiona o propósito de design da arma, comparando com sua versão do Battlefield 2042 e descrevendo-a como 'uma arma que não funciona bem'",
       "sources": [
         4
       ],
-      "trend": "recommendation request"
+      "trend": "questionamento sobre identidade de design"
     },
     {
-      "weapon": "m39-emr",
-      "reason": "Sep 30 community update thread discussing DMR changes including M39 EMR.",
-      "sources": [
-        3
-      ],
-      "trend": "DMR tuning"
-    },
-    {
-      "weapon": "svdm",
-      "reason": "Sep 30 community update thread discussing DMR changes including SVDM.",
-      "sources": [
-        3
-      ],
-      "trend": "damage falloff"
-    },
-    {
-      "weapon": "rpkm",
-      "reason": "Sep 27 thread complaining about inconsistent hit markers.",
-      "sources": [
-        5
-      ],
-      "trend": "hit registration"
-    },
-    {
-      "weapon": "sor-300sc",
-      "reason": "Sep 26 thread questioning its fire rate, recoil and range.",
+      "weapon": "m433",
+      "reason": "Mencionada em lista de armas preferidas por um jogador agressivo em thread sobre novas armas para desfrutar, indicando uso ativo em jogos de Rush e Breakthrough",
       "sources": [
         6
       ],
-      "trend": "role confusion"
+      "trend": "arma preferida por jogadores agressivos"
     },
     {
-      "weapon": "interdictor",
-      "reason": "Sep 26 thread complaining about its one‑shot kill ability in Gauntlet.",
+      "weapon": "brod-3",
+      "reason": "Citada como arma preferida em thread sobre novas opções de armas, sendo usada por jogador que prefere estilo agressivo em Breakthrough e Rush — também aparece no ranking como #3 carabina (wzstats.gg)",
+      "sources": [
+        6
+      ],
+      "trend": "arma preferida em builds agressivos"
+    },
+    {
+      "weapon": "m39-emr",
+      "reason": "Mencionada em atualização comunitária como alvo de ajustes futuros, indicando que a comunidade está atenta a seu desempenho e expectativas estão altas para mudanças",
+      "sources": [
+        5
+      ],
+      "trend": "alvo de ajustes futuros na comunidade"
+    },
+    {
+      "weapon": "svdm",
+      "reason": "Tema de discussão técnica na thread sobre falha em one-shot sniper, onde é criticada por não matar snipers com um headshot e um chest shot mesmo com Hollow Point — destacando frustração com seu dano em longa distância",
       "sources": [
         7
       ],
-      "trend": "overpowered sniper/shotgun"
+      "trend": "reclamação sobre eficácia contra snipers"
     }
   ],
   "sources": [
     {
       "name": "wzstats.gg — ranking do multiplayer",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-10-02",
+      "date": "2026-10-03",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Tem página só de multiplayer, separada das de REDSEC e de REDSEC Ranqueado, e ordena arma por arma dentro de cada classe.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit — Finally Completed the Unstoppable Level 50 SMG Collection",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1ww9lpe/finally_completed_the_unstoppable_level_50_smg/",
+      "date": "2026-10-03",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita KORD 6P67, NVO-228E, AK-205, SCW-10, KV9, PW7A2, PW5A3, SGX, SL9, UMG-40, USG-90, CZ3A1, PP-19, DRS-IAR, VSSM. Mostra do que se fala, não mede força.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit — A guide to using the mental lunacy that is the semi auto VSSM",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1wwcqmv/a_guide_to_using_the_mental_lunacy_that_is_the/",
+      "date": "2026-10-03",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita VSSM, DB-12. Mostra do que se fala, não mede força.",
       "timeframe": "season-4"
     },
     {
@@ -176,30 +194,12 @@
       "timeframe": "season-4"
     },
     {
-      "name": "Reddit — Hit reg",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1wrgn6n/hit_reg/",
-      "date": "2026-09-27",
+      "name": "Reddit — So the SVDM and EMR don’t kill a sniper with one headshot and one chest",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1wsjj3s/so_the_svdm_and_emr_dont_kill_a_sniper_with_one/",
+      "date": "2026-09-28",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita RPKM. Mostra do que se fala, não mede força.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Reddit — The SOR-300SC confuses me.",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1wqqjy9/the_sor300sc_confuses_me/",
-      "date": "2026-09-26",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita M417 A2, SG 553R, SOR-300SC. Mostra do que se fala, não mede força.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Reddit — Pls Fix",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1wquge8/pls_fix/",
-      "date": "2026-09-26",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita Interdictor. Mostra do que se fala, não mede força.",
+      "scope": "Thread do r/Battlefield6 que cita SVDM. Mostra do que se fala, não mede força.",
       "timeframe": "season-4"
     },
     {
