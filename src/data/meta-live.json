@@ -1,6 +1,6 @@
 {
-  "readAt": "2026-10-03",
-  "model": "openrouter/free",
+  "readAt": "2026-10-04",
+  "model": "gemini-flash-lite-latest",
   "patch": {
     "name": "Atualização 1.4.3.5",
     "date": "2026-09-28"
@@ -8,56 +8,56 @@
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "Líder incontestável do ranking geral (#1) e da classe de fuzis de assalto (#1) no wzstats.gg, mantida forte mesmo após a atualização 1.4.3.5, que não mexeu em dano ou recuo",
+      "reason": "ocupa o primeiro lugar geral e a primeira posição entre os fuzis de assalto no ranking do multiplayer do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "Segundo fuzi de assalto mais forte do jogo (rank #2 geral, #2 na classe) segundo wzstats.gg, com desempenho consistente pós-patch",
+      "reason": "ocupa o segundo lugar geral e a segunda posição entre os fuzis de assalto no ranking do multiplayer do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "Classificada como #1 em SMGs no ranking geral do wzstats.gg, liderança estendida desde antes do patch sem alterações que afeta seu desempenho",
+      "reason": "ocupa o terceiro lugar geral e lidera a classe de SMGs no ranking do multiplayer do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "#3 em fuzis de assalto e #3 geral no wzstats.gg, mantendo posição de força pós-patch 1.4.3.5",
+      "reason": "ocupa o quarto lugar geral e a terceira posição entre os fuzis de assalto no ranking do multiplayer do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
-      "weapon": "nvo-228e",
-      "reason": "#4 em fuzis de assalto e #9 geral no wzstats.gg, mantendo alto desempenho consistente após atualização recente",
+      "weapon": "drs-iar",
+      "reason": "ocupa o quinto lugar geral e lidera a classe de LMGs no ranking do multiplayer do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
-      "weapon": "ef88",
-      "reason": "#5 em fuzis de assalto e #5 geral no wzstats.gg, com posição estável pós-patch",
+      "weapon": "sgx",
+      "reason": "ocupa o sexto lugar geral e a segunda posição na classe de SMGs no ranking do multiplayer do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
-      "weapon": "l85a3",
-      "reason": "#6 em fuzis de assalto e #6 geral no wzstats.gg, mantendo desempenho robusto após atualização 1.4.3.5",
+      "weapon": "qbz-192",
+      "reason": "ocupa o sétimo lugar geral e lidera a classe de carabinas no ranking do multiplayer do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
-      "weapon": "vcr-2",
-      "reason": "#7 em fuzis de assalto e #7 geral no wzstats.gg, com posição consistente na elite do meta pós-patch",
+      "weapon": "pw5a3",
+      "reason": "ocupa o oitavo lugar geral e a terceira posição entre as SMGs no ranking do multiplayer do wzstats.gg.",
       "sources": [
         0
       ]
@@ -65,75 +65,59 @@
   ],
   "trending": [
     {
-      "weapon": "vssm",
-      "reason": "Tema de discussão na thread 'A guide to using the mental lunacy that is the semi auto VSSM', em que o autor questiona sua eficácia sem modo automático e compara deliberadamente com o DB-12 como uma das armas mais fracas do jogo — mas ainda é usada em builds de precisão",
-      "sources": [
-        2
-      ],
-      "trend": "uso conturbado como DMR semi-atômico"
-    },
-    {
       "weapon": "scw-10",
-      "reason": "Citada como 'a melhor SMG do jogo' (A-tier) na thread sobre conclusão da coleção de nível 50 de SMGs, destacando TTK rápido, precisão e controle de recuo — além de ser mencionada em outra thread como arma preferida por jogadores agressivos",
+      "reason": "discussão na comunidade no Reddit apontou que a arma possui o menor tempo de abate abaixo de 10 metros e boa precisão.",
       "sources": [
         1
       ],
-      "trend": "consenso como melhor SMG do jogo"
+      "trend": "desempenho em combates curtos"
+    },
+    {
+      "weapon": "vssm",
+      "reason": "relato na comunidade no Reddit detalhou as dificuldades em utilizar o armamento sem o modo automático e a necessidade de lasers para otimizar o uso.",
+      "sources": [
+        2
+      ],
+      "trend": "críticas ao modo semi-automático"
     },
     {
       "weapon": "tr-7",
-      "reason": "Tema central na thread 'Why do people hate this gun?', em que o autor questiona diretamente a popularidade negativa da arma e pede explicações sobre por que a comunidade a desvaloriza",
+      "reason": "tópico criado na comunidade no Reddit debateu os motivos pelos quais os jogadores criticam o comportamento da arma em partidas.",
       "sources": [
         3
       ],
-      "trend": "debate sobre percepção negativa da comunidade"
+      "trend": "dúvidas sobre o desempenho"
     },
     {
       "weapon": "pp-19",
-      "reason": "Foco de análise na thread 'The PP-19', em que um jogador que levou todas as SMGs a nível 50 questiona o propósito de design da arma, comparando com sua versão do Battlefield 2042 e descrevendo-a como 'uma arma que não funciona bem'",
+      "reason": "espaço de conversa no Reddit questionou a proposta e a eficácia da arma em comparação com versões anteriores da franquia.",
       "sources": [
         4
       ],
-      "trend": "questionamento sobre identidade de design"
-    },
-    {
-      "weapon": "m433",
-      "reason": "Mencionada em lista de armas preferidas por um jogador agressivo em thread sobre novas armas para desfrutar, indicando uso ativo em jogos de Rush e Breakthrough",
-      "sources": [
-        6
-      ],
-      "trend": "arma preferida por jogadores agressivos"
-    },
-    {
-      "weapon": "brod-3",
-      "reason": "Citada como arma preferida em thread sobre novas opções de armas, sendo usada por jogador que prefere estilo agressivo em Breakthrough e Rush — também aparece no ranking como #3 carabina (wzstats.gg)",
-      "sources": [
-        6
-      ],
-      "trend": "arma preferida em builds agressivos"
-    },
-    {
-      "weapon": "m39-emr",
-      "reason": "Mencionada em atualização comunitária como alvo de ajustes futuros, indicando que a comunidade está atenta a seu desempenho e expectativas estão altas para mudanças",
-      "sources": [
-        5
-      ],
-      "trend": "alvo de ajustes futuros na comunidade"
+      "trend": "discussão sobre o design"
     },
     {
       "weapon": "svdm",
-      "reason": "Tema de discussão técnica na thread sobre falha em one-shot sniper, onde é criticada por não matar snipers com um headshot e um chest shot mesmo com Hollow Point — destacando frustração com seu dano em longa distância",
+      "reason": "publicação no Reddit discutiu a mecânica de dano da arma e o multiplicador de dano em confrontos de longa distância contra snipers.",
       "sources": [
-        7
+        5
       ],
-      "trend": "reclamação sobre eficácia contra snipers"
+      "trend": "alcance e dano"
+    },
+    {
+      "weapon": "rpkm",
+      "reason": "relato de jogador no Reddit mencionou inconsistências no registro de acertos ao utilizar o armamento em partidas.",
+      "sources": [
+        6
+      ],
+      "trend": "consistência de acerto"
     }
   ],
   "sources": [
     {
       "name": "wzstats.gg — ranking do multiplayer",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-10-03",
+      "date": "2026-10-04",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Tem página só de multiplayer, separada das de REDSEC e de REDSEC Ranqueado, e ordena arma por arma dentro de cada classe.",
@@ -176,30 +160,21 @@
       "timeframe": "season-4"
     },
     {
-      "name": "Reddit — Battlefield 6 - Community Update - Siege of Vegas Incoming",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1wu783c/battlefield_6_community_update_siege_of_vegas/",
-      "date": "2026-09-30",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita M39 EMR, SVDM. Mostra do que se fala, não mede força.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Reddit — Which gun can I enjoy next?",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1wt9bid/which_gun_can_i_enjoy_next/",
-      "date": "2026-09-29",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita B36A4, BROD 3, SCW-10. Mostra do que se fala, não mede força.",
-      "timeframe": "season-4"
-    },
-    {
       "name": "Reddit — So the SVDM and EMR don’t kill a sniper with one headshot and one chest",
       "url": "https://www.reddit.com/r/Battlefield6/comments/1wsjj3s/so_the_svdm_and_emr_dont_kill_a_sniper_with_one/",
       "date": "2026-09-28",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Thread do r/Battlefield6 que cita SVDM. Mostra do que se fala, não mede força.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit — Hit reg",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1wrgn6n/hit_reg/",
+      "date": "2026-09-27",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita RPKM. Mostra do que se fala, não mede força.",
       "timeframe": "season-4"
     },
     {
