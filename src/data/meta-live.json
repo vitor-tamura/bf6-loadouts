@@ -1,5 +1,5 @@
 {
-  "readAt": "2026-10-05",
+  "readAt": "2026-10-06",
   "model": "gemini-flash-lite-latest",
   "patch": {
     "name": "Atualização 1.4.3.5",
@@ -8,56 +8,56 @@
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "ocupa a primeira posição geral e lidera os fuzis de assalto no ranking do multiplayer",
+      "reason": "Occupa a 1ª posição geral e o 1º lugar entre os fuzis de assalto no ranking multijogador do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "figura na segunda posição geral e como o segundo melhor fuzil de assalto na listagem atualizada",
+      "reason": "Registrada na 2ª posição geral e como o 2º melhor fuzis de assalto na listagem da Temporada 4.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "ocupa a terceira posição geral e lidera a classe de SMGs no meta tradicional do multiplayer",
+      "reason": "Classificada na 3ª posição geral e liderando a categoria de SMGs no meta do multiplayer tradicional.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "registra a quarta posição geral e o terceiro lugar entre os fuzis de assalto no multiplayer",
+      "reason": "Posicionada no 4º lugar geral e na 3ª posição entre os fuzis de assalto na atualização atual.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "alcança a quinta posição geral e lidera a categoria de metralhadoras leves no multiplayer",
+      "reason": "Aparece na 5ª posição geral e lidera o segmento de metralhadoras leves (LMGs) no modo tradicional.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "sgx",
-      "reason": "aparece na sexta posição geral e ocupa o segundo lugar na classe de SMGs",
+      "reason": "Listada na 6ª posição geral e ocupando o 2º lugar na categoria de submetralhadoras (SMGs).",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "ocupa a sétima posição geral e figura como a primeira carabina do ranking",
+      "reason": "Ocupa a 7ª posição no ranking geral e lidera a classe de carabinas no multijogador.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pw5a3",
-      "reason": "registra a oitava posição geral e o terceiro posto entre as SMGs do multiplayer",
+      "reason": "Consta na 8ª posição do ranking geral e alcança o 3º lugar na categoria de SMGs.",
       "sources": [
         0
       ]
@@ -65,67 +65,59 @@
   ],
   "trending": [
     {
-      "weapon": "scw-10",
-      "reason": "destacada em discussão no Reddit sobre o desempenho da arma em combates de curta distância",
-      "sources": [
-        2
-      ],
-      "trend": "análise de TTK e recuo"
-    },
-    {
-      "weapon": "vssm",
-      "reason": "citada em tópico no Reddit que debate a eficácia e o comportamento da arma no papel de DMR",
-      "sources": [
-        3
-      ],
-      "trend": "discussão sobre uso em semi-automática"
-    },
-    {
-      "weapon": "tr-7",
-      "reason": "mencionada em discussão no Reddit sobre os motivos das críticas recebidas por parte da comunidade",
-      "sources": [
-        4
-      ],
-      "trend": "questionamentos sobre a reputação"
-    },
-    {
-      "weapon": "svdm",
-      "reason": "apontada em tópico no Reddit que analisa o desempenho da arma e seus multiplicadores de dano de longo alcance",
-      "sources": [
-        7
-      ],
-      "trend": "discussão sobre dano contra snipers"
-    },
-    {
       "weapon": "db-12",
-      "reason": "citada em postagem no Reddit sobre a aquisição de itens duplicados na comemoração de aniversário do jogo",
+      "reason": "Discussão na comunidade sobre a recepção da arma como item de recompensa de aniversário e seu uso em modos específicos foi relatada no Reddit.",
       "sources": [
         1
       ],
-      "trend": "reclamação sobre recompensas repetidas"
+      "trend": "recompensa duplicada"
+    },
+    {
+      "weapon": "scw-10",
+      "reason": "Debatida em tópico do Reddit que detalha o progresso de conclusão de nível 50 na categoria de SMGs e analisa seu desempenho em curtas distâncias.",
+      "sources": [
+        2
+      ],
+      "trend": "análise de TTK"
+    },
+    {
+      "weapon": "vssm",
+      "reason": "Discussão comunitária no Reddit focada em guia prático para mitigar a precisão e utilizar o disparo sem o modo automático.",
+      "sources": [
+        3
+      ],
+      "trend": "guia sem automação"
+    },
+    {
+      "weapon": "tr-7",
+      "reason": "Tópico aberto no Reddit discutindo o motivo da recepção negativa e críticas recebidas pela arma na comunidade.",
+      "sources": [
+        4
+      ],
+      "trend": "discussão de desempenho"
     },
     {
       "weapon": "pp-19",
-      "reason": "debatida em tópico no Reddit sobre a proposta e a sensação de disparo da arma no multiplayer",
+      "reason": "Debatida em postagem no Reddit sobre a filosofia de design da arma em comparação com entregas anteriores da franquia.",
       "sources": [
         5
       ],
-      "trend": "dúvidas sobre o design e dano"
+      "trend": "discussão de design"
     },
     {
-      "weapon": "b36a4",
-      "reason": "citada em tópico no Reddit como uma das armas mais utilizadas em partidas dinâmicas de curto a médio alcance",
+      "weapon": "brod-3",
+      "reason": "Citada em discussão no Reddit por jogadores que buscam recomendações de armamentos para estilos de jogo agressivos.",
       "sources": [
         6
       ],
-      "trend": "escolha para progressão de nível"
+      "trend": "busca por variações"
     }
   ],
   "sources": [
     {
       "name": "wzstats.gg — ranking do multiplayer",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-10-05",
+      "date": "2026-10-06",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Tem página só de multiplayer, separada das de REDSEC e de REDSEC Ranqueado, e ordena arma por arma dentro de cada classe.",
@@ -183,15 +175,6 @@
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Thread do r/Battlefield6 que cita B36A4, BROD 3, SCW-10. Mostra do que se fala, não mede força.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Reddit — So the SVDM and EMR don’t kill a sniper with one headshot and one chest",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1wsjj3s/so_the_svdm_and_emr_dont_kill_a_sniper_with_one/",
-      "date": "2026-09-28",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita SVDM. Mostra do que se fala, não mede força.",
       "timeframe": "season-4"
     },
     {
