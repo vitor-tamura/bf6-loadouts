@@ -1,5 +1,5 @@
 {
-  "readAt": "2026-10-06",
+  "readAt": "2026-10-07",
   "model": "gemini-flash-lite-latest",
   "patch": {
     "name": "Atualização 1.4.3.5",
@@ -8,56 +8,56 @@
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "Occupa a 1ª posição geral e o 1º lugar entre os fuzis de assalto no ranking multijogador do wzstats.gg.",
+      "reason": "Ocupa a primeira posição geral do multiplayer e lidera a classe de fuzis de assalto no ranking atualizado da wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "Registrada na 2ª posição geral e como o 2º melhor fuzis de assalto na listagem da Temporada 4.",
+      "reason": "Registra a segunda colocação geral e o segundo lugar entre os fuzis de assalto na listagem da wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "Classificada na 3ª posição geral e liderando a categoria de SMGs no meta do multiplayer tradicional.",
+      "reason": "Aparece como a primeira colocada na categoria de submetralhadoras e ocupa a terceira posição no ranking geral da wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "Posicionada no 4º lugar geral e na 3ª posição entre os fuzis de assalto na atualização atual.",
+      "reason": "Posiciona-se em terceiro lugar entre os fuzis de assalto e quarto na tabela geral da wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "Aparece na 5ª posição geral e lidera o segmento de metralhadoras leves (LMGs) no modo tradicional.",
+      "reason": "Lidera a classe de metralhadoras leves e figura na quinta colocação do ranking geral da wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "sgx",
-      "reason": "Listada na 6ª posição geral e ocupando o 2º lugar na categoria de submetralhadoras (SMGs).",
+      "reason": "Conquista a segunda posição na categoria de submetralhadoras e o sexto lugar geral na listagem da wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "Ocupa a 7ª posição no ranking geral e lidera a classe de carabinas no multijogador.",
+      "reason": "Assume o primeiro lugar na classe de carabinas e a sétima posição no ranking geral da wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pw5a3",
-      "reason": "Consta na 8ª posição do ranking geral e alcança o 3º lugar na categoria de SMGs.",
+      "reason": "Garante a terceira colocação entre as submetralhadoras e o oitavo lugar na tabela geral do multiplayer na wzstats.gg.",
       "sources": [
         0
       ]
@@ -65,59 +65,67 @@
   ],
   "trending": [
     {
+      "weapon": "scw-10",
+      "reason": "Discussão no Reddit aponta que a arma possui o menor tempo para matar abaixo de 10 metros e destaca o desafio do seu carregador inicial de 15 munições.",
+      "sources": [
+        2
+      ],
+      "trend": "desempenho em curta distância"
+    },
+    {
+      "weapon": "vssm",
+      "reason": "Discussão no Reddit debate as dificuldades de utilizar a variante sem fogo automático e sugere o uso de lasers para compensar a precisão no quadril.",
+      "sources": [
+        3
+      ],
+      "trend": "uso sem modo automático"
+    },
+    {
+      "weapon": "tr-7",
+      "reason": "Tópico no Reddit aborda as críticas e a recepção negativa que a arma vem recebendo por parte dos jogadores nas discussões da comunidade.",
+      "sources": [
+        4
+      ],
+      "trend": "questionamento sobre eficiência"
+    },
+    {
+      "weapon": "pp-19",
+      "reason": "Discussão no Reddit questiona a proposta de design da arma e relata a sensação de baixo impacto nos confrontos do multiplayer.",
+      "sources": [
+        5
+      ],
+      "trend": "dúvidas sobre o dano"
+    },
+    {
+      "weapon": "m39-emr",
+      "reason": "Postagem da comunidade no Reddit menciona atualizações iminentes e ajustes de sintonia programados para a arma na categoria de DMRs.",
+      "sources": [
+        6
+      ],
+      "trend": "ajustes de balanceamento"
+    },
+    {
+      "weapon": "svdm",
+      "reason": "Thread no Reddit cita alterações de balanceamento e limites de munição planejadas para a arma nas próximas atualizações dos DMRs.",
+      "sources": [
+        6
+      ],
+      "trend": "mudanças de balanceamento"
+    },
+    {
       "weapon": "db-12",
-      "reason": "Discussão na comunidade sobre a recepção da arma como item de recompensa de aniversário e seu uso em modos específicos foi relatada no Reddit.",
+      "reason": "Discussão no Reddit relata insatisfação de usuários ao receberem repetidamente a espingarda como brinde de aniversário no jogo.",
       "sources": [
         1
       ],
       "trend": "recompensa duplicada"
-    },
-    {
-      "weapon": "scw-10",
-      "reason": "Debatida em tópico do Reddit que detalha o progresso de conclusão de nível 50 na categoria de SMGs e analisa seu desempenho em curtas distâncias.",
-      "sources": [
-        2
-      ],
-      "trend": "análise de TTK"
-    },
-    {
-      "weapon": "vssm",
-      "reason": "Discussão comunitária no Reddit focada em guia prático para mitigar a precisão e utilizar o disparo sem o modo automático.",
-      "sources": [
-        3
-      ],
-      "trend": "guia sem automação"
-    },
-    {
-      "weapon": "tr-7",
-      "reason": "Tópico aberto no Reddit discutindo o motivo da recepção negativa e críticas recebidas pela arma na comunidade.",
-      "sources": [
-        4
-      ],
-      "trend": "discussão de desempenho"
-    },
-    {
-      "weapon": "pp-19",
-      "reason": "Debatida em postagem no Reddit sobre a filosofia de design da arma em comparação com entregas anteriores da franquia.",
-      "sources": [
-        5
-      ],
-      "trend": "discussão de design"
-    },
-    {
-      "weapon": "brod-3",
-      "reason": "Citada em discussão no Reddit por jogadores que buscam recomendações de armamentos para estilos de jogo agressivos.",
-      "sources": [
-        6
-      ],
-      "trend": "busca por variações"
     }
   ],
   "sources": [
     {
       "name": "wzstats.gg — ranking do multiplayer",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-10-06",
+      "date": "2026-10-07",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Tem página só de multiplayer, separada das de REDSEC e de REDSEC Ranqueado, e ordena arma por arma dentro de cada classe.",
@@ -169,12 +177,12 @@
       "timeframe": "season-4"
     },
     {
-      "name": "Reddit — Which gun can I enjoy next?",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1wt9bid/which_gun_can_i_enjoy_next/",
-      "date": "2026-09-29",
+      "name": "Reddit — Battlefield 6 - Community Update - Siege of Vegas Incoming",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1wu783c/battlefield_6_community_update_siege_of_vegas/",
+      "date": "2026-09-30",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita B36A4, BROD 3, SCW-10. Mostra do que se fala, não mede força.",
+      "scope": "Thread do r/Battlefield6 que cita M39 EMR, SVDM. Mostra do que se fala, não mede força.",
       "timeframe": "season-4"
     },
     {
