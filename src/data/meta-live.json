@@ -1,6 +1,6 @@
 {
-  "readAt": "2026-10-08",
-  "model": "gemini-3.1-flash-lite-preview",
+  "readAt": "2026-10-09",
+  "model": "gemini-3.6-flash",
   "patch": {
     "name": "Atualização 1.4.3.5",
     "date": "2026-09-28"
@@ -8,56 +8,56 @@
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "Ocupa a primeira posição geral e a liderança absoluta na classe de fuzis de assalto no ranking atualizado para 08 de outubro de 2026.",
+      "reason": "Lidera o ranking geral de multiplayer do wzstats.gg na 1ª posição global e como a #1 entre os fuzis de assalto.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "Figura como a segunda arma mais forte do catálogo multiplayer e a segunda melhor opção entre os fuzis de assalto.",
+      "reason": "Ocupa a 2ª posição no ranking geral do wzstats.gg e o 2º lugar na classe dos fuzis de assalto.",
       "sources": [
-        1
+        0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "Detém o primeiro lugar na categoria de submetralhadoras (SMG), consolidada como a escolha de topo no ranking de outubro.",
+      "reason": "Figura em 3º lugar no ranking geral do wzstats.gg e posiciona-se como a SMG #1 do multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "Posiciona-se como a terceira melhor opção entre todos os fuzis de assalto, mantendo alta eficiência técnica na meta atual.",
+      "reason": "Aparece na 4ª posição do ranking geral no wzstats.gg e em 3º lugar entre os fuzis de assalto.",
       "sources": [
-        1
+        0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "Classificada como a melhor metralhadora leve (LMG) do jogo, liderando sua respectiva classe no levantamento de desempenho.",
+      "reason": "Ocupa a 5ª posição do ranking geral no wzstats.gg e o 1º lugar na categoria de metralhadoras leves (LMG).",
+      "sources": [
+        0
+      ]
+    },
+    {
+      "weapon": "sgx",
+      "reason": "Posiciona-se em 6º lugar no ranking geral do wzstats.gg e em 2º lugar na classe das SMGs.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "Ranqueada como a carabina número um no meta de outubro, superando as outras opções de curto e médio alcance da mesma classe.",
+      "reason": "Aparece em 7º lugar no ranking geral do wzstats.gg como a carbina #1 do multiplayer.",
       "sources": [
         0
       ]
     },
     {
-      "weapon": "m2010-esr",
-      "reason": "Lidera a classe de rifles de precisão (Sniper Rifles) no ranking oficial de força, sendo a primeira escolha em seu segmento.",
-      "sources": [
-        0
-      ]
-    },
-    {
-      "weapon": "m87a1",
-      "reason": "Consolidada como a escopeta com melhor desempenho no multiplayer, alcançando o primeiro lugar em sua classe.",
+      "weapon": "pw5a3",
+      "reason": "Ocupa o 8º lugar no ranking geral do wzstats.gg e o 3º lugar entre as SMGs no multiplayer.",
       "sources": [
         0
       ]
@@ -65,63 +65,55 @@
   ],
   "trending": [
     {
-      "weapon": "scw-10",
-      "reason": "Discussão sobre seu tempo para matar (TTK) em alcances curtos e médios, apesar das limitações do pente inicial.",
+      "weapon": "psr",
+      "reason": "Sua contagem de abates para a conquista de sniper foi questionada no Reddit por não registrar antes de desbloquear o modelo base.",
       "sources": [
-        3
+        1
       ],
-      "trend": "análise de performance"
-    },
-    {
-      "weapon": "vssm",
-      "reason": "Usuários debatem a dependência de acessórios como o laser para compensar falhas de precisão no modo semi-automático.",
-      "sources": [
-        4
-      ],
-      "trend": "crítica de usabilidade"
+      "trend": "progresso de conquista"
     },
     {
       "weapon": "db-12",
-      "reason": "Relatos de jogadores insatisfeitos ao receberem esta escopeta como presente de aniversário repetido no jogo.",
+      "reason": "Jogador reclamou no Reddit por receber a espingarda repetida como presente oficial de 1 ano de aniversário do jogo.",
       "sources": [
         2
       ],
-      "trend": "reclamação de loot"
+      "trend": "presente repetido"
     },
     {
-      "weapon": "tr-7",
-      "reason": "Questionamentos da comunidade sobre a recepção negativa da arma e por que ela é alvo de críticas frequentes.",
+      "weapon": "scw-10",
+      "reason": "Teve seu desempenho e TTK rápido até 35m analisados em thread dedicada a mestrias de SMG no Reddit, destacando o carregador inicial de 15 tiros.",
       "sources": [
-        5
+        3
       ],
-      "trend": "dúvida de viabilidade"
+      "trend": "build de hipfire e TTK"
     },
     {
-      "weapon": "pp-19",
-      "reason": "Discussão sobre o baixo recuo da arma e a percepção de falta de dano comparada à versão de outros jogos da franquia.",
+      "weapon": "vssm",
+      "reason": "Foi tema de guia no Reddit sobre como mitigar a baixa precisão no modo semiautomático usando laser azul no nível 37 e tiro livre.",
       "sources": [
-        6
+        4
       ],
-      "trend": "debate de design"
+      "trend": "guia de tiro livre"
     }
   ],
   "sources": [
     {
       "name": "wzstats.gg — ranking do multiplayer",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-10-08",
+      "date": "2026-10-09",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Tem página só de multiplayer, separada das de REDSEC e de REDSEC Ranqueado, e ordena arma por arma dentro de cada classe.",
       "timeframe": "season-4"
     },
     {
-      "name": "wzstats.gg — fuzis de assalto no multiplayer",
-      "url": "https://wzstats.gg/battlefield-6/multiplayer/best-gun/best-assault-rifles-in-battlefield",
-      "date": "2026-10-08",
+      "name": "Reddit — Achievements not showing",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1x19uh2/achievements_not_showing/",
+      "date": "2026-10-09",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Página de classe do mesmo rastreador, também só de multiplayer: publica a ordem completa dos onze fuzis, que a página de resumo corta no quinto.",
+      "scope": "Thread do r/Battlefield6 que cita PSR. Mostra do que se fala, não mede força.",
       "timeframe": "season-4"
     },
     {
@@ -149,24 +141,6 @@
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Thread do r/Battlefield6 que cita VSSM, DB-12. Mostra do que se fala, não mede força.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Reddit — Why do people hate this gun?””",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1wuljg9/why_do_people_hate_this_gun/",
-      "date": "2026-10-01",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita TR-7. Mostra do que se fala, não mede força.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Reddit — The PP-19",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1wvctf0/the_pp19/",
-      "date": "2026-10-01",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita PP-19. Mostra do que se fala, não mede força.",
       "timeframe": "season-4"
     },
     {
