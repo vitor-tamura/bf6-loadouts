@@ -1,6 +1,6 @@
 {
-  "readAt": "2026-10-09",
-  "model": "gemini-3.6-flash",
+  "readAt": "2026-10-10",
+  "model": "gemini-flash-lite-latest",
   "patch": {
     "name": "Atualização 1.4.3.5",
     "date": "2026-09-28"
@@ -8,56 +8,56 @@
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "Lidera o ranking geral de multiplayer do wzstats.gg na 1ª posição global e como a #1 entre os fuzis de assalto.",
+      "reason": "ocupa o primeiro lugar geral e a primeira posição entre os fuzis de assalto no ranking de multiplayer da temporada",
       "sources": [
         0
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "Ocupa a 2ª posição no ranking geral do wzstats.gg e o 2º lugar na classe dos fuzis de assalto.",
+      "reason": "registra a segunda posição geral e o segundo lugar na classe de fuzis de assalto no painel competitivo",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "Figura em 3º lugar no ranking geral do wzstats.gg e posiciona-se como a SMG #1 do multiplayer.",
+      "reason": "figura como a primeira colocada na categoria de submetralhadoras e o terceiro posto no sumário geral de armamentos",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "Aparece na 4ª posição do ranking geral no wzstats.gg e em 3º lugar entre os fuzis de assalto.",
+      "reason": "aparece na quarta colocação geral e na terceira posição entre os fuzis de assalto no levantamento estatístico",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "Ocupa a 5ª posição do ranking geral no wzstats.gg e o 1º lugar na categoria de metralhadoras leves (LMG).",
+      "reason": "alcança a primeira posição na classe de metralhadoras leves e o quinto lugar na tabela geral do multiplayer",
       "sources": [
         0
       ]
     },
     {
       "weapon": "sgx",
-      "reason": "Posiciona-se em 6º lugar no ranking geral do wzstats.gg e em 2º lugar na classe das SMGs.",
+      "reason": "ocupa o segundo lugar entre as submetralhadoras e a sexta posição geral no ranking de desempenho",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "Aparece em 7º lugar no ranking geral do wzstats.gg como a carbina #1 do multiplayer.",
+      "reason": "destaca-se como a primeira colocada na categoria de carabinas e o sétimo lugar na listagem consolidada",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pw5a3",
-      "reason": "Ocupa o 8º lugar no ranking geral do wzstats.gg e o 3º lugar entre as SMGs no multiplayer.",
+      "reason": "registra o terceiro posto na classe de submetralhadoras e a oitava posição geral no cenário competitivo",
       "sources": [
         0
       ]
@@ -65,55 +65,55 @@
   ],
   "trending": [
     {
-      "weapon": "psr",
-      "reason": "Sua contagem de abates para a conquista de sniper foi questionada no Reddit por não registrar antes de desbloquear o modelo base.",
-      "sources": [
-        1
-      ],
-      "trend": "progresso de conquista"
-    },
-    {
-      "weapon": "db-12",
-      "reason": "Jogador reclamou no Reddit por receber a espingarda repetida como presente oficial de 1 ano de aniversário do jogo.",
-      "sources": [
-        2
-      ],
-      "trend": "presente repetido"
-    },
-    {
       "weapon": "scw-10",
-      "reason": "Teve seu desempenho e TTK rápido até 35m analisados em thread dedicada a mestrias de SMG no Reddit, destacando o carregador inicial de 15 tiros.",
+      "reason": "comentada em thread no r/Battlefield6 como destaque pelo menor tempo para matar em curtas distâncias",
       "sources": [
         3
       ],
-      "trend": "build de hipfire e TTK"
+      "trend": "menção em guide de SMGs"
     },
     {
       "weapon": "vssm",
-      "reason": "Foi tema de guia no Reddit sobre como mitigar a baixa precisão no modo semiautomático usando laser azul no nível 37 e tiro livre.",
+      "reason": "debatida em comunidade no r/Battlefield6 por exigir uso intenso de mira livre e acessórios específicos",
       "sources": [
         4
       ],
-      "trend": "guia de tiro livre"
+      "trend": "discussão sobre DMR sem automático"
+    },
+    {
+      "weapon": "db-12",
+      "reason": "citada em postagem no r/Battlefield6 relatando recebimento duplicado da escopeta em evento comemorativo",
+      "sources": [
+        2
+      ],
+      "trend": "reclamação de loot repetido"
+    },
+    {
+      "weapon": "ak4d",
+      "reason": "aparece citada em discussão no r/Battlefield6 sobre a conclusão da coleção de DMRs até o nível 50",
+      "sources": [
+        1
+      ],
+      "trend": "conclusão de progressão de nível"
     }
   ],
   "sources": [
     {
       "name": "wzstats.gg — ranking do multiplayer",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-10-09",
+      "date": "2026-10-10",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Tem página só de multiplayer, separada das de REDSEC e de REDSEC Ranqueado, e ordena arma por arma dentro de cada classe.",
       "timeframe": "season-4"
     },
     {
-      "name": "Reddit — Achievements not showing",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1x19uh2/achievements_not_showing/",
+      "name": "Reddit — Finally Completed the Unstoppable Level 50 DMR Collection",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1x1zlxa/finally_completed_the_unstoppable_level_50_dmr/",
       "date": "2026-10-09",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita PSR. Mostra do que se fala, não mede força.",
+      "scope": "Thread do r/Battlefield6 que cita AK4D, TR-7, M433, KORD 6P67, AK-205, M277, SCW-10, SL9, M250, M/60, LMR27, M39 EMR, SVDM, SVK-8.6, VSSM, GRT-CPS. Mostra do que se fala, não mede força.",
       "timeframe": "season-4"
     },
     {
