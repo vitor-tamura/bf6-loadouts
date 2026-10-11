@@ -1,6 +1,6 @@
 {
-  "readAt": "2026-10-10",
-  "model": "gemini-flash-lite-latest",
+  "readAt": "2026-10-11",
+  "model": "gemini-3.6-flash",
   "patch": {
     "name": "Atualização 1.4.3.5",
     "date": "2026-09-28"
@@ -8,56 +8,56 @@
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "ocupa o primeiro lugar geral e a primeira posição entre os fuzis de assalto no ranking de multiplayer da temporada",
+      "reason": "Ocupa a 1ª posição geral no ranking do multiplayer do wzstats.gg e o 1º lugar na categoria de fuzis de assalto.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "registra a segunda posição geral e o segundo lugar na classe de fuzis de assalto no painel competitivo",
+      "reason": "Aparece em 2º lugar geral no ranking do wzstats.gg e ocupa a 2ª colocação entre os fuzis de assalto.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "figura como a primeira colocada na categoria de submetralhadoras e o terceiro posto no sumário geral de armamentos",
+      "reason": "Ocupa a 3ª colocação geral no ranking do wzstats.gg e figura como a submetralhadora número 1 do multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "aparece na quarta colocação geral e na terceira posição entre os fuzis de assalto no levantamento estatístico",
+      "reason": "Classificada em 4º lugar geral no ranking do wzstats.gg e na 3ª posição na categoria de fuzis de assalto.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "alcança a primeira posição na classe de metralhadoras leves e o quinto lugar na tabela geral do multiplayer",
+      "reason": "Lidera a categoria de metralhadoras leves em 1º lugar e ocupa a 5ª posição no ranking geral do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "sgx",
-      "reason": "ocupa o segundo lugar entre as submetralhadoras e a sexta posição geral no ranking de desempenho",
+      "reason": "Posicionada em 6º lugar no ranking geral do wzstats.gg e como a 2ª colocada entre as submetralhadoras.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "destaca-se como a primeira colocada na categoria de carabinas e o sétimo lugar na listagem consolidada",
+      "reason": "Ocupa o 7º lugar no ranking geral do wzstats.gg e garante a 1ª posição na classe das carabinas.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pw5a3",
-      "reason": "registra o terceiro posto na classe de submetralhadoras e a oitava posição geral no cenário competitivo",
+      "reason": "Figura na 8ª posição do ranking geral do wzstats.gg e ocupa o 3º lugar na categoria de submetralhadoras.",
       "sources": [
         0
       ]
@@ -65,46 +65,63 @@
   ],
   "trending": [
     {
-      "weapon": "scw-10",
-      "reason": "comentada em thread no r/Battlefield6 como destaque pelo menor tempo para matar em curtas distâncias",
-      "sources": [
-        3
-      ],
-      "trend": "menção em guide de SMGs"
-    },
-    {
-      "weapon": "vssm",
-      "reason": "debatida em comunidade no r/Battlefield6 por exigir uso intenso de mira livre e acessórios específicos",
-      "sources": [
-        4
-      ],
-      "trend": "discussão sobre DMR sem automático"
-    },
-    {
-      "weapon": "db-12",
-      "reason": "citada em postagem no r/Battlefield6 relatando recebimento duplicado da escopeta em evento comemorativo",
-      "sources": [
-        2
-      ],
-      "trend": "reclamação de loot repetido"
-    },
-    {
-      "weapon": "ak4d",
-      "reason": "aparece citada em discussão no r/Battlefield6 sobre a conclusão da coleção de DMRs até o nível 50",
+      "weapon": "m4a1",
+      "reason": "Discussão no r/Battlefield6 onde um jogador relata ter abandonado a arma no modo Breakthrough casual devido ao mau desempenho.",
       "sources": [
         1
       ],
-      "trend": "conclusão de progressão de nível"
+      "trend": "desistência de uso"
+    },
+    {
+      "weapon": "m39-emr",
+      "reason": "Relatada no r/Battlefield6 como escolha para a classe de suporte por jogadores em busca de precisão e controle.",
+      "sources": [
+        1
+      ],
+      "trend": "opção de estabilidade"
+    },
+    {
+      "weapon": "svdm",
+      "reason": "Citada no r/Battlefield6 por um jogador iniciante ao testar alternativas de longo alcance para a classe de suporte.",
+      "sources": [
+        1
+      ],
+      "trend": "teste de suporte"
+    },
+    {
+      "weapon": "vssm",
+      "reason": "Debatida no r/Battlefield6 por ser a única exceção entre os DMRs a perder dano em distâncias superiores a 100 metros.",
+      "sources": [
+        2
+      ],
+      "trend": "queda de dano"
+    },
+    {
+      "weapon": "db-12",
+      "reason": "Alvo de reclamações no r/Battlefield6 por ter sido concedida repetidamente pela DICE como presente de aniversário.",
+      "sources": [
+        3
+      ],
+      "trend": "recompensa repetida"
     }
   ],
   "sources": [
     {
       "name": "wzstats.gg — ranking do multiplayer",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-10-10",
+      "date": "2026-10-11",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Tem página só de multiplayer, separada das de REDSEC e de REDSEC Ranqueado, e ordena arma por arma dentro de cada classe.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit — What is everyone's go-to loadouts for each class?",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1x37e7x/what_is_everyones_goto_loadouts_for_each_class/",
+      "date": "2026-10-11",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita M4A1, M39 EMR, SVDM. Mostra do que se fala, não mede força.",
       "timeframe": "season-4"
     },
     {
@@ -123,24 +140,6 @@
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Thread do r/Battlefield6 que cita DB-12. Mostra do que se fala, não mede força.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Reddit — Finally Completed the Unstoppable Level 50 SMG Collection",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1ww9lpe/finally_completed_the_unstoppable_level_50_smg/",
-      "date": "2026-10-03",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita KORD 6P67, NVO-228E, AK-205, SCW-10, KV9, PW7A2, PW5A3, SGX, SL9, UMG-40, USG-90, CZ3A1, PP-19, DRS-IAR, VSSM. Mostra do que se fala, não mede força.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Reddit — A guide to using the mental lunacy that is the semi auto VSSM",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1wwcqmv/a_guide_to_using_the_mental_lunacy_that_is_the/",
-      "date": "2026-10-03",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita VSSM, DB-12. Mostra do que se fala, não mede força.",
       "timeframe": "season-4"
     },
     {
