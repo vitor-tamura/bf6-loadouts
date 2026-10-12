@@ -1,5 +1,5 @@
 {
-  "readAt": "2026-10-11",
+  "readAt": "2026-10-12",
   "model": "gemini-3.6-flash",
   "patch": {
     "name": "Atualização 1.4.3.5",
@@ -8,56 +8,56 @@
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "Ocupa a 1ª posição geral no ranking do multiplayer do wzstats.gg e o 1º lugar na categoria de fuzis de assalto.",
+      "reason": "Lidera o ranking geral do multiplayer e ocupa a 1ª posição entre os fuzis de assalto na medição do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "Aparece em 2º lugar geral no ranking do wzstats.gg e ocupa a 2ª colocação entre os fuzis de assalto.",
+      "reason": "Ocupa o 2º lugar no ranking geral do multiplayer e a 2ª posição na classe de fuzis de assalto no wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "Ocupa a 3ª colocação geral no ranking do wzstats.gg e figura como a submetralhadora número 1 do multiplayer.",
+      "reason": "Figura na 3ª posição geral do multiplayer e é classificada como a SMG #1 na medição do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "Classificada em 4º lugar geral no ranking do wzstats.gg e na 3ª posição na categoria de fuzis de assalto.",
+      "reason": "Ocupa o 4º lugar no ranking geral do multiplayer e a 3ª posição entre os fuzis de assalto no wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "Lidera a categoria de metralhadoras leves em 1º lugar e ocupa a 5ª posição no ranking geral do wzstats.gg.",
+      "reason": "Posiciona-se em 5º lugar no ranking geral do multiplayer e lidera a categoria de LMGs no wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "sgx",
-      "reason": "Posicionada em 6º lugar no ranking geral do wzstats.gg e como a 2ª colocada entre as submetralhadoras.",
+      "reason": "Ocupa o 6º lugar no ranking geral do multiplayer e a 2ª posição na categoria de SMGs no wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "Ocupa o 7º lugar no ranking geral do wzstats.gg e garante a 1ª posição na classe das carabinas.",
+      "reason": "Está classificada em 7º lugar no ranking geral do multiplayer e lidera a categoria de carabinas no wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pw5a3",
-      "reason": "Figura na 8ª posição do ranking geral do wzstats.gg e ocupa o 3º lugar na categoria de submetralhadoras.",
+      "reason": "Ocupa a 8ª posição no ranking geral do multiplayer e o 3º lugar entre as SMGs na medição do wzstats.gg.",
       "sources": [
         0
       ]
@@ -65,54 +65,81 @@
   ],
   "trending": [
     {
-      "weapon": "m4a1",
-      "reason": "Discussão no r/Battlefield6 onde um jogador relata ter abandonado a arma no modo Breakthrough casual devido ao mau desempenho.",
-      "sources": [
-        1
-      ],
-      "trend": "desistência de uso"
-    },
-    {
-      "weapon": "m39-emr",
-      "reason": "Relatada no r/Battlefield6 como escolha para a classe de suporte por jogadores em busca de precisão e controle.",
-      "sources": [
-        1
-      ],
-      "trend": "opção de estabilidade"
-    },
-    {
-      "weapon": "svdm",
-      "reason": "Citada no r/Battlefield6 por um jogador iniciante ao testar alternativas de longo alcance para a classe de suporte.",
-      "sources": [
-        1
-      ],
-      "trend": "teste de suporte"
-    },
-    {
-      "weapon": "vssm",
-      "reason": "Debatida no r/Battlefield6 por ser a única exceção entre os DMRs a perder dano em distâncias superiores a 100 metros.",
-      "sources": [
-        2
-      ],
-      "trend": "queda de dano"
-    },
-    {
-      "weapon": "db-12",
-      "reason": "Alvo de reclamações no r/Battlefield6 por ter sido concedida repetidamente pela DICE como presente de aniversário.",
+      "weapon": "tr-7",
+      "reason": "Membros da comunidade no r/Battlefield6 debatem se o controle de recuo pune rajadas contínuas em comparação com tiros intermitentes.",
       "sources": [
         3
       ],
-      "trend": "recompensa repetida"
+      "trend": "discussão sobre recuo"
+    },
+    {
+      "weapon": "ak-205",
+      "reason": "Thread no r/Battlefield6 discute se o perfil da arma deveria ter menor precisão e maior dano por conta do calibre 5.45 e do sistema de pistão.",
+      "sources": [
+        2
+      ],
+      "trend": "debate de precisão e dano"
+    },
+    {
+      "weapon": "svdm",
+      "reason": "Detalhamento do Update 2.1.1.0 no r/Battlefield6 indica mudança na direção do recuo de 4° para 20° e aumento no tempo de recuperação do recuo.",
+      "sources": [
+        1
+      ],
+      "trend": "ajuste no recuo"
+    },
+    {
+      "weapon": "m39-emr",
+      "reason": "Notas do Update 2.1.1.0 publicadas no r/Battlefield6 relatam aumento do expoente de diminuição de recuo para 1.1 para limitar controle em cadência máxima.",
+      "sources": [
+        1
+      ],
+      "trend": "mudança de controle no RPM máximo"
+    },
+    {
+      "weapon": "m4a1",
+      "reason": "Em discussão sobre loadouts no r/Battlefield6, jogador relata abandono do fuzil por falta de estabilidade e pede indicações de armas mais precisas.",
+      "sources": [
+        4
+      ],
+      "trend": "queixas de estabilidade"
     }
   ],
   "sources": [
     {
       "name": "wzstats.gg — ranking do multiplayer",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-10-11",
+      "date": "2026-10-12",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Tem página só de multiplayer, separada das de REDSEC e de REDSEC Ranqueado, e ordena arma por arma dentro de cada classe.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit — BATTLEFIELD 6 GAME UPDATE 2.1.1.0 (PART 1)",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1x4482s/battlefield_6_game_update_2110_part_1/",
+      "date": "2026-10-12",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita M433, NVO-228E, EF88, M417 A2, GRT-BC, SG 553R, BROD 3, PW5A3, M123K, M250, M121 A2, LMR27, M39 EMR, SVDM, VSSM, GRT-CPS, Interdictor, M87A1. Mostra do que se fala, não mede força.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit — AK-205 stats",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1x474n7/ak205_stats/",
+      "date": "2026-10-12",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita AK-205. Mostra do que se fala, não mede força.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit — Is the TR7 the definition as \"weapon balance\"?",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1x4asms/is_the_tr7_the_definition_as_weapon_balance/",
+      "date": "2026-10-12",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita TR-7. Mostra do que se fala, não mede força.",
       "timeframe": "season-4"
     },
     {
@@ -122,24 +149,6 @@
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Thread do r/Battlefield6 que cita M4A1, M39 EMR, SVDM. Mostra do que se fala, não mede força.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Reddit — Finally Completed the Unstoppable Level 50 DMR Collection",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1x1zlxa/finally_completed_the_unstoppable_level_50_dmr/",
-      "date": "2026-10-09",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita AK4D, TR-7, M433, KORD 6P67, AK-205, M277, SCW-10, SL9, M250, M/60, LMR27, M39 EMR, SVDM, SVK-8.6, VSSM, GRT-CPS. Mostra do que se fala, não mede força.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Reddit — Dice is having a joke",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1wxlx24/dice_is_having_a_joke/",
-      "date": "2026-10-04",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita DB-12. Mostra do que se fala, não mede força.",
       "timeframe": "season-4"
     },
     {
