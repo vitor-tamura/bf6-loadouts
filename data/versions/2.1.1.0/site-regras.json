@@ -1,0 +1,11 @@
+{
+  "version": "2.1.1.0",
+  "aplicadas": [],
+  "jaEstavam": [],
+  "recusadas": [
+    {
+      "linha": "Recoil Decrease Time Exponent on the SVDM and M39EMR increased from 0.75 to 1.1",
+      "motivo": "o site não guarda o campo recoil"
+    }
+  ]
+}

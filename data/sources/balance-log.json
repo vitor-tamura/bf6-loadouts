@@ -3,9 +3,38 @@
     "provider": "bf6balancelog",
     "type": "community",
     "url": "https://bf6balancelog.com/",
-    "retrievedAt": "2026-09-29T22:10:02.882Z"
+    "retrievedAt": "2026-10-13T00:31:41.779Z"
   },
   "patches": [
+    {
+      "version": "1.4.3.5",
+      "publishedAt": "2026-09-28",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-3-5",
+      "categories": [
+        "player",
+        "weapons",
+        "maps",
+        "redsec",
+        "ui",
+        "ai"
+      ],
+      "weaponLines": [
+        {
+          "text": "Scope edges now display at the intended thickness on PS5 for the following optics: SU-123, CCO, Ro-M, 2PRO, 3VZR, R4T, 1P86 Variable, 1p88 variable, NFX, and SSDS.",
+          "group": "WEAPONS",
+          "items": [
+            "1p86-lpvo",
+            "2pro-125x",
+            "3vzr-175x",
+            "cco-200x",
+            "r4t-200x",
+            "ro-m-175x",
+            "scopes",
+            "su-123-150x"
+          ]
+        }
+      ]
+    },
     {
       "version": "1.4.3.0",
       "publishedAt": "2026-09-14",

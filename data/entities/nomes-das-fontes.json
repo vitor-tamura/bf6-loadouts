@@ -2,7 +2,7 @@
   "fonte": {
     "provider": "bf6balancelog",
     "url": "https://bf6balancelog.com/",
-    "retrievedAt": "2026-09-29T22:10:02.882Z"
+    "retrievedAt": "2026-10-13T00:31:41.779Z"
   },
   "provados": [],
   "emAberto": [
@@ -39,6 +39,24 @@
   ],
   "semEntidade": [
     {
+      "item": "2pro-125x",
+      "versoes": [
+        "1.4.3.5"
+      ],
+      "linhas": [
+        "Scope edges now display at the intended thickness on PS5 for the following optics: SU-123, CCO, Ro-M, 2PRO, 3VZR, R4T, 1P86 Variable, 1p88 variable, NFX, and SSDS."
+      ]
+    },
+    {
+      "item": "3vzr-175x",
+      "versoes": [
+        "1.4.3.5"
+      ],
+      "linhas": [
+        "Scope edges now display at the intended thickness on PS5 for the following optics: SU-123, CCO, Ro-M, 2PRO, 3VZR, R4T, 1P86 Variable, 1p88 variable, NFX, and SSDS."
+      ]
+    },
+    {
       "item": "barrels",
       "versoes": [
         "1.4.2.0",
@@ -52,6 +70,15 @@
         "An unintended recoil modifier has been removed from VSSM barrel attachments.",
         "The VSSM 200mm Barrel now displays the correct weight value.",
         "Updated the description of the L115 32” Custom Extended Barrel to display the correct weight value."
+      ]
+    },
+    {
+      "item": "cco-200x",
+      "versoes": [
+        "1.4.3.5"
+      ],
+      "linhas": [
+        "Scope edges now display at the intended thickness on PS5 for the following optics: SU-123, CCO, Ro-M, 2PRO, 3VZR, R4T, 1P86 Variable, 1p88 variable, NFX, and SSDS."
       ]
     },
     {
@@ -164,6 +191,15 @@
       ]
     },
     {
+      "item": "r4t-200x",
+      "versoes": [
+        "1.4.3.5"
+      ],
+      "linhas": [
+        "Scope edges now display at the intended thickness on PS5 for the following optics: SU-123, CCO, Ro-M, 2PRO, 3VZR, R4T, 1P86 Variable, 1p88 variable, NFX, and SSDS."
+      ]
+    },
+    {
       "item": "recon",
       "versoes": [
         "1.4.2.0",
@@ -177,15 +213,18 @@
     {
       "item": "ro-m-175x",
       "versoes": [
+        "1.4.3.5",
         "1.2.1.0"
       ],
       "linhas": [
+        "Scope edges now display at the intended thickness on PS5 for the following optics: SU-123, CCO, Ro-M, 2PRO, 3VZR, R4T, 1P86 Variable, 1p88 variable, NFX, and SSDS.",
         "Fixed the SGX RO-M 1.75x sight to function consistently with other weapons."
       ]
     },
     {
       "item": "scopes",
       "versoes": [
+        "1.4.3.5",
         "1.4.3.0",
         "1.4.2.0",
         "1.4.1.5",
@@ -200,9 +239,9 @@
         "1.1.1.0"
       ],
       "linhas": [
+        "Scope edges now display at the intended thickness on PS5 for the following optics: SU-123, CCO, Ro-M, 2PRO, 3VZR, R4T, 1P86 Variable, 1p88 variable, NFX, and SSDS.",
         "There is a new option allowing players to turn off the Picture-in-Picture zoom functionality on optics, which will change zoom to only use full-screen FOV rather than combine FOV and additional zoom inside the optic. Changing this does not change the total magnification scale but ensures the total zoom is only changing FOV.",
-        "Mini Scout 50 mW Violet attachments now correctly adjust to the lower rail when used alongside larger optics.",
-        "The description for the 1/4x LPVO 5 sight now matches its intended behaviour."
+        "Mini Scout 50 mW Violet attachments now correctly adjust to the lower rail when used alongside larger optics."
       ]
     },
     {
@@ -244,6 +283,15 @@
       "linhas": [
         "SS26 Incendiary Rounds no longer ignite the ocean floor when fired underwater.",
         "SS26 aim position has been improved so shots and hit indicators align correctly with the front sight."
+      ]
+    },
+    {
+      "item": "su-123-150x",
+      "versoes": [
+        "1.4.3.5"
+      ],
+      "linhas": [
+        "Scope edges now display at the intended thickness on PS5 for the following optics: SU-123, CCO, Ro-M, 2PRO, 3VZR, R4T, 1P86 Variable, 1p88 variable, NFX, and SSDS."
       ]
     },
     {

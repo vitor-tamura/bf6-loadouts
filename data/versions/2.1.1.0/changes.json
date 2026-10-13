@@ -1,0 +1,335 @@
+{
+  "gameVersion": "2.1.1.0",
+  "events": [
+    {
+      "id": "evt-2.1.1.0-review-0",
+      "gameVersion": "2.1.1.0",
+      "timestamp": "2026-10-13",
+      "type": "stat_changed",
+      "entityType": "attachment",
+      "entityId": "heavy",
+      "changes": {
+        "field": "damage",
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "Heavy Rotary",
+        "line": "Heavy Rotary Machine Gun projectiles penetrating helicopter glass now deal 0.3x damage to soldiers, reduced from 0.8x."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-1-0",
+          "version": "2.1.1.0",
+          "retrievedAt": "2026-10-13T00:31:41.023Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Mudança descrita sem número: precisa de medição de outra fonte."
+      }
+    },
+    {
+      "id": "evt-2.1.1.0-review-1",
+      "gameVersion": "2.1.1.0",
+      "timestamp": "2026-10-13",
+      "type": "stat_changed",
+      "entityType": "attachment",
+      "entityId": "ammo:penetration",
+      "changes": {
+        "field": "damage",
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "Increased penetration",
+        "line": "Increased penetration damage."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-1-0",
+          "version": "2.1.1.0",
+          "retrievedAt": "2026-10-13T00:31:41.023Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Mudança descrita sem número: precisa de medição de outra fonte."
+      }
+    },
+    {
+      "id": "evt-2.1.1.0-review-2",
+      "gameVersion": "2.1.1.0",
+      "timestamp": "2026-10-13",
+      "type": "stat_changed",
+      "entityType": "weapon",
+      "entityId": "svdm",
+      "changes": {
+        "field": "recoil",
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "Recoil Direction",
+        "line": "Recoil Direction on the SVDM changed from 4° to 20°"
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-1-0",
+          "version": "2.1.1.0",
+          "retrievedAt": "2026-10-13T00:31:41.023Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Mudança descrita sem número: precisa de medição de outra fonte."
+      }
+    },
+    {
+      "id": "evt-2.1.1.0-stat-3",
+      "gameVersion": "2.1.1.0",
+      "timestamp": "2026-10-13",
+      "type": "stat_changed",
+      "entityType": "weapon",
+      "entityId": "m39emr",
+      "changes": {
+        "field": "recoil",
+        "from": 75,
+        "to": 11,
+        "operation": "set"
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-1-0",
+          "version": "2.1.1.0",
+          "retrievedAt": "2026-10-13T00:31:41.023Z"
+        }
+      ],
+      "automation": "auto",
+      "resolution": null
+    },
+    {
+      "id": "evt-2.1.1.0-review-4",
+      "gameVersion": "2.1.1.0",
+      "timestamp": "2026-10-13",
+      "type": "stat_changed",
+      "entityType": "weapon",
+      "entityId": "svdm",
+      "changes": {
+        "field": "recoil",
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "Reduced recoil",
+        "line": "Reduced recoil compensation for gamepad input from 11% to 5%."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-1-0",
+          "version": "2.1.1.0",
+          "retrievedAt": "2026-10-13T00:31:41.023Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Mudança descrita sem número: precisa de medição de outra fonte."
+      }
+    },
+    {
+      "id": "evt-2.1.1.0-review-5",
+      "gameVersion": "2.1.1.0",
+      "timestamp": "2026-10-13",
+      "type": "weapon_added",
+      "entityType": "weapon",
+      "entityId": "brod3",
+      "changes": {
+        "field": null,
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "BROD 3",
+        "line": "Added a Season 4 catch-up challenge for the BROD 3."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-1-0",
+          "version": "2.1.1.0",
+          "retrievedAt": "2026-10-13T00:31:41.023Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Adição anunciada de entidade que já existe no catálogo — conferir se é reintrodução."
+      }
+    },
+    {
+      "id": "evt-2.1.1.0-review-6",
+      "gameVersion": "2.1.1.0",
+      "timestamp": "2026-10-13",
+      "type": "weapon_added",
+      "entityType": "weapon",
+      "entityId": "interdictor",
+      "changes": {
+        "field": null,
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "Interdictor",
+        "line": "Added a Season 4 catch-up challenge for the Interdictor."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-1-0",
+          "version": "2.1.1.0",
+          "retrievedAt": "2026-10-13T00:31:41.023Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Adição anunciada de entidade que já existe no catálogo — conferir se é reintrodução."
+      }
+    },
+    {
+      "id": "evt-2.1.1.0-review-7",
+      "gameVersion": "2.1.1.0",
+      "timestamp": "2026-10-13",
+      "type": "weapon_added",
+      "entityType": "weapon",
+      "entityId": "vssm",
+      "changes": {
+        "field": null,
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "VSSM",
+        "line": "Added a Season 4 catch-up challenge for the VSSM."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-1-0",
+          "version": "2.1.1.0",
+          "retrievedAt": "2026-10-13T00:31:41.023Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Adição anunciada de entidade que já existe no catálogo — conferir se é reintrodução."
+      }
+    },
+    {
+      "id": "evt-2.1.1.0-review-8",
+      "gameVersion": "2.1.1.0",
+      "timestamp": "2026-10-13",
+      "type": "weapon_added",
+      "entityType": "weapon",
+      "entityId": "interdictor",
+      "changes": {
+        "field": null,
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "Interdictor",
+        "line": "Added five Season 4 Battle Pass weapons: EF88 Assault Rifle, BROD 3 Carbine, VSSM DMR, Interdictor Sniper Rifle, and Hadal NV-08 Knife."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-1-0",
+          "version": "2.1.1.0",
+          "retrievedAt": "2026-10-13T00:31:41.023Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Adição anunciada de entidade que já existe no catálogo — conferir se é reintrodução."
+      }
+    },
+    {
+      "id": "evt-2.1.1.0-review-9",
+      "gameVersion": "2.1.1.0",
+      "timestamp": "2026-10-13",
+      "type": "stat_changed",
+      "entityType": "catalog",
+      "entityId": null,
+      "changes": {
+        "field": "damage",
+        "operation": "percentage",
+        "value": 33,
+        "before": null,
+        "after": null,
+        "mentioned": null,
+        "line": "Level 1: Resistance to explosive damage is increased by 33%."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-1-0",
+          "version": "2.1.1.0",
+          "retrievedAt": "2026-10-13T00:31:41.023Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Proporção reconhecida, mas a entidade citada não existe no catálogo."
+      }
+    },
+    {
+      "id": "evt-2.1.1.0-compatibility-carried-0",
+      "gameVersion": "2.1.1.0",
+      "timestamp": "2026-10-13",
+      "type": "source_conflict",
+      "entityType": "compatibility",
+      "entityId": null,
+      "changes": {
+        "carried": 2877,
+        "closed": 0
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-1-0",
+          "version": "2.1.1.0",
+          "retrievedAt": "2026-10-13T00:31:41.023Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "A matriz veio da versão anterior sem confirmação do estado atual. Rode catalog:fetch-loadouts e confirme antes de publicar."
+      }
+    }
+  ]
+}
