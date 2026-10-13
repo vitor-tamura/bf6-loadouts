@@ -1,63 +1,63 @@
 {
-  "readAt": "2026-10-12",
-  "model": "gemini-3.6-flash",
+  "readAt": "2026-10-13",
+  "model": "gemini-flash-lite-latest",
   "patch": {
-    "name": "Atualização 1.4.3.5",
-    "date": "2026-09-28"
+    "name": "Atualização 2.1.1.0",
+    "date": "2026-10-12"
   },
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "Lidera o ranking geral do multiplayer e ocupa a 1ª posição entre os fuzis de assalto na medição do wzstats.gg.",
+      "reason": "Ocupa a primeira posição geral e o primeiro lugar entre os fuzis de assalto no ranking atualizado de outubro de 2026 para o multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "Ocupa o 2º lugar no ranking geral do multiplayer e a 2ª posição na classe de fuzis de assalto no wzstats.gg.",
+      "reason": "Figura na segunda posição tanto no ranking geral do multiplayer quanto na categoria específica de fuzis de assalto.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "Figura na 3ª posição geral do multiplayer e é classificada como a SMG #1 na medição do wzstats.gg.",
+      "reason": "Lidera a classe de submetralhadoras e ocupa a terceira colocação geral no ranking do multiplayer tradicional.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "Ocupa o 4º lugar no ranking geral do multiplayer e a 3ª posição entre os fuzis de assalto no wzstats.gg.",
+      "reason": "Posiciona-se na quarta colocação geral do meta e ocupa o terceiro lugar entre os fuzis de assalto no multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "Posiciona-se em 5º lugar no ranking geral do multiplayer e lidera a categoria de LMGs no wzstats.gg.",
+      "reason": "Classifica-se na quinta posição geral do multiplayer e lidera a categoria de metralhadoras leves (LMGs).",
       "sources": [
         0
       ]
     },
     {
       "weapon": "sgx",
-      "reason": "Ocupa o 6º lugar no ranking geral do multiplayer e a 2ª posição na categoria de SMGs no wzstats.gg.",
+      "reason": "Aparece em sexto lugar geral no ranking do multiplayer e ocupa a segunda posição na categoria de submetralhadoras.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "Está classificada em 7º lugar no ranking geral do multiplayer e lidera a categoria de carabinas no wzstats.gg.",
+      "reason": "Ocupa a sétima posição no ranking geral do multiplayer e lidera o segmento de carabinas.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pw5a3",
-      "reason": "Ocupa a 8ª posição no ranking geral do multiplayer e o 3º lugar entre as SMGs na medição do wzstats.gg.",
+      "reason": "Figura na oitava colocação geral do ranking de armas para o multiplayer tradicional.",
       "sources": [
         0
       ]
@@ -65,72 +65,87 @@
   ],
   "trending": [
     {
-      "weapon": "tr-7",
-      "reason": "Membros da comunidade no r/Battlefield6 debatem se o controle de recuo pune rajadas contínuas em comparação com tiros intermitentes.",
-      "sources": [
-        3
-      ],
-      "trend": "discussão sobre recuo"
-    },
-    {
-      "weapon": "ak-205",
-      "reason": "Thread no r/Battlefield6 discute se o perfil da arma deveria ter menor precisão e maior dano por conta do calibre 5.45 e do sistema de pistão.",
-      "sources": [
-        2
-      ],
-      "trend": "debate de precisão e dano"
-    },
-    {
       "weapon": "svdm",
-      "reason": "Detalhamento do Update 2.1.1.0 no r/Battlefield6 indica mudança na direção do recuo de 4° para 20° e aumento no tempo de recuperação do recuo.",
+      "reason": "Apareceu em discussão no Reddit criticando as mudanças do patch que aumentaram a direção do recuo para 20° e o expoente do tempo de decaimento para 1.1, alterando seu comportamento em disparos sustentados.",
       "sources": [
         1
       ],
-      "trend": "ajuste no recuo"
+      "trend": "reclamação de recuo"
     },
     {
       "weapon": "m39-emr",
-      "reason": "Notas do Update 2.1.1.0 publicadas no r/Battlefield6 relatam aumento do expoente de diminuição de recuo para 1.1 para limitar controle em cadência máxima.",
+      "reason": "Citada em tópico do Reddit junto com a SVDM após receber o aumento no expoente do tempo de decaimento do recuo para 1.1 na atualização 2.1.1.0.",
       "sources": [
         1
       ],
-      "trend": "mudança de controle no RPM máximo"
+      "trend": "reclamação de recuo"
+    },
+    {
+      "weapon": "tr-7",
+      "reason": "Foi debatida em tópico do Reddit sobre como o jogo penaliza o controle excessivo de recuo em disparos contínuos.",
+      "sources": [
+        2
+      ],
+      "trend": "discussão de balanceamento"
+    },
+    {
+      "weapon": "ak-205",
+      "reason": "Discutida em posts do Reddit que debatem as estatísticas de precisão e o dano simulado do calibre em comparação com outros fuzis.",
+      "sources": [
+        3
+      ],
+      "trend": "discussão de estatísticas"
     },
     {
       "weapon": "m4a1",
-      "reason": "Em discussão sobre loadouts no r/Battlefield6, jogador relata abandono do fuzil por falta de estabilidade e pede indicações de armas mais precisas.",
+      "reason": "Mencionada em relato de jogador novato no Reddit sobre loadouts e armas com as quais teve dificuldade de adaptação na classe de suporte.",
+      "sources": [
+        6
+      ],
+      "trend": "relato de uso"
+    },
+    {
+      "weapon": "ak4d",
+      "reason": "Citada em discussão no Reddit sobre a conclusão de progressão e desempenho de DMRs e armas de precisão a longas distâncias.",
+      "sources": [
+        7
+      ],
+      "trend": "análise de coleção"
+    },
+    {
+      "weapon": "m433",
+      "reason": "Mencionada em discussão do Reddit sobre as notas da atualização 2.1.1.0 e correções visuais envolvendo acessórios e miras.",
+      "sources": [
+        5
+      ],
+      "trend": "notas de atualização"
+    },
+    {
+      "weapon": "ef88",
+      "reason": "Listada em discussões no Reddit detalhando as alterações e itens do patch notes da versão 2.1.1.0.",
       "sources": [
         4
       ],
-      "trend": "queixas de estabilidade"
+      "trend": "notas de atualização"
     }
   ],
   "sources": [
     {
       "name": "wzstats.gg — ranking do multiplayer",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-10-12",
+      "date": "2026-10-13",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Tem página só de multiplayer, separada das de REDSEC e de REDSEC Ranqueado, e ordena arma por arma dentro de cada classe.",
       "timeframe": "season-4"
     },
     {
-      "name": "Reddit — BATTLEFIELD 6 GAME UPDATE 2.1.1.0 (PART 1)",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1x4482s/battlefield_6_game_update_2110_part_1/",
-      "date": "2026-10-12",
+      "name": "Reddit — Another buff for the fucking snipers",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1x4yr1f/another_buff_for_the_fucking_snipers/",
+      "date": "2026-10-13",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita M433, NVO-228E, EF88, M417 A2, GRT-BC, SG 553R, BROD 3, PW5A3, M123K, M250, M121 A2, LMR27, M39 EMR, SVDM, VSSM, GRT-CPS, Interdictor, M87A1. Mostra do que se fala, não mede força.",
-      "timeframe": "season-4"
-    },
-    {
-      "name": "Reddit — AK-205 stats",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1x474n7/ak205_stats/",
-      "date": "2026-10-12",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita AK-205. Mostra do que se fala, não mede força.",
+      "scope": "Thread do r/Battlefield6 que cita M39 EMR, SVDM. Mostra do que se fala, não mede força.",
       "timeframe": "season-4"
     },
     {
@@ -143,6 +158,33 @@
       "timeframe": "season-4"
     },
     {
+      "name": "Reddit — AK-205 stats",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1x475r5/ak205_stats/",
+      "date": "2026-10-12",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita AK-205. Mostra do que se fala, não mede força.",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit — BATTLEFIELD 6 GAME UPDATE 2.1.1.0 (PART 2)",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1x44hzy/battlefield_6_game_update_2110_part_2/",
+      "date": "2026-10-12",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita SOR-556 Mk2, B36A4, L85A3, M433, KORD 6P67, NVO-228E, EF88, VCR-2, SG 553R, SOR-300SC, SCW-10, KV9, PW5A3, SGX, SL9, CZ3A1, PP-19, KTS100 MK8, M123K, L110, M121 A2, RPK-74M, M39 EMR, SVD",
+      "timeframe": "season-4"
+    },
+    {
+      "name": "Reddit — BATTLEFIELD 6 GAME UPDATE 2.1.1.0 (PART 1)",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1x4482s/battlefield_6_game_update_2110_part_1/",
+      "date": "2026-10-12",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita M433, NVO-228E, EF88, M417 A2, GRT-BC, SG 553R, BROD 3, PW5A3, M123K, M250, M121 A2, LMR27, M39 EMR, SVDM, VSSM, GRT-CPS, Interdictor, M87A1. Mostra do que se fala, não mede força.",
+      "timeframe": "season-4"
+    },
+    {
       "name": "Reddit — What is everyone's go-to loadouts for each class?",
       "url": "https://www.reddit.com/r/Battlefield6/comments/1x37e7x/what_is_everyones_goto_loadouts_for_each_class/",
       "date": "2026-10-11",
@@ -152,22 +194,31 @@
       "timeframe": "season-4"
     },
     {
-      "date": "2026-09-28",
+      "name": "Reddit — Finally Completed the Unstoppable Level 50 DMR Collection",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1x1zlxa/finally_completed_the_unstoppable_level_50_dmr/",
+      "date": "2026-10-09",
       "country": "INT",
       "mode": "multiplayer",
-      "timeframe": "season-4",
-      "name": "EA — Battlefield 6 Game Update 1.4.3.5",
-      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-1-4-3-5",
-      "scope": "A atualização em vigor, lida do catálogo do site: 2 linhas de arma no changelog do multiplayer. Substituiu a 1.4.3.0."
+      "scope": "Thread do r/Battlefield6 que cita AK4D, TR-7, M433, KORD 6P67, AK-205, M277, SCW-10, SL9, M250, M/60, LMR27, M39 EMR, SVDM, SVK-8.6, VSSM, GRT-CPS. Mostra do que se fala, não mede força.",
+      "timeframe": "season-4"
     },
     {
-      "date": "2026-09-28",
+      "date": "2026-10-12",
       "country": "INT",
       "mode": "multiplayer",
       "timeframe": "season-4",
-      "name": "BF6 Balance Log — registro da 1.4.3.5",
+      "name": "EA — Battlefield 6 Game Update 2.1.1.0",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-1-0",
+      "scope": "A atualização em vigor, lida do catálogo do site: 12 linhas de arma no changelog do multiplayer. Substituiu a 1.4.3.5."
+    },
+    {
+      "date": "2026-10-12",
+      "country": "INT",
+      "mode": "multiplayer",
+      "timeframe": "season-4",
+      "name": "BF6 Balance Log — registro da 2.1.1.0",
       "url": "https://bf6balancelog.com/",
-      "scope": "O mesmo changelog da 1.4.3.5, transcrito arma por arma, com o histórico de cada peça."
+      "scope": "O mesmo changelog da 2.1.1.0, transcrito arma por arma, com o histórico de cada peça."
     }
   ]
 }
