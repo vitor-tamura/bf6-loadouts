@@ -4,6 +4,7 @@ import { App, ConfigProvider } from 'antd';
 import ptBR from 'antd/locale/pt_BR';
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
 import { antdTheme } from '@/lib/antd-theme';
+import type { SeasonPalette } from '@/data/season';
 
 /**
  * O tema claro/escuro, e o Ant Design vestido com ele.
@@ -23,13 +24,14 @@ const THEME_FADE_MS = 320;
 interface Tema {
   light: boolean;
   toggle: () => void;
+  palette?: SeasonPalette;
 }
 
 const TemaContext = createContext<Tema>({ light: false, toggle: () => {} });
 
 export const useTheme = () => useContext(TemaContext);
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
+export function ThemeProvider({ children, palette }: { children: ReactNode; palette?: SeasonPalette }) {
   const [light, setLight] = useState(false);
   const first = useRef(true);
 
@@ -50,13 +52,13 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, [light]);
 
   return (
-    <TemaContext.Provider value={{ light, toggle: () => setLight((v) => !v) }}>
+    <TemaContext.Provider value={{ light, palette, toggle: () => setLight((v) => !v) }}>
       {/*
         `App` embrulha tudo para que `message` e `modal` saiam vestidos com o
         tema. Chamados pelo atalho estático — `message.success(...)` — eles
         nascem fora do `ConfigProvider` e voltam ao azul padrão do antd.
       */}
-      <ConfigProvider theme={antdTheme(light)} locale={ptBR}>
+      <ConfigProvider theme={antdTheme(light, palette)} locale={ptBR}>
         <App component={false}>{children}</App>
       </ConfigProvider>
     </TemaContext.Provider>
