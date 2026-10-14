@@ -9,7 +9,7 @@ export const CLASSES: PlayerClass[] = [
     role: 'Tomar e manter objetivos',
     trait: 'Saque e troca de arma mais rápidos e recuperação de corrida acelerada com fuzis de assalto.',
     signatureCategory: 'ar',
-    color: '#ff8a00',
+    color: 'var(--accent)',
   },
   {
     id: 'support',
@@ -19,7 +19,7 @@ export const CLASSES: PlayerClass[] = [
     role: 'Sustentar o esquadrão',
     trait: 'Sem penalidade de velocidade de corrida ao carregar metralhadoras.',
     signatureCategory: 'lmg',
-    color: '#7ddc4c',
+    color: 'var(--color-positive)',
   },
   {
     id: 'engineer',
@@ -29,7 +29,7 @@ export const CLASSES: PlayerClass[] = [
     role: 'Dominar o combate de veículos',
     trait: 'Manejo aprimorado de submetralhadoras e reparo mais veloz.',
     signatureCategory: 'smg',
-    color: '#22c3d6',
+    color: 'var(--season-info)',
   },
   {
     id: 'recon',
@@ -39,7 +39,7 @@ export const CLASSES: PlayerClass[] = [
     role: 'Informação e eliminação a longa distância',
     trait: 'Menos oscilação ao mirar e prender a respiração por mais tempo com rifles de precisão.',
     signatureCategory: 'sniper',
-    color: '#a78bfa',
+    color: 'var(--season-dark-accent-light)',
   },
 ];
 
