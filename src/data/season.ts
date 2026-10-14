@@ -36,25 +36,23 @@ export interface Season {
 }
 
 /**
- * Em ordem cronológica. Só as temporadas com tema próprio precisam estar aqui —
- * as antigas podem sair quando deixarem de importar.
+ * Em ordem cronológica. Só a temporada atual precisa estar aqui.
  *
  * A EA anuncia o início de cada temporada, mas não o fim; `endsOn` é o dia
- * anterior ao começo da seguinte, e para a última cadastrada usa a duração
- * observada de três meses.
+ * anterior ao começo da seguinte. Para a última cadastrada, a duração é
+ * estimada em três meses.
  */
 export const SEASONS: Season[] = [
   {
-    number: 4,
-    name: 'Naval Warfare',
-    summary: 'Combate naval no Pacífico: Tsuru Reef, Wake Island e a frota que chega junto.',
-    startsOn: '2026-07-21',
-    endsOn: '2026-10-19',
-    theme: 'naval',
+    number: 5,
+    name: 'Siege of Vegas',
+    summary: 'Cerco a Vegas: Vegas Strip, Area 51, Rapid Royale e novos armamentos.',
+    startsOn: '2026-10-13',
+    endsOn: '2027-01-12',
     phases: [
-      { name: 'Pacific Front', startsOn: '2026-07-21' },
-      { name: 'Top Gun', startsOn: '2026-08-18' },
-      { name: 'Tidal Strike', startsOn: '2026-09-15' },
+      { name: 'Siege of Vegas', startsOn: '2026-10-13' },
+      { name: 'Casino Heist', startsOn: '2026-11-10' },
+      { name: 'Frozen Aces', startsOn: '2026-12-08' },
     ],
   },
 ];
@@ -64,16 +62,14 @@ export const SEASONS: Season[] = [
  *
  * Vale para toda arma e todo item marcado com `season`, inclusive os das
  * temporadas que já saíram do ar — por isso a tabela é separada de [SEASONS],
- * que só guarda as temporadas com tema próprio e data de validade.
- *
- * A cor da 4 é a mesma maré do tema naval; as demais seguem o clima de cada
- * temporada. Trocar aqui muda a etiqueta em todas as telas.
+ * que só guarda a temporada atual e sua validade.
  */
 export const SEASON_TAGS: Record<number, { name?: string; color: string }> = {
   1: { color: '#d98d3a' },
   2: { color: '#86b7e0' },
   3: { color: '#7fbf5f' },
   4: { name: 'Naval Warfare', color: '#4fc3d9' },
+  5: { name: 'Siege of Vegas', color: '#ffb545' },
 };
 
 /** Como etiquetar um número de temporada; `null` para conteúdo de lançamento. */
@@ -100,7 +96,7 @@ export function phaseOn(date: Date, season: Season): SeasonPhase {
   return season.phases.filter((f) => f.startsOn <= day).at(-1) ?? season.phases[0];
 }
 
-/** Etiqueta curta da temporada no ar: `T4 · Pacific Front`. */
+/** Etiqueta curta da temporada no ar: `T5 · Siege of Vegas`. */
 export function seasonLabel(date: Date): string | null {
   const season = seasonOn(date);
   return season ? `T${season.number} · ${phaseOn(date, season).name}` : null;
