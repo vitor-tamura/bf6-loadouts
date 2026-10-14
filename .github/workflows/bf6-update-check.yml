@@ -77,8 +77,21 @@ jobs:
           echo "pendentes=$pendentes" >> "$GITHUB_OUTPUT"
           echo "Análises pendentes: ${pendentes:-nenhuma}"
 
+      # O CDN pode publicar a arte depois dos dados da arma. Enquanto
+      # faltar imagem, reexecuta o processamento a cada seis horas; a etapa de
+      # download não bloqueia o catálogo se a imagem ainda não existir.
+      - name: Imagens novas pendentes
+        id: imagens
+        continue-on-error: true
+        run: |
+          if npm run --silent images -- --check; then
+            echo "pendentes=" >> "$GITHUB_OUTPUT"
+          else
+            echo "pendentes=sim" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Disparar o processamento
-        if: steps.discover.outputs.versions != '' || steps.analise.outputs.pendentes != ''
+        if: steps.discover.outputs.versions != '' || steps.analise.outputs.pendentes != '' || steps.imagens.outputs.pendentes != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh workflow run bf6-update-process.yml
