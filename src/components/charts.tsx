@@ -153,7 +153,7 @@ function ChartFrame({
 /* --------------------------- Comparação entre armas --------------------------- */
 
 /** Cores das séries na comparação, escolhidas para se distinguirem nos dois temas. */
-export const SERIES_COLORS = ['var(--accent)', 'var(--season-dark-info)', 'var(--color-positive)', 'var(--color-negative)'];
+export const SERIES_COLORS = ['var(--accent)', 'var(--season-info)', 'var(--color-positive)', 'var(--color-negative)'];
 
 export interface Series {
   name: string;
