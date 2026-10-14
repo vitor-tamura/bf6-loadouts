@@ -100,109 +100,94 @@
   color-scheme: light;
 }
 
-/* ------------------------------------------------------------------ *
- * Temporada 4 — Naval Warfare (21/07/2026 a 19/10/2026)
- *
- * Guerra naval no Pacífico: o carvão puxa para o azul de casco de navio
- * e o ciano de radar ganha presença. O âmbar continua sendo a cor de
- * ação, como na interface do jogo — trocar isso também seria trocar o
- * significado de "melhorou" nas barras e nos gráficos.
- *
- * O atributo sai do `<html>` sozinho quando a temporada encerra, e a
- * interface volta ao tema acima. Nada aqui precisa ser removido.
- * ------------------------------------------------------------------ */
-:root[data-season='naval'] {
-  --base-950: #05080b;
-  --base-900: #090e13;
-  --base-850: #0d141a;
-  --base-800: #111a22;
-  --base-700: #1b2833;
-  --base-600: #283a49;
-  --base-400: #5c7a8f;
-  --base-300: #8aa5b8;
-  --base-100: #dfeaf0;
-
-  --bg: var(--base-950);
-  --surface: var(--base-900);
-  --surface-raised: var(--base-850);
-  --border: var(--base-700);
-  --border-soft: var(--base-800);
-  --text: var(--base-100);
-  --text-soft: var(--base-300);
-  --text-dim: var(--base-400);
-  --grid: color-mix(in oklab, var(--base-600) 45%, transparent);
-  /* A trama do fundo acompanha, senão sobra um verde fora de lugar. */
-  --weave: var(--base-600);
-  --tide: var(--color-cyan-500);
-  --surface-veil: color-mix(in oklab, var(--base-900) 82%, transparent);
-  --surface-hover: color-mix(in oklab, var(--base-850) 92%, transparent);
+/* Toda a interface lê a paleta da temporada ativa. O cadastro em
+   season.ts fornece as cores; estes tokens vestem CSS e utilitários Tailwind. */
+:root[data-season] {
+  --color-base-950: var(--season-dark-base-950);
+  --base-950: var(--season-dark-base-950);
+  --color-base-900: var(--season-dark-base-900);
+  --base-900: var(--season-dark-base-900);
+  --color-base-850: var(--season-dark-base-850);
+  --base-850: var(--season-dark-base-850);
+  --color-base-800: var(--season-dark-base-800);
+  --base-800: var(--season-dark-base-800);
+  --color-base-700: var(--season-dark-base-700);
+  --base-700: var(--season-dark-base-700);
+  --color-base-600: var(--season-dark-base-600);
+  --base-600: var(--season-dark-base-600);
+  --color-base-500: var(--season-dark-base-500);
+  --base-500: var(--season-dark-base-500);
+  --color-base-400: var(--season-dark-base-400);
+  --base-400: var(--season-dark-base-400);
+  --color-base-300: var(--season-dark-base-300);
+  --base-300: var(--season-dark-base-300);
+  --color-base-200: var(--season-dark-base-200);
+  --base-200: var(--season-dark-base-200);
+  --color-base-100: var(--season-dark-base-100);
+  --base-100: var(--season-dark-base-100);
+  --color-amber-400: var(--season-dark-accent-light);
+  --color-amber-500: var(--season-dark-accent);
+  --color-amber-600: color-mix(in oklab, var(--season-dark-accent) 78%, black);
+  --color-cyan-400: var(--season-dark-info);
+  --color-cyan-500: color-mix(in oklab, var(--season-dark-info) 78%, black);
+  --bg: var(--season-dark-bg);
+  --surface: var(--season-dark-surface);
+  --surface-raised: var(--season-dark-surface-raised);
+  --border: var(--season-dark-border);
+  --border-soft: var(--season-dark-border-soft);
+  --text: var(--season-dark-text);
+  --text-soft: var(--season-dark-text-soft);
+  --text-dim: var(--season-dark-text-dim);
+  --accent: var(--season-dark-accent);
+  --accent-light: var(--season-dark-accent-light);
+  --grid: color-mix(in oklab, var(--season-dark-base-600) 45%, transparent);
+  --weave: color-mix(in oklab, var(--season-dark-accent) 35%, var(--season-dark-info));
+  --tide: var(--season-dark-info);
+  --surface-veil: color-mix(in oklab, var(--season-dark-surface) 82%, transparent);
+  --surface-hover: color-mix(in oklab, var(--season-dark-surface-raised) 92%, transparent);
 }
 
-:root[data-season='naval'][data-theme='light'] {
-  --bg: #eef3f6;
-  --surface: #ffffff;
-  --surface-raised: #e2eaef;
-  --border: #c4d2da;
-  --border-soft: #d8e2e8;
-  --text: #0b1319;
-  --text-soft: #3d5567;
-  --text-dim: #5c7a8f;
-  --grid: #c4d2da;
-  --weave: #5c7a8f;
-  --surface-veil: rgb(255 255 255 / 0.78);
-  --surface-hover: rgb(255 255 255 / 0.95);
-}
-
-
-/* ------------------------------------------------------------------ *
- * Temporada 5 — Siege of Vegas.
- *
- * A cidade neon inspira o magenta dos letreiros e o ciano das luzes,
- * sobre uma base violeta quase preta. No tema claro, a mesma paleta
- * vira tons de porcelana, ameixa e rosa.
- * ------------------------------------------------------------------ */
-:root[data-season='vegas'] {
-  --base-950: #08070d;
-  --base-900: #100d18;
-  --base-850: #171220;
-  --base-800: #21172c;
-  --base-700: #35223f;
-  --base-600: #543150;
-  --base-400: #a07e9d;
-  --base-300: #c5a9c5;
-  --base-100: #f7eefa;
-
-  --bg: var(--base-950);
-  --surface: var(--base-900);
-  --surface-raised: var(--base-850);
-  --border: var(--base-700);
-  --border-soft: var(--base-800);
-  --text: var(--base-100);
-  --text-soft: var(--base-300);
-  --text-dim: var(--base-400);
-  --accent: #f43f72;
-  --accent-light: #ff78aa;
-  --grid: color-mix(in oklab, var(--base-600) 45%, transparent);
-  --weave: #6a466f;
-  --tide: #42d9ef;
-  --surface-veil: color-mix(in oklab, var(--base-900) 82%, transparent);
-  --surface-hover: color-mix(in oklab, var(--base-850) 92%, transparent);
-}
-
-:root[data-season='vegas'][data-theme='light'] {
-  --bg: #f9f2f7;
-  --surface: #ffffff;
-  --surface-raised: #f1e6ef;
-  --border: #dfc9dc;
-  --border-soft: #eadbe8;
-  --text: #281a2b;
-  --text-soft: #624566;
-  --text-dim: #806780;
-  --accent: #cf2f62;
-  --accent-light: #a92250;
-  --grid: #e5d1e2;
-  --weave: #8b6986;
-  --tide: #168ba2;
+:root[data-season][data-theme='light'] {
+  --color-base-950: var(--season-light-base-950);
+  --base-950: var(--season-light-base-950);
+  --color-base-900: var(--season-light-base-900);
+  --base-900: var(--season-light-base-900);
+  --color-base-850: var(--season-light-base-850);
+  --base-850: var(--season-light-base-850);
+  --color-base-800: var(--season-light-base-800);
+  --base-800: var(--season-light-base-800);
+  --color-base-700: var(--season-light-base-700);
+  --base-700: var(--season-light-base-700);
+  --color-base-600: var(--season-light-base-600);
+  --base-600: var(--season-light-base-600);
+  --color-base-500: var(--season-light-base-500);
+  --base-500: var(--season-light-base-500);
+  --color-base-400: var(--season-light-base-400);
+  --base-400: var(--season-light-base-400);
+  --color-base-300: var(--season-light-base-300);
+  --base-300: var(--season-light-base-300);
+  --color-base-200: var(--season-light-base-200);
+  --base-200: var(--season-light-base-200);
+  --color-base-100: var(--season-light-base-100);
+  --base-100: var(--season-light-base-100);
+  --color-amber-400: var(--season-light-accent-light);
+  --color-amber-500: var(--season-light-accent);
+  --color-amber-600: color-mix(in oklab, var(--season-light-accent) 78%, black);
+  --color-cyan-400: var(--season-light-info);
+  --color-cyan-500: color-mix(in oklab, var(--season-light-info) 78%, black);
+  --bg: var(--season-light-bg);
+  --surface: var(--season-light-surface);
+  --surface-raised: var(--season-light-surface-raised);
+  --border: var(--season-light-border);
+  --border-soft: var(--season-light-border-soft);
+  --text: var(--season-light-text);
+  --text-soft: var(--season-light-text-soft);
+  --text-dim: var(--season-light-text-dim);
+  --accent: var(--season-light-accent);
+  --accent-light: var(--season-light-accent-light);
+  --grid: var(--season-light-border);
+  --weave: color-mix(in oklab, var(--season-light-accent) 30%, var(--season-light-info));
+  --tide: var(--season-light-info);
   --surface-veil: rgb(255 255 255 / 0.8);
   --surface-hover: rgb(255 255 255 / 0.95);
 }
