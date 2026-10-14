@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  emIngles,
   chavePagina,
   confiabilidade,
   montarLeitura,
@@ -588,5 +589,17 @@ describe('os limites que o prompt promete', () => {
   it('não prometem mais armas do que a tela mostra', () => {
     expect(LIMITES.minimoDePicks).toBeLessThanOrEqual(LIMITES.picks);
     expect(LIMITES.minimoDeTrending).toBeLessThanOrEqual(LIMITES.trending);
+  });
+});
+
+describe('emIngles', () => {
+  it('reconhece o motivo em inglês que a leitura de 14/10 publicou', () => {
+    expect(emIngles('Ranks #1 overall in the WZStats multiplayer meta list, showing highest usage')).toBe(true);
+    expect(emIngles('Thread on 2026-10-14 about unlock kit glitching mentions SGX')).toBe(true);
+  });
+
+  it('deixa passar português com nome de arma e sigla em inglês', () => {
+    expect(emIngles('1ª do ranking geral do multiplayer no wzstats, e a 2.1.1.0 não mexeu nela.')).toBe(false);
+    expect(emIngles('Thread de 13/10 reclama do recuo da SVDM depois do patch.')).toBe(false);
   });
 });

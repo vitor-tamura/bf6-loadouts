@@ -36,6 +36,12 @@ import { baseStats } from './stats';
  */
 export const MIN_TENDENCIA = 4;
 
+/** Teto do bloco: duas fileiras de quatro. */
+const MAX_TENDENCIA = 8;
+
+/** Quantos dias depois do começo da temporada as armas novas entram sempre no bloco. */
+const ESTREIA_EM_DIAS = 14;
+
 const DIA = new Intl.DateTimeFormat('pt-BR', {
   day: '2-digit',
   month: '2-digit',
@@ -67,11 +73,26 @@ export function completarTendencia(
   const sustentadas = trending.filter(
     (pick) => WEAPONS_BY_ID.has(pick.weapon) && pick.sources.length > 0,
   );
-  const faltam = MIN_TENDENCIA - sustentadas.length;
-  if (faltam <= 0) return sustentadas;
-
   const temporada = seasonOn(new Date(`${on}T12:00:00Z`));
   if (!temporada) return sustentadas;
+
+  /*
+    Nas duas primeiras semanas da temporada, as armas novas entram sempre.
+
+    É quando todo mundo está falando delas, e quando as fontes que medem ainda
+    não as ranquearam — a leitura de 14/10 trouxe seis cartões de conversa e
+    nenhum das quatro armas que tinham acabado de chegar, porque o arsenal da
+    rotina ainda não as conhecia. Sem esta regra elas só apareciam se faltasse
+    cartão.
+  */
+  const diasDeTemporada =
+    (Date.parse(`${on}T12:00:00Z`) - Date.parse(`${temporada.startsOn}T12:00:00Z`)) / 86_400_000;
+  const novas = WEAPONS.filter((arma) => arma.season === temporada.number).length;
+  const faltam =
+    diasDeTemporada <= ESTREIA_EM_DIAS
+      ? Math.max(MIN_TENDENCIA - sustentadas.length, Math.min(novas, MAX_TENDENCIA - sustentadas.length))
+      : MIN_TENDENCIA - sustentadas.length;
+  if (faltam <= 0) return sustentadas;
 
   /*
     Só o que falta, e nunca na frente do que a leitura trouxe: o cartão com

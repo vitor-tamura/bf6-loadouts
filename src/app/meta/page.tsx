@@ -1,6 +1,7 @@
 import { MetaScreen } from './meta-screen';
 import live from '@/data/meta-live.json';
 import type { MetaPatch, MetaPick, MetaSource, TrendingPick } from '@/data/meta';
+import type { DailyRanking } from '@/lib/ranking';
 
 /**
  * A tela do meta.
@@ -25,6 +26,9 @@ export default function MetaPage() {
    */
   const patch = ('patch' in live ? live.patch : null) as MetaPatch | null;
 
+  /* O ranking inteiro do dia, lido pelo código — monta as categorias e o REDSEC. */
+  const ranking = ('ranking' in live ? live.ranking : null) as DailyRanking | null;
+
   /*
    * `readAt` é a data que a tela mostra no "revisado em", e ela vale sempre que
    * a rotina tiver rodado — inclusive quando o dia rendeu só trending, sem
@@ -41,6 +45,7 @@ export default function MetaPage() {
       sources={live.sources as MetaSource[]}
       readAt={live.readAt}
       patch={patch}
+      ranking={ranking}
       fromSearch
     />
   );

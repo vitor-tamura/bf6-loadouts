@@ -4,6 +4,7 @@ import {
   armasCitadas,
   filtrarConversa,
   parsearRss,
+  rankingDaPagina,
   recortarPagina,
   trechoDaThread,
 } from './paginas.mjs';
@@ -149,5 +150,22 @@ describe('ancorarFontes', () => {
   it('resposta sem listas não quebra', () => {
     expect(ancorarFontes({}, material).sources).toEqual([]);
     expect(ancorarFontes({ picks: [{ weapon: 'M16A4', source: 'não é url' }] }, material).sources).toEqual([]);
+  });
+});
+
+describe('rankingDaPagina', () => {
+  const texto =
+    'Meta 1 M16A4 #1 Assault Rifle 2 B36A4 #2 Assault Rifle 3 PP-19 #1 SMG ' +
+    'A Tier 1 BROD 3 #3 Carbine 8 M121 A2 #4 LMG 12 SG-553R #2 Carbine 29 vz. 61 #1 Secondary ' +
+    'META Guns M16A4 #1 Assault Rifle';
+
+  it('lê a ordem da página, a arma e a posição na classe', () => {
+    const ranking = rankingDaPagina(texto);
+    expect(ranking.map((e) => e.weapon)).toEqual(['m16a4', 'b36a4', 'pp-19', 'brod-3', 'm121-a2', 'sg-553r', 'vz-61']);
+    expect(ranking[3]).toMatchObject({ categoryRank: 3, overall: 4, category: 'carbine' });
+  });
+
+  it('a posição geral é a ordem de aparição, não o número que recomeça a cada escalão', () => {
+    expect(rankingDaPagina(texto).find((e) => e.weapon === 'brod-3')?.overall).toBe(4);
   });
 });

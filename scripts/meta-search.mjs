@@ -56,7 +56,7 @@ import {
   listasBrutas,
   montarLeitura,
 } from './meta/leitura.mjs';
-import { ancorarFontes, lerConversa, lerPaginasQueMedem } from './meta/paginas.mjs';
+import { RANKINGS, ancorarFontes, lerConversa, lerPaginasQueMedem, lerRanking } from './meta/paginas.mjs';
 import { briefingDoPatch, fontesDoPatch, patchAtual } from './meta/patch-atual.mjs';
 import { candidatos, modelosDe, perguntarComBusca, temAlgumaChave } from './meta/provedores.mjs';
 
@@ -285,6 +285,8 @@ As duas se cruzam de vez em quando — arma forte costuma ser usada —, mas uma
 
 ## 7. Resposta
 
+"reason" e "trend" vão **em português do Brasil**, mesmo quando a fonte é em inglês: motivo em inglês é descartado pelo código, e a arma cai junto.
+
 Responda SOMENTE com este JSON, sem cercas de código e sem texto antes ou depois:
 
 {"picks":[{"weapon":"NOME EXATO DA ARMA","reason":"o que mostra que ela está forte depois do patch e por que esta forte agora","source":"https://..."}],"trending":[{"weapon":"NOME EXATO DA ARMA","trend":"do que se fala nela","reason":"onde a conversa ou o uso recente foi visto","source":"https://..."}],"sources":[{"name":"nome curto da fonte","url":"https://...","date":"YYYY-MM-DD","scope":"por que essa fonte vale para o multiplayer"}]}`;
@@ -490,9 +492,97 @@ async function lerComBusca(base) {
   return null;
 }
 
+/**
+ * Os rankings inteiros do dia — o do multiplayer e o do REDSEC —, lidos pelo
+ * código, sem modelo (`rankingDaPagina`).
+ *
+ * O modelo escolhe oito armas para o topo; a tela tem mais o que mostrar: o
+ * meta por categoria e as armas que o REDSEC valoriza e o multiplayer não.
+ * Esses blocos eram escritos à mão e ficaram parados na Temporada 4 enquanto o
+ * topo andava sozinho. Com o ranking inteiro gravado, a tela monta os dois a
+ * partir da mesma página, do mesmo dia.
+ */
+let RANKING = null;
+
+async function lerRankings() {
+  const [multiplayer, redsec] = await Promise.all([
+    lerRanking(RANKINGS.multiplayer, { hoje: HOJE }),
+    lerRanking(RANKINGS.redsec, { hoje: HOJE }),
+  ]);
+  if (!multiplayer) return null;
+  console.log(`Ranking lido: ${multiplayer.entries.length} armas no multiplayer, ${redsec?.entries.length ?? 0} no REDSEC.`);
+  return { multiplayer, ...(redsec ? { redsec } : {}) };
+}
+
+/**
+ * Sem leitura nova do modelo, o ranking do dia ainda entra no arquivo de ontem:
+ * ele não depende de modelo nenhum, e é o que mantém as categorias em dia.
+ */
+function gravarSoORanking() {
+  if (!RANKING) return false;
+  try {
+    const atual = JSON.parse(readFileSync(DESTINO, 'utf8'));
+    const novo = `${JSON.stringify({ ...atual, ranking: RANKING }, null, 2)}\n`;
+    if (novo !== readFileSync(DESTINO, 'utf8')) {
+      writeFileSync(DESTINO, novo);
+      console.log('Ranking do dia gravado sobre a leitura anterior.');
+    }
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+const PLURAL = {
+  ar: 'os fuzis',
+  carbine: 'as carabinas',
+  smg: 'as submetralhadoras',
+  lmg: 'as metralhadoras',
+  dmr: 'as DMRs',
+  sniper: 'os rifles de precisão',
+  shotgun: 'as escopetas',
+  pistol: 'as secundárias',
+};
+
+/**
+ * O topo a partir do ranking, sem modelo: as oito primeiras da página, com a
+ * posição como motivo. O trending fica vazio — a tela completa com as armas
+ * novas da temporada, e não há conversa a afirmar sem quem a tenha lido.
+ */
+export function leituraDoRanking(ranking = RANKING) {
+  const pagina = ranking?.multiplayer;
+  if (!pagina) return null;
+  return {
+    conteudo: {
+      readAt: HOJE,
+      model: 'ranking do wzstats, lido pelo código',
+      ...(CONTEXTO_DA_LEITURA.patchConhecido ? { patch: CONTEXTO_DA_LEITURA.patchConhecido } : {}),
+      picks: pagina.entries.slice(0, LIMITES.picks).map((entrada) => ({
+        weapon: entrada.weapon,
+        reason: `${entrada.overall}ª no ranking geral do multiplayer do wzstats e ${entrada.categoryRank}ª entre ${PLURAL[entrada.category] ?? 'as da classe'}.`,
+        sources: [0],
+      })),
+      trending: [],
+      sources: [
+        {
+          name: pagina.name,
+          url: pagina.url,
+          date: pagina.date,
+          country: 'INT',
+          mode: 'multiplayer',
+          scope: 'Página só de multiplayer, separada da de REDSEC: ordena as armas no geral e dentro de cada classe.',
+          timeframe: TIMEFRAME,
+        },
+      ],
+    },
+    descartes: [],
+  };
+}
+
 /** Grava a leitura, se ela mudou. */
 function gravar({ conteudo, descartes }) {
   for (const { nome, motivo } of descartes) console.warn(`Descartada — ${nome}: ${motivo}`);
+  if (RANKING) conteudo.ranking = RANKING;
 
   // A atualização em vigor entra na lista de fontes pelo catálogo, no fim,
   // sem mexer na numeração que os cartões já citam.
@@ -539,7 +629,8 @@ async function main() {
     process.exit(1);
   }
 
-  const material = await juntarMaterial();
+  const [material, ranking] = await Promise.all([juntarMaterial(), lerRankings()]);
+  RANKING = ranking;
   const semBusca = material.paginas.length ? await lerSemBusca(material) : null;
 
   if (semBusca && semBusca.conteudo.trending.length >= LIMITES.minimoDeTrending) {
@@ -567,6 +658,18 @@ async function main() {
   }
 
   console.error('Nenhum modelo entregou leitura utilizável.');
+
+  /*
+   * Sem modelo, o topo sai do ranking do dia, lido pelo código. É menos que
+   * uma leitura — o motivo diz a posição e nada mais —, mas é do dia e está em
+   * português, o que a leitura de ontem, mantida, pode não ser.
+   */
+  const doRanking = leituraDoRanking();
+  if (doRanking) {
+    gravar(doRanking);
+    return;
+  }
+  gravarSoORanking();
 
   if (!FALHAR_SEM_ATUALIZAR && temMetaLiveValida()) {
     console.warn(

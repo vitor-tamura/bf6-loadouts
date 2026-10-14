@@ -24,7 +24,8 @@ import {
   type TrendingPick,
 } from '@/data/meta';
 import { seasonOn } from '@/data/season';
-import { WEAPONS_BY_ID } from '@/data/weapons';
+import { WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
+import { categoriasDoRanking, contrasteRedsec, indiceDaFonte, type DailyRanking } from '@/lib/ranking';
 import { EMPTY_LOADOUT } from '@/lib/loadout';
 import { completarDestaques, realocarCategorias } from '@/lib/destaques';
 import { completarTendencia, fichaDaArma, MIN_TENDENCIA } from '@/lib/trending';
@@ -64,6 +65,7 @@ export function MetaScreen({
   sources = SOURCES,
   readAt,
   patch,
+  ranking,
   fromSearch = false,
 }: {
   picks?: MetaPick[];
@@ -71,6 +73,7 @@ export function MetaScreen({
   sources?: MetaSource[];
   readAt?: string;
   patch?: MetaPatch | null;
+  ranking?: DailyRanking | null;
   fromSearch?: boolean;
 } = {}) {
   /*
@@ -108,7 +111,21 @@ export function MetaScreen({
     do topo, sobre a lista que ela devolveu, para as duas não brigarem pelo mesmo
     número.
   */
-  const porCategoria = realocarCategorias(BY_CATEGORY, doTopo.fontes);
+  /*
+    Com o ranking inteiro do dia gravado pela leitura, as categorias e o
+    contraste com o REDSEC saem dele — da mesma página, do mesmo dia. A
+    curadoria à mão de `meta.ts` fica de reserva para quando ele não vier.
+  */
+  const doRanking = ranking?.multiplayer ? indiceDaFonte(doTopo.fontes, ranking.multiplayer, { temporada }) : null;
+  const porCategoria =
+    ranking?.multiplayer && doRanking
+      ? {
+          categorias: categoriasDoRanking(ranking.multiplayer, { fonte: doRanking.indice, temporada, armas: WEAPONS }),
+          fontes: doRanking.fontes,
+        }
+      : realocarCategorias(BY_CATEGORY, doTopo.fontes);
+  const contrastesDoDia = ranking ? contrasteRedsec(ranking) : [];
+  const contrastes = contrastesDoDia.length ? contrastesDoDia : NOT_MULTIPLAYER;
   const { destaques } = doTopo;
   const fontes = porCategoria.fontes;
 
@@ -291,7 +308,7 @@ export function MetaScreen({
               listas de melhores armas que não batem com o que você sente jogando Conquista.
             </Typography.Paragraph>
             <Row gutter={[8, 8]}>
-              {NOT_MULTIPLAYER.map((item) => {
+              {contrastes.map((item) => {
                 const weapon = WEAPONS_BY_ID.get(item.weapon);
                 if (!weapon) return null;
                 return (

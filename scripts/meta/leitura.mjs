@@ -157,6 +157,28 @@ const NOVIDADE = [
   /acab(ou|a) de (chegar|sair|entrar)/,
 ];
 
+/**
+ * O texto está em inglês?
+ *
+ * A tela é em português, e o prompt pede isso duas vezes. Ainda assim a leitura
+ * de 14/10 saiu inteira em inglês, de um gratuito do OpenRouter — "Ranks #1
+ * overall in the WZStats multiplayer meta list" —, e foi publicada assim. A
+ * conta é crua de propósito: palavras de ligação que só existem em inglês,
+ * contra as que só existem em português. Nome de arma, número e sigla não
+ * pesam para nenhum dos lados.
+ */
+const SO_INGLES = new Set(['the', 'and', 'with', 'its', 'is', 'are', 'of', 'in', 'on', 'for', 'about', 'thread', 'ranks', 'which', 'that', 'it', 'this', 'has', 'by', 'from', 'patch’s']);
+const SO_PORTUGUES = new Set(['a', 'o', 'e', 'da', 'do', 'de', 'na', 'no', 'com', 'que', 'em', 'para', 'uma', 'um', 'das', 'dos', 'pela', 'pelo', 'mais', 'é', 'nas', 'nos', 'sobre']);
+export function emIngles(valor) {
+  const palavras = String(valor ?? '')
+    .toLowerCase()
+    .split(/[^a-zà-ú’']+/)
+    .filter(Boolean);
+  const ingles = palavras.filter((p) => SO_INGLES.has(p)).length;
+  const portugues = palavras.filter((p) => SO_PORTUGUES.has(p)).length;
+  return ingles >= 2 && ingles > portugues;
+}
+
 /** Sem acentos e sem pontuação: "SG 553R" e "sg553r" viram a mesma coisa. */
 export const chave = (nome) =>
   String(nome ?? '')
@@ -502,6 +524,10 @@ export function normalizarLista(
     const reason = String(pick.reason ?? '').trim();
     if (texto(reason).length < MOTIVO_MINIMO) {
       descartar(arma.name, 'motivo curto demais para ser evidência');
+      continue;
+    }
+    if (emIngles(reason)) {
+      descartar(arma.name, 'motivo em inglês: a tela é em português');
       continue;
     }
     if (motivosVistos.has(texto(reason))) {

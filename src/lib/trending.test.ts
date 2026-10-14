@@ -192,3 +192,19 @@ describe('ficha da arma', () => {
     expect(primeira.destaque === null || typeof primeira.destaque === 'string').toBe(true);
   });
 });
+
+describe('estreia da temporada', () => {
+  const conversa = (weapon: string) => ({ weapon, trend: 'reclamação', reason: 'thread', sources: [0] });
+
+  it('nas duas primeiras semanas, as armas novas entram mesmo com o bloco cheio', () => {
+    const lida = ['sgx', 'm39-emr', 'svdm', 'pp-19'].map(conversa);
+    const bloco = completarTendencia(lida, { on: '2026-10-14' });
+    expect(bloco.slice(0, 4)).toEqual(lida);
+    expect(bloco.slice(4).map((p) => p.weapon).sort()).toEqual(['elr-40', 'mk-24', 'rspr', 'z84m']);
+  });
+
+  it('depois disso, só completam o que falta', () => {
+    const lida = ['sgx', 'm39-emr', 'svdm', 'pp-19'].map(conversa);
+    expect(completarTendencia(lida, { on: '2026-11-20' })).toEqual(lida);
+  });
+});

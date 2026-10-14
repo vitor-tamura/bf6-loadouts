@@ -165,8 +165,14 @@ export function parsearRss(xml) {
   });
 }
 
-/** Thread de battle royale: o trending é do multiplayer, e a conversa do REDSEC é outra. */
-const DE_OUTRO_MODO = /redsec|battle royale|gauntlet/i;
+/**
+ * Thread de battle royale: o trending é do multiplayer, e a conversa do REDSEC é outra.
+ *
+ * "Rapid Royale" é o modo de battle royale da Temporada 5 e passava pelo filtro
+ * antigo: a leitura de 14/10 tirou duas armas do trending de uma thread dele.
+ * "Ranked" é o Ranqueado, que também é REDSEC.
+ */
+const DE_OUTRO_MODO = /redsec|battle royale|\broyale\b|gauntlet|\bbr\b|ranked/i;
 
 /**
  * Das threads baixadas, as que servem de evidência de conversa.
@@ -337,4 +343,91 @@ export function ancorarFontes(bruto, { paginas = [], conversa = [] }) {
   ];
 
   return { ...bruto, sources: fornecidas.filter((fonte) => citadas.has(chavePagina(fonte.url))) };
+}
+
+/* ========================================================================== *
+ * O ranking inteiro, lido pelo código
+ * ========================================================================== */
+
+/**
+ * O rótulo de classe que o wzstats põe ao lado de cada arma: "#3 Assault Rifle".
+ *
+ * Só serve para achar onde cada linha do ranking termina; a categoria que vale
+ * é a do arsenal do site, porque "Secondary" junta pistola e a vz. 61.
+ */
+const ROTULO_DE_CLASSE = /#(\d+)\s*(Assault Rifle|Carbine|SMG|LMG|DMR|Sniper Rifle|Shotgun|Secondary|Pistol)s?\b/g;
+
+const compacto = (valor) =>
+  String(valor ?? '')
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '');
+
+/* Do nome mais longo para o mais curto: "M4A1" não pode roubar o lugar de outra
+   arma cujo nome termine igual. */
+const POR_SUFIXO = WEAPONS.filter((arma) => arma.category !== 'melee')
+  .map((arma) => ({ arma, chave: compacto(arma.name) }))
+  .sort((a, b) => b.chave.length - a.chave.length);
+
+/**
+ * O ranking de uma página do wzstats, na ordem em que a página lista.
+ *
+ * Cada linha é "posição NOME #k Classe". O número da frente recomeça a cada
+ * escalão (Meta, A, B…), por isso a posição geral é a ordem de aparição, e não
+ * ele. A arma é a que termina logo antes do rótulo — comparada sem espaço nem
+ * pontuação, que é como "M121 A2" e "M121A2", "SG-553R" e "SG 553R" viram a
+ * mesma. Este é o ranking que a página publica, lido pelo código: nenhum modelo
+ * no meio, e por isso ele pode ir inteiro para a tela.
+ */
+export function rankingDaPagina(texto) {
+  const entradas = [];
+  const vistas = new Set();
+  let desde = 0;
+
+  for (const achado of String(texto ?? '').matchAll(ROTULO_DE_CLASSE)) {
+    const janela = compacto(texto.slice(Math.max(desde, achado.index - 60), achado.index));
+    desde = achado.index + achado[0].length;
+    const encontrada = POR_SUFIXO.find(({ chave }) => janela.endsWith(chave));
+    if (!encontrada || vistas.has(encontrada.arma.id)) continue;
+
+    vistas.add(encontrada.arma.id);
+    entradas.push({
+      weapon: encontrada.arma.id,
+      category: encontrada.arma.category,
+      categoryRank: Number(achado[1]),
+      overall: entradas.length + 1,
+    });
+  }
+
+  return entradas;
+}
+
+/** A página do ranking do multiplayer e a do REDSEC, no mesmo rastreador. */
+export const RANKINGS = {
+  multiplayer: {
+    name: 'wzstats.gg — ranking do multiplayer',
+    url: 'https://wzstats.gg/battlefield-6/multiplayer/meta',
+  },
+  redsec: {
+    name: 'wzstats.gg — ranking do REDSEC',
+    url: 'https://wzstats.gg/battlefield-6/meta',
+  },
+};
+
+/**
+ * Baixa e lê um ranking. Devolve `null` quando a página não abre ou não traz
+ * ranking reconhecível — meia dúzia de linhas não é ranking, é layout novo.
+ */
+export async function lerRanking({ name, url }, { hoje }) {
+  try {
+    const resposta = await fetch(url, { headers: { 'user-agent': USER_AGENT }, signal: AbortSignal.timeout(30_000) });
+    if (!resposta.ok) throw new Error(`${resposta.status} ${resposta.statusText}`);
+    const entries = rankingDaPagina(htmlToText(await resposta.text()).replace(/\s+/g, ' '));
+    if (entries.length < 20) throw new Error(`só ${entries.length} linhas de ranking reconhecidas`);
+    return { name, url, date: hoje, entries };
+  } catch (erro) {
+    console.warn(`Ranking fora — ${url}: ${erro.message}`);
+    return null;
+  }
 }

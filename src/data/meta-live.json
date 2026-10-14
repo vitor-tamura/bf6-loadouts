@@ -1,6 +1,6 @@
 {
   "readAt": "2026-10-14",
-  "model": "openrouter/free",
+  "model": "openrouter/free (motivos refeitos em português a partir do ranking; trending de REDSEC removido)",
   "patch": {
     "name": "Atualização 2.1.1.0",
     "date": "2026-10-12"
@@ -8,56 +8,56 @@
   "picks": [
     {
       "weapon": "m16a4",
-      "reason": "Ranks #1 overall in the WZStats multiplayer meta list (Oct 14, 2026), showing highest usage and win rate, and the patch reduced gamepad recoil compensation, enhancing its controllability.",
+      "reason": "1ª no ranking geral do multiplayer do wzstats e 1ª entre os fuzis.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "Ranks #2 overall in the meta list, delivering high damage per bullet with consistent performance; the patch’s recoil adjustments do not affect its core stats.",
+      "reason": "2ª no ranking geral do multiplayer do wzstats e 2ª entre os fuzis.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "Ranks #1 SMG in the meta, offering high fire rate and low recoil; the patch notes do not modify its balance, keeping it top‑tier.",
+      "reason": "3ª no ranking geral do multiplayer do wzstats e 1ª entre as submetralhadoras.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "Ranks #3 overall, a powerful LMG with high damage and sustained fire; the patch reduced gamepad recoil compensation, making its already strong controllability even better.",
+      "reason": "4ª no ranking geral do multiplayer do wzstats e 3ª entre os fuzis.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "Ranks #1 LMG in the meta, providing high damage per shot and good range; the patch changes affect other weapons but not its fundamental strength.",
+      "reason": "5ª no ranking geral do multiplayer do wzstats e 1ª entre as metralhadoras.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "sgx",
-      "reason": "Ranks #2 SMG in the meta, with fast fire rate and low recoil; the patch’s reduced recoil compensation for gamepad improves its already strong performance.",
+      "reason": "6ª no ranking geral do multiplayer do wzstats e 2ª entre as submetralhadoras.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "Ranks #1 Carbine, delivering high damage per bullet and low recoil; the patch does not affect its balance, keeping it top‑tier.",
+      "reason": "7ª no ranking geral do multiplayer do wzstats e 1ª entre as carabinas.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pw5a3",
-      "reason": "Ranks #3 SMG in the meta, with solid damage and controllability; the patch’s reduced recoil compensation benefits it, maintaining its strong meta position.",
+      "reason": "8ª no ranking geral do multiplayer do wzstats e 3ª entre as submetralhadoras.",
       "sources": [
         0
       ]
@@ -66,51 +66,27 @@
   "trending": [
     {
       "weapon": "sgx",
-      "reason": "Thread on 2026-10-14 about unlock kit glitching mentions SGX not being maxed, showing community focus on this weapon.",
+      "reason": "Thread de 14/10 sobre o kit de desbloqueio falhando cita a SGX, que não sobe ao nível máximo.",
       "sources": [
         1
       ],
-      "trend": "glitch discussion"
-    },
-    {
-      "weapon": "kv9",
-      "reason": "Thread on 2026-10-13 states KV9, CZ, and SCW are kings and dominate matches, highlighting KV9's strong performance.",
-      "sources": [
-        2
-      ],
-      "trend": "king weapon"
-    },
-    {
-      "weapon": "pp-19",
-      "reason": "Thread on 2026-10-13 complains that PP-19 is the worst gun and never wins fights, indicating high community attention.",
-      "sources": [
-        2
-      ],
-      "trend": "worst gun complaint"
-    },
-    {
-      "weapon": "sg-553r",
-      "reason": "Thread on 2026-10-13 discusses SG 553R's short 3‑shot kill distance and low damage, indicating community dissatisfaction.",
-      "sources": [
-        3
-      ],
-      "trend": "low damage criticism"
+      "trend": "kit de desbloqueio com defeito"
     },
     {
       "weapon": "m39-emr",
-      "reason": "Thread on 2026-10-13 says devs promised to nerf snipers but instead nerfed SVDM and M39 EMR, making snipers stronger.",
+      "reason": "Thread de 13/10 reclama que o estúdio prometeu mexer nos snipers e acabou nerfando a SVDM e a M39 EMR.",
       "sources": [
-        4
+        2
       ],
-      "trend": "sniper nerf complaint"
+      "trend": "reclamação do ajuste de recuo"
     },
     {
       "weapon": "svdm",
-      "reason": "Same thread as above mentions SVDM became unusable after nerf, highlighting community backlash.",
+      "reason": "Na mesma thread, jogadores dizem que a SVDM ficou inutilizável depois do aumento de recuo da 2.1.1.0.",
       "sources": [
-        4
+        2
       ],
-      "trend": "recoil nerf complaint"
+      "trend": "reação ao nerf de recuo"
     }
   ],
   "sources": [
@@ -130,24 +106,6 @@
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Thread do r/Battlefield6 que cita SGX. Mostra do que se fala, não mede força.",
-      "timeframe": "season-5"
-    },
-    {
-      "name": "Reddit — Rapid Royale is fun but they didn't even address the meta gun issue... ",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1x53fy9/rapid_royale_is_fun_but_they_didnt_even_address/",
-      "date": "2026-10-13",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita KV9, PP-19. Mostra do que se fala, não mede força.",
-      "timeframe": "season-5"
-    },
-    {
-      "name": "Reddit — Thoughts on the RSPR?",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1x5902c/thoughts_on_the_rspr/",
-      "date": "2026-10-13",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita SG 553R. Mostra do que se fala, não mede força.",
       "timeframe": "season-5"
     },
     {
@@ -177,5 +135,549 @@
       "url": "https://bf6balancelog.com/",
       "scope": "O mesmo changelog da 2.1.1.0, transcrito arma por arma, com o histórico de cada peça."
     }
-  ]
+  ],
+  "ranking": {
+    "multiplayer": {
+      "name": "wzstats.gg — ranking do multiplayer",
+      "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
+      "date": "2026-10-14",
+      "entries": [
+        {
+          "weapon": "m16a4",
+          "category": "ar",
+          "categoryRank": 1,
+          "overall": 1
+        },
+        {
+          "weapon": "b36a4",
+          "category": "ar",
+          "categoryRank": 2,
+          "overall": 2
+        },
+        {
+          "weapon": "pp-19",
+          "category": "smg",
+          "categoryRank": 1,
+          "overall": 3
+        },
+        {
+          "weapon": "kord-6p67",
+          "category": "ar",
+          "categoryRank": 3,
+          "overall": 4
+        },
+        {
+          "weapon": "drs-iar",
+          "category": "lmg",
+          "categoryRank": 1,
+          "overall": 5
+        },
+        {
+          "weapon": "sgx",
+          "category": "smg",
+          "categoryRank": 2,
+          "overall": 6
+        },
+        {
+          "weapon": "qbz-192",
+          "category": "carbine",
+          "categoryRank": 1,
+          "overall": 7
+        },
+        {
+          "weapon": "pw5a3",
+          "category": "smg",
+          "categoryRank": 3,
+          "overall": 8
+        },
+        {
+          "weapon": "nvo-228e",
+          "category": "ar",
+          "categoryRank": 4,
+          "overall": 9
+        },
+        {
+          "weapon": "rpk-74m",
+          "category": "lmg",
+          "categoryRank": 2,
+          "overall": 10
+        },
+        {
+          "weapon": "m2010-esr",
+          "category": "sniper",
+          "categoryRank": 1,
+          "overall": 11
+        },
+        {
+          "weapon": "sg-553r",
+          "category": "carbine",
+          "categoryRank": 2,
+          "overall": 12
+        },
+        {
+          "weapon": "m87a1",
+          "category": "shotgun",
+          "categoryRank": 1,
+          "overall": 13
+        },
+        {
+          "weapon": "brod-3",
+          "category": "carbine",
+          "categoryRank": 3,
+          "overall": 14
+        },
+        {
+          "weapon": "ef88",
+          "category": "ar",
+          "categoryRank": 5,
+          "overall": 15
+        },
+        {
+          "weapon": "l110",
+          "category": "lmg",
+          "categoryRank": 3,
+          "overall": 16
+        },
+        {
+          "weapon": "l85a3",
+          "category": "ar",
+          "categoryRank": 6,
+          "overall": 17
+        },
+        {
+          "weapon": "m4a1",
+          "category": "carbine",
+          "categoryRank": 4,
+          "overall": 18
+        },
+        {
+          "weapon": "scw-10",
+          "category": "smg",
+          "categoryRank": 4,
+          "overall": 19
+        },
+        {
+          "weapon": "sor-300sc",
+          "category": "carbine",
+          "categoryRank": 5,
+          "overall": 20
+        },
+        {
+          "weapon": "m121-a2",
+          "category": "lmg",
+          "categoryRank": 4,
+          "overall": 21
+        },
+        {
+          "weapon": "vcr-2",
+          "category": "ar",
+          "categoryRank": 7,
+          "overall": 22
+        },
+        {
+          "weapon": "cz3a1",
+          "category": "smg",
+          "categoryRank": 5,
+          "overall": 23
+        },
+        {
+          "weapon": "umg-40",
+          "category": "smg",
+          "categoryRank": 6,
+          "overall": 24
+        },
+        {
+          "weapon": "sl9",
+          "category": "smg",
+          "categoryRank": 7,
+          "overall": 25
+        },
+        {
+          "weapon": "sor-556-mk2",
+          "category": "ar",
+          "categoryRank": 8,
+          "overall": 26
+        },
+        {
+          "weapon": "rpkm",
+          "category": "lmg",
+          "categoryRank": 5,
+          "overall": 27
+        },
+        {
+          "weapon": "m433",
+          "category": "ar",
+          "categoryRank": 9,
+          "overall": 28
+        },
+        {
+          "weapon": "ak-205",
+          "category": "carbine",
+          "categoryRank": 6,
+          "overall": 29
+        },
+        {
+          "weapon": "mini-scout",
+          "category": "sniper",
+          "categoryRank": 2,
+          "overall": 30
+        },
+        {
+          "weapon": "pw7a2",
+          "category": "smg",
+          "categoryRank": 8,
+          "overall": 31
+        },
+        {
+          "weapon": "usg-90",
+          "category": "smg",
+          "categoryRank": 9,
+          "overall": 32
+        },
+        {
+          "weapon": "tr-7",
+          "category": "ar",
+          "categoryRank": 10,
+          "overall": 33
+        },
+        {
+          "weapon": "vssm",
+          "category": "dmr",
+          "categoryRank": 1,
+          "overall": 34
+        },
+        {
+          "weapon": "kts100-mk8",
+          "category": "lmg",
+          "categoryRank": 6,
+          "overall": 35
+        },
+        {
+          "weapon": "ak4d",
+          "category": "ar",
+          "categoryRank": 11,
+          "overall": 36
+        },
+        {
+          "weapon": "m417-a2",
+          "category": "carbine",
+          "categoryRank": 7,
+          "overall": 37
+        },
+        {
+          "weapon": "psr",
+          "category": "sniper",
+          "categoryRank": 3,
+          "overall": 38
+        },
+        {
+          "weapon": "l115",
+          "category": "sniper",
+          "categoryRank": 4,
+          "overall": 39
+        },
+        {
+          "weapon": "kv9",
+          "category": "smg",
+          "categoryRank": 10,
+          "overall": 40
+        },
+        {
+          "weapon": "m39-emr",
+          "category": "dmr",
+          "categoryRank": 2,
+          "overall": 41
+        },
+        {
+          "weapon": "vz-61",
+          "category": "pistol",
+          "categoryRank": 1,
+          "overall": 42
+        },
+        {
+          "weapon": "interdictor",
+          "category": "sniper",
+          "categoryRank": 5,
+          "overall": 43
+        },
+        {
+          "weapon": "m60",
+          "category": "lmg",
+          "categoryRank": 7,
+          "overall": 44
+        },
+        {
+          "weapon": "m123k",
+          "category": "lmg",
+          "categoryRank": 8,
+          "overall": 45
+        },
+        {
+          "weapon": "m1014",
+          "category": "shotgun",
+          "categoryRank": 2,
+          "overall": 46
+        },
+        {
+          "weapon": "m277",
+          "category": "carbine",
+          "categoryRank": 8,
+          "overall": 47
+        },
+        {
+          "weapon": "grt-bc",
+          "category": "carbine",
+          "categoryRank": 9,
+          "overall": 48
+        },
+        {
+          "weapon": "svdm",
+          "category": "dmr",
+          "categoryRank": 3,
+          "overall": 49
+        },
+        {
+          "weapon": "sv-98",
+          "category": "sniper",
+          "categoryRank": 6,
+          "overall": 50
+        },
+        {
+          "weapon": "m250",
+          "category": "lmg",
+          "categoryRank": 9,
+          "overall": 51
+        },
+        {
+          "weapon": "svk-86",
+          "category": "dmr",
+          "categoryRank": 4,
+          "overall": 52
+        },
+        {
+          "weapon": "18-5ks-k",
+          "category": "shotgun",
+          "categoryRank": 3,
+          "overall": 53
+        },
+        {
+          "weapon": "lmr27",
+          "category": "dmr",
+          "categoryRank": 5,
+          "overall": 54
+        },
+        {
+          "weapon": "m240l",
+          "category": "lmg",
+          "categoryRank": 10,
+          "overall": 55
+        },
+        {
+          "weapon": "grt-cps",
+          "category": "dmr",
+          "categoryRank": 6,
+          "overall": 56
+        },
+        {
+          "weapon": "db-12",
+          "category": "shotgun",
+          "categoryRank": 4,
+          "overall": 57
+        },
+        {
+          "weapon": "p18",
+          "category": "pistol",
+          "categoryRank": 2,
+          "overall": 58
+        },
+        {
+          "weapon": "m44",
+          "category": "pistol",
+          "categoryRank": 3,
+          "overall": 59
+        },
+        {
+          "weapon": "ggh-22",
+          "category": "pistol",
+          "categoryRank": 4,
+          "overall": 60
+        },
+        {
+          "weapon": "m357-trait",
+          "category": "pistol",
+          "categoryRank": 5,
+          "overall": 61
+        },
+        {
+          "weapon": "es-57",
+          "category": "pistol",
+          "categoryRank": 6,
+          "overall": 62
+        },
+        {
+          "weapon": "m45a1",
+          "category": "pistol",
+          "categoryRank": 7,
+          "overall": 63
+        }
+      ]
+    },
+    "redsec": {
+      "name": "wzstats.gg — ranking do REDSEC",
+      "url": "https://wzstats.gg/battlefield-6/meta",
+      "date": "2026-10-14",
+      "entries": [
+        {
+          "weapon": "kts100-mk8",
+          "category": "lmg",
+          "categoryRank": 1,
+          "overall": 1
+        },
+        {
+          "weapon": "rpk-74m",
+          "category": "lmg",
+          "categoryRank": 2,
+          "overall": 2
+        },
+        {
+          "weapon": "sgx",
+          "category": "smg",
+          "categoryRank": 1,
+          "overall": 3
+        },
+        {
+          "weapon": "m2010-esr",
+          "category": "sniper",
+          "categoryRank": 1,
+          "overall": 4
+        },
+        {
+          "weapon": "pp-19",
+          "category": "smg",
+          "categoryRank": 2,
+          "overall": 5
+        },
+        {
+          "weapon": "sg-553r",
+          "category": "carbine",
+          "categoryRank": 1,
+          "overall": 6
+        },
+        {
+          "weapon": "drs-iar",
+          "category": "lmg",
+          "categoryRank": 3,
+          "overall": 7
+        },
+        {
+          "weapon": "pw5a3",
+          "category": "smg",
+          "categoryRank": 3,
+          "overall": 8
+        },
+        {
+          "weapon": "kord-6p67",
+          "category": "ar",
+          "categoryRank": 1,
+          "overall": 9
+        },
+        {
+          "weapon": "svdm",
+          "category": "dmr",
+          "categoryRank": 1,
+          "overall": 10
+        },
+        {
+          "weapon": "usg-90",
+          "category": "smg",
+          "categoryRank": 4,
+          "overall": 11
+        },
+        {
+          "weapon": "ak-205",
+          "category": "carbine",
+          "categoryRank": 2,
+          "overall": 12
+        },
+        {
+          "weapon": "scw-10",
+          "category": "smg",
+          "categoryRank": 5,
+          "overall": 13
+        },
+        {
+          "weapon": "m250",
+          "category": "lmg",
+          "categoryRank": 4,
+          "overall": 14
+        },
+        {
+          "weapon": "l110",
+          "category": "lmg",
+          "categoryRank": 5,
+          "overall": 15
+        },
+        {
+          "weapon": "rpkm",
+          "category": "lmg",
+          "categoryRank": 6,
+          "overall": 16
+        },
+        {
+          "weapon": "cz3a1",
+          "category": "smg",
+          "categoryRank": 6,
+          "overall": 17
+        },
+        {
+          "weapon": "vcr-2",
+          "category": "ar",
+          "categoryRank": 2,
+          "overall": 18
+        },
+        {
+          "weapon": "sor-556-mk2",
+          "category": "ar",
+          "categoryRank": 3,
+          "overall": 19
+        },
+        {
+          "weapon": "qbz-192",
+          "category": "carbine",
+          "categoryRank": 3,
+          "overall": 20
+        },
+        {
+          "weapon": "b36a4",
+          "category": "ar",
+          "categoryRank": 4,
+          "overall": 21
+        },
+        {
+          "weapon": "psr",
+          "category": "sniper",
+          "categoryRank": 2,
+          "overall": 22
+        },
+        {
+          "weapon": "sv-98",
+          "category": "sniper",
+          "categoryRank": 3,
+          "overall": 23
+        },
+        {
+          "weapon": "pw7a2",
+          "category": "smg",
+          "categoryRank": 7,
+          "overall": 24
+        },
+        {
+          "weapon": "l115",
+          "category": "sniper",
+          "categoryRank": 4,
+          "overall": 25
+        }
+      ]
+    }
+  }
 }
