@@ -4,10 +4,14 @@ import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { BUILD_DATE } from '@/data/build';
-import { seasonTheme } from '@/data/season';
+import { seasonOn, seasonPaletteStyle } from '@/data/season';
+import type { SeasonPalette } from '@/data/season';
+import type { CSSProperties } from 'react';
 import { ThemeProvider } from '@/components/theme';
 import { PageCurtain } from '@/components/page-transition';
 import './globals.css';
+
+const BUILD_SEASON = seasonOn(new Date(BUILD_DATE));
 
 const barlow = Barlow({
   subsets: ['latin'],
@@ -47,7 +51,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#080a08',
+  themeColor: BUILD_SEASON?.palette?.dark.bg ?? '#080a08',
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
@@ -62,12 +66,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
    * padrão para o sazonal. Encerrada a temporada, o atributo simplesmente não
    * sai mais daqui e o site volta ao tema permanente no deploy seguinte.
    */
-  const season = seasonTheme(new Date(BUILD_DATE));
+  const activeSeason = BUILD_SEASON;
+  const season = activeSeason?.theme;
+  const palette = activeSeason?.palette;
+  const paletteStyle = palette ? seasonPaletteStyle(palette) as CSSProperties : undefined;
 
   return (
     <html
       lang="pt-BR"
       data-season={season}
+      style={paletteStyle}
       className={`${barlow.variable} ${barlowCondensed.variable}`}
     >
       <body className="min-h-dvh antialiased">
@@ -78,7 +86,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           isso é um piscar visível em toda primeira visita.
         */}
         <AntdRegistry>
-          <ThemeProvider>
+          <ThemeProvider palette={palette}>
             <PageCurtain>{children}</PageCurtain>
           </ThemeProvider>
         </AntdRegistry>
