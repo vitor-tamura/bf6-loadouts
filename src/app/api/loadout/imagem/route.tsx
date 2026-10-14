@@ -4,7 +4,7 @@ import { Fragment, cloneElement, isValidElement, type ReactElement, type ReactNo
 import { ImageResponse } from 'next/og';
 import { AttachmentIcon } from '@/components/icons/attachment-icon';
 import { SLOTS_BY_ID, budgetFor } from '@/data/classes';
-import { seasonLabel } from '@/data/season';
+import { seasonLabel, seasonOn } from '@/data/season';
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import type { Attachment } from '@/data/types';
 import { attachmentCost, attachmentName, loadoutAttachments } from '@/lib/loadout';
@@ -82,7 +82,7 @@ async function fotoDaArma(id: string): Promise<string | null> {
  * o que sai daqui é a mesma silhueta, com os fragmentos desfeitos e cada traço
  * carregando os próprios atributos.
  */
-function iconeParaSatori(peca: Attachment, tamanho: number): ReactElement {
+function iconeParaSatori(peca: Attachment, tamanho: number, corTexto: string): ReactElement {
   const svg = AttachmentIcon({ attachment: peca, slot: peca.slot, size: tamanho }) as ReactElement<
     Record<string, unknown> & { children?: ReactNode }
   >;
@@ -94,8 +94,8 @@ function iconeParaSatori(peca: Attachment, tamanho: number): ReactElement {
       ([chave]) => !['width', 'height', 'style', 'aria-hidden'].includes(chave),
     ),
   );
-  if (herdado.stroke === 'currentColor') herdado.stroke = COR.texto;
-  if (herdado.fill === 'currentColor') herdado.fill = COR.texto;
+  if (herdado.stroke === 'currentColor') herdado.stroke = corTexto;
+  if (herdado.fill === 'currentColor') herdado.fill = corTexto;
 
   const tracos: ReactElement[] = [];
   const achatar = (no: ReactNode) => {
@@ -127,6 +127,15 @@ export async function GET(request: Request) {
   const gasto = pecas.reduce((soma, peca) => soma + attachmentCost(peca, weapon), 0);
   const teto = budgetFor(weapon.category);
   const temporada = seasonLabel(new Date());
+  const palette = seasonOn(new Date())?.palette?.dark;
+  const cor = {
+    fundo: palette?.surface ?? cor.fundo,
+    linha: palette?.border ?? cor.linha,
+    texto: palette?.text ?? cor.texto,
+    fraco: palette?.textDim ?? cor.fraco,
+    destaque: palette?.accent ?? cor.destaque,
+    tinta: palette?.bg ?? cor.tinta,
+  };
   const foto = await fotoDaArma(weapon.id);
   const altura = CABECALHO + (foto ? FOTO : 0) + pecas.length * LINHA + RODAPE;
 
@@ -138,9 +147,9 @@ export async function GET(request: Request) {
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          backgroundColor: COR.fundo,
+          backgroundColor: cor.fundo,
           fontFamily: 'Barlow',
-          color: COR.texto,
+          color: cor.texto,
         }}
       >
         {/* Cabeçalho: a arma à esquerda, o quanto da verba foi gasto à direita. */}
@@ -150,7 +159,7 @@ export async function GET(request: Request) {
             alignItems: 'center',
             justifyContent: 'space-between',
             padding: '20px 28px',
-            borderBottom: `2px solid ${COR.linha}`,
+            borderBottom: `2px solid ${cor.linha}`,
           }}
         >
           <div
@@ -163,7 +172,7 @@ export async function GET(request: Request) {
           >
             {weapon.name.toUpperCase()}
             {temporada ? (
-              <span style={{ color: COR.fraco, marginLeft: 12 }}>— {temporada.toUpperCase()}</span>
+              <span style={{ color: cor.fraco, marginLeft: 12 }}>— {temporada.toUpperCase()}</span>
             ) : null}
           </div>
           <div
@@ -171,7 +180,7 @@ export async function GET(request: Request) {
               display: 'flex',
               fontFamily: 'Barlow Condensed',
               fontSize: 30,
-              color: COR.destaque,
+              color: cor.destaque,
             }}
           >
             {gasto}/{teto}
@@ -186,7 +195,7 @@ export async function GET(request: Request) {
               alignItems: 'center',
               justifyContent: 'center',
               height: FOTO,
-              borderBottom: `2px solid ${COR.linha}`,
+              borderBottom: `2px solid ${cor.linha}`,
             }}
           >
             <img src={foto} alt="" width={LARGURA - 80} height={FOTO - 30} style={{ objectFit: 'contain' }} />
@@ -208,8 +217,8 @@ export async function GET(request: Request) {
                   justifyContent: 'center',
                   width: 38,
                   height: 38,
-                  backgroundColor: COR.destaque,
-                  color: COR.tinta,
+                  backgroundColor: cor.destaque,
+                  color: cor.tinta,
                   fontFamily: 'Barlow Condensed',
                   fontSize: 26,
                 }}
@@ -227,7 +236,7 @@ export async function GET(request: Request) {
                   height: 60,
                 }}
               >
-                {iconeParaSatori(peca, 52)}
+                {iconeParaSatori(peca, 52, cor.texto)}
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -241,7 +250,7 @@ export async function GET(request: Request) {
                 >
                   {attachmentName(peca, weapon).toUpperCase()}
                 </div>
-                <div style={{ display: 'flex', fontSize: 20, color: COR.fraco, marginTop: 2 }}>
+                <div style={{ display: 'flex', fontSize: 20, color: cor.fraco, marginTop: 2 }}>
                   {(SLOTS_BY_ID.get(peca.slot)?.name ?? peca.slot).toUpperCase()} · {attachmentCost(peca, weapon)} pts
                 </div>
               </div>
