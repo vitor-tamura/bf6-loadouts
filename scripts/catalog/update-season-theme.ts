@@ -46,7 +46,7 @@ export function validarPaleta(palette: unknown): palette is SeasonPalette {
 
 function fonteOficial(url: string): boolean {
   try {
-    const host = new URL(url).hostname.toLowerCase().replace(/^www\\./, '');
+    const host = new URL(url).hostname.toLowerCase().replace(/^www\./, '');
     return host === 'ea.com' || host.endsWith('.ea.com') || host === 'battlefield.com' || host.endsWith('.battlefield.com');
   } catch {
     return false;
