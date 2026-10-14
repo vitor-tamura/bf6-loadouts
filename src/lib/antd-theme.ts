@@ -1,4 +1,5 @@
 import { theme, type ThemeConfig } from 'antd';
+import type { SeasonPalette } from '@/data/season';
 
 /**
  * O Ant Design vestido de Battlefield.
@@ -21,34 +22,24 @@ import { theme, type ThemeConfig } from 'antd';
 
 /** Espelha `:root[data-season='naval']` em `globals.css`. */
 const ESCURO = {
-  bg: '#05080b',
-  surface: '#090e13',
-  surfaceRaised: '#0d141a',
-  border: '#1b2833',
-  borderSoft: '#111a22',
-  text: '#dfeaf0',
-  textSoft: '#8aa5b8',
-  textDim: '#5c7a8f',
-  accent: '#ff8a00',
+  bg: '#080a08', surface: '#0d100c', surfaceRaised: '#12160f',
+  border: '#232a1e', borderSoft: '#181d15', text: '#e4e8dc',
+  textSoft: '#97a288', textDim: '#6d7a5e', accent: '#ff8a00',
+  info: '#22c3d6',
 };
 
 /** Espelha `:root[data-season='naval'][data-theme='light']`. */
 const CLARO = {
-  bg: '#eef3f6',
-  surface: '#ffffff',
-  surfaceRaised: '#e2eaef',
-  border: '#c4d2da',
-  borderSoft: '#d8e2e8',
-  text: '#0b1319',
-  textSoft: '#3d5567',
-  textDim: '#5c7a8f',
-  accent: '#c96a00',
+  bg: '#f4f5ef', surface: '#ffffff', surfaceRaised: '#eceee4',
+  border: '#d2d6c6', borderSoft: '#e2e5d8', text: '#14180f',
+  textSoft: '#4b563f', textDim: '#6d7a5e', accent: '#c96a00',
+  info: '#168ba2',
 };
 
 /** Iguais nos dois temas — vêm do bloco `@theme` permanente. */
 const POSITIVO = '#7ddc4c';
 const NEGATIVO = '#ff5c47';
-const INFO = '#22c3d6';
+const INFO = ESCURO.info;
 
 /**
  * A paleta do tema em cores literais.
@@ -58,21 +49,28 @@ const INFO = '#22c3d6';
  * existiam aqui para alimentar os *seed tokens* do antd, os gráficos bebem da
  * mesma fonte em vez de abrir uma terceira cópia da paleta.
  */
-export function coresDoTema(light: boolean) {
-  return light ? CLARO : ESCURO;
+export function coresDoTema(light: boolean, palette?: SeasonPalette) {
+  if (!palette) return light ? CLARO : ESCURO;
+  const selected = palette[light ? 'light' : 'dark'];
+  return {
+    bg: selected.bg, surface: selected.surface, surfaceRaised: selected.surfaceRaised,
+    border: selected.border, borderSoft: selected.borderSoft, text: selected.text,
+    textSoft: selected.textSoft, textDim: selected.textDim, accent: selected.accent,
+    accentLight: selected.accentLight, info: selected.info,
+  };
 }
 
 /** Iguais nos dois temas, para quem precisa delas fora dos tokens do antd. */
 export const CORES_FIXAS = { positivo: POSITIVO, negativo: NEGATIVO, info: INFO };
 
-export function antdTheme(light: boolean): ThemeConfig {
-  const c = light ? CLARO : ESCURO;
+export function antdTheme(light: boolean, palette?: SeasonPalette): ThemeConfig {
+  const c = coresDoTema(light, palette);
 
   return {
     algorithm: light ? theme.defaultAlgorithm : theme.darkAlgorithm,
     token: {
       colorPrimary: c.accent,
-      colorInfo: INFO,
+      colorInfo: c.info,
       colorSuccess: POSITIVO,
       colorError: NEGATIVO,
       colorWarning: c.accent,
