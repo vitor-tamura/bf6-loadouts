@@ -6,13 +6,10 @@
  * padrão — sem deploy, sem ninguém lembrar de desligar nada. Se a temporada
  * seguinte já estiver cadastrada aqui, ela assume no dia em que começa.
  *
- * Para vestir uma temporada nova bastam duas coisas:
- *
- * 1. uma entrada em [SEASONS], com `theme` batendo com
- * 2. um bloco `:root[data-season='<theme>']` em `globals.css`.
- *
- * Uma entrada sem `theme` correspondente no CSS não quebra nada: a interface
- * fica no padrão e a etiqueta continua aparecendo.
+ * Cada temporada tematizada declara `theme` e uma paleta clara/escura em
+ * [SEASONS]. O layout injeta esses valores no documento, e os tokens globais,
+ * o Ant Design e os gráficos usam a mesma configuração — sem cores duplicadas
+ * em componentes.
  */
 
 export interface SeasonPhase {
@@ -127,7 +124,7 @@ export const SEASON_TAGS: Record<number, { name?: string; color: string }> = {
   2: { color: '#86b7e0' },
   3: { color: '#7fbf5f' },
   4: { name: 'Naval Warfare', color: '#4fc3d9' },
-  5: { name: 'Siege of Vegas', color: '#f43f72' },
+  5: { name: 'Siege of Vegas', color: 'var(--accent)' },
 };
 
 /** Como etiquetar um número de temporada; `null` para conteúdo de lançamento. */
