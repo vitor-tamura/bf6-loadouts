@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { SEASONS, phaseOn, seasonLabel, seasonOn, seasonTheme } from './season';
+import { SEASONS, phaseOn, seasonLabel, seasonOn, seasonPaletteStyle, seasonTheme } from './season';
 
 const SEASON_5 = SEASONS.find((season) => season.number === 5)!;
 
@@ -51,5 +51,29 @@ describe('integridade do cadastro', () => {
       const previous = inOrder[i - 1];
       if (previous) expect(previous.endsOn < season.startsOn).toBe(true);
     });
+  });
+});
+
+
+describe('paletas sazonais', () => {
+  it('toda temporada temática fornece uma paleta completa para os dois modos', () => {
+    const tons = ['950', '900', '850', '800', '700', '600', '500', '400', '300', '200', '100'];
+    const hex = /^#[0-9a-f]{6}$/i;
+
+    for (const season of SEASONS.filter((item) => item.theme)) {
+      expect(season.palette, season.name).toBeDefined();
+      const palette = season.palette!;
+      for (const mode of ['dark', 'light'] as const) {
+        const colors = palette[mode];
+        for (const key of ['bg', 'surface', 'surfaceRaised', 'border', 'borderSoft', 'text', 'textSoft', 'textDim', 'accent', 'accentLight', 'info']) {
+          expect(colors[key as keyof typeof colors], `${season.name} ${mode} ${key}`).toMatch(hex);
+        }
+        for (const shade of tons) {
+          expect(colors.base[shade as keyof typeof colors.base], `${season.name} ${mode} base-${shade}`).toMatch(hex);
+        }
+      }
+      expect(seasonPaletteStyle(palette)['--season-dark-info']).toBe(palette.dark.info);
+      expect(seasonPaletteStyle(palette)['--season-light-accent']).toBe(palette.light.accent);
+    }
   });
 });
