@@ -14,8 +14,8 @@ describe('temporada no ar', () => {
     expect(seasonOn(new Date('2027-01-13'))).toBeNull();
   });
 
-  it('usa o tema padrão enquanto a temporada não tem tema próprio', () => {
-    expect(seasonTheme(new Date('2026-10-13'))).toBeUndefined();
+  it('ativa o tema Vegas durante a temporada 5', () => {
+    expect(seasonTheme(new Date('2026-10-13'))).toBe('vegas');
   });
 
   it('volta ao tema padrão fora de temporada', () => {

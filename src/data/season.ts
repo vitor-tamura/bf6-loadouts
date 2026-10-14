@@ -46,6 +46,7 @@ export const SEASONS: Season[] = [
   {
     number: 5,
     name: 'Siege of Vegas',
+    theme: 'vegas',
     summary: 'Cerco a Vegas: Vegas Strip, Area 51, Rapid Royale e novos armamentos.',
     startsOn: '2026-10-13',
     endsOn: '2027-01-12',
@@ -69,7 +70,7 @@ export const SEASON_TAGS: Record<number, { name?: string; color: string }> = {
   2: { color: '#86b7e0' },
   3: { color: '#7fbf5f' },
   4: { name: 'Naval Warfare', color: '#4fc3d9' },
-  5: { name: 'Siege of Vegas', color: '#ffb545' },
+  5: { name: 'Siege of Vegas', color: '#f43f72' },
 };
 
 /** Como etiquetar um número de temporada; `null` para conteúdo de lançamento. */

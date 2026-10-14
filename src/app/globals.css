@@ -153,6 +153,60 @@
   --surface-hover: rgb(255 255 255 / 0.95);
 }
 
+
+/* ------------------------------------------------------------------ *
+ * Temporada 5 — Siege of Vegas.
+ *
+ * A cidade neon inspira o magenta dos letreiros e o ciano das luzes,
+ * sobre uma base violeta quase preta. No tema claro, a mesma paleta
+ * vira tons de porcelana, ameixa e rosa.
+ * ------------------------------------------------------------------ */
+:root[data-season='vegas'] {
+  --base-950: #08070d;
+  --base-900: #100d18;
+  --base-850: #171220;
+  --base-800: #21172c;
+  --base-700: #35223f;
+  --base-600: #543150;
+  --base-400: #a07e9d;
+  --base-300: #c5a9c5;
+  --base-100: #f7eefa;
+
+  --bg: var(--base-950);
+  --surface: var(--base-900);
+  --surface-raised: var(--base-850);
+  --border: var(--base-700);
+  --border-soft: var(--base-800);
+  --text: var(--base-100);
+  --text-soft: var(--base-300);
+  --text-dim: var(--base-400);
+  --accent: #f43f72;
+  --accent-light: #ff78aa;
+  --grid: color-mix(in oklab, var(--base-600) 45%, transparent);
+  --weave: #6a466f;
+  --tide: #42d9ef;
+  --surface-veil: color-mix(in oklab, var(--base-900) 82%, transparent);
+  --surface-hover: color-mix(in oklab, var(--base-850) 92%, transparent);
+}
+
+:root[data-season='vegas'][data-theme='light'] {
+  --bg: #f9f2f7;
+  --surface: #ffffff;
+  --surface-raised: #f1e6ef;
+  --border: #dfc9dc;
+  --border-soft: #eadbe8;
+  --text: #281a2b;
+  --text-soft: #624566;
+  --text-dim: #806780;
+  --accent: #cf2f62;
+  --accent-light: #a92250;
+  --grid: #e5d1e2;
+  --weave: #8b6986;
+  --tide: #168ba2;
+  --surface-veil: rgb(255 255 255 / 0.8);
+  --surface-hover: rgb(255 255 255 / 0.95);
+}
+
 @layer base {
   * {
     border-color: var(--border);
