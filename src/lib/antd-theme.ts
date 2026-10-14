@@ -10,17 +10,15 @@ import type { SeasonPalette } from '@/data/season';
  * cálculo roda em JavaScript, sobre a cor de verdade, e `var(--accent)` chegaria
  * lá como texto que não dá para clarear nem escurecer.
  *
- * O preço é ter as cores escritas em dois lugares. Elas espelham os blocos
- * `:root` de `src/app/globals.css` — mexeu lá, mexa aqui. É um par pequeno e
- * que muda pouco: as bases seguem a temporada, trocada a cada três meses, e o
- * âmbar do destaque não muda desde o começo.
+ * A paleta sazonal vem de `src/data/season.ts`, a mesma fonte que alimenta os
+ * tokens CSS. Assim o Ant Design, os gráficos e a página usam cores idênticas.
  *
  * `borderRadius: 0` é o que mais importa para o resultado não parecer um painel
  * administrativo genérico. O canto do site não é arredondado, é chanfrado, e o
  * chanfro vem das classes `.bevel` e `.bevel-sm`, aplicadas por cima.
  */
 
-/** Espelha `:root[data-season='naval']` em `globals.css`. */
+/** Paleta permanente usada fora das temporadas cadastradas. */
 const ESCURO = {
   bg: '#080a08', surface: '#0d100c', surfaceRaised: '#12160f',
   border: '#232a1e', borderSoft: '#181d15', text: '#e4e8dc',
@@ -28,7 +26,7 @@ const ESCURO = {
   info: '#22c3d6',
 };
 
-/** Espelha `:root[data-season='naval'][data-theme='light']`. */
+/** Paleta permanente clara, usada fora das temporadas cadastradas. */
 const CLARO = {
   bg: '#f4f5ef', surface: '#ffffff', surfaceRaised: '#eceee4',
   border: '#d2d6c6', borderSoft: '#e2e5d8', text: '#14180f',
@@ -36,7 +34,7 @@ const CLARO = {
   info: '#168ba2',
 };
 
-/** Iguais nos dois temas — vêm do bloco `@theme` permanente. */
+/** Cores semânticas permanentes. */
 const POSITIVO = '#7ddc4c';
 const NEGATIVO = '#ff5c47';
 const INFO = ESCURO.info;
