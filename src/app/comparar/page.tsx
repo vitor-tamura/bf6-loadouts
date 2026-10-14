@@ -43,7 +43,7 @@ import { useDesktop } from '@/lib/media';
 
 /** Azul e laranja do protótipo: leem bem lado a lado nos dois temas. */
 const COLOR_A = 'var(--accent)';
-const COLOR_B = 'var(--season-dark-info)';
+const COLOR_B = 'var(--season-info)';
 
 const clamp = (value: number) => Math.max(0, Math.min(100, Math.round(value)));
 
