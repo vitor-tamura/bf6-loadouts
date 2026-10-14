@@ -89,13 +89,15 @@ def battlefieldmeta_weapon_sources() -> dict[str, list[str]]:
     text = WEAPONS_SOURCE.read_text(encoding='utf8')
     known_ids = {
         match.group(1)
-        for match in re.finditer(r"id:\\s*'([^']+)',\\s*\\n\\s*name:\\s*'([^']+)'", text)
+        for match in re.finditer(r"id:\s*'([^']+)',\s*\n\s*name:\s*'([^']+)'", text)
     }
 
     result: dict[str, list[str]] = {}
     for weapon in data.get('data', []):
         weapon_id = str(weapon.get('id', ''))
-        if weapon_id not in known_ids:
+        # A fonte marca lançamentos com isNew antes de estarem no catálogo
+        # local; baixar a imagem desde já deixa o arquivo pronto para o cadastro.
+        if weapon_id not in known_ids and not weapon.get('isNew'):
             continue
         version = str(weapon.get('imageVersion') or '').strip()
         urls = []
