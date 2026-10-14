@@ -21,6 +21,26 @@ export interface SeasonPhase {
   startsOn: string;
 }
 
+export interface SeasonPaletteColors {
+  bg: string;
+  surface: string;
+  surfaceRaised: string;
+  border: string;
+  borderSoft: string;
+  text: string;
+  textSoft: string;
+  textDim: string;
+  accent: string;
+  accentLight: string;
+  info: string;
+  base: Record<'950' | '900' | '850' | '800' | '700' | '600' | '500' | '400' | '300' | '200' | '100', string>;
+}
+
+export interface SeasonPalette {
+  dark: SeasonPaletteColors;
+  light: SeasonPaletteColors;
+}
+
 export interface Season {
   number: number;
   /** Nome da temporada, como a EA publica. */
@@ -32,6 +52,8 @@ export interface Season {
   endsOn: string;
   /** Sufixo do bloco de tema em `globals.css`; sem ele, usa o padrão. */
   theme?: string;
+  /** Paleta única lida pelo site inteiro, por CSS, Ant Design e gráficos. */
+  palette?: SeasonPalette;
   phases: SeasonPhase[];
 }
 
@@ -56,6 +78,32 @@ export const SEASONS: Season[] = [
     number: 5,
     name: 'Siege of Vegas',
     theme: 'vegas',
+    palette: {
+      dark: {
+        bg: '#08070d', surface: '#100d18', surfaceRaised: '#171220',
+        border: '#35223f', borderSoft: '#21172c', text: '#f7eefa',
+        textSoft: '#c5a9c5', textDim: '#a07e9d', accent: '#f43f72',
+        accentLight: '#ff78aa', info: '#42d9ef',
+        base: {
+          '950': '#08070d', '900': '#100d18', '850': '#171220',
+          '800': '#21172c', '700': '#35223f', '600': '#543150',
+          '500': '#7a5275', '400': '#a07e9d', '300': '#c5a9c5',
+          '200': '#e4d3e4', '100': '#f7eefa',
+        },
+      },
+      light: {
+        bg: '#f9f2f7', surface: '#ffffff', surfaceRaised: '#f1e6ef',
+        border: '#dfc9dc', borderSoft: '#eadbe8', text: '#281a2b',
+        textSoft: '#624566', textDim: '#806780', accent: '#cf2f62',
+        accentLight: '#a92250', info: '#168ba2',
+        base: {
+          '950': '#f9f2f7', '900': '#ffffff', '850': '#f1e6ef',
+          '800': '#eadbe8', '700': '#dfc9dc', '600': '#c3a4bf',
+          '500': '#a686a2', '400': '#806780', '300': '#624566',
+          '200': '#412b46', '100': '#281a2b',
+        },
+      },
+    },
     summary: 'Cerco a Vegas: Vegas Strip, Area 51, Rapid Royale e novos armamentos.',
     startsOn: '2026-10-13',
     endsOn: '2027-01-12',
@@ -120,4 +168,23 @@ export function seasonLabel(date: Date): string | null {
  */
 export function seasonTheme(date: Date): string | undefined {
   return seasonOn(date)?.theme;
+}
+
+
+/** Variáveis CSS compartilhadas pelos componentes de toda a interface. */
+export function seasonPaletteStyle(palette: SeasonPalette): Record<string, string> {
+  const variables: Record<string, string> = {};
+  for (const mode of ['dark', 'light'] as const) {
+    const colors = palette[mode];
+    for (const [name, value] of Object.entries(colors)) {
+      if (name === 'base') {
+        for (const [shade, color] of Object.entries(colors.base)) {
+          variables[`--season-${mode}-base-${shade}`] = color;
+        }
+      } else {
+        variables[`--season-${mode}-${name.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`)}`] = value;
+      }
+    }
+  }
+  return variables;
 }
