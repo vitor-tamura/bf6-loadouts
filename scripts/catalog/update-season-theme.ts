@@ -94,7 +94,7 @@ Crie uma paleta acessível para o tema visual oficial dessa temporada. A identid
       }
 
       palettes[season.theme] = resultado.palette;
-      writeFileSync(PALETTE_FILE, `${JSON.stringify(palettes, null, 2)}\\n`);
+      writeFileSync(PALETTE_FILE, `${JSON.stringify(palettes, null, 2)}\n`);
       log('paleta criada', { temporada: season.name, fonte });
       return;
     } catch (error) {
