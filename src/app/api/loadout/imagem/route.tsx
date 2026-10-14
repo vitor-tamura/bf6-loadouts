@@ -129,12 +129,12 @@ export async function GET(request: Request) {
   const temporada = seasonLabel(new Date());
   const palette = seasonOn(new Date())?.palette?.dark;
   const cor = {
-    fundo: palette?.surface ?? cor.fundo,
-    linha: palette?.border ?? cor.linha,
-    texto: palette?.text ?? cor.texto,
-    fraco: palette?.textDim ?? cor.fraco,
-    destaque: palette?.accent ?? cor.destaque,
-    tinta: palette?.bg ?? cor.tinta,
+    fundo: palette?.surface ?? COR.fundo,
+    linha: palette?.border ?? COR.linha,
+    texto: palette?.text ?? COR.texto,
+    fraco: palette?.textDim ?? COR.fraco,
+    destaque: palette?.accent ?? COR.destaque,
+    tinta: palette?.bg ?? COR.tinta,
   };
   const foto = await fotoDaArma(weapon.id);
   const altura = CABECALHO + (foto ? FOTO : 0) + pecas.length * LINHA + RODAPE;
