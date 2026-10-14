@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { SEASONS, phaseOn, seasonLabel, seasonOn, seasonTheme } from './season';
 
-const SEASON_5 = SEASONS[0];
+const SEASON_5 = SEASONS.find((season) => season.number === 5)!;
 
 describe('temporada no ar', () => {
   it('reconhece o dia de abertura e o de encerramento', () => {
