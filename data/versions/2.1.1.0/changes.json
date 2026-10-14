@@ -91,7 +91,7 @@
       "automation": "review",
       "resolution": {
         "status": "open",
-        "reason": "Mudança descrita sem número: precisa de medição de outra fonte."
+        "reason": "Parâmetro do modelo de recuo (recoil direction) que o catálogo não guarda como campo: de 4 para 20, segundo a EA. Conferir no levantamento de simulação."
       }
     },
     {
@@ -102,10 +102,13 @@
       "entityType": "weapon",
       "entityId": "m39emr",
       "changes": {
-        "field": "recoil",
-        "from": 75,
-        "to": 11,
-        "operation": "set"
+        "field": null,
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "Recoil Decrease Time Exponent",
+        "line": "Recoil Decrease Time Exponent on the SVDM and M39EMR increased from 0.75 to 1.1"
       },
       "sources": [
         {
@@ -116,8 +119,11 @@
           "retrievedAt": "2026-10-13T00:31:41.023Z"
         }
       ],
-      "automation": "auto",
-      "resolution": null
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Parâmetro do modelo de recuo (recoil decrease) que o catálogo não guarda como campo: de 0.75 para 1.1, segundo a EA. Conferir no levantamento de simulação. Corrigido à mão: o parser lia os decimais sem o ponto e gravou 75 → 11 como mudança automática."
+      }
     },
     {
       "id": "evt-2.1.1.0-review-4",

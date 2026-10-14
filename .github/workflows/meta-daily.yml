@@ -95,6 +95,10 @@ jobs:
       # gasta dez à toa. Serve para a rodada avulsa logo depois de um lote ter
       # falhado; o agendamento diário continua varrendo tudo, que é como a
       # leitura envelhece e se renova.
+      #
+      # Como o trending, as montagens são lidas primeiro sem busca: o script
+      # baixa a página de montagens de cada arma e um gratuito do OpenRouter só
+      # lê. A busca (Gemini) fica para a arma sem página (scripts/meta/montagens.mjs).
       - name: Ler as montagens da comunidade
         if: ${{ !cancelled() }}
         env:

@@ -138,7 +138,9 @@ jobs:
         run: npm run catalog:compat -- --candidatos
 
       # Em que armas cada peça nova entra: varredura de uma fonte que enumera o
-      # slot inteiro, e pergunta a um modelo com busca só para o que sobrar.
+      # slot inteiro; o que sobrar, um gratuito do OpenRouter lê sem busca nos
+      # trechos do patch note e do bf6balancelog; o que ainda sobrar vai a um
+      # modelo com busca (Gemini).
       # `continue-on-error` porque depende de site de terceiro, e nenhuma falha
       # dele justifica segurar o patch.
       - name: Auditar os acessórios novos
@@ -166,8 +168,10 @@ jobs:
         run: npm run images:download
 
       # Quando uma temporada tematizada nova é cadastrada, cria sua paleta
-      # uma única vez com busca nas fontes oficiais da EA. A paleta é validada
-      # antes do build e passa a vestir CSS, Ant Design, gráficos e cartões.
+      # uma única vez. O script baixa o anúncio da temporada na EA e o patch
+      # note que a abre, e um gratuito do OpenRouter lê sem busca; a busca
+      # (Gemini) só entra sem material. A paleta é validada antes do build e
+      # passa a vestir CSS, Ant Design, gráficos e cartões.
       - name: Gerar paleta da nova temporada, se necessário
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}

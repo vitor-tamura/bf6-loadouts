@@ -12,6 +12,7 @@ import { describe, expect, it } from 'vitest';
 import {
   knownEntities,
   looksLikePatchNote,
+  number,
   parseAnnouncements,
   parseLine,
   parseNote,
@@ -523,5 +524,24 @@ describe('a arma que a fonte de registro liga à linha', () => {
     // A rede do fim do parser ainda a marca para revisão, com as duas armas.
     expect(change?.automation).toBe('review');
     expect(change?.weaponIds).toEqual(['interdictor', 'psr']);
+  });
+});
+
+describe('números da 2.1.1.0', () => {
+  it('lê ponto como decimal e vírgula como milhar', () => {
+    expect(number('0.75')).toBe(0.75);
+    expect(number('1.1')).toBe(1.1);
+    expect(number('20.')).toBe(20);
+    expect(number('1,000')).toBe(1000);
+    expect(number('820')).toBe(820);
+  });
+
+  it('parâmetro interno do recuo vai para revisão, e não vira "recoil"', () => {
+    const expoente = parse('Recoil Decrease Time Exponent on the SVDM and M39EMR increased from 0.75 to 1.1');
+    const direcao = parse('Recoil Direction on the SVDM changed from 4° to 20°');
+    for (const mudanca of [expoente, direcao]) {
+      expect(mudanca?.automation).not.toBe('auto');
+      expect(JSON.stringify(mudanca)).not.toMatch(/"from":75|"to":11/);
+    }
   });
 });

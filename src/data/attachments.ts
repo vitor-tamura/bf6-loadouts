@@ -36,7 +36,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 25,
     description: 'O maior controle de recuo vertical.',
     mods: { verticalRecoil: { mult: 0.84 }, control: { add: 7 }, mobility: { add: -2 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mk-24', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -47,7 +47,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 15,
     description: 'Acelera a subida à mira e segura o desvio lateral.',
     mods: { adsMs: { mult: 0.94 }, horizontalRecoil: { mult: 0.88 }, control: { add: 3 } },
-    compat: { weapons: ['ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'l85a3', 'lmr27', 'm1014', 'm16a4', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'qbz-192', 'rpk-74m', 'rpkm', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'l85a3', 'lmr27', 'm1014', 'm16a4', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mk-24', 'qbz-192', 'rpk-74m', 'rpkm', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -58,7 +58,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 20,
     description: 'O maior controle de recuo vertical.',
     mods: { verticalRecoil: { mult: 0.84 }, control: { add: 7 }, mobility: { add: -2 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mk-24', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -70,7 +70,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Apoiado, praticamente zera o recuo.',
     mods: { verticalRecoil: { mult: 0.7 }, horizontalRecoil: { mult: 0.7 }, mobility: { add: -6 }, adsMs: { mult: 1.05 } },
     conditional: ['verticalRecoil', 'horizontalRecoil'],
-    compat: { weapons: ['ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'psr', 'rpk-74m', 'rpkm', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'elr-40', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'mk-24', 'nvo-228e', 'psr', 'rpk-74m', 'rpkm', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -81,7 +81,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 30,
     description: 'Recuperação de mira mais rápida entre disparos.',
     mods: { horizontalRecoil: { mult: 0.86 }, adsMs: { mult: 0.97 }, control: { add: 4 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'vcr-2', 'vssm', 'vz-61'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mk-24', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'vcr-2', 'vssm', 'vz-61', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -93,7 +93,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Empunhadura e bipé na mesma peça.',
     mods: { verticalRecoil: { mult: 0.7 }, horizontalRecoil: { mult: 0.7 }, mobility: { add: -6 }, adsMs: { mult: 1.05 } },
     conditional: ['verticalRecoil', 'horizontalRecoil'],
-    compat: { weapons: ['ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2'],
+    compat: { weapons: ['ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mk-24', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'z84m'],
     except: ['mini-scout', 'vssm']
      },
     provenance: 'game',
@@ -106,7 +106,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 35,
     description: 'O maior controle de recuo vertical.',
     mods: { verticalRecoil: { mult: 0.84 }, control: { add: 7 }, mobility: { add: -2 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mk-24', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -133,7 +133,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 30,
     description: 'Empunhadura vertical virada para a frente: firma o tiro de perto e acelera o saque.',
     mods: { hipfire: { add: 6 }, swapMs: { mult: 0.92 } },
-    compat: { weapons: ['kts100-mk8', 'l110', 'm121-a2', 'm123k', 'm240l', 'm250', 'm60', 'rpk-74m', 'rpkm'] },
+    compat: { weapons: ['kts100-mk8', 'l110', 'm121-a2', 'm123k', 'm240l', 'm250', 'm60', 'rpk-74m', 'rpkm', 'z84m'] },
     provenance: 'curated',
   },
   {
@@ -144,7 +144,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 10,
     description: 'Apoio curto: melhora o tiro sem visada sem pesar.',
     mods: { hipfire: { add: 8 }, mobility: { add: 4 }, verticalRecoil: { mult: 0.96 } },
-    compat: { weapons: ['cz3a1', 'grt-bc', 'kv9', 'pp-19', 'pw5a3', 'pw7a2', 'scw-10', 'sgx', 'sl9', 'sor-300sc', 'umg-40', 'vz-61'] },
+    compat: { weapons: ['cz3a1', 'grt-bc', 'kv9', 'pp-19', 'pw5a3', 'pw7a2', 'rspr', 'scw-10', 'sgx', 'sl9', 'sor-300sc', 'umg-40', 'vz-61'] },
     provenance: 'game',
   },
   {
@@ -166,7 +166,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 20,
     description: 'Recuperação de mira mais rápida entre disparos.',
     mods: { horizontalRecoil: { mult: 0.86 }, adsMs: { mult: 0.97 }, control: { add: 4 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'vcr-2', 'vssm', 'vz-61'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mk-24', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'vcr-2', 'vssm', 'vz-61', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -177,7 +177,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 10,
     description: 'O maior controle de recuo vertical.',
     mods: { verticalRecoil: { mult: 0.84 }, control: { add: 7 }, mobility: { add: -2 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mk-24', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -188,7 +188,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 25,
     description: 'Acelera a subida à mira e segura o desvio lateral.',
     mods: { adsMs: { mult: 0.94 }, horizontalRecoil: { mult: 0.88 }, control: { add: 3 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'mk-24', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -199,7 +199,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 45,
     description: 'Recuperação de mira mais rápida entre disparos.',
     mods: { horizontalRecoil: { mult: 0.86 }, adsMs: { mult: 0.97 }, control: { add: 4 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'mk-24', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -211,7 +211,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Empunhadura e bipé na mesma peça.',
     mods: { verticalRecoil: { mult: 0.7 }, horizontalRecoil: { mult: 0.7 }, mobility: { add: -6 }, adsMs: { mult: 1.05 } },
     conditional: ['verticalRecoil', 'horizontalRecoil'],
-    compat: { weapons: ['ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'nvo-228e', 'qbz-192', 'rpk-74m', 'rpkm', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mk-24', 'nvo-228e', 'qbz-192', 'rpk-74m', 'rpkm', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -223,7 +223,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Empunhadura e bipé na mesma peça.',
     mods: { verticalRecoil: { mult: 0.7 }, horizontalRecoil: { mult: 0.7 }, mobility: { add: -6 }, adsMs: { mult: 1.05 } },
     conditional: ['verticalRecoil', 'horizontalRecoil'],
-    compat: { weapons: ['ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'mk-24', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -234,7 +234,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 30,
     description: 'Recuperação de mira mais rápida entre disparos.',
     mods: { horizontalRecoil: { mult: 0.86 }, adsMs: { mult: 0.97 }, control: { add: 4 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'vcr-2', 'vssm', 'vz-61'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mk-24', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'vcr-2', 'vssm', 'vz-61', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -245,7 +245,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 20,
     description: 'O maior controle de recuo vertical.',
     mods: { verticalRecoil: { mult: 0.84 }, control: { add: 7 }, mobility: { add: -2 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mk-24', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -256,7 +256,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 25,
     description: 'Acelera a subida à mira e segura o desvio lateral.',
     mods: { adsMs: { mult: 0.94 }, horizontalRecoil: { mult: 0.88 }, control: { add: 3 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'm1014', 'm121-a2', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'umg-40', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'm1014', 'm121-a2', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'mk-24', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'umg-40', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -267,7 +267,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 15,
     description: 'Melhora o tiro sem visada e o deslocamento.',
     mods: { hipfire: { add: 8 }, mobility: { add: 4 }, verticalRecoil: { mult: 0.96 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'brod-3', 'db-12', 'drs-iar', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l85a3', 'm121-a2', 'm16a4', 'm39-emr', 'm417-a2', 'nvo-228e', 'qbz-192', 'rpk-74m', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'svk-86', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'brod-3', 'db-12', 'drs-iar', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l85a3', 'm121-a2', 'm16a4', 'm39-emr', 'm417-a2', 'mk-24', 'nvo-228e', 'qbz-192', 'rpk-74m', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'svk-86', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -278,7 +278,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 35,
     description: 'Recuperação de mira mais rápida entre disparos.',
     mods: { horizontalRecoil: { mult: 0.86 }, adsMs: { mult: 0.97 }, control: { add: 4 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'vcr-2', 'vssm', 'vz-61'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mk-24', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'vcr-2', 'vssm', 'vz-61', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -289,7 +289,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 10,
     description: 'Lança-granadas acoplado sob o cano, no lugar da empunhadura.',
     mods: {},
-    compat: { weapons: ['ak-205', 'b36a4', 'brod-3', 'ef88', 'l85a3', 'm16a4', 'm277', 'm417-a2', 'm433', 'm4a1', 'sor-300sc', 'sor-556-mk2'] },
+    compat: { weapons: ['ak-205', 'b36a4', 'brod-3', 'ef88', 'l85a3', 'm16a4', 'm277', 'm417-a2', 'm433', 'm4a1', 'mk-24', 'sor-300sc', 'sor-556-mk2'] },
     provenance: 'game',
   },
   {
@@ -300,7 +300,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 30,
     description: 'Silêncio sem penalidade de manejo — e sem ganho de recuo em troca.',
     mods: { velocity: { mult: 0.88 }, range: { mult: 0.88 }, adsMs: { mult: 0.98 }, mobility: { add: -1 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vz-61'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'elr-40', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'mk-24', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vz-61', 'z84m'] },
     provenance: 'curated',
   },
   {
@@ -311,7 +311,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 20,
     description: 'Freio com fendas em cima: derruba o salto e esconde a marcação.',
     mods: { verticalRecoil: { mult: 0.89 }, control: { add: 6 }, hipfire: { add: -3 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'mk-24', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -325,7 +325,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 10,
     description: 'Boca que acalma o repique entre disparos.',
     mods: {},
-    compat: { weapons: ['18-5ks-k', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'nvo-228e', 'p18', 'pw5a3', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vz-61'] },
+    compat: { weapons: ['18-5ks-k', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'mk-24', 'nvo-228e', 'p18', 'pw5a3', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vz-61'] },
     provenance: 'curated',
   },
   {
@@ -336,7 +336,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 10,
     description: 'Duas portas: mais controle ainda, e esconde a marcação do disparo.',
     mods: { verticalRecoil: { mult: 0.84 }, control: { add: 8 }, hipfire: { add: -6 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'elr-40', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'mk-24', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm'] },
     provenance: 'game',
   },
   {
@@ -347,7 +347,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 20,
     description: 'Segura o desvio lateral, apaga o clarão e esconde a marcação.',
     mods: { accuracy: { add: 4 }, horizontalRecoil: { mult: 0.86 } },
-    compat: { weapons: ['ak-205', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l85a3', 'm121-a2', 'm16a4', 'm2010-esr', 'm39-emr', 'm417-a2', 'mini-scout', 'nvo-228e', 'pp-19', 'rpk-74m', 'scw-10', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'tr-7', 'umg-40', 'usg-90', 'vcr-2'] },
+    compat: { weapons: ['ak-205', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l85a3', 'm121-a2', 'm16a4', 'm2010-esr', 'm39-emr', 'm417-a2', 'mini-scout', 'mk-24', 'nvo-228e', 'pp-19', 'rpk-74m', 'rspr', 'scw-10', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'tr-7', 'umg-40', 'usg-90', 'vcr-2'] },
     provenance: 'game',
   },
   {
@@ -358,7 +358,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 10,
     description: 'Apaga o clarão do disparo e esconde a marcação de quem atira.',
     mods: { accuracy: { add: 4 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'elr-40', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'mini-scout', 'mk-24', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -369,7 +369,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 30,
     description: 'Silêncio com o recuo mais firme dos supressores; o preço é o tiro sem visada.',
     mods: { velocity: { mult: 0.94 }, range: { mult: 0.96 }, adsMs: { mult: 1.01 }, mobility: { add: -1 }, verticalRecoil: { mult: 0.92 }, hipfire: { add: -5 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'mk-24', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'curated',
   },
   {
@@ -380,7 +380,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 10,
     description: 'Joga o gás para a frente: segura o desvio e esconde a marcação.',
     mods: { horizontalRecoil: { mult: 0.78 }, control: { add: 5 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mk-24', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -391,7 +391,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 25,
     description: 'O mais silencioso: recuo mais firme, em troca de mira lenta e mais oscilação.',
     mods: { velocity: { mult: 1.02 }, range: { mult: 1.06 }, adsMs: { mult: 1.1 }, mobility: { add: -6 }, hipfire: { add: -8 }, verticalRecoil: { mult: 0.94 }, horizontalRecoil: { mult: 1.08 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'psr', 'pw5a3', 'pw7a2', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'elr-40', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'mk-24', 'nvo-228e', 'psr', 'pw5a3', 'pw7a2', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'curated',
   },
   {
@@ -402,7 +402,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 5,
     description: 'Freio de boca: derruba o salto do cano e esconde a marcação do disparo.',
     mods: { verticalRecoil: { mult: 0.89 }, control: { add: 6 }, hipfire: { add: -3 } },
-    compat: { weapons: ['brod-3', 'cz3a1', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm16a4', 'm2010-esr', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm45a1', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw7a2', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    compat: { weapons: ['brod-3', 'cz3a1', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm16a4', 'm2010-esr', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm45a1', 'm4a1', 'm60', 'mini-scout', 'mk-24', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw7a2', 'rspr', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
     provenance: 'game',
   },
   {
@@ -426,7 +426,7 @@ export const ATTACHMENTS: Attachment[] = [
     // sai escrita sozinha, junto das outras que esta peça cobra.
     description: 'Abafa o disparo e apaga a marcação, de perto e de longe.',
     mods: { velocity: { mult: 0.92 }, range: { mult: 0.94 }, adsMs: { mult: 1.04 }, mobility: { add: -3 }, hipfire: { add: -6 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'mini-scout', 'mk-24', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61', 'z84m'] },
     provenance: 'curated',
   },
   {
@@ -475,7 +475,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 30,
     description: 'Supressor e freio na mesma peça, no corpo cheio: o mais barato dos três, e o que mais cobra em manejo.',
     mods: { verticalRecoil: { mult: 0.93 }, horizontalRecoil: { mult: 0.93 }, control: { add: 5 }, hipfire: { add: -6 }, accuracy: { add: -4 }, swapMs: { mult: 1.08 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'mk-24', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'z84m'] },
     provenance: 'curated',
   },
   {
@@ -490,7 +490,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 40,
     description: 'O híbrido de corpo médio: mesma vantagem da versão cheia, cobrando só o tiro sem visada.',
     mods: { verticalRecoil: { mult: 0.93 }, horizontalRecoil: { mult: 0.93 }, control: { add: 5 }, hipfire: { add: -6 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'vcr-2'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'mk-24', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'z84m'] },
     provenance: 'curated',
   },
   {
@@ -505,7 +505,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 50,
     description: 'O híbrido curto: o mais caro do arsenal e o único sem contrapartida declarada.',
     mods: { verticalRecoil: { mult: 0.93 }, horizontalRecoil: { mult: 0.93 }, control: { add: 5 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'vcr-2'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'mk-24', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'z84m'] },
     provenance: 'curated',
   },
   {
@@ -2338,7 +2338,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Carregador de 15 tiros.',
     magazineSize: 15,
     mods: {  },
-    compat: { weapons: ['ak4d', 'grt-cps', 'lmr27', 'm277', 'm39-emr', 'scw-10', 'tr-7', 'vssm'] },
+    compat: { weapons: ['ak4d', 'grt-cps', 'lmr27', 'm277', 'm39-emr', 'mk-24', 'scw-10', 'tr-7', 'vssm'] },
     provenance: 'game',
   },
   {
@@ -2398,7 +2398,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Carregador de 20 tiros.',
     magazineSize: 20,
     mods: {  },
-    compat: { weapons: ['ak4d', 'b36a4', 'brod-3', 'ef88', 'es-57', 'grt-cps', 'l85a3', 'lmr27', 'm16a4', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'nvo-228e', 'pw5a3', 'pw7a2', 'scw-10', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'tr-7', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak4d', 'b36a4', 'brod-3', 'ef88', 'es-57', 'grt-cps', 'l85a3', 'lmr27', 'm16a4', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'mk-24', 'nvo-228e', 'pw5a3', 'pw7a2', 'rspr', 'scw-10', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'tr-7', 'vcr-2', 'vssm'] },
     provenance: 'game',
   },
   {
@@ -2802,7 +2802,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mesma capacidade, recarga mais rápida.',
     magazineSize: 7,
     mods: { reload: { mult: 0.84 } },
-    compat: { weapons: ['l115'] },
+    compat: { weapons: ['elr-40', 'l115'] },
     provenance: 'game',
   },
   {
@@ -2814,7 +2814,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Carregador de 7 tiros.',
     magazineSize: 7,
     mods: {  },
-    compat: { weapons: ['ggh-22', 'interdictor', 'l115', 'm357-trait', 'm45a1', 'psr'] },
+    compat: { weapons: ['elr-40', 'ggh-22', 'interdictor', 'l115', 'm357-trait', 'm45a1', 'psr'] },
     provenance: 'game',
   },
   {
@@ -2851,7 +2851,7 @@ export const ATTACHMENTS: Attachment[] = [
     // O catálogo registra `visualRecoil: -1`, que é tremor de tela e não
     // dispersão. Sem escala publicada, entra sem mods em vez de virar palpite.
     mods: {},
-    compat: { weapons: ['m16a4'] },
+    compat: { weapons: ['m16a4', 'mk-24', 'rspr'] },
     provenance: 'game',
   },
   {
@@ -2888,7 +2888,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 30,
     description: 'Ferrolho tratado: ciclo mais veloz.',
     mods: { rpm: { mult: 1.12 } },
-    compat: { weapons: ['interdictor', 'l115', 'm2010-esr', 'mini-scout', 'psr', 'sv-98'] },
+    compat: { weapons: ['elr-40', 'interdictor', 'l115', 'm2010-esr', 'mini-scout', 'psr', 'sv-98'] },
     provenance: 'game',
   },
   {
@@ -2899,7 +2899,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 5,
     description: 'Troca de carregador mais rápida.',
     mods: { reload: { mult: 0.9 } },
-    compat: { weapons: ['ak-205', 'brod-3', 'cz3a1', 'es-57', 'ggh-22', 'grt-bc', 'interdictor', 'l115', 'lmr27', 'm277', 'm357-trait', 'm39-emr', 'm45a1', 'm4a1', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'scw-10', 'sg-553r', 'sl9', 'sor-300sc', 'sv-98', 'svdm', 'tr-7', 'usg-90', 'vssm', 'vz-61'] },
+    compat: { weapons: ['ak-205', 'brod-3', 'cz3a1', 'elr-40', 'es-57', 'ggh-22', 'grt-bc', 'interdictor', 'l115', 'lmr27', 'm277', 'm357-trait', 'm39-emr', 'm45a1', 'm4a1', 'mk-24', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'rspr', 'scw-10', 'sg-553r', 'sl9', 'sor-300sc', 'sv-98', 'svdm', 'tr-7', 'usg-90', 'vssm', 'vz-61'] },
     provenance: 'game',
   },
   {
@@ -2910,7 +2910,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 10,
     description: 'Funil que guia o carregador na recarga.',
     mods: { reload: { mult: 0.88 } },
-    compat: { weapons: ['ak-205', 'brod-3', 'drs-iar', 'm16a4', 'm277', 'm417-a2', 'm433', 'm4a1', 'rpk-74m', 'rpkm', 'sor-300sc', 'sor-556-mk2'] },
+    compat: { weapons: ['ak-205', 'brod-3', 'drs-iar', 'm16a4', 'm277', 'm417-a2', 'm433', 'm4a1', 'mk-24', 'rpk-74m', 'rpkm', 'rspr', 'sor-300sc', 'sor-556-mk2'] },
     provenance: 'game',
   },
   {
@@ -2929,7 +2929,7 @@ export const ATTACHMENTS: Attachment[] = [
     // remoção é curadoria local: a fonte pública segue oferecendo a peça, e o
     // sincronizador não desfaz o que ela não mudou. Quando o estúdio reabrir
     // o Gatilho para as duas, os ids voltam para cá.
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'drs-iar', 'grt-bc', 'kord-6p67', 'kts100-mk8', 'l85a3', 'm16a4', 'm277', 'm417-a2', 'm433', 'm4a1', 'nvo-228e', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'tr-7', 'vcr-2'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'drs-iar', 'grt-bc', 'kord-6p67', 'kts100-mk8', 'l85a3', 'm16a4', 'm277', 'm417-a2', 'm433', 'm4a1', 'mk-24', 'nvo-228e', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'tr-7', 'vcr-2'] },
     provenance: 'game',
   },
   {
@@ -2940,7 +2940,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 5,
     description: 'Protege o trilho e melhora o manuseio.',
     mods: { hipfire: { add: 4 }, mobility: { add: 2 } },
-    compat: { weapons: ['m16a4'] },
+    compat: { weapons: ['elr-40', 'm16a4', 'mk-24', 'rspr', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -2951,7 +2951,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 30,
     description: 'Aperta o cone do tiro sem visada; o feixe é visível.',
     mods: { hipfire: { add: 16 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'elr-40', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'mk-24', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -2962,7 +2962,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 10,
     description: 'Aperta o cone do tiro sem visada; o feixe é visível.',
     mods: { hipfire: { add: 4 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'elr-40', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'mk-24', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -2973,7 +2973,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 10,
     description: 'Aperta o cone do tiro sem visada; o feixe é visível.',
     mods: { hipfire: { add: 4 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'elr-40', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'mk-24', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -2984,7 +2984,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 20,
     description: 'Aperta o cone do tiro sem visada; o feixe é visível.',
     mods: { hipfire: { add: 9 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'elr-40', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'mk-24', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -2995,7 +2995,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 20,
     description: 'Aperta o cone do tiro sem visada; o feixe é visível.',
     mods: { hipfire: { add: 9 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'elr-40', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'mk-24', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3006,7 +3006,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 10,
     description: 'Aperta o cone do tiro sem visada; o feixe é visível.',
     mods: { hipfire: { add: 5 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'elr-40', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'mk-24', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3021,7 +3021,7 @@ export const ATTACHMENTS: Attachment[] = [
     // por regra do jogo: no instantâneo de 12/08/2026 ela vem sem a aba de
     // acessório inteira, enquanto a PSR — mesmo tipo de arma, mesma leitura —
     // traz lanterna e telêmetro. As duas peças aparecem no Gunsmith da L115.
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'elr-40', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'mk-24', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3035,7 +3035,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 15,
     description: 'Feixe que acende no tiro sem visada.',
     mods: {},
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'elr-40', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'mk-24', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'curated',
   },
   {
@@ -3048,7 +3048,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 5,
     description: 'Feixe que acende com a arma na mira.',
     mods: {},
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'elr-40', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'mk-24', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61', 'z84m'] },
     provenance: 'curated',
   },
   {
@@ -3084,7 +3084,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 15,
     description: 'Mostra a distância exata até o alvo.',
     mods: { accuracy: { add: 5 } },
-    compat: { weapons: ['grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
+    compat: { weapons: ['elr-40', 'grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
     provenance: 'game',
   },
   {
@@ -3096,7 +3096,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 1.5×.',
     magnification: 1.5,
     mods: { adsMs: { mult: 1.03 }, accuracy: { add: 4 }, mobility: { add: -1 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mk-24', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3110,7 +3110,7 @@ export const ATTACHMENTS: Attachment[] = [
     mods: { adsMs: { mult: 1.16 }, accuracy: { add: 19 }, mobility: { add: -4 } },
     // A fonte pública ainda não trouxe a peça; a compatibilidade acompanha a
     // outra LPVO até o catálogo publicar a lista dela.
-    compat: { weapons: ['grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
+    compat: { weapons: ['elr-40', 'grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
     provenance: 'curated',
   },
   {
@@ -3122,7 +3122,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Luneta de ampliação variável: gira de perto para longe sem trocar de peça.',
     magnification: 4.0,
     mods: { adsMs: { mult: 1.18 }, accuracy: { add: 21 }, mobility: { add: -4 } },
-    compat: { weapons: ['grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
+    compat: { weapons: ['elr-40', 'grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
     provenance: 'game',
   },
   {
@@ -3134,7 +3134,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 1.25×.',
     magnification: 1.25,
     mods: { adsMs: { mult: 1.015 }, accuracy: { add: 2 }, mobility: { add: 0 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm44', 'm4a1', 'm60', 'm87a1', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm44', 'm4a1', 'm60', 'm87a1', 'mk-24', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3146,7 +3146,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 1.75×.',
     magnification: 1.75,
     mods: { adsMs: { mult: 1.045 }, accuracy: { add: 5 }, mobility: { add: -1 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'nvo-228e', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mk-24', 'nvo-228e', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3158,7 +3158,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 1.75×.',
     magnification: 1.75,
     mods: { adsMs: { mult: 1.045 }, accuracy: { add: 5 }, mobility: { add: -1 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'nvo-228e', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mk-24', 'nvo-228e', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3181,7 +3181,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 2.5×.',
     magnification: 2.5,
     mods: { adsMs: { mult: 1.09 }, accuracy: { add: 10 }, mobility: { add: -2 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'elr-40', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'mk-24', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3193,7 +3193,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 3.0×.',
     magnification: 3.0,
     mods: { adsMs: { mult: 1.12 }, accuracy: { add: 14 }, mobility: { add: -3 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'elr-40', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'mk-24', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3205,7 +3205,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 2.0×.',
     magnification: 2.0,
     mods: { adsMs: { mult: 1.06 }, accuracy: { add: 7 }, mobility: { add: -1 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'nvo-228e', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mk-24', 'nvo-228e', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3217,7 +3217,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 1.25×.',
     magnification: 1.25,
     mods: { adsMs: { mult: 1.015 }, accuracy: { add: 2 }, mobility: { add: 0 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm44', 'm45a1', 'm4a1', 'm60', 'm87a1', 'nvo-228e', 'p18', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm44', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mk-24', 'nvo-228e', 'p18', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3240,7 +3240,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Luneta de ampliação variável: gira de perto para longe sem trocar de peça.',
     magnification: 4.0,
     mods: { adsMs: { mult: 1.18 }, accuracy: { add: 21 }, mobility: { add: -4 } },
-    compat: { weapons: ['ak4d', 'b36a4', 'drs-iar', 'ef88', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm39-emr', 'm433', 'm60', 'mini-scout', 'nvo-228e', 'psr', 'rpk-74m', 'rpkm', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak4d', 'b36a4', 'drs-iar', 'ef88', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm39-emr', 'm433', 'm60', 'mini-scout', 'mk-24', 'nvo-228e', 'psr', 'rpk-74m', 'rpkm', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3252,7 +3252,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 1.5×.',
     magnification: 1.5,
     mods: { adsMs: { mult: 1.03 }, accuracy: { add: 4 }, mobility: { add: -1 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mk-24', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3280,7 +3280,7 @@ export const ATTACHMENTS: Attachment[] = [
       `data/versions/1.4.1.5/changes.json`. Uma print do Gunsmith encerra a
       dúvida; até lá, é isto.
     */
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm44', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm44', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'mk-24', 'nvo-228e', 'p18', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'usg-90', 'vcr-2', 'vssm', 'vz-61', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3305,7 +3305,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 4.5×.',
     magnification: 4.5,
     mods: { adsMs: { mult: 1.21 }, accuracy: { add: 24 }, mobility: { add: -5 } },
-    compat: { weapons: ['ak4d', 'b36a4', 'ef88', 'grt-cps', 'interdictor', 'kord-6p67', 'l115', 'l85a3', 'lmr27', 'm16a4', 'm2010-esr', 'm39-emr', 'm433', 'mini-scout', 'nvo-228e', 'psr', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak4d', 'b36a4', 'ef88', 'elr-40', 'grt-cps', 'interdictor', 'kord-6p67', 'l115', 'l85a3', 'lmr27', 'm16a4', 'm2010-esr', 'm39-emr', 'm433', 'mini-scout', 'mk-24', 'nvo-228e', 'psr', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm'] },
     provenance: 'game',
   },
   {
@@ -3317,7 +3317,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 8.0×.',
     magnification: 8.0,
     mods: { adsMs: { mult: 1.42 }, accuracy: { add: 49 }, mobility: { add: -12 } },
-    compat: { weapons: ['grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
+    compat: { weapons: ['elr-40', 'grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
     provenance: 'game',
   },
   {
@@ -3329,7 +3329,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Luneta de ampliação variável: gira de perto para longe sem trocar de peça.',
     magnification: 4.0,
     mods: { adsMs: { mult: 1.18 }, accuracy: { add: 21 }, mobility: { add: -4 } },
-    compat: { weapons: ['ak4d', 'b36a4', 'drs-iar', 'ef88', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm39-emr', 'm433', 'm60', 'mini-scout', 'nvo-228e', 'psr', 'rpk-74m', 'rpkm', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak4d', 'b36a4', 'drs-iar', 'ef88', 'elr-40', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm39-emr', 'm433', 'm60', 'mini-scout', 'mk-24', 'nvo-228e', 'psr', 'rpk-74m', 'rpkm', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3352,7 +3352,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 10,
     description: 'Ponto vermelho para aquisição rápida.',
     mods: { accuracy: { add: 4 }, adsMs: { mult: 1.02 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm44', 'm45a1', 'm4a1', 'm60', 'm87a1', 'nvo-228e', 'p18', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm44', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mk-24', 'nvo-228e', 'p18', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3364,7 +3364,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 8.0×.',
     magnification: 8.0,
     mods: { adsMs: { mult: 1.42 }, accuracy: { add: 49 }, mobility: { add: -10 } },
-    compat: { weapons: ['grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
+    compat: { weapons: ['elr-40', 'grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
     provenance: 'game',
   },
   {
@@ -3387,7 +3387,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 10,
     description: 'Ponto vermelho para aquisição rápida.',
     mods: { accuracy: { add: 4 }, adsMs: { mult: 1.02 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm44', 'm4a1', 'm60', 'm87a1', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm44', 'm4a1', 'm60', 'm87a1', 'mk-24', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3399,7 +3399,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 3.0×.',
     magnification: 3.0,
     mods: { adsMs: { mult: 1.12 }, accuracy: { add: 14 }, mobility: { add: -3 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'elr-40', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'mk-24', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3411,7 +3411,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 4.0×.',
     magnification: 4.0,
     mods: { adsMs: { mult: 1.18 }, accuracy: { add: 21 }, mobility: { add: -4 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'elr-40', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'mk-24', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3422,7 +3422,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 10,
     description: 'Ponto vermelho para aquisição rápida.',
     mods: { accuracy: { add: 4 }, adsMs: { mult: 1.02 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm44', 'm45a1', 'm4a1', 'm60', 'm87a1', 'nvo-228e', 'p18', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm44', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mk-24', 'nvo-228e', 'p18', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3434,7 +3434,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 2.0×.',
     magnification: 2.0,
     mods: { adsMs: { mult: 1.06 }, accuracy: { add: 7 }, mobility: { add: -1 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'nvo-228e', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mk-24', 'nvo-228e', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3457,7 +3457,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 1.75×.',
     magnification: 1.75,
     mods: { adsMs: { mult: 1.045 }, accuracy: { add: 5 }, mobility: { add: -1 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'nvo-228e', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mk-24', 'nvo-228e', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3469,7 +3469,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 1.25×.',
     magnification: 1.25,
     mods: { adsMs: { mult: 1.015 }, accuracy: { add: 2 }, mobility: { add: 0 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm44', 'm45a1', 'm4a1', 'm60', 'm87a1', 'nvo-228e', 'p18', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'es-57', 'ggh-22', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm357-trait', 'm39-emr', 'm417-a2', 'm433', 'm44', 'm45a1', 'm4a1', 'm60', 'm87a1', 'mk-24', 'nvo-228e', 'p18', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'vz-61', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3481,7 +3481,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 1.5×.',
     magnification: 1.5,
     mods: { adsMs: { mult: 1.03 }, accuracy: { add: 4 }, mobility: { add: -1 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mk-24', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3493,7 +3493,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 6.0×.',
     magnification: 6.0,
     mods: { adsMs: { mult: 1.3 }, accuracy: { add: 35 }, mobility: { add: -7 } },
-    compat: { weapons: ['grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
+    compat: { weapons: ['elr-40', 'grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
     provenance: 'game',
   },
   {
@@ -3505,7 +3505,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 3.5×.',
     magnification: 3.5,
     mods: { adsMs: { mult: 1.15 }, accuracy: { add: 18 }, mobility: { add: -4 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'drs-iar', 'ef88', 'elr-40', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'l110', 'l115', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'mk-24', 'nvo-228e', 'psr', 'qbz-192', 'rpk-74m', 'rpkm', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3517,7 +3517,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 5.0×.',
     magnification: 5.0,
     mods: { adsMs: { mult: 1.24 }, accuracy: { add: 28 }, mobility: { add: -6 } },
-    compat: { weapons: ['grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
+    compat: { weapons: ['elr-40', 'grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
     provenance: 'game',
   },
   {
@@ -3529,7 +3529,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Luneta de ampliação variável: gira de perto para longe sem trocar de peça.',
     magnification: 4.0,
     mods: { adsMs: { mult: 1.18 }, accuracy: { add: 21 }, mobility: { add: -4 } },
-    compat: { weapons: ['grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
+    compat: { weapons: ['elr-40', 'grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
     provenance: 'game',
   },
   {
@@ -3541,7 +3541,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 6.0×.',
     magnification: 6.0,
     mods: { adsMs: { mult: 1.3 }, accuracy: { add: 35 }, mobility: { add: -7 } },
-    compat: { weapons: ['grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
+    compat: { weapons: ['elr-40', 'grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
     provenance: 'game',
   },
   {
@@ -3553,7 +3553,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 5.0×.',
     magnification: 5.0,
     mods: { adsMs: { mult: 1.24 }, accuracy: { add: 28 }, mobility: { add: -6 } },
-    compat: { weapons: ['grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
+    compat: { weapons: ['elr-40', 'grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
     provenance: 'game',
   },
   {
@@ -3565,7 +3565,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 1.5×.',
     magnification: 1.5,
     mods: { adsMs: { mult: 1.03 }, accuracy: { add: 4 }, mobility: { add: -1 } },
-    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm121-a2', 'm123k', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3600,7 +3600,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mira com ampliação de 6.0×.',
     magnification: 6.0,
     mods: { adsMs: { mult: 1.3 }, accuracy: { add: 35 }, mobility: { add: -7 } },
-    compat: { weapons: ['grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
+    compat: { weapons: ['elr-40', 'grt-cps', 'interdictor', 'l115', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
     provenance: 'game',
   },
   {
@@ -3656,7 +3656,7 @@ export const ATTACHMENTS: Attachment[] = [
     description: 'Mais dano em acerto na cabeça; alcance menor.',
     mods: { range: { mult: 0.88 } },
     headshotOverride: 1.5,
-    compat: { categories: ['ar', 'carbine', 'smg', 'lmg', 'dmr', 'pistol'] },
+    compat: { categories: ['ar', 'carbine', 'smg', 'lmg', 'dmr', 'pistol'], except: ['mk-24'] },
     provenance: 'game',
   },
   {
@@ -3667,7 +3667,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 10,
     description: 'Agrupamento fechado, mas a bala freia mais no ar: o arrasto dobra.',
     mods: { accuracy: { add: 8 }, verticalRecoil: { mult: 0.94 }, drag: { mult: 1.43 } },
-    compat: { categories: ['sniper', 'dmr'] },
+    compat: { categories: ['sniper', 'dmr'], except: ['elr-40'] },
     provenance: 'curated',
   },
   {
@@ -3757,7 +3757,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 10,
     description: 'Elimina o brilho da lente que denuncia a posição.',
     mods: { accuracy: { add: 2 }, adsMs: { mult: 1.02 } },
-    compat: { weapons: ['interdictor', 'l115', 'm2010-esr', 'mini-scout', 'psr', 'sv-98'] },
+    compat: { weapons: ['elr-40', 'interdictor', 'l115', 'm2010-esr', 'mini-scout', 'psr', 'sv-98'] },
     provenance: 'game',
   },
   {
@@ -3768,7 +3768,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 5,
     description: 'Mira de fábrica, a que menos pesa no manejo.',
     mods: { adsMs: { mult: 1.03 }, hipfire: { add: 6 } },
-    compat: { weapons: ['interdictor', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
+    compat: { weapons: ['elr-40', 'interdictor', 'lmr27', 'm2010-esr', 'm39-emr', 'mini-scout', 'psr', 'sv-98', 'svdm', 'svk-86', 'vssm'] },
     provenance: 'game',
   },
   {
@@ -3779,7 +3779,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 5,
     description: 'Mira de fábrica, a que menos pesa no manejo.',
     mods: { adsMs: { mult: 1.03 }, hipfire: { add: 6 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm417-a2', 'm433', 'm4a1', 'm60', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'tr-7', 'umg-40', 'usg-90', 'vcr-2'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm240l', 'm250', 'm277', 'm417-a2', 'm433', 'm4a1', 'm60', 'mk-24', 'nvo-228e', 'pp-19', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3790,7 +3790,7 @@ export const ATTACHMENTS: Attachment[] = [
     cost: 10,
     description: 'Mira auxiliar inclinada para o alvo colado.',
     mods: { adsMs: { mult: 1.03 }, hipfire: { add: 6 } },
-    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'db-12', 'drs-iar', 'ef88', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm'] },
+    compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'db-12', 'drs-iar', 'ef88', 'elr-40', 'grt-bc', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l85a3', 'lmr27', 'm1014', 'm121-a2', 'm123k', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'mini-scout', 'mk-24', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'rspr', 'scw-10', 'sg-553r', 'sgx', 'sl9', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'tr-7', 'umg-40', 'usg-90', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
@@ -3959,6 +3959,446 @@ export const ATTACHMENTS: Attachment[] = [
     mods: {},
     compat: { weapons: ['es-57', 'm45a1', 'p18'] },
     provenance: 'game',
+  },
+
+  /* ------------------------------------------------------------------------ *
+   * Temporada 5 (2.1.1.0, 13/10/2026) — Mk 24, RSPR, Z84M e ELR-40
+   *
+   * Nenhuma fonte de estado atual nem de enumeração de slot tinha as quatro
+   * armas em 14/10/2026: o bf6loadouts não as lista e o rnkd.gg tem as 63 de
+   * antes. A compatibilidade e os custos vêm da fonte de simulação, o
+   * raymdl/BF6-Weapon-Analyzer (commit da92dd8, data/attachments.json —
+   * WEAPON_ATTS, WEAPON_ERGO, WEAPON_ACCESSORY, WEAPON_MAG — e data/ammo.json),
+   * lida dos arquivos do cliente 2.1.1.0 e marcada "Not tested in game" pelo
+   * próprio Analyzer.
+   *
+   * Peça que já existia aqui e custa o mesmo recebe a arma na lista. Peça cujo
+   * custo na arma nova difere do daqui se divide, com o id da arma no fim, como
+   * a Alça de Ferro da Interdictor; ela copia nome, descrição e efeito da peça
+   * de origem, porque é a mesma peça com outro preço. Miras seguem a interseção
+   * da categoria no dataset: o Analyzer não enumera mira por modelo.
+   *
+   * Tudo aqui entra `curated`. O que ficou de fora, e por quê, está em
+   * data/compatibility/temporada-5-a-confirmar-2.1.1.0.json.
+   * ------------------------------------------------------------------------ */
+
+  /*
+    Canos. O Analyzer dá o papel de cada cano (basic, short, extended, light,
+    heavy), não o nome da peça no jogo ("16\" Factory"), que nenhuma fonte
+    alcançável publicou. O nome original fica sendo o papel, até a tela do jogo
+    dizer o resto.
+
+    Efeito: velocidade pela escada de 0,8 do Analyzer (short ×0,8, extended
+    ×1,25) e tempo de mira pela troca de degrau em `adsTimeTierModByWeapon`,
+    lida em ADS_SPD_TIERS. O resto dos efeitos do cano está em degraus que o
+    site não modela.
+  */
+  {
+    id: 'barrel-mk-24-basic',
+    name: 'Cano Básico',
+    originalName: 'Basic',
+    slot: 'barrel',
+    cost: 10,
+    description: 'Cano de fábrica da arma.',
+    mods: {},
+    compat: { weapons: ['mk-24'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'barrel-mk-24-short',
+    name: 'Cano Curto',
+    originalName: 'Short',
+    slot: 'barrel',
+    cost: 15,
+    description: 'Cano curto: a bala sai mais lenta.',
+    mods: { velocity: { mult: 0.8 } },
+    compat: { weapons: ['mk-24'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'barrel-mk-24-extended',
+    name: 'Cano Estendido',
+    originalName: 'Extended',
+    slot: 'barrel',
+    cost: 5,
+    description: 'Cano longo: a bala sai mais rápida e a mira sobe mais devagar.',
+    // Degrau de mira 4 → 3: 250 → 300 ms.
+    mods: { velocity: { mult: 1.25 }, adsMs: { mult: 1.2 } },
+    compat: { weapons: ['mk-24'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'barrel-mk-24-light',
+    name: 'Cano Leve',
+    originalName: 'Light',
+    slot: 'barrel',
+    cost: 20,
+    description: 'Cano aliviado.',
+    mods: {},
+    compat: { weapons: ['mk-24'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'barrel-rspr-basic',
+    name: 'Cano Básico',
+    originalName: 'Basic',
+    slot: 'barrel',
+    cost: 10,
+    description: 'Cano de fábrica da arma.',
+    mods: {},
+    compat: { weapons: ['rspr'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'barrel-rspr-extended',
+    name: 'Cano Estendido',
+    originalName: 'Extended',
+    slot: 'barrel',
+    cost: 5,
+    description: 'Cano longo: a bala sai mais rápida e a mira sobe mais devagar.',
+    // Degrau de mira 6 → 5: 167 → 200 ms.
+    mods: { velocity: { mult: 1.25 }, adsMs: { mult: 1.2 } },
+    compat: { weapons: ['rspr'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'barrel-rspr-light',
+    name: 'Cano Leve',
+    originalName: 'Light',
+    slot: 'barrel',
+    cost: 20,
+    description: 'Cano aliviado.',
+    mods: {},
+    compat: { weapons: ['rspr'] },
+    provenance: 'curated',
+  },
+  {
+    /*
+      O de fábrica da Z84M é o pesado (`barrelDef: heavy`), como nas outras
+      metralhadoras de fita. O perfil pesado não é modelado aqui, e a M60, a
+      M240L e a L110 já mostram o cano de fábrica como Básico — a Z84M segue a
+      mesma regra. O custo é o mesmo nos dois papéis: 10.
+    */
+    id: 'barrel-z84m-heavy',
+    name: 'Cano Básico',
+    originalName: 'Heavy',
+    slot: 'barrel',
+    cost: 10,
+    description: 'Cano de fábrica da arma.',
+    mods: {},
+    compat: { weapons: ['z84m'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'barrel-z84m-short',
+    name: 'Cano Curto',
+    originalName: 'Short',
+    slot: 'barrel',
+    cost: 15,
+    description: 'Cano curto: a bala sai mais lenta e a mira sobe mais rápido.',
+    // Degrau de mira 1 → 2: 433 → 367 ms.
+    mods: { velocity: { mult: 0.8 }, adsMs: { mult: 0.846 } },
+    compat: { weapons: ['z84m'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'barrel-z84m-light',
+    name: 'Cano Leve',
+    originalName: 'Light',
+    slot: 'barrel',
+    cost: 20,
+    description: 'Cano aliviado: a mira sobe mais rápido.',
+    // Degrau de mira 1 → 2: 433 → 367 ms.
+    mods: { adsMs: { mult: 0.846 } },
+    compat: { weapons: ['z84m'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'barrel-elr-40-basic',
+    name: 'Cano Básico',
+    originalName: 'Basic',
+    slot: 'barrel',
+    cost: 10,
+    description: 'Cano de fábrica da arma.',
+    mods: {},
+    compat: { weapons: ['elr-40'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'barrel-elr-40-extended',
+    name: 'Cano Estendido',
+    originalName: 'Extended',
+    slot: 'barrel',
+    cost: 5,
+    description: 'Cano longo: a bala sai mais rápida e a mira sobe mais devagar.',
+    // Degrau de mira 2 → 1: 367 → 433 ms.
+    mods: { velocity: { mult: 1.25 }, adsMs: { mult: 1.182 } },
+    compat: { weapons: ['elr-40'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'barrel-elr-40-light',
+    name: 'Cano Leve',
+    originalName: 'Light',
+    slot: 'barrel',
+    cost: 20,
+    description: 'Cano aliviado.',
+    mods: {},
+    compat: { weapons: ['elr-40'] },
+    provenance: 'curated',
+  },
+
+  /* Carregadores: o nome segue o padrão daqui ("20 Fast" → "20RND Fast Mag"). */
+  {
+    id: 'magazine-20rnd-fast-mag-mk-24',
+    name: 'Carregador Rápido de 20',
+    originalName: '20RND Fast Mag',
+    slot: 'magazine',
+    cost: 10,
+    description: 'Mesma capacidade, recarga mais rápida.',
+    magazineSize: 20,
+    mods: { reload: { mult: 0.84 } },
+    compat: { weapons: ['mk-24'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'magazine-25rnd-magazine-mk-24',
+    name: 'Carregador de 25',
+    originalName: '25RND Magazine',
+    slot: 'magazine',
+    cost: 15,
+    description: 'Carregador de 25 tiros.',
+    magazineSize: 25,
+    mods: {},
+    compat: { weapons: ['mk-24'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'magazine-25rnd-fast-mag-mk-24',
+    name: 'Carregador Rápido de 25',
+    originalName: '25RND Fast Mag',
+    slot: 'magazine',
+    cost: 20,
+    description: 'Mesma capacidade, recarga mais rápida.',
+    magazineSize: 25,
+    mods: { reload: { mult: 0.84 } },
+    compat: { weapons: ['mk-24'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'magazine-30rnd-magazine-mk-24',
+    name: 'Carregador de 30',
+    originalName: '30RND Magazine',
+    slot: 'magazine',
+    cost: 25,
+    description: 'Carregador de 30 tiros.',
+    magazineSize: 30,
+    mods: {},
+    compat: { weapons: ['mk-24'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'magazine-20rnd-fast-mag-rspr',
+    name: 'Carregador Rápido de 20',
+    originalName: '20RND Fast Mag',
+    slot: 'magazine',
+    cost: 10,
+    description: 'Mesma capacidade, recarga mais rápida.',
+    magazineSize: 20,
+    mods: { reload: { mult: 0.84 } },
+    compat: { weapons: ['rspr'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'magazine-28rnd-magazine',
+    name: 'Carregador de 28',
+    originalName: '28RND Magazine',
+    slot: 'magazine',
+    cost: 35,
+    description: 'Carregador de 28 tiros.',
+    magazineSize: 28,
+    mods: {},
+    compat: { weapons: ['rspr'] },
+    provenance: 'curated',
+  },
+  /*
+    Os três carregadores da Z84M têm 100 tiros e se distinguem pelo que o
+    Analyzer chama de "100 Rnd", "100 Agil" e "100 Fast". O nome da peça no
+    jogo (caixa, bolsa ou tambor) nenhuma fonte alcançável publicou.
+  */
+  {
+    id: 'magazine-100rnd-z84m',
+    name: 'Carregador de 100',
+    originalName: '100 Rnd',
+    slot: 'magazine',
+    cost: 5,
+    description: 'Fita de 100 cartuchos, a de fábrica.',
+    magazineSize: 100,
+    mods: {},
+    compat: { weapons: ['z84m'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'magazine-100rnd-agil-z84m',
+    name: 'Carregador Ágil de 100',
+    originalName: '100 Agil',
+    slot: 'magazine',
+    cost: 10,
+    description: 'Fita de 100 cartuchos, mais ágil na mira em movimento.',
+    // `movingAdsSpreadTierMod: 1` — degrau que o site não modela.
+    magazineSize: 100,
+    mods: {},
+    compat: { weapons: ['z84m'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'magazine-100rnd-fast-z84m',
+    name: 'Carregador Rápido de 100',
+    originalName: '100 Fast',
+    slot: 'magazine',
+    cost: 10,
+    description: 'Mesma capacidade, recarga mais rápida.',
+    magazineSize: 100,
+    // `reloadSpeedTier: 1` → velocidade de recarga ×1,13 (RELOAD_SPEED_MULTIPLIERS).
+    mods: { reload: { mult: 0.885 } },
+    compat: { weapons: ['z84m'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'magazine-5rnd-magazine-elr-40',
+    name: 'Carregador de 5',
+    originalName: '5RND Magazine',
+    slot: 'magazine',
+    cost: 10,
+    description: 'Carregador de 5 tiros.',
+    magazineSize: 5,
+    mods: {},
+    compat: { weapons: ['elr-40'] },
+    provenance: 'curated',
+  },
+  {
+    /*
+      O "modo de tiro único" que a EA anuncia é este carregador. Ele troca o
+      projétil por PD_.375EnABELR_API, com outra curva — 90 até 24 m, 120 entre
+      42 e 68 m, 100 em 80 m e 80 a partir de 140 m —, cabeça 1,34× e recarga de
+      3,166 s. O site não troca a curva de dano por acessório, e aplicar só a
+      cabeça ou só a recarga mostraria a peça pior do que ela é. Fica sem efeito
+      até o modelo saber trocar a curva.
+    */
+    id: 'magazine-single-shot-elr-40',
+    name: 'Tiro Único',
+    originalName: 'Single Shot',
+    slot: 'magazine',
+    cost: 5,
+    description: 'Carga de um cartucho com projétil próprio: o ponto ideal vem para 42–68 m.',
+    magazineSize: 1,
+    mods: {},
+    compat: { weapons: ['elr-40'] },
+    provenance: 'curated',
+  },
+
+  /* Empunhaduras com custo próprio nas armas novas. */
+  {
+    id: 'underbarrel-slim-angled-rspr',
+    name: 'Angular Fina',
+    originalName: 'Slim Angled',
+    slot: 'underbarrel',
+    cost: 20,
+    description: 'Acelera a subida à mira e segura o desvio lateral.',
+    // `slim_angled_smg`, 20 pontos.
+    mods: { adsMs: { mult: 0.94 }, horizontalRecoil: { mult: 0.88 }, control: { add: 3 } },
+    compat: { weapons: ['rspr'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'underbarrel-low-profile-stubby-elr-40',
+    name: 'Perfil discreto',
+    originalName: 'Low-Profile Stubby',
+    slot: 'underbarrel',
+    cost: 10,
+    description: 'Recuperação de mira mais rápida entre disparos.',
+    // `lp_stubby_sr`, 10 pontos.
+    mods: { horizontalRecoil: { mult: 0.86 }, adsMs: { mult: 0.97 }, control: { add: 4 } },
+    compat: { weapons: ['elr-40'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'underbarrel-slim-angled-elr-40',
+    name: 'Angular Fina',
+    originalName: 'Slim Angled',
+    slot: 'underbarrel',
+    cost: 15,
+    description: 'Acelera a subida à mira e segura o desvio lateral.',
+    // `slim_angled_sr`, 15 pontos.
+    mods: { adsMs: { mult: 0.94 }, horizontalRecoil: { mult: 0.88 }, control: { add: 3 } },
+    compat: { weapons: ['elr-40'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'underbarrel-full-angled-elr-40',
+    name: 'Angular Completa',
+    originalName: 'Full Angled',
+    slot: 'underbarrel',
+    cost: 5,
+    description: 'Acelera a subida à mira e segura o desvio lateral.',
+    // `full_angled_sr`, 5 pontos.
+    mods: { adsMs: { mult: 0.94 }, horizontalRecoil: { mult: 0.88 }, control: { add: 3 } },
+    compat: { weapons: ['elr-40'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'underbarrel-qd-grip-pod-elr-40',
+    name: 'Empunhadura com Bipé QD',
+    originalName: 'QD Grip Pod',
+    slot: 'underbarrel',
+    cost: 10,
+    description: 'Empunhadura e bipé na mesma peça.',
+    // `qd_grip_pod_sr`, 10 pontos.
+    mods: { verticalRecoil: { mult: 0.7 }, horizontalRecoil: { mult: 0.7 }, mobility: { add: -6 }, adsMs: { mult: 1.05 } },
+    conditional: ['verticalRecoil', 'horizontalRecoil'],
+    compat: { weapons: ['elr-40'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'underbarrel-classic-grip-pod-elr-40',
+    name: 'Empunhadura com Bipé',
+    originalName: 'Classic Grip Pod',
+    slot: 'underbarrel',
+    cost: 20,
+    description: 'Empunhadura e bipé na mesma peça.',
+    // `classic_grip_pod_sr`, 20 pontos.
+    mods: { verticalRecoil: { mult: 0.7 }, horizontalRecoil: { mult: 0.7 }, mobility: { add: -6 }, adsMs: { mult: 1.05 } },
+    conditional: ['verticalRecoil', 'horizontalRecoil'],
+    compat: { weapons: ['elr-40'] },
+    provenance: 'curated',
+  },
+
+  /* Mira e munição com custo próprio. */
+  {
+    id: 'sight-iron-sights-elr-40',
+    name: 'Alça de Ferro',
+    originalName: 'Iron Sights',
+    slot: 'sight',
+    cost: 15,
+    description: 'Mira de fábrica, a que menos pesa no manejo.',
+    // `sightPoints: { iron: 15 }` na ELR-40, o mesmo preço da Interdictor.
+    mods: { hipfire: { add: 3 } },
+    compat: { weapons: ['elr-40'] },
+    provenance: 'curated',
+  },
+  {
+    id: 'ammo-hollow-point-mk-24',
+    name: 'Ponta Oca',
+    originalName: 'Hollow Point',
+    slot: 'ammo',
+    cost: 5,
+    description: 'Mais dano em acerto na cabeça; alcance menor.',
+    // data/ammo.json → WEAPON_AMMO.mk24.hollow_pt: 5 pontos; data/hit_zones.json
+    // → mk24.ammo.hollow_pt.headshot: 1,8 (a arma já sai com 1,57).
+    mods: { range: { mult: 0.88 } },
+    headshotOverride: 1.8,
+    compat: { weapons: ['mk-24'] },
+    provenance: 'curated',
   },
 ];
 

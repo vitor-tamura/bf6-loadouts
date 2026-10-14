@@ -283,13 +283,13 @@ ver `data/compatibility/acessorios-a-confirmar-1.4.2.0.json` como modelo.
 ### Em que armas a peça nova entra
 
 ```bash
-npm run catalog:perguntar-acessorios                    # varre e escreve
-GEMINI_API_KEY=... npm run catalog:perguntar-acessorios   # varre e, no que sobrar, pergunta
+npm run catalog:perguntar-acessorios                        # varre e escreve
+OPENROUTER_API_KEY=... npm run catalog:perguntar-acessorios   # varre e, no que sobrar, pergunta
 ```
 
 É a pergunta mais difícil de um patch, e a que menos gente publica: a EA anuncia
 a peça e descreve o efeito, mas não publica matriz de compatibilidade. A rotina
-ataca isso em duas etapas, e a ordem é o ponto.
+ataca isso em três etapas, e a ordem é o ponto.
 
 **Primeiro enumera.** Há uma fonte que lista a ficha de cada arma com o slot
 inteiro — as doze bocas da M4A1, as duas da M87A1. Isso é diferente de uma fonte
@@ -297,8 +297,14 @@ que fala de uma arma por vez, e é o que permite ler ausência como negativa: se
 ficha enumerou o slot e a peça não está lá, ela não entra naquela arma. Sessenta
 e três páginas, uma por arma de fogo, sem chave de API e sem modelo no meio.
 
-**Depois pergunta, só no que sobrou.** O que a varredura não achou vai para um
-modelo com busca ligada, que alcança página que este ambiente não alcança. Gastar
+**Depois lê o texto oficial, sem busca.** O que a varredura não achou vai para um
+modelo gratuito do OpenRouter com os trechos do patch note da EA e as linhas do
+bf6balancelog que nomeiam a peça — o mesmo desenho da leitura do trending: o
+script baixa, o modelo só lê. Arma que volta daqui tem de estar escrita no
+trecho citado.
+
+**Por fim pergunta com busca, só no que ainda sobrou.** Um modelo com busca
+ligada (o Gemini gratuito) alcança página que este ambiente não alcança. Gastar
 chamada no que já foi enumerado seria trocar a fonte que lista o slot inteiro por
 uma que repete post de fórum.
 

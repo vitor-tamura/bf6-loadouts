@@ -415,6 +415,65 @@ const ASSAULT_RIFLES: WeaponEntry[] = [
     season: 3,
     provenance: 'curated',
   },
+  /*
+    As quatro armas da Temporada 5 (Mk 24, RSPR, Z84M e ELR-40), atualização
+    2.1.1.0 de 13/10/2026.
+
+    A EA confirma as quatro, a categoria de cada uma e os 100 tiros da Z84M
+    (data/patches/2.1.1.0.json); número de estatística ela não publica. Os
+    números vêm do raymdl/BF6-Weapon-Analyzer, commit da92dd8 (14/10/2026), que
+    os leu dos arquivos do cliente 2.1.1.0 e declara "Not tested in game":
+
+    - data/weapons.json → dano, cadência, velocidade, carregador, recarga;
+    - data/hit_zones.json → multiplicador de cabeça;
+    - data/ballistics.json → arrasto (`dragPerMeter` ÷ 0,0035 do 5,56 mm);
+    - sim/weapon-attributes.js, montagem de fábrica → as quatro barras de menu.
+      Nas armas `game` do dataset o modelo reproduz as barras daqui (AK4D:
+      25/34/52/40 lá, 27/35/52/40 aqui).
+
+    O carregador segue a convenção do dataset, sem a bala na agulha (o Analyzer
+    soma uma: 21, 21, 101 e 8). `reload` é a recarga tática (`tacRld`) e
+    `emptyReload` a vazia (`emptyRld`), como `types.ts` define.
+
+    Quatro campos não têm equivalente direto: tempo de mira, troca e os dois
+    recuos estão numa escala própria do site, que não é a do jogo — a AK4D tem
+    350 ms aqui e 250 ms no jogo. Eles são convertidos pela mediana da razão
+    site ÷ Analyzer nas armas `game` da mesma categoria, e por isso as quatro
+    ficam `curated`. O valor bruto do jogo vai ao lado de cada um, e a conta
+    inteira está em data/compatibility/temporada-5-a-confirmar-2.1.1.0.json.
+  */
+  {
+    id: 'mk-24',
+    name: 'Mk 24',
+    category: 'ar',
+    archetype: 'ar-nato',
+    summary: 'Fuzil de 6,5 mm da Temporada 5: mantém o dano cheio até 75 m, com carregador curto.',
+    // PD_65x48mm: 26,05 até 75 m, 20,67 depois.
+    damage: [
+      [26.05, 0],
+      [20.67, 75],
+    ],
+    rpm: 635,
+    velocity: 696,
+    drag: 1.0,
+    headshot: 1.57,
+    magazine: 20,
+    reload: 2.534,
+    emptyReload: 2.95,
+    // Jogo: 250 ms de mira e 533 ms de saque (×1,36 e ×1,125 nos fuzis).
+    adsMs: 340,
+    swapMs: 600,
+    accuracy: 24,
+    control: 38,
+    mobility: 52,
+    hipfire: 40,
+    // Jogo: recoilV 0,797 e variação de 27,6° (×0,8343 e ×0,0139).
+    verticalRecoil: 0.665,
+    horizontalRecoil: 0.382,
+    fireModes: ['auto', 'semi'],
+    season: 5,
+    provenance: 'curated',
+  },
 ];
 
 /* --------------------------------- Carabinas --------------------------------- */
@@ -1000,6 +1059,43 @@ const SMGS: WeaponEntry[] = [
     season: 3,
     provenance: 'curated',
   },
+  {
+    // A EA a chama de PDW; o Analyzer, de SMG. Aqui PDW é submetralhadora (PW7A2).
+    // Procedência dos números: ver o bloco acima da Mk 24.
+    id: 'rspr',
+    name: 'RSPR',
+    category: 'smg',
+    archetype: 'smg-pdw',
+    summary: 'PDW de 7,62 mm da Temporada 5: dano de fuzil a curta distância, com recuo alto.',
+    // PD_762x39mm_PDW.
+    damage: [
+      [35.22, 0],
+      [26.05, 9],
+      [20.67, 21],
+      [17.13, 36],
+      [14.62, 75],
+    ],
+    rpm: 720,
+    velocity: 453,
+    drag: 1.0,
+    headshot: 1.4,
+    magazine: 20,
+    reload: 2.334,
+    emptyReload: 3.1,
+    // Jogo: 167 ms de mira e 400 ms de saque (×1,5 e ×1,1937 nas submetralhadoras).
+    adsMs: 250,
+    swapMs: 480,
+    accuracy: 26,
+    control: 39,
+    mobility: 68,
+    hipfire: 47,
+    // Jogo: recoilV 0,782 e variação de 30° (×0,7438 e ×0,0069).
+    verticalRecoil: 0.582,
+    horizontalRecoil: 0.207,
+    fireModes: ['auto', 'semi'],
+    season: 5,
+    provenance: 'curated',
+  },
 ];
 
 /* ------------------------------- Metralhadoras ------------------------------- */
@@ -1297,6 +1393,40 @@ const LMGS: WeaponEntry[] = [
     horizontalRecoil: 0.204,
     fireModes: ['auto', 'semi'],
     season: 3,
+    provenance: 'curated',
+  },
+  {
+    // Procedência dos números: ver o bloco acima da Mk 24.
+    id: 'z84m',
+    name: 'Z84M',
+    category: 'lmg',
+    archetype: 'lmg-belt',
+    summary: 'Metralhadora de fita da Temporada 5: 100 tiros e dano de 7,62 mm forte de perto.',
+    // PD_762x54mmR_MG: 35,22 até 21 m, 26,05 até 75 m, 20,67 depois.
+    damage: [
+      [35.22, 0],
+      [26.05, 21],
+      [20.67, 75],
+    ],
+    rpm: 720,
+    velocity: 604,
+    drag: 1.0,
+    headshot: 1.4,
+    magazine: 100,
+    reload: 7.6,
+    emptyReload: 9.334,
+    // Jogo: 433 ms de mira e 867 ms de saque (×1,0846 e ×0,9231 nas metralhadoras).
+    adsMs: 470,
+    swapMs: 800,
+    accuracy: 17,
+    control: 35,
+    mobility: 30,
+    hipfire: 29,
+    // Jogo: recoilV 0,965 e variação de 56,7° (×0,7981 e ×0,0070).
+    verticalRecoil: 0.77,
+    horizontalRecoil: 0.4,
+    fireModes: ['auto'],
+    season: 5,
     provenance: 'curated',
   },
 ];
@@ -1672,6 +1802,48 @@ const SNIPERS: WeaponEntry[] = [
     horizontalRecoil: 0.36,
     fireModes: ['ferrolho'],
     season: 4,
+    provenance: 'curated',
+  },
+  {
+    // Procedência dos números: ver o bloco acima da Mk 24.
+    id: 'elr-40',
+    name: 'ELR-40',
+    category: 'sniper',
+    archetype: 'sniper-bolt',
+    summary: 'Ferrolho .375 da Temporada 5: ponto ideal entre 150 e 180 m, o mais distante entre os ferrolhos.',
+    /*
+      PD_.375EnABELR_Match: 80 até 120 m, sobe a 100 em 150 m, fica em 100 até
+      180 m e desce a 62 em 210 m. A escada segue a da Interdictor: o ponto ideal
+      vale na faixa plana e o degrau de baixo entra onde ela acaba.
+
+      O modo de tiro único que a EA anuncia é o carregador "Single Shot", com
+      projétil próprio — ver `magazine-single-shot-elr-40` em attachments.ts.
+    */
+    damage: [
+      [80, 0],
+      [100, 150],
+      [62, 180],
+    ],
+    rpm: 36,
+    velocity: 789,
+    // 0,002 por metro contra 0,0035 do 5,56 mm.
+    drag: 0.571,
+    headshot: 1.75,
+    magazine: 7,
+    reload: 2.4,
+    emptyReload: 4.083,
+    // Jogo: 367 ms de mira e 633 ms de saque (×2,2167 e ×1,7062 nos rifles de precisão).
+    adsMs: 815,
+    swapMs: 1080,
+    accuracy: 100,
+    control: 15,
+    mobility: 38,
+    hipfire: 34,
+    // Jogo: recoilV 1,666 e variação de 6° (×1,5733 e ×0,0290).
+    verticalRecoil: 2.621,
+    horizontalRecoil: 0.174,
+    fireModes: ['ferrolho'],
+    season: 5,
     provenance: 'curated',
   },
 ];

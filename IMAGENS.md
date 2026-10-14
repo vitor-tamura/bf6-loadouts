@@ -12,7 +12,7 @@ Duas coisas diferentes aparecem na tela, e elas seguem caminhos separados:
 
 ## A arma
 
-As 63 fotos ficam no projeto, em `public/weapons/<id-da-arma>.webp` — 2,3 MB no
+As 67 fotos ficam no projeto, em `public/weapons/<id-da-arma>.webp` — 2,3 MB no
 total. A aplicação não faz nenhuma requisição para fora: nada depende de site de
 terceiros continuar no ar nem de o CDN permitir hotlink.
 
@@ -29,6 +29,13 @@ nome é trocadilho da EA com o da arma real, a **Desert Tech HTI** (*Hard Target
 Interdiction*), e é sob esse nome que a captura do menu de personalização está
 catalogada na IMFDB. Arma nova que "não apareceu em nenhuma fonte" costuma ser
 isto: procurada pelo nome errado.
+
+As quatro da Temporada 5 — Mk 24, RSPR, Z84M e ELR-40 — chegaram de outro jeito:
+o workflow baixou o render do BattlefieldMeta no dia seguinte ao lançamento,
+antes de haver captura no IMFDB. São fotos de catálogo, menores e com a arma
+virada para a esquerda; quando a captura sair, ela entra em `photo` e tem
+preferência. No IMFDB, a Z84M está como **Zastava M84M** e a ELR-40 como
+**Cadex Defence CDX-40 SHDW**.
 
 ### Baixar
 

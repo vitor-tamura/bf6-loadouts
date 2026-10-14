@@ -248,7 +248,21 @@ const DOWNWARD = /\b(reduced|decreased|lowered|nerfed)\b/i;
  */
 const NOW_COSTS = /\bnow costs?\s+(\d+)\s*(?:attachment\s+)?(?:points?|pts)\b/i;
 
-const number = (value: string) => Number(value.replace(/\./g, '').replace(',', '.'));
+/**
+ * O número como a EA o escreve, em inglês: ponto decimal, vírgula de milhar.
+ *
+ * A versão anterior tirava todo ponto, como se fosse milhar — e a 2.1.1.0
+ * mostrou o estrago: "increased from 0.75 to 1.1" virou "de 75 para 11", e
+ * entrou como mudança automática na M39 EMR. Ponto final de frase ("to 20.")
+ * também chega colado ao número e sai antes da conversão.
+ */
+export const number = (value: string) => {
+  const limpo = value.replace(/[.,]+$/, '');
+  if (/^\d{1,3}(,\d{3})+(\.\d+)?$/.test(limpo)) return Number(limpo.replace(/,/g, ''));
+  // Vírgula sozinha, sem ponto: decimal à europeia ("0,75").
+  if (!limpo.includes('.') && /^\d+,\d+$/.test(limpo)) return Number(limpo.replace(',', '.'));
+  return Number(limpo);
+};
 
 /**
  * O campo citado, quando ele é um dos que o catálogo entende.
@@ -271,7 +285,18 @@ const FIELDS: [RegExp, string][] = [
   [/\bheadshot\b/i, 'headshotMultiplier'],
 ];
 
+/**
+ * Parâmetros internos do recuo que o catálogo não guarda como "recoil".
+ *
+ * "Recoil Direction on the SVDM changed from 4° to 20°" e "Recoil Decrease
+ * Time Exponent ... from 0.75 to 1.1" falam de peças do modelo de recuo — a
+ * direção, a curva de retorno —, não do recuo em si. Lidos como `recoil`, o
+ * número de um parâmetro iria parar no lugar de outro. Ficam para revisão.
+ */
+const RECOIL_PARAMETER = /\brecoil\s+(direction|decrease|recovery|compensation|variance|pattern)\b|\bexponent\b/i;
+
 function findField(line: string): string | null {
+  if (RECOIL_PARAMETER.test(line)) return null;
   for (const [pattern, field] of FIELDS) if (pattern.test(line)) return field;
   return null;
 }
@@ -692,6 +717,29 @@ export function parseLine(
         : !armaDaFrase
           ? 'Custo novo sem arma identificada — pode valer para todas ou para uma só.'
           : null,
+    };
+  }
+
+  /* --------------------------- parâmetro do recuo --------------------------- */
+
+  /*
+   * Direção, curva de retorno, compensação do controle: mudança de verdade,
+   * com número da EA, num parâmetro que o catálogo não guarda como campo.
+   * Fica registrada para revisão, com os dois números na razão, em vez de
+   * sumir — ou de entrar no lugar do recuo.
+   */
+  const parametro = clean.match(RECOIL_PARAMETER);
+  if (parametro && entity) {
+    const numeros = clean.match(/\bfrom\s+([\d.,]+)\s*(?:°|%)?\s+to\s+([\d.,]+)/i);
+    return {
+      ...base,
+      kind: 'stat_changed',
+      operation: 'none',
+      automation: 'review',
+      reason:
+        `Parâmetro do modelo de recuo (${parametro[0].toLowerCase()}) que o catálogo não guarda como campo` +
+        (numeros ? `: de ${number(numeros[1])} para ${number(numeros[2])}, segundo a EA` : '') +
+        '. Conferir no levantamento de simulação.',
     };
   }
 

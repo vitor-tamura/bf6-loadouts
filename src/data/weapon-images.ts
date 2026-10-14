@@ -90,6 +90,18 @@ export const WEAPON_IMAGES: Record<string, WeaponImageSources> = {
    * todas as outras.
    */
   interdictor: { photo: 'https://www.imfdb.org/images/thumb/1/13/BF6_DT_HTI.jpg/600px-BF6_DT_HTI.jpg', render: 'https://img.battlefieldmeta.gg/interdictor/gunMiniDisplay' },
+  /*
+   * Temporada 5. Ainda não há captura no IMFDB nem arte na Battlefield Wiki; a
+   * foto local veio do render que `download_images.py` descobre no catálogo do
+   * BattlefieldMeta (commit be87287, 14/10/2026), e é esse endereço, sem a
+   * versão do asset, que fica como reserva. No IMFDB a Z84M é a Zastava M84M e
+   * a ELR-40 é a Cadex CDX-40 SHDW — é por esses nomes que a captura vai
+   * aparecer.
+   */
+  'mk-24': { render: 'https://img.wzstats.gg/mk-24/gunDisplayLoadouts' },
+  rspr: { render: 'https://img.wzstats.gg/rspr/gunDisplayLoadouts' },
+  z84m: { render: 'https://img.wzstats.gg/z84m/gunDisplayLoadouts' },
+  'elr-40': { render: 'https://img.wzstats.gg/elr-40/gunDisplayLoadouts' },
   m1014: { photo: 'https://www.imfdb.org/images/thumb/f/f8/BF6_BenM4.jpg/600px-BF6_BenM4.jpg', render: 'https://img.battlefieldmeta.gg/m1014_version2/gunMiniDisplay' },
   '18-5ks-k': { photo: 'https://www.imfdb.org/images/thumb/e/ef/BF6_KSK.jpg/600px-BF6_KSK.jpg', render: 'https://img.battlefieldmeta.gg/185ks-k_version2/gunMiniDisplay' },
   m87a1: { photo: 'https://www.imfdb.org/images/thumb/e/e9/BF6_M590.jpg/600px-BF6_M590.jpg', render: 'https://img.battlefieldmeta.gg/m87a1_version2/gunMiniDisplay' },

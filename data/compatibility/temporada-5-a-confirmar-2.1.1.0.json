@@ -1,0 +1,1056 @@
+{
+  "gameVersion": "2.1.1.0",
+  "fase": "armas cadastradas a partir da fonte de simulação; nada conferido no Gunsmith",
+  "porQue": "A 2.1.1.0, de 13/10/2026, trouxe Mk 24, RSPR, Z84M e ELR-40. Em 14/10/2026 só a EA (existência, categoria, 100 tiros da Z84M) e o BF6-Weapon-Analyzer (todo o resto) as descreviam; rnkd.gg e bf6loadouts ainda não as listavam. Tudo que é número é, portanto, `relatado` — uma fonte de comunidade, lida do cliente e não testada no jogo —, e quatro campos por arma estão numa escala que só o site usa.",
+  "fontes": [
+    {
+      "id": "ea-2110",
+      "nome": "EA — Battlefield 6 Game Update 2.1.1.0",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-1-0",
+      "data": "2026-10-12",
+      "tipo": "oficial",
+      "arquivo": "data/patches/2.1.1.0.json",
+      "sustenta": [
+        "existência das quatro armas e a temporada (5, a partir de 13/10/2026)",
+        "categoria: Mk 24 fuzil de assalto, RSPR \"Personal Defence Weapon\", Z84M metralhadora de fita, ELR-40 ferrolho",
+        "Z84M com 100 tiros",
+        "ELR-40 com ponto ideal muito distante e um modo de tiro único que o aproxima"
+      ],
+      "nota": "não publica número de estatística, custo nem compatibilidade"
+    },
+    {
+      "id": "analyzer-da92dd8",
+      "nome": "raymdl/BF6-Weapon-Analyzer — fonte de numeros_de_simulacao em data/sources/registry.json",
+      "url": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+      "commit": "da92dd82d945bb27f6663661d437bf65d438879d",
+      "data": "2026-10-14",
+      "tipo": "comunidade",
+      "arquivos": [
+        "data/weapons.json",
+        "data/hit_zones.json",
+        "data/ballistics.json",
+        "data/attachments.json",
+        "data/ammo.json",
+        "data/balance_tables.json",
+        "data/weapon_attributes.json",
+        "data/reload-exceptions.json",
+        "sim/weapon-attributes.js",
+        "sim/applyAttachments.js"
+      ],
+      "sustenta": [
+        "dano, cadência, velocidade, carregador, recarga, recuo, espalhamento (weapons.json)",
+        "multiplicador de cabeça por munição (hit_zones.json)",
+        "arrasto do projétil (ballistics.json)",
+        "compatibilidade por slot e custo em pontos (attachments.json, ammo.json)",
+        "as quatro barras de menu, pelo modelo de atributos rodado na montagem de fábrica"
+      ],
+      "nota": "Lido dos arquivos do cliente 2.1.1.0 (bf6.exe SHA-256 2c1065ff…, Frosty Head 5382784). Cada arma traz \"Not tested in game\" nas notas de procedência. data/provenance/live-baseline.json ainda diz \"Season 5 weapons and attachments are not included\" na entrada de 13/10, mas weapons.json já as tem, com procedência própria (sourceBuild 2.1.1.0)."
+    },
+    {
+      "id": "rnkd-14-10",
+      "nome": "rnkd.gg — fonte de enumeracao_de_slot",
+      "url": "https://rnkd.gg/battlefield6/weapons",
+      "data": "2026-10-14",
+      "tipo": "base de dados",
+      "sustenta": [],
+      "nota": "lido em 14/10/2026: lista as 63 armas de antes e nenhuma das quatro. Sem enumeração, nenhuma ausência aqui vale como negativa."
+    },
+    {
+      "id": "bf6loadouts-14-10",
+      "nome": "BF6 Loadouts — fonte de estado_atual",
+      "url": "https://bf6loadouts.com",
+      "data": "2026-10-14",
+      "tipo": "estado atual",
+      "sustenta": [],
+      "nota": "lido em 14/10/2026: nenhuma das quatro na página inicial nem em /weapons/builds."
+    },
+    {
+      "id": "battlefieldmeta-render",
+      "nome": "BattlefieldMeta / WZStats — render da arma",
+      "url": "https://app.battlefieldmeta.gg/api/weapons",
+      "tipo": "base de dados",
+      "sustenta": [
+        "as quatro fotos em public/weapons/, baixadas pelo workflow no commit be87287"
+      ],
+      "nota": "a API recusa leitura automática daqui (robots); o id que ela usa (mk-24, rspr, z84m, elr-40) é o nome dos arquivos que o workflow gravou, e é o id adotado no dataset."
+    }
+  ],
+  "armas": {
+    "mk-24": {
+      "nomeNaFonte": "mk24 (MRGGA_WB, \"Mk 24\")",
+      "categoria": {
+        "valor": "ar",
+        "grau": "oficial",
+        "fonte": "ea-2110",
+        "campo": "NEW WEAPONS"
+      },
+      "temporada": {
+        "valor": 5,
+        "grau": "oficial",
+        "fonte": "ea-2110",
+        "campo": "Season 5: Siege of Vegas"
+      },
+      "dano": {
+        "valor": [
+          [
+            26.05,
+            0
+          ],
+          [
+            20.67,
+            75
+          ]
+        ],
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#mk24.dmg (PD_65x48mm)"
+      },
+      "rpm": {
+        "valor": 635,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#mk24.rpm = 635.294"
+      },
+      "velocidade": {
+        "valor": 696,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#mk24.bulletVel"
+      },
+      "arrasto": {
+        "valor": 1.0,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "ballistics.json#PD_65x48mm.dragPerMeter = 0.0035 (÷ 0.0035)"
+      },
+      "cabeca": {
+        "valor": 1.57,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "hit_zones.json#mk24.headshot"
+      },
+      "carregador": {
+        "valor": 20,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#mk24.mag = 21 (com a bala na agulha); WEAPON_MAG.mk24.def = 20_rnd"
+      },
+      "recarga": {
+        "valor": 2.534,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#mk24.tacRld"
+      },
+      "recargaVazia": {
+        "valor": 2.95,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#mk24.emptyRld"
+      },
+      "modos": {
+        "valor": [
+          "auto",
+          "semi"
+        ],
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#mk24.availableFireModes"
+      },
+      "barras": {
+        "valor": {
+          "accuracy": 24,
+          "control": 38,
+          "mobility": 52,
+          "hipfire": 40
+        },
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "sim/weapon-attributes.js, montagem de fábrica"
+      },
+      "adsMs": {
+        "valor": 340,
+        "grau": "desconhecido",
+        "bruto": 250.00033,
+        "grauDoBruto": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "ADS_SPD_TIERS[4]",
+        "conversao": "bruto × 1.36 (mediana de ak4d, tr-7, sor-556-mk2)"
+      },
+      "swapMs": {
+        "valor": 600,
+        "grau": "desconhecido",
+        "bruto": 533.334,
+        "grauDoBruto": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "DRAW_TIME_TABLES.primary.deploy[6]",
+        "conversao": "bruto × 1.125 (mediana de ak4d, tr-7, sor-556-mk2)"
+      },
+      "verticalRecoil": {
+        "valor": 0.665,
+        "grau": "desconhecido",
+        "bruto": 0.797,
+        "grauDoBruto": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#mk24.recoilV",
+        "conversao": "bruto × 0.8343 (mediana de ak4d, tr-7, sor-556-mk2)"
+      },
+      "horizontalRecoil": {
+        "valor": 0.382,
+        "grau": "desconhecido",
+        "bruto": 27.6,
+        "grauDoBruto": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#mk24.recoilVar (graus)",
+        "conversao": "bruto × 0.0139 (mediana de ak4d, tr-7, sor-556-mk2)"
+      }
+    },
+    "rspr": {
+      "nomeNaFonte": "rspr (RSAR999_WB, \"RSPR\")",
+      "categoria": {
+        "valor": "smg",
+        "grau": "oficial",
+        "fonte": "ea-2110",
+        "campo": "NEW WEAPONS",
+        "nota": "a EA diz Personal Defence Weapon; o Analyzer, \"SMG\"; o dataset guarda PDW em smg (PW7A2)"
+      },
+      "temporada": {
+        "valor": 5,
+        "grau": "oficial",
+        "fonte": "ea-2110",
+        "campo": "Season 5: Siege of Vegas"
+      },
+      "dano": {
+        "valor": [
+          [
+            35.22,
+            0
+          ],
+          [
+            26.05,
+            9
+          ],
+          [
+            20.67,
+            21
+          ],
+          [
+            17.13,
+            36
+          ],
+          [
+            14.62,
+            75
+          ]
+        ],
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#rspr.dmg (PD_762x39mm_PDW)"
+      },
+      "rpm": {
+        "valor": 720,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#rspr.rpm = 719.999"
+      },
+      "velocidade": {
+        "valor": 453,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#rspr.bulletVel"
+      },
+      "arrasto": {
+        "valor": 1.0,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "ballistics.json#PD_762x39mm_PDW.dragPerMeter = 0.0035"
+      },
+      "cabeca": {
+        "valor": 1.4,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "hit_zones.json#rspr.headshot"
+      },
+      "carregador": {
+        "valor": 20,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#rspr.mag = 21; WEAPON_MAG.rspr.def = 20_rnd"
+      },
+      "recarga": {
+        "valor": 2.334,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#rspr.tacRld"
+      },
+      "recargaVazia": {
+        "valor": 3.1,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#rspr.emptyRld"
+      },
+      "modos": {
+        "valor": [
+          "auto",
+          "semi"
+        ],
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#rspr.availableFireModes"
+      },
+      "barras": {
+        "valor": {
+          "accuracy": 26,
+          "control": 39,
+          "mobility": 68,
+          "hipfire": 47
+        },
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "sim/weapon-attributes.js, montagem de fábrica"
+      },
+      "adsMs": {
+        "valor": 250,
+        "grau": "desconhecido",
+        "bruto": 166.66733,
+        "grauDoBruto": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "ADS_SPD_TIERS[6]",
+        "conversao": "bruto × 1.5 (mediana de kv9, pw7a2, umg-40, usg-90)"
+      },
+      "swapMs": {
+        "valor": 480,
+        "grau": "desconhecido",
+        "bruto": 400.001,
+        "grauDoBruto": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "DRAW_TIME_TABLES.primary.deploy[8]",
+        "conversao": "bruto × 1.1937 (mediana de kv9, pw7a2, umg-40, usg-90)"
+      },
+      "verticalRecoil": {
+        "valor": 0.582,
+        "grau": "desconhecido",
+        "bruto": 0.782,
+        "grauDoBruto": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#rspr.recoilV",
+        "conversao": "bruto × 0.7438 (mediana de kv9, pw7a2, umg-40, usg-90)"
+      },
+      "horizontalRecoil": {
+        "valor": 0.207,
+        "grau": "desconhecido",
+        "bruto": 30,
+        "grauDoBruto": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#rspr.recoilVar (graus)",
+        "conversao": "bruto × 0.0069 (mediana de kv9, pw7a2, umg-40, usg-90)"
+      }
+    },
+    "z84m": {
+      "nomeNaFonte": "z84m (PKM_WB, \"Z84M\")",
+      "categoria": {
+        "valor": "lmg",
+        "grau": "oficial",
+        "fonte": "ea-2110",
+        "campo": "NEW WEAPONS"
+      },
+      "temporada": {
+        "valor": 5,
+        "grau": "oficial",
+        "fonte": "ea-2110",
+        "campo": "Season 5: Siege of Vegas"
+      },
+      "dano": {
+        "valor": [
+          [
+            35.22,
+            0
+          ],
+          [
+            26.05,
+            21
+          ],
+          [
+            20.67,
+            75
+          ]
+        ],
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#z84m.dmg (PD_762x54mmR_MG)"
+      },
+      "rpm": {
+        "valor": 720,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#z84m.rpm = 719.999"
+      },
+      "velocidade": {
+        "valor": 604,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#z84m.bulletVel"
+      },
+      "arrasto": {
+        "valor": 1.0,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "ballistics.json#PD_762x54mmR_MG.dragPerMeter = 0.0035"
+      },
+      "cabeca": {
+        "valor": 1.4,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "hit_zones.json#z84m.headshot"
+      },
+      "carregador": {
+        "valor": 100,
+        "grau": "oficial",
+        "fonte": "ea-2110",
+        "campo": "\"With a 100-round capacity\"; Analyzer: mag = 101, WEAPON_MAG.z84m.def = 100_rnd",
+        "nota": "a EA afirma o número, e o Analyzer o lê do arquivo do cliente."
+      },
+      "recarga": {
+        "valor": 7.6,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#z84m.tacRld"
+      },
+      "recargaVazia": {
+        "valor": 9.334,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#z84m.emptyRld"
+      },
+      "modos": {
+        "valor": [
+          "auto"
+        ],
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#z84m.availableFireModes"
+      },
+      "barras": {
+        "valor": {
+          "accuracy": 17,
+          "control": 35,
+          "mobility": 30,
+          "hipfire": 29
+        },
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "sim/weapon-attributes.js, montagem de fábrica"
+      },
+      "adsMs": {
+        "valor": 470,
+        "grau": "desconhecido",
+        "bruto": 433.33432,
+        "grauDoBruto": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "ADS_SPD_TIERS[1]",
+        "conversao": "bruto × 1.0846 (mediana de rpkm, m123k, m250)"
+      },
+      "swapMs": {
+        "valor": 800,
+        "grau": "desconhecido",
+        "bruto": 866.667,
+        "grauDoBruto": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "DRAW_TIME_TABLES.primary.deploy[3]",
+        "conversao": "bruto × 0.9231 (mediana de rpkm, m123k, m250)"
+      },
+      "verticalRecoil": {
+        "valor": 0.77,
+        "grau": "desconhecido",
+        "bruto": 0.965,
+        "grauDoBruto": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#z84m.recoilV",
+        "conversao": "bruto × 0.7981 (mediana de rpkm, m123k, m250)"
+      },
+      "horizontalRecoil": {
+        "valor": 0.4,
+        "grau": "desconhecido",
+        "bruto": 56.7,
+        "grauDoBruto": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#z84m.recoilVar (graus)",
+        "conversao": "bruto × 0.007 (mediana de rpkm, m123k, m250)"
+      }
+    },
+    "elr-40": {
+      "nomeNaFonte": "elr40 (CDX40_WB, \"ELR-40\")",
+      "categoria": {
+        "valor": "sniper",
+        "grau": "oficial",
+        "fonte": "ea-2110",
+        "campo": "NEW WEAPONS"
+      },
+      "temporada": {
+        "valor": 5,
+        "grau": "oficial",
+        "fonte": "ea-2110",
+        "campo": "Season 5: Siege of Vegas"
+      },
+      "dano": {
+        "valor": [
+          [
+            80,
+            0
+          ],
+          [
+            100,
+            150
+          ],
+          [
+            62,
+            180
+          ]
+        ],
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#elr40.dmg (PD_.375EnABELR_Match): (0,80) (120,80) (150,100) (180,100) (210,62)",
+        "nota": "a fonte interpola 120→150 e 180→210; a escada do site usa só a faixa plana, como a da Interdictor"
+      },
+      "rpm": {
+        "valor": 36,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#elr40.rpm = 36.2637 (ciclo do ferrolho)"
+      },
+      "velocidade": {
+        "valor": 789,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#elr40.bulletVel = 788.793"
+      },
+      "arrasto": {
+        "valor": 0.571,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "ballistics.json#PD_.375EnABELR_Match.dragPerMeter = 0.002 (÷ 0.0035)"
+      },
+      "cabeca": {
+        "valor": 1.75,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "hit_zones.json#elr40.headshot"
+      },
+      "carregador": {
+        "valor": 7,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "WEAPON_MAG.elr40.def = 7_rnd; weapons.json#elr40.mag = 8 (com a bala na agulha)"
+      },
+      "recarga": {
+        "valor": 2.4,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#elr40.tacRld"
+      },
+      "recargaVazia": {
+        "valor": 4.083,
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#elr40.emptyRld"
+      },
+      "modos": {
+        "valor": [
+          "ferrolho"
+        ],
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#elr40.fireMode = bolt"
+      },
+      "barras": {
+        "valor": {
+          "accuracy": 100,
+          "control": 15,
+          "mobility": 38,
+          "hipfire": 34
+        },
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "sim/weapon-attributes.js, montagem de fábrica (precisão por \"single-row\")"
+      },
+      "adsMs": {
+        "valor": 815,
+        "grau": "desconhecido",
+        "bruto": 366.66733,
+        "grauDoBruto": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "ADS_SPD_TIERS[2]",
+        "conversao": "bruto × 2.2167 (mediana de m2010-esr, sv-98)"
+      },
+      "swapMs": {
+        "valor": 1080,
+        "grau": "desconhecido",
+        "bruto": 633.334,
+        "grauDoBruto": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "DRAW_TIME_TABLES.primary.deploy[5]",
+        "conversao": "bruto × 1.7062 (mediana de m2010-esr, sv-98)"
+      },
+      "verticalRecoil": {
+        "valor": 2.621,
+        "grau": "desconhecido",
+        "bruto": 1.666,
+        "grauDoBruto": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#elr40.recoilV",
+        "conversao": "bruto × 1.5733 (mediana de m2010-esr, sv-98)"
+      },
+      "horizontalRecoil": {
+        "valor": 0.174,
+        "grau": "desconhecido",
+        "bruto": 6,
+        "grauDoBruto": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "weapons.json#elr40.recoilVar (graus)",
+        "conversao": "bruto × 0.029 (mediana de m2010-esr, sv-98)"
+      },
+      "tiroUnico": {
+        "grau": "relatado",
+        "fonte": "analyzer-da92dd8",
+        "campo": "attachments.json#WEAPON_MAG.elr40.mags.1_rnd; reload-exceptions.json#animationOverrides.elr40",
+        "valor": {
+          "nome": "Single Shot",
+          "custo": 5,
+          "carregador": 1,
+          "projetil": "PD_.375EnABELR_API",
+          "dano": [
+            [
+              0,
+              90
+            ],
+            [
+              24,
+              90
+            ],
+            [
+              42,
+              120
+            ],
+            [
+              68,
+              120
+            ],
+            [
+              80,
+              100
+            ],
+            [
+              140,
+              80
+            ]
+          ],
+          "cabeca": 1.34,
+          "recargaTaticaMs": 3166
+        },
+        "noDataset": "magazine-single-shot-elr-40 com mods {}: o site não troca a curva de dano por acessório"
+      }
+    }
+  },
+  "compatibilidade": {
+    "grau": "relatado",
+    "fonte": "analyzer-da92dd8",
+    "campo": "data/attachments.json#WEAPON_ATTS, WEAPON_ERGO, WEAPON_ACCESSORY, WEAPON_MAG; data/ammo.json#WEAPON_AMMO",
+    "regra": "peça daqui com o mesmo custo recebe a arma; custo diferente divide a peça com o id da arma no fim",
+    "noDataset": {
+      "mk-24": {
+        "underbarrel": [
+          "underbarrel-6h64-vertical",
+          "underbarrel-adjustable-angled",
+          "underbarrel-alloy-vertical",
+          "underbarrel-bipod",
+          "underbarrel-canted-stubby",
+          "underbarrel-classic-grip-pod",
+          "underbarrel-classic-vertical",
+          "underbarrel-folding-stubby",
+          "underbarrel-folding-vertical",
+          "underbarrel-full-angled",
+          "underbarrel-low-profile-stubby",
+          "underbarrel-ptt-grip-pod",
+          "underbarrel-qd-grip-pod",
+          "underbarrel-ribbed-stubby",
+          "underbarrel-ribbed-vertical",
+          "underbarrel-slim-angled",
+          "underbarrel-slim-handstop",
+          "underbarrel-stippled-stubby",
+          "underbarrel-underslung-mount"
+        ],
+        "muzzle": [
+          "muzzle-cqb-suppressor",
+          "muzzle-compensated-brake",
+          "muzzle-compensator",
+          "muzzle-double-port-brake",
+          "muzzle-flash-comp",
+          "muzzle-flash-hider",
+          "muzzle-lightened-suppressor",
+          "muzzle-linear-comp",
+          "muzzle-long-suppressor",
+          "muzzle-single-port-brake",
+          "muzzle-standard-suppressor",
+          "muzzle-hybrid-suppressor-l",
+          "muzzle-hybrid-suppressor-s",
+          "muzzle-hybrid-suppressor-k"
+        ],
+        "magazine": [
+          "magazine-15rnd-magazine",
+          "magazine-20rnd-magazine",
+          "magazine-20rnd-fast-mag-mk-24",
+          "magazine-25rnd-magazine-mk-24",
+          "magazine-25rnd-fast-mag-mk-24",
+          "magazine-30rnd-magazine-mk-24"
+        ],
+        "ergonomics": [
+          "ergonomics-aftermarket-buffer",
+          "ergonomics-improved-mag-catch",
+          "ergonomics-magwell-flare",
+          "ergonomics-match-trigger",
+          "ergonomics-rail-cover"
+        ],
+        "rightRail": [
+          "rightRail-120-mw-blue",
+          "rightRail-5-mw-green",
+          "rightRail-5-mw-red",
+          "rightRail-50-mw-blue",
+          "rightRail-50-mw-green",
+          "rightRail-50-mw-violet"
+        ],
+        "leftRail": [
+          "leftRail-flashlight",
+          "leftRail-taclight-hipfire",
+          "leftRail-taclight-aimed"
+        ],
+        "sight": [
+          "sight-1p87-1-50x",
+          "sight-2pro-1-25x",
+          "sight-3vzr-1-75x",
+          "sight-a-p2-1-75x",
+          "sight-bf-2m-2-50x",
+          "sight-baker-3-00x",
+          "sight-cco-2-00x",
+          "sight-cq-rds-1-25x",
+          "sight-dvo-lpvo",
+          "sight-grim-1-50x",
+          "sight-iron-sights",
+          "sight-lds-4-50x",
+          "sight-mc-co-lpvo",
+          "sight-mini-flex-1-00x",
+          "sight-osa-7-1-00x",
+          "sight-pas-35-3-00x",
+          "sight-pvq-31-4-00x",
+          "sight-r-mr-1-00x",
+          "sight-r4t-2-00x",
+          "sight-ro-m-1-75x",
+          "sight-ro-s-1-25x",
+          "sight-rox-1-50x",
+          "sight-sdo-3-50x"
+        ],
+        "opticAccessory": [
+          "opticAccessory-canted-iron-sights",
+          "opticAccessory-canted-reflex"
+        ],
+        "barrel": [
+          "barrel-mk-24-basic",
+          "barrel-mk-24-short",
+          "barrel-mk-24-extended",
+          "barrel-mk-24-light"
+        ],
+        "ammo": [
+          "ammo-hollow-point-mk-24"
+        ]
+      },
+      "rspr": {
+        "underbarrel": [
+          "underbarrel-6h64-vertical",
+          "underbarrel-alloy-vertical",
+          "underbarrel-canted-stubby",
+          "underbarrel-classic-vertical",
+          "underbarrel-compact-handstop",
+          "underbarrel-folding-stubby",
+          "underbarrel-folding-vertical",
+          "underbarrel-low-profile-stubby",
+          "underbarrel-ribbed-stubby",
+          "underbarrel-ribbed-vertical",
+          "underbarrel-stippled-stubby",
+          "underbarrel-slim-angled-rspr"
+        ],
+        "muzzle": [
+          "muzzle-cqb-suppressor",
+          "muzzle-compensated-brake",
+          "muzzle-compensator",
+          "muzzle-double-port-brake",
+          "muzzle-flash-comp",
+          "muzzle-flash-hider",
+          "muzzle-lightened-suppressor",
+          "muzzle-linear-comp",
+          "muzzle-long-suppressor",
+          "muzzle-single-port-brake",
+          "muzzle-standard-suppressor",
+          "muzzle-hybrid-suppressor-l",
+          "muzzle-hybrid-suppressor-s",
+          "muzzle-hybrid-suppressor-k"
+        ],
+        "magazine": [
+          "magazine-20rnd-magazine",
+          "magazine-20rnd-fast-mag-rspr",
+          "magazine-28rnd-magazine"
+        ],
+        "ergonomics": [
+          "ergonomics-aftermarket-buffer",
+          "ergonomics-improved-mag-catch",
+          "ergonomics-magwell-flare",
+          "ergonomics-match-trigger",
+          "ergonomics-rail-cover"
+        ],
+        "rightRail": [
+          "rightRail-120-mw-blue",
+          "rightRail-5-mw-green",
+          "rightRail-5-mw-red",
+          "rightRail-50-mw-blue",
+          "rightRail-50-mw-green",
+          "rightRail-50-mw-violet"
+        ],
+        "leftRail": [
+          "leftRail-flashlight",
+          "leftRail-taclight-hipfire",
+          "leftRail-taclight-aimed"
+        ],
+        "sight": [
+          "sight-1p87-1-50x",
+          "sight-2pro-1-25x",
+          "sight-cq-rds-1-25x",
+          "sight-grim-1-50x",
+          "sight-iron-sights",
+          "sight-mini-flex-1-00x",
+          "sight-osa-7-1-00x",
+          "sight-ro-s-1-25x",
+          "sight-rox-1-50x",
+          "sight-su-123-1-50x"
+        ],
+        "opticAccessory": [
+          "opticAccessory-canted-iron-sights",
+          "opticAccessory-canted-reflex"
+        ],
+        "barrel": [
+          "barrel-rspr-basic",
+          "barrel-rspr-extended",
+          "barrel-rspr-light"
+        ]
+      },
+      "z84m": {
+        "underbarrel": [
+          "underbarrel-6h64-vertical",
+          "underbarrel-adjustable-angled",
+          "underbarrel-alloy-vertical",
+          "underbarrel-bipod",
+          "underbarrel-canted-stubby",
+          "underbarrel-classic-grip-pod",
+          "underbarrel-classic-vertical",
+          "underbarrel-canted-vertical",
+          "underbarrel-folding-stubby",
+          "underbarrel-folding-vertical",
+          "underbarrel-full-angled",
+          "underbarrel-low-profile-stubby",
+          "underbarrel-ptt-grip-pod",
+          "underbarrel-qd-grip-pod",
+          "underbarrel-ribbed-stubby",
+          "underbarrel-ribbed-vertical",
+          "underbarrel-slim-angled",
+          "underbarrel-slim-handstop",
+          "underbarrel-stippled-stubby"
+        ],
+        "muzzle": [
+          "muzzle-cqb-suppressor",
+          "muzzle-compensated-brake",
+          "muzzle-flash-hider",
+          "muzzle-lightened-suppressor",
+          "muzzle-linear-comp",
+          "muzzle-long-suppressor",
+          "muzzle-standard-suppressor",
+          "muzzle-hybrid-suppressor-l",
+          "muzzle-hybrid-suppressor-s",
+          "muzzle-hybrid-suppressor-k"
+        ],
+        "ergonomics": [
+          "ergonomics-rail-cover"
+        ],
+        "rightRail": [
+          "rightRail-120-mw-blue",
+          "rightRail-5-mw-green",
+          "rightRail-5-mw-red",
+          "rightRail-50-mw-blue",
+          "rightRail-50-mw-green",
+          "rightRail-50-mw-violet"
+        ],
+        "leftRail": [
+          "leftRail-flashlight",
+          "leftRail-taclight-hipfire",
+          "leftRail-taclight-aimed"
+        ],
+        "sight": [
+          "sight-1p87-1-50x",
+          "sight-2pro-1-25x",
+          "sight-3vzr-1-75x",
+          "sight-a-p2-1-75x",
+          "sight-bf-2m-2-50x",
+          "sight-baker-3-00x",
+          "sight-cco-2-00x",
+          "sight-cq-rds-1-25x",
+          "sight-dvo-lpvo",
+          "sight-grim-1-50x",
+          "sight-iron-sights",
+          "sight-mc-co-lpvo",
+          "sight-mini-flex-1-00x",
+          "sight-osa-7-1-00x",
+          "sight-pas-35-3-00x",
+          "sight-pvq-31-4-00x",
+          "sight-r-mr-1-00x",
+          "sight-r4t-2-00x",
+          "sight-ro-m-1-75x",
+          "sight-ro-s-1-25x",
+          "sight-rox-1-50x",
+          "sight-sdo-3-50x",
+          "sight-su-123-1-50x"
+        ],
+        "opticAccessory": [
+          "opticAccessory-canted-iron-sights",
+          "opticAccessory-canted-reflex"
+        ],
+        "barrel": [
+          "barrel-z84m-heavy",
+          "barrel-z84m-short",
+          "barrel-z84m-light"
+        ],
+        "magazine": [
+          "magazine-100rnd-z84m",
+          "magazine-100rnd-agil-z84m",
+          "magazine-100rnd-fast-z84m"
+        ]
+      },
+      "elr-40": {
+        "underbarrel": [
+          "underbarrel-bipod",
+          "underbarrel-low-profile-stubby-elr-40",
+          "underbarrel-slim-angled-elr-40",
+          "underbarrel-full-angled-elr-40",
+          "underbarrel-qd-grip-pod-elr-40",
+          "underbarrel-classic-grip-pod-elr-40"
+        ],
+        "muzzle": [
+          "muzzle-cqb-suppressor",
+          "muzzle-double-port-brake",
+          "muzzle-flash-hider",
+          "muzzle-long-suppressor"
+        ],
+        "magazine": [
+          "magazine-7rnd-fast-mag",
+          "magazine-7rnd-magazine",
+          "magazine-5rnd-magazine-elr-40",
+          "magazine-single-shot-elr-40"
+        ],
+        "ergonomics": [
+          "ergonomics-dlc-bolt",
+          "ergonomics-improved-mag-catch",
+          "ergonomics-rail-cover"
+        ],
+        "rightRail": [
+          "rightRail-120-mw-blue",
+          "rightRail-5-mw-green",
+          "rightRail-5-mw-red",
+          "rightRail-50-mw-blue",
+          "rightRail-50-mw-green",
+          "rightRail-50-mw-violet"
+        ],
+        "leftRail": [
+          "leftRail-flashlight",
+          "leftRail-taclight-hipfire",
+          "leftRail-taclight-aimed",
+          "rightRail-range-finder"
+        ],
+        "sight": [
+          "sight-1p86-lpvo",
+          "sight-1p88-variable",
+          "sight-bf-2m-2-50x",
+          "sight-baker-3-00x",
+          "sight-lds-4-50x",
+          "sight-lert-8-00x",
+          "sight-mc-co-lpvo",
+          "sight-nfx-8-00x",
+          "sight-pas-35-3-00x",
+          "sight-pvq-31-4-00x",
+          "sight-s-vps-6-00x",
+          "sight-sdo-3-50x",
+          "sight-sf-g2-5-00x",
+          "sight-sm-rifle-variable",
+          "sight-ssds-6-00x",
+          "sight-st-prism-5-00x",
+          "sight-ts-hd-6-00x",
+          "sight-iron-sights-elr-40"
+        ],
+        "opticAccessory": [
+          "opticAccessory-anti-glare-coating",
+          "opticAccessory-canted-iron-sight",
+          "opticAccessory-canted-reflex"
+        ],
+        "barrel": [
+          "barrel-elr-40-basic",
+          "barrel-elr-40-extended",
+          "barrel-elr-40-light"
+        ]
+      }
+    },
+    "miras": {
+      "grau": "desconhecido",
+      "regra": "as miras que toda arma da categoria aceita hoje no dataset. O Analyzer modela mira por nível de ampliação, não por modelo, e nenhuma fonte enumerou as miras destas armas.",
+      "excecoes": [
+        "RSPR: Alça de Ferro entra por fonte (WEAPON_ATTS/tooltips listam `iron`); a interseção das submetralhadoras não a tem só porque a UMG-40 traz alça própria.",
+        "ELR-40: Alça de Ferro por 15 (`sightPoints.iron = 15`), em sight-iron-sights-elr-40."
+      ]
+    },
+    "divididas": {
+      "magazine-20rnd-fast-mag-mk-24": "20 Fast custa 10 na Mk 24; aqui 5",
+      "magazine-25rnd-magazine-mk-24": "25 Rnd custa 15; aqui 20",
+      "magazine-25rnd-fast-mag-mk-24": "25 Fast custa 20; aqui 25",
+      "magazine-30rnd-magazine-mk-24": "30 Rnd custa 25; aqui 5",
+      "ammo-hollow-point-mk-24": "Hollow Point custa 5 na Mk 24 e leva a cabeça a 1,8 (hit_zones); aqui 20 e 1,5. ammo-hollow-point ganhou except: mk-24",
+      "magazine-20rnd-fast-mag-rspr": "20 Fast custa 10 na RSPR; aqui 5",
+      "underbarrel-slim-angled-rspr": "`slim_angled_smg` custa 20; aqui 25",
+      "magazine-5rnd-magazine-elr-40": "5 Rnd custa 10 na ELR-40; aqui 5",
+      "underbarrel-low-profile-stubby-elr-40": "`lp_stubby_sr` custa 10; aqui 45",
+      "underbarrel-slim-angled-elr-40": "`slim_angled_sr` custa 15; aqui 25",
+      "underbarrel-full-angled-elr-40": "`full_angled_sr` custa 5; aqui 25",
+      "underbarrel-qd-grip-pod-elr-40": "`qd_grip_pod_sr` custa 10; aqui 30",
+      "underbarrel-classic-grip-pod-elr-40": "`classic_grip_pod_sr` custa 20; aqui 30",
+      "sight-iron-sights-elr-40": "Iron Sights custa 15 na ELR-40; aqui 5"
+    },
+    "novas": {
+      "canos": "barrel-<arma>-<papel>: o Analyzer dá o papel (basic/short/extended/light/heavy), não o nome da peça no jogo. O de fábrica da Z84M é `heavy` e aparece como Cano Básico, como o da M60, da M240L e da L110.",
+      "magazine-28rnd-magazine": "RSPR, 28 Rnd, 35 pontos",
+      "magazine-100rnd-z84m / -agil- / -fast-": "Z84M, \"100 Rnd\" 5, \"100 Agil\" 10, \"100 Fast\" 10 — o nome da peça no jogo não foi publicado",
+      "magazine-single-shot-elr-40": "ver armas.elr-40.tiroUnico"
+    },
+    "semEquivalenteNoDataset": [
+      "Actuated Module (`actuated_module`, 10 pontos): Mk 24, RSPR e ELR-40. Não existe aqui — nem nas armas antigas que o Analyzer também lista.",
+      "Subsonic e Subsonic HP (RSPR, 10 e 30 pontos): não há munição subsônica no dataset.",
+      "Polymer Case (`lightweight`, 10) na RSPR: a peça daqui vale por categoria (ar, lmg) e não aceita uma arma avulsa sem mudar a regra."
+    ],
+    "deFora": [
+      "Long Range (`long_range`) na ELR-40: WEAPON_AMMO e hit_zones não a listam, só attachment-tooltips. ammo-match-grade ganhou except: elr-40.",
+      "Piggyback Reflex e Adjustable Magnification: o Analyzer não tem peça que corresponda; nas armas antigas elas vêm de outra fonte."
+    ],
+    "regrasQueOSiteNaoModela": [
+      "ELR-40: DLC Bolt e Improved Mag Catch exigem carregador de 5 ou 7; Rail Cover exige 1, 5 ou 7.",
+      "Canted Iron Sights e Secondary Optic exigem mira óptica, e algumas ampliações as excluem (WEAPON_ACCESSORY.excludedSights).",
+      "ELR-40: `dp_brake` aparece como \"Multi-Port Brake\" e `light_supp` como \"CQB Suppressor\" — ligados a muzzle-double-port-brake e muzzle-cqb-suppressor."
+    ]
+  },
+  "paraConferir": [
+    "nome de cada cano e dos carregadores da Z84M na tela do Gunsmith",
+    "custos divididos (lista em compatibilidade.divididas) contra a tela do jogo",
+    "miras por modelo",
+    "se a RSPR aceita os três Supressores Híbridos — o Analyzer diz que sim; nas outras submetralhadoras o rnkd diz que não",
+    "adsMs, swapMs e os dois recuos, que são conversão de escala"
+  ]
+}

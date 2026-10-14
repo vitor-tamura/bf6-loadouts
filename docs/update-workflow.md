@@ -127,6 +127,26 @@ O resultado, aplicado e recusado com o motivo, fica em
 a verificação de seis em seis horas dispara o processamento de novo até a
 análise fechar.
 
+### Modelo gratuito sem busca, em todas as rotinas
+
+Toda rotina que pergunta a um modelo segue o desenho da leitura do trending: o
+script baixa o material e um modelo gratuito do OpenRouter, **sem busca**, só lê
+o que recebeu. A busca do OpenRouter é cobrada por consulta até em modelo
+gratuito, e a do Gemini depende de uma cota que já zerou no meio de uma rodada.
+A pergunta com busca (Gemini gratuito) fica de reserva para o que o material não
+cobriu.
+
+| Rotina | O que o script baixa | Busca entra quando |
+| --- | --- | --- |
+| `meta:search` | páginas que medem (wzstats) e threads do r/Battlefield6 | página fora do ar, ou trending curto |
+| `builds:search` | a página de montagens de cada arma no wzstats, só mapa grande e pequeno | arma sem página, ou lote sem resposta |
+| `catalog:analisar-patch` | patch note da EA e linhas do bf6balancelog | nunca |
+| `catalog:perguntar-acessorios` | trechos do patch note e do bf6balancelog que nomeiam a peça | a peça não está no texto oficial |
+| `season:theme` | o anúncio da temporada na EA e o patch note que a abre | nenhuma página oficial foi juntada |
+
+Em toda rotina a fonte que sustenta a resposta tem de ser um dos endereços
+baixados: o código confere, e endereço de fora é memória do modelo.
+
 ## O que o patch note consegue aplicar sozinho
 
 | Situação | O que acontece |

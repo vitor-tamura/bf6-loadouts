@@ -23,6 +23,7 @@ import {
   type MetaSource,
   type TrendingPick,
 } from '@/data/meta';
+import { seasonOn } from '@/data/season';
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import { EMPTY_LOADOUT } from '@/lib/loadout';
 import { completarDestaques, realocarCategorias } from '@/lib/destaques';
@@ -83,6 +84,13 @@ export function MetaScreen({
   const tendencia = completarTendencia(trending, { on: readAt ?? UPDATED_AT });
 
   /*
+    A temporada do título é a do dia da leitura, e não uma constante: a
+    curadoria à mão dizia "Temporada 4", e a tela seguiu dizendo isso na
+    leitura automática do primeiro dia da 5. A constante fica de reserva.
+  */
+  const temporada = seasonOn(new Date(`${readAt ?? UPDATED_AT}T12:00:00Z`))?.number ?? META_SEASON;
+
+  /*
     O topo tem o mesmo problema e outra saída.
 
     Quando a leitura do dia volta com duas armas, o ranking também sai como
@@ -117,7 +125,7 @@ export function MetaScreen({
         >
           <div className="flex flex-wrap items-baseline justify-between gap-2">
             <h1 className="font-display flex flex-wrap items-baseline gap-2 text-xl font-bold tracking-wide">
-              Meta da Temporada {META_SEASON}
+              Meta da Temporada {temporada}
               <Hint label="O battle royale REDSEC tem meta próprio e não entra nesta lista">
                 <Tag
                   className="bevel-sm m-0 text-[10px] font-semibold tracking-[0.14em] uppercase"

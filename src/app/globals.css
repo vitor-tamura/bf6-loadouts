@@ -194,6 +194,58 @@
   --surface-hover: rgb(255 255 255 / 0.95);
 }
 
+/* ------------------------------------------------------------------ *
+ * Temporada 5 — Siege of Vegas (13/10/2026 a 12/01/2027)
+ *
+ * "From the neon-lit streets and casinos of Vegas Strip to the desert
+ * surface and underground tunnels of Area 51" — patch note 2.1.1.0.
+ * A paleta (season-palettes.json) já põe o magenta dos letreiros e o
+ * ciano das luzes sobre a base ameixa quase preta. Este bloco é a outra
+ * metade do tema, como o fundo naval foi na T4: as faixas horizontais
+ * de sonar dão lugar ao brilho de letreiro no alto da página — magenta
+ * de um lado, ciano do outro — e a uma grade de pontos que lembra as
+ * lâmpadas de uma marquise de cassino. A trama diagonal do HUD fica.
+ *
+ * Como a paleta, sai do ar sozinho com a temporada: o atributo deixa de
+ * vir no `<html>` e nada aqui precisa ser removido.
+ * ------------------------------------------------------------------ */
+:root[data-season='vegas'] {
+  --neon: 15%;
+  --marquee: 7%;
+}
+
+:root[data-season='vegas'][data-theme='light'] {
+  --neon: 10%;
+  --marquee: 9%;
+}
+
+:root[data-season='vegas'] body {
+  background-image:
+    radial-gradient(
+      ellipse 60% 440px at 8% -120px,
+      color-mix(in oklab, var(--accent) var(--neon), transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 55% 400px at 94% -100px,
+      color-mix(in oklab, var(--season-info) var(--neon), transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      circle,
+      color-mix(in oklab, var(--accent-light) var(--marquee), transparent) 0 1px,
+      transparent 1.5px
+    ),
+    repeating-linear-gradient(
+      135deg,
+      transparent,
+      transparent 6px,
+      color-mix(in oklab, var(--weave) 7%, transparent) 6px,
+      color-mix(in oklab, var(--weave) 7%, transparent) 7px
+    );
+  background-size: auto, auto, 26px 26px, auto;
+}
+
 @layer base {
   * {
     border-color: var(--border);

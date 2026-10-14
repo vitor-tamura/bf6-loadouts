@@ -1,9 +1,9 @@
 # Armas
 
-Relação completa das **68 armas** do montador, agrupadas por category e
+Relação completa das **72 armas** do montador, agrupadas por category e
 ordenadas pela season em que entraram no jogo.
 
-`Lanç.` marca o conteúdo de lançamento; `T1` a `T4`, a season de estreia.
+`Lanç.` marca o conteúdo de lançamento; `T1` a `T5`, a season de estreia.
 
 Gerado por `node scripts/weapons-doc.mjs`.
 
@@ -11,20 +11,20 @@ Gerado por `node scripts/weapons-doc.mjs`.
 
 | Categoria | Original | Classe-assinatura | Armas |
 | --- | --- | --- | ---: |
-| Fuzis de Assalto | Assault Rifles | Assalto | 11 |
+| Fuzis de Assalto | Assault Rifles | Assalto | 12 |
 | Carabinas | Carbines | — | 9 |
-| Submetralhadoras | SMGs | Engenheiro | 10 |
-| Metralhadoras | LMGs | Suporte | 10 |
+| Submetralhadoras | SMGs | Engenheiro | 11 |
+| Metralhadoras | LMGs | Suporte | 11 |
 | Rifles de Precisão Semiautomáticos | DMRs | — | 6 |
-| Rifles de Precisão | Sniper Rifles | Reconhecimento | 6 |
+| Rifles de Precisão | Sniper Rifles | Reconhecimento | 7 |
 | Escopetas | Shotguns | — | 4 |
 | Pistolas | Sidearms | — | 7 |
 | Corpo a Corpo | Melee | — | 5 |
-| **Total** | | | **68** |
+| **Total** | | | **72** |
 
 ## Fuzis de Assalto
 
-*Assault Rifles* — 11 weapons, arma-assinatura do Assalto.
+*Assault Rifles* — 12 weapons, arma-assinatura do Assalto.
 
 | Arma | Entrada | Dano | Queda | RPM | Velocidade | Carregador |
 | --- | --- | --- | --- | ---: | ---: | ---: |
@@ -39,6 +39,7 @@ Gerado por `node scripts/weapons-doc.mjs`.
 | VCR-2 | T2 | 25 → 16.7 | 30–75 m | 780 | 660 m/s | 30 |
 | M16A4 | T3 | 25 → 16.7 | 25–80 m | 800 | 680 m/s | 30 |
 | EF88 | T4 | 24 → 19 | 18–55 m | 700 | 800 m/s | 30 |
+| Mk 24 | T5 | 26.05 → 20.67 | 75–75 m | 635 | 696 m/s | 20 |
 
 ## Carabinas
 
@@ -58,7 +59,7 @@ Gerado por `node scripts/weapons-doc.mjs`.
 
 ## Submetralhadoras
 
-*SMGs* — 10 weapons, arma-assinatura do Engenheiro.
+*SMGs* — 11 weapons, arma-assinatura do Engenheiro.
 
 | Arma | Entrada | Dano | Queda | RPM | Velocidade | Carregador |
 | --- | --- | --- | --- | ---: | ---: | ---: |
@@ -72,10 +73,11 @@ Gerado por `node scripts/weapons-doc.mjs`.
 | USG-90 | Lanç. | 18 → 12 | 10–40 m | 900 | 543 m/s | 50 |
 | CZ3A1 | T2 | 24 → 12 | 5–25 m | 1150 | 336 m/s | 30 |
 | PP-19 | T3 | 24 → 14 | 8–30 m | 700 | 444 m/s | 53 |
+| RSPR | T5 | 35.22 → 14.62 | 9–75 m | 720 | 453 m/s | 20 |
 
 ## Metralhadoras
 
-*LMGs* — 10 weapons, arma-assinatura do Suporte.
+*LMGs* — 11 weapons, arma-assinatura do Suporte.
 
 | Arma | Entrada | Dano | Queda | RPM | Velocidade | Carregador |
 | --- | --- | --- | --- | ---: | ---: | ---: |
@@ -89,6 +91,7 @@ Gerado por `node scripts/weapons-doc.mjs`.
 | RPKM | Lanç. | 33.4 → 16.7 | 9–75 m | 553 | 630 m/s | 40 |
 | M121 A2 | T2 | 22 → 17 | 20–60 m | 550 | 560 m/s | 100 |
 | RPK-74M | T3 | 24 → 19 | 25–70 m | 600 | 808 m/s | 45 |
+| Z84M | T5 | 35.22 → 20.67 | 21–75 m | 720 | 604 m/s | 100 |
 
 ## Rifles de Precisão Semiautomáticos
 
@@ -105,7 +108,7 @@ Gerado por `node scripts/weapons-doc.mjs`.
 
 ## Rifles de Precisão
 
-*Sniper Rifles* — 6 weapons, arma-assinatura do Reconhecimento.
+*Sniper Rifles* — 7 weapons, arma-assinatura do Reconhecimento.
 
 | Arma | Entrada | Dano | Queda | RPM | Velocidade | Carregador |
 | --- | --- | --- | --- | ---: | ---: | ---: |
@@ -114,7 +117,8 @@ Gerado por `node scripts/weapons-doc.mjs`.
 | SV-98 | Lanç. | 80 → 62.5 | 54–125 m | 38 | 680 m/s | 10 |
 | Mini Scout | T1 | 70 → 55 | 40–110 m | 55 | 760 m/s | 5 |
 | L115 | T3 | 105 → 75 | 15–130 m | 40 | 664 m/s | 5 |
-| Interdictor | T4 | 125 → 90 | 50–200 m | 30 | 1020 m/s | 5 |
+| Interdictor | T4 | 80 | 120–160 m | 30 | 1020 m/s | 5 |
+| ELR-40 | T5 | 80 → 62 | 150–180 m | 36 | 789 m/s | 7 |
 
 ## Escopetas
 

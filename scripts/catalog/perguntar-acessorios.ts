@@ -34,14 +34,27 @@
  * Híbridos e não tinha ela. Por isso, candidato sem nenhuma confirmação sai
  * como `ausente_da_fonte`, com os conflitos anulados — a fonte não opinou.
  *
- * ## 2. Pergunta — quando enumerar não bastou
+ * ## 2. Leitura sem busca — o texto oficial que o script já tem
  *
- * O que a varredura não fechou vai para um modelo com busca ligada, que alcança
- * páginas que este ambiente não alcança. É o acesso que se terceiriza, não o
+ * O que a varredura não fechou vai primeiro para um modelo gratuito do
+ * OpenRouter, **sem busca**, com o material que o pipeline já baixou: os
+ * trechos do patch note da EA (`data/patches/<versão>.json`) e as linhas do
+ * bf6balancelog que nomeiam a peça. É o mesmo desenho da leitura do trending
+ * (`meta-search.mjs`): o script abre as páginas, o modelo só lê. A busca do
+ * OpenRouter é cobrada por consulta até em modelo gratuito, e a peça que o
+ * patch apresenta costuma ter a lista de armas no próprio texto oficial.
+ *
+ * Arma que volta daqui precisa estar escrita no trecho que a resposta cita, e
+ * a fonte precisa ser um dos endereços entregues — o código confere os dois.
+ *
+ * ## 3. Pergunta com busca — quando o texto oficial não bastou
+ *
+ * O que ainda sobrar vai para um modelo com busca ligada, que alcança páginas
+ * que este ambiente não alcança. É o acesso que se terceiriza, não o
  * julgamento: o que volta é relato com endereço, e a escala de evidência do
  * ATUALIZAR.md continua valendo. Quem responde é o Gemini gratuito, que traz
  * busca na cota dele — a do OpenRouter é cobrada (`meta/provedores.mjs`). Sem
- * chave nenhuma esta etapa não roda, e a varredura já terá escrito o que
+ * chave nenhuma estas etapas não rodam, e a varredura já terá escrito o que
  * descobriu.
  *
  * ## O que a rotina não pode fazer
@@ -62,22 +75,30 @@
  *   que não se quer.
  */
 
-import { writeFileSync } from 'node:fs';
+import { existsSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { WEAPONS } from '../../src/data/weapons.ts';
 import { fetchText, htmlToText } from './lib/http.ts';
 import { fonteAtiva } from './lib/sources.ts';
-import { DATA, INDEXES, log, readJson } from './lib/io.ts';
-import { MODELO_PADRAO, candidatos, perguntarComBusca, temAlgumaChave } from '../meta/provedores.mjs';
+import { DATA, INDEXES, PATCHES, log, readJson } from './lib/io.ts';
+import { fetchBalanceLog, type BalanceLine } from './fetch-balance-log.ts';
+import {
+  candidatos,
+  modelosDe,
+  perguntarComBusca,
+  perguntarSemBusca,
+  temAlgumaChave,
+} from '../meta/provedores.mjs';
 
 /*
  * A mesma fila das leituras diárias. A varredura enumerada já fechou o que
  * dava para fechar sem modelo nenhum, e o que sobra para esta pergunta é
  * pouco e vai para `armasRelatadas`, que ninguém promove sem conferir. Não é
- * lugar de gastar com modelo grande: a pergunta é com busca, e por padrão vai
- * ao Gemini gratuito. Ver `MODELOS` em scripts/meta-search.mjs.
+ * lugar de gastar com modelo grande: sem busca leem os gratuitos do
+ * OpenRouter; com busca, o Gemini gratuito. Ver `MODELOS` em
+ * scripts/meta-search.mjs. `ACESSORIOS_MODELS` troca a fila sem publicar versão.
  */
-const MODELOS = [MODELO_PADRAO];
+const MODELOS = modelosDe(process.env.ACESSORIOS_MODELS);
 
 /** Quantas fichas ler ao mesmo tempo. Baixo de propósito: é o site de outra pessoa. */
 const EM_PARALELO = 4;
@@ -395,16 +416,222 @@ type Resposta = {
   fontesRepetidas?: string;
 };
 
+/* ========================================================================== *
+ * 2. Leitura sem busca
+ * ========================================================================== */
+
+/** Quanto texto em volta de cada menção da peça vai para o prompt. */
+const JANELA = 500;
+const MAX_TRECHOS = 6;
+
+/** Texto comparável, sem acento nem pontuação, com os espaços preservados. */
+const plano = (valor: string) =>
+  String(valor)
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+
+/**
+ * Os trechos de um texto em que a peça aparece, com a vizinhança.
+ *
+ * O patch note tem dezenas de milhares de caracteres e a peça aparece em duas
+ * ou três frases: mandar o texto inteiro gastaria o contexto de um modelo
+ * gratuito com veículo, interface e Portal. Trechos que se sobrepõem viram um.
+ */
+export function trechosDaPeca(texto: string, nome: string, janela = JANELA): string[] {
+  const limpo = String(texto ?? '').replace(/\s+/g, ' ');
+  const alvo = nome.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s*');
+  const intervalos: [number, number][] = [];
+
+  for (const achado of limpo.matchAll(new RegExp(alvo, 'gi'))) {
+    const inicio = Math.max(0, achado.index - janela);
+    const fim = Math.min(limpo.length, achado.index + achado[0].length + janela);
+    const ultimo = intervalos.at(-1);
+    if (ultimo && inicio <= ultimo[1]) ultimo[1] = fim;
+    else intervalos.push([inicio, fim]);
+  }
+
+  return intervalos.slice(0, MAX_TRECHOS).map(([inicio, fim]) => limpo.slice(inicio, fim).trim());
+}
+
+interface Material {
+  url: string;
+  nome: string;
+  tier: number;
+  trechos: string[];
+}
+
+/**
+ * O que o pipeline já tem sobre cada peça: o patch note e o registro de patch.
+ *
+ * Nada aqui é buscado agora, fora o bf6balancelog — que é uma página só, e já
+ * é lida pela análise do patch. A EA vem do arquivo que a descoberta gravou.
+ */
+export function materialDaPeca(
+  peca: Candidato,
+  nota: { url: string; texto: string } | null,
+  linhas: BalanceLine[],
+  balancelogUrl: string | null,
+): Material[] {
+  const nome = NOME_NA_FONTE[peca.nome] ?? peca.nome;
+  const material: Material[] = [];
+
+  if (nota) {
+    const trechos = [...new Set([...trechosDaPeca(nota.texto, peca.nome), ...trechosDaPeca(nota.texto, nome)])];
+    if (trechos.length) material.push({ url: nota.url, nome: 'EA — patch note oficial', tier: 1, trechos });
+  }
+
+  if (balancelogUrl) {
+    const alvo = plano(nome);
+    const trechos = linhas
+      .filter((linha) => plano(linha.text).includes(alvo) || linha.items.some((item) => plano(item).includes(alvo)))
+      .map((linha) => (linha.items.length ? `${linha.text} [nomeia: ${linha.items.join(', ')}]` : linha.text))
+      .slice(0, MAX_TRECHOS * 2);
+    if (trechos.length) {
+      material.push({ url: balancelogUrl, nome: 'bf6balancelog — transcrição do changelog oficial', tier: 1, trechos });
+    }
+  }
+
+  return material;
+}
+
+const promptSemBusca = (pendentes: Candidato[], material: Material[][], hoje: string, versao: string) =>
+  `Hoje é ${hoje}. Você está auditando os acessórios que a atualização ${versao} do Battlefield 6 acrescentou, para um catálogo que não pode receber dado não confirmado.
+
+Você **não tem busca**. Para cada peça abaixo está transcrito o que o texto oficial diz dela — trechos do patch note da EA e linhas do bf6balancelog, que copia o changelog da EA linha por linha. Não use nada que não esteja aqui.
+
+${pendentes
+  .map(
+    (c, i) => `## id "${i}": ${c.nome} (slot ${c.slotEsperado})
+
+${
+  material[i].length
+    ? material[i]
+        .map((m) => `### ${m.nome}\nURL: ${m.url}\n${m.trechos.map((t) => `- """${t}"""`).join('\n')}`)
+        .join('\n\n')
+    : '(o texto oficial não menciona esta peça)'
+}`,
+  )
+  .join('\n\n')}
+
+## Regras
+
+1. Uma arma só entra se o trecho disser, com todas as letras, que a peça vai nela — "available for", "added to", "can now be equipped on", uma lista de armas da peça. Não deduza por categoria nem por vizinhança no texto.
+2. Em "fonte", copie a URL exata do bloco de onde saiu o trecho.
+3. Em "trecho", copie a frase que nomeia a arma, palavra por palavra.
+4. Custo ou efeito só como relato, e só se o trecho disser o número.
+5. Peça que o texto não liga a arma nenhuma: devolva "armas": [] e status "unknown". É melhor que preencher.
+
+## Resposta
+
+Só este JSON, sem cercas de código e sem texto em volta:
+
+{"pecas":[{"id":"0","status":"confirmed_exists | unknown | partial_confirmation","armas":[{"arma":"NOME DA ARMA","fonte":"https://...","trecho":"a frase do texto","tier":1,"classificacao":"confirmed"}],"relatos":[{"campo":"custo","valor":30,"fonte":"https://...","tier":1}]}]}
+
+O id é o da lista acima, e é por ele que a resposta é casada — não troque por nome.`;
+
+/**
+ * Confere a resposta sem busca contra o material entregue.
+ *
+ * A fonte tem de ser um endereço do material daquela peça, e a arma tem de
+ * estar escrita num trecho dele. Resposta que falha nisso foi memória do
+ * modelo, e é recusada antes de chegar ao arquivo.
+ */
+export function ancorarNoMaterial(bruto: { pecas?: Resposta[] }, material: Material[][]): { pecas: Resposta[] } {
+  const pecas: Resposta[] = [];
+
+  for (const peca of bruto?.pecas ?? []) {
+    const doMaterial = material[Number(peca.id)];
+    if (!doMaterial) continue;
+
+    const armas = (peca.armas ?? []).filter(({ arma, fonte }) => {
+      const pagina = doMaterial.find((m) => m.url === fonte);
+      const nome = plano(arma ?? '');
+      return Boolean(pagina && nome && pagina.trechos.some((t) => ` ${plano(t)} `.includes(` ${nome} `)));
+    });
+    const urls = new Set(doMaterial.map((m) => m.url));
+
+    pecas.push({
+      ...peca,
+      armas: armas.map(({ arma, fonte, classificacao }) => ({ arma, fonte, tier: 1, classificacao: classificacao ?? 'confirmed' })),
+      relatos: (peca.relatos ?? []).filter((r) => urls.has(r.fonte)),
+      conflitos: undefined,
+    });
+  }
+
+  return { pecas };
+}
+
+/** O material de todas as peças pendentes, ou `null` se o texto oficial não citar nenhuma. */
+async function juntarMaterial(pendentes: Candidato[], versao: string) {
+  const arquivo = join(PATCHES, `${versao}.json`);
+  const nota = existsSync(arquivo)
+    ? (() => {
+        const dados = readJson<{ rawContent: string; source?: { url?: string } }>(arquivo);
+        return dados.source?.url ? { url: dados.source.url, texto: dados.rawContent } : null;
+      })()
+    : null;
+
+  let linhas: BalanceLine[] = [];
+  let balancelogUrl: string | null = null;
+  try {
+    const { patches } = await fetchBalanceLog();
+    linhas = patches.find((p) => p.version === versao)?.weaponLines ?? [];
+    balancelogUrl = fonteAtiva('registro_de_patch').url;
+  } catch (erro) {
+    log('balancelog indisponível — vale o texto da EA sozinho', { erro: (erro as Error).message });
+  }
+
+  const material = pendentes.map((peca) => materialDaPeca(peca, nota, linhas, balancelogUrl));
+  return material.some((m) => m.length) ? material : null;
+}
+
+/** A leitura sem busca: o texto oficial já baixado, lido por um modelo gratuito. */
+async function lerSemBusca(pendentes: Candidato[], hoje: string, versao: string) {
+  const material = await juntarMaterial(pendentes, versao);
+  if (!material) {
+    log('leitura sem busca', { pulada: 'o texto oficial não menciona nenhuma das peças pendentes' });
+    return null;
+  }
+
+  for await (const candidato of candidatos(MODELOS, { busca: false })) {
+    const { modelo } = candidato;
+    try {
+      const { texto } = await perguntarSemBusca(candidato, promptSemBusca(pendentes, material, hoje, versao), {
+        maxOutputTokens: 4000,
+      });
+      const bruto = extrairJson(texto);
+      if (!bruto?.pecas) {
+        log('recusado', { modelo, motivo: 'resposta sem JSON utilizável' });
+        continue;
+      }
+      log('respondeu sem busca', { modelo, pecas: bruto.pecas.length });
+      return { bruto: ancorarNoMaterial(bruto, material), modelo };
+    } catch (erro) {
+      log('falhou', { modelo, erro: (erro as Error).message });
+    }
+  }
+
+  return null;
+}
+
+/* ========================================================================== *
+ * 3. Pergunta com busca
+ * ========================================================================== */
+
 /** Pergunta ao modelo sobre os candidatos passados; devolve quantas armas gravou. */
 async function auditar(
   investigacao: Investigacao,
   pendentes: Candidato[],
   hoje: string,
+  semBusca: { bruto: { pecas?: Resposta[] }; modelo: string } | null = null,
 ): Promise<number | null> {
-  let bruto: { pecas?: Resposta[] } | null = null;
-  const respondidoPor: string[] = [];
+  let bruto: { pecas?: Resposta[] } | null = semBusca?.bruto ?? null;
+  const respondidoPor: string[] = semBusca ? [semBusca.modelo] : [];
 
-  for await (const candidato of candidatos(MODELOS)) {
+  for await (const candidato of semBusca ? [] : candidatos(MODELOS)) {
     const { modelo } = candidato;
     try {
       const { buscou, texto } = await perguntarComBusca(
@@ -449,7 +676,7 @@ async function auditar(
       quem manda é ela: enumeração vale mais que relato, e sobrescrever seria
       trocar a fonte melhor pela pior.
     */
-    if (candidato.statusDaAuditoria === 'ausente_da_fonte') {
+    if (candidato.statusDaAuditoria === 'ausente_da_fonte' || candidato.statusDaAuditoria === 'unknown') {
       candidato.statusDaAuditoria = peca.status ?? (peca.achou === false ? 'not_found' : 'unknown');
     }
     if (peca.relatos?.length) candidato.relatos = peca.relatos;
@@ -487,7 +714,9 @@ async function auditar(
   investigacao.perguntaAoModelo = {
     quando: hoje,
     modelos: respondidoPor,
-    oQueFoiPedido: 'a lista de armas das peças que a varredura não achou, com a URL de onde ela saiu',
+    oQueFoiPedido: semBusca
+      ? 'a lista de armas das peças que a varredura não achou, lida sem busca nos trechos do patch note e do bf6balancelog'
+      : 'a lista de armas das peças que a varredura não achou, com a URL de onde ela saiu',
     pecas: pendentes.map((c) => c.nome),
     status: 'relatado — nada aqui é dado confirmado, e nada disso entra no dataset',
     proximoPasso: 'conferir no Gunsmith e mover o que bater para o campo armas',
@@ -507,6 +736,10 @@ async function main(): Promise<void> {
     process.env.PATCH_VERSION ||
     readJson<{ gameVersion: string }>(join(INDEXES, 'current.json')).gameVersion;
   const arquivo = join(DATA, 'compatibility', `acessorios-a-confirmar-${gameVersion}.json`);
+  if (!existsSync(arquivo)) {
+    log('auditoria', { pulada: `a ${gameVersion} não tem arquivo de investigação de acessórios`, arquivo });
+    return;
+  }
   const investigacao = readJson<Investigacao>(arquivo);
   const hoje = new Date().toISOString().slice(0, 10);
 
@@ -575,7 +808,22 @@ async function main(): Promise<void> {
     return;
   }
 
-  const gravadas = await auditar(investigacao, pendentes, hoje);
+  /*
+    Primeiro sem busca, com o texto oficial já baixado. O que ele fechar sai da
+    lista; o resto segue para a pergunta com busca.
+  */
+  let gravadas: number | null = null;
+  const semBusca = await lerSemBusca(pendentes, hoje, gameVersion);
+  if (semBusca) {
+    gravadas = await auditar(investigacao, pendentes, hoje, semBusca);
+    writeFileSync(arquivo, JSON.stringify(investigacao, null, 2) + '\n', 'utf8');
+  }
+
+  const restantes = pendentes.filter((c) => !c.armasRelatadas?.length);
+  if (restantes.length) {
+    const comBusca = await auditar(investigacao, restantes, hoje);
+    if (comBusca !== null) gravadas = (gravadas ?? 0) + comBusca;
+  }
 
   if (gravadas === null) {
     console.error('\nNenhum modelo devolveu lista utilizável. A varredura já foi gravada.');

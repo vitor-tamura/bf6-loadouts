@@ -12,7 +12,7 @@
  */
 
 import { describe, expect, it } from 'vitest';
-import { lerFicha } from './perguntar-acessorios.ts';
+import { ancorarNoMaterial, lerFicha, materialDaPeca, trechosDaPeca } from './perguntar-acessorios.ts';
 
 /** Uma ficha como o rnkd.gg a escreve: seção em `h3`, peça em `h4`, custo ao lado. */
 const ficha = (secoes: Record<string, [string, number | null][]>) =>
@@ -106,5 +106,47 @@ describe('a ficha de uma arma', () => {
   */
   it('devolve vazio quando a página não tem a forma esperada', () => {
     expect(lerFicha('<main><p>Página em manutenção</p></main>').size).toBe(0);
+  });
+});
+
+describe('leitura sem busca', () => {
+  const peca = { nome: 'Canted Vertical Grip', slotEsperado: 'underbarrel', armas: [] };
+  const ea = 'https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-9-9-9-9';
+  const nota = {
+    url: ea,
+    texto: `${'Vehicles were tuned. '.repeat(80)}The Canted Vertical Grip is now available for the M4A1 and the SG 553R. ${'Portal got new tools. '.repeat(80)}`,
+  };
+
+  it('recorta só a vizinhança da peça no patch note', () => {
+    const trechos = trechosDaPeca(nota.texto, 'Canted Vertical Grip', 60);
+    expect(trechos).toHaveLength(1);
+    expect(trechos[0]).toContain('M4A1');
+    expect(trechos[0].length).toBeLessThan(220);
+  });
+
+  it('junta EA e balancelog, cada um com o próprio endereço', () => {
+    const linhas = [{ text: 'Canted Vertical added to the AK4D', group: 'ATTACHMENTS', items: ['AK4D'] }];
+    const material = materialDaPeca(peca, nota, linhas, 'https://bf6balancelog.com/');
+    expect(material.map((m) => m.url)).toEqual([ea, 'https://bf6balancelog.com/']);
+  });
+
+  it('recusa arma que não está escrita no trecho citado', () => {
+    const material = [materialDaPeca(peca, nota, [], null)];
+    const { pecas } = ancorarNoMaterial(
+      {
+        pecas: [
+          {
+            id: '0',
+            armas: [
+              { arma: 'M4A1', fonte: ea },
+              { arma: 'AK4D', fonte: ea },
+              { arma: 'SG 553R', fonte: 'https://reddit.com/x' },
+            ],
+          },
+        ],
+      },
+      material,
+    );
+    expect(pecas[0].armas?.map((a) => a.arma)).toEqual(['M4A1']);
   });
 });

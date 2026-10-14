@@ -67,7 +67,7 @@ const lines = [
   `Relação completa das **${weapons.length} armas** do montador, agrupadas por category e`,
   'ordenadas pela season em que entraram no jogo.',
   '',
-  '`Lanç.` marca o conteúdo de lançamento; `T1` a `T4`, a season de estreia.',
+  '`Lanç.` marca o conteúdo de lançamento; `T1` a `T5`, a season de estreia.',
   '',
   'Gerado por `node scripts/weapons-doc.mjs`.',
   '',
