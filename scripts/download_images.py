@@ -13,6 +13,7 @@ A saída é WebP: a mesma foto em PNG ocupa perto de dez vezes mais, e o formato
 aceito por todo navegador que roda a aplicação. O alfa é preservado quando a
 origem tem.
 """
+import json
 import re
 import sys
 import urllib.request
@@ -67,6 +68,42 @@ def weapon_sources() -> dict[str, list[str]]:
                 urls.append(value.group(1).replace('${WIKI}', wiki))
         if urls:
             result[arma] = urls
+    return result
+
+
+def battlefieldmeta_weapon_sources() -> dict[str, list[str]]:
+    """
+    URLs adicionais do catálogo público do BattlefieldMeta/WZStats.
+
+    O cadastro local continua sendo a primeira fonte. Para armas sem URL
+    cadastrada, a API informa a versão do asset quando o render já foi
+    publicado. Em lançamentos, o campo pode vir vazio e o CDN pode responder
+    404; nesse caso a arma permanece pendente para a próxima execução.
+    """
+    try:
+        data = json.loads(fetch_bytes('https://app.battlefieldmeta.gg/api/weapons'))
+    except Exception as error:
+        print(f'  BattlefieldMeta indisponível; usando só as fontes cadastradas: {error}')
+        return {}
+
+    text = WEAPONS_SOURCE.read_text(encoding='utf8')
+    known_ids = {
+        match.group(1)
+        for match in re.finditer(r"id:\\s*'([^']+)',\\s*\\n\\s*name:\\s*'([^']+)'", text)
+    }
+
+    result: dict[str, list[str]] = {}
+    for weapon in data.get('data', []):
+        weapon_id = str(weapon.get('id', ''))
+        if weapon_id not in known_ids:
+            continue
+        version = str(weapon.get('imageVersion') or '').strip()
+        urls = []
+        if version:
+            urls.append(f'https://img.wzstats.gg/{weapon_id}_version{version}/gunDisplayLoadouts')
+        urls.append(f'https://img.wzstats.gg/{weapon_id}/gunDisplayLoadouts')
+        result[weapon_id] = urls
+
     return result
 
 
@@ -154,8 +191,14 @@ def download(
 def main() -> int:
     force = '--force' in sys.argv
 
+    image_sources = weapon_sources()
+    for weapon_id, urls in battlefieldmeta_weapon_sources().items():
+        # Mantém a captura local como primeira opção e usa o dataset externo
+        # para arma recém-chegada ou quando a fonte curada não responder.
+        image_sources[weapon_id] = list(dict.fromkeys([*image_sources.get(weapon_id, []), *urls]))
+
     totals = [
-        download('Armas', weapon_sources(), WEAPONS_TARGET, force),
+        download('Armas', image_sources, WEAPONS_TARGET, force),
         download('Gadgets', gadget_sources(), GADGETS_TARGET, force, GADGET_WIDTH),
     ]
     done, skipped, failed = (sum(column) for column in zip(*totals))
