@@ -150,6 +150,21 @@ jobs:
           PATCH_VERSION: ${{ inputs.version }}
         run: npm run catalog:perguntar-acessorios
 
+      # Baixa as imagens que já têm origem cadastrada em
+      # src/data/weapon-images.ts. Novos arquivos locais entram no mesmo commit
+      # dos dados; falhas na origem não impedem a publicação, pois o site ainda
+      # pode carregar a URL cadastrada como reserva.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar Pillow para as imagens
+        run: python -m pip install --disable-pip-version-check Pillow
+
+      - name: Baixar imagens de armas e gerar cartões
+        continue-on-error: true
+        run: npm run images:download
+
       # A tranca que substitui a revisão: se o catálogo novo quebrar o site,
       # ele não é publicado.
       - name: Testes, lint, tipos e build
@@ -164,7 +179,7 @@ jobs:
         env:
           MAIN_PUSH_TOKEN: ${{ secrets.MAIN_PUSH_TOKEN }}
         run: |
-          if [ -z "$(git status --porcelain -- data public/data src/data)" ]; then
+          if [ -z "$(git status --porcelain -- data public/data public/weapons src/data)" ]; then
             echo "::notice::Nenhuma versão nova alterou o catálogo. Nada a publicar."
             exit 0
           fi
@@ -183,7 +198,7 @@ jobs:
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data public/data src/data
+          git add data public/data public/weapons src/data
           git commit -m "$mensagem"
           git remote set-url origin "https://x-access-token:${MAIN_PUSH_TOKEN}@github.com/${{ github.repository }}.git"
 
