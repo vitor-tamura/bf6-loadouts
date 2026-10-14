@@ -5,7 +5,6 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { BUILD_DATE } from '@/data/build';
 import { seasonOn, seasonPaletteStyle } from '@/data/season';
-import type { SeasonPalette } from '@/data/season';
 import type { CSSProperties } from 'react';
 import { ThemeProvider } from '@/components/theme';
 import { PageCurtain } from '@/components/page-transition';
