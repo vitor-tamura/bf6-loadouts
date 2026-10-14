@@ -6,11 +6,13 @@
  * padrão — sem deploy, sem ninguém lembrar de desligar nada. Se a temporada
  * seguinte já estiver cadastrada aqui, ela assume no dia em que começa.
  *
- * Cada temporada tematizada declara `theme` e uma paleta clara/escura em
- * [SEASONS]. O layout injeta esses valores no documento, e os tokens globais,
- * o Ant Design e os gráficos usam a mesma configuração — sem cores duplicadas
- * em componentes.
+ * Cada temporada tematizada declara `theme` em [SEASONS]. A paleta fica em
+ * `season-palettes.json`; o workflow gera a entrada ausente a partir de fontes
+ * oficiais da EA. O layout injeta os valores no documento, e CSS, Ant Design,
+ * gráficos e cartões compartilhados usam a mesma configuração.
  */
+
+import seasonPalettes from './season-palettes.json' with { type: 'json' };
 
 export interface SeasonPhase {
   name: string;
@@ -75,32 +77,7 @@ export const SEASONS: Season[] = [
     number: 5,
     name: 'Siege of Vegas',
     theme: 'vegas',
-    palette: {
-      dark: {
-        bg: '#08070d', surface: '#100d18', surfaceRaised: '#171220',
-        border: '#35223f', borderSoft: '#21172c', text: '#f7eefa',
-        textSoft: '#c5a9c5', textDim: '#a07e9d', accent: '#f43f72',
-        accentLight: '#ff78aa', info: '#42d9ef',
-        base: {
-          '950': '#08070d', '900': '#100d18', '850': '#171220',
-          '800': '#21172c', '700': '#35223f', '600': '#543150',
-          '500': '#7a5275', '400': '#a07e9d', '300': '#c5a9c5',
-          '200': '#e4d3e4', '100': '#f7eefa',
-        },
-      },
-      light: {
-        bg: '#f9f2f7', surface: '#ffffff', surfaceRaised: '#f1e6ef',
-        border: '#dfc9dc', borderSoft: '#eadbe8', text: '#281a2b',
-        textSoft: '#624566', textDim: '#806780', accent: '#cf2f62',
-        accentLight: '#a92250', info: '#168ba2',
-        base: {
-          '950': '#f9f2f7', '900': '#ffffff', '850': '#f1e6ef',
-          '800': '#eadbe8', '700': '#dfc9dc', '600': '#c3a4bf',
-          '500': '#a686a2', '400': '#806780', '300': '#624566',
-          '200': '#412b46', '100': '#281a2b',
-        },
-      },
-    },
+    palette: seasonPalettes.vegas,
     summary: 'Cerco a Vegas: Vegas Strip, Area 51, Rapid Royale e novos armamentos.',
     startsOn: '2026-10-13',
     endsOn: '2027-01-12',
