@@ -70,4 +70,28 @@ for (const group of groups) {
   else console.log(lines.join('\n'));
 }
 
-console.log(`\n${total - missing} de ${total} prontas · faltam ${missing}\n`);
+let pendentesExternas = 0;
+if (process.argv.includes('--check')) {
+  try {
+    const response = await fetch('https://app.battlefieldmeta.gg/api/weapons', {
+      signal: AbortSignal.timeout(15_000),
+    });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const payload = await response.json();
+    for (const weapon of payload.data ?? []) {
+      if (!weapon.isNew) continue;
+      const path = join(root, 'public', 'weapons', `${weapon.id}.webp`);
+      if (existsSync(path)) continue;
+      pendentesExternas++;
+      console.log(`  · public/weapons/${weapon.id}.webp   ${weapon.name} (dataset externo)`);
+    }
+  } catch (error) {
+    console.error(`Falha ao consultar o dataset de armas: ${error}`);
+    process.exitCode = 1;
+  }
+
+  if (pendentesExternas > 0) process.exitCode = 1;
+  console.log(`\\nArmas novas sem imagem local no dataset externo: ${pendentesExternas}\\n`);
+}
+
+console.log(`\\n${total - missing} de ${total} prontas · faltam ${missing}\\n`);
