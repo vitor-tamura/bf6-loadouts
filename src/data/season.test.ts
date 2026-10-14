@@ -9,8 +9,8 @@ describe('temporada no ar', () => {
     expect(seasonOn(new Date(SEASON_5.endsOn))?.number).toBe(5);
   });
 
-  it('não vale na véspera nem no dia seguinte', () => {
-    expect(seasonOn(new Date('2026-10-12'))).toBeNull();
+  it('mantém a temporada anterior na véspera e encerra após a janela atual', () => {
+    expect(seasonOn(new Date('2026-10-12'))?.number).toBe(4);
     expect(seasonOn(new Date('2027-01-13'))).toBeNull();
   });
 
