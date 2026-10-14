@@ -53,10 +53,10 @@ const formatNumber = (v: number, decimals = 1) => v.toFixed(decimals).replace('.
  * uma vez só.
  */
 function useBaseConfig(yLabel: string) {
-  const { light } = useTheme();
+  const { light, palette } = useTheme();
 
   return useMemo(() => {
-    const c = coresDoTema(light);
+    const c = coresDoTema(light, palette);
     const fontFamily = 'var(--font-sans), system-ui, sans-serif';
 
     return {
@@ -103,13 +103,13 @@ function useBaseConfig(yLabel: string) {
       },
       interaction: { tooltip: { shared: true, crosshairs: true, marker: true } },
     };
-  }, [light, yLabel]);
+  }, [light, palette, yLabel]);
 }
 
 /** As cores do tema no ar, para o que não cabe no molde. */
 function useThemeColors() {
-  const { light } = useTheme();
-  return useMemo(() => coresDoTema(light), [light]);
+  const { light, palette } = useTheme();
+  return useMemo(() => coresDoTema(light, palette), [light, palette]);
 }
 
 /**
@@ -153,7 +153,7 @@ function ChartFrame({
 /* --------------------------- Comparação entre armas --------------------------- */
 
 /** Cores das séries na comparação, escolhidas para se distinguirem nos dois temas. */
-export const SERIES_COLORS = ['#ff8a00', '#5fe3f0', '#7ddc4c', '#c08bff'];
+export const SERIES_COLORS = ['var(--accent)', 'var(--season-dark-info)', 'var(--color-positive)', 'var(--color-negative)'];
 
 export interface Series {
   name: string;
@@ -383,7 +383,7 @@ export function DropChart({
         yField="value"
         colorField="series"
         shapeField="smooth"
-        scale={{ color: { domain: [FACTORY, BUILT], range: [c.textDim, '#5fe3f0'] } }}
+        scale={{ color: { domain: [FACTORY, BUILT], range: [c.textDim, c.info] } }}
         style={{
           lineWidth: (d: Point[]) => (d?.[0]?.series === FACTORY ? 2 : 2.6),
           lineDash: (d: Point[]) => (d?.[0]?.series === FACTORY ? [5, 4] : [0, 0]),
