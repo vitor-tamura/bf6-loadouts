@@ -36,13 +36,22 @@ export interface Season {
 }
 
 /**
- * Em ordem cronológica. Só a temporada atual precisa estar aqui.
+ * Em ordem cronológica. Mantemos também a temporada anterior para validar
+ * leituras históricas do meta, mesmo depois que a temporada atual muda.
  *
  * A EA anuncia o início de cada temporada, mas não o fim; `endsOn` é o dia
  * anterior ao começo da seguinte. Para a última cadastrada, a duração é
  * estimada em três meses.
  */
 export const SEASONS: Season[] = [
+  {
+    number: 4,
+    name: 'Naval Warfare',
+    summary: 'Naval Warfare: temporada 4.',
+    startsOn: '2026-07-21',
+    endsOn: '2026-10-12',
+    phases: [{ name: 'Naval Warfare', startsOn: '2026-07-21' }],
+  },
   {
     number: 5,
     name: 'Siege of Vegas',
