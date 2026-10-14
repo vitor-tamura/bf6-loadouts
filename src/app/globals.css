@@ -139,6 +139,7 @@
   --text-soft: var(--season-dark-text-soft);
   --text-dim: var(--season-dark-text-dim);
   --accent: var(--season-dark-accent);
+  --season-info: var(--season-dark-info);
   --accent-light: var(--season-dark-accent-light);
   --grid: color-mix(in oklab, var(--season-dark-base-600) 45%, transparent);
   --weave: color-mix(in oklab, var(--season-dark-accent) 35%, var(--season-dark-info));
@@ -184,6 +185,7 @@
   --text-soft: var(--season-light-text-soft);
   --text-dim: var(--season-light-text-dim);
   --accent: var(--season-light-accent);
+  --season-info: var(--season-light-info);
   --accent-light: var(--season-light-accent-light);
   --grid: var(--season-light-border);
   --weave: color-mix(in oklab, var(--season-light-accent) 30%, var(--season-light-info));
