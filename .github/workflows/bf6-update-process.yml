@@ -165,6 +165,15 @@ jobs:
         continue-on-error: true
         run: npm run images:download
 
+      # Quando uma temporada tematizada nova é cadastrada, cria sua paleta
+      # uma única vez com busca nas fontes oficiais da EA. A paleta é validada
+      # antes do build e passa a vestir CSS, Ant Design, gráficos e cartões.
+      - name: Gerar paleta da nova temporada, se necessário
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: npm run season:theme
+
       # A tranca que substitui a revisão: se o catálogo novo quebrar o site,
       # ele não é publicado.
       - name: Testes, lint, tipos e build
