@@ -1,6 +1,6 @@
 {
-  "readAt": "2026-10-17",
-  "model": "gemini-flash-latest",
+  "readAt": "2026-10-18",
+  "model": "gemini-flash-lite-latest",
   "patch": {
     "name": "Atualização 2.1.1.0",
     "date": "2026-10-12"
@@ -8,56 +8,56 @@
   "picks": [
     {
       "weapon": "b36a4",
-      "reason": "Lidera o ranking geral de armas do multiplayer em 17 de outubro e ocupa o 1º lugar entre todos os fuzis de assalto.",
+      "reason": "Ocupa a primeira posição geral e o primeiro lugar entre os fuzis de assalto no ranking do multiplayer do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "m16a4",
-      "reason": "Figura na 2ª colocação geral do multiplayer e como o 2º melhor fuzil de assalto no ranking atualizado da Temporada 5.",
+      "reason": "Alcança a segunda posição geral e o segundo lugar na classe de fuzis de assalto no ranking do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "Aparece na 3ª posição da tabela geral do multiplayer, sendo classificada como a melhor submetralhadora do jogo.",
+      "reason": "Registra a terceira posição geral e lidera como a melhor submetralhadora no ranking do multiplayer do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "Registra a 4ª colocação geral no multiplayer e o 3º lugar na categoria de fuzis de assalto na lista do wzstats.gg.",
+      "reason": "Posiciona-se na quarta colocação geral e em terceiro entre os fuzis de assalto no ranking do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "Ocupa a 5ª posição do ranking geral de armas e detém o 1º lugar entre as metralhadoras leves no multiplayer.",
+      "reason": "Garante a quinta posição geral e lidera a classe de metralhadoras leves no ranking do multiplayer do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "sgx",
-      "reason": "Surge como a 2ª melhor submetralhadora e conquista o 6º lugar absoluto na medição de multiplayer de 17 de outubro.",
+      "reason": "Figura na sexta colocação geral e ocupa o segundo lugar entre as submetralhadoras no ranking do multiplayer do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "Está no 7º lugar do ranking geral de armas e figura como a carabina número 1 no multiplayer atual.",
+      "reason": "Aparece na sétima posição geral e lidera a categoria de carabinas no ranking do multiplayer do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pw5a3",
-      "reason": "Ocupa a 8ª colocação da classificação geral do multiplayer e a 3ª posição entre as submetralhadoras.",
+      "reason": "Alcança a oitava colocação geral e o terceiro lugar na classe de submetralhadoras no ranking do multiplayer do wzstats.gg.",
       "sources": [
         0
       ]
@@ -65,77 +65,120 @@
   ],
   "trending": [
     {
-      "weapon": "mk-24",
-      "reason": "Reddit discute sua dispersão excessiva a mais de 30m e a liberação de munição ponta oca no nível 35 com custo de 5 pontos.",
+      "weapon": "m277",
+      "reason": "Discussão registrada no Reddit aponta que jogadores estão migrando para o novo fuzil após desbloquear o acessório de buffer.",
       "sources": [
         1
       ],
-      "trend": "novo fuzil e discussão de recuo"
+      "trend": "troca pelo rifle novo"
     },
     {
-      "weapon": "elr-40",
-      "reason": "Jogadores compartilham descoberta de telêmetro de 15 pontos ativado gratuitamente e debatem ausência de munição Match Grade.",
+      "weapon": "nvo-228e",
+      "reason": "Comentários na comunidade destacam o alto dano da arma em confrontos à distância no multiplayer.",
       "sources": [
         2
       ],
-      "trend": "exploit de acessório e arrasto"
-    },
-    {
-      "weapon": "z84m",
-      "reason": "Tópico recente critica recuo alto, baixa precisão e tempo de mira inferior ao de SMGs e fuzis em combates próximos.",
-      "sources": [
-        3
-      ],
-      "trend": "críticas ao desempenho inicial"
-    },
-    {
-      "weapon": "m433",
-      "reason": "Comunidade compartilha montagem focada em carregador estendido de 40 tiros com ponta oca causando 38 de dano próximo.",
-      "sources": [
-        4
-      ],
-      "trend": "build com munição ponta oca"
-    },
-    {
-      "weapon": "rspr",
-      "reason": "Relato aponta que o Single-Port Brake de 5 pontos zera a dispersão visual e eleva o controle da arma para 75.",
-      "sources": [
-        5
-      ],
-      "trend": "bug em freio de boca"
+      "trend": "preferência por dano"
     },
     {
       "weapon": "ak-205",
-      "reason": "Jogadores criticam o dano mínimo de 12 a longa distância exigindo até 10 disparos para eliminar adversários.",
+      "reason": "Relatos de jogadores no Reddit apontam que o modelo compensa o dano menor com maior estabilidade nos disparos.",
+      "sources": [
+        2
+      ],
+      "trend": "foco em precisão"
+    },
+    {
+      "weapon": "mk-24",
+      "reason": "Aparece em relatos de partidas em mata-mata em equipe logo após ser desbloqueada no passe de batalha da Temporada 5.",
+      "sources": [
+        3
+      ],
+      "trend": "uso no modo tdm"
+    },
+    {
+      "weapon": "rspr",
+      "reason": "Discussões no Reddit detalham um comportamento anômalo no acessório de freio de boca de ponto único que afeta a precisão.",
+      "sources": [
+        4
+      ],
+      "trend": "bug no freio de boca"
+    },
+    {
+      "weapon": "elr-40",
+      "reason": "Tópicos na comunidade descrevem satisfação com o desempenho do rifle combinando disparos únicos e pistola.",
+      "sources": [
+        5
+      ],
+      "trend": "estilo de jogo ágil"
+    },
+    {
+      "weapon": "m123k",
+      "reason": "Citada em discussões sobre metralhadoras leves indicadas para combates de curta distância.",
       "sources": [
         6
       ],
-      "trend": "reclamação de dano a distância"
+      "trend": "opção de suporte"
+    },
+    {
+      "weapon": "m433",
+      "reason": "Jogadores compartilharam configurações focadas no uso de munição de ponta oca para encadear eliminações.",
+      "sources": [
+        7
+      ],
+      "trend": "build de dano alto"
     }
   ],
   "sources": [
     {
       "name": "wzstats.gg — ranking do multiplayer",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-10-17",
+      "date": "2026-10-18",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Tem página só de multiplayer, separada das de REDSEC e de REDSEC Ranqueado, e ordena arma por arma dentro de cada classe.",
       "timeframe": "season-5"
     },
     {
-      "name": "Reddit — The MK 24 is severely hurt by no cryo or heavy barrel - also a question",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1x7gahg/the_mk_24_is_severely_hurt_by_no_cryo_or_heavy/",
-      "date": "2026-10-16",
+      "name": "Reddit — New AR is great",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1x8uup7/new_ar_is_great/",
+      "date": "2026-10-18",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita M277. Mostra do que se fala, não mede força.",
+      "timeframe": "season-5"
+    },
+    {
+      "name": "Reddit — What's the best assault rifle or carbine in BF6 right now?",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1x91ows/whats_the_best_assault_rifle_or_carbine_in_bf6/",
+      "date": "2026-10-18",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita NVO-228E, AK-205. Mostra do que se fala, não mede força.",
+      "timeframe": "season-5"
+    },
+    {
+      "name": "Reddit — The game feels GOOD right now. Dont change anything.",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1x8vi9w/the_game_feels_good_right_now_dont_change_anything/",
+      "date": "2026-10-18",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Thread do r/Battlefield6 que cita Mk 24. Mostra do que se fala, não mede força.",
       "timeframe": "season-5"
     },
     {
-      "name": "Reddit — Free 15-Pt Rangefinder for the new ELR-40! (Full 4K Proof Linked Below)",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1x7r5z0/free_15pt_rangefinder_for_the_new_elr40_full_4k/",
-      "date": "2026-10-16",
+      "name": "Reddit — The RSPR Brake bug goes a long way to show how incredibly bad self-spot",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1x8g6e4/the_rspr_brake_bug_goes_a_long_way_to_show_how/",
+      "date": "2026-10-17",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita RSPR. Mostra do que se fala, não mede força.",
+      "timeframe": "season-5"
+    },
+    {
+      "name": "Reddit — I'm Addicted to the ELR-40",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1x8jyqj/im_addicted_to_the_elr40/",
+      "date": "2026-10-17",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Thread do r/Battlefield6 que cita ELR-40. Mostra do que se fala, não mede força.",
@@ -157,24 +200,6 @@
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Thread do r/Battlefield6 que cita M433. Mostra do que se fala, não mede força.",
-      "timeframe": "season-5"
-    },
-    {
-      "name": "Reddit — 5Pts Brake Attachment bugged on the new RSPR (New Laser Gun?)",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1x6q44l/5pts_brake_attachment_bugged_on_the_new_rspr_new/",
-      "date": "2026-10-15",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita RSPR. Mostra do que se fala, não mede força.",
-      "timeframe": "season-5"
-    },
-    {
-      "name": "Reddit — The AK-205 is so bad.",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1x6ey2s/the_ak205_is_so_bad/",
-      "date": "2026-10-15",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita AK-205. Mostra do que se fala, não mede força.",
       "timeframe": "season-5"
     },
     {
@@ -200,7 +225,7 @@
     "multiplayer": {
       "name": "wzstats.gg — ranking do multiplayer",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-10-17",
+      "date": "2026-10-18",
       "entries": [
         {
           "weapon": "b36a4",
@@ -591,7 +616,7 @@
     "redsec": {
       "name": "wzstats.gg — ranking do REDSEC",
       "url": "https://wzstats.gg/battlefield-6/meta",
-      "date": "2026-10-17",
+      "date": "2026-10-18",
       "entries": [
         {
           "weapon": "kts100-mk8",
