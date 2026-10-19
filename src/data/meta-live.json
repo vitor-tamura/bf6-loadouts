@@ -8,56 +8,56 @@
   "picks": [
     {
       "weapon": "b36a4",
-      "reason": "Ocupa a primeira posição geral e o primeiro lugar entre os fuzis de assalto no ranking do multiplayer do wzstats.gg.",
+      "reason": "Aparece na primeira posição geral e lidera a classe de fuzis de assalto no ranking do multiplayer do wzstats.gg.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "m16a4",
-      "reason": "Alcança a segunda posição geral e o segundo lugar na classe de fuzis de assalto na listagem de multiplayer.",
+      "reason": "Ocupa a segunda posição geral e a segunda colocação entre os fuzis de assalto no multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "Figura na terceira posição geral e lidera a classe de submetralhadoras no rastreador de multiplayer.",
+      "reason": "Figura na terceira posição geral e lidera a categoria de submetralhadoras no multiplayer tradicional.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "Registra a quarta posição geral e o terceiro lugar na categoria de fuzis de assalto no meta atual.",
+      "reason": "Classificada em quarto lugar no ranking geral e em terceiro entre os fuzis de assalto do multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "Posiciona-se em quinto no ranking geral e ocupa o topo da classe de metralhadoras leve no multiplayer.",
+      "reason": "Posicionada em quinto lugar no ranking geral e no topo da categoria de metralhadoras leves (LMG) no multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "sgx",
-      "reason": "Aparece na sexta colocação geral e garante o segundo lugar entre as submetralhadoras na listagem.",
+      "reason": "Aparece em sexto lugar na listagem geral e na segunda posição entre as submetralhadoras no multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "Conquista a sétima posição geral e figura como a carabina número um no ranking de multiplayer.",
+      "reason": "Ocupa a sétima posição geral e lidera a categoria de carabinas no multiplayer tradicional.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pw5a3",
-      "reason": "Retém a oitava colocação geral e o terceiro posto na categoria de submetralhadoras do modo tradicional.",
+      "reason": "Classificada em oitavo lugar no ranking geral e na terceira posição entre as submetralhadoras do multiplayer.",
       "sources": [
         0
       ]
@@ -65,40 +65,40 @@
   ],
   "trending": [
     {
-      "weapon": "z84m",
-      "reason": "Discussão na thread do Reddit aponta que o modelo se destaca com o tambor pesado para combates de curta distância, embora apresente recuo acentuado.",
+      "weapon": "mk-24",
+      "reason": "Citada em debate de 2026-10-16 sobre o comportamento do recuo e a dispersão (bloom) em disparos contínuos a médias distâncias.",
       "sources": [
-        1
+        6
       ],
-      "trend": "recuo e alcance curto"
+      "trend": "discussão de dano e alcance"
     },
     {
       "weapon": "grt-cps",
-      "reason": "Relato de jogador no Reddit debate a sensação ruim ao disparar o equipamento, citando baixo ritmo de tiro e quantidade elevada de disparos necessários para abates.",
+      "reason": "Alvo de críticas em post de 2026-10-19 relatando alto número de disparos para abater inimigos e baixa cadência de tiro.",
       "sources": [
-        2
+        1
       ],
       "trend": "reclamação de desempenho"
     },
     {
+      "weapon": "nvo-228e",
+      "reason": "Mencionada em discussão de 2026-10-18 como uma das armas favoritas por causa do dano, ao lado de outras opções de fuzil.",
+      "sources": [
+        2
+      ],
+      "trend": "preferência de precisão"
+    },
+    {
       "weapon": "m277",
-      "reason": "Comentário em tópico do Reddit compara o desempenho com novas armas e discute a necessidade de acoplamentos específicos para controle de dispersão.",
+      "reason": "Citada em relato de 2026-10-18 sobre o uso de acessórios de amortecimento e comparações diretas de desempenho com novos fuzis.",
       "sources": [
         3
       ],
       "trend": "comparação com novas armas"
     },
     {
-      "weapon": "mk-24",
-      "reason": "Discussão comunitária no Reddit analisa o comportamento da dispersão a média distância e o funcionamento das opções de munição inclusas.",
-      "sources": [
-        6
-      ],
-      "trend": "dispersão e munição"
-    },
-    {
       "weapon": "rspr",
-      "reason": "Relatos múltiplos no Reddit detalham um comportamento atípico gerado pelo freio de boca de cinco pontos na estabilidade do armamento.",
+      "reason": "Discutida em thread de 2026-10-17 devido a um bug no freio de boca que altera drasticamente o controle e a precisão.",
       "sources": [
         4
       ],
@@ -106,19 +106,19 @@
     },
     {
       "weapon": "elr-40",
-      "reason": "Postagens em fóruns destacam a fluidez no manuseio com carregador de disparo único e a descoberta de interações com telêmetros.",
+      "reason": "Elogiada em relato de 2026-10-17 pelo desempenho fluido com munição de tiro único e mecânicas de alcance.",
       "sources": [
         5
       ],
-      "trend": "build de tiro único"
+      "trend": "satisfação com tiro único"
     },
     {
       "weapon": "m433",
-      "reason": "Publicação na comunidade detalha uma configuração focada em munição de ponta oca e supressor para combate ágil.",
+      "reason": "Destaque em post de 2026-10-15 detalhando uma montagem com munição de ponta oca para maximizar o abate em cadeia.",
       "sources": [
         7
       ],
-      "trend": "build de ponta oca"
+      "trend": "build focada em dano"
     }
   ],
   "sources": [
@@ -132,21 +132,21 @@
       "timeframe": "season-5"
     },
     {
-      "name": "Reddit — Done with 3 out of the 4 (Z84 was the most fun)",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1x9ug96/done_with_3_out_of_the_4_z84_was_the_most_fun/",
-      "date": "2026-10-19",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita TR-7, Mk 24, M277, Z84M, Mini Scout, ELR-40. Mostra do que se fala, não mede força.",
-      "timeframe": "season-5"
-    },
-    {
       "name": "Reddit — GRT-CPS... Is it meant to feel so bad to use?",
       "url": "https://www.reddit.com/r/Battlefield6/comments/1x9vrgs/grtcps_is_it_meant_to_feel_so_bad_to_use/",
       "date": "2026-10-19",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Thread do r/Battlefield6 que cita GRT-CPS. Mostra do que se fala, não mede força.",
+      "timeframe": "season-5"
+    },
+    {
+      "name": "Reddit — What's the best assault rifle or carbine in BF6 right now?",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1x91ows/whats_the_best_assault_rifle_or_carbine_in_bf6/",
+      "date": "2026-10-18",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita NVO-228E, AK-205. Mostra do que se fala, não mede força.",
       "timeframe": "season-5"
     },
     {
