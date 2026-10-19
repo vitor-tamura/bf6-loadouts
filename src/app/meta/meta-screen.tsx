@@ -25,7 +25,17 @@ import {
 } from '@/data/meta';
 import { seasonOn } from '@/data/season';
 import { WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
-import { categoriasDoRanking, contrasteRedsec, indiceDaFonte, type DailyRanking } from '@/lib/ranking';
+import {
+  categoriasDoRanking,
+  contrasteRedsec,
+  indiceDaFonte,
+  movimentoNoRanking,
+  subidasNoRanking,
+  topoDoDia,
+  type DailyRanking,
+  type Movimento,
+  type RankingHistory,
+} from '@/lib/ranking';
 import { EMPTY_LOADOUT } from '@/lib/loadout';
 import { completarDestaques, realocarCategorias } from '@/lib/destaques';
 import { completarTendencia, fichaDaArma, MIN_TENDENCIA } from '@/lib/trending';
@@ -66,6 +76,7 @@ export function MetaScreen({
   readAt,
   patch,
   ranking,
+  history,
   fromSearch = false,
 }: {
   picks?: MetaPick[];
@@ -74,6 +85,7 @@ export function MetaScreen({
   readAt?: string;
   patch?: MetaPatch | null;
   ranking?: DailyRanking | null;
+  history?: RankingHistory | null;
   fromSearch?: boolean;
 } = {}) {
   /*
@@ -102,7 +114,28 @@ export function MetaScreen({
     a curadoria escrita à mão, e as fontes dela vêm junto, senão o colchete do
     cartão apontaria para a fonte errada do rodapé.
   */
-  const doTopo = completarDestaques(picks, sources);
+  /*
+    Com o ranking do dia, o topo segue a ordem dele — o texto do modelo fica
+    onde a arma é a mesma. Sem isso, o dia em que o modelo falhava deixava o
+    topo com a lista de ontem e as categorias, logo abaixo, com a de hoje.
+  */
+  const fonteDoRanking = ranking?.multiplayer ? indiceDaFonte(sources, ranking.multiplayer, { temporada }) : null;
+  const doTopo =
+    ranking?.multiplayer && fonteDoRanking
+      ? completarDestaques(
+          // O texto do modelo diz a posição do dia em que foi escrito: de outro dia, não serve.
+          topoDoDia(readAt === ranking.multiplayer.date ? picks : [], ranking.multiplayer, fonteDoRanking.indice),
+          fonteDoRanking.fontes,
+        )
+      : completarDestaques(picks, sources);
+
+  /* O movimento de cada arma no ranking, contra ontem e contra a semana. */
+  const diaDoRanking = ranking?.multiplayer.date ?? readAt ?? UPDATED_AT;
+  const historico = history?.multiplayer ?? [];
+  const movimentoDe = (arma: string) => movimentoNoRanking(historico, arma, diaDoRanking);
+  const subidas = subidasNoRanking(historico, diaDoRanking).filter(
+    ({ movimento }) => movimento.posicao > doTopo.destaques.length,
+  );
 
   /*
     Os blocos por categoria são escritos à mão e continuam sendo, mesmo quando o
@@ -157,7 +190,7 @@ export function MetaScreen({
               </Hint>
             </h1>
             <Typography.Text className="text-[11px]" style={{ color: 'var(--text-dim)' }}>
-              revisado em {shortDate(readAt ?? UPDATED_AT)}
+              revisado em {shortDate([readAt ?? UPDATED_AT, ranking?.multiplayer.date ?? ''].sort().at(-1)!)}
               {/*
                 A data da leitura sozinha engana: ela diz quando alguém olhou,
                 não a que jogo o que se olhou se refere. Com o patch à vista, dá
@@ -233,10 +266,25 @@ export function MetaScreen({
           <Row gutter={[8, 8]}>
             {destaques.map((pick, rank) => (
               <Col key={pick.weapon} xs={24} sm={12} lg={8} xl={6}>
-                <MetaCard pick={pick} rank={rank + 1} />
+                <MetaCard pick={pick} rank={rank + 1} movimento={movimentoDe(pick.weapon)} />
               </Col>
             ))}
           </Row>
+          {subidas.length > 0 && (
+            <p className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-[11px]" style={{ color: 'var(--text-dim)' }}>
+              <span className="label">Subindo no ranking</span>
+              {subidas.map(({ weapon, movimento }) => (
+                <span key={weapon} className="font-mono">
+                  <span style={{ color: 'var(--text-soft)' }}>{WEAPONS_BY_ID.get(weapon)?.name ?? weapon}</span>{' '}
+                  {movimento.posicao}º{' '}
+                  <span style={{ color: 'var(--color-positive)' }}>
+                    {movimento.naSemana === null ? 'entrou' : `▲${movimento.naSemana}`}
+                  </span>
+                  {movimento.semanaDesde && <> desde {shortDate(movimento.semanaDesde)}</>}
+                </span>
+              ))}
+            </p>
+          )}
         </section>
 
         {tendencia.length >= MIN_TENDENCIA && (
@@ -526,10 +574,12 @@ function MetaCard({
   pick,
   rank,
   featured = false,
+  movimento = null,
 }: {
   pick: MetaPick;
   rank?: number;
   featured?: boolean;
+  movimento?: Movimento | null;
 }) {
   const weapon = WEAPONS_BY_ID.get(pick.weapon);
   if (!weapon) return null;
@@ -562,7 +612,10 @@ function MetaCard({
             )}
             {weapon.name}
           </span>
-          <SeasonTag season={weapon.season} size="sm" />
+          <span className="flex items-center gap-1.5">
+            {movimento && <MovimentoTag movimento={movimento} />}
+            <SeasonTag season={weapon.season} size="sm" />
+          </span>
         </div>
 
         {!rank && <WeaponPreview weapon={weapon} className="my-1 w-full" />}
@@ -586,6 +639,37 @@ function MetaCard({
         </p>
       </Card>
     </Link>
+  );
+}
+
+/**
+ * Quanto a arma andou no ranking desde a leitura anterior.
+ *
+ * Seta para subida e queda; posição repetida diz há quantas leituras ela está
+ * ali — "parada" sem o número pareceria tela que não atualizou.
+ */
+function MovimentoTag({ movimento }: { movimento: Movimento }) {
+  const { desdeOntem, entrou, leiturasNaPosicao, naSemana } = movimento;
+  const [texto, cor, dica] = entrou
+    ? ['novo', 'var(--color-positive)', 'Entrou no ranking nesta leitura']
+    : desdeOntem === null
+      ? [null, null, null]
+      : desdeOntem > 0
+        ? [`▲${desdeOntem}`, 'var(--color-positive)', `Subiu ${desdeOntem} desde a leitura anterior`]
+        : desdeOntem < 0
+          ? [`▼${-desdeOntem}`, 'var(--color-negative)', `Caiu ${-desdeOntem} desde a leitura anterior`]
+          : [
+              leiturasNaPosicao > 1 ? `= ${leiturasNaPosicao}d` : '=',
+              'var(--text-dim)',
+              `Mesma posição há ${leiturasNaPosicao} leituras${naSemana ? `; ${naSemana > 0 ? '▲' : '▼'}${Math.abs(naSemana)} na semana` : ''}`,
+            ];
+  if (!texto) return null;
+  return (
+    <Hint label={dica!}>
+      <span className="font-mono text-[10px]" style={{ color: cor! }}>
+        {texto}
+      </span>
+    </Hint>
   );
 }
 

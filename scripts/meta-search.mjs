@@ -61,6 +61,10 @@ import { briefingDoPatch, fontesDoPatch, patchAtual } from './meta/patch-atual.m
 import { candidatos, modelosDe, perguntarComBusca, temAlgumaChave } from './meta/provedores.mjs';
 
 const DESTINO = new URL('../src/data/meta-live.json', import.meta.url);
+const HISTORICO = new URL('../src/data/meta-history.json', import.meta.url);
+
+/** Quantas leituras do ranking o histórico guarda. Um mês basta para "subiu na semana". */
+const DIAS_DE_HISTORICO = 30;
 
 function numeroConfig(valor, padrao) {
   const numero = Number(valor);
@@ -515,6 +519,29 @@ async function lerRankings() {
 }
 
 /**
+ * A ordem do ranking de hoje entra no histórico, uma entrada por dia.
+ *
+ * É o que deixa a tela dizer quem subiu e quem caiu. O ranking do rastreador
+ * anda devagar, e sem o histórico o topo parecia parado mesmo relido todo dia.
+ * Grava antes de perguntar a qualquer modelo: não depende de nenhum.
+ */
+function gravarHistorico() {
+  if (!RANKING?.multiplayer) return;
+  let historico = { multiplayer: [] };
+  try {
+    historico = JSON.parse(readFileSync(HISTORICO, 'utf8'));
+  } catch {
+    // Primeiro dia: o arquivo nasce aqui.
+  }
+  const dia = RANKING.multiplayer.date;
+  const leituras = (historico.multiplayer ?? []).filter((leitura) => leitura.date !== dia);
+  leituras.push({ date: dia, order: RANKING.multiplayer.entries.map((entrada) => entrada.weapon) });
+  leituras.sort((a, b) => a.date.localeCompare(b.date));
+  historico.multiplayer = leituras.slice(-DIAS_DE_HISTORICO);
+  writeFileSync(HISTORICO, `${JSON.stringify(historico, null, 2)}\n`);
+}
+
+/**
  * Sem leitura nova do modelo, o ranking do dia ainda entra no arquivo de ontem:
  * ele não depende de modelo nenhum, e é o que mantém as categorias em dia.
  */
@@ -631,6 +658,7 @@ async function main() {
 
   const [material, ranking] = await Promise.all([juntarMaterial(), lerRankings()]);
   RANKING = ranking;
+  gravarHistorico();
   const semBusca = material.paginas.length ? await lerSemBusca(material) : null;
 
   if (semBusca && semBusca.conteudo.trending.length >= LIMITES.minimoDeTrending) {

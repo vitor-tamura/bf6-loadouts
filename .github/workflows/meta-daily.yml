@@ -117,7 +117,7 @@ jobs:
             exit 1
           fi
 
-          arquivos="src/data/meta-live.json src/data/builds-live.json"
+          arquivos="src/data/meta-live.json src/data/meta-history.json src/data/builds-live.json"
 
           if git diff --quiet -- $arquivos; then
             echo "Sem alterações para publicar."

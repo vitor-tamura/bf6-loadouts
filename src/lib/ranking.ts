@@ -156,3 +156,128 @@ export function contrasteRedsec(ranking: DailyRanking): RedsecContrast[] {
     })
     .slice(0, MAX_CONTRASTES);
 }
+
+/* ========================================================================== *
+ * O ranking ao longo dos dias
+ * ========================================================================== */
+
+/** A ordem do ranking do multiplayer num dia, gravada pela leitura diária. */
+export interface RankingSnapshot {
+  date: string;
+  order: string[];
+}
+
+export interface RankingHistory {
+  multiplayer: RankingSnapshot[];
+}
+
+/** Quanto uma arma andou no ranking. Positivo é subida. */
+export interface Movimento {
+  /** Posição de hoje, 1 em diante. */
+  posicao: number;
+  /** Desde a leitura anterior; `null` quando não há leitura anterior. */
+  desdeOntem: number | null;
+  /** Desde a leitura de uma semana atrás (ou a mais antiga que houver). */
+  naSemana: number | null;
+  /** O dia da leitura contra a qual `naSemana` foi medido. */
+  semanaDesde: string | null;
+  /** A arma não estava no ranking da leitura anterior. */
+  entrou: boolean;
+  /** Há quantas leituras seguidas ela está nesta mesma posição, contando hoje. */
+  leiturasNaPosicao: number;
+}
+
+const DIA_MS = 86_400_000;
+
+/** As leituras até `on`, da mais antiga para a mais nova, uma por dia. */
+function ate(historico: RankingSnapshot[], on: string): RankingSnapshot[] {
+  const porDia = new Map<string, RankingSnapshot>();
+  for (const leitura of historico) if (leitura.date <= on) porDia.set(leitura.date, leitura);
+  return [...porDia.values()].sort((a, b) => a.date.localeCompare(b.date));
+}
+
+/**
+ * Quanto uma arma subiu ou caiu, contra ontem e contra a semana.
+ *
+ * O topo é o ranking de um rastreador, e ele anda devagar: na primeira semana
+ * da Temporada 5 só a B36A4 e a M16A4 trocaram de lugar, e a tela parecia
+ * parada mesmo com a leitura rodando todo dia. Dizer o movimento — inclusive
+ * "a mesma posição há cinco leituras" — é o que mostra que a lista foi relida.
+ */
+export function movimentoNoRanking(historico: RankingSnapshot[], arma: string, on: string): Movimento | null {
+  const leituras = ate(historico, on);
+  const hoje = leituras.at(-1);
+  if (!hoje) return null;
+  const posicao = hoje.order.indexOf(arma) + 1;
+  if (!posicao) return null;
+
+  const posEm = (leitura: RankingSnapshot | undefined) => {
+    if (!leitura) return null;
+    const i = leitura.order.indexOf(arma);
+    return i === -1 ? null : i + 1;
+  };
+
+  const anterior = leituras.at(-2);
+  const ontem = posEm(anterior);
+
+  const limite = new Date(Date.parse(`${hoje.date}T12:00:00Z`) - 7 * DIA_MS).toISOString().slice(0, 10);
+  const daSemana = [...leituras].reverse().find((l) => l.date <= limite) ?? (leituras.length > 1 ? leituras[0] : undefined);
+  const semana = posEm(daSemana);
+
+  let leiturasNaPosicao = 0;
+  for (const leitura of [...leituras].reverse()) {
+    if (posEm(leitura) !== posicao) break;
+    leiturasNaPosicao += 1;
+  }
+
+  return {
+    posicao,
+    desdeOntem: ontem === null ? null : ontem - posicao,
+    naSemana: semana === null ? null : semana - posicao,
+    semanaDesde: daSemana?.date ?? null,
+    entrou: Boolean(anterior) && ontem === null,
+    leiturasNaPosicao,
+  };
+}
+
+/**
+ * Quem mais subiu no ranking inteiro desde a leitura de uma semana atrás, e
+ * quem entrou nele. É a parte do ranking que muda de um dia para o outro.
+ */
+export function subidasNoRanking(
+  historico: RankingSnapshot[],
+  on: string,
+  { minimo = 2, max = 4 }: { minimo?: number; max?: number } = {},
+): { weapon: string; movimento: Movimento }[] {
+  const hoje = ate(historico, on).at(-1);
+  if (!hoje) return [];
+  return hoje.order
+    .map((weapon) => ({ weapon, movimento: movimentoNoRanking(historico, weapon, on)! }))
+    .filter(({ movimento }) => {
+      if (!movimento) return false;
+      const novaNaSemana = movimento.naSemana === null && movimento.semanaDesde !== null;
+      return (movimento.naSemana ?? 0) >= minimo || movimento.entrou || novaNaSemana;
+    })
+    .sort((a, b) => (b.movimento.naSemana ?? 99) - (a.movimento.naSemana ?? 99) || a.movimento.posicao - b.movimento.posicao)
+    .slice(0, max);
+}
+
+/**
+ * O topo do dia, na ordem do ranking do dia.
+ *
+ * O texto de cada cartão continua sendo o da leitura do modelo quando a arma
+ * é a mesma. Mas a ordem e as armas são as do ranking: quando o modelo falha e
+ * a rotina grava só o ranking (`gravarSoORanking`), o topo seguia com a lista
+ * de ontem enquanto as categorias, logo abaixo, já mostravam a de hoje.
+ */
+export function topoDoDia(picks: MetaPick[], ranking: Ranking, fonte: number, quantas = 8): MetaPick[] {
+  const daLeitura = new Map(picks.map((pick) => [pick.weapon, pick]));
+  return ranking.entries.slice(0, quantas).map(
+    (entrada) =>
+      daLeitura.get(entrada.weapon) ?? {
+        weapon: entrada.weapon,
+        reason: `${entrada.overall}ª no ranking geral do multiplayer e ${entrada.categoryRank}ª da classe.`,
+        sources: [fonte],
+      },
+  );
+}

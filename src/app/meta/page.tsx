@@ -1,7 +1,8 @@
 import { MetaScreen } from './meta-screen';
 import live from '@/data/meta-live.json';
+import history from '@/data/meta-history.json';
 import type { MetaPatch, MetaPick, MetaSource, TrendingPick } from '@/data/meta';
-import type { DailyRanking } from '@/lib/ranking';
+import type { DailyRanking, RankingHistory } from '@/lib/ranking';
 
 /**
  * A tela do meta.
@@ -46,6 +47,7 @@ export default function MetaPage() {
       readAt={live.readAt}
       patch={patch}
       ranking={ranking}
+      history={history as RankingHistory}
       fromSearch
     />
   );
