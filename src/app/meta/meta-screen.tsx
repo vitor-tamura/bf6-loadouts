@@ -261,7 +261,7 @@ export function MetaScreen({
             </Typography.Text>
           </div>
           <BlockNote>
-            Entra aqui a arma que as fontes apontam como <strong>mais forte depois do patch</strong>: teste, análise de balanceamento e estatística analisada pelos jogadores e opiniões nas comunidades, entre eles TTK, dano, controle, alcance e etc. Posição em ranking da meta é baseada em análises e opiniões da comunidade, e não como pick rate, que o jogo não publica. Os colchetes dizem de que fonte saiu cada indicação (ex: [1], [2], [3]).
+            Entra aqui a arma que as fontes apontam como <strong>mais forte depois do patch</strong>: teste, análise de balanceamento e estatística analisada pelos jogadores e opiniões nas comunidades, entre eles TTK, dano, controle, alcance e etc. Posição em ranking da meta é baseada em análises e opiniões da comunidade, e não como pick rate, que o jogo não publica. Os colchetes dizem de que fonte saiu cada indicação (ex: [1], [2], [3]). A ordem é a do ranking do dia: a seta diz quanto a arma andou desde a leitura anterior, e “= 5d” que ela está na mesma posição há cinco leituras.
           </BlockNote>
           <Row gutter={[8, 8]}>
             {destaques.map((pick, rank) => (
@@ -277,10 +277,14 @@ export function MetaScreen({
                 <span key={weapon} className="font-mono">
                   <span style={{ color: 'var(--text-soft)' }}>{WEAPONS_BY_ID.get(weapon)?.name ?? weapon}</span>{' '}
                   {movimento.posicao}º{' '}
-                  <span style={{ color: 'var(--color-positive)' }}>
-                    {movimento.naSemana === null ? 'entrou' : `▲${movimento.naSemana}`}
-                  </span>
-                  {movimento.semanaDesde && <> desde {shortDate(movimento.semanaDesde)}</>}
+                  {movimento.naSemana === null ? (
+                    <span style={{ color: 'var(--color-positive)' }}>entrou nesta semana</span>
+                  ) : (
+                    <>
+                      <span style={{ color: 'var(--color-positive)' }}>▲{movimento.naSemana}</span>
+                      {movimento.semanaDesde && <> desde {shortDate(movimento.semanaDesde)}</>}
+                    </>
+                  )}
                 </span>
               ))}
             </p>
