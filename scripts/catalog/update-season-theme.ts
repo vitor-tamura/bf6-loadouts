@@ -313,7 +313,7 @@ async function main(): Promise<void> {
     return;
   }
   if (!temAlgumaChave()) {
-    throw new Error('A nova temporada precisa de uma paleta, mas nem OPENROUTER_API_KEY nem GEMINI_API_KEY estão configuradas.');
+    throw new Error('A nova temporada precisa de uma paleta, mas nem ANTHROPIC_API_KEY, nem OPENROUTER_API_KEY, nem GEMINI_API_KEY estão configuradas.');
   }
 
   const paginas = await lerPaginasOficiais(season);

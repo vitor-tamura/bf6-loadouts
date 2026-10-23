@@ -223,7 +223,7 @@ export function MetaScreen({
                 percepção declarada, não pick rate.{' '}
                 {fromSearch ? (
                   <>
-                    Esta leitura foi montada <strong>automaticamente</strong>, uma vez por dia, a
+                    Esta leitura foi montada <strong>automaticamente</strong>, três vezes por semana, a
                     partir de uma busca por discussões e guias recentes: ninguém revisou antes de
                     publicar. Os links usados estão no fim da página, e só entra arma que existe no
                     jogo.

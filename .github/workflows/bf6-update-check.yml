@@ -1,6 +1,6 @@
 # Saiu patch novo?
 #
-# Roda de seis em seis horas e faz uma pergunta só à página de novidades da EA:
+# Roda uma vez por dia e faz uma pergunta só à página de novidades da EA:
 # apareceu algum Game Update que `data/versions` ainda não tem. Na esmagadora
 # maioria das execuções a resposta é não, e o workflow termina em segundos.
 #
@@ -16,7 +16,10 @@ name: Verificar atualização do BF6
 
 on:
   schedule:
-    - cron: '0 */6 * * *'
+    # 12:17 UTC (09:17 em Brasília), uma vez por dia. Era de seis em seis horas;
+    # patch sai poucas vezes por mês, e um dia de atraso no catálogo não pesa.
+    # Fora da hora cheia, que é quando o GitHub mais atrasa os agendamentos.
+    - cron: '17 12 * * *'
   workflow_dispatch:
 
 # Duas verificações ao mesmo tempo disparariam o processamento duas vezes para

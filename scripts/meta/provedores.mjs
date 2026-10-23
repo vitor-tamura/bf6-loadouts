@@ -1,6 +1,7 @@
 /**
- * Quem responde às perguntas das rotinas: os modelos gratuitos do OpenRouter
- * e o Gemini gratuito, direto no Google.
+ * Quem responde às perguntas das rotinas: o Claude Haiku, pago com os créditos
+ * mensais de API do plano Max, e depois os modelos gratuitos do OpenRouter e o
+ * Gemini gratuito, direto no Google.
  *
  * As rotinas que perguntam a um modelo — o meta do dia (`meta-search.mjs`), as
  * montagens (`builds-search.mjs`), a auditoria de acessórios
@@ -9,6 +10,24 @@
  * com um modelo pago pelo OpenRouter. A chave paga parou no teto de gasto dela
  * na primeira varredura, e a decisão foi não depender de crédito: por padrão,
  * só modelo gratuito.
+ *
+ * ## O Claude vem primeiro, quando há chave
+ *
+ * Com `ANTHROPIC_API_KEY` no ambiente, a fila começa pelo Claude — o Haiku,
+ * que é o modelo mais barato da casa. A chave é de uma organização do Claude
+ * Console vinculada a um plano Max, que recebe crédito todo mês. Esse crédito
+ * expira no fim do ciclo, sem acumular, e quando acaba a API só recusa: nada é
+ * cobrado em cartão. Por isso ele vem antes dos gratuitos, e não depois.
+ *
+ * O Claude é ainda assim tratado como camada de cima, não como fila fechada:
+ * qualquer recusa dele — crédito esgotado, modelo fora, resposta ruim — deixa
+ * a fila seguir para o OpenRouter e o Gemini, como antes de ele existir. O
+ * crédito esgotado vale pelo resto da execução, como no OpenRouter.
+ *
+ * A busca do Claude também é cobrada por consulta (US$ 10 por mil), e sai do
+ * mesmo crédito. `ANTHROPIC_MAX_BUSCAS` é o teto por pergunta (padrão 5):
+ * a pergunta pode buscar menos, nunca mais que isso. `ANTHROPIC_MODELS` troca
+ * o modelo sem publicar versão.
  *
  * ## A fila do OpenRouter
  *
@@ -53,6 +72,21 @@
 
 const OPENROUTER_URL = 'https://openrouter.ai/api/v1/chat/completions';
 const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta';
+const ANTHROPIC_URL = 'https://api.anthropic.com/v1/messages';
+
+/** O Claude de todas as rotinas quando `ANTHROPIC_MODELS` não diz outro: o mais barato da casa. */
+export const CLAUDE_PADRAO = 'claude-haiku-5-5';
+
+/** Teto de buscas por pergunta ao Claude, quando `ANTHROPIC_MAX_BUSCAS` não diz outro. */
+export const CLAUDE_MAX_BUSCAS = 5;
+
+/**
+ * Quantas vezes se devolve ao Claude um turno pausado (`pause_turn`).
+ *
+ * Busca longa pode parar no meio e pedir para continuar; cada volta é outra
+ * chamada cobrada, e três já são mais do que uma pergunta destas precisa.
+ */
+const CLAUDE_MAX_CONTINUACOES = 3;
 
 /**
  * O modelo do OpenRouter de todas as rotinas, quando a rotina não diz outro.
@@ -74,6 +108,10 @@ const ESPERA_MAXIMA_MS = 65_000;
 
 const estado = {
   semCredito: false,
+  /** O crédito do mês da organização do Claude acabou. */
+  claudeSemCredito: false,
+  /** @type {Set<string>} */
+  claudeFora: new Set(),
   /** @type {Set<string>} */
   gratuitosFora: new Set(),
   /** @type {string[] | null} */
@@ -109,18 +147,34 @@ export function filaEsgotada(modelos = [], { busca = true } = {}) {
   const temQuemOferecer = modelos.some((modelo) => !(busca && ehGratuito(modelo)));
   const semOpenRouter = !chaveOpenRouter() || estado.semCredito || !temQuemOferecer;
   const semGoogle = !chaveGoogle() || estado.googleSemCota;
-  return semOpenRouter && semGoogle;
+  const semClaude = claudesDisponiveis().length === 0;
+  return semClaude && semOpenRouter && semGoogle;
 }
 
 const chaveOpenRouter = () => process.env.OPENROUTER_API_KEY;
 const chaveGoogle = () => process.env.GEMINI_API_KEY ?? process.env.GOOGLE_GENERATIVE_AI_API_KEY;
+const chaveAnthropic = () => process.env.ANTHROPIC_API_KEY;
 
-/** Há com quem falar? Sem nenhuma das duas chaves, a rotina não tem o que fazer. */
-export const temAlgumaChave = () => Boolean(chaveOpenRouter() || chaveGoogle());
+/** Os modelos do Claude que ainda podem responder nesta execução. */
+function claudesDisponiveis() {
+  if (!chaveAnthropic() || estado.claudeSemCredito) return [];
+  return modelosDe(process.env.ANTHROPIC_MODELS, CLAUDE_PADRAO).filter((modelo) => !estado.claudeFora.has(modelo));
+}
+
+/** Teto de buscas por pergunta ao Claude: `ANTHROPIC_MAX_BUSCAS`, ou o padrão. */
+function maxBuscasClaude() {
+  const valor = Number.parseInt(process.env.ANTHROPIC_MAX_BUSCAS ?? '', 10);
+  return Number.isInteger(valor) && valor > 0 ? valor : CLAUDE_MAX_BUSCAS;
+}
+
+/** Há com quem falar? Sem nenhuma das chaves, a rotina não tem o que fazer. */
+export const temAlgumaChave = () => Boolean(chaveAnthropic() || chaveOpenRouter() || chaveGoogle());
 
 /** Para os testes: o estado é do processo, e cada teste quer começar do zero. */
 export function reiniciarEstado() {
   estado.semCredito = false;
+  estado.claudeSemCredito = false;
+  estado.claudeFora.clear();
   estado.gratuitosFora.clear();
   estado.gratuitosDescobertos = null;
   estado.avisouSemChaveGratuita = false;
@@ -157,6 +211,8 @@ export function ehFaltaDeCredito(status, erro) {
   if (status === 402) return true;
   const mensagem = erro?.message ?? '';
   if (status === 403 && /key limit exceeded/i.test(mensagem)) return true;
+  // O Claude recusa o saldo zerado com um 400: "Your credit balance is too low…".
+  if (status === 400 && /credit balance is too low/i.test(mensagem)) return true;
   return (
     status === 429 &&
     /insufficient (credits|quota)|exceeded your current quota|billing details|out of credits/i.test(mensagem)
@@ -210,6 +266,13 @@ async function modelosGratuitos() {
  */
 export async function* candidatos(modelos, { busca = true } = {}) {
   let ofereceuPago = false;
+
+  // O Claude vem antes de todos: o crédito do mês é dele e expira se sobrar.
+  // A lista é relida a cada passo, porque a recusa de um muda o resto.
+  for (const modelo of claudesDisponiveis()) {
+    if (!claudesDisponiveis().includes(modelo)) continue;
+    yield { provedor: 'anthropic', modelo };
+  }
 
   if (chaveOpenRouter()) {
     for (const modelo of modelos) {
@@ -502,6 +565,150 @@ async function chamarGemini(modelo, prompt, { maxOutputTokens, tentativa, busca 
   return { ...lido, anotacoes: await resolverLinks(web) };
 }
 
+/* ========================================================================== *
+ * Claude
+ * ========================================================================== */
+
+/**
+ * A resposta do Claude, no mesmo formato que o OpenRouter e o Gemini devolvem.
+ *
+ * Com busca, o conteúdo chega em blocos: um texto dizendo que vai buscar, a
+ * chamada da busca, os resultados, e o texto da resposta. Só o texto depois do
+ * último resultado é a resposta — o "vou pesquisar" do começo atrapalharia
+ * quem procura o JSON. As páginas são as citadas e, como no Gemini, também as
+ * que a busca trouxe: o Claude costuma não citar dentro de JSON.
+ *
+ * Recebe a lista de blocos já somada das continuações e o uso já somado.
+ * Separado da chamada para poder ser testado sem rede.
+ */
+export function lerRespostaClaude(corpo, maxOutputTokens) {
+  if (!Array.isArray(corpo?.content)) throw new Error('resposta sem conteúdo');
+  if (corpo.stop_reason === 'max_tokens') {
+    throw new Error(`resposta cortada (max_tokens) — o teto é ${maxOutputTokens} tokens`);
+  }
+  if (corpo.stop_reason === 'refusal') throw new Error('o modelo recusou a pergunta');
+
+  const blocos = corpo.content;
+  let ultimoNaoTexto = -1;
+  blocos.forEach((bloco, i) => {
+    if (bloco?.type !== 'text') ultimoNaoTexto = i;
+  });
+  const texto = blocos
+    .slice(ultimoNaoTexto + 1)
+    .filter((b) => b?.type === 'text')
+    .map((b) => b.text ?? '')
+    .join('');
+
+  const paginas = new Map();
+  const guardar = (url, title) => {
+    if (url && !paginas.has(url)) paginas.set(url, { url, title });
+  };
+  for (const bloco of blocos) {
+    for (const citacao of bloco?.citations ?? []) {
+      if (citacao?.type === 'web_search_result_location') guardar(citacao.url, citacao.title);
+    }
+  }
+  let resultados = 0;
+  for (const bloco of blocos) {
+    if (bloco?.type !== 'web_search_tool_result' || !Array.isArray(bloco.content)) continue;
+    for (const item of bloco.content) {
+      if (item?.type !== 'web_search_result') continue;
+      resultados += 1;
+      guardar(item.url, item.title);
+    }
+  }
+
+  const uso = corpo.usage ?? null;
+  const buscas = uso?.server_tool_use?.web_search_requests ?? 0;
+  const buscou = buscas > 0 || resultados > 0;
+
+  return {
+    texto,
+    anotacoes: [...paginas.values()],
+    buscou,
+    tipos: [buscou ? 'web_search' : null, texto ? 'message' : null].filter(Boolean),
+    custo: uso && {
+      entrada: (uso.input_tokens ?? 0) + (uso.cache_read_input_tokens ?? 0) + (uso.cache_creation_input_tokens ?? 0),
+      saida: uso.output_tokens ?? 0,
+      raciocinio: 0,
+      buscas,
+    },
+  };
+}
+
+/** Soma o uso de duas voltas da mesma pergunta (o turno pausado e a continuação). */
+function somarUso(a, b) {
+  if (!a) return b ?? null;
+  if (!b) return a;
+  const soma = (campo) => (a[campo] ?? 0) + (b[campo] ?? 0);
+  return {
+    input_tokens: soma('input_tokens'),
+    output_tokens: soma('output_tokens'),
+    cache_read_input_tokens: soma('cache_read_input_tokens'),
+    cache_creation_input_tokens: soma('cache_creation_input_tokens'),
+    server_tool_use: {
+      web_search_requests:
+        (a.server_tool_use?.web_search_requests ?? 0) + (b.server_tool_use?.web_search_requests ?? 0),
+    },
+  };
+}
+
+async function chamarClaude(modelo, prompt, { maxOutputTokens, tentativa, busca = true }) {
+  const mensagens = [{ role: 'user', content: prompt }];
+  const blocos = [];
+  let uso = null;
+  let corpo = {};
+
+  for (let volta = 0; volta <= CLAUDE_MAX_CONTINUACOES; volta += 1) {
+    const resposta = await fetch(ANTHROPIC_URL, {
+      method: 'POST',
+      headers: {
+        'x-api-key': chaveAnthropic(),
+        'anthropic-version': '2023-06-01',
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: modelo,
+        max_tokens: maxOutputTokens,
+        messages: mensagens,
+        // A busca do próprio Claude, com teto: cada consulta sai do crédito do mês.
+        ...(busca
+          ? { tools: [{ type: 'web_search_20250305', name: 'web_search', max_uses: maxBuscasClaude() }] }
+          : {}),
+      }),
+    });
+
+    corpo = await resposta.json().catch(() => ({}));
+    if (!resposta.ok || corpo.type === 'error') {
+      const status = resposta.status;
+      const mensagem = corpo.error?.message ?? resposta.statusText;
+      const erro = new Error(`${status} ${mensagem}`);
+      erro.status = status;
+      erro.semCredito = ehFaltaDeCredito(status, corpo.error);
+
+      const header = resposta.headers.get('retry-after');
+      erro.esperarMs = header && !Number.isNaN(Number(header)) ? Number(header) * 1000 : recuo(tentativa);
+      /*
+       * Modelo fora: nome que a conta não tem (404), chave sem permissão (403),
+       * pedido que ele não aceita (400 que não é crédito). Nenhum passa com
+       * espera. 429 e 529 (sobrecarga) passam, e ficam com quem insiste.
+       */
+      erro.modeloFora = !erro.semCredito && [400, 401, 403, 404].includes(status);
+      throw erro;
+    }
+
+    blocos.push(...(corpo.content ?? []));
+    uso = somarUso(uso, corpo.usage);
+
+    // Busca longa pausada: devolve o turno como veio e o Claude continua dali.
+    if (corpo.stop_reason !== 'pause_turn') break;
+    if (volta === CLAUDE_MAX_CONTINUACOES) throw new Error('a busca não terminou depois de três continuações');
+    mensagens.splice(1, mensagens.length - 1, { role: 'assistant', content: [...blocos] });
+  }
+
+  return lerRespostaClaude({ ...corpo, content: blocos, usage: uso }, maxOutputTokens);
+}
+
 /* ========================================================================== */
 
 /**
@@ -513,7 +720,7 @@ async function chamarGemini(modelo, prompt, { maxOutputTokens, tentativa, busca 
  * @returns {Promise<{texto: string, anotacoes: {url: string, title?: string}[], buscou: boolean, tipos: string[], custo: object | null, modelo: string, provedor: string}>}
  */
 export async function perguntarComBusca({ provedor, modelo }, prompt, { maxOutputTokens, tentativas = 3, busca = true }) {
-  const chamar = provedor === 'google' ? chamarGemini : chamarOpenRouter;
+  const chamar = provedor === 'google' ? chamarGemini : provedor === 'anthropic' ? chamarClaude : chamarOpenRouter;
   let ultimoErro = null;
 
   for (let tentativa = 1; tentativa <= tentativas; tentativa += 1) {
@@ -523,6 +730,15 @@ export async function perguntarComBusca({ provedor, modelo }, prompt, { maxOutpu
     } catch (erro) {
       ultimoErro = erro;
 
+      if (erro.semCredito && provedor === 'anthropic') {
+        estado.claudeSemCredito = true;
+        console.warn(`${modelo}: o crédito do Claude acabou — o resto da execução vai para os gratuitos.`);
+        throw erro;
+      }
+      if (erro.modeloFora && provedor === 'anthropic') {
+        estado.claudeFora.add(modelo);
+        throw erro;
+      }
       if (erro.semCredito) {
         estado.semCredito = true;
         console.warn(`${modelo}: o OpenRouter está sem crédito — o resto da execução vai para o modelo gratuito.`);
@@ -544,7 +760,9 @@ export async function perguntarComBusca({ provedor, modelo }, prompt, { maxOutpu
       }
       // Espera maior que o teto é cota do dia — a dos gratuitos do OpenRouter
       // é contada por dia —, e insistir só gastaria a execução parada.
-      if (erro.status === 429 && tentativa < tentativas && (erro.esperarMs ?? 0) <= ESPERA_MAXIMA_MS) {
+      // 529 é a sobrecarga do Claude: passa com espera, como o limite de taxa.
+      const passaComEspera = erro.status === 429 || (provedor === 'anthropic' && erro.status === 529);
+      if (passaComEspera && tentativa < tentativas && (erro.esperarMs ?? 0) <= ESPERA_MAXIMA_MS) {
         const ms = Math.min(erro.esperarMs ?? 1000, ESPERA_MAXIMA_MS);
         console.warn(`${modelo}: limite de taxa, aguardando ${Math.ceil(ms / 1000)}s.`);
         await esperar(ms);

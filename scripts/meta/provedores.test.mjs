@@ -1,11 +1,13 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
+  CLAUDE_PADRAO,
   MODELO_PADRAO,
   candidatos,
   cotaDoGoogle,
   ehFaltaDeCredito,
   ehGratuito,
   filtrarGratuitos,
+  lerRespostaClaude,
   lerRespostaGemini,
   lerRespostaOpenRouter,
   filaEsgotada,
@@ -204,6 +206,9 @@ describe('a fila', () => {
     process.env.OPENROUTER_API_KEY = 'sk-or-teste';
     process.env.GEMINI_API_KEY = 'g-teste';
     delete process.env.GOOGLE_GENERATIVE_AI_API_KEY;
+    delete process.env.ANTHROPIC_API_KEY;
+    delete process.env.ANTHROPIC_MODELS;
+    delete process.env.ANTHROPIC_MAX_BUSCAS;
     process.env.GEMINI_MODELS = 'gemini-teste-flash';
   });
 
@@ -569,5 +574,229 @@ describe('a fila', () => {
     await expect(
       perguntarComBusca({ provedor: 'openrouter', modelo: 'casa/a' }, 'p', { maxOutputTokens: 100, tentativas: 1 }),
     ).rejects.toMatchObject({ status: 502, message: '502 Provider down' });
+  });
+});
+
+/** Uma resposta do Claude com busca: o "vou buscar", a busca, os resultados e o JSON citado. */
+const respostaClaude = (texto = '{"ok":true}', extra = {}) => ({
+  type: 'message',
+  role: 'assistant',
+  stop_reason: 'end_turn',
+  content: [
+    { type: 'text', text: 'Vou pesquisar.' },
+    { type: 'server_tool_use', id: 'srv_1', name: 'web_search', input: { query: 'bf6 meta' } },
+    {
+      type: 'web_search_tool_result',
+      tool_use_id: 'srv_1',
+      content: [
+        { type: 'web_search_result', url: 'https://exemplo.com/a', title: 'A', encrypted_content: 'x' },
+        { type: 'web_search_result', url: 'https://exemplo.com/b', title: 'B', encrypted_content: 'y' },
+      ],
+    },
+    {
+      type: 'text',
+      text: texto,
+      citations: [{ type: 'web_search_result_location', url: 'https://exemplo.com/b', title: 'B', cited_text: '…' }],
+    },
+  ],
+  usage: { input_tokens: 100, output_tokens: 20, server_tool_use: { web_search_requests: 1 } },
+  ...extra,
+});
+
+describe('lerRespostaClaude', () => {
+  it('fica só com o texto depois da busca, com as páginas citadas primeiro', () => {
+    const lido = lerRespostaClaude(respostaClaude(), 100);
+    expect(lido.texto).toBe('{"ok":true}');
+    expect(lido.buscou).toBe(true);
+    expect(lido.anotacoes).toEqual([
+      { url: 'https://exemplo.com/b', title: 'B' },
+      { url: 'https://exemplo.com/a', title: 'A' },
+    ]);
+    expect(lido.custo).toEqual({ entrada: 100, saida: 20, raciocinio: 0, buscas: 1 });
+  });
+
+  it('sem busca, diz que não buscou', () => {
+    const lido = lerRespostaClaude(
+      { stop_reason: 'end_turn', content: [{ type: 'text', text: '{}' }], usage: { input_tokens: 1, output_tokens: 1 } },
+      100,
+    );
+    expect(lido).toMatchObject({ texto: '{}', buscou: false, anotacoes: [], tipos: ['message'] });
+  });
+
+  it('acusa a resposta cortada em vez de devolver JSON pela metade', () => {
+    expect(() => lerRespostaClaude({ stop_reason: 'max_tokens', content: [] }, 100)).toThrow(/max_tokens/);
+  });
+});
+
+describe('o Claude na fila', () => {
+  const ambiente = { ...process.env };
+
+  beforeEach(() => {
+    reiniciarEstado();
+    process.env.ANTHROPIC_API_KEY = 'sk-ant-teste';
+    process.env.OPENROUTER_API_KEY = 'sk-or-teste';
+    process.env.GEMINI_API_KEY = 'g-teste';
+    delete process.env.GOOGLE_GENERATIVE_AI_API_KEY;
+    delete process.env.ANTHROPIC_MODELS;
+    delete process.env.ANTHROPIC_MAX_BUSCAS;
+    process.env.GEMINI_MODELS = 'gemini-teste-flash';
+  });
+
+  afterEach(() => {
+    process.env = { ...ambiente };
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+  });
+
+  const perguntarAteAlguem = async (modelos, opcoes = {}) => {
+    const usados = [];
+    for await (const candidato of candidatos(modelos, opcoes)) {
+      usados.push(`${candidato.provedor}:${candidato.modelo}`);
+      try {
+        return { usados, resposta: await perguntarComBusca(candidato, 'p', { maxOutputTokens: 100, tentativas: 2, ...opcoes }) };
+      } catch {
+        // próximo da fila
+      }
+    }
+    return { usados, resposta: null };
+  };
+
+  it('com a chave, o Haiku vem antes de todos, com e sem busca', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => json(200, { models: [] })));
+    expect(CLAUDE_PADRAO).toBe('claude-haiku-5-5');
+    expect((await coletar(candidatos(['openrouter/free'], { busca: false })))[0]).toEqual({
+      provedor: 'anthropic',
+      modelo: 'claude-haiku-5-5',
+    });
+    expect((await coletar(candidatos(['openrouter/free'])))[0]).toEqual({ provedor: 'anthropic', modelo: 'claude-haiku-5-5' });
+  });
+
+  it('só com a chave do Claude já há com quem falar', () => {
+    delete process.env.OPENROUTER_API_KEY;
+    delete process.env.GEMINI_API_KEY;
+    expect(temAlgumaChave()).toBe(true);
+    expect(filaEsgotada(['openrouter/free'])).toBe(false);
+  });
+
+  it('pergunta ao Claude com a chave, a versão da API e a busca com teto', async () => {
+    process.env.ANTHROPIC_MAX_BUSCAS = '2';
+    const fetch = vi.fn(async () => json(200, respostaClaude()));
+    vi.stubGlobal('fetch', fetch);
+
+    const resposta = await perguntarComBusca({ provedor: 'anthropic', modelo: 'claude-haiku-5-5' }, 'p', {
+      maxOutputTokens: 100,
+    });
+    expect(resposta).toMatchObject({ provedor: 'anthropic', texto: '{"ok":true}', buscou: true });
+
+    const [url, pedido] = fetch.mock.calls[0];
+    expect(url).toBe('https://api.anthropic.com/v1/messages');
+    expect(pedido.headers['x-api-key']).toBe('sk-ant-teste');
+    expect(pedido.headers['anthropic-version']).toBe('2023-06-01');
+    expect(JSON.parse(pedido.body)).toEqual({
+      model: 'claude-haiku-5-5',
+      max_tokens: 100,
+      messages: [{ role: 'user', content: 'p' }],
+      tools: [{ type: 'web_search_20250305', name: 'web_search', max_uses: 2 }],
+    });
+  });
+
+  it('sem busca, não manda a ferramenta', async () => {
+    const fetch = vi.fn(async () => json(200, respostaClaude()));
+    vi.stubGlobal('fetch', fetch);
+    await perguntarSemBusca({ provedor: 'anthropic', modelo: 'claude-haiku-5-5' }, 'p', { maxOutputTokens: 100 });
+    expect(JSON.parse(fetch.mock.calls[0][1].body)).not.toHaveProperty('tools');
+  });
+
+  it('turno pausado volta ao Claude como veio, e o uso soma as duas voltas', async () => {
+    const pausada = {
+      stop_reason: 'pause_turn',
+      content: [{ type: 'server_tool_use', id: 'srv_1', name: 'web_search', input: { query: 'q' } }],
+      usage: { input_tokens: 10, output_tokens: 1, server_tool_use: { web_search_requests: 1 } },
+    };
+    let chamadas = 0;
+    const fetch = vi.fn(async () => {
+      chamadas += 1;
+      return json(200, chamadas === 1 ? pausada : respostaClaude());
+    });
+    vi.stubGlobal('fetch', fetch);
+
+    const resposta = await perguntarComBusca({ provedor: 'anthropic', modelo: 'claude-haiku-5-5' }, 'p', {
+      maxOutputTokens: 100,
+    });
+    expect(resposta.texto).toBe('{"ok":true}');
+    expect(resposta.custo).toMatchObject({ entrada: 110, buscas: 2 });
+    const segunda = JSON.parse(fetch.mock.calls[1][1].body);
+    expect(segunda.messages).toEqual([
+      { role: 'user', content: 'p' },
+      { role: 'assistant', content: pausada.content },
+    ]);
+  });
+
+  it('crédito do mês esgotado libera os gratuitos e vale para o resto da execução', async () => {
+    const fetch = vi.fn(async (url) => {
+      if (String(url).includes('anthropic')) {
+        return json(400, {
+          type: 'error',
+          error: { type: 'invalid_request_error', message: 'Your credit balance is too low to access the Anthropic API.' },
+        });
+      }
+      return json(200, respostaBoa());
+    });
+    vi.stubGlobal('fetch', fetch);
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    const { usados, resposta } = await perguntarAteAlguem(['openrouter/free'], { busca: false });
+    expect(usados).toEqual(['anthropic:claude-haiku-5-5', 'openrouter:openrouter/free']);
+    expect(resposta).toMatchObject({ provedor: 'openrouter' });
+
+    // Na pergunta seguinte, o Claude já fica de fora.
+    expect((await coletar(candidatos(['openrouter/free'], { busca: false })))[0].provedor).toBe('openrouter');
+  });
+
+  it('modelo que a conta não tem sai da fila sem esperar', async () => {
+    process.env.ANTHROPIC_MODELS = 'claude-inexistente, claude-haiku-5-5';
+    const fetch = vi.fn(async (_url, pedido) =>
+      JSON.parse(pedido.body).model === 'claude-inexistente'
+        ? json(404, { type: 'error', error: { type: 'not_found_error', message: 'model: claude-inexistente' } })
+        : json(200, respostaClaude()),
+    );
+    vi.stubGlobal('fetch', fetch);
+
+    const { usados, resposta } = await perguntarAteAlguem(['openrouter/free']);
+    expect(usados).toEqual(['anthropic:claude-inexistente', 'anthropic:claude-haiku-5-5']);
+    expect(resposta).toMatchObject({ provedor: 'anthropic', modelo: 'claude-haiku-5-5' });
+    expect(fetch).toHaveBeenCalledTimes(2);
+  });
+
+  it('sobrecarga (529) espera e insiste no mesmo modelo', async () => {
+    let chamadas = 0;
+    const fetch = vi.fn(async () => {
+      chamadas += 1;
+      return chamadas === 1
+        ? json(529, { type: 'error', error: { type: 'overloaded_error', message: 'Overloaded' } }, { 'retry-after': '0' })
+        : json(200, respostaClaude());
+    });
+    vi.stubGlobal('fetch', fetch);
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    const resposta = await perguntarComBusca({ provedor: 'anthropic', modelo: 'claude-haiku-5-5' }, 'p', {
+      maxOutputTokens: 100,
+    });
+    expect(resposta.texto).toBe('{"ok":true}');
+    expect(fetch).toHaveBeenCalledTimes(2);
+  });
+
+  it('resposta ruim do Claude não fecha a fila: os gratuitos seguem de reserva', async () => {
+    delete process.env.OPENROUTER_API_KEY;
+    const fetch = vi.fn(async (url) => {
+      if (String(url).includes('anthropic')) return json(200, { stop_reason: 'max_tokens', content: [] });
+      if (String(url).endsWith('/models?pageSize=200')) return json(200, { models: [] });
+      return json(200, respostaGemini);
+    });
+    vi.stubGlobal('fetch', fetch);
+
+    const { usados, resposta } = await perguntarAteAlguem(['openrouter/free']);
+    expect(usados).toEqual(['anthropic:claude-haiku-5-5', 'google:gemini-teste-flash']);
+    expect(resposta).toMatchObject({ provedor: 'google' });
   });
 });

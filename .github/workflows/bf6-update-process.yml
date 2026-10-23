@@ -120,6 +120,8 @@ jobs:
       - name: Analisar o patch e aplicar no site
         continue-on-error: true
         env:
+          # Claude Haiku, pago com o crédito mensal do plano Max; sem o secret, a fila segue só com os gratuitos.
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           # O Gemini gratuito lê o que precisa de busca e é a reserva do resto (scripts/meta/provedores.mjs).
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -146,6 +148,8 @@ jobs:
       - name: Auditar os acessórios novos
         continue-on-error: true
         env:
+          # Claude Haiku, pago com o crédito mensal do plano Max; sem o secret, a fila segue só com os gratuitos.
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           # O Gemini gratuito lê o que precisa de busca e é a reserva do resto (scripts/meta/provedores.mjs).
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -174,6 +178,8 @@ jobs:
       # passa a vestir CSS, Ant Design, gráficos e cartões.
       - name: Gerar paleta da nova temporada, se necessário
         env:
+          # Claude Haiku, pago com o crédito mensal do plano Max; sem o secret, a fila segue só com os gratuitos.
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run season:theme

@@ -250,7 +250,7 @@ async function main() {
   }
 
   if (!temAlgumaChave()) {
-    console.error('Falta OPENROUTER_API_KEY ou GEMINI_API_KEY.');
+    console.error('Falta ANTHROPIC_API_KEY, OPENROUTER_API_KEY ou GEMINI_API_KEY.');
     process.exit(1);
   }
 

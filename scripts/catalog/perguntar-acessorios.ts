@@ -801,7 +801,7 @@ async function main(): Promise<void> {
 
   if (!temAlgumaChave()) {
     log('pergunta', {
-      pulada: 'sem OPENROUTER_API_KEY nem GEMINI_API_KEY',
+      pulada: 'sem ANTHROPIC_API_KEY, OPENROUTER_API_KEY nem GEMINI_API_KEY',
       pendentes: pendentes.map((c) => c.nome),
       comoRodar: 'GEMINI_API_KEY=... npm run catalog:perguntar-acessorios',
     });

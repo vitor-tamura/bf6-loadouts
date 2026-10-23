@@ -624,7 +624,7 @@ async function main(): Promise<void> {
     return;
   }
   if (!temAlgumaChave()) {
-    console.error('Sem OPENROUTER_API_KEY nem GEMINI_API_KEY: a análise não roda.');
+    console.error('Sem ANTHROPIC_API_KEY, OPENROUTER_API_KEY nem GEMINI_API_KEY: a análise não roda.');
     process.exit(1);
   }
 
