@@ -2,10 +2,14 @@
 #
 # O pipeline do patch note (`bf6-update-process.yml`) lê mudança em arma que o
 # site já conhece; arma nova ele não reconhece — Mk 24, Z84M e ELR-40 entraram
-# à mão. Este workflow compara o arsenal do rnkd.gg com o cadastro, uma vez por
-# dia, e publica o que for novo em `src/data/novidades.json`, que o site junta
-# ao cadastro com o aviso de valor aproximado. Ver o cabeçalho de
-# `scripts/catalog/novidades.ts`.
+# à mão. Este workflow compara a lista de armas do BF6-Weapon-Analyzer (no
+# GitHub, com os números do jogo) com o cadastro, uma vez por dia, e publica o
+# que for novo em `src/data/novidades.json`, que o site junta ao cadastro com o
+# aviso de valor aproximado. Ver o cabeçalho de `scripts/catalog/novidades.ts`.
+#
+# Acessório novo vem do rnkd.gg, que recusa (403) acesso de datacenter — o
+# GitHub Actions incluído. Aqui essa parte é pulada e os acessórios ficam como
+# a última rodada local (`npm run catalog:novidades` num computador) deixou.
 #
 # Como no processamento do patch, quem segura a publicação é a validação, não
 # uma pessoa: testes, lint, tipos e build. Falhou, nada vai para `main` e

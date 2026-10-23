@@ -154,28 +154,36 @@ não reconhece. A 2.1.1.0 trouxe Mk 24, Z84M e ELR-40 sem que nenhuma virasse
 evento, e as três entraram à mão.
 
 `npm run catalog:novidades` (e o workflow `bf6-novidades.yml`, uma vez por dia)
-compara o arsenal do [rnkd.gg](https://rnkd.gg/battlefield6/weapons) — o mesmo
-que cumpre o papel `enumeracao_de_slot` — com `src/data/weapons.ts` e
-`src/data/attachments.ts`. O que faltar vai para `src/data/novidades.json`, que
-o site junta ao cadastro:
+compara duas fontes com `src/data/weapons.ts` e `src/data/attachments.ts`, e o
+que faltar vai para `src/data/novidades.json`, que o site junta ao cadastro:
 
-| O que a ficha mostra | O que entra |
+| Pergunta | Fonte | Onde roda |
+| --- | --- | --- |
+| há arma nova? | [BF6-Weapon-Analyzer](https://github.com/raymdl/BF6-Weapon-Analyzer) (`numeros_de_simulacao`) | no Actions, todo dia |
+| há acessório novo? | [rnkd.gg](https://rnkd.gg/battlefield6/weapons) (`enumeracao_de_slot`) | só de um computador comum |
+
+O rnkd recusa (403) acesso de datacenter, e isso inclui o GitHub Actions. A
+rotina respeita isso: no Actions a parte dele é pulada e os acessórios ficam
+como a última rodada local deixou. Para atualizar os acessórios, rode
+`npm run catalog:novidades` no seu computador e commite `src/data/novidades.json`.
+
+| O que a fonte mostra | O que entra |
 | --- | --- |
-| arma que o cadastro não tem | a arma, com cadência, velocidade, pente, recarga e multiplicador na cabeça da ficha; barras e tempo de mira calibrados pelas armas que existem nos dois lados; curva de dano, recuo, arrasto e saque da arma mais parecida da mesma categoria; resumo em português pelo modelo; foto da ficha |
-| peça que o cadastro não tem | a peça, com custo, compatibilidade (as fichas que a listam), nome e descrição em português pelo modelo, e **sem efeito** (`mods: {}`) |
-| peça que já existe, na ficha de uma arma nova | a arma nova na compatibilidade dela |
+| arma que o cadastro não tem | a arma, com curva de dano, cadência, velocidade, arrasto, recargas e modo de tiro do jogo; pente sem a bala na câmara; recuo na escala deste site, calibrado por categoria; barras, tempo de mira e multiplicador na cabeça da ficha do rnkd, ou da arma mais parecida da mesma categoria; resumo em português pelo modelo |
+| as peças da arma nova | as que a ficha do rnkd lista; sem ficha, as da gêmea |
+| peça que o cadastro não tem (rnkd) | a peça, com custo, compatibilidade, nome e descrição em português pelo modelo, e **sem efeito** (`mods: {}`) |
 | cano que o cadastro não tem, em arma já cadastrada | **nada**: aparece no log, para a curadoria |
 
-Tudo entra como `curated`, que acende o aviso de valor aproximado. Os nomes
-casam por aproximação — "Taclight - Hip" é a "Taclight - Hipfire", "Thread
+Tudo entra como `curated`, que acende o aviso de valor aproximado. Os nomes de
+peça casam por aproximação — "Taclight - Hip" é a "Taclight - Hipfire", "Thread
 Protetor" é a "Thread Protector" —, mas só com os mesmos números: "22RND
 Magazine" nunca vira "10RND Magazine". Cada par aproximado sai no log.
 
 **Curar** é levar o item para `weapons.ts` ou `attachments.ts` com o mesmo id:
 o cadastro tem precedência, e o item some de `novidades.json` na rodada
 seguinte. **Desfazer** é pôr a chave em `ignorar`, no próprio arquivo —
-`arma:<endereço no rnkd>` ou `peca:<Seção>:<nome>` —, porque só apagar o item
-faria a rodada seguinte trazê-lo de volta.
+`arma:<id>` ou `peca:<Seção>:<nome>` —, porque só apagar o item faria a rodada
+seguinte trazê-lo de volta.
 
 ## O que o patch note consegue aplicar sozinho
 

@@ -5,7 +5,8 @@ import arquivo from './novidades.json' with { type: 'json' };
  * Armas e acessórios que o jogo ganhou e a curadoria ainda não cadastrou.
  *
  * Quem escreve `novidades.json` é `npm run catalog:novidades` (ver o cabeçalho
- * de `scripts/catalog/novidades.ts`), todo dia, a partir das fichas do rnkd.gg.
+ * de `scripts/catalog/novidades.ts`): armas todo dia, pelo BF6-Weapon-Analyzer;
+ * acessórios quando a rotina roda de um computador que alcança o rnkd.gg.
  * Aqui só se lê: `weapons.ts`, `attachments.ts` e `weapon-images.ts` juntam
  * estas listas ao cadastro, e item que a curadoria levar para lá tem
  * precedência — o daqui é ignorado e some do arquivo na rodada seguinte.

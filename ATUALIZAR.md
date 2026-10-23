@@ -14,9 +14,10 @@ npm test                  # a rede de segurança
 Isto roda na mão: item novo chega com campos marcados `TODO`, e alguém precisa
 preenchê-los. As atualizações do jogo, essas sim, entram sozinhas — ver
 [`docs/update-workflow.md`](./docs/update-workflow.md). Arma e acessório novos
-também: `npm run catalog:novidades` roda todo dia e publica o que faltar em
-`src/data/novidades.json`, marcado como aproximado; curar é levar o item para
-`weapons.ts` ou `attachments.ts` com o mesmo id.
+também: `npm run catalog:novidades` roda todo dia no Actions para arma nova, e
+na sua máquina para acessório novo (o rnkd.gg recusa o Actions); o que faltar
+vai para `src/data/novidades.json`, marcado como aproximado. Curar é levar o
+item para `weapons.ts` ou `attachments.ts` com o mesmo id.
 
 ---
 

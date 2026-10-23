@@ -13,23 +13,31 @@
  * (`npm run sync`) também não serve de detector: o catálogo do bf6loadouts
  * está atrás deste site, sem dez armas que aqui já existem.
  *
- * ## A fonte
+ * ## Duas fontes, uma para cada pergunta
  *
- * O rnkd.gg, que já cumpre o papel `enumeracao_de_slot` na auditoria de
- * acessórios (`perguntar-acessorios.ts`). A ficha de cada arma traz, numa
- * página só, o que o detector precisa: os números base (dano, cadência,
- * velocidade, pente, recarga, mira, multiplicador na cabeça e as quatro
- * barras) e a lista de cada slot, com o custo de cada peça naquela arma.
+ * **Arma nova** vem do BF6-Weapon-Analyzer (`numeros_de_simulacao`), um
+ * repositório no GitHub que publica, dos arquivos do jogo, a lista de armas
+ * com cadência, pente, recargas, velocidade, recuo, modo de tiro e a curva de
+ * dano. É atualizado quase todo dia e o GitHub Actions o alcança.
+ *
+ * **Acessório novo** vem do rnkd.gg (`enumeracao_de_slot`), cuja ficha de
+ * cada arma lista cada slot com o nome da peça como o jogo a mostra e o custo
+ * dela naquela arma. O Analyzer não serve para isso: ele agrupa as miras em
+ * seis tipos genéricos e os canos por papel. Mas o rnkd recusa (403) quem
+ * chega de datacenter, e isso inclui o GitHub Actions — decisão do site, que
+ * esta rotina respeita em vez de contornar. Por isso a parte do rnkd só roda
+ * de um computador comum (`npm run catalog:novidades` na mão); no Actions ela
+ * é pulada e os acessórios ficam como a última rodada local deixou.
  *
  * ## O que é novo
  *
- * - **Arma:** endereço da lista do rnkd que não casa com nenhuma arma daqui,
- *   nem pelo id, nem pelo nome, nem pelos apelidos de endereço.
- * - **Acessório:** peça de alguma ficha que não casa com nenhuma peça daqui —
- *   pelo nome original, pelo nome em português, pelo nome por arma, por
- *   prefixo ("Taclight - Hip" é a "Taclight - Hipfire") ou por um erro de
- *   digitação de até dois caracteres ("Thread Protetor"). Casar a mais é o
- *   erro barato: uma peça nova vista como velha só não aparece; uma velha
+ * - **Arma:** arma do Analyzer que não casa com nenhuma daqui, nem pelo id nem
+ *   pelo nome.
+ * - **Acessório:** peça de alguma ficha do rnkd que não casa com nenhuma daqui
+ *   — pelo nome original, pelo nome em português, pelo nome por arma, por
+ *   prefixo ("Taclight - Hip" é a "Taclight - Hipfire") ou por erro de
+ *   digitação ("Thread Protetor"), sempre com os mesmos números. Casar a mais
+ *   é o erro barato: uma peça nova vista como velha só não aparece; uma velha
  *   vista como nova vira peça duplicada no montador.
  *
  * ## O que entra, e com que confiança
@@ -39,28 +47,29 @@
  * código: a curadoria continua sendo `weapons.ts` e `attachments.ts`, e item
  * que for curado lá some daqui sozinho na rodada seguinte.
  *
- * Tudo entra como `curated`, que é o que acende o aviso de valor aproximado na
- * interface. E é aproximado mesmo:
+ * Tudo entra como `curated`, que acende o aviso de valor aproximado:
  *
- * - da arma, o rnkd dá o dano máximo, e não a curva; a escada é a da arma mais
- *   parecida da mesma categoria, escalada para o dano novo. Recuo, arrasto,
- *   tempo de saque e modo de tiro também vêm dessa gêmea;
- * - as barras e o tempo de mira daqui não são os números do rnkd: são
- *   calibrados, categoria por categoria, pela razão mediana entre os dois
- *   lados nas armas que existem nos dois;
+ * - da arma, a curva de dano, a cadência, a velocidade, o arrasto e as
+ *   recargas são do jogo; o pente desconta a bala na câmara, que o Analyzer
+ *   conta; o recuo passa pela escala deste site, calibrada categoria por
+ *   categoria nas armas que existem nos dois lados. As barras, o tempo de
+ *   mira e de saque e o multiplicador na cabeça vêm da ficha do rnkd quando
+ *   ela abre, e da arma mais parecida da mesma categoria quando não;
+ * - a arma nova monta as peças que a ficha dela lista; sem ficha, herda as da
+ *   gêmea — o mesmo que o cadastro fez à mão com as armas que a fonte antiga
+ *   não cobria;
  * - o efeito do acessório não sai de fonte nenhuma — entra sem efeito (`mods:
- *   {}`). O custo é o que a ficha mostra, e a compatibilidade são as fichas
- *   que listam a peça.
+ *   {}`).
  *
  * O nome em português e as descrições são do modelo (o Claude Haiku primeiro,
  * os gratuitos de reserva — ver `meta/provedores.mjs`), com os nomes do
- * próprio site como exemplo. Sem modelo, a peça entra com o nome original.
+ * próprio site como exemplo. Sem modelo, o item entra com o nome original.
  *
  * ## Desfazer
  *
  * Item que não deveria ter entrado não se apaga só do arquivo: a rodada
  * seguinte o traria de volta. Ponha a chave dele em `ignorar`, no próprio
- * `novidades.json` — `arma:<endereço no rnkd>` ou `peca:<Seção>:<nome>`.
+ * `novidades.json` — `arma:<id>` ou `peca:<Seção>:<nome>`.
  */
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
@@ -71,7 +80,7 @@ import { seasonOn } from '../../src/data/season.ts';
 import type { Attachment, SlotId, Weapon, WeaponCategory } from '../../src/data/types.ts';
 import { candidatos, modelosDe, perguntarSemBusca, temAlgumaChave } from '../meta/provedores.mjs';
 import { extrairJson } from '../meta/leitura.mjs';
-import { fetchText, htmlToText } from './lib/http.ts';
+import { FetchFailed, fetchJson, fetchText, htmlToText } from './lib/http.ts';
 import { fonteAtiva } from './lib/sources.ts';
 import { ROOT, log } from './lib/io.ts';
 
@@ -111,7 +120,7 @@ export interface ArmaNova {
   season: number;
   provenance: 'curated';
   /** De onde veio e de quem herdou o que a fonte não publica. */
-  origem: { fonte: string; detectadaEm: string; gemea: string };
+  origem: { fonte: string; detectadaEm: string; gemea: string; idNaFonte: string; fichaDoRnkd: boolean };
 }
 
 export interface PecaNova extends Attachment {
@@ -392,34 +401,107 @@ export const casarPeca = (nome: string, slot: SlotId, indice: IndiceDePecas) => 
  * O rascunho da arma
  * ========================================================================== */
 
+/** Uma arma do BF6-Weapon-Analyzer (`data/weapons.json`), só com o que se usa aqui. */
+export interface ArmaDoAnalyzer {
+  id: string;
+  name: string;
+  cls: string;
+  rpm: number;
+  mag: number;
+  tacRld: number;
+  emptyRld: number;
+  bulletVel: number;
+  recoilV: number;
+  recoilVar: number;
+  fireMode?: string;
+  availableFireModes?: string[];
+  dmg?: { r: number; d: number }[];
+}
+
+/** De `data/ballistics.json`: o projétil de cada arma e o arrasto de cada projétil. */
+export interface BalisticaDoAnalyzer {
+  projectiles: Record<string, { dragPerMeter?: number }>;
+  weapons: Record<string, { base?: string }>;
+}
+
+/** O arrasto de referência deste site: o 5,56 mm, 0,0035 por metro, vale 1. */
+const ARRASTO_DE_REFERENCIA = 0.0035;
+
 const mediana = (valores: number[]) => {
-  const v = [...valores].sort((a, b) => a - b);
+  const v = [...valores].filter(Number.isFinite).sort((a, b) => a - b);
   if (!v.length) return null;
   const meio = Math.floor(v.length / 2);
   return v.length % 2 ? v[meio] : (v[meio - 1] + v[meio]) / 2;
 };
 
-const CALIBRADOS = ['accuracy', 'control', 'mobility', 'hipfire', 'adsMs'] as const;
-type Calibrado = (typeof CALIBRADOS)[number];
+const arredondar = (valor: number, casas = 0) => Number(valor.toFixed(casas));
 
 /**
- * Quanto o número daqui vale para cada número do rnkd, categoria por categoria.
+ * A curva do jogo como escada deste site.
  *
- * As barras e o tempo de mira deste site não são os da ficha: o tempo de mira,
- * por exemplo, é o do jogo multiplicado por um fator de categoria (a ELR-40
- * tem 367 ms lá e 815 aqui). A razão mediana entre os dois lados, nas armas que
- * existem nos dois, é a tradução; categoria sem par cai na razão de todas.
+ * O Analyzer dá pontos (distância, dano), e entre dois pontos o dano anda em
+ * rampa. A escada daqui muda de degrau num ponto só: subindo, o degrau novo
+ * vale de onde a rampa chega (a ELR-40 só dá 100 a partir de 150 m); descendo,
+ * de onde a rampa começa (ela já não garante 100 depois de 180 m). É o mesmo
+ * critério do cadastro feito à mão, e com ele a Mk 24 e a Z84M saem iguais.
  */
-export function calibrar(
-  pares: { categoria: WeaponCategory; site: Pick<Weapon, Calibrado>; fonte: NumerosDaFicha }[],
-): (categoria: WeaponCategory, campo: Calibrado) => number {
+export function escadaDoJogo(pontos: { r: number; d: number }[]): [number, number][] {
+  const ordenados = [...pontos].sort((a, b) => a.r - b.r);
+  if (!ordenados.length) return [];
+  const escada: [number, number][] = [[ordenados[0].d, 0]];
+  for (let i = 1; i < ordenados.length; i += 1) {
+    const atual = escada[escada.length - 1][0];
+    const { r, d } = ordenados[i];
+    if (d === atual) continue;
+    const distancia = d > atual ? r : ordenados[i - 1].r;
+    escada.push([d, distancia]);
+  }
+  return escada;
+}
+
+export const CATEGORIA_DO_ANALYZER: Record<string, WeaponCategory> = {
+  assaultrifle: 'ar',
+  carbine: 'carbine',
+  smg: 'smg',
+  lmg: 'lmg',
+  dmr: 'dmr',
+  sniperrifle: 'sniper',
+  shotgun: 'shotgun',
+  sidearm: 'pistol',
+  pistol: 'pistol',
+};
+
+export function modosDeTiro(arma: Pick<ArmaDoAnalyzer, 'fireMode' | 'availableFireModes'>): Weapon['fireModes'] {
+  if (arma.fireMode === 'bolt') return ['ferrolho'];
+  if (arma.fireMode === 'pump') return ['bombeamento'];
+  const mapa: Record<string, Weapon['fireModes'][number]> = { auto: 'auto', burst: 'burst', single: 'semi', semi: 'semi' };
+  const modos = [...new Set((arma.availableFireModes ?? [arma.fireMode ?? 'auto']).map((m) => mapa[m]).filter(Boolean))];
+  return modos.length ? modos : ['auto'];
+}
+
+/** O id deste site para um nome: "Mk 24" → "mk-24", "ELR-40" → "elr-40". */
+export const idDoNome = (nome: string) =>
+  nome
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+
+type Escala = (categoria: WeaponCategory, campo: string) => number;
+
+/**
+ * Quanto o número daqui vale para cada número de fora, categoria por categoria.
+ *
+ * Recuo, barras e tempo de mira deste site não são os números crus:
+ * o recuo vertical da ELR-40, por exemplo, é o do jogo vezes 1,57, e o tempo de
+ * mira dela é 367 ms lá e 815 aqui. A razão mediana entre os dois lados, nas
+ * armas que existem nos dois, é a tradução; categoria com menos de dois pares
+ * cai na razão de todas.
+ */
+export function calibrar(pares: { categoria: WeaponCategory; site: number; fora: number | undefined; campo: string }[]): Escala {
   const razoes = new Map<string, number[]>();
-  for (const { categoria, site, fonte } of pares) {
-    for (const campo of CALIBRADOS) {
-      const lado = fonte[campo];
-      if (!lado || !site[campo]) continue;
-      for (const k of [`${categoria}:${campo}`, `*:${campo}`]) razoes.set(k, [...(razoes.get(k) ?? []), site[campo] / lado]);
-    }
+  for (const { categoria, site, fora, campo } of pares) {
+    if (!fora || !site) continue;
+    for (const k of [`${categoria}:${campo}`, `*:${campo}`]) razoes.set(k, [...(razoes.get(k) ?? []), site / fora]);
   }
   return (categoria, campo) => {
     const daCategoria = razoes.get(`${categoria}:${campo}`) ?? [];
@@ -427,66 +509,64 @@ export function calibrar(
   };
 }
 
-/** A arma daqui mais parecida, na mesma categoria: é dela que vem o que a ficha não publica. */
-export function gemeaDe(
-  categoria: WeaponCategory,
-  numeros: NumerosDaFicha,
-  armas: Weapon[],
-): Weapon | null {
+/** A arma daqui mais parecida, na mesma categoria: é dela que vem o que nenhuma fonte publica. */
+export function gemeaDe(categoria: WeaponCategory, alvo: { dano?: number; rpm?: number; velocidade?: number }, armas: Weapon[]): Weapon | null {
   const daCategoria = armas.filter((w) => w.category === categoria);
   if (!daCategoria.length) return null;
   const dano = (w: Weapon) => Math.max(...w.damage.map((d) => d.damage));
   const custo = (w: Weapon) =>
-    Math.abs(Math.log((numeros.damage ?? dano(w)) / dano(w))) +
-    Math.abs(Math.log((numeros.rpm ?? w.rpm) / w.rpm)) +
-    0.5 * Math.abs(Math.log((numeros.velocity ?? w.velocity) / w.velocity));
+    Math.abs(Math.log((alvo.dano ?? dano(w)) / dano(w))) +
+    Math.abs(Math.log((alvo.rpm ?? w.rpm) / w.rpm)) +
+    0.5 * Math.abs(Math.log((alvo.velocidade ?? w.velocity) / w.velocity));
   return [...daCategoria].sort((a, b) => custo(a) - custo(b))[0];
 }
 
-const arredondar = (valor: number, casas = 0) => Number(valor.toFixed(casas));
+const BARRAS = ['accuracy', 'control', 'mobility', 'hipfire'] as const;
 
 export function rascunhoDaArma(
-  endereco: string,
-  ficha: Ficha,
+  fora: ArmaDoAnalyzer,
   categoria: WeaponCategory,
   gemea: Weapon,
-  fator: (categoria: WeaponCategory, campo: Calibrado) => number,
-  { hoje, temporada, fonte }: { hoje: string; temporada: number; fonte: string },
+  escala: Escala,
+  {
+    arrasto,
+    ficha,
+    hoje,
+    temporada,
+    fonte,
+  }: { arrasto: number | null; ficha: Ficha | null; hoje: string; temporada: number; fonte: string },
 ): ArmaNova {
-  const n = ficha.numeros;
-  const danoDaGemea = Math.max(...gemea.damage.map((d) => d.damage));
-  const escala = n.damage ? n.damage / danoDaGemea : 1;
-  const calibrado = (campo: Calibrado, casas = 0) =>
-    n[campo] !== undefined ? arredondar(n[campo]! * fator(categoria, campo), casas) : gemea[campo];
-  const reload = n.reload ?? gemea.reload;
+  const escada = escadaDoJogo(fora.dmg ?? []);
+  const n = ficha?.numeros ?? {};
+  const daFicha = (campo: 'accuracy' | 'control' | 'mobility' | 'hipfire' | 'adsMs') =>
+    n[campo] !== undefined ? arredondar(n[campo]! * escala(categoria, `rnkd:${campo}`)) : gemea[campo];
 
   return {
-    id: endereco.toLowerCase(),
-    name: ficha.nome,
+    id: idDoNome(fora.name),
+    name: fora.name,
     category: categoria,
     archetype: gemea.archetype,
     summary: '',
-    damage: gemea.damage.map((d) => [arredondar(d.damage * escala, 1), d.distance]),
+    damage: escada.length ? escada : gemea.damage.map((d) => [d.damage, d.distance]),
     ...(gemea.pellets > 1 ? { pellets: gemea.pellets } : {}),
-    rpm: n.rpm ?? gemea.rpm,
-    velocity: n.velocity ?? gemea.velocity,
-    drag: gemea.drag,
+    rpm: arredondar(fora.rpm),
+    velocity: arredondar(fora.bulletVel),
+    drag: arrasto ? arredondar(arrasto / ARRASTO_DE_REFERENCIA, 3) : gemea.drag,
     headshot: n.headshot ?? gemea.headshot,
-    magazine: n.magazine ?? gemea.magazine,
-    reload,
-    emptyReload: arredondar(reload * (gemea.emptyReload / gemea.reload), 2),
-    adsMs: calibrado('adsMs'),
+    // O Analyzer conta a bala na câmara; o pente deste site, não.
+    magazine: Math.max(1, fora.mag - 1),
+    // Recarga do jogo, crua: é o que o cadastro à mão usa desde a Temporada 5.
+    reload: arredondar(fora.tacRld, 3),
+    emptyReload: arredondar(fora.emptyRld, 3),
+    adsMs: daFicha('adsMs'),
     swapMs: gemea.swapMs,
-    accuracy: Math.min(100, calibrado('accuracy')),
-    control: Math.min(100, calibrado('control')),
-    mobility: Math.min(100, calibrado('mobility')),
-    hipfire: Math.min(100, calibrado('hipfire')),
-    verticalRecoil: gemea.verticalRecoil,
-    horizontalRecoil: gemea.horizontalRecoil,
-    fireModes: gemea.fireModes,
+    ...(Object.fromEntries(BARRAS.map((b) => [b, Math.min(100, daFicha(b))])) as Record<(typeof BARRAS)[number], number>),
+    verticalRecoil: arredondar(fora.recoilV * escala(categoria, 'verticalRecoil'), 3),
+    horizontalRecoil: arredondar(fora.recoilVar * escala(categoria, 'horizontalRecoil'), 3),
+    fireModes: modosDeTiro(fora),
     season: temporada,
     provenance: 'curated',
-    origem: { fonte, detectadaEm: hoje, gemea: gemea.id },
+    origem: { fonte, detectadaEm: hoje, gemea: gemea.id, idNaFonte: fora.id, fichaDoRnkd: Boolean(ficha) },
   };
 }
 
@@ -564,6 +644,12 @@ export function rascunhoDaPeca(
  * Canos
  * ========================================================================== */
 
+/** Os papéis que a tela de seleção do jogo mostra (`stats.test.ts`). */
+export const PAPEIS_DE_CANO = new Set([
+  'Cano Curto', 'Cano Básico', 'Cano Estendido', 'Cano Curto Leve', 'Cano Leve',
+  'Cano Estendido Leve', 'Cano Pesado', 'Cano Ext. Pesado', 'Cano Crio',
+]);
+
 /**
  * O papel do cano na tela de seleção, pelo custo — e, no empate, pelo nome.
  *
@@ -617,10 +703,30 @@ export function nomearCanos(
     c.compat = { weapons: c.compat.weapons!.filter((w) => w !== arma) };
   };
 
+  const largar = (id: string, arma: string) => {
+    if (!compatExtra[id]) return;
+    compatExtra[id] = compatExtra[id].filter((w) => w !== arma);
+    if (!compatExtra[id].length) delete compatExtra[id];
+  };
+
   for (const arma of armasNovas) {
-    // Do cadastro: os que a ficha da arma nova lista e os que já a citam pelo id.
-    const herdados = canosDoCadastro.filter((a) => compatExtra[a.id]?.includes(arma) || a.compat.weapons?.includes(arma));
-    const ocupados = new Set(herdados.map((a) => a.namePerWeapon?.[arma] ?? a.name));
+    /*
+      Do cadastro: os que já citam a arma pelo id ficam como estão; os que
+      chegam por `compatExtra` (pela ficha, ou herdados da gêmea) só entram com
+      papel que a tela mostra e que ainda esteja livre.
+    */
+    const fixos = canosDoCadastro.filter((a) => a.compat.weapons?.includes(arma));
+    const ocupados = new Set(fixos.map((a) => a.namePerWeapon?.[arma] ?? a.name));
+    const herdados = [...fixos];
+    for (const a of canosDoCadastro.filter((c) => compatExtra[c.id]?.includes(arma) && !fixos.includes(c))) {
+      const papel = a.namePerWeapon?.[arma] ?? a.name;
+      if (!PAPEIS_DE_CANO.has(papel) || ocupados.has(papel)) {
+        largar(a.id, arma);
+        continue;
+      }
+      ocupados.add(papel);
+      herdados.push(a);
+    }
     const daArma = canos.filter((c) => c.compat.weapons?.includes(arma));
     if (!daArma.length && !herdados.length) continue;
 
@@ -631,11 +737,7 @@ export function nomearCanos(
 
     if (!ocupados.has('Cano Básico') && !basico) {
       for (const c of daArma) tirar(c, arma);
-      for (const a of herdados) {
-        if (!compatExtra[a.id]) continue;
-        compatExtra[a.id] = compatExtra[a.id].filter((w) => w !== arma);
-        if (!compatExtra[a.id].length) delete compatExtra[a.id];
-      }
+      for (const a of herdados) largar(a.id, arma);
       continue;
     }
 
@@ -674,7 +776,7 @@ export interface Deteccao {
   acessorios: PecaNova[];
   compatExtra: Record<string, string[]>;
   imagens: Record<string, { render: string }>;
-  /** Endereços cuja categoria a rotina não reconheceu — ficam de fora, e aparecem no log. */
+  /** Armas cuja categoria a rotina não reconheceu — ficam de fora, e aparecem no log. */
   semCategoria: string[];
   /** Peças da ficha casadas com o cadastro por aproximação, para conferir no log. */
   aproximadas: string[];
@@ -689,117 +791,197 @@ export interface Deteccao {
 }
 
 /**
- * Compara as fichas com o cadastro e devolve o que é novo.
+ * Compara as fontes com o cadastro e devolve o que é novo.
  *
- * `fichas` é o endereço do rnkd → a ficha lida. `anterior` é o arquivo da
- * rodada passada: o que já estava nele fica como estava (inclusive o nome que o
- * modelo deu), e o que a curadoria levou para `weapons.ts` ou `attachments.ts`
- * sai.
+ * `analyzer` é a lista de armas do BF6-Weapon-Analyzer, com o arrasto de cada
+ * uma. `fichas` é o endereço do rnkd → a ficha lida, ou `null` quando o rnkd
+ * não abriu (o GitHub Actions): aí os acessórios ficam como a rodada anterior
+ * deixou, e arma nova herda as peças da gêmea. `anterior` é o arquivo da rodada
+ * passada: o que já estava nele fica como estava (inclusive o nome que o modelo
+ * deu), e o que a curadoria levou para `weapons.ts` ou `attachments.ts` sai.
  */
-export function detectar(
-  fichas: Map<string, Ficha>,
-  { armas, pecas, anterior, hoje, temporada, fonte }: {
-    armas: Weapon[];
-    pecas: Attachment[];
-    anterior: Novidades;
-    hoje: string;
-    temporada: number;
-    fonte: string;
-  },
-): Deteccao {
+export function detectar({
+  analyzer,
+  arrastos,
+  fichas,
+  armas,
+  pecas,
+  anterior,
+  hoje,
+  temporada,
+  fontes,
+}: {
+  analyzer: ArmaDoAnalyzer[];
+  arrastos: Record<string, number>;
+  fichas: Map<string, Ficha> | null;
+  armas: Weapon[];
+  pecas: Attachment[];
+  anterior: Novidades;
+  hoje: string;
+  temporada: number;
+  fontes: { analyzer: string; rnkd: string };
+}): Deteccao {
   const ignorar = new Set(anterior.ignorar);
-  const armaDoEndereco = new Map<string, string>();
-  const novasArmas: [string, Ficha][] = [];
+  const semCategoria: string[] = [];
 
-  for (const [endereco, ficha] of fichas) {
-    const id = casarArma(endereco, ficha.nome, armas);
-    if (id) armaDoEndereco.set(endereco, id);
-    else if (!ignorar.has(`arma:${endereco}`)) novasArmas.push([endereco, ficha]);
+  // ---------------------------------------------------------------- armas
+  const casadas: { fora: ArmaDoAnalyzer; site: Weapon }[] = [];
+  const novas: ArmaDoAnalyzer[] = [];
+  for (const fora of analyzer) {
+    const id = casarArma(fora.id, fora.name, armas);
+    if (id) casadas.push({ fora, site: armas.find((w) => w.id === id)! });
+    else if (!ignorar.has(`arma:${idDoNome(fora.name)}`) && !ignorar.has(`arma:${fora.id}`)) novas.push(fora);
   }
 
-  // A calibração e a gêmea saem só das armas que existem nos dois lados.
-  const pares = [...armaDoEndereco].map(([endereco, id]) => {
+  // Endereço do rnkd → id daqui, para as armas que existem; as novas entram abaixo.
+  const armaDaFicha = new Map<string, string>();
+  const fichaDaArma = new Map<string, Ficha>();
+  for (const [endereco, ficha] of fichas ?? []) {
+    const id = casarArma(endereco, ficha.nome, armas);
+    if (id) {
+      armaDaFicha.set(endereco, id);
+      fichaDaArma.set(id, ficha);
+    }
+  }
+
+  const pares: Parameters<typeof calibrar>[0] = [];
+  for (const { fora, site } of casadas) {
+    const c = site.category;
+    pares.push(
+      { categoria: c, campo: 'verticalRecoil', site: site.verticalRecoil, fora: fora.recoilV },
+      { categoria: c, campo: 'horizontalRecoil', site: site.horizontalRecoil, fora: fora.recoilVar },
+    );
+  }
+  for (const [id, ficha] of fichaDaArma) {
     const site = armas.find((w) => w.id === id)!;
-    return { categoria: site.category, site, fonte: fichas.get(endereco)!.numeros };
-  });
-  const fator = calibrar(pares);
+    for (const campo of ['accuracy', 'control', 'mobility', 'hipfire', 'adsMs'] as const) {
+      pares.push({ categoria: site.category, campo: `rnkd:${campo}`, site: site[campo], fora: ficha.numeros[campo] });
+    }
+  }
+  const escala = calibrar(pares);
 
   const jaAnteriores = new Map(anterior.armas.map((a) => [a.id, a]));
   const resultadoArmas: ArmaNova[] = [];
   const imagens: Record<string, { render: string }> = {};
-  const semCategoria: string[] = [];
+  const fichasDasNovas = new Map<string, Ficha>();
 
-  for (const [endereco, ficha] of novasArmas) {
-    const categoria = CATEGORIA_DO_ROTULO[chave(ficha.rotulo)];
+  for (const fora of novas) {
+    const categoria = CATEGORIA_DO_ANALYZER[chave(fora.cls)];
     if (!categoria) {
-      semCategoria.push(`${endereco} (${ficha.rotulo || 'sem rótulo'})`);
+      semCategoria.push(`${fora.name} (${fora.cls || 'sem classe'})`);
       continue;
     }
-    const gemea = gemeaDe(categoria, ficha.numeros, armas);
+    const escada = escadaDoJogo(fora.dmg ?? []);
+    const gemea = gemeaDe(categoria, { dano: Math.max(...escada.map(([d]) => d)), rpm: fora.rpm, velocidade: fora.bulletVel }, armas);
     if (!gemea) {
-      semCategoria.push(`${endereco} (nenhuma arma da categoria ${categoria} para servir de gêmea)`);
+      semCategoria.push(`${fora.name} (nenhuma arma da categoria ${categoria} para servir de gêmea)`);
       continue;
     }
-    const id = endereco.toLowerCase();
-    const rascunho = jaAnteriores.get(id) ?? rascunhoDaArma(endereco, ficha, categoria, gemea, fator, { hoje, temporada, fonte });
+
+    const id = idDoNome(fora.name);
+    const endereco = [...(fichas?.keys() ?? [])].find((e) => !armaDaFicha.has(e) && casarArma(e, fichas!.get(e)!.nome, [{ id, name: fora.name }]));
+    const ficha = endereco ? fichas!.get(endereco)! : null;
+    if (endereco) {
+      armaDaFicha.set(endereco, id);
+      fichasDasNovas.set(id, ficha!);
+    }
+
+    const antes = jaAnteriores.get(id);
+    // A rodada anterior manda, a não ser que ela não tivesse a ficha e esta tenha.
+    const rascunho =
+      antes && (antes.origem.fichaDoRnkd || !ficha)
+        ? antes
+        : { ...rascunhoDaArma(fora, categoria, gemea, escala, { arrasto: arrastos[fora.id] ?? null, ficha, hoje, temporada, fonte: fontes.analyzer }), ...(antes ? { summary: antes.summary } : {}) };
     resultadoArmas.push(rascunho);
-    armaDoEndereco.set(endereco, rascunho.id);
-    if (ficha.imagem) imagens[rascunho.id] = { render: ficha.imagem };
+
+    if (ficha?.imagem) imagens[id] = { render: ficha.imagem };
+    else if (anterior.imagens[id]) imagens[id] = anterior.imagens[id];
   }
 
-  // Peças: o que casa com o cadastro vira compatibilidade extra para arma nova;
-  // o que não casa é peça nova.
-  const indice = indexarPecas(pecas);
   const idsNovos = new Set(resultadoArmas.map((a) => a.id));
+  const existentes = new Set([...armas.map((w) => w.id), ...idsNovos]);
   const compatExtra: Record<string, string[]> = {};
+  const somar = (peca: string, arma: string) => {
+    compatExtra[peca] = [...new Set([...(compatExtra[peca] ?? []), arma])].sort();
+  };
+
+  // ---------------------------------------------------------------- peças
+  const indice = indexarPecas(pecas);
   const novasPecas = new Map<string, { secao: string; nome: string; porArma: Map<string, number | null> }>();
   const aproximadas = new Set<string>();
   const canosParaCurar = new Set<string>();
 
-  for (const [endereco, ficha] of fichas) {
-    const armaId = armaDoEndereco.get(endereco);
-    if (!armaId) continue;
-    for (const [secao, lista] of ficha.pecas) {
-      const slot = SLOT_DA_SECAO[secao];
-      for (const { nome, custo } of lista) {
-        const casou = casarPecaComo(nome, slot, indice);
-        const existente = casou?.id;
-        if (casou && casou.como !== 'exato') aproximadas.add(`${secao}: "${nome}" → ${casou.id} (${casou.como})`);
-        if (existente) {
-          if (idsNovos.has(armaId)) compatExtra[existente] = [...new Set([...(compatExtra[existente] ?? []), armaId])].sort();
-          continue;
+  if (fichas) {
+    for (const [endereco, ficha] of fichas) {
+      const armaId = armaDaFicha.get(endereco);
+      if (!armaId) continue;
+      for (const [secao, lista] of ficha.pecas) {
+        const slot = SLOT_DA_SECAO[secao];
+        for (const { nome, custo } of lista) {
+          const casou = casarPecaComo(nome, slot, indice);
+          if (casou && casou.como !== 'exato') aproximadas.add(`${secao}: "${nome}" → ${casou.id} (${casou.como})`);
+          if (casou) {
+            if (idsNovos.has(armaId)) somar(casou.id, armaId);
+            continue;
+          }
+          if (slot === 'barrel' && !idsNovos.has(armaId)) {
+            canosParaCurar.add(`${armaId}: ${nome}`);
+            continue;
+          }
+          const k = `peca:${secao}:${chaveDePeca(nome)}`;
+          if (ignorar.has(k) || ignorar.has(`peca:${secao}:${nome}`)) continue;
+          const grupo = novasPecas.get(k) ?? { secao, nome, porArma: new Map() };
+          grupo.porArma.set(armaId, custo);
+          novasPecas.set(k, grupo);
         }
-        if (slot === 'barrel' && !idsNovos.has(armaId)) {
-          canosParaCurar.add(`${armaId}: ${nome}`);
-          continue;
-        }
-        const k = `peca:${secao}:${chaveDePeca(nome)}`;
-        if (ignorar.has(k) || ignorar.has(`peca:${secao}:${nome}`)) continue;
-        const grupo = novasPecas.get(k) ?? { secao, nome, porArma: new Map() };
-        grupo.porArma.set(armaId, custo);
-        novasPecas.set(k, grupo);
       }
     }
   }
 
+  /*
+    Arma nova sem ficha nesta rodada: as peças da rodada anterior, se havia
+    ficha nela; senão, as da gêmea — que é o que o cadastro fez à mão com as
+    armas que a fonte antiga não cobria.
+  */
+  for (const arma of resultadoArmas) {
+    if (fichasDasNovas.has(arma.id)) continue;
+    const daAnterior = Object.entries(anterior.compatExtra).filter(([, ids]) => ids.includes(arma.id));
+    if (daAnterior.length) {
+      for (const [peca] of daAnterior) somar(peca, arma.id);
+      continue;
+    }
+    for (const peca of pecas) if (peca.compat.weapons?.includes(arma.origem.gemea)) somar(peca.id, arma.id);
+  }
+  for (const id of Object.keys(compatExtra)) if (!pecas.some((p) => p.id === id)) delete compatExtra[id];
+
   const usados = new Set([...pecas.map((p) => p.id), ...anterior.acessorios.map((p) => p.id)]);
-  const existentes = new Set([...armas.map((w) => w.id), ...idsNovos]);
   const anterioresPorFonte = new Map(
     anterior.acessorios.map((p) => [`peca:${p.origem.secao}:${chaveDePeca(p.origem.nomeNaFonte)}`, p]),
   );
   const resultadoPecas: PecaNova[] = [];
-  for (const [k, { secao, nome, porArma }] of novasPecas) {
-    const antes = anterioresPorFonte.get(k);
-    if (antes) {
-      /*
-        Mantém nome, descrição e id; atualiza só as armas, que crescem com a
-        temporada. A união com a rodada anterior segura a arma cuja ficha não
-        abriu hoje — mas só arma que existe: a que foi para `ignorar` sai.
-      */
-      const armas = [...new Set([...(antes.compat.weapons ?? []), ...porArma.keys()])].filter((w) => existentes.has(w));
-      resultadoPecas.push({ ...antes, compat: { weapons: armas.sort() } });
-    } else {
-      resultadoPecas.push(rascunhoDaPeca(secao, nome, porArma, usados, { hoje, fonte }));
+
+  if (fichas) {
+    for (const [k, { secao, nome, porArma }] of novasPecas) {
+      const antes = anterioresPorFonte.get(k);
+      if (antes) {
+        /*
+          Mantém nome, descrição e id; atualiza só as armas, que crescem com a
+          temporada. A união com a rodada anterior segura a arma cuja ficha não
+          abriu hoje — mas só arma que existe: a que foi para `ignorar` sai.
+        */
+        const lista = [...new Set([...(antes.compat.weapons ?? []), ...porArma.keys()])].filter((w) => existentes.has(w));
+        resultadoPecas.push({ ...antes, compat: { weapons: lista.sort() } });
+      } else {
+        resultadoPecas.push(rascunhoDaPeca(secao, nome, porArma, usados, { hoje, fonte: fontes.rnkd }));
+      }
+    }
+  } else {
+    // Sem o rnkd, a lista de peças é a da última rodada que o alcançou.
+    for (const antes of anterior.acessorios) {
+      if (ignorar.has(`peca:${antes.origem.secao}:${chaveDePeca(antes.origem.nomeNaFonte)}`)) continue;
+      if (pecas.some((p) => p.id === antes.id)) continue;
+      const lista = (antes.compat.weapons ?? []).filter((w) => existentes.has(w));
+      if (lista.length) resultadoPecas.push({ ...antes, compat: { weapons: lista } });
     }
   }
 
@@ -921,21 +1103,53 @@ export function lerArquivo(caminho = ARQUIVO): Novidades {
   return { ...structuredClone(NOVIDADES_VAZIO), ...JSON.parse(readFileSync(caminho, 'utf8')) };
 }
 
-async function main(): Promise<void> {
-  const seco = process.argv.includes('--dry-run');
-  const hoje = new Date().toISOString().slice(0, 10);
-  const temporada = seasonOn(new Date())?.number ?? 0;
-  const fonte = fonteAtiva('enumeracao_de_slot').url.replace(/\/$/, '');
-  const anterior = lerArquivo();
-
-  const lista = lerListaDeArmas(await fetchText(`${fonte}/`));
+/** As armas e o arrasto de cada uma, do BF6-Weapon-Analyzer no commit mais recente do branch. */
+async function lerAnalyzer(): Promise<{ armas: ArmaDoAnalyzer[]; arrastos: Record<string, number>; fonte: string }> {
+  const { repo, branch = 'main' } = fonteAtiva('numeros_de_simulacao');
+  if (!repo) throw new Error('a fonte de numeros_de_simulacao não declara `repo` em data/sources/registry.json');
+  const base = `https://raw.githubusercontent.com/${repo}/${branch}/data`;
+  const [armas, balistica] = await Promise.all([
+    fetchJson<ArmaDoAnalyzer[]>(`${base}/weapons.json`),
+    fetchJson<BalisticaDoAnalyzer>(`${base}/ballistics.json`).catch(() => null),
+  ]);
   /*
-    Lista vazia não é "nada de novo": é a página que mudou de forma. Seguir
-    adiante gravaria um arquivo sem nenhuma novidade, apagando as anteriores,
-    justamente quando a rotina parou de enxergar.
+    Lista curta não é "nada de novo": é o arquivo que mudou de forma. Seguir
+    adiante leria todas as armas como sumidas e apagaria as novidades.
   */
+  if (!Array.isArray(armas) || armas.length < 30) {
+    throw new Error(`o weapons.json do Analyzer veio com ${Array.isArray(armas) ? armas.length : 0} armas — o arquivo mudou de forma?`);
+  }
+  const arrastos: Record<string, number> = {};
+  for (const [id, { base: projetil }] of Object.entries(balistica?.weapons ?? {})) {
+    const arrasto = projetil ? balistica!.projectiles[projetil]?.dragPerMeter : undefined;
+    if (arrasto) arrastos[id] = arrasto;
+  }
+  return { armas, arrastos, fonte: `https://github.com/${repo}` };
+}
+
+/**
+ * As fichas do rnkd, ou `null` quando ele não abre.
+ *
+ * Do GitHub Actions ele não abre: o rnkd recusa (403) quem chega de
+ * datacenter. Isso não é falha da rotina — é o site dizendo que não quer esse
+ * tráfego —, e por isso a rodada segue sem ele em vez de quebrar.
+ */
+async function lerRnkd(fonte: string): Promise<Map<string, Ficha> | null> {
+  let lista: string[];
+  try {
+    lista = lerListaDeArmas(await fetchText(`${fonte}/`));
+  } catch (erro) {
+    const status = erro instanceof FetchFailed ? erro.status : null;
+    log('rnkd indisponível — acessórios ficam como a última rodada local deixou', {
+      motivo: status === 403 ? '403: o rnkd recusa acesso de datacenter, como o GitHub Actions' : (erro as Error).message,
+    });
+    return null;
+  }
   if (lista.length < 30) {
-    throw new Error(`a lista de armas do rnkd veio com ${lista.length} endereços — a página mudou de forma?`);
+    log('rnkd indisponível — acessórios ficam como a última rodada local deixou', {
+      motivo: `a lista de armas veio com ${lista.length} endereços; a página mudou de forma?`,
+    });
+    return null;
   }
 
   const fichas = new Map<string, Ficha>();
@@ -952,15 +1166,35 @@ async function main(): Promise<void> {
     );
   }
   if (falhas.length) log('fichas que não abriram', { falhas });
-  if (falhas.length > lista.length / 4) throw new Error(`${falhas.length} de ${lista.length} fichas não abriram`);
+  if (falhas.length > lista.length / 4) {
+    log('rnkd indisponível — acessórios ficam como a última rodada local deixou', {
+      motivo: `${falhas.length} de ${lista.length} fichas não abriram`,
+    });
+    return null;
+  }
+  return fichas;
+}
 
-  const deteccao = detectar(fichas, {
+async function main(): Promise<void> {
+  const seco = process.argv.includes('--dry-run');
+  const hoje = new Date().toISOString().slice(0, 10);
+  const temporada = seasonOn(new Date())?.number ?? 0;
+  const fonteRnkd = fonteAtiva('enumeracao_de_slot').url.replace(/\/$/, '');
+  const anterior = lerArquivo();
+
+  const analyzer = await lerAnalyzer();
+  const fichas = await lerRnkd(fonteRnkd);
+
+  const deteccao = detectar({
+    analyzer: analyzer.armas,
+    arrastos: analyzer.arrastos,
+    fichas,
     armas: WEAPONS_CURADAS,
     pecas: ATTACHMENTS_CURADOS,
     anterior,
     hoje,
     temporada,
-    fonte,
+    fontes: { analyzer: analyzer.fonte, rnkd: fonteRnkd },
   });
   if (deteccao.semCategoria.length) log('armas novas sem categoria reconhecida', { armas: deteccao.semCategoria });
   if (deteccao.aproximadas.length) log('peças casadas por aproximação', { pecas: deteccao.aproximadas });
@@ -969,9 +1203,10 @@ async function main(): Promise<void> {
   }
 
   log('novidades', {
-    armas: deteccao.armas.map((a) => `${a.id} (gêmea ${a.origem.gemea})`),
+    armas: deteccao.armas.map((a) => `${a.id} (gêmea ${a.origem.gemea}${a.origem.fichaDoRnkd ? ', com ficha do rnkd' : ''})`),
     acessorios: deteccao.acessorios.map((p) => `${p.slot}: ${p.origem.nomeNaFonte} — ${(p.compat.weapons ?? []).length} arma(s)`),
     'peças existentes em arma nova': Object.keys(deteccao.compatExtra).length,
+    rnkd: fichas ? 'lido' : 'pulado',
   });
 
   if (seco) {
@@ -983,7 +1218,7 @@ async function main(): Promise<void> {
 
   const novo: Novidades = {
     _leiaMe:
-      'Gerado por `npm run catalog:novidades` a partir do rnkd.gg. Não edite à mão: cure o item em weapons.ts ou attachments.ts (ele sai daqui sozinho) ou ponha a chave dele em `ignorar`.',
+      'Gerado por `npm run catalog:novidades` (armas do BF6-Weapon-Analyzer, acessórios do rnkd.gg). Não edite à mão: cure o item em weapons.ts ou attachments.ts (ele sai daqui sozinho) ou ponha a chave dele em `ignorar`.',
     atualizadoEm: anterior.atualizadoEm,
     armas: deteccao.armas,
     acessorios: deteccao.acessorios,
@@ -992,8 +1227,9 @@ async function main(): Promise<void> {
     ignorar: anterior.ignorar,
   };
 
-  const semData = (n: Novidades) => JSON.stringify({ ...n, atualizadoEm: null, _leiaMe: null });
-  if (semData(novo) === semData(anterior)) {
+  // Só o conteúdo, numa ordem fixa: a data e o texto de ajuda não são novidade.
+  const conteudo = (n: Novidades) => JSON.stringify([n.armas, n.acessorios, n.compatExtra, n.imagens, n.ignorar]);
+  if (conteudo(novo) === conteudo(anterior)) {
     log('nada novo', {});
     return;
   }

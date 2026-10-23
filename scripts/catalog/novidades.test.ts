@@ -10,11 +10,15 @@ import {
   casarPecaComo,
   chaveDePeca,
   detectar,
+  escadaDoJogo,
+  idDoNome,
   indexarPecas,
+  modosDeTiro,
   lerFichaDaArma,
   lerListaDeArmas,
   nomearCanos,
   papelDoCano,
+  type ArmaDoAnalyzer,
   type Ficha,
   type PecaNova,
 } from './novidades.ts';
@@ -139,16 +143,36 @@ describe('casar com o cadastro', () => {
 });
 
 describe('calibrar', () => {
-  it('usa a razão mediana da categoria, e a de todas quando a categoria não tem par', () => {
-    const fator = calibrar([
-      { categoria: 'sniper', site: { accuracy: 100, control: 15, mobility: 38, hipfire: 34, adsMs: 815 }, fonte: { adsMs: 367, control: 24 } },
-      { categoria: 'sniper', site: { accuracy: 100, control: 20, mobility: 38, hipfire: 34, adsMs: 880 }, fonte: { adsMs: 400, control: 30 } },
-      { categoria: 'ar', site: { accuracy: 30, control: 40, mobility: 50, hipfire: 40, adsMs: 340 }, fonte: { adsMs: 340 } },
+  it('usa a razão mediana da categoria, e a de todas quando a categoria não tem dois pares', () => {
+    const escala = calibrar([
+      { categoria: 'sniper', campo: 'verticalRecoil', site: 2.62, fora: 1.666 },
+      { categoria: 'sniper', campo: 'verticalRecoil', site: 3, fora: 2 },
+      { categoria: 'ar', campo: 'verticalRecoil', site: 0.6, fora: 0.75 },
     ]);
-    expect(fator('sniper', 'adsMs')).toBeCloseTo((815 / 367 + 880 / 400) / 2, 5);
-    // Sem par na categoria, vale a mediana de todas: 815/367, 880/400 e 340/340.
-    expect(fator('smg', 'adsMs')).toBeCloseTo(880 / 400, 5);
-    expect(fator('smg', 'hipfire')).toBe(1); // ninguém tem o número
+    expect(escala('sniper', 'verticalRecoil')).toBeCloseTo((2.62 / 1.666 + 1.5) / 2, 5);
+    // Sem dois pares na categoria, vale a mediana de todas: 1,573, 1,5 e 0,8.
+    expect(escala('smg', 'verticalRecoil')).toBeCloseTo(1.5, 5);
+    expect(escala('smg', 'reload')).toBe(1); // ninguém tem o número
+  });
+});
+
+describe('a arma do Analyzer', () => {
+  it('vira escada pelo mesmo critério do cadastro à mão', () => {
+    // ELR-40: sobe na chegada da rampa, desce no começo dela.
+    expect(escadaDoJogo([{ r: 0, d: 80 }, { r: 120, d: 80 }, { r: 150, d: 100 }, { r: 180, d: 100 }, { r: 210, d: 62 }])).toEqual([
+      [80, 0], [100, 150], [62, 180],
+    ]);
+    // Z84M: degrau seco, dois pontos na mesma distância.
+    expect(escadaDoJogo([{ r: 0, d: 35.22 }, { r: 21, d: 35.22 }, { r: 21, d: 26.05 }, { r: 75, d: 26.05 }, { r: 75, d: 20.67 }])).toEqual([
+      [35.22, 0], [26.05, 21], [20.67, 75],
+    ]);
+  });
+
+  it('traduz modo de tiro e nome', () => {
+    expect(modosDeTiro({ fireMode: 'bolt', availableFireModes: ['single'] })).toEqual(['ferrolho']);
+    expect(modosDeTiro({ fireMode: 'auto', availableFireModes: ['auto', 'single'] })).toEqual(['auto', 'semi']);
+    expect(idDoNome('Mk 24')).toBe('mk-24');
+    expect(idDoNome('ELR-40')).toBe('elr-40');
   });
 });
 
@@ -195,11 +219,29 @@ describe('canos de arma nova', () => {
   });
 });
 
+const doAnalyzer = (parcial: Partial<ArmaDoAnalyzer> & Pick<ArmaDoAnalyzer, 'id' | 'name' | 'cls'>): ArmaDoAnalyzer => ({
+  rpm: 40,
+  mag: 6,
+  tacRld: 2,
+  emptyRld: 3,
+  bulletVel: 700,
+  recoilV: 2,
+  recoilVar: 10,
+  fireMode: 'bolt',
+  availableFireModes: ['single'],
+  dmg: [{ r: 0, d: 80 }, { r: 150, d: 100 }],
+  ...parcial,
+});
+
 describe('detectar', () => {
-  const armas = [arma({ id: 'sv-98', name: 'SV-98', category: 'sniper' })];
+  const armas = [arma({ id: 'sv-98', name: 'SV-98', category: 'sniper', reload: 2.5, emptyReload: 3.5, verticalRecoil: 3, horizontalRecoil: 0.2 })];
   const pecas = [
     peca({ id: 'sight-mgo', slot: 'sight', originalName: 'MGO 3.50x', compat: { weapons: ['sv-98'] } }),
     peca({ id: 'barrel-basic', slot: 'barrel', originalName: 'Basic', name: 'Cano Básico', compat: { weapons: ['sv-98'] } }),
+  ];
+  const analyzer = [
+    doAnalyzer({ id: 'sv98', name: 'SV-98', cls: 'Sniper Rifle' }),
+    doAnalyzer({ id: 'elr40', name: 'ELR-40', cls: 'Sniper Rifle', rpm: 36.26, mag: 8, tacRld: 2.4, bulletVel: 788.79, recoilV: 1.666, dmg: [{ r: 0, d: 80 }, { r: 120, d: 80 }, { r: 150, d: 100 }, { r: 180, d: 100 }, { r: 210, d: 62 }] }),
   ];
   const ficha = (nome: string, numeros: Ficha['numeros'], secoes: Record<string, [string, number][]>): Ficha => ({
     nome,
@@ -209,52 +251,94 @@ describe('detectar', () => {
     pecas: new Map(Object.entries(secoes).map(([s, l]) => [s, l.map(([n, c]) => ({ nome: n, custo: c }))])),
   });
   const fichas = new Map<string, Ficha>([
-    ['sv-98', ficha('SV-98', { damage: 100, rpm: 40, adsMs: 400, control: 25 }, { Scope: [['MGO 3.50X', 10], ['QMK 3.00X', 10]], Barrel: [['BASIC', 10], ['24" HBAR', 5]] })],
-    ['elr-40', ficha('ELR-40', { damage: 125, rpm: 36, velocity: 788, adsMs: 367, control: 24 }, { Scope: [['MGO 3.50X', 10], ['QMK 3.00X', 10]] })],
+    ['sv-98', ficha('SV-98', { headshot: 2, adsMs: 400, control: 25 }, { Scope: [['MGO 3.50X', 10], ['QMK 3.00X', 10]], Barrel: [['BASIC', 10], ['24" HBAR', 5]] })],
+    ['elr-40', ficha('ELR-40', { headshot: 1.75, adsMs: 367, control: 24 }, { Scope: [['MGO 3.50X', 10], ['QMK 3.00X', 10]] })],
   ]);
-  const contexto = { armas, pecas, anterior: structuredClone(NOVIDADES_VAZIO), hoje: '2026-10-23', temporada: 5, fonte: 'https://rnkd.gg/battlefield6/weapons' };
+  const contexto = {
+    analyzer,
+    arrastos: { elr40: 0.002 },
+    fichas,
+    armas,
+    pecas,
+    anterior: structuredClone(NOVIDADES_VAZIO),
+    hoje: '2026-10-23',
+    temporada: 5,
+    fontes: { analyzer: 'https://github.com/x/analyzer', rnkd: 'https://rnkd.gg/battlefield6/weapons' },
+  };
 
-  it('acha a arma nova, com números da ficha e o resto da gêmea', () => {
-    const { armas: novas, imagens } = detectar(fichas, contexto);
+  it('acha a arma nova com os números do jogo, na escala deste site', () => {
+    const { armas: novas, imagens } = detectar(contexto);
     expect(novas).toHaveLength(1);
     expect(novas[0]).toMatchObject({
-      id: 'elr-40', name: 'ELR-40', category: 'sniper', archetype: 'sniper-bolt', rpm: 36, velocity: 788,
-      season: 5, provenance: 'curated', origem: { gemea: 'sv-98' },
-      // 367 ms × (800 / 400) da calibração; dano máximo da gêmea escalado para 125.
-      adsMs: 734, damage: [[100, 0], [125, 150]],
+      id: 'elr-40', name: 'ELR-40', category: 'sniper', archetype: 'sniper-bolt', fireModes: ['ferrolho'],
+      rpm: 36, velocity: 789, drag: 0.571, magazine: 7, season: 5, provenance: 'curated',
+      damage: [[80, 0], [100, 150], [62, 180]],
+      // Recarga do jogo, crua; recuo pela razão do par, 3/2.
+      reload: 2.4, verticalRecoil: 2.499,
+      // Da ficha, calibrado: 367 × (800/400); e o multiplicador cru.
+      adsMs: 734, headshot: 1.75,
+      origem: { gemea: 'sv-98', idNaFonte: 'elr40', fichaDoRnkd: true },
     });
     expect(imagens['elr-40']).toEqual({ render: 'https://rnkd.gg/ELR-40.png' });
   });
 
   it('acha a peça nova e dá a ela as armas que a listam, a nova inclusive', () => {
-    const { acessorios, compatExtra } = detectar(fichas, contexto);
+    const { acessorios, compatExtra } = detectar(contexto);
     expect(acessorios.map((p) => [p.originalName, p.compat.weapons, p.magnification])).toEqual([['QMK 3.00x', ['elr-40', 'sv-98'], 3]]);
     expect(compatExtra).toEqual({ 'sight-mgo': ['elr-40'] });
   });
 
   it('cano novo em arma já cadastrada fica para a curadoria', () => {
-    const { acessorios, canosParaCurar } = detectar(fichas, contexto);
+    const { acessorios, canosParaCurar } = detectar(contexto);
     expect(acessorios.some((p) => p.slot === 'barrel')).toBe(false);
     expect(canosParaCurar).toEqual(['sv-98: 24" HBAR']);
   });
 
+  it('sem o rnkd, a arma nova herda as peças da gêmea e as peças novas ficam como estavam', () => {
+    const primeira = detectar(contexto);
+    const anterior = { ...structuredClone(NOVIDADES_VAZIO), acessorios: primeira.acessorios, armas: [] };
+    const { armas: novas, acessorios, compatExtra } = detectar({ ...contexto, fichas: null, anterior });
+    expect(novas[0]).toMatchObject({ id: 'elr-40', adsMs: 800, headshot: 2, origem: { fichaDoRnkd: false } });
+    expect(compatExtra).toEqual({ 'sight-mgo': ['elr-40'], 'barrel-basic': ['elr-40'] });
+    expect(acessorios.map((p) => p.originalName)).toEqual(['QMK 3.00x']);
+  });
+
+  it('a rodada com ficha melhora a arma que entrou sem ela, e guarda o resumo', () => {
+    const semFicha = detectar({ ...contexto, fichas: null });
+    semFicha.armas[0].summary = 'Resumo do modelo.';
+    const anterior = { ...structuredClone(NOVIDADES_VAZIO), armas: semFicha.armas };
+    const { armas: novas } = detectar({ ...contexto, anterior });
+    expect(novas[0]).toMatchObject({ adsMs: 734, summary: 'Resumo do modelo.', origem: { fichaDoRnkd: true } });
+  });
+
   it('respeita a lista de ignorados e o que a rodada anterior já nomeou', () => {
-    const primeira = detectar(fichas, contexto);
+    const primeira = detectar(contexto);
     aplicarTraducao(primeira.armas, primeira.acessorios, { pecas: [{ id: primeira.acessorios[0].id, name: 'QMK 3,00x', description: 'Mira de 3x.' }] });
     const anterior = { ...structuredClone(NOVIDADES_VAZIO), armas: primeira.armas, acessorios: primeira.acessorios, ignorar: ['arma:elr-40'] };
 
-    const segunda = detectar(fichas, { ...contexto, anterior });
+    const segunda = detectar({ ...contexto, anterior });
     expect(segunda.armas).toEqual([]);
     expect(segunda.acessorios[0]).toMatchObject({ name: 'QMK 3,00x', description: 'Mira de 3x.', compat: { weapons: ['sv-98'] } });
   });
 });
 
 describe('aplicarTraducao', () => {
+  const base = {
+    analyzer: [doAnalyzer({ id: 'sv98', name: 'SV-98', cls: 'Sniper Rifle' }), doAnalyzer({ id: 'nova', name: 'NOVA', cls: 'Sniper Rifle' })],
+    arrastos: {},
+    armas: [arma({ id: 'sv-98', name: 'SV-98', category: 'sniper' })],
+    pecas: [],
+    anterior: structuredClone(NOVIDADES_VAZIO),
+    hoje: 'h',
+    temporada: 5,
+    fontes: { analyzer: 'a', rnkd: 'r' },
+  };
+  const fichas = new Map<string, Ficha>([
+    ['sv-98', { nome: 'SV-98', rotulo: 'Sniper Rifle', numeros: {}, imagem: null, pecas: new Map([['Muzzle', [{ nome: 'MULTI-PORT BRAKE', custo: 10 }]]]) }],
+  ]);
+
   it('sem modelo, fica o nome original e uma descrição que não inventa efeito', () => {
-    const { acessorios, armas } = detectar(
-      new Map([['nova', { nome: 'NOVA', rotulo: 'Sniper Rifle', numeros: {}, imagem: null, pecas: new Map([['Muzzle', [{ nome: 'MULTI-PORT BRAKE', custo: 10 }]]]) }]]),
-      { armas: [arma({ id: 'sv-98', name: 'SV-98', category: 'sniper' })], pecas: [], anterior: structuredClone(NOVIDADES_VAZIO), hoje: 'h', temporada: 5, fonte: 'f' },
-    );
+    const { acessorios, armas } = detectar({ ...base, fichas });
     aplicarTraducao(armas, acessorios, null);
     expect(acessorios[0]).toMatchObject({ name: 'Multi-Port Brake', originalName: 'Multi-Port Brake', mods: {} });
     expect(acessorios[0].description).toMatch(/efeito ainda não foi medido/);
@@ -262,10 +346,7 @@ describe('aplicarTraducao', () => {
   });
 
   it('recusa o originalName que não é o mesmo nome da fonte', () => {
-    const { acessorios } = detectar(
-      new Map([['sv-98', { nome: 'SV-98', rotulo: 'Sniper Rifle', numeros: {}, imagem: null, pecas: new Map([['Muzzle', [{ nome: 'MULTI-PORT BRAKE', custo: 10 }]]]) }]]),
-      { armas: [arma({ id: 'sv-98', name: 'SV-98', category: 'sniper' })], pecas: [], anterior: structuredClone(NOVIDADES_VAZIO), hoje: 'h', temporada: 5, fonte: 'f' },
-    );
+    const { acessorios } = detectar({ ...base, fichas });
     aplicarTraducao([], acessorios, { pecas: [{ id: acessorios[0].id, originalName: 'Compensator', name: 'Freio Multiportas', description: 'Freio.' }] });
     expect(acessorios[0]).toMatchObject({ originalName: 'Multi-Port Brake', name: 'Freio Multiportas' });
   });
