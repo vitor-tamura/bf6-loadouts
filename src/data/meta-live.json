@@ -15,49 +15,49 @@
     },
     {
       "weapon": "m16a4",
-      "reason": "Figura na segunda posição do ranking geral e também como o segundo melhor fuzis de assalto no multiplayer.",
+      "reason": "Fica na segunda posição geral e no segundo lugar na classe de fuzis de assalto no rastreador do multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "Alcança a terceira colocação geral e lidera a classe de submetralhadoras no rastreador do multiplayer.",
+      "reason": "Aparece na terceira posição geral e lidera a classe de submetralhadoras no ranking do multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "Posiciona-se em quarto no ranking geral e em terceiro entre os fuzis de assalto no multiplayer.",
+      "reason": "Registrada na quarta posição geral e no terceiro lugar entre os fuzis de assalto no multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "Classifica-se na quinta posição geral e lidera o segmento de metralhadoras leves no multiplayer.",
+      "reason": "Classificada na quinta posição geral e no topo da categoria de metralhadoras leves no multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "sgx",
-      "reason": "Aparece em sexto lugar no ranking geral e ocupa a segunda posição na categoria de submetralhadoras.",
+      "reason": "Posicionada na sexta posição geral e na segunda colocação entre as submetralhadoras do multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "Garante a sétima colocação geral no multiplayer e lidera o ranking específico de carabinas.",
+      "reason": "Ocupa a sétima posição geral e o primeiro lugar na categoria de carabinas no multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pw5a3",
-      "reason": "Ocupa a oitava posição geral no ranking do multiplayer e figura entre as principais submetralhadoras.",
+      "reason": "Fica na oitava posição geral e no terceiro posto entre as submetralhadoras no rastreador de multiplayer.",
       "sources": [
         0
       ]
@@ -66,51 +66,43 @@
   "trending": [
     {
       "weapon": "mk-24",
-      "reason": "Discussões detalham o multiplicador de headshot e o comportamento do recuo desta arma recém-adicionada.",
+      "reason": "Discussão na comunidade sobre seu perfil de dano e alcance em partidas longas de Breakthrough.",
       "sources": [
-        1
+        3
       ],
       "trend": "chegou no patch"
     },
     {
       "weapon": "z84m",
-      "reason": "Relatos apontam eficiência no modo Dead Space com ajustes voltados para disparos sem mirar.",
+      "reason": "Relatos de jogadores apontando eficácia com foco em tiro quadrado e combates de curta distância.",
       "sources": [
         2
       ],
-      "trend": "build de quadril"
-    },
-    {
-      "weapon": "rpkm",
-      "reason": "Jogadores debatem a progressão e a busca por camuflagens exclusivas nesta arma de suporte.",
-      "sources": [
-        3
-      ],
-      "trend": "progressão de camuflagens"
+      "trend": "build full-auto"
     },
     {
       "weapon": "elr-40",
-      "reason": "Tópicos destacam bônus de alcance e mecânicas de recâmara ao utilizar o modo de disparo único.",
+      "reason": "Tópico detalhando o funcionamento de recarga em scope mantendo o rifle apoiado com conversão monotiro.",
       "sources": [
         4
       ],
-      "trend": "recarregamento ágil"
+      "trend": "recarga rápida"
     },
     {
-      "weapon": "grt-cps",
-      "reason": "Usuários expressam frustração com o baixo desempenho e o alto número de disparos necessários para abates.",
+      "weapon": "m277",
+      "reason": "Comentário comparando o desempenho da arma com o novo fuzil de assalto e pedindo melhorias estruturais.",
       "sources": [
-        5
+        7
       ],
-      "trend": "reclamação de dano"
+      "trend": "migração da X"
     },
     {
-      "weapon": "nvo-228e",
-      "reason": "Debates comparam o poder de parada desta arma com outras opções da categoria de fuzis.",
+      "weapon": "ak-205",
+      "reason": "Menção em thread de preferências gerais sobre a precisão e agrupamento em longas distâncias.",
       "sources": [
         6
       ],
-      "trend": "precisão e dano"
+      "trend": "todo mundo usando"
     }
   ],
   "sources": [
@@ -124,12 +116,12 @@
       "timeframe": "season-5"
     },
     {
-      "name": "Reddit — Lessons From the MK 24",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1xc9r3d/lessons_from_the_mk_24/",
-      "date": "2026-10-22",
+      "name": "Reddit — Battlefield 6 - Community Update - More to Season 5",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1xbpk0q/battlefield_6_community_update_more_to_season_5/",
+      "date": "2026-10-21",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita TR-7, Mk 24, SG 553R, M277, RSPR, M250, Z84M. Mostra do que se fala, não mede força.",
+      "scope": "Thread do r/Battlefield6 que cita SCW-10, KV9. Mostra do que se fala, não mede força.",
       "timeframe": "season-5"
     },
     {
@@ -142,12 +134,12 @@
       "timeframe": "season-5"
     },
     {
-      "name": "Reddit — Is RPKM the NEW META in Battlefield 6?! (I unlocked CRYOJACKET!)",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1xauo96/is_rpkm_the_new_meta_in_battlefield_6_i_unlocked/",
+      "name": "Reddit — I just put in workkkkk",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1xady6x/i_just_put_in_workkkkk/",
       "date": "2026-10-20",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita RPKM. Mostra do que se fala, não mede força.",
+      "scope": "Thread do r/Battlefield6 que cita Mk 24. Mostra do que se fala, não mede força.",
       "timeframe": "season-5"
     },
     {
@@ -175,6 +167,15 @@
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Thread do r/Battlefield6 que cita NVO-228E, AK-205. Mostra do que se fala, não mede força.",
+      "timeframe": "season-5"
+    },
+    {
+      "name": "Reddit — New AR is great",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1x8uup7/new_ar_is_great/",
+      "date": "2026-10-18",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita M277. Mostra do que se fala, não mede força.",
       "timeframe": "season-5"
     },
     {
