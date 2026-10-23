@@ -15,49 +15,49 @@
     },
     {
       "weapon": "m16a4",
-      "reason": "Fica na segunda posição geral e no segundo lugar na classe de fuzis de assalto no rastreador do multiplayer.",
+      "reason": "Figura na segunda posição geral e no segundo lugar na classe de fuzis de assalto no multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pp-19",
-      "reason": "Aparece na terceira posição geral e lidera a classe de submetralhadoras no ranking do multiplayer.",
+      "reason": "Alcança a terceira posição geral e lidera como a melhor submetralhadora do multiplayer tradicional.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "kord-6p67",
-      "reason": "Registrada na quarta posição geral e no terceiro lugar entre os fuzis de assalto no multiplayer.",
+      "reason": "Registra a quarta posição geral e o terceiro lugar na categoria de fuzis de assalto.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "Classificada na quinta posição geral e no topo da categoria de metralhadoras leves no multiplayer.",
+      "reason": "Posiciona-se em quinto lugar geral e assume a liderança entre as metralhadoras leves no multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "sgx",
-      "reason": "Posicionada na sexta posição geral e na segunda colocação entre as submetralhadoras do multiplayer.",
+      "reason": "Aparece na sexta posição geral e ocupa o segundo lugar na classe de submetralhadoras.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "qbz-192",
-      "reason": "Ocupa a sétima posição geral e o primeiro lugar na categoria de carabinas no multiplayer.",
+      "reason": "Garante a sétima colocação geral e o primeiro lugar entre as carabinas no multiplayer.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "pw5a3",
-      "reason": "Fica na oitava posição geral e no terceiro posto entre as submetralhadoras no rastreador de multiplayer.",
+      "reason": "Classifica-se na oitava posição geral e ocupa o terceiro lugar na categoria de submetralhadoras.",
       "sources": [
         0
       ]
@@ -66,43 +66,51 @@
   "trending": [
     {
       "weapon": "mk-24",
-      "reason": "Discussão na comunidade sobre seu perfil de dano e alcance em partidas longas de Breakthrough.",
+      "reason": "Discussão na comunidade sobre seu multiplicador de dano na cabeça e comportamento de recuo após o lançamento na Temporada 5.",
       "sources": [
-        3
+        1
       ],
       "trend": "chegou no patch"
     },
     {
-      "weapon": "z84m",
-      "reason": "Relatos de jogadores apontando eficácia com foco em tiro quadrado e combates de curta distância.",
+      "weapon": "scw-10",
+      "reason": "Anúncio oficial da desenvolvedora nos canais da comunidade sobre planos de ajustar os carregadores estendidos da arma na próxima fase.",
       "sources": [
         2
       ],
-      "trend": "build full-auto"
+      "trend": "nerf a caminho"
     },
     {
-      "weapon": "elr-40",
-      "reason": "Tópico detalhando o funcionamento de recarga em scope mantendo o rifle apoiado com conversão monotiro.",
+      "weapon": "kv9",
+      "reason": "Menção em atualização da comunidade sobre testes para reduzir a eficácia de seus carregadores estendidos na próxima fase de balanceamento.",
+      "sources": [
+        2
+      ],
+      "trend": "nerf a caminho"
+    },
+    {
+      "weapon": "z84m",
+      "reason": "Relatos de jogadores recomendando o uso com foco em disparos de quadril no novo modo para subir de nível rapidamente.",
+      "sources": [
+        3
+      ],
+      "trend": "build de quadril"
+    },
+    {
+      "weapon": "rspr",
+      "reason": "Debate ativo na comunidade sobre o comportamento anômalo gerado pela utilização do freio de boca de 5 pontos.",
+      "sources": [
+        5
+      ],
+      "trend": "bug de acessório"
+    },
+    {
+      "weapon": "nvo-228e",
+      "reason": "Comentários de jogadores destacando o alto dano por disparo ao comparar fuzis de assalto e carabinas disponíveis.",
       "sources": [
         4
       ],
-      "trend": "recarga rápida"
-    },
-    {
-      "weapon": "m277",
-      "reason": "Comentário comparando o desempenho da arma com o novo fuzil de assalto e pedindo melhorias estruturais.",
-      "sources": [
-        7
-      ],
-      "trend": "migração da X"
-    },
-    {
-      "weapon": "ak-205",
-      "reason": "Menção em thread de preferências gerais sobre a precisão e agrupamento em longas distâncias.",
-      "sources": [
-        6
-      ],
-      "trend": "todo mundo usando"
+      "trend": "preferência de dano"
     }
   ],
   "sources": [
@@ -113,6 +121,15 @@
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Tem página só de multiplayer, separada das de REDSEC e de REDSEC Ranqueado, e ordena arma por arma dentro de cada classe.",
+      "timeframe": "season-5"
+    },
+    {
+      "name": "Reddit — Lessons From the MK 24",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1xc9r3d/lessons_from_the_mk_24/",
+      "date": "2026-10-22",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita TR-7, Mk 24, SG 553R, M277, RSPR, M250, Z84M. Mostra do que se fala, não mede força.",
       "timeframe": "season-5"
     },
     {
@@ -134,33 +151,6 @@
       "timeframe": "season-5"
     },
     {
-      "name": "Reddit — I just put in workkkkk",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1xady6x/i_just_put_in_workkkkk/",
-      "date": "2026-10-20",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita Mk 24. Mostra do que se fala, não mede força.",
-      "timeframe": "season-5"
-    },
-    {
-      "name": "Reddit — Found another hidden buff on the ELR-40",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1xa94er/found_another_hidden_buff_on_the_elr40/",
-      "date": "2026-10-19",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita ELR-40. Mostra do que se fala, não mede força.",
-      "timeframe": "season-5"
-    },
-    {
-      "name": "Reddit — GRT-CPS... Is it meant to feel so bad to use?",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1x9vrgs/grtcps_is_it_meant_to_feel_so_bad_to_use/",
-      "date": "2026-10-19",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita GRT-CPS. Mostra do que se fala, não mede força.",
-      "timeframe": "season-5"
-    },
-    {
       "name": "Reddit — What's the best assault rifle or carbine in BF6 right now?",
       "url": "https://www.reddit.com/r/Battlefield6/comments/1x91ows/whats_the_best_assault_rifle_or_carbine_in_bf6/",
       "date": "2026-10-18",
@@ -170,12 +160,12 @@
       "timeframe": "season-5"
     },
     {
-      "name": "Reddit — New AR is great",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1x8uup7/new_ar_is_great/",
-      "date": "2026-10-18",
+      "name": "Reddit — The RSPR Brake bug goes a long way to show how incredibly bad self-spot",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1x8g6e4/the_rspr_brake_bug_goes_a_long_way_to_show_how/",
+      "date": "2026-10-17",
       "country": "INT",
       "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita M277. Mostra do que se fala, não mede força.",
+      "scope": "Thread do r/Battlefield6 que cita RSPR. Mostra do que se fala, não mede força.",
       "timeframe": "season-5"
     },
     {
