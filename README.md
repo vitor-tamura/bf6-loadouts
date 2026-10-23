@@ -39,10 +39,14 @@ npm run dev      # http://localhost:3000
 | `npm run images:download` | baixa as que faltam para `public/weapons/` |
 | `npm run docs:attachments` | regenera `ACESSORIOS.md` a partir do dataset |
 | `npm run docs:weapons` | regenera `ARMAS.md` a partir do dataset |
+| `npm run catalog:novidades` | procura arma e acessório novos no rnkd.gg e grava `src/data/novidades.json` |
 
-As atualizações do jogo entram sozinhas: a cada seis horas o GitHub Actions
+As atualizações do jogo entram sozinhas: uma vez por dia o GitHub Actions
 procura patch novo na EA, aplica e publica em `main` se testes e build passarem
-— ver [`docs/update-workflow.md`](./docs/update-workflow.md).
+— ver [`docs/update-workflow.md`](./docs/update-workflow.md). Arma e acessório
+novos também: outra rotina diária compara o arsenal do rnkd.gg com o cadastro e
+publica o que faltar, marcado como aproximado — ver "Arma e acessório novos" no
+mesmo documento.
 
 ## Milestones (GitHub)
 

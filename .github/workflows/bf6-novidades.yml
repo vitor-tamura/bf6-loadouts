@@ -1,0 +1,133 @@
+# Arma e acessório novos, do jogo para o site.
+#
+# O pipeline do patch note (`bf6-update-process.yml`) lê mudança em arma que o
+# site já conhece; arma nova ele não reconhece — Mk 24, Z84M e ELR-40 entraram
+# à mão. Este workflow compara o arsenal do rnkd.gg com o cadastro, uma vez por
+# dia, e publica o que for novo em `src/data/novidades.json`, que o site junta
+# ao cadastro com o aviso de valor aproximado. Ver o cabeçalho de
+# `scripts/catalog/novidades.ts`.
+#
+# Como no processamento do patch, quem segura a publicação é a validação, não
+# uma pessoa: testes, lint, tipos e build. Falhou, nada vai para `main` e
+# abre-se uma issue.
+
+name: Novidades do arsenal
+
+on:
+  schedule:
+    # 11:23 UTC (08:23 em Brasília), todo dia. Fora da hora cheia, que é quando
+    # o GitHub mais atrasa os agendamentos, e longe da verificação de patch.
+    - cron: '23 11 * * *'
+  workflow_dispatch:
+
+# A mesma fila do processamento do patch: os dois escrevem em `src/data`, e um
+# não deve validar o que o outro está no meio de mudar.
+concurrency:
+  group: bf6-update
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  novidades:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+          # O push faz rebase quando a main anda durante a execução.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Procurar armas e acessórios novos
+        env:
+          # Nome e descrição em português: Claude Haiku, pago com o crédito
+          # mensal do plano Max, com os gratuitos de reserva. Sem nenhuma chave,
+          # o item entra com o nome original.
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: npm run catalog:novidades
+
+      - name: Ver se mudou
+        id: mudou
+        run: |
+          if git diff --quiet -- src/data/novidades.json; then
+            echo "Nada novo no arsenal."
+            echo "sim=false" >> "$GITHUB_OUTPUT"
+          else
+            git diff --stat -- src/data/novidades.json
+            echo "sim=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # A tranca que substitui a revisão: se a novidade quebrar o site, ela não
+      # é publicada.
+      - name: Testes, lint, tipos e build
+        if: steps.mudou.outputs.sim == 'true'
+        run: |
+          npm test
+          npm run lint
+          npm run typecheck
+          npm run build
+
+      - name: Publicar em main
+        if: steps.mudou.outputs.sim == 'true'
+        env:
+          MAIN_PUSH_TOKEN: ${{ secrets.MAIN_PUSH_TOKEN }}
+        run: |
+          if [ -z "${MAIN_PUSH_TOKEN}" ]; then
+            echo "::error::Secret MAIN_PUSH_TOKEN não configurado."
+            exit 1
+          fi
+
+          resumo=$(node -e "
+            const n = require('./src/data/novidades.json');
+            console.log(n.armas.length + ' arma(s) e ' + n.acessorios.length + ' acessório(s) fora do cadastro');
+          ")
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/novidades.json
+          git commit -m "feat(data): novidades do arsenal — $resumo"
+          git remote set-url origin "https://x-access-token:${MAIN_PUSH_TOKEN}@github.com/${{ github.repository }}.git"
+
+          # O arquivo só esta automação escreve, então o rebase é seguro.
+          for tentativa in 1 2 3; do
+            git push origin HEAD:main && exit 0
+            echo "::warning::A main andou. Tentativa $tentativa: rebase e novo push."
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort; break; }
+          done
+
+          echo "::error::Não foi possível publicar as novidades na main."
+          exit 1
+
+      # Último de propósito: `failure()` só enxerga a falha que já aconteceu.
+      # Uma issue só: se a de ontem ainda está aberta, a de hoje vira comentário.
+      - name: Abrir issue quando falhar
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          titulo="[NOVIDADES] A detecção de armas e acessórios novos falhou"
+          execucao="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          aberta=$(gh issue list --state open --search "in:title \"$titulo\"" --json number --jq '.[0].number')
+          if [ -n "$aberta" ]; then
+            gh issue comment "$aberta" --body "Falhou de novo: $execucao"
+          else
+            gh issue create --title "$titulo" --body "Nada foi publicado em main.
+
+          Execução: $execucao
+
+          Para reproduzir: \`npm run catalog:novidades -- --dry-run\`"
+          fi

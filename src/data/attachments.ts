@@ -1,4 +1,5 @@
 import type { Attachment, Weapon } from './types';
+import { COMPAT_EXTRA, PECAS_NOVAS } from './novidades.ts';
 
 /* -------------------------------------------------------------------------- *
  * Catálogo de acessórios
@@ -27,7 +28,8 @@ import type { Attachment, Weapon } from './types';
  * multiplicador abaixo de 1. O mesmo vale para `adsMs`, `swapMs` e `reload`.
  * -------------------------------------------------------------------------- */
 
-export const ATTACHMENTS: Attachment[] = [
+/** Só o cadastro feito aqui, sem as novidades — é contra ele que `catalog:novidades` compara. */
+export const ATTACHMENTS_CURADOS: Attachment[] = [
   {
     id: 'underbarrel-6h64-vertical',
     name: 'Vertical 6H64',
@@ -4400,6 +4402,20 @@ export const ATTACHMENTS: Attachment[] = [
     compat: { weapons: ['mk-24'] },
     provenance: 'curated',
   },
+];
+
+/**
+ * Os acessórios do site: o cadastro, com as armas novas acrescentadas à lista
+ * de cada peça que a ficha delas mostra, mais as peças que o jogo ganhou e
+ * ninguém cadastrou ainda (`novidades.ts`). Peça curada tem precedência.
+ */
+export const ATTACHMENTS: Attachment[] = [
+  ...ATTACHMENTS_CURADOS.map((peca) => {
+    const extra = COMPAT_EXTRA[peca.id];
+    if (!extra?.length || !peca.compat.weapons) return peca;
+    return { ...peca, compat: { ...peca.compat, weapons: [...new Set([...peca.compat.weapons, ...extra])] } };
+  }),
+  ...PECAS_NOVAS.filter((nova) => !ATTACHMENTS_CURADOS.some((a) => a.id === nova.id)),
 ];
 
 export const ATTACHMENTS_BY_ID = new Map<string, Attachment>(ATTACHMENTS.map((a) => [a.id, a]));

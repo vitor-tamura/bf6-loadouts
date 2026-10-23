@@ -1,4 +1,5 @@
 import type { Weapon, WeaponArchetype, WeaponCategory, DamageStep, ClassId, SlotId } from './types';
+import { ARMAS_NOVAS } from './novidades.ts';
 
 /* -------------------------------------------------------------------------- *
  * Procedência dos números
@@ -2336,7 +2337,8 @@ const MELEE_WEAPONS: WeaponEntry[] = [
   },
 ];
 
-export const WEAPONS: Weapon[] = [
+/** Só o cadastro feito aqui, sem as novidades — é contra ele que `catalog:novidades` compara. */
+export const WEAPONS_CURADAS: Weapon[] = [
   ...ASSAULT_RIFLES,
   ...CARBINES,
   ...SMGS,
@@ -2347,6 +2349,15 @@ export const WEAPONS: Weapon[] = [
   ...PISTOLS,
   ...MELEE_WEAPONS,
 ].map(buildWeapon);
+
+/**
+ * O arsenal do site: o cadastro, mais as armas que o jogo ganhou e ninguém
+ * cadastrou ainda (`novidades.ts`). Arma curada tem precedência.
+ */
+export const WEAPONS: Weapon[] = [
+  ...WEAPONS_CURADAS,
+  ...ARMAS_NOVAS.filter((nova) => !WEAPONS_CURADAS.some((w) => w.id === nova.id)).map(buildWeapon),
+];
 
 export const WEAPONS_BY_ID = new Map<string, Weapon>(WEAPONS.map((a) => [a.id, a]));
 

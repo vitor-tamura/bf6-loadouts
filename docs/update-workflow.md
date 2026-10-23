@@ -40,14 +40,15 @@ extrator que varresse o texto colheria um deles como versão, e o pipeline
 baixaria um patch note inexistente e abriria Pull Request para uma versão que a
 EA nunca lançou.
 
-## Os três workflows
+## Os workflows
 
 Em `.github/workflows/`:
 
 | Arquivo | Quando | O que faz |
 | --- | --- | --- |
-| `bf6-update-check.yml` | a cada 6 h | pergunta à EA se há versão nova |
+| `bf6-update-check.yml` | uma vez por dia | pergunta à EA se há versão nova |
 | `bf6-update-process.yml` | disparado pelo anterior | processa todas as versões que faltam e publica em `main` |
+| `bf6-novidades.yml` | uma vez por dia | procura arma e acessório novos no arsenal e publica em `main` |
 | `ci.yml` | em PR e push | testes, lint, tipos, build e arquivos gerados do catálogo |
 
 ## Sem revisão manual
@@ -65,7 +66,7 @@ adivinhado.
 
 ## Verificação
 
-Roda de seis em seis horas e faz uma pergunta só: apareceu na página de
+Roda uma vez por dia e faz uma pergunta só: apareceu na página de
 novidades da EA algum número de versão que `data/versions` ainda não tem, com
 data de publicação até hoje. Artigo com data futura fica para a rodada em que a
 data chegar.
@@ -124,8 +125,7 @@ reserva) propõe as mudanças; o código só aplica a proposta que:
 
 O resultado, aplicado e recusado com o motivo, fica em
 `data/versions/<versão>/site.json`. Versão sem esse arquivo continua pendente, e
-a verificação de seis em seis horas dispara o processamento de novo até a
-análise fechar.
+a verificação diária dispara o processamento de novo até a análise fechar.
 
 ### Modelo gratuito sem busca, em todas as rotinas
 
@@ -146,6 +146,36 @@ cobriu.
 
 Em toda rotina a fonte que sustenta a resposta tem de ser um dos endereços
 baixados: o código confere, e endereço de fora é memória do modelo.
+
+## Arma e acessório novos
+
+O patch note diz o que **mudou** em arma que o catálogo conhece; arma nova ele
+não reconhece. A 2.1.1.0 trouxe Mk 24, Z84M e ELR-40 sem que nenhuma virasse
+evento, e as três entraram à mão.
+
+`npm run catalog:novidades` (e o workflow `bf6-novidades.yml`, uma vez por dia)
+compara o arsenal do [rnkd.gg](https://rnkd.gg/battlefield6/weapons) — o mesmo
+que cumpre o papel `enumeracao_de_slot` — com `src/data/weapons.ts` e
+`src/data/attachments.ts`. O que faltar vai para `src/data/novidades.json`, que
+o site junta ao cadastro:
+
+| O que a ficha mostra | O que entra |
+| --- | --- |
+| arma que o cadastro não tem | a arma, com cadência, velocidade, pente, recarga e multiplicador na cabeça da ficha; barras e tempo de mira calibrados pelas armas que existem nos dois lados; curva de dano, recuo, arrasto e saque da arma mais parecida da mesma categoria; resumo em português pelo modelo; foto da ficha |
+| peça que o cadastro não tem | a peça, com custo, compatibilidade (as fichas que a listam), nome e descrição em português pelo modelo, e **sem efeito** (`mods: {}`) |
+| peça que já existe, na ficha de uma arma nova | a arma nova na compatibilidade dela |
+| cano que o cadastro não tem, em arma já cadastrada | **nada**: aparece no log, para a curadoria |
+
+Tudo entra como `curated`, que acende o aviso de valor aproximado. Os nomes
+casam por aproximação — "Taclight - Hip" é a "Taclight - Hipfire", "Thread
+Protetor" é a "Thread Protector" —, mas só com os mesmos números: "22RND
+Magazine" nunca vira "10RND Magazine". Cada par aproximado sai no log.
+
+**Curar** é levar o item para `weapons.ts` ou `attachments.ts` com o mesmo id:
+o cadastro tem precedência, e o item some de `novidades.json` na rodada
+seguinte. **Desfazer** é pôr a chave em `ignorar`, no próprio arquivo —
+`arma:<endereço no rnkd>` ou `peca:<Seção>:<nome>` —, porque só apagar o item
+faria a rodada seguinte trazê-lo de volta.
 
 ## O que o patch note consegue aplicar sozinho
 

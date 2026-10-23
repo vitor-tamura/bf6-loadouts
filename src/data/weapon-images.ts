@@ -17,6 +17,8 @@
  * acessório é encaixado. Quem responde à montagem é o ícone do slot.
  */
 
+import { IMAGENS_NOVAS } from './novidades.ts';
+
 export interface WeaponImageSources {
   /** Captura do jogo. */
   photo?: string;
@@ -117,7 +119,8 @@ export const WEAPON_IMAGES: Record<string, WeaponImageSources> = {
 
 /** Fontes externas de uma arma, da preferida para a reserva. */
 export function externalImageSources(weaponId: string): string[] {
-  const entry = WEAPON_IMAGES[weaponId];
+  // Arma nova sem foto cadastrada usa a da ficha de onde veio (`novidades.ts`).
+  const entry = WEAPON_IMAGES[weaponId] ?? IMAGENS_NOVAS[weaponId];
   if (!entry) return [];
   return [entry.photo, entry.render].filter((url): url is string => Boolean(url));
 }

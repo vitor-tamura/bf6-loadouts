@@ -89,6 +89,20 @@ export const CLAUDE_MAX_BUSCAS = 5;
 const CLAUDE_MAX_CONTINUACOES = 3;
 
 /**
+ * Tokens a mais no teto do Claude, para o raciocínio.
+ *
+ * O Haiku 5.5 raciocina por padrão, e o raciocínio conta no `max_tokens`. O
+ * teto de cada rotina foi medido para o texto: com ele, o lote de montagens
+ * de 23/10 gastou 3.483 tokens pensando e cortou o JSON nos 4.000. Desligar o
+ * raciocínio cabia, mas trocou "supressor" por "compensador" e inventou um
+ * cano que a página não tinha; com esforço baixo, voltou o inglês no meio da
+ * frase. O raciocínio fica, e o teto ganha folga: saída do Haiku custa US$ 0,50
+ * por milhão de tokens, e oito mil a mais são menos de meio centavo.
+ * `ANTHROPIC_EFFORT` muda o esforço (`low`, `medium`, `high`) sem publicar versão.
+ */
+export const CLAUDE_FOLGA_RACIOCINIO = 8000;
+
+/**
  * O modelo do OpenRouter de todas as rotinas, quando a rotina não diz outro.
  *
  * É o roteador de gratuitos, e não um nome: a lista de modelos `:free` muda de
@@ -630,7 +644,7 @@ export function lerRespostaClaude(corpo, maxOutputTokens) {
     custo: uso && {
       entrada: (uso.input_tokens ?? 0) + (uso.cache_read_input_tokens ?? 0) + (uso.cache_creation_input_tokens ?? 0),
       saida: uso.output_tokens ?? 0,
-      raciocinio: 0,
+      raciocinio: uso.output_tokens_details?.thinking_tokens ?? 0,
       buscas,
     },
   };
@@ -644,6 +658,9 @@ function somarUso(a, b) {
   return {
     input_tokens: soma('input_tokens'),
     output_tokens: soma('output_tokens'),
+    output_tokens_details: {
+      thinking_tokens: (a.output_tokens_details?.thinking_tokens ?? 0) + (b.output_tokens_details?.thinking_tokens ?? 0),
+    },
     cache_read_input_tokens: soma('cache_read_input_tokens'),
     cache_creation_input_tokens: soma('cache_creation_input_tokens'),
     server_tool_use: {
@@ -654,6 +671,8 @@ function somarUso(a, b) {
 }
 
 async function chamarClaude(modelo, prompt, { maxOutputTokens, tentativa, busca = true }) {
+  const teto = maxOutputTokens + CLAUDE_FOLGA_RACIOCINIO;
+  const esforco = process.env.ANTHROPIC_EFFORT?.trim();
   const mensagens = [{ role: 'user', content: prompt }];
   const blocos = [];
   let uso = null;
@@ -669,8 +688,9 @@ async function chamarClaude(modelo, prompt, { maxOutputTokens, tentativa, busca 
       },
       body: JSON.stringify({
         model: modelo,
-        max_tokens: maxOutputTokens,
+        max_tokens: teto,
         messages: mensagens,
+        ...(esforco ? { output_config: { effort: esforco } } : {}),
         // A busca do próprio Claude, com teto: cada consulta sai do crédito do mês.
         ...(busca
           ? { tools: [{ type: 'web_search_20250305', name: 'web_search', max_uses: maxBuscasClaude() }] }
@@ -706,7 +726,7 @@ async function chamarClaude(modelo, prompt, { maxOutputTokens, tentativa, busca 
     mensagens.splice(1, mensagens.length - 1, { role: 'assistant', content: [...blocos] });
   }
 
-  return lerRespostaClaude({ ...corpo, content: blocos, usage: uso }, maxOutputTokens);
+  return lerRespostaClaude({ ...corpo, content: blocos, usage: uso }, teto);
 }
 
 /* ========================================================================== */

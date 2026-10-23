@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
+  CLAUDE_FOLGA_RACIOCINIO,
   CLAUDE_PADRAO,
   MODELO_PADRAO,
   candidatos,
@@ -639,6 +640,7 @@ describe('o Claude na fila', () => {
     delete process.env.GOOGLE_GENERATIVE_AI_API_KEY;
     delete process.env.ANTHROPIC_MODELS;
     delete process.env.ANTHROPIC_MAX_BUSCAS;
+    delete process.env.ANTHROPIC_EFFORT;
     process.env.GEMINI_MODELS = 'gemini-teste-flash';
   });
 
@@ -693,11 +695,35 @@ describe('o Claude na fila', () => {
     expect(pedido.headers['x-api-key']).toBe('sk-ant-teste');
     expect(pedido.headers['anthropic-version']).toBe('2023-06-01');
     expect(JSON.parse(pedido.body)).toEqual({
+      // O teto da rotina mais a folga do raciocínio, que conta no max_tokens.
+      max_tokens: 100 + CLAUDE_FOLGA_RACIOCINIO,
       model: 'claude-haiku-5-5',
-      max_tokens: 100,
       messages: [{ role: 'user', content: 'p' }],
       tools: [{ type: 'web_search_20250305', name: 'web_search', max_uses: 2 }],
     });
+  });
+
+  it('ANTHROPIC_EFFORT vai como output_config; sem ela, vale o padrão do modelo', async () => {
+    const fetch = vi.fn(async () => json(200, respostaClaude()));
+    vi.stubGlobal('fetch', fetch);
+    const candidato = { provedor: 'anthropic', modelo: 'claude-haiku-5-5' };
+
+    await perguntarSemBusca(candidato, 'p', { maxOutputTokens: 100 });
+    expect(JSON.parse(fetch.mock.calls[0][1].body)).not.toHaveProperty('output_config');
+
+    process.env.ANTHROPIC_EFFORT = 'low';
+    await perguntarSemBusca(candidato, 'p', { maxOutputTokens: 100 });
+    expect(JSON.parse(fetch.mock.calls[1][1].body).output_config).toEqual({ effort: 'low' });
+  });
+
+  it('conta os tokens de raciocínio no custo', () => {
+    const lido = lerRespostaClaude(
+      respostaClaude('{}', {
+        usage: { input_tokens: 1, output_tokens: 50, output_tokens_details: { thinking_tokens: 30 } },
+      }),
+      100,
+    );
+    expect(lido.custo).toMatchObject({ saida: 50, raciocinio: 30 });
   });
 
   it('sem busca, não manda a ferramenta', async () => {

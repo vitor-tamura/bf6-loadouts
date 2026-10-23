@@ -1,0 +1,575 @@
+{
+  "_leiaMe": "Gerado por `npm run catalog:novidades` a partir do rnkd.gg. Não edite à mão: cure o item em weapons.ts ou attachments.ts (ele sai daqui sozinho) ou ponha a chave dele em `ignorar`.",
+  "atualizadoEm": "2026-10-23",
+  "armas": [],
+  "acessorios": [
+    {
+      "id": "ammo-polymer-links",
+      "name": "Elos de Polímero",
+      "originalName": "Polymer Links",
+      "slot": "ammo",
+      "cost": 10,
+      "description": "Elos de polímero para a fita de munição.",
+      "mods": {},
+      "compat": {
+        "weapons": [
+          "z84m"
+        ]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "detectadaEm": "2026-10-23",
+        "secao": "Ammunition",
+        "nomeNaFonte": "POLYMER LINKS"
+      }
+    },
+    {
+      "id": "ammo-subsonic",
+      "name": "Subsônica",
+      "originalName": "Subsonic",
+      "slot": "ammo",
+      "cost": 10,
+      "description": "Munição subsônica: projétil abaixo da velocidade do som.",
+      "mods": {},
+      "compat": {
+        "weapons": [
+          "rspr"
+        ]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "detectadaEm": "2026-10-23",
+        "secao": "Ammunition",
+        "nomeNaFonte": "SUBSONIC"
+      }
+    },
+    {
+      "id": "ammo-subsonic-hp",
+      "name": "Subsônica HP",
+      "originalName": "Subsonic HP",
+      "slot": "ammo",
+      "cost": 30,
+      "description": "Munição subsônica de ponta oca.",
+      "mods": {},
+      "compat": {
+        "weapons": [
+          "rspr"
+        ]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "detectadaEm": "2026-10-23",
+        "secao": "Ammunition",
+        "nomeNaFonte": "SUBSONIC HP"
+      }
+    },
+    {
+      "id": "ammo-tungsten-match",
+      "name": "Tungstênio de Competição",
+      "originalName": "Tungsten Match",
+      "slot": "ammo",
+      "cost": 10,
+      "description": "Projétil de tungstênio da linha de precisão.",
+      "mods": {},
+      "compat": {
+        "weapons": [
+          "vssm"
+        ]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "detectadaEm": "2026-10-23",
+        "secao": "Ammunition",
+        "nomeNaFonte": "TUNGSTEN MATCH"
+      }
+    },
+    {
+      "id": "ergonomics-folding-stock",
+      "name": "Coronha Dobrável",
+      "originalName": "Folding Stock",
+      "slot": "ergonomics",
+      "cost": 40,
+      "description": "Coronha que dobra para deixar a arma mais compacta.",
+      "mods": {},
+      "compat": {
+        "weapons": [
+          "vssm"
+        ]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "detectadaEm": "2026-10-23",
+        "secao": "Ergonomics",
+        "nomeNaFonte": "FOLDING STOCK"
+      }
+    },
+    {
+      "id": "magazine-22rnd-magazine",
+      "name": "Carregador de 22",
+      "originalName": "22rnd Magazine",
+      "slot": "magazine",
+      "cost": 30,
+      "description": "Carregador de 22 tiros.",
+      "mods": {},
+      "magazineSize": 22,
+      "compat": {
+        "weapons": [
+          "ggh-22"
+        ]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "detectadaEm": "2026-10-23",
+        "secao": "Magazine",
+        "nomeNaFonte": "22RND MAGAZINE"
+      }
+    },
+    {
+      "id": "magazine-3rnd-magazine",
+      "name": "Carregador de 3",
+      "originalName": "3rnd Magazine",
+      "slot": "magazine",
+      "cost": 5,
+      "description": "Carregador de 3 tiros.",
+      "mods": {},
+      "magazineSize": 3,
+      "compat": {
+        "weapons": [
+          "interdictor"
+        ]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "detectadaEm": "2026-10-23",
+        "secao": "Magazine",
+        "nomeNaFonte": "3RND MAGAZINE"
+      }
+    },
+    {
+      "id": "magazine-4-shell-tube",
+      "name": "Tubo de 4 Cartuchos",
+      "originalName": "4 Shell Tube",
+      "slot": "magazine",
+      "cost": 5,
+      "description": "Tubo de alimentação para 4 cartuchos.",
+      "mods": {},
+      "compat": {
+        "weapons": [
+          "m1014"
+        ]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "detectadaEm": "2026-10-23",
+        "secao": "Magazine",
+        "nomeNaFonte": "4 SHELL TUBE"
+      }
+    },
+    {
+      "id": "magazine-42rnd-fast-mag",
+      "name": "Carregador Rápido de 42",
+      "originalName": "42rnd Fast Mag",
+      "slot": "magazine",
+      "cost": 10,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "mods": {},
+      "magazineSize": 42,
+      "compat": {
+        "weapons": [
+          "ef88"
+        ]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "detectadaEm": "2026-10-23",
+        "secao": "Magazine",
+        "nomeNaFonte": "42RND FAST MAG"
+      }
+    },
+    {
+      "id": "magazine-42rnd-magazine",
+      "name": "Carregador de 42",
+      "originalName": "42rnd Magazine",
+      "slot": "magazine",
+      "cost": 10,
+      "description": "Carregador de 42 tiros.",
+      "mods": {},
+      "magazineSize": 42,
+      "compat": {
+        "weapons": [
+          "ef88"
+        ]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "detectadaEm": "2026-10-23",
+        "secao": "Magazine",
+        "nomeNaFonte": "42RND MAGAZINE"
+      }
+    },
+    {
+      "id": "magazine-53rnd-drum",
+      "name": "Tambor de 53",
+      "originalName": "53rnd Drum",
+      "slot": "magazine",
+      "cost": 45,
+      "description": "Tambor de 53 tiros.",
+      "mods": {},
+      "magazineSize": 53,
+      "compat": {
+        "weapons": [
+          "pp-19"
+        ]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "detectadaEm": "2026-10-23",
+        "secao": "Magazine",
+        "nomeNaFonte": "53RND DRUM"
+      }
+    },
+    {
+      "id": "magazine-8rnd-moon-clip",
+      "name": "Moon Clip de 8",
+      "originalName": "8rnd Moon Clip",
+      "slot": "magazine",
+      "cost": 10,
+      "description": "Clipe de 8 cartuchos para revólver.",
+      "mods": {},
+      "magazineSize": 8,
+      "compat": {
+        "weapons": [
+          "m357-trait"
+        ]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "detectadaEm": "2026-10-23",
+        "secao": "Magazine",
+        "nomeNaFonte": "8RND MOON CLIP"
+      }
+    },
+    {
+      "id": "magazine-8rnd-speedloader",
+      "name": "Recarregador Rápido de 8",
+      "originalName": "8rnd Speedloader",
+      "slot": "magazine",
+      "cost": 5,
+      "description": "Recarrega os 8 tiros de uma vez.",
+      "mods": {},
+      "magazineSize": 8,
+      "compat": {
+        "weapons": [
+          "m357-trait"
+        ]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "detectadaEm": "2026-10-23",
+        "secao": "Magazine",
+        "nomeNaFonte": "8RND SPEEDLOADER"
+      }
+    },
+    {
+      "id": "magazine-95rnd-drum",
+      "name": "Tambor de 95",
+      "originalName": "95rnd Drum",
+      "slot": "magazine",
+      "cost": 50,
+      "description": "Tambor de 95 tiros.",
+      "mods": {},
+      "magazineSize": 95,
+      "compat": {
+        "weapons": [
+          "rpk-74m"
+        ]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "detectadaEm": "2026-10-23",
+        "secao": "Magazine",
+        "nomeNaFonte": "95RND DRUM"
+      }
+    },
+    {
+      "id": "muzzle-multi-port-brake",
+      "name": "Freio de Múltiplas Portas",
+      "originalName": "Multi-Port Brake",
+      "slot": "muzzle",
+      "cost": 10,
+      "description": "Várias portas: mais controle e esconde a marcação do disparo.",
+      "mods": {},
+      "compat": {
+        "weapons": [
+          "elr-40",
+          "interdictor"
+        ]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "detectadaEm": "2026-10-23",
+        "secao": "Muzzle",
+        "nomeNaFonte": "MULTI-PORT BRAKE"
+      }
+    },
+    {
+      "id": "muzzle-shortened-suppressor",
+      "name": "Supressor Encurtado",
+      "originalName": "Shortened Suppressor",
+      "slot": "muzzle",
+      "cost": 30,
+      "description": "Versão de cano mais curto do supressor: abafa o disparo.",
+      "mods": {},
+      "compat": {
+        "weapons": [
+          "svk-86"
+        ]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "detectadaEm": "2026-10-23",
+        "secao": "Muzzle",
+        "nomeNaFonte": "SHORTENED SUPPRESSOR"
+      }
+    },
+    {
+      "id": "optic-accessory-magnifier",
+      "name": "Lupa",
+      "originalName": "Magnifier",
+      "slot": "opticAccessory",
+      "cost": 10,
+      "description": "Lupa de ampliação sobre a mira principal.",
+      "mods": {},
+      "compat": {
+        "weapons": [
+          "brod-3",
+          "m16a4",
+          "pp-19"
+        ]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "detectadaEm": "2026-10-23",
+        "secao": "Optic Accessory",
+        "nomeNaFonte": "MAGNIFIER"
+      }
+    },
+    {
+      "id": "sight-dvo-500x",
+      "name": "DVO 5,00x",
+      "originalName": "DVO 5.00x",
+      "slot": "sight",
+      "cost": 10,
+      "description": "Mira com ampliação de 5×.",
+      "mods": {},
+      "magnification": 5,
+      "compat": {
+        "weapons": [
+          "b36a4",
+          "l110",
+          "m2010-esr",
+          "m39-emr",
+          "m417-a2",
+          "m433",
+          "m4a1",
+          "m87a1",
+          "nvo-228e",
+          "sgx",
+          "svk-86"
+        ]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "detectadaEm": "2026-10-23",
+        "secao": "Scope",
+        "nomeNaFonte": "DVO 5.00X"
+      }
+    },
+    {
+      "id": "sight-mgo-350x",
+      "name": "MGO 3,50x",
+      "originalName": "MGO 3.50x",
+      "slot": "sight",
+      "cost": 10,
+      "description": "Mira com ampliação de 3,5×.",
+      "mods": {},
+      "magnification": 3.5,
+      "compat": {
+        "weapons": [
+          "ak-205",
+          "ak4d",
+          "b36a4",
+          "brod-3",
+          "cz3a1",
+          "drs-iar",
+          "ef88",
+          "elr-40",
+          "grt-bc",
+          "grt-cps",
+          "kord-6p67",
+          "kts100-mk8",
+          "kv9",
+          "l110",
+          "l85a3",
+          "lmr27",
+          "m121-a2",
+          "m123k",
+          "m16a4",
+          "m240l",
+          "m250",
+          "m277",
+          "m39-emr",
+          "m417-a2",
+          "m433",
+          "m4a1",
+          "m60",
+          "mk-24",
+          "nvo-228e",
+          "pp-19",
+          "pw5a3",
+          "pw7a2",
+          "qbz-192",
+          "rpk-74m",
+          "rpkm",
+          "rspr",
+          "scw-10",
+          "sg-553r",
+          "sgx",
+          "sl9",
+          "sor-300sc",
+          "sor-556-mk2",
+          "svdm",
+          "svk-86",
+          "tr-7",
+          "umg-40",
+          "usg-90",
+          "vcr-2",
+          "vssm",
+          "z84m"
+        ]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "detectadaEm": "2026-10-23",
+        "secao": "Scope",
+        "nomeNaFonte": "MGO 3.50X"
+      }
+    },
+    {
+      "id": "sight-qmk-300x",
+      "name": "QMK 3,00x",
+      "originalName": "QMK 3.00x",
+      "slot": "sight",
+      "cost": 10,
+      "description": "Mira com ampliação de 3×.",
+      "mods": {},
+      "magnification": 3,
+      "compat": {
+        "weapons": [
+          "ak-205",
+          "ak4d",
+          "b36a4",
+          "brod-3",
+          "cz3a1",
+          "drs-iar",
+          "ef88",
+          "elr-40",
+          "grt-bc",
+          "grt-cps",
+          "kord-6p67",
+          "kts100-mk8",
+          "kv9",
+          "l110",
+          "l85a3",
+          "lmr27",
+          "m121-a2",
+          "m123k",
+          "m16a4",
+          "m240l",
+          "m250",
+          "m277",
+          "m39-emr",
+          "m417-a2",
+          "m433",
+          "m4a1",
+          "m60",
+          "mk-24",
+          "nvo-228e",
+          "pp-19",
+          "pw5a3",
+          "pw7a2",
+          "qbz-192",
+          "rpk-74m",
+          "rpkm",
+          "rspr",
+          "scw-10",
+          "sg-553r",
+          "sgx",
+          "sl9",
+          "sor-300sc",
+          "sor-556-mk2",
+          "svdm",
+          "svk-86",
+          "tr-7",
+          "umg-40",
+          "usg-90",
+          "vcr-2",
+          "vssm",
+          "z84m"
+        ]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "detectadaEm": "2026-10-23",
+        "secao": "Scope",
+        "nomeNaFonte": "QMK 3.00X"
+      }
+    },
+    {
+      "id": "underbarrel-actuated-module",
+      "name": "Módulo Acionado",
+      "originalName": "Actuated Module",
+      "slot": "underbarrel",
+      "cost": 10,
+      "description": "Módulo acionado montado sob o cano.",
+      "mods": {},
+      "compat": {
+        "weapons": [
+          "elr-40",
+          "mk-24",
+          "rspr"
+        ]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://rnkd.gg/battlefield6/weapons",
+        "detectadaEm": "2026-10-23",
+        "secao": "Underbarrel",
+        "nomeNaFonte": "ACTUATED MODULE"
+      }
+    }
+  ],
+  "compatExtra": {},
+  "imagens": {},
+  "ignorar": []
+}
