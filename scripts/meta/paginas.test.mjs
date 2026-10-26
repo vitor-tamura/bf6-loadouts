@@ -5,6 +5,7 @@ import {
   filtrarConversa,
   parsearRss,
   rankingDaPagina,
+  rankingDoBattlefinity,
   recortarPagina,
   trechoDaThread,
 } from './paginas.mjs';
@@ -167,5 +168,33 @@ describe('rankingDaPagina', () => {
 
   it('a posição geral é a ordem de aparição, não o número que recomeça a cada escalão', () => {
     expect(rankingDaPagina(texto).find((e) => e.weapon === 'brod-3')?.overall).toBe(4);
+  });
+});
+
+describe('rankingDoBattlefinity', () => {
+  // O texto como a página o entrega, colado ou com espaço entre os elementos.
+  const texto =
+    'REDSEC · Popularity 1. 01 KTS100 MK8 S Tier LMG 9.9% pick ' +
+    'Sniper ## Multiplayer · Popularity ' +
+    '1. 01## MK 24S TierVersatile · Long Range · Close Range·Assault Rifle·20.2% pick 0-10m284ms Unlock WithSeason 5 ' +
+    '2. 02 DRS-IAR S Tier Versatile · LMG · 6.9% pick 0-10m233ms ' +
+    '3. 03## CZ3A1A TierClose Range·SMG·6.3% pick ' +
+    '4. 04## ELR-40A TierSniper·Sniper Rifle·5.3% pickUnlock WithSeason 5 Recruit ' +
+    '5. 05## M357 TRAITB TierSecondary·0.4% pick';
+
+  it('lê a seção do multiplayer: arma, tier e taxa de escolha, na ordem', () => {
+    const ranking = rankingDoBattlefinity(texto);
+    expect(ranking.map((e) => [e.weapon, e.tier, e.pickRate])).toEqual([
+      ['mk-24', 'S', 20.2],
+      ['drs-iar', 'S', 6.9],
+      ['cz3a1', 'A', 6.3],
+      ['elr-40', 'A', 5.3],
+      ['m357-trait', 'B', 0.4],
+    ]);
+    expect(ranking[0]).toMatchObject({ overall: 1, categoryRank: 1, category: 'ar' });
+  });
+
+  it('sem o título da seção do multiplayer, não devolve nada — a raiz do site é o REDSEC', () => {
+    expect(rankingDoBattlefinity('1. 01 KTS100 MK8 S Tier LMG 9.9% pick')).toEqual([]);
   });
 });

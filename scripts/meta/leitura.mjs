@@ -325,6 +325,17 @@ export function confiabilidade(url) {
 /** Só fonte que mede ou que é oficial põe arma no topo. */
 const sustentaForca = (url) => confiabilidade(url) !== 'comunidade';
 
+/**
+ * Onde o multiplayer mora quando o caminho não diz "multiplayer".
+ *
+ * O battlefinity põe o REDSEC na raiz e o multiplayer em `/battlefield` — a
+ * página se apresenta como "the current multiplayer meta", e as páginas por
+ * classe, em `/best-weapons/`, seguem o mesmo modo.
+ */
+const MULTIPLAYER_POR_CAMINHO = {
+  'battlefinity.gg': /^\/(battlefield|best-weapons)(\/|$)/,
+};
+
 /** Um segmento do endereço que só existe em página de battle royale. */
 const MARCAS_DE_BATTLE_ROYALE = /redsec|battle-?royale|battle_royale/i;
 
@@ -359,6 +370,10 @@ export function ehPaginaDeOutroModo(url) {
 
   if (MARCAS_DE_BATTLE_ROYALE.test(caminho) || MARCAS_DE_BATTLE_ROYALE.test(host)) return true;
   if (!TRACKERS_POR_MODO.has(host)) return false;
+
+  // Rastreador que põe o multiplayer em caminho próprio, sem a palavra.
+  const doMultiplayer = MULTIPLAYER_POR_CAMINHO[host];
+  if (doMultiplayer?.test(caminho)) return false;
 
   // Raiz do rastreador não declara modo nenhum, e o padrão dessas páginas é o
   // battle royale — foi o que a leitura de agosto provou ao trazer a lista do

@@ -46,22 +46,25 @@ const DO_RANKING = 16;
 const ms = (valor) => (Number.isFinite(valor) ? `${Math.round(valor)} ms` : '—');
 
 /** Uma linha por arma: o ranking, o movimento na semana e os números do catálogo. */
-export function linhaDaArma(arma, { entrada = null, naSemana = null, temporada = null } = {}) {
+export function linhaDaArma(arma, { entrada = null, naSemana = null, temporada = null, finity = null } = {}) {
   const porDistancia = DISTANCIAS.map((d) => {
     const tiros = shotsToKill(arma, d);
     return `${d} m: ${Number.isFinite(tiros) ? tiros : '—'} tiros, ${tiros === 1 ? 'um tiro' : ms(timeToKill(arma, d))}`;
   }).join('; ');
 
   const ranking = entrada
-    ? `${entrada.overall}º geral e ${entrada.categoryRank}º da classe no ranking${
+    ? `wzstats: ${entrada.overall}º geral e ${entrada.categoryRank}º da classe${
         naSemana ? ` (${naSemana > 0 ? '▲' : '▼'}${Math.abs(naSemana)} na semana)` : ''
       }`
-    : 'fora do ranking do rastreador';
+    : 'fora do ranking do wzstats';
+  const noBattlefinity = finity
+    ? `; battlefinity: ${finity.overall}º, tier ${finity.tier}, ${String(finity.pickRate).replace('.', ',')}% de escolha`
+    : '';
 
   // Arma nova sai de ficha pública e de arma parecida, sem conferência em jogo.
   const marcas = arma.season === temporada ? [`nova na Temporada ${temporada}`, 'números ainda não conferidos em jogo'] : [];
 
-  return `- ${arma.name} (${CATEGORIA[arma.category] ?? arma.category}) — ${ranking}. ${arma.rpm} RPM; ${porDistancia}; mantém os tiros do vão curto até ${effectiveRange(arma)} m; bala a ${arma.velocity} m/s; carregador de ${arma.magazine}${marcas.length ? ` [${marcas.join(', ')}]` : ''}.`;
+  return `- ${arma.name} (${CATEGORIA[arma.category] ?? arma.category}) — ${ranking}${noBattlefinity}. ${arma.rpm} RPM; ${porDistancia}; mantém os tiros do vão curto até ${effectiveRange(arma)} m; bala a ${arma.velocity} m/s; carregador de ${arma.magazine}${marcas.length ? ` [${marcas.join(', ')}]` : ''}.`;
 }
 
 /**
@@ -70,10 +73,12 @@ export function linhaDaArma(arma, { entrada = null, naSemana = null, temporada =
  * Entram as dezesseis primeiras do ranking e todas as armas da temporada em
  * curso — estas são exatamente as que o rastreador ainda não sabe julgar.
  */
-export function paginaDoCatalogo({ ranking = null, historico = [], temporada = null, hoje }) {
+export function paginaDoCatalogo({ ranking = null, battlefinity = null, historico = [], temporada = null, hoje }) {
   const entradas = new Map((ranking?.entries ?? []).map((e) => [e.weapon, e]));
+  const doFinity = new Map((battlefinity?.entries ?? []).map((e) => [e.weapon, e]));
   const ids = [
     ...(ranking?.entries ?? []).slice(0, DO_RANKING).map((e) => e.weapon),
+    ...(battlefinity?.entries ?? []).slice(0, DO_RANKING).map((e) => e.weapon),
     ...WEAPONS.filter((a) => a.season === temporada).map((a) => a.id),
   ];
 
@@ -88,7 +93,7 @@ export function paginaDoCatalogo({ ranking = null, historico = [], temporada = n
       const entrada = entradas.get(arma.id) ?? null;
       const antes = semanaPassada?.order.indexOf(arma.id) ?? -1;
       const naSemana = entrada && antes !== -1 ? antes + 1 - entrada.overall : null;
-      return linhaDaArma(arma, { entrada, naSemana, temporada });
+      return linhaDaArma(arma, { entrada, naSemana, temporada, finity: doFinity.get(arma.id) ?? null });
     });
 
   if (!linhas.length) return null;
@@ -97,8 +102,33 @@ export function paginaDoCatalogo({ ranking = null, historico = [], temporada = n
     ...CATALOGO,
     date: hoje,
     texto: [
-      'Tiros e tempo para eliminar um alvo de 100 de vida, sem acessório, no corpo. A posição no ranking é a do rastreador nesta leitura.',
+      'Tiros e tempo para eliminar um alvo de 100 de vida, sem acessório, no corpo. As posições são as dos dois rastreadores nesta leitura.',
       ...linhas,
     ].join('\n'),
+  };
+}
+
+/**
+ * O ranking do battlefinity como página do material, já lido pelo código.
+ *
+ * Uma linha por arma, na ordem do site: tier e taxa de escolha. As trinta
+ * primeiras bastam — abaixo disso a taxa é de fração de ponto.
+ */
+export function paginaDoBattlefinity(ranking, { hoje }) {
+  if (!ranking?.entries?.length) return null;
+  const nome = new Map(WEAPONS.map((a) => [a.id, a.name]));
+  return {
+    name: ranking.name,
+    url: ranking.url,
+    date: hoje,
+    scope:
+      'Meta do multiplayer do battlefinity: tier da melhor montagem de cada arma (julgamento de força) e ordem pela taxa de escolha entre os jogadores que o site acompanha.',
+    texto: ranking.entries
+      .slice(0, 30)
+      .map(
+        (e) =>
+          `${e.overall}. ${nome.get(e.weapon) ?? e.weapon} — tier ${e.tier}, ${String(e.pickRate).replace('.', ',')}% de escolha, ${e.categoryRank}º da classe (${CATEGORIA[e.category] ?? e.category})`,
+      )
+      .join('\n'),
   };
 }

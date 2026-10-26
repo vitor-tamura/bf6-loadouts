@@ -13,11 +13,16 @@ export interface RankingEntry {
   category: WeaponCategory;
   categoryRank: number;
   overall: number;
+  /** Só no battlefinity: o tier da melhor montagem e a taxa de escolha, em %. */
+  tier?: string;
+  pickRate?: number;
 }
 
 export interface Ranking {
   name: string;
   url: string;
+  /** Por que a página vale para o multiplayer, como a lista de fontes mostra. */
+  scope?: string;
   date: string;
   entries: RankingEntry[];
 }
@@ -25,6 +30,8 @@ export interface Ranking {
 export interface DailyRanking {
   multiplayer: Ranking;
   redsec?: Ranking;
+  /** O meta do multiplayer do battlefinity: tier e taxa de escolha. */
+  battlefinity?: Ranking;
 }
 
 /** A ordem das categorias na tela, a mesma da curadoria escrita à mão. */
@@ -54,7 +61,8 @@ export function indiceDaFonte(
     date: ranking.date,
     country: 'INT',
     mode: 'multiplayer',
-    scope: 'Página só de multiplayer, separada da de REDSEC: ordena as armas no geral e dentro de cada classe.',
+    scope:
+      ranking.scope ?? 'Página só de multiplayer, separada da de REDSEC: ordena as armas no geral e dentro de cada classe.',
     timeframe: `season-${temporada}`,
   };
   return { fontes: [...fontes, fonte], indice: fontes.length };
@@ -74,8 +82,16 @@ export function categoriasDoRanking(
     fonte,
     temporada,
     armas,
-  }: { fonte: number; temporada: number; armas: Pick<Weapon, 'id' | 'category' | 'season'>[] },
+    outro = null,
+  }: {
+    fonte: number;
+    temporada: number;
+    armas: Pick<Weapon, 'id' | 'category' | 'season'>[];
+    /** Outro rastreador, que pode já ter medido a arma nova que este ainda não. */
+    outro?: { ranking: Ranking; fonte: number } | null;
+  },
 ): CategoryHighlight[] {
+  const noOutro = new Map((outro?.ranking.entries ?? []).map((e) => [e.weapon, e]));
   const ranqueadas = new Set(ranking.entries.map((e) => e.weapon));
 
   return ORDEM.flatMap((categoria) => {
@@ -93,11 +109,22 @@ export function categoriasDoRanking(
           : `${entrada.categoryRank}ª da classe, ${entrada.overall}ª no geral.`,
       sources: [fonte],
     });
-    const nova = (arma: Pick<Weapon, 'id'>): MetaPick => ({
-      weapon: arma.id,
-      reason: `Nova na Temporada ${temporada}: o ranking do multiplayer ainda não a classificou.`,
-      sources: [],
-    });
+    const nova = (arma: Pick<Weapon, 'id'>): MetaPick => {
+      const la = noOutro.get(arma.id);
+      if (la && outro) {
+        const escolha = la.pickRate !== undefined ? `, ${String(la.pickRate).replace('.', ',')}% de escolha` : '';
+        return {
+          weapon: arma.id,
+          reason: `Nova na Temporada ${temporada}: fora deste ranking ainda, mas ${la.overall}ª no battlefinity${la.tier ? `, tier ${la.tier}` : ''}${escolha}.`,
+          sources: [outro.fonte],
+        };
+      }
+      return {
+        weapon: arma.id,
+        reason: `Nova na Temporada ${temporada}: o ranking do multiplayer ainda não a classificou.`,
+        sources: [],
+      };
+    };
 
     const [primeira, ...resto] = daClasse;
     const best = primeira ? pick(primeira, 0) : nova(novas[0]);

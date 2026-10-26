@@ -153,11 +153,21 @@ export function MetaScreen({
     curadoria à mão de `meta.ts` fica de reserva para quando ele não vier.
   */
   const doRanking = ranking?.multiplayer ? indiceDaFonte(doTopo.fontes, ranking.multiplayer, { temporada }) : null;
+  /* O battlefinity, quando veio, entra nas fontes para as armas novas que só ele mediu. */
+  const doBattlefinity =
+    doRanking && ranking?.battlefinity
+      ? indiceDaFonte(doRanking.fontes, ranking.battlefinity, { temporada })
+      : null;
   const porCategoria =
     ranking?.multiplayer && doRanking
       ? {
-          categorias: categoriasDoRanking(ranking.multiplayer, { fonte: doRanking.indice, temporada, armas: WEAPONS }),
-          fontes: doRanking.fontes,
+          categorias: categoriasDoRanking(ranking.multiplayer, {
+            fonte: doRanking.indice,
+            temporada,
+            armas: WEAPONS,
+            outro: doBattlefinity && ranking.battlefinity ? { ranking: ranking.battlefinity, fonte: doBattlefinity.indice } : null,
+          }),
+          fontes: doBattlefinity?.fontes ?? doRanking.fontes,
         }
       : realocarCategorias(BY_CATEGORY, doTopo.fontes);
   const contrastesDoDia = ranking ? contrasteRedsec(ranking) : [];

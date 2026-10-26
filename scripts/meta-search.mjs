@@ -56,7 +56,7 @@ import {
   listasBrutas,
   montarLeitura,
 } from './meta/leitura.mjs';
-import { paginaDoCatalogo } from './meta/catalogo.mjs';
+import { paginaDoBattlefinity, paginaDoCatalogo } from './meta/catalogo.mjs';
 import { RANKINGS, ancorarFontes, lerConversa, lerPaginasQueMedem, lerRanking } from './meta/paginas.mjs';
 import { briefingDoPatch, fontesDoPatch, patchAtual } from './meta/patch-atual.mjs';
 import { candidatos, modelosDe, perguntarComBusca, temAlgumaChave } from './meta/provedores.mjs';
@@ -333,7 +333,7 @@ Você **não tem busca**. Tudo o que pode usar está transcrito abaixo, baixado 
 
 ### 2.1. Páginas que medem — sustentam os picks
 
-Os blocos de ranking são o texto de uma página do multiplayer, na ordem em que a página lista as armas: a posição é o julgamento de força daquele rastreador. O bloco "Arsenal BF6 — números do catálogo" é outra coisa: são os números de cada arma — tiros e tempo para eliminar por distância, cadência, alcance —, calculados pelo site, com a posição no ranking e quanto ela andou na semana ao lado.
+Os blocos de ranking são o texto de uma página do multiplayer, na ordem em que a página lista as armas: a posição é o julgamento de força daquele rastreador. O bloco do battlefinity ordena de outro jeito: a letra é o tier da melhor montagem da arma — julgamento de força do site — e a ordem é a taxa de escolha entre os jogadores que ele acompanha, que é uso, não força. É o rastreador que já mede as armas da temporada. O bloco "Arsenal BF6 — números do catálogo" é outra coisa: são os números de cada arma — tiros e tempo para eliminar por distância, cadência, alcance —, calculados pelo site, com a posição no ranking e quanto ela andou na semana ao lado.
 
 ${blocosDePagina}
 
@@ -348,6 +348,7 @@ ${blocosDeConversa}
 - Em "source", copie a URL exatamente como aparece acima.
 - **Picks são julgamento seu, não cópia do ranking.** O ranking anda devagar — as mesmas oito armas, na mesma ordem, por dias seguidos — e transcrevê-lo não é leitura. Parta dele e corrija onde o material sustentar:
   - o patch da seção 1 mexeu na arma (nerf, buff, correção) — isso pesa mais que a posição de um rastreador que talvez ainda não tenha reagido;
+  - os dois rastreadores discordam — o wzstats põe a arma num lugar, o battlefinity dá a ela tier S ou a deixa em B: a discordância é informação, e o tier S de um com posição alta no outro pesa mais que qualquer um sozinho;
   - os números do catálogo mostram vantagem ou desvantagem clara contra as vizinhas de ranking — tempo para eliminar menor, mais alcance com os mesmos tiros;
   - uma arma nova da temporada tem números que a põem entre as mais fortes e o rastreador ainda não a mediu: ela pode entrar, dito no motivo que é leitura dos números, não do ranking;
   - a conversa de 2.2 **confirma** ou **contesta** o que o ranking e os números dizem — ela nunca põe arma no topo sozinha.
@@ -431,13 +432,21 @@ function acrescentarCatalogo(material) {
   } catch {
     // Sem histórico, a linha só não diz o movimento da semana.
   }
+  if (!material.paginas.length) return;
+
+  // O battlefinity entra já lido: tier, taxa de escolha e classe por linha, que
+  // é mais fácil de ler que a página inteira com menus e montagens.
+  const doBattlefinity = paginaDoBattlefinity(RANKING?.battlefinity, { hoje: HOJE });
+  if (doBattlefinity) material.paginas.push(doBattlefinity);
+
   const pagina = paginaDoCatalogo({
     ranking: RANKING?.multiplayer ?? null,
+    battlefinity: RANKING?.battlefinity ?? null,
     historico,
     temporada: TEMPORADA.number,
     hoje: HOJE,
   });
-  if (pagina && material.paginas.length) material.paginas.push(pagina);
+  if (pagina) material.paginas.push(pagina);
 }
 
 /**
@@ -539,13 +548,17 @@ async function lerComBusca(base) {
 let RANKING = null;
 
 async function lerRankings() {
-  const [multiplayer, redsec] = await Promise.all([
+  const [multiplayer, redsec, battlefinity] = await Promise.all([
     lerRanking(RANKINGS.multiplayer, { hoje: HOJE }),
     lerRanking(RANKINGS.redsec, { hoje: HOJE }),
+    lerRanking(RANKINGS.battlefinity, { hoje: HOJE }),
   ]);
   if (!multiplayer) return null;
-  console.log(`Ranking lido: ${multiplayer.entries.length} armas no multiplayer, ${redsec?.entries.length ?? 0} no REDSEC.`);
-  return { multiplayer, ...(redsec ? { redsec } : {}) };
+  console.log(
+    `Ranking lido: ${multiplayer.entries.length} armas no multiplayer, ${redsec?.entries.length ?? 0} no REDSEC, ` +
+      `${battlefinity?.entries.length ?? 0} no battlefinity.`,
+  );
+  return { multiplayer, ...(redsec ? { redsec } : {}), ...(battlefinity ? { battlefinity } : {}) };
 }
 
 /**

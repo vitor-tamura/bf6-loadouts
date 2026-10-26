@@ -403,6 +403,64 @@ export function rankingDaPagina(texto) {
   return entradas;
 }
 
+/**
+ * O ranking do battlefinity, que ordena por outra coisa.
+ *
+ * Cada linha é "posição NOME [S-D] Tier … · Classe · 20.2% pick": a letra é o
+ * tier da melhor montagem da arma — julgamento de força do site — e a ordem é
+ * pela taxa de escolha entre os jogadores que ele acompanha. Foi a primeira
+ * fonte a ranquear as armas da Temporada 5: em 26/10 a Mk 24 era a primeira,
+ * com 20,2%, enquanto o wzstats nem a listava.
+ *
+ * A raiz do site é o REDSEC; o multiplayer mora em `/battlefield`, na seção
+ * "Multiplayer · Popularity". O recorte começa nela, e sem ela não há ranking.
+ */
+const LINHA_DO_BATTLEFINITY = /(\d+(?:[.,]\d+)?)\s*%\s*pick/gi;
+const TIER = /([SABCD])\s*Tier/g;
+
+export function rankingDoBattlefinity(textoDaPagina) {
+  let texto = String(textoDaPagina ?? '').replace(/&middot;|&#183;|&#xb7;/gi, '·');
+  /*
+    Sem o título da seção não há como saber de que modo é a lista — e a raiz do
+    site é o REDSEC. Melhor nenhum ranking que o do battle royale lido como o
+    do multiplayer.
+  */
+  const secao = texto.search(/Multiplayer\s*·\s*Popularity/i);
+  if (secao === -1) return [];
+  texto = texto.slice(secao);
+  const fim = texto.slice(40).search(/REDSEC\s*·/i);
+  if (fim !== -1) texto = texto.slice(0, fim + 40);
+
+  const entradas = [];
+  const vistas = new Set();
+  let desde = 0;
+
+  for (const achado of texto.matchAll(LINHA_DO_BATTLEFINITY)) {
+    const trecho = texto.slice(desde, achado.index);
+    desde = achado.index + achado[0].length;
+    const tiers = [...trecho.matchAll(TIER)];
+    const tier = tiers.at(-1);
+    if (!tier) continue;
+
+    const janela = compacto(trecho.slice(Math.max(0, tier.index - 60), tier.index));
+    const encontrada = POR_SUFIXO.find(({ chave }) => janela.endsWith(chave));
+    if (!encontrada || vistas.has(encontrada.arma.id)) continue;
+    vistas.add(encontrada.arma.id);
+
+    const daClasse = entradas.filter((e) => e.category === encontrada.arma.category).length;
+    entradas.push({
+      weapon: encontrada.arma.id,
+      category: encontrada.arma.category,
+      categoryRank: daClasse + 1,
+      overall: entradas.length + 1,
+      tier: tier[1],
+      pickRate: Number(achado[1].replace(',', '.')),
+    });
+  }
+
+  return entradas;
+}
+
 /** A página do ranking do multiplayer e a do REDSEC, no mesmo rastreador. */
 export const RANKINGS = {
   multiplayer: {
@@ -413,19 +471,26 @@ export const RANKINGS = {
     name: 'wzstats.gg — ranking do REDSEC',
     url: 'https://wzstats.gg/battlefield-6/meta',
   },
+  battlefinity: {
+    name: 'battlefinity.gg — meta do multiplayer',
+    url: 'https://battlefinity.gg/battlefield',
+    scope:
+      'Meta do multiplayer (a raiz do site é o REDSEC): tier da melhor montagem de cada arma e ordem pela taxa de escolha entre os jogadores que o site acompanha.',
+    ler: rankingDoBattlefinity,
+  },
 };
 
 /**
  * Baixa e lê um ranking. Devolve `null` quando a página não abre ou não traz
  * ranking reconhecível — meia dúzia de linhas não é ranking, é layout novo.
  */
-export async function lerRanking({ name, url }, { hoje }) {
+export async function lerRanking({ name, url, scope, ler = rankingDaPagina }, { hoje }) {
   try {
     const resposta = await fetch(url, { headers: { 'user-agent': USER_AGENT }, signal: AbortSignal.timeout(30_000) });
     if (!resposta.ok) throw new Error(`${resposta.status} ${resposta.statusText}`);
-    const entries = rankingDaPagina(htmlToText(await resposta.text()).replace(/\s+/g, ' '));
+    const entries = ler(htmlToText(await resposta.text()).replace(/\s+/g, ' '));
     if (entries.length < 20) throw new Error(`só ${entries.length} linhas de ranking reconhecidas`);
-    return { name, url, date: hoje, entries };
+    return { name, url, ...(scope ? { scope } : {}), date: hoje, entries };
   } catch (erro) {
     console.warn(`Ranking fora — ${url}: ${erro.message}`);
     return null;

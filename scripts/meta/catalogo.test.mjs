@@ -17,14 +17,22 @@ describe('paginaDoCatalogo', () => {
   const pagina = paginaDoCatalogo({ ranking, historico, temporada: 5, hoje: '2026-10-26' });
 
   it('traz as armas do topo do ranking com os números e o movimento da semana', () => {
-    expect(pagina.texto).toMatch(/B36A4 \(fuzil\) — 1º geral e 1º da classe no ranking \(▲1 na semana\)\. 720 RPM; 10 m: \d+ tiros/);
+    expect(pagina.texto).toMatch(/B36A4 \(fuzil\) — wzstats: 1º geral e 1º da classe \(▲1 na semana\)\. 720 RPM; 10 m: \d+ tiros/);
   });
 
   it('traz as armas novas da temporada, mesmo fora do ranking, marcadas como tal', () => {
-    expect(pagina.texto).toMatch(/Mk 24 \(fuzil\) — fora do ranking do rastreador\..*nova na Temporada 5/);
+    expect(pagina.texto).toMatch(/Mk 24 \(fuzil\) — fora do ranking do wzstats\..*nova na Temporada 5/);
   });
 
   it('é fonte que pode sustentar o topo, como as páginas que medem', () => {
     expect(confiabilidade(CATALOGO.url)).toBe('analise');
+  });
+});
+
+describe('battlefinity', () => {
+  it('a linha da arma traz o tier e a taxa de escolha do battlefinity', () => {
+    const battlefinity = { entries: [{ weapon: 'mk-24', category: 'ar', categoryRank: 1, overall: 1, tier: 'S', pickRate: 20.2 }] };
+    const pagina = paginaDoCatalogo({ ranking, battlefinity, historico: [], temporada: 5, hoje: '2026-10-26' });
+    expect(pagina.texto).toMatch(/Mk 24 \(fuzil\) — fora do ranking do wzstats; battlefinity: 1º, tier S, 20,2% de escolha\./);
   });
 });
