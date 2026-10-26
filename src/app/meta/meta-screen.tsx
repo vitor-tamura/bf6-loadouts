@@ -120,22 +120,25 @@ export function MetaScreen({
     topo com a lista de ontem e as categorias, logo abaixo, com a de hoje.
   */
   const fonteDoRanking = ranking?.multiplayer ? indiceDaFonte(sources, ranking.multiplayer, { temporada }) : null;
+  /*
+    O topo é o da leitura do dia: o modelo parte do ranking e o corrige com o
+    patch, os números do catálogo e a conversa (scripts/meta/catalogo.mjs).
+    Só quando a leitura é mais velha que o ranking — o modelo falhou e a rotina
+    gravou só o ranking — a ordem volta a ser a do rastreador, porque o texto
+    de outro dia não diz o de hoje.
+  */
+  const leituraEmDia = !ranking?.multiplayer || (readAt ?? '') >= ranking.multiplayer.date;
   const doTopo =
-    ranking?.multiplayer && fonteDoRanking
-      ? completarDestaques(
-          // O texto do modelo diz a posição do dia em que foi escrito: de outro dia, não serve.
-          topoDoDia(readAt === ranking.multiplayer.date ? picks : [], ranking.multiplayer, fonteDoRanking.indice),
-          fonteDoRanking.fontes,
-        )
+    ranking?.multiplayer && fonteDoRanking && !(leituraEmDia && picks.length)
+      ? completarDestaques(topoDoDia([], ranking.multiplayer, fonteDoRanking.indice), fonteDoRanking.fontes)
       : completarDestaques(picks, sources);
 
   /* O movimento de cada arma no ranking, contra ontem e contra a semana. */
   const diaDoRanking = ranking?.multiplayer.date ?? readAt ?? UPDATED_AT;
   const historico = history?.multiplayer ?? [];
   const movimentoDe = (arma: string) => movimentoNoRanking(historico, arma, diaDoRanking);
-  const subidas = subidasNoRanking(historico, diaDoRanking).filter(
-    ({ movimento }) => movimento.posicao > doTopo.destaques.length,
-  );
+  const noTopo = new Set(doTopo.destaques.map((pick) => pick.weapon));
+  const subidas = subidasNoRanking(historico, diaDoRanking).filter(({ weapon }) => !noTopo.has(weapon));
 
   /*
     Os blocos por categoria são escritos à mão e continuam sendo, mesmo quando o
@@ -261,7 +264,7 @@ export function MetaScreen({
             </Typography.Text>
           </div>
           <BlockNote>
-            Entra aqui a arma que as fontes apontam como <strong>mais forte depois do patch</strong>: teste, análise de balanceamento e estatística analisada pelos jogadores e opiniões nas comunidades, entre eles TTK, dano, controle, alcance e etc. Posição em ranking da meta é baseada em análises e opiniões da comunidade, e não como pick rate, que o jogo não publica. Os colchetes dizem de que fonte saiu cada indicação (ex: [1], [2], [3]). A ordem é a do ranking do dia: a seta diz quanto a arma andou desde a leitura anterior, e “= 5d” que ela está na mesma posição há cinco leituras.
+            Entra aqui a arma que as fontes apontam como <strong>mais forte depois do patch</strong>: teste, análise de balanceamento e estatística analisada pelos jogadores e opiniões nas comunidades, entre eles TTK, dano, controle, alcance e etc. Posição em ranking da meta é baseada em análises e opiniões da comunidade, e não como pick rate, que o jogo não publica. Os colchetes dizem de que fonte saiu cada indicação (ex: [1], [2], [3]). A ordem é da leitura do dia, que parte do ranking do rastreador e o corrige com o patch, os números do catálogo e a conversa da semana. O selo no canto é a posição no ranking: a seta diz quanto a arma andou desde a leitura anterior, e “= 5d” que ela está no mesmo lugar há cinco leituras.
           </BlockNote>
           <Row gutter={[8, 8]}>
             {destaques.map((pick, rank) => (
@@ -667,11 +670,11 @@ function MovimentoTag({ movimento }: { movimento: Movimento }) {
               'var(--text-dim)',
               `Mesma posição há ${leiturasNaPosicao} leituras${naSemana ? `; ${naSemana > 0 ? '▲' : '▼'}${Math.abs(naSemana)} na semana` : ''}`,
             ];
-  if (!texto) return null;
   return (
-    <Hint label={dica!}>
-      <span className="font-mono text-[10px]" style={{ color: cor! }}>
-        {texto}
+    <Hint label={`${movimento.posicao}º no ranking do rastreador${dica ? `. ${dica}` : ''}`}>
+      <span className="font-mono text-[10px]" style={{ color: 'var(--text-dim)' }}>
+        #{movimento.posicao}
+        {texto && <span style={{ color: cor!, marginLeft: 4 }}>{texto}</span>}
       </span>
     </Hint>
   );

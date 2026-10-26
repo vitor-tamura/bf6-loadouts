@@ -56,6 +56,7 @@ import {
   listasBrutas,
   montarLeitura,
 } from './meta/leitura.mjs';
+import { paginaDoCatalogo } from './meta/catalogo.mjs';
 import { RANKINGS, ancorarFontes, lerConversa, lerPaginasQueMedem, lerRanking } from './meta/paginas.mjs';
 import { briefingDoPatch, fontesDoPatch, patchAtual } from './meta/patch-atual.mjs';
 import { candidatos, modelosDe, perguntarComBusca, temAlgumaChave } from './meta/provedores.mjs';
@@ -332,7 +333,7 @@ Você **não tem busca**. Tudo o que pode usar está transcrito abaixo, baixado 
 
 ### 2.1. Páginas que medem — sustentam os picks
 
-Cada bloco é o texto de uma página de ranking do multiplayer, na ordem em que a página lista as armas. A posição no ranking é o julgamento de força da fonte.
+Os blocos de ranking são o texto de uma página do multiplayer, na ordem em que a página lista as armas: a posição é o julgamento de força daquele rastreador. O bloco "Arsenal BF6 — números do catálogo" é outra coisa: são os números de cada arma — tiros e tempo para eliminar por distância, cadência, alcance —, calculados pelo site, com a posição no ranking e quanto ela andou na semana ao lado.
 
 ${blocosDePagina}
 
@@ -345,7 +346,13 @@ ${blocosDeConversa}
 ### 2.3. Como usar o material
 
 - Em "source", copie a URL exatamente como aparece acima.
-- **Picks** saem só das páginas de 2.1. No motivo, diga a posição da arma no ranking — a geral e a da classe — e, quando a seção 1 disser o que o patch fez com ela, diga também. Duas armas nunca com a mesma frase.
+- **Picks são julgamento seu, não cópia do ranking.** O ranking anda devagar — as mesmas oito armas, na mesma ordem, por dias seguidos — e transcrevê-lo não é leitura. Parta dele e corrija onde o material sustentar:
+  - o patch da seção 1 mexeu na arma (nerf, buff, correção) — isso pesa mais que a posição de um rastreador que talvez ainda não tenha reagido;
+  - os números do catálogo mostram vantagem ou desvantagem clara contra as vizinhas de ranking — tempo para eliminar menor, mais alcance com os mesmos tiros;
+  - uma arma nova da temporada tem números que a põem entre as mais fortes e o rastreador ainda não a mediu: ela pode entrar, dito no motivo que é leitura dos números, não do ranking;
+  - a conversa de 2.2 **confirma** ou **contesta** o que o ranking e os números dizem — ela nunca põe arma no topo sozinha.
+- No motivo de cada pick, o fato que decide: a posição no ranking **e** um número do catálogo, ou o que o patch fez. Arma fora da ordem do ranking diz por que subiu ou desceu. Duas armas nunca com a mesma frase.
+- Em "source" do pick, a URL da página de ranking ou a do catálogo — a que sustenta o fato principal do motivo.
 - **Trending** sai só das threads de 2.2. Uma arma entra quando alguma thread fala dela de fato — reclamação, dúvida, build, comparação. Citação de passagem numa lista de armas não é conversa. Diga no motivo o que a thread discute.
 - Thread sobre REDSEC, battle royale ou Gauntlet não sustenta nada aqui.
 - Se o material sustentar menos armas que o limite, entregue as que ele sustentar. Lista curta o código aceita; lista preenchida de memória, não.`,
@@ -408,6 +415,29 @@ async function juntarMaterial() {
   ]);
   console.log(`Material baixado: ${paginas.length} página(s) que medem, ${conversa.length} thread(s) que citam arma.`);
   return { paginas, conversa };
+}
+
+/**
+ * Os números do catálogo entram como mais uma página que mede (`meta/catalogo.mjs`).
+ *
+ * Sem eles o topo era o ranking do rastreador transcrito, e o ranking passou
+ * dez dias sem mexer. Com eles, o modelo tem com o que julgar — inclusive a
+ * arma nova que o rastreador ainda não mediu.
+ */
+function acrescentarCatalogo(material) {
+  let historico = [];
+  try {
+    historico = JSON.parse(readFileSync(HISTORICO, 'utf8')).multiplayer ?? [];
+  } catch {
+    // Sem histórico, a linha só não diz o movimento da semana.
+  }
+  const pagina = paginaDoCatalogo({
+    ranking: RANKING?.multiplayer ?? null,
+    historico,
+    temporada: TEMPORADA.number,
+    hoje: HOJE,
+  });
+  if (pagina && material.paginas.length) material.paginas.push(pagina);
 }
 
 /**
@@ -647,7 +677,10 @@ async function main() {
   // O mesmo para a leitura sem busca: baixa o material e mostra o que o modelo
   // receberia, sem perguntar a ninguém.
   if (process.argv.includes('--material')) {
-    console.log(promptSemBusca(await juntarMaterial()));
+    const [material, ranking] = await Promise.all([juntarMaterial(), lerRankings()]);
+    RANKING = ranking;
+    acrescentarCatalogo(material);
+    console.log(promptSemBusca(material));
     return;
   }
 
@@ -659,6 +692,7 @@ async function main() {
   const [material, ranking] = await Promise.all([juntarMaterial(), lerRankings()]);
   RANKING = ranking;
   gravarHistorico();
+  acrescentarCatalogo(material);
   const semBusca = material.paginas.length ? await lerSemBusca(material) : null;
 
   if (semBusca && semBusca.conteudo.trending.length >= LIMITES.minimoDeTrending) {

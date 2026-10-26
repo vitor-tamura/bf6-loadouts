@@ -274,6 +274,9 @@ const FONTES_DE_ANALISE = new Set([
   'symthic.com',
   'sym.gg',
   'truegamedata.com',
+  // Os números do próprio catálogo, que a leitura recebe como página
+  // (scripts/meta/catalogo.mjs): tiros e tempo para eliminar, calculados.
+  'bf6-loadouts.vercel.app',
 ]);
 
 /**
