@@ -25,6 +25,7 @@ import {
 } from '@/data/meta';
 import { seasonOn } from '@/data/season';
 import { WEAPONS, WEAPONS_BY_ID } from '@/data/weapons';
+import { rotuloDaFonte, semNomeDeFonte } from '@/lib/sem-fonte';
 import {
   categoriasDoRanking,
   contrasteRedsec,
@@ -274,7 +275,7 @@ export function MetaScreen({
             </Typography.Text>
           </div>
           <BlockNote>
-            Entra aqui a arma que as fontes apontam como <strong>mais forte depois do patch</strong>: teste, análise de balanceamento e estatística analisada pelos jogadores e opiniões nas comunidades, entre eles TTK, dano, controle, alcance e etc. Posição em ranking da meta é baseada em análises e opiniões da comunidade, e não como pick rate, que o jogo não publica. Os colchetes dizem de que fonte saiu cada indicação (ex: [1], [2], [3]). A ordem é da leitura do dia, que parte do ranking do rastreador e o corrige com o patch, os números do catálogo e a conversa da semana. O selo no canto é a posição no ranking: a seta diz quanto a arma andou desde a leitura anterior, e “= 5d” que ela está no mesmo lugar há cinco leituras.
+            Entra aqui a arma que as fontes apontam como <strong>mais forte depois do patch</strong>: teste, análise de balanceamento e estatística analisada pelos jogadores e opiniões nas comunidades, entre eles TTK, dano, controle, alcance e etc. Posição em ranking da meta é baseada em análises e opiniões da comunidade, e não como pick rate, que o jogo não publica. Os colchetes dizem de que fonte saiu cada indicação (ex: [1], [2], [3]). A ordem é da leitura do dia, que cruza um ranking de força e um de uso com o patch, os números do jogo e a conversa da semana. O selo no canto é a posição no ranking de força: a seta diz quanto a arma andou desde a leitura anterior, e “= 5d” que ela está no mesmo lugar há cinco leituras.
           </BlockNote>
           <Row gutter={[8, 8]}>
             {destaques.map((pick, rank) => (
@@ -314,7 +315,7 @@ export function MetaScreen({
               </Typography.Text>
             </div>
             <BlockNote>
-              Aqui é <strong>o que a comunidade mais comenta e mais leva para a partida</strong>: fóruns, Reddit, Discord e afins. A arma pode ter sido buffada, ter acessório novo ou build.
+              Aqui é <strong>o que a comunidade mais comenta e mais leva para a partida</strong>: fóruns, threads, Discord e afins. A arma pode ter sido buffada, ter acessório novo ou build.
             </BlockNote>
             <Row gutter={[8, 8]}>
               {tendencia.map((pick, rank) => (
@@ -387,7 +388,7 @@ export function MetaScreen({
                         <span style={{ color: 'var(--text-soft)' }}>{item.multiplayer}</span>
                       </p>
                       <p className="mt-1 text-[11px] leading-snug" style={{ color: 'var(--text-dim)' }}>
-                        {item.note}
+                        {semNomeDeFonte(item.note)}
                       </p>
                     </div>
                   </Col>
@@ -438,7 +439,7 @@ export function MetaScreen({
                     className="text-[12px] underline underline-offset-2"
                     style={{ color: 'var(--text-soft)' }}
                   >
-                    {f.name}
+                    {rotuloDaFonte(f)}
                   </Typography.Link>
                   <span style={{ color: 'var(--text-dim)' }}>· {shortDate(f.date)}</span>
                   {f.timeframe === 'launch' && (
@@ -446,7 +447,7 @@ export function MetaScreen({
                   )}
                 </p>
                 <p className="mt-0.5 ml-6 text-[11px] leading-snug" style={{ color: 'var(--text-dim)' }}>
-                  {f.scope}
+                  {semNomeDeFonte(f.scope)}
                 </p>
               </li>
             ))}
@@ -533,7 +534,7 @@ function TrendingCard({ pick, rank }: { pick: TrendingPick; rank: number }) {
               background: 'color-mix(in oklab, var(--accent) 10%, transparent)',
             }}
           >
-            <SlidingText>{pick.trend}</SlidingText>
+            <SlidingText>{semNomeDeFonte(pick.trend)}</SlidingText>
           </Tag>
         </div>
 
@@ -546,7 +547,7 @@ function TrendingCard({ pick, rank }: { pick: TrendingPick; rank: number }) {
         <WeaponPreview weapon={weapon} className="mt-2 w-full" />
 
         <p className="mt-2 text-[11px] leading-snug" style={{ color: 'var(--text-soft)' }}>
-          {pick.reason}
+          {semNomeDeFonte(pick.reason)}
         </p>
 
         <p className="mt-1.5 text-[11px] leading-snug" style={{ color: 'var(--text-dim)' }}>
@@ -638,7 +639,7 @@ function MetaCard({
         {!rank && <WeaponPreview weapon={weapon} className="my-1 w-full" />}
 
         <p className="mt-1 text-[11px] leading-snug" style={{ color: 'var(--text-soft)' }}>
-          {pick.reason}
+          {semNomeDeFonte(pick.reason)}
         </p>
 
         <p
@@ -681,7 +682,7 @@ function MovimentoTag({ movimento }: { movimento: Movimento }) {
               `Mesma posição há ${leiturasNaPosicao} leituras${naSemana ? `; ${naSemana > 0 ? '▲' : '▼'}${Math.abs(naSemana)} na semana` : ''}`,
             ];
   return (
-    <Hint label={`${movimento.posicao}º no ranking do rastreador${dica ? `. ${dica}` : ''}`}>
+    <Hint label={`${movimento.posicao}º no ranking de força${dica ? `. ${dica}` : ''}`}>
       <span className="font-mono text-[10px]" style={{ color: 'var(--text-dim)' }}>
         #{movimento.posicao}
         {texto && <span style={{ color: cor!, marginLeft: 4 }}>{texto}</span>}
@@ -705,7 +706,7 @@ function MentionRow({ pick }: { pick: MetaPick }) {
         </span>
       </span>
       <span className="mt-0.5 block text-[11px] leading-snug" style={{ color: 'var(--text-dim)' }}>
-        {pick.reason}
+        {semNomeDeFonte(pick.reason)}
       </span>
     </Link>
   );

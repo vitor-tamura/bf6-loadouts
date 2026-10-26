@@ -277,6 +277,7 @@ As duas se cruzam de vez em quando — arma forte costuma ser usada —, mas uma
 - Elogio sem fato é recusado pelo código, e a frase inteira cai junto com a arma: "desempenho superior", "escolha dominante", "domina o meta", "uma das melhores armas", "altamente versátil", "muito eficaz", "eficaz em diversas situações", "excelente desempenho". Se a sua frase caberia igual em outra arma da lista, ela não é evidência.
 - "trend": rótulo curto do assunto daquela arma, do que mudou nela e etc — "build full-auto", "todo mundo usando", "reclamação de recuo", "chegou no patch", "migração da X". Não use "popularidade crescente", "aumento de uso", "tendência crescente" nem qualquer sinônimo de "está subindo": isso vale para a seção inteira e não informa nada.
 - "source": a URL, entre as que você listar em "sources", que sustenta aquela arma.
+- Em "reason" e "trend", nenhum nome de site — a fonte vai em "source". Diga o papel: "ranking de força", "ranking de uso", "thread da comunidade", "notas do patch".
 
 ## 6. Limites
 
@@ -354,6 +355,7 @@ ${blocosDeConversa}
   - a conversa de 2.2 **confirma** ou **contesta** o que o ranking e os números dizem — ela nunca põe arma no topo sozinha.
 - No motivo de cada pick, o fato que decide: a posição no ranking **e** um número do catálogo, ou o que o patch fez. Arma fora da ordem do ranking diz por que subiu ou desceu. Duas armas nunca com a mesma frase.
 - Em "source" do pick, a URL da página de ranking ou a do catálogo — a que sustenta o fato principal do motivo.
+- **Não escreva o nome de site nenhum** em "reason" nem em "trend" — nem wzstats, nem battlefinity, nem Reddit, nem "catálogo". A fonte vai em "source", e a tela a cita pelo colchete. No texto, chame cada coisa pelo papel: "ranking de força" (as páginas de ranking por posição), "ranking de uso" (o do tier e da taxa de escolha), "números do jogo" (o bloco do catálogo), "thread da comunidade", "notas do patch".
 - **Trending** sai só das threads de 2.2. Uma arma entra quando alguma thread fala dela de fato — reclamação, dúvida, build, comparação. Citação de passagem numa lista de armas não é conversa. Diga no motivo o que a thread discute.
 - Thread sobre REDSEC, battle royale ou Gauntlet não sustenta nada aqui.
 - Se o material sustentar menos armas que o limite, entregue as que ele sustentar. Lista curta o código aceita; lista preenchida de memória, não.`,
@@ -629,7 +631,7 @@ export function leituraDoRanking(ranking = RANKING) {
       ...(CONTEXTO_DA_LEITURA.patchConhecido ? { patch: CONTEXTO_DA_LEITURA.patchConhecido } : {}),
       picks: pagina.entries.slice(0, LIMITES.picks).map((entrada) => ({
         weapon: entrada.weapon,
-        reason: `${entrada.overall}ª no ranking geral do multiplayer do wzstats e ${entrada.categoryRank}ª entre ${PLURAL[entrada.category] ?? 'as da classe'}.`,
+        reason: `${entrada.overall}ª no ranking de força do multiplayer e ${entrada.categoryRank}ª entre ${PLURAL[entrada.category] ?? 'as da classe'}.`,
         sources: [0],
       })),
       trending: [],

@@ -115,7 +115,7 @@ export function categoriasDoRanking(
         const escolha = la.pickRate !== undefined ? `, ${String(la.pickRate).replace('.', ',')}% de escolha` : '';
         return {
           weapon: arma.id,
-          reason: `Nova na Temporada ${temporada}: fora deste ranking ainda, mas ${la.overall}ª no battlefinity${la.tier ? `, tier ${la.tier}` : ''}${escolha}.`,
+          reason: `Nova na Temporada ${temporada}: fora deste ranking ainda, mas ${la.overall}ª no ranking de uso${la.tier ? `, tier ${la.tier}` : ''}${escolha}.`,
           sources: [outro.fonte],
         };
       }
