@@ -44,14 +44,21 @@ describe('leitura do confronto', () => {
   });
 
   it('aponta a submetralhadora de perto e o fuzil no vão aberto', () => {
+    /*
+      Era a M2010 ESR, com 110 de dano a queima-roupa. A curva do jogo
+      (BF6-Weapon-Analyzer) dá a ela 80 até 75 m — dois tiros ao peito em
+      qualquer distância de briga —, e com isso nenhum ferrolho vence a SMG
+      nem no REDSEC pela conta deste confronto. O fuzil de vão aberto que
+      sobra é o semiautomático: a M39 EMR, três tiros de 41,5 até 75 m.
+    */
     const smg = stats('cz3a1');
-    const rifle = stats('m2010-esr');
+    const rifle = stats('m39-emr');
 
-    const perto = analyzeMatchup(smg, rifle, 'CZ3A1', 'M2010 ESR', 'multiplayer');
-    const longe = analyzeMatchup(smg, rifle, 'CZ3A1', 'M2010 ESR', 'redsec');
+    const perto = analyzeMatchup(smg, rifle, 'CZ3A1', 'M39 EMR', 'multiplayer');
+    const longe = analyzeMatchup(smg, rifle, 'CZ3A1', 'M39 EMR', 'redsec');
 
     // No multiplayer o tempo de abate curto da SMG pesa mais; no REDSEC, o
-    // alcance do ferrolho encosta ou passa.
+    // alcance do fuzil encosta ou passa.
     expect(perto.winner).toBe('a');
     expect(['b', 'tie']).toContain(longe.winner);
   });

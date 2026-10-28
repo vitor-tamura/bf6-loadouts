@@ -1,7 +1,16 @@
 import { describe, expect, it } from 'vitest';
 import { WEAPONS } from '@/data/weapons';
 import { attachmentsForWeapon } from '@/data/attachments';
-import { encodeLoadout, decodeLoadout, loadoutImageUrl, loadoutUrl } from './share';
+import {
+  DEFAULT_IMAGE_FORMAT,
+  IMAGE_FORMATS,
+  encodeLoadout,
+  decodeLoadout,
+  loadoutImageFilename,
+  loadoutImageUrl,
+  loadoutUrl,
+  parseImageFormat,
+} from './share';
 import { EMPTY_LOADOUT, factoryAttachments, type Loadout } from './loadout';
 import { WEAPONS_BY_ID } from '@/data/weapons';
 
@@ -122,6 +131,54 @@ describe('URL de compartilhamento', () => {
     const doLink = new URL(loadoutUrl(full, 'https://exemplo.com')).searchParams.get('l')!;
     expect(daImagem).toBe(doLink);
     expect(decodeLoadout(daImagem)).toEqual(full);
+  });
+});
+
+describe('formatos do Instagram', () => {
+  it('seguem as medidas que o Instagram publica sem cortar', () => {
+    expect(IMAGE_FORMATS.feed.largura / IMAGE_FORMATS.feed.altura).toBe(4 / 5);
+    expect(IMAGE_FORMATS.story.largura / IMAGE_FORMATS.story.altura).toBe(9 / 16);
+    expect(IMAGE_FORMATS.feed.largura).toBe(1080);
+    expect(IMAGE_FORMATS.story.largura).toBe(1080);
+  });
+
+  it('o story reserva o topo e o pé que a interface do aplicativo cobre', () => {
+    expect(IMAGE_FORMATS.story.topo).toBeGreaterThanOrEqual(250);
+    expect(IMAGE_FORMATS.story.base).toBeGreaterThanOrEqual(340);
+    // A área útil do story cabe o mesmo miolo do feed, a menos de 2% de diferença.
+    const util = IMAGE_FORMATS.story.altura - IMAGE_FORMATS.story.topo - IMAGE_FORMATS.story.base;
+    expect(util / IMAGE_FORMATS.feed.altura).toBeGreaterThan(0.98);
+  });
+
+  it('o feed é o padrão e não muda o endereço que já circulava', () => {
+    expect(DEFAULT_IMAGE_FORMAT).toBe('feed');
+    expect(loadoutImageUrl(full, 'https://exemplo.com', 'feed')).toBe(
+      loadoutImageUrl(full, 'https://exemplo.com'),
+    );
+    expect(new URL(loadoutImageUrl(full, 'https://exemplo.com')).searchParams.has('formato')).toBe(false);
+  });
+
+  it('o story vai no parâmetro de busca, com o mesmo código do link', () => {
+    const url = new URL(loadoutImageUrl(full, 'https://exemplo.com', 'story'));
+    expect(url.pathname).toBe('/api/loadout/imagem/');
+    expect(url.searchParams.get('formato')).toBe('story');
+    expect(decodeLoadout(url.searchParams.get('l')!)).toEqual(full);
+  });
+
+  it('formato desconhecido ou ausente cai no feed em vez de virar erro', () => {
+    expect(parseImageFormat('story')).toBe('story');
+    expect(parseImageFormat('feed')).toBe('feed');
+    expect(parseImageFormat(null)).toBe('feed');
+    expect(parseImageFormat('')).toBe('feed');
+    expect(parseImageFormat('reels')).toBe('feed');
+    // Nome herdado de objeto não pode passar por formato.
+    expect(parseImageFormat('toString')).toBe('feed');
+  });
+
+  it('o arquivo leva a arma e o formato no nome, sem espaço nem acento', () => {
+    expect(loadoutImageFilename(full, 'story')).toBe('loadout-ak4d-story.png');
+    expect(loadoutImageFilename({ ...full, weapon: 'sor-556-mk2' })).toBe('loadout-sor-556-mk2-feed.png');
+    expect(loadoutImageFilename({ ...EMPTY_LOADOUT })).toBe('loadout-bf6-feed.png');
   });
 });
 

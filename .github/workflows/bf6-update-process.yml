@@ -184,6 +184,22 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run season:theme
 
+      # Curva de dano, cadência, velocidade, pente, recargas, multiplicador na
+      # cabeça, custo de peça e a lista exata de armas de cada peça, lidos dos
+      # arquivos do jogo pelo BF6-Weapon-Analyzer. Grava só a diferença em
+      # src/data/analyzer-sync.json — o site a aplica sobre weapons.ts e
+      # attachments.ts — e o relatório em data/validation/. Roda antes da
+      # tranca de propósito: correção que quebrar teste não é publicada.
+      #
+      # Sem `continue-on-error`: o GitHub fora do ar derruba a rodada e abre
+      # issue, em vez de publicar o resto com a correção pela metade. Analyzer
+      # atrás do patch do catálogo não é falha — o script mantém o arquivo como
+      # está e diz por quê.
+      - name: Sincronizar com os arquivos do jogo (BF6-Weapon-Analyzer)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run catalog:sincronizar-analyzer
+
       # A tranca que substitui a revisão: se o catálogo novo quebrar o site,
       # ele não é publicado.
       - name: Testes, lint, tipos e build
@@ -194,6 +210,10 @@ jobs:
           npm run catalog:compat
           npm run build
 
+      # `src/data` leva junto a correção do Analyzer (analyzer-sync.json), e
+      # `data` o relatório dela (data/validation/analyzer-sync-report.json),
+      # que guarda o último commit lido — é com ele que o check sabe que não
+      # precisa disparar de novo.
       - name: Publicar em main
         env:
           MAIN_PUSH_TOKEN: ${{ secrets.MAIN_PUSH_TOKEN }}

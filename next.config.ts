@@ -26,9 +26,14 @@ const nextConfig: NextConfig = {
    * As fontes do cartão de imagem são lidas do disco em tempo de execução, e o
    * rastreador não enxerga esse `readFile` — sem esta linha os arquivos ficam
    * fora do pacote e a rota só quebra depois de publicada.
+   *
+   * Vale o mesmo para o que a rota lê de `public/`: o ícone da marca d'água e
+   * as fotos das armas em PNG. Arquivo de `public/` é servido pela borda, não
+   * pela função — sem a menção explícita, nada garante que ele esteja no disco
+   * dela quando o `readFile` procurar.
    */
   outputFileTracingIncludes: {
-    '/api/loadout/imagem': ['./assets/**'],
+    '/api/loadout/imagem': ['./assets/**', './public/icon-192.png', './public/weapons/card/**'],
   },
 };
 

@@ -149,6 +149,16 @@ export interface Compatibility {
   weapons?: string[];
   /** Remove estas armas da compatibilidade. */
   except?: string[];
+  /**
+   * Libera também estas armas, além da categoria e do arquétipo.
+   *
+   * Existe para a peça que vale por categoria — a munição — e que o jogo
+   * libera numa arma de fora dela. Converter a peça para lista fechada
+   * (`weapons`) a tiraria das armas novas da categoria; este campo acrescenta
+   * sem fechar. Quem escreve é a sincronização com o Analyzer
+   * (`analyzer-sync.ts`).
+   */
+  extraWeapons?: string[];
 }
 
 export interface Attachment {

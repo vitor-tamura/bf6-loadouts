@@ -1,0 +1,6425 @@
+{
+  "_leiaMe": "Gerado por `npm run catalog:sincronizar-analyzer` a partir do BF6-Weapon-Analyzer. Não edite à mão: corrija o cadastro em weapons.ts ou attachments.ts e rode o script de novo. Relatório em data/validation/analyzer-sync-report.json.",
+  "fonte": {
+    "repo": "raymdl/BF6-Weapon-Analyzer",
+    "commit": "912b84eb9245b2f3272a5ee2889348c39c34b9ae",
+    "data": "2026-10-27T11:09:57-04:00",
+    "versaoDeclarada": "2.1.1.0"
+  },
+  "armas": {
+    "18-5ks-k": {
+      "idNoAnalyzer": "ks18k",
+      "campos": {
+        "damage": {
+          "valor": [
+            [5, 0],
+            [2.8, 15],
+            [2, 21]
+          ],
+          "antes": [
+            [6.8, 0],
+            [4.7, 9],
+            [3, 16],
+            [2.2, 22]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "pellets": {
+          "valor": 16,
+          "antes": 15,
+          "fonte": "data/weapons.json#pellets"
+        },
+        "rpm": {
+          "valor": 300,
+          "antes": 240,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "velocity": {
+          "valor": 400,
+          "antes": 390,
+          "fonte": "data/weapons.json#bulletVel"
+        },
+        "magazine": {
+          "valor": 8,
+          "antes": 7,
+          "fonte": "data/attachments.json#WEAPON_MAG.def"
+        },
+        "reload": {
+          "valor": 2.75,
+          "antes": 0.42,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.7,
+          "antes": 0.95,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "ak-205": {
+      "idNoAnalyzer": "ak205",
+      "campos": {
+        "damage": {
+          "valor": [
+            [20.67, 0],
+            [17.74, 9],
+            [15.07, 21],
+            [14.62, 36],
+            [12.76, 75]
+          ],
+          "antes": [
+            [20, 0],
+            [17.7, 9],
+            [15, 21],
+            [14.3, 36],
+            [12.5, 75]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 2.484,
+          "antes": 2.8,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.917,
+          "antes": 3.5,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "ak4d": {
+      "idNoAnalyzer": "ak4d",
+      "campos": {
+        "damage": {
+          "valor": [
+            [35.22, 0],
+            [26.05, 21],
+            [20.67, 75]
+          ],
+          "antes": [
+            [28, 0],
+            [26, 20],
+            [24, 42],
+            [22, 65]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 2.467,
+          "antes": 3.3,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.3,
+          "antes": 4.1,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "b36a4": {
+      "idNoAnalyzer": "b36a4",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [20.67, 21],
+            [17.13, 75]
+          ],
+          "antes": [
+            [25, 0],
+            [20, 35]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 2.384,
+          "antes": 2.75,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.95,
+          "antes": 3.5,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "semi"],
+          "antes": ["auto", "burst"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "brod-3": {
+      "idNoAnalyzer": "brod3",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [21.56, 9],
+            [17.74, 21],
+            [17.13, 36],
+            [14.62, 75]
+          ],
+          "antes": [
+            [20, 0],
+            [18.3, 8],
+            [16.7, 22],
+            [15, 35]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 831,
+          "antes": 750,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "velocity": {
+          "valor": 563,
+          "antes": 700,
+          "fonte": "data/weapons.json#bulletVel"
+        },
+        "reload": {
+          "valor": 2.217,
+          "antes": 2.65,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.05,
+          "antes": 3.35,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "semi"],
+          "antes": ["auto", "burst"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "cz3a1": {
+      "idNoAnalyzer": "cz3a1",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [20.67, 9],
+            [17.13, 21],
+            [14.62, 36],
+            [12.76, 75]
+          ],
+          "antes": [
+            [24, 0],
+            [20, 5],
+            [16, 15],
+            [12, 25]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 982,
+          "antes": 1150,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "reload": {
+          "valor": 2.217,
+          "antes": 2.5,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.95,
+          "antes": 3.1,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "burst", "semi"],
+          "antes": ["auto"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "db-12": {
+      "idNoAnalyzer": "db12",
+      "campos": {
+        "damage": {
+          "valor": [
+            [5.6, 0],
+            [3.3, 15],
+            [2.5, 21]
+          ],
+          "antes": [
+            [10, 0],
+            [7, 10],
+            [4.5, 18],
+            [2.8, 24]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "pellets": {
+          "valor": 16,
+          "antes": 12,
+          "fonte": "data/weapons.json#pellets"
+        },
+        "rpm": {
+          "valor": 360,
+          "antes": 300,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "velocity": {
+          "valor": 400,
+          "antes": 410,
+          "fonte": "data/weapons.json#bulletVel"
+        },
+        "magazine": {
+          "valor": 14,
+          "antes": 2,
+          "fonte": "data/attachments.json#WEAPON_MAG.def"
+        },
+        "fireModes": {
+          "valor": ["bombeamento"],
+          "antes": ["semi"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "drs-iar": {
+      "idNoAnalyzer": "drsiar",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [20.67, 21],
+            [17.13, 75]
+          ],
+          "antes": [
+            [24, 0],
+            [22.7, 30],
+            [21.3, 52],
+            [20, 75]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "magazine": {
+          "valor": 30,
+          "antes": 45,
+          "fonte": "data/attachments.json#WEAPON_MAG.def"
+        },
+        "reload": {
+          "valor": 2.467,
+          "antes": 4.2,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.95,
+          "antes": 5.1,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "semi"],
+          "antes": ["auto"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "ef88": {
+      "idNoAnalyzer": "ef88",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [20.67, 21],
+            [17.13, 75]
+          ],
+          "antes": [
+            [24, 0],
+            [22.3, 18],
+            [20.7, 36],
+            [19, 55]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 675,
+          "antes": 700,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "velocity": {
+          "valor": 724,
+          "antes": 800,
+          "fonte": "data/weapons.json#bulletVel"
+        },
+        "reload": {
+          "valor": 2.4,
+          "antes": 2.7,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.534,
+          "antes": 3.45,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "semi"],
+          "antes": ["auto", "burst", "semi"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "es-57": {
+      "idNoAnalyzer": "es57",
+      "campos": {
+        "reload": {
+          "valor": 2.017,
+          "antes": 2.2,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.2,
+          "antes": 2.7,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "headshot": {
+          "valor": 1.34,
+          "antes": 1.35,
+          "fonte": "data/hit_zones.json#headshot"
+        }
+      }
+    },
+    "ggh-22": {
+      "idNoAnalyzer": "ggh22",
+      "campos": {
+        "damage": {
+          "valor": [
+            [25, 0],
+            [21.5, 9],
+            [17.7, 21],
+            [16.7, 36],
+            [14.3, 75]
+          ],
+          "antes": [
+            [25, 0],
+            [20, 9],
+            [16.7, 21],
+            [14.3, 36],
+            [12.5, 75]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 360,
+          "antes": 400,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "velocity": {
+          "valor": 400,
+          "antes": 420,
+          "fonte": "data/weapons.json#bulletVel"
+        },
+        "reload": {
+          "valor": 1.934,
+          "antes": 2.15,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.25,
+          "antes": 2.65,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "headshot": {
+          "valor": 1.34,
+          "antes": 1.35,
+          "fonte": "data/hit_zones.json#headshot"
+        }
+      }
+    },
+    "grt-bc": {
+      "idNoAnalyzer": "grtbc",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [21.56, 9],
+            [17.74, 21],
+            [17.13, 36],
+            [14.62, 75]
+          ],
+          "antes": [
+            [25, 0],
+            [21.5, 9],
+            [17.7, 21],
+            [16.7, 36],
+            [14.3, 75]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 831,
+          "antes": 830,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "reload": {
+          "valor": 2.5,
+          "antes": 3.35,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.35,
+          "antes": 4.05,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "semi"],
+          "antes": ["auto", "burst"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "grt-cps": {
+      "idNoAnalyzer": "grtcps",
+      "campos": {
+        "damage": {
+          "valor": [
+            [29.4, 0],
+            [27.5, 21],
+            [26.2, 75]
+          ],
+          "antes": [
+            [33.4, 0],
+            [28.6, 45],
+            [25, 90]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 360,
+          "antes": 400,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "magazine": {
+          "valor": 20,
+          "antes": 15,
+          "fonte": "data/attachments.json#WEAPON_MAG.def"
+        },
+        "reload": {
+          "valor": 2.75,
+          "antes": 3.15,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.034,
+          "antes": 3.95,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "headshot": {
+          "valor": 1.34,
+          "antes": 1.5,
+          "fonte": "data/hit_zones.json#headshot"
+        }
+      }
+    },
+    "interdictor": {
+      "idNoAnalyzer": "interdictor",
+      "campos": {
+        "rpm": {
+          "valor": 32,
+          "antes": 30,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "velocity": {
+          "valor": 733,
+          "antes": 1020,
+          "fonte": "data/weapons.json#bulletVel"
+        },
+        "reload": {
+          "valor": 3.5,
+          "antes": 4.6,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 4.83,
+          "antes": 5.6,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "kord-6p67": {
+      "idNoAnalyzer": "kord6p67",
+      "campos": {
+        "damage": {
+          "valor": [
+            [20.67, 0],
+            [17.13, 21],
+            [14.62, 75]
+          ],
+          "antes": [
+            [22, 0],
+            [20, 12],
+            [18, 28],
+            [16, 45]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 2.45,
+          "antes": 2.7,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.017,
+          "antes": 3.45,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "burst", "semi"],
+          "antes": ["auto", "burst"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "kts100-mk8": {
+      "idNoAnalyzer": "kts100",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [20.67, 21],
+            [17.13, 75]
+          ],
+          "antes": [
+            [25, 0],
+            [20, 21],
+            [16.7, 75]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 3.25,
+          "antes": 5.6,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.984,
+          "antes": 6.6,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "semi"],
+          "antes": ["auto"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "kv9": {
+      "idNoAnalyzer": "kv9",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [20.67, 9],
+            [17.13, 21],
+            [14.62, 36],
+            [12.76, 75]
+          ],
+          "antes": [
+            [22, 0],
+            [18.7, 5],
+            [15.3, 12],
+            [12, 20]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 2.384,
+          "antes": 2.9,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.9,
+          "antes": 3.5,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "burst", "semi"],
+          "antes": ["auto"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "l110": {
+      "idNoAnalyzer": "l110",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [20.67, 21],
+            [17.13, 75]
+          ],
+          "antes": [
+            [25, 0],
+            [20, 35]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "magazine": {
+          "valor": 100,
+          "antes": 75,
+          "fonte": "data/attachments.json#WEAPON_MAG.def"
+        },
+        "reload": {
+          "valor": 6.5,
+          "antes": 6.4,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 7.734,
+          "antes": 7.4,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "l115": {
+      "idNoAnalyzer": "l115",
+      "campos": {
+        "damage": {
+          "valor": [
+            [80, 0],
+            [100, 100],
+            [62, 133]
+          ],
+          "antes": [
+            [105, 0],
+            [95, 15],
+            [85, 72],
+            [75, 130]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 46,
+          "antes": 40,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "velocity": {
+          "valor": 742,
+          "antes": 664,
+          "fonte": "data/weapons.json#bulletVel"
+        },
+        "reload": {
+          "valor": 2.75,
+          "antes": 4.1,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 4.233,
+          "antes": 5,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "l85a3": {
+      "idNoAnalyzer": "l85a3",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [20.67, 21],
+            [17.13, 75]
+          ],
+          "antes": [
+            [25, 0],
+            [20, 35]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 2.767,
+          "antes": 2.85,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.834,
+          "antes": 3.6,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "lmr27": {
+      "idNoAnalyzer": "lmr27",
+      "campos": {
+        "damage": {
+          "valor": [
+            [29.4, 0],
+            [27.5, 21],
+            [26.2, 75]
+          ],
+          "antes": [
+            [35, 0],
+            [34.5, 25],
+            [34, 68],
+            [33.5, 110]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 3.034,
+          "antes": 3.07,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.067,
+          "antes": 3.85,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "headshot": {
+          "valor": 1.34,
+          "antes": 1.35,
+          "fonte": "data/hit_zones.json#headshot"
+        }
+      }
+    },
+    "m1014": {
+      "idNoAnalyzer": "m1014",
+      "campos": {
+        "damage": {
+          "valor": [
+            [7.2, 0],
+            [5, 8],
+            [3.1, 15],
+            [2.3, 21]
+          ],
+          "antes": [
+            [7.2, 0],
+            [5, 9],
+            [3.1, 16],
+            [2.3, 22]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "pellets": {
+          "valor": 16,
+          "antes": 15,
+          "fonte": "data/weapons.json#pellets"
+        }
+      }
+    },
+    "m121-a2": {
+      "idNoAnalyzer": "m121a2",
+      "campos": {
+        "damage": {
+          "valor": [
+            [35.22, 0],
+            [26.05, 21],
+            [20.67, 75]
+          ],
+          "antes": [
+            [22, 0],
+            [20.3, 20],
+            [18.7, 40],
+            [17, 60]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 655,
+          "antes": 550,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "magazine": {
+          "valor": 50,
+          "antes": 100,
+          "fonte": "data/attachments.json#WEAPON_MAG.def"
+        },
+        "reload": {
+          "valor": 6.267,
+          "antes": 7.6,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 7.25,
+          "antes": 8.6,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "m123k": {
+      "idNoAnalyzer": "m123k",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [20.67, 21],
+            [17.13, 75]
+          ],
+          "antes": [
+            [25, 0],
+            [20, 21],
+            [16.7, 75]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 831,
+          "antes": 830,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "reload": {
+          "valor": 6.65,
+          "antes": 7.43,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 7.434,
+          "antes": 8.4,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "m16a4": {
+      "idNoAnalyzer": "m16a4",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [20.67, 21],
+            [17.13, 75]
+          ],
+          "antes": [
+            [25, 0],
+            [20, 25],
+            [16.7, 80]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 771,
+          "antes": 800,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "reload": {
+          "valor": 2.2,
+          "antes": 2.72,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.634,
+          "antes": 3.5,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "m2010-esr": {
+      "idNoAnalyzer": "m2010esr",
+      "campos": {
+        "damage": {
+          "valor": [
+            [80, 0],
+            [100, 75],
+            [62, 100]
+          ],
+          "antes": [
+            [110, 0],
+            [100, 20],
+            [90, 85],
+            [80, 150]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 3.234,
+          "antes": 3.93,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.934,
+          "antes": 4.8,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "m240l": {
+      "idNoAnalyzer": "m240l",
+      "campos": {
+        "damage": {
+          "valor": [
+            [35.22, 0],
+            [26.05, 21],
+            [20.67, 75]
+          ],
+          "antes": [
+            [28, 0],
+            [26, 35],
+            [24, 58],
+            [22, 80]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "magazine": {
+          "valor": 50,
+          "antes": 100,
+          "fonte": "data/attachments.json#WEAPON_MAG.def"
+        },
+        "reload": {
+          "valor": 4.25,
+          "antes": 8.1,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 5.6,
+          "antes": 9.1,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "m250": {
+      "idNoAnalyzer": "m250",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0]
+          ],
+          "antes": [
+            [25, 0],
+            [24, 50],
+            [23, 68],
+            [22, 85]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 5.75,
+          "antes": 6.13,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 6.134,
+          "antes": 7.1,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "semi"],
+          "antes": ["auto"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "m277": {
+      "idNoAnalyzer": "m277",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [20.67, 75]
+          ],
+          "antes": [
+            [25, 0],
+            [24, 55],
+            [23, 65],
+            [22, 75]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "magazine": {
+          "valor": 20,
+          "antes": 25,
+          "fonte": "data/attachments.json#WEAPON_MAG.def"
+        },
+        "reload": {
+          "valor": 2.384,
+          "antes": 2.7,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.55,
+          "antes": 3.4,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "m357-trait": {
+      "idNoAnalyzer": "m357trait",
+      "campos": {
+        "damage": {
+          "valor": [
+            [50, 0],
+            [37.5, 9],
+            [27.3, 21],
+            [25, 36],
+            [20, 75]
+          ],
+          "antes": [
+            [50, 0],
+            [40, 15],
+            [33.4, 30]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 225,
+          "antes": 220,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "velocity": {
+          "valor": 410,
+          "antes": 400,
+          "fonte": "data/weapons.json#bulletVel"
+        },
+        "reload": {
+          "valor": 3.067,
+          "antes": 3.1,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.067,
+          "antes": 3.1,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "headshot": {
+          "valor": 1.5,
+          "antes": 1.35,
+          "fonte": "data/hit_zones.json#headshot"
+        }
+      }
+    },
+    "m39-emr": {
+      "idNoAnalyzer": "m39emr",
+      "campos": {
+        "damage": {
+          "valor": [
+            [41.5, 0],
+            [37.6, 21],
+            [34.4, 75]
+          ],
+          "antes": [
+            [45, 0],
+            [44.5, 30],
+            [44, 75],
+            [43.5, 120]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 257,
+          "antes": 380,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "reload": {
+          "valor": 2.534,
+          "antes": 3.2,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.85,
+          "antes": 4,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "m417-a2": {
+      "idNoAnalyzer": "m417a2",
+      "campos": {
+        "damage": {
+          "valor": [
+            [35.22, 0],
+            [27.48, 9],
+            [21.56, 21],
+            [20.67, 36],
+            [17.13, 75]
+          ],
+          "antes": [
+            [33.4, 0],
+            [27.3, 9],
+            [21.5, 21],
+            [20, 36],
+            [16.7, 75]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 655,
+          "antes": 654,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "reload": {
+          "valor": 2.467,
+          "antes": 2.57,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.567,
+          "antes": 3.3,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "m433": {
+      "idNoAnalyzer": "m433",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [20.67, 21],
+            [17.13, 75]
+          ],
+          "antes": [
+            [24, 0],
+            [22, 15],
+            [20, 32],
+            [18, 50]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 831,
+          "antes": 830,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "reload": {
+          "valor": 2.384,
+          "antes": 2.6,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.967,
+          "antes": 3.35,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "semi"],
+          "antes": ["auto", "burst"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "m44": {
+      "idNoAnalyzer": "m44",
+      "campos": {
+        "headshot": {
+          "valor": 1.5,
+          "antes": 1.35,
+          "fonte": "data/hit_zones.json#headshot"
+        }
+      }
+    },
+    "m45a1": {
+      "idNoAnalyzer": "m45a1",
+      "campos": {
+        "magazine": {
+          "valor": 7,
+          "antes": 8,
+          "fonte": "data/attachments.json#WEAPON_MAG.def"
+        },
+        "reload": {
+          "valor": 1.867,
+          "antes": 2,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2,
+          "antes": 2.5,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "headshot": {
+          "valor": 1.34,
+          "antes": 1.35,
+          "fonte": "data/hit_zones.json#headshot"
+        }
+      }
+    },
+    "m4a1": {
+      "idNoAnalyzer": "m4a1",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [21.56, 9],
+            [17.74, 21],
+            [17.13, 36],
+            [14.62, 75]
+          ],
+          "antes": [
+            [21.5, 0],
+            [19.7, 10],
+            [17.8, 27],
+            [16, 45]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 2.2,
+          "antes": 2.5,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.634,
+          "antes": 3.2,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "semi"],
+          "antes": ["auto", "burst", "semi"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "m60": {
+      "idNoAnalyzer": "m60",
+      "campos": {
+        "damage": {
+          "valor": [
+            [35.22, 0],
+            [26.05, 21],
+            [20.67, 75]
+          ],
+          "antes": [
+            [33.4, 0],
+            [25, 35]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 7.35,
+          "antes": 7.8,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 8.15,
+          "antes": 8.8,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "m87a1": {
+      "idNoAnalyzer": "m87a1",
+      "campos": {
+        "damage": {
+          "valor": [
+            [8.4, 0],
+            [7.2, 8],
+            [5.6, 15],
+            [3.8, 30]
+          ],
+          "antes": [
+            [9, 0],
+            [6.5, 10],
+            [4, 18],
+            [2.6, 25]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "pellets": {
+          "valor": 16,
+          "antes": 12,
+          "fonte": "data/weapons.json#pellets"
+        },
+        "rpm": {
+          "valor": 95,
+          "antes": 75,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "velocity": {
+          "valor": 400,
+          "antes": 420,
+          "fonte": "data/weapons.json#bulletVel"
+        },
+        "magazine": {
+          "valor": 7,
+          "antes": 6,
+          "fonte": "data/attachments.json#WEAPON_MAG.def"
+        }
+      }
+    },
+    "mini-scout": {
+      "idNoAnalyzer": "miniscout",
+      "campos": {
+        "damage": {
+          "valor": [
+            [62, 0],
+            [58, 21]
+          ],
+          "antes": [
+            [70, 0],
+            [80, 40],
+            [55, 110]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 47,
+          "antes": 55,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "magazine": {
+          "valor": 10,
+          "antes": 5,
+          "fonte": "data/attachments.json#WEAPON_MAG.def"
+        },
+        "reload": {
+          "valor": 2.334,
+          "antes": 3.5,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.9,
+          "antes": 4.35,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "nvo-228e": {
+      "idNoAnalyzer": "nvo228e",
+      "campos": {
+        "damage": {
+          "valor": [
+            [35.22, 0],
+            [27.48, 9],
+            [21.56, 21],
+            [20.67, 36],
+            [17.13, 75]
+          ],
+          "antes": [
+            [26, 0],
+            [23, 10],
+            [20, 25],
+            [17, 40]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 655,
+          "antes": 654,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "reload": {
+          "valor": 2.5,
+          "antes": 2.8,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3,
+          "antes": 3.55,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "p18": {
+      "idNoAnalyzer": "p18",
+      "campos": {
+        "damage": {
+          "valor": [
+            [25, 0],
+            [20, 9],
+            [16.7, 21],
+            [14.3, 36],
+            [12.5, 75]
+          ],
+          "antes": [
+            [16.7, 0],
+            [14.3, 9],
+            [12.5, 21],
+            [11.2, 36]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 400,
+          "antes": 1100,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "velocity": {
+          "valor": 350,
+          "antes": 380,
+          "fonte": "data/weapons.json#bulletVel"
+        },
+        "reload": {
+          "valor": 1.934,
+          "antes": 2.1,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.167,
+          "antes": 2.6,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "headshot": {
+          "valor": 1.34,
+          "antes": 1.35,
+          "fonte": "data/hit_zones.json#headshot"
+        },
+        "fireModes": {
+          "valor": ["semi"],
+          "antes": ["auto", "semi"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "pp-19": {
+      "idNoAnalyzer": "pp19",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [20.67, 9],
+            [17.13, 21],
+            [14.62, 36],
+            [12.76, 75]
+          ],
+          "antes": [
+            [24, 0],
+            [20.7, 8],
+            [17.3, 19],
+            [14, 30]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 720,
+          "antes": 700,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "magazine": {
+          "valor": 30,
+          "antes": 53,
+          "fonte": "data/attachments.json#WEAPON_MAG.def"
+        },
+        "reload": {
+          "valor": 2.467,
+          "antes": 3.1,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.967,
+          "antes": 3.75,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "semi"],
+          "antes": ["auto"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "psr": {
+      "idNoAnalyzer": "psr",
+      "campos": {
+        "damage": {
+          "valor": [
+            [80, 0],
+            [100, 90],
+            [62, 120]
+          ],
+          "antes": [
+            [95, 0],
+            [100, 40],
+            [75, 150]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 39,
+          "antes": 34,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "magazine": {
+          "valor": 10,
+          "antes": 5,
+          "fonte": "data/attachments.json#WEAPON_MAG.def"
+        },
+        "reload": {
+          "valor": 3.35,
+          "antes": 4.3,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 4.35,
+          "antes": 5.2,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "pw5a3": {
+      "idNoAnalyzer": "pw5a3",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [20.67, 9],
+            [17.13, 21],
+            [14.62, 36],
+            [12.76, 75]
+          ],
+          "antes": [
+            [20, 0],
+            [17.7, 10],
+            [15.3, 20],
+            [13, 30]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 2.517,
+          "antes": 2.55,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3,
+          "antes": 3.2,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "pw7a2": {
+      "idNoAnalyzer": "pw7a2",
+      "campos": {
+        "damage": {
+          "valor": [
+            [17.13, 0],
+            [14.62, 21],
+            [12.76, 75]
+          ],
+          "antes": [
+            [16.7, 0],
+            [14.3, 21],
+            [12.5, 75]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 2.184,
+          "antes": 2.97,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.067,
+          "antes": 3.6,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "semi"],
+          "antes": ["auto"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "qbz-192": {
+      "idNoAnalyzer": "qbz192",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [21.56, 9],
+            [17.74, 21],
+            [17.13, 36],
+            [14.62, 75]
+          ],
+          "antes": [
+            [25, 0],
+            [21.5, 9],
+            [17.7, 21],
+            [16.7, 36],
+            [14.3, 75]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 2.567,
+          "antes": 2.9,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.784,
+          "antes": 3.6,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "semi"],
+          "antes": ["auto", "burst"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "rpk-74m": {
+      "idNoAnalyzer": "rpk74m",
+      "campos": {
+        "damage": {
+          "valor": [
+            [20.67, 0],
+            [17.13, 21],
+            [14.62, 75]
+          ],
+          "antes": [
+            [24, 0],
+            [22.3, 25],
+            [20.7, 48],
+            [19, 70]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 686,
+          "antes": 600,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "reload": {
+          "valor": 2.784,
+          "antes": 3.5,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.1,
+          "antes": 4.4,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "rpkm": {
+      "idNoAnalyzer": "rpkm",
+      "campos": {
+        "damage": {
+          "valor": [
+            [35.22, 0],
+            [27.48, 9],
+            [21.56, 21],
+            [20.67, 36],
+            [17.13, 75]
+          ],
+          "antes": [
+            [33.4, 0],
+            [27.3, 9],
+            [21.5, 21],
+            [20, 36],
+            [16.7, 75]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 554,
+          "antes": 553,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "reload": {
+          "valor": 2.8,
+          "antes": 3.28,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.284,
+          "antes": 4.15,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "scw-10": {
+      "idNoAnalyzer": "scw10",
+      "campos": {
+        "damage": {
+          "valor": [
+            [35.22, 0],
+            [26.05, 9],
+            [20.67, 21],
+            [17.13, 36],
+            [14.62, 75]
+          ],
+          "antes": [
+            [33.4, 0],
+            [25, 20],
+            [20, 35],
+            [16.7, 75]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "magazine": {
+          "valor": 15,
+          "antes": 30,
+          "fonte": "data/attachments.json#WEAPON_MAG.def"
+        },
+        "reload": {
+          "valor": 2.6,
+          "antes": 2.4,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.117,
+          "antes": 3.05,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "semi"],
+          "antes": ["auto"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "sg-553r": {
+      "idNoAnalyzer": "sg553r",
+      "campos": {
+        "damage": {
+          "valor": [
+            [35.22, 0],
+            [26.05, 9],
+            [20.67, 21],
+            [17.13, 36],
+            [14.62, 75]
+          ],
+          "antes": [
+            [33, 0],
+            [27.3, 5],
+            [21.7, 20],
+            [16, 35]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 2.5,
+          "antes": 2.75,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.934,
+          "antes": 3.45,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "burst", "semi"],
+          "antes": ["auto", "burst"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "sgx": {
+      "idNoAnalyzer": "sgx",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [20.67, 9],
+            [17.13, 21],
+            [14.62, 36],
+            [12.76, 75]
+          ],
+          "antes": [
+            [25, 0],
+            [20, 9],
+            [16.7, 21],
+            [14.3, 36],
+            [12.5, 75]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 831,
+          "antes": 830,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "magazine": {
+          "valor": 30,
+          "antes": 25,
+          "fonte": "data/attachments.json#WEAPON_MAG.def"
+        },
+        "reload": {
+          "valor": 2.517,
+          "antes": 2.45,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.917,
+          "antes": 3.1,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "semi"],
+          "antes": ["auto"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "sl9": {
+      "idNoAnalyzer": "sl9",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [20.67, 9],
+            [17.13, 21],
+            [14.62, 36],
+            [12.76, 75]
+          ],
+          "antes": [
+            [25, 0],
+            [20, 9],
+            [16.7, 21],
+            [14.3, 36],
+            [12.5, 75]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 2.65,
+          "antes": 2.6,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.184,
+          "antes": 3.25,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "sor-300sc": {
+      "idNoAnalyzer": "sor300sc",
+      "campos": {
+        "damage": {
+          "valor": [
+            [35.22, 0],
+            [26.05, 9],
+            [20.67, 21],
+            [17.13, 36],
+            [14.62, 75]
+          ],
+          "antes": [
+            [25, 0],
+            [21.5, 9],
+            [17.7, 21],
+            [16.7, 36],
+            [14.3, 75]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 600,
+          "antes": 700,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "reload": {
+          "valor": 2.25,
+          "antes": 2.6,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.2,
+          "antes": 3.3,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "semi"],
+          "antes": ["auto", "burst", "semi"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "sor-556-mk2": {
+      "idNoAnalyzer": "sor556",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [20.67, 21],
+            [17.13, 75]
+          ],
+          "antes": [
+            [25, 0],
+            [22.7, 15],
+            [20.3, 38],
+            [18, 60]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 2.384,
+          "antes": 2.67,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.667,
+          "antes": 3.4,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "semi"],
+          "antes": ["auto", "burst", "semi"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "sv-98": {
+      "idNoAnalyzer": "sv98",
+      "campos": {
+        "damage": {
+          "valor": [
+            [80, 0],
+            [100, 54],
+            [62, 75]
+          ],
+          "antes": [
+            [80, 0],
+            [100, 54],
+            [62.5, 125]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 2.984,
+          "antes": 3.97,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.967,
+          "antes": 4.85,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "svdm": {
+      "idNoAnalyzer": "svdm",
+      "campos": {
+        "damage": {
+          "valor": [
+            [41.5, 0],
+            [37.6, 21],
+            [34.4, 75]
+          ],
+          "antes": [
+            [33.4, 0],
+            [30, 50],
+            [27.3, 100]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 300,
+          "antes": 360,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "reload": {
+          "valor": 2.5,
+          "antes": 3.35,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.45,
+          "antes": 4.2,
+          "fonte": "data/weapons.json#emptyRld"
+        }
+      }
+    },
+    "svk-86": {
+      "idNoAnalyzer": "svk86",
+      "campos": {
+        "damage": {
+          "valor": [
+            [66.7, 0],
+            [57.2, 9],
+            [52.4, 21]
+          ],
+          "antes": [
+            [60, 0],
+            [56.7, 40],
+            [53.3, 70],
+            [50, 100]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 150,
+          "antes": 260,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "reload": {
+          "valor": 2.967,
+          "antes": 3.5,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 4.217,
+          "antes": 4.35,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "headshot": {
+          "valor": 1.5,
+          "antes": 1.7,
+          "fonte": "data/hit_zones.json#headshot"
+        }
+      }
+    },
+    "tr-7": {
+      "idNoAnalyzer": "tr7",
+      "campos": {
+        "damage": {
+          "valor": [
+            [35.22, 0],
+            [26.05, 21],
+            [20.67, 75]
+          ],
+          "antes": [
+            [26, 0],
+            [23.7, 15],
+            [21.3, 32],
+            [19, 50]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 2.4,
+          "antes": 3.3,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.367,
+          "antes": 4.05,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "semi"],
+          "antes": ["auto", "burst"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "umg-40": {
+      "idNoAnalyzer": "umg40",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [21.56, 9],
+            [17.74, 21],
+            [17.13, 36],
+            [14.62, 75]
+          ],
+          "antes": [
+            [26, 0],
+            [22.3, 12],
+            [18.7, 24],
+            [15, 35]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 2.517,
+          "antes": 2.92,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.917,
+          "antes": 3.55,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "burst", "semi"],
+          "antes": ["auto", "semi"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "usg-90": {
+      "idNoAnalyzer": "usg90",
+      "campos": {
+        "damage": {
+          "valor": [
+            [20.67, 0],
+            [17.74, 9],
+            [15.07, 21],
+            [14.62, 36],
+            [12.76, 75]
+          ],
+          "antes": [
+            [18, 0],
+            [16, 10],
+            [14, 25],
+            [12, 40]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "reload": {
+          "valor": 3,
+          "antes": 3.17,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.284,
+          "antes": 3.8,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "semi"],
+          "antes": ["auto"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "vcr-2": {
+      "idNoAnalyzer": "vcr2",
+      "campos": {
+        "damage": {
+          "valor": [
+            [26.05, 0],
+            [20.67, 21],
+            [17.13, 75]
+          ],
+          "antes": [
+            [25, 0],
+            [20, 30],
+            [16.7, 75]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 900,
+          "antes": 780,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "reload": {
+          "valor": 2.434,
+          "antes": 2.65,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.117,
+          "antes": 3.4,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "fireModes": {
+          "valor": ["auto", "semi"],
+          "antes": ["auto", "burst"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "vssm": {
+      "idNoAnalyzer": "vssm",
+      "campos": {
+        "damage": {
+          "valor": [
+            [35.22, 0],
+            [27.48, 9],
+            [21.56, 21],
+            [20.67, 36],
+            [17.13, 75]
+          ],
+          "antes": [
+            [38, 0],
+            [34.7, 15],
+            [31.3, 38],
+            [28, 60]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 450,
+          "antes": 600,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "velocity": {
+          "valor": 321,
+          "antes": 640,
+          "fonte": "data/weapons.json#bulletVel"
+        },
+        "reload": {
+          "valor": 2.467,
+          "antes": 2.9,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 3.584,
+          "antes": 3.7,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "headshot": {
+          "valor": 1.8,
+          "antes": 1.5,
+          "fonte": "data/hit_zones.json#headshot"
+        },
+        "fireModes": {
+          "valor": ["semi"],
+          "antes": ["auto", "semi"],
+          "fonte": "data/weapons.json#availableFireModes"
+        }
+      }
+    },
+    "vz-61": {
+      "idNoAnalyzer": "vz61",
+      "campos": {
+        "damage": {
+          "valor": [
+            [17.13, 0],
+            [15.07, 9],
+            [13.09, 21],
+            [12.76, 36],
+            [11.32, 75]
+          ],
+          "antes": [
+            [16.7, 0],
+            [14.3, 9],
+            [12.5, 25]
+          ],
+          "fonte": "data/weapons.json#dmg"
+        },
+        "rpm": {
+          "valor": 818,
+          "antes": 850,
+          "fonte": "data/weapons.json#rpm"
+        },
+        "magazine": {
+          "valor": 10,
+          "antes": 20,
+          "fonte": "data/attachments.json#WEAPON_MAG.def"
+        },
+        "reload": {
+          "valor": 2.134,
+          "antes": 2.25,
+          "fonte": "data/weapons.json#tacRld"
+        },
+        "emptyReload": {
+          "valor": 2.833,
+          "antes": 2.8,
+          "fonte": "data/weapons.json#emptyRld"
+        },
+        "headshot": {
+          "valor": 1.4,
+          "antes": 1.35,
+          "fonte": "data/hit_zones.json#headshot"
+        }
+      }
+    }
+  },
+  "pecas": {
+    "ammo-fmj": {
+      "compat": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "remover": ["vssm"]
+      }
+    },
+    "ammo-frangible": {
+      "compat": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "remover": ["m357-trait"]
+      }
+    },
+    "ammo-hollow-point": {
+      "compat": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "remover": ["ak4d", "grt-cps", "lmr27", "m121-a2", "m240l", "m357-trait", "m39-emr", "m417-a2", "m44", "m60", "nvo-228e", "rpkm", "rspr", "scw-10", "sg-553r", "sor-300sc", "svdm", "svk-86", "tr-7", "vssm", "z84m"]
+      },
+      "custo": {
+        "valor": 15,
+        "antes": 20,
+        "fonte": "data/ammo.json#WEAPON_AMMO"
+      }
+    },
+    "ammo-match-grade": {
+      "compat": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "remover": ["grt-cps", "lmr27", "mini-scout"]
+      }
+    },
+    "ammo-polymer-case": {
+      "compat": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "adicionar": ["ak-205", "brod-3", "grt-bc", "grt-cps", "m39-emr", "m417-a2", "m4a1", "qbz-192", "rspr", "sg-553r", "sor-300sc", "usg-90"]
+      }
+    },
+    "ammo-subsonic": {
+      "compat": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "adicionar": ["es-57", "ggh-22", "m417-a2", "p18", "pp-19", "sg-553r", "sl9", "sor-300sc", "umg-40", "usg-90"]
+      }
+    },
+    "ammo-subsonic-hp": {
+      "compat": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "adicionar": ["cz3a1", "es-57", "ggh-22", "kv9", "m417-a2", "p18", "pw5a3", "sg-553r", "sgx", "sor-300sc"]
+      }
+    },
+    "ammo-synthetic-tip": {
+      "compat": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "remover": ["ak-205", "grt-cps", "lmr27", "qbz-192", "rpkm", "umg-40", "vssm"],
+        "adicionar": ["pp-19"]
+      },
+      "custo": {
+        "valor": 20,
+        "antes": 30,
+        "fonte": "data/ammo.json#WEAPON_AMMO"
+      }
+    },
+    "ammo-tungsten-core": {
+      "compat": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "remover": ["m357-trait"]
+      }
+    },
+    "ergonomics-aftermarket-buffer": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ERGO",
+        "adicionar": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "drs-iar", "ef88", "grt-bc", "grt-cps", "m39-emr", "m417-a2", "m4a1", "nvo-228e", "pp-19", "pw5a3", "rpk-74m", "rpkm", "sg-553r", "sgx", "sor-300sc", "sor-556-mk2", "svdm", "umg-40", "usg-90", "vcr-2"]
+      }
+    },
+    "ergonomics-dlc-bolt": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ERGO",
+        "remover": ["interdictor", "mini-scout"]
+      }
+    },
+    "ergonomics-improved-mag-catch": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ERGO",
+        "remover": ["m357-trait", "sor-300sc"],
+        "adicionar": ["ef88"]
+      }
+    },
+    "ergonomics-magwell-flare": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ERGO",
+        "remover": ["brod-3"]
+      }
+    },
+    "ergonomics-rail-cover": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ERGO",
+        "adicionar": ["brod-3", "drs-iar", "kts100-mk8", "m240l", "m4a1", "qbz-192", "sor-300sc", "sor-556-mk2"]
+      }
+    },
+    "leftRail-taclight-aimed": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.laser+light",
+        "adicionar": ["interdictor"]
+      }
+    },
+    "leftRail-taclight-hipfire": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.laser+light",
+        "adicionar": ["interdictor"]
+      }
+    },
+    "magazine-100rnd-belt-pouch": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["m250"]
+      }
+    },
+    "magazine-10rnd-fast-mag": {
+      "custo": {
+        "valor": 10,
+        "antes": 5,
+        "fonte": "data/attachments.json#WEAPON_MAG"
+      },
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["tr-7"],
+        "adicionar": ["mini-scout"]
+      }
+    },
+    "magazine-10rnd-magazine": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["interdictor"],
+        "adicionar": ["mini-scout", "vz-61"]
+      }
+    },
+    "magazine-11rnd-magazine": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["ggh-22", "m357-trait"]
+      }
+    },
+    "magazine-15rnd-fast-mag": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["lmr27", "vssm"]
+      }
+    },
+    "magazine-15rnd-magazine": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["lmr27", "vssm"],
+        "adicionar": ["ggh-22"]
+      }
+    },
+    "magazine-17rnd-magazine": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["vz-61"]
+      }
+    },
+    "magazine-200rnd-belt-box": {
+      "custo": {
+        "valor": 50,
+        "antes": 55,
+        "fonte": "data/attachments.json#WEAPON_MAG"
+      }
+    },
+    "magazine-20rnd-fast-mag": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["ak4d", "ef88", "grt-cps", "lmr27", "m277", "m39-emr", "m417-a2", "svdm", "tr-7", "vssm"],
+        "adicionar": ["pp-19"]
+      }
+    },
+    "magazine-20rnd-magazine": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["ef88", "lmr27", "scw-10"]
+      }
+    },
+    "magazine-21rnd-magazine": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["vz-61"]
+      }
+    },
+    "magazine-25rnd-fast-mag": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["umg-40"]
+      }
+    },
+    "magazine-25rnd-magazine": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["m417-a2", "scw-10", "umg-40"]
+      }
+    },
+    "magazine-30rnd-fast-mag": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "adicionar": ["pp-19"]
+      }
+    },
+    "magazine-30rnd-magazine": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["ak4d", "es-57", "grt-cps", "m277", "tr-7"],
+        "adicionar": ["pp-19"]
+      }
+    },
+    "magazine-35rnd-magazine": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "adicionar": ["pp-19"]
+      }
+    },
+    "magazine-36rnd-magazine": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["rpk-74m", "rpkm"]
+      }
+    },
+    "magazine-40rnd-fast-mag": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["ef88", "rpk-74m", "rpkm"]
+      }
+    },
+    "magazine-40rnd-magazine": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["ef88", "rpk-74m", "rpkm"]
+      }
+    },
+    "magazine-41rnd-magazine": {
+      "custo": {
+        "valor": 25,
+        "antes": 10,
+        "fonte": "data/attachments.json#WEAPON_MAG"
+      }
+    },
+    "magazine-42rnd-fast-mag": {
+      "custo": {
+        "valor": 30,
+        "antes": 10,
+        "fonte": "data/attachments.json#WEAPON_MAG"
+      }
+    },
+    "magazine-42rnd-magazine": {
+      "custo": {
+        "valor": 25,
+        "antes": 10,
+        "fonte": "data/attachments.json#WEAPON_MAG"
+      }
+    },
+    "magazine-45rnd-fast-mag": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["ef88", "kts100-mk8"]
+      }
+    },
+    "magazine-45rnd-magazine": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["ef88", "kts100-mk8"]
+      }
+    },
+    "magazine-4rnd-fast-mag": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "adicionar": ["m1014"]
+      }
+    },
+    "magazine-5-shell-tube": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["m1014"]
+      }
+    },
+    "magazine-50rnd-fast-mag": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["ak-205"],
+        "adicionar": ["m121-a2"]
+      },
+      "custo": {
+        "valor": 10,
+        "antes": 45,
+        "fonte": "data/attachments.json#WEAPON_MAG"
+      }
+    },
+    "magazine-50rnd-magazine": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["drs-iar", "pp-19"]
+      }
+    },
+    "magazine-5rnd-fast-mag": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["mini-scout", "svdm"],
+        "adicionar": ["interdictor"]
+      },
+      "custo": {
+        "valor": 10,
+        "antes": 5,
+        "fonte": "data/attachments.json#WEAPON_MAG"
+      }
+    },
+    "magazine-5rnd-magazine": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["mini-scout"],
+        "adicionar": ["interdictor", "svdm"]
+      }
+    },
+    "magazine-6-shell-tube": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "adicionar": ["m1014"]
+      }
+    },
+    "magazine-60rnd-magazine": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["kts100-mk8", "rpk-74m", "rpkm"]
+      }
+    },
+    "magazine-7-shell-tube": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["m1014"]
+      }
+    },
+    "magazine-75rnd-drum": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["rpk-74m"]
+      }
+    },
+    "magazine-7rnd-fast-mag": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["l115"]
+      }
+    },
+    "magazine-7rnd-magazine": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["ggh-22", "interdictor", "l115", "m357-trait"]
+      }
+    },
+    "magazine-8rnd-magazine": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "remover": ["18-5ks-k", "mini-scout"]
+      }
+    },
+    "muzzle-compensated-brake": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
+        "remover": ["interdictor", "vssm"]
+      }
+    },
+    "muzzle-cqb-suppressor": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
+        "remover": ["m357-trait"]
+      }
+    },
+    "muzzle-double-port-brake": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
+        "remover": ["elr-40", "interdictor", "sv-98", "vssm"]
+      }
+    },
+    "muzzle-flash-comp": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
+        "adicionar": ["ak4d", "b36a4", "l110", "lmr27", "m123k", "m250", "m277", "m433", "m4a1", "m60", "pw5a3", "pw7a2", "rpkm"]
+      }
+    },
+    "muzzle-flash-hider": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
+        "remover": ["m357-trait", "vssm", "vz-61"]
+      }
+    },
+    "muzzle-hybrid-suppressor-k": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
+        "remover": ["ak-205", "kord-6p67"],
+        "adicionar": ["usg-90"]
+      }
+    },
+    "muzzle-hybrid-suppressor-l": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
+        "remover": ["ak-205", "kord-6p67"],
+        "adicionar": ["usg-90"]
+      }
+    },
+    "muzzle-hybrid-suppressor-s": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
+        "remover": ["ak-205", "kord-6p67"],
+        "adicionar": ["usg-90"]
+      }
+    },
+    "muzzle-lightened-suppressor": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
+        "remover": ["pp-19", "vssm"]
+      }
+    },
+    "muzzle-linear-comp": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
+        "remover": ["vssm"]
+      }
+    },
+    "muzzle-long-suppressor": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
+        "remover": ["sv-98", "vssm"]
+      }
+    },
+    "muzzle-single-port-brake": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
+        "remover": ["es-57", "ggh-22", "interdictor", "m357-trait", "m45a1", "p18", "pp-19", "vssm", "vz-61"]
+      }
+    },
+    "muzzle-standard-suppressor": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
+        "remover": ["interdictor", "m357-trait", "pp-19", "vssm"]
+      }
+    },
+    "opticAccessory-canted-iron-sights": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ACCESSORY",
+        "adicionar": ["l115", "m87a1"]
+      }
+    },
+    "rightRail-120-mw-blue": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.laser+light",
+        "adicionar": ["interdictor"]
+      }
+    },
+    "rightRail-5-mw-green": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.laser+light",
+        "adicionar": ["interdictor"]
+      }
+    },
+    "rightRail-5-mw-red": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.laser+light",
+        "adicionar": ["interdictor"]
+      }
+    },
+    "rightRail-50-mw-blue": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.laser+light",
+        "adicionar": ["interdictor"]
+      }
+    },
+    "rightRail-50-mw-green": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.laser+light",
+        "adicionar": ["interdictor"]
+      }
+    },
+    "rightRail-50-mw-violet": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.laser+light",
+        "adicionar": ["interdictor"]
+      }
+    },
+    "rightRail-laser-light-combo-red": {
+      "custo": {
+        "valor": 20,
+        "antes": 10,
+        "fonte": "data/attachments.json#WEAPON_ATTS.laser+light"
+      }
+    },
+    "rightRail-range-finder": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.laser+light",
+        "remover": ["vssm"]
+      }
+    },
+    "sight-1p86-lpvo": {
+      "custo": {
+        "valor": 20,
+        "antes": 25,
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight"
+      },
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "db-12", "drs-iar", "ef88", "grt-bc", "kord-6p67", "kts100-mk8", "kv9", "l110", "l85a3", "m1014", "m121-a2", "m123k", "m16a4", "m240l", "m250", "m277", "m417-a2", "m433", "m4a1", "m60", "mk-24", "nvo-228e", "pp-19", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "tr-7", "umg-40", "usg-90", "vcr-2", "z84m"]
+      }
+    },
+    "sight-1p87-1-50x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "db-12", "elr-40", "interdictor", "l115", "m1014", "m2010-esr", "m357-trait", "m44", "m87a1", "mini-scout", "psr", "sv-98"]
+      }
+    },
+    "sight-2pro-1-25x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["elr-40", "interdictor", "l115", "m2010-esr", "m357-trait", "mini-scout", "psr", "sv-98"]
+      }
+    },
+    "sight-3vzr-1-75x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "cz3a1", "db-12", "elr-40", "interdictor", "kv9", "l115", "m1014", "m2010-esr", "m357-trait", "m44", "m87a1", "mini-scout", "pp-19", "psr", "pw5a3", "pw7a2", "rspr", "scw-10", "sgx", "sl9", "sv-98", "umg-40", "usg-90"]
+      }
+    },
+    "sight-a-p2-1-75x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "cz3a1", "db-12", "elr-40", "es-57", "ggh-22", "interdictor", "kv9", "l115", "m1014", "m2010-esr", "m357-trait", "m44", "m45a1", "m87a1", "mini-scout", "p18", "pp-19", "psr", "pw5a3", "pw7a2", "rspr", "scw-10", "sgx", "sl9", "sv-98", "umg-40", "usg-90", "vz-61"]
+      }
+    },
+    "sight-baker-3-00x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "cz3a1", "db-12", "kv9", "m1014", "m357-trait", "m44", "m87a1", "pp-19", "pw5a3", "pw7a2", "rspr", "scw-10", "sgx", "sl9", "umg-40", "usg-90"]
+      }
+    },
+    "sight-bf-2m-2-50x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "cz3a1", "db-12", "kv9", "m1014", "m357-trait", "m44", "m87a1", "pp-19", "pw5a3", "pw7a2", "rspr", "scw-10", "sgx", "sl9", "umg-40", "usg-90"]
+      }
+    },
+    "sight-cco-2-00x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "cz3a1", "db-12", "elr-40", "interdictor", "kv9", "l115", "m1014", "m2010-esr", "m357-trait", "m44", "m87a1", "mini-scout", "pp-19", "psr", "pw5a3", "pw7a2", "rspr", "scw-10", "sgx", "sl9", "sv-98", "umg-40", "usg-90"]
+      }
+    },
+    "sight-cq-rds-1-25x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["elr-40", "interdictor", "l115", "m2010-esr", "mini-scout", "psr", "sv-98"]
+      }
+    },
+    "sight-dvo-lpvo": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["elr-40", "l115", "m277", "sor-300sc"]
+      }
+    },
+    "sight-grim-1-50x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "db-12", "elr-40", "interdictor", "l115", "m1014", "m2010-esr", "m87a1", "mini-scout", "psr", "sv-98"]
+      }
+    },
+    "sight-iron-sights": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "remover": ["l115", "m2010-esr", "mini-scout", "psr", "sv-98"]
+      }
+    },
+    "sight-lds-4-50x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "ak-205", "brod-3", "cz3a1", "db-12", "drs-iar", "grt-bc", "kts100-mk8", "kv9", "l110", "m1014", "m121-a2", "m123k", "m240l", "m250", "m277", "m357-trait", "m417-a2", "m44", "m4a1", "m60", "m87a1", "pp-19", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "umg-40", "usg-90", "z84m"]
+      }
+    },
+    "sight-mars-f-lpvo": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "brod-3", "cz3a1", "db-12", "elr-40", "interdictor", "kv9", "m1014", "m87a1", "mini-scout", "pp-19", "pw5a3", "pw7a2", "rspr", "scw-10", "sgx", "sl9", "sor-300sc", "umg-40", "usg-90", "z84m"]
+      }
+    },
+    "sight-mc-co-lpvo": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["sor-300sc"]
+      }
+    },
+    "sight-mgo-350x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "db-12", "interdictor", "l115", "m1014", "m2010-esr", "m357-trait", "m44", "m87a1", "mini-scout", "psr", "sv-98"]
+      }
+    },
+    "sight-mini-flex-1-00x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["elr-40", "interdictor", "l115", "m2010-esr", "mini-scout", "psr", "sv-98"]
+      }
+    },
+    "sight-ngfc-lpvo": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "remover": ["interdictor", "mini-scout"],
+        "adicionar": ["mk-24", "rpk-74m"]
+      }
+    },
+    "sight-osa-7-1-00x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["elr-40", "interdictor", "l115", "m2010-esr", "m357-trait", "mini-scout", "psr", "sv-98"]
+      }
+    },
+    "sight-pas-35-3-00x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "cz3a1", "db-12", "kv9", "m1014", "m87a1", "pp-19", "pw5a3", "pw7a2", "rspr", "scw-10", "sgx", "sl9", "umg-40", "usg-90"]
+      }
+    },
+    "sight-pvq-31-4-00x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "cz3a1", "db-12", "kv9", "m1014", "m357-trait", "m44", "m87a1", "pp-19", "pw5a3", "pw7a2", "rspr", "scw-10", "sgx", "sl9", "umg-40", "usg-90"]
+      }
+    },
+    "sight-qmk-300x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "db-12", "interdictor", "l115", "m1014", "m2010-esr", "m357-trait", "m44", "m87a1", "mini-scout", "psr", "sv-98"]
+      }
+    },
+    "sight-r-mr-1-00x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["elr-40", "interdictor", "l115", "m2010-esr", "mini-scout", "psr", "rspr", "sv-98"]
+      }
+    },
+    "sight-r-vps-10-00x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["elr-40", "interdictor", "l115", "mini-scout", "vssm"]
+      }
+    },
+    "sight-r4t-2-00x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "cz3a1", "db-12", "elr-40", "interdictor", "kv9", "l115", "m1014", "m2010-esr", "m357-trait", "m44", "m87a1", "mini-scout", "pp-19", "psr", "pw5a3", "pw7a2", "rspr", "scw-10", "sgx", "sl9", "sv-98", "umg-40", "usg-90"]
+      }
+    },
+    "sight-ro-m-1-75x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "cz3a1", "db-12", "elr-40", "interdictor", "kv9", "l115", "m1014", "m2010-esr", "m357-trait", "m44", "m87a1", "mini-scout", "pp-19", "psr", "pw5a3", "pw7a2", "rspr", "scw-10", "sgx", "sl9", "sv-98", "umg-40", "usg-90"]
+      }
+    },
+    "sight-ro-s-1-25x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["elr-40", "interdictor", "l115", "m2010-esr", "mini-scout", "psr", "sv-98"]
+      }
+    },
+    "sight-rox-1-50x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "db-12", "elr-40", "es-57", "ggh-22", "interdictor", "l115", "m1014", "m2010-esr", "m357-trait", "m44", "m45a1", "m87a1", "mini-scout", "p18", "psr", "sv-98", "vz-61"]
+      }
+    },
+    "sight-sdo-3-50x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "cz3a1", "db-12", "kv9", "m1014", "m357-trait", "m44", "m87a1", "pp-19", "pw5a3", "pw7a2", "rspr", "scw-10", "sgx", "sl9", "umg-40", "usg-90"]
+      }
+    },
+    "sight-sf-g2-5-00x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "db-12", "drs-iar", "ef88", "grt-bc", "kord-6p67", "kts100-mk8", "kv9", "l110", "l85a3", "m1014", "m121-a2", "m123k", "m16a4", "m240l", "m250", "m277", "m357-trait", "m417-a2", "m433", "m44", "m4a1", "m60", "m87a1", "mk-24", "nvo-228e", "pp-19", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "tr-7", "umg-40", "usg-90", "vcr-2", "z84m"]
+      }
+    },
+    "sight-st-prism-5-00x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "db-12", "drs-iar", "ef88", "grt-bc", "kord-6p67", "kts100-mk8", "kv9", "l110", "l85a3", "m1014", "m121-a2", "m123k", "m16a4", "m240l", "m250", "m277", "m357-trait", "m417-a2", "m433", "m44", "m4a1", "m60", "m87a1", "mk-24", "nvo-228e", "pp-19", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "tr-7", "umg-40", "usg-90", "vcr-2", "z84m"]
+      }
+    },
+    "sight-su-123-1-50x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "db-12", "elr-40", "interdictor", "l115", "m1014", "m16a4", "m2010-esr", "m357-trait", "m44", "m87a1", "mini-scout", "mk-24", "psr", "sv-98"]
+      }
+    },
+    "sight-su-230-lpvo": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "db-12", "drs-iar", "ef88", "elr-40", "grt-bc", "interdictor", "kord-6p67", "kts100-mk8", "kv9", "l110", "l85a3", "lmr27", "m1014", "m123k", "m2010-esr", "m240l", "m250", "m277", "m39-emr", "m417-a2", "m433", "m4a1", "m60", "m87a1", "mini-scout", "mk-24", "nvo-228e", "pp-19", "psr", "pw5a3", "pw7a2", "qbz-192", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "sv-98", "svdm", "svk-86", "tr-7", "umg-40", "usg-90", "vssm", "z84m"]
+      }
+    },
+    "sight-th-rds-1-00x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "drs-iar", "ef88", "elr-40", "grt-bc", "interdictor", "kord-6p67", "kts100-mk8", "kv9", "l110", "l115", "l85a3", "lmr27", "m1014", "m123k", "m16a4", "m2010-esr", "m240l", "m250", "m277", "m39-emr", "m417-a2", "m433", "m4a1", "m60", "m87a1", "mini-scout", "mk-24", "nvo-228e", "pp-19", "psr", "pw5a3", "pw7a2", "qbz-192", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "sv-98", "svdm", "svk-86", "tr-7", "umg-40", "usg-90", "vssm", "z84m"]
+      }
+    },
+    "sight-ts-hd-6-00x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "remover": ["vssm"]
+      }
+    },
+    "underbarrel-6h64-vertical": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "adicionar": ["m16a4"]
+      }
+    },
+    "underbarrel-actuated-module": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "adicionar": ["ak-205", "ak4d", "b36a4", "brod-3", "drs-iar", "grt-bc", "grt-cps", "interdictor", "kord-6p67", "kts100-mk8", "kv9", "l85a3", "lmr27", "m1014", "m121-a2", "m123k", "m16a4", "m2010-esr", "m250", "m277", "m417-a2", "m433", "m4a1", "m87a1", "mini-scout", "psr", "rpk-74m", "rpkm", "sg-553r", "sgx", "sor-300sc", "sor-556-mk2", "svdm", "svk-86", "tr-7", "vssm"]
+      }
+    },
+    "underbarrel-adjustable-angled": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "remover": ["brod-3", "ef88", "svk-86", "vssm"]
+      }
+    },
+    "underbarrel-bipod": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "remover": ["brod-3", "sor-300sc"]
+      }
+    },
+    "underbarrel-classic-grip-pod": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "remover": ["interdictor", "l115", "m2010-esr", "psr", "sor-300sc", "sv-98"],
+        "adicionar": ["vssm"]
+      }
+    },
+    "underbarrel-factory-angled": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "remover": ["lmr27", "sl9", "vssm"]
+      }
+    },
+    "underbarrel-full-angled": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "remover": ["interdictor", "l115", "m2010-esr", "mini-scout", "psr", "sv-98"]
+      }
+    },
+    "underbarrel-low-profile-stubby": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "remover": ["interdictor", "l115", "m2010-esr", "mini-scout", "psr", "sv-98"]
+      }
+    },
+    "underbarrel-ptt-grip-pod": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "remover": ["sor-300sc"]
+      }
+    },
+    "underbarrel-qd-grip-pod": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "remover": ["interdictor", "l115", "m2010-esr", "mini-scout", "psr", "sor-300sc", "sv-98"]
+      }
+    },
+    "underbarrel-ribbed-vertical": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "adicionar": ["m16a4"]
+      }
+    },
+    "underbarrel-slim-angled": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "remover": ["cz3a1", "ef88", "interdictor", "kv9", "l115", "m2010-esr", "mini-scout", "pp-19", "psr", "pw5a3", "pw7a2", "scw-10", "sgx", "sv-98", "umg-40"]
+      }
+    },
+    "underbarrel-slim-handstop": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "adicionar": ["ak4d", "b36a4", "l110", "lmr27", "m1014", "m123k", "m240l", "m250", "m277", "m433", "m4a1", "m60", "m87a1", "rpkm", "svdm"]
+      }
+    },
+    "underbarrel-underslung-mount": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "remover": ["ak-205", "brod-3", "ef88", "sor-300sc"]
+      }
+    }
+  },
+  "pecasNovas": [
+    {
+      "id": "ammo-hollow-point-ak4d",
+      "name": "Ponta Oca",
+      "originalName": "Hollow Point",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Mais dano em acerto na cabeça; alcance menor.",
+      "mods": {
+        "range": {
+          "mult": 0.88
+        }
+      },
+      "headshotOverride": 1.5,
+      "compat": {
+        "weapons": ["ak4d"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "hollow_pt",
+        "clonadaDe": "ammo-hollow-point"
+      }
+    },
+    {
+      "id": "ammo-hollow-point-grt-cps",
+      "name": "Ponta Oca",
+      "originalName": "Hollow Point",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Mais dano em acerto na cabeça; alcance menor.",
+      "mods": {},
+      "compat": {
+        "weapons": ["grt-cps"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "hollow_pt",
+        "clonadaDe": "ammo-hollow-point"
+      }
+    },
+    {
+      "id": "ammo-hollow-point-lmr27",
+      "name": "Ponta Oca",
+      "originalName": "Hollow Point",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Mais dano em acerto na cabeça; alcance menor.",
+      "mods": {
+        "range": {
+          "mult": 0.88
+        }
+      },
+      "headshotOverride": 1.5,
+      "compat": {
+        "weapons": ["lmr27"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "hollow_pt",
+        "clonadaDe": "ammo-hollow-point"
+      }
+    },
+    {
+      "id": "ammo-hollow-point-m121-a2",
+      "name": "Ponta Oca",
+      "originalName": "Hollow Point",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Mais dano em acerto na cabeça; alcance menor.",
+      "mods": {
+        "range": {
+          "mult": 0.88
+        }
+      },
+      "headshotOverride": 1.5,
+      "compat": {
+        "weapons": ["m121-a2"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "hollow_pt",
+        "clonadaDe": "ammo-hollow-point"
+      }
+    },
+    {
+      "id": "ammo-hollow-point-m240l",
+      "name": "Ponta Oca",
+      "originalName": "Hollow Point",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Mais dano em acerto na cabeça; alcance menor.",
+      "mods": {
+        "range": {
+          "mult": 0.88
+        }
+      },
+      "headshotOverride": 1.5,
+      "compat": {
+        "weapons": ["m240l"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "hollow_pt",
+        "clonadaDe": "ammo-hollow-point"
+      }
+    },
+    {
+      "id": "ammo-hollow-point-m357-trait",
+      "name": "Ponta Oca",
+      "originalName": "Hollow Point",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Mais dano em acerto na cabeça; alcance menor.",
+      "mods": {
+        "range": {
+          "mult": 0.88
+        }
+      },
+      "headshotOverride": 1.5,
+      "compat": {
+        "weapons": ["m357-trait"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "hollow_pt",
+        "clonadaDe": "ammo-hollow-point"
+      }
+    },
+    {
+      "id": "ammo-hollow-point-m39-emr",
+      "name": "Ponta Oca",
+      "originalName": "Hollow Point",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Mais dano em acerto na cabeça; alcance menor.",
+      "mods": {
+        "range": {
+          "mult": 0.88
+        }
+      },
+      "headshotOverride": 1.5,
+      "compat": {
+        "weapons": ["m39-emr"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "hollow_pt",
+        "clonadaDe": "ammo-hollow-point"
+      }
+    },
+    {
+      "id": "ammo-hollow-point-m417-a2",
+      "name": "Ponta Oca",
+      "originalName": "Hollow Point",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Mais dano em acerto na cabeça; alcance menor.",
+      "mods": {
+        "range": {
+          "mult": 0.88
+        }
+      },
+      "headshotOverride": 1.5,
+      "compat": {
+        "weapons": ["m417-a2"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "hollow_pt",
+        "clonadaDe": "ammo-hollow-point"
+      }
+    },
+    {
+      "id": "ammo-hollow-point-m44",
+      "name": "Ponta Oca",
+      "originalName": "Hollow Point",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Mais dano em acerto na cabeça; alcance menor.",
+      "mods": {
+        "range": {
+          "mult": 0.88
+        }
+      },
+      "headshotOverride": 1.5,
+      "compat": {
+        "weapons": ["m44"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "hollow_pt",
+        "clonadaDe": "ammo-hollow-point"
+      }
+    },
+    {
+      "id": "ammo-hollow-point-m60",
+      "name": "Ponta Oca",
+      "originalName": "Hollow Point",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Mais dano em acerto na cabeça; alcance menor.",
+      "mods": {
+        "range": {
+          "mult": 0.88
+        }
+      },
+      "headshotOverride": 1.5,
+      "compat": {
+        "weapons": ["m60"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "hollow_pt",
+        "clonadaDe": "ammo-hollow-point"
+      }
+    },
+    {
+      "id": "ammo-hollow-point-nvo-228e",
+      "name": "Ponta Oca",
+      "originalName": "Hollow Point",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Mais dano em acerto na cabeça; alcance menor.",
+      "mods": {
+        "range": {
+          "mult": 0.88
+        }
+      },
+      "headshotOverride": 1.5,
+      "compat": {
+        "weapons": ["nvo-228e"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "hollow_pt",
+        "clonadaDe": "ammo-hollow-point"
+      }
+    },
+    {
+      "id": "ammo-hollow-point-rpkm",
+      "name": "Ponta Oca",
+      "originalName": "Hollow Point",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Mais dano em acerto na cabeça; alcance menor.",
+      "mods": {
+        "range": {
+          "mult": 0.88
+        }
+      },
+      "headshotOverride": 1.5,
+      "compat": {
+        "weapons": ["rpkm"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "hollow_pt",
+        "clonadaDe": "ammo-hollow-point"
+      }
+    },
+    {
+      "id": "ammo-hollow-point-rspr",
+      "name": "Ponta Oca",
+      "originalName": "Hollow Point",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Mais dano em acerto na cabeça; alcance menor.",
+      "mods": {
+        "range": {
+          "mult": 0.88
+        }
+      },
+      "headshotOverride": 1.5,
+      "compat": {
+        "weapons": ["rspr"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "hollow_pt",
+        "clonadaDe": "ammo-hollow-point"
+      }
+    },
+    {
+      "id": "ammo-hollow-point-scw-10",
+      "name": "Ponta Oca",
+      "originalName": "Hollow Point",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Mais dano em acerto na cabeça; alcance menor.",
+      "mods": {
+        "range": {
+          "mult": 0.88
+        }
+      },
+      "headshotOverride": 1.5,
+      "compat": {
+        "weapons": ["scw-10"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "hollow_pt",
+        "clonadaDe": "ammo-hollow-point"
+      }
+    },
+    {
+      "id": "ammo-hollow-point-sg-553r",
+      "name": "Ponta Oca",
+      "originalName": "Hollow Point",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Mais dano em acerto na cabeça; alcance menor.",
+      "mods": {
+        "range": {
+          "mult": 0.88
+        }
+      },
+      "headshotOverride": 1.5,
+      "compat": {
+        "weapons": ["sg-553r"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "hollow_pt",
+        "clonadaDe": "ammo-hollow-point"
+      }
+    },
+    {
+      "id": "ammo-hollow-point-sor-300sc",
+      "name": "Ponta Oca",
+      "originalName": "Hollow Point",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Mais dano em acerto na cabeça; alcance menor.",
+      "mods": {
+        "range": {
+          "mult": 0.88
+        }
+      },
+      "headshotOverride": 1.5,
+      "compat": {
+        "weapons": ["sor-300sc"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "hollow_pt",
+        "clonadaDe": "ammo-hollow-point"
+      }
+    },
+    {
+      "id": "ammo-hollow-point-svdm",
+      "name": "Ponta Oca",
+      "originalName": "Hollow Point",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Mais dano em acerto na cabeça; alcance menor.",
+      "mods": {
+        "range": {
+          "mult": 0.88
+        }
+      },
+      "headshotOverride": 1.5,
+      "compat": {
+        "weapons": ["svdm"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "hollow_pt",
+        "clonadaDe": "ammo-hollow-point"
+      }
+    },
+    {
+      "id": "ammo-hollow-point-svk-86",
+      "name": "Ponta Oca",
+      "originalName": "Hollow Point",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Mais dano em acerto na cabeça; alcance menor.",
+      "mods": {
+        "range": {
+          "mult": 0.88
+        }
+      },
+      "headshotOverride": 1.5,
+      "compat": {
+        "weapons": ["svk-86"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "hollow_pt",
+        "clonadaDe": "ammo-hollow-point"
+      }
+    },
+    {
+      "id": "ammo-hollow-point-tr-7",
+      "name": "Ponta Oca",
+      "originalName": "Hollow Point",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Mais dano em acerto na cabeça; alcance menor.",
+      "mods": {
+        "range": {
+          "mult": 0.88
+        }
+      },
+      "headshotOverride": 1.5,
+      "compat": {
+        "weapons": ["tr-7"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "hollow_pt",
+        "clonadaDe": "ammo-hollow-point"
+      }
+    },
+    {
+      "id": "ammo-hollow-point-z84m",
+      "name": "Ponta Oca",
+      "originalName": "Hollow Point",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Mais dano em acerto na cabeça; alcance menor.",
+      "mods": {
+        "range": {
+          "mult": 0.88
+        }
+      },
+      "headshotOverride": 1.5,
+      "compat": {
+        "weapons": ["z84m"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "hollow_pt",
+        "clonadaDe": "ammo-hollow-point"
+      }
+    },
+    {
+      "id": "ammo-subsonic-cz3a1",
+      "name": "Subsônica",
+      "originalName": "Subsonic",
+      "slot": "ammo",
+      "cost": 15,
+      "description": "Munição subsônica: projétil abaixo da velocidade do som.",
+      "mods": {},
+      "compat": {
+        "weapons": ["cz3a1"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "subsonic",
+        "clonadaDe": "ammo-subsonic"
+      }
+    },
+    {
+      "id": "ammo-subsonic-hp-pp-19",
+      "name": "Subsônica HP",
+      "originalName": "Subsonic HP",
+      "slot": "ammo",
+      "cost": 25,
+      "description": "Munição subsônica de ponta oca.",
+      "mods": {},
+      "compat": {
+        "weapons": ["pp-19"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "subsonic_hp",
+        "clonadaDe": "ammo-subsonic-hp"
+      }
+    },
+    {
+      "id": "ammo-subsonic-hp-scw-10",
+      "name": "Subsônica HP",
+      "originalName": "Subsonic HP",
+      "slot": "ammo",
+      "cost": 35,
+      "description": "Munição subsônica de ponta oca.",
+      "mods": {},
+      "compat": {
+        "weapons": ["scw-10"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "subsonic_hp",
+        "clonadaDe": "ammo-subsonic-hp"
+      }
+    },
+    {
+      "id": "ammo-subsonic-hp-sl9",
+      "name": "Subsônica HP",
+      "originalName": "Subsonic HP",
+      "slot": "ammo",
+      "cost": 25,
+      "description": "Munição subsônica de ponta oca.",
+      "mods": {},
+      "compat": {
+        "weapons": ["sl9"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "subsonic_hp",
+        "clonadaDe": "ammo-subsonic-hp"
+      }
+    },
+    {
+      "id": "ammo-subsonic-hp-umg-40",
+      "name": "Subsônica HP",
+      "originalName": "Subsonic HP",
+      "slot": "ammo",
+      "cost": 25,
+      "description": "Munição subsônica de ponta oca.",
+      "mods": {},
+      "compat": {
+        "weapons": ["umg-40"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "subsonic_hp",
+        "clonadaDe": "ammo-subsonic-hp"
+      }
+    },
+    {
+      "id": "ammo-subsonic-hp-usg-90",
+      "name": "Subsônica HP",
+      "originalName": "Subsonic HP",
+      "slot": "ammo",
+      "cost": 25,
+      "description": "Munição subsônica de ponta oca.",
+      "mods": {},
+      "compat": {
+        "weapons": ["usg-90"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "subsonic_hp",
+        "clonadaDe": "ammo-subsonic-hp"
+      }
+    },
+    {
+      "id": "ammo-subsonic-kv9",
+      "name": "Subsônica",
+      "originalName": "Subsonic",
+      "slot": "ammo",
+      "cost": 15,
+      "description": "Munição subsônica: projétil abaixo da velocidade do som.",
+      "mods": {},
+      "compat": {
+        "weapons": ["kv9"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "subsonic",
+        "clonadaDe": "ammo-subsonic"
+      }
+    },
+    {
+      "id": "ammo-subsonic-pw5a3",
+      "name": "Subsônica",
+      "originalName": "Subsonic",
+      "slot": "ammo",
+      "cost": 15,
+      "description": "Munição subsônica: projétil abaixo da velocidade do som.",
+      "mods": {},
+      "compat": {
+        "weapons": ["pw5a3"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "subsonic",
+        "clonadaDe": "ammo-subsonic"
+      }
+    },
+    {
+      "id": "ammo-subsonic-scw-10",
+      "name": "Subsônica",
+      "originalName": "Subsonic",
+      "slot": "ammo",
+      "cost": 15,
+      "description": "Munição subsônica: projétil abaixo da velocidade do som.",
+      "mods": {},
+      "compat": {
+        "weapons": ["scw-10"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "subsonic",
+        "clonadaDe": "ammo-subsonic"
+      }
+    },
+    {
+      "id": "ammo-subsonic-sgx",
+      "name": "Subsônica",
+      "originalName": "Subsonic",
+      "slot": "ammo",
+      "cost": 15,
+      "description": "Munição subsônica: projétil abaixo da velocidade do som.",
+      "mods": {},
+      "compat": {
+        "weapons": ["sgx"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "subsonic",
+        "clonadaDe": "ammo-subsonic"
+      }
+    },
+    {
+      "id": "ammo-synthetic-tip-ak-205",
+      "name": "Ponta Sintética",
+      "originalName": "Synthetic Tip",
+      "slot": "ammo",
+      "cost": 25,
+      "description": "Trajetória mais reta e mais dano em acerto na cabeça.",
+      "mods": {
+        "velocity": {
+          "mult": 1.1
+        },
+        "range": {
+          "mult": 1.06
+        }
+      },
+      "headshotOverride": 1.75,
+      "compat": {
+        "weapons": ["ak-205"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "synthetic",
+        "clonadaDe": "ammo-synthetic-tip"
+      }
+    },
+    {
+      "id": "ammo-synthetic-tip-grt-cps",
+      "name": "Ponta Sintética",
+      "originalName": "Synthetic Tip",
+      "slot": "ammo",
+      "cost": 30,
+      "description": "Trajetória mais reta e mais dano em acerto na cabeça.",
+      "mods": {
+        "velocity": {
+          "mult": 1.1
+        },
+        "range": {
+          "mult": 1.06
+        }
+      },
+      "headshotOverride": 1.75,
+      "compat": {
+        "weapons": ["grt-cps"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "synthetic",
+        "clonadaDe": "ammo-synthetic-tip"
+      }
+    },
+    {
+      "id": "ammo-synthetic-tip-lmr27",
+      "name": "Ponta Sintética",
+      "originalName": "Synthetic Tip",
+      "slot": "ammo",
+      "cost": 30,
+      "description": "Trajetória mais reta e mais dano em acerto na cabeça.",
+      "mods": {
+        "velocity": {
+          "mult": 1.1
+        },
+        "range": {
+          "mult": 1.06
+        }
+      },
+      "headshotOverride": 1.75,
+      "compat": {
+        "weapons": ["lmr27"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "synthetic",
+        "clonadaDe": "ammo-synthetic-tip"
+      }
+    },
+    {
+      "id": "ammo-synthetic-tip-qbz-192",
+      "name": "Ponta Sintética",
+      "originalName": "Synthetic Tip",
+      "slot": "ammo",
+      "cost": 25,
+      "description": "Trajetória mais reta e mais dano em acerto na cabeça.",
+      "mods": {
+        "velocity": {
+          "mult": 1.1
+        },
+        "range": {
+          "mult": 1.06
+        }
+      },
+      "headshotOverride": 1.75,
+      "compat": {
+        "weapons": ["qbz-192"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "synthetic",
+        "clonadaDe": "ammo-synthetic-tip"
+      }
+    },
+    {
+      "id": "ammo-synthetic-tip-rpkm",
+      "name": "Ponta Sintética",
+      "originalName": "Synthetic Tip",
+      "slot": "ammo",
+      "cost": 30,
+      "description": "Trajetória mais reta e mais dano em acerto na cabeça.",
+      "mods": {
+        "velocity": {
+          "mult": 1.1
+        },
+        "range": {
+          "mult": 1.06
+        }
+      },
+      "headshotOverride": 1.75,
+      "compat": {
+        "weapons": ["rpkm"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "synthetic",
+        "clonadaDe": "ammo-synthetic-tip"
+      }
+    },
+    {
+      "id": "ammo-synthetic-tip-umg-40",
+      "name": "Ponta Sintética",
+      "originalName": "Synthetic Tip",
+      "slot": "ammo",
+      "cost": 25,
+      "description": "Trajetória mais reta e mais dano em acerto na cabeça.",
+      "mods": {
+        "velocity": {
+          "mult": 1.1
+        },
+        "range": {
+          "mult": 1.06
+        }
+      },
+      "headshotOverride": 1.75,
+      "compat": {
+        "weapons": ["umg-40"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "synthetic",
+        "clonadaDe": "ammo-synthetic-tip"
+      }
+    },
+    {
+      "id": "ammo-synthetic-tip-vz-61",
+      "name": "Ponta Sintética",
+      "originalName": "Synthetic Tip",
+      "slot": "ammo",
+      "cost": 25,
+      "description": "Trajetória mais reta e mais dano em acerto na cabeça.",
+      "mods": {
+        "velocity": {
+          "mult": 1.1
+        },
+        "range": {
+          "mult": 1.06
+        }
+      },
+      "headshotOverride": 1.75,
+      "compat": {
+        "weapons": ["vz-61"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "synthetic",
+        "clonadaDe": "ammo-synthetic-tip"
+      }
+    },
+    {
+      "id": "barrel-ggh-22-light",
+      "name": "Cano Leve",
+      "originalName": "Light",
+      "slot": "barrel",
+      "cost": 20,
+      "description": "Cano Leve da arma; o efeito ainda não foi medido.",
+      "mods": {},
+      "compat": {
+        "weapons": ["ggh-22"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel",
+        "item": "light",
+        "clonadaDe": "barrel-ggh-22-light"
+      }
+    },
+    {
+      "id": "barrel-interdictor-light",
+      "name": "Cano Leve",
+      "originalName": "Light",
+      "slot": "barrel",
+      "cost": 20,
+      "description": "Cano Leve da arma; o efeito ainda não foi medido.",
+      "mods": {},
+      "compat": {
+        "weapons": ["interdictor"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel",
+        "item": "light",
+        "clonadaDe": "barrel-interdictor-light"
+      }
+    },
+    {
+      "id": "barrel-mini-scout-short",
+      "name": "Cano Curto",
+      "originalName": "Short",
+      "slot": "barrel",
+      "cost": 15,
+      "description": "Cano Curto da arma; o efeito ainda não foi medido.",
+      "mods": {},
+      "compat": {
+        "weapons": ["mini-scout"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel",
+        "item": "short",
+        "clonadaDe": "barrel-mini-scout-short"
+      }
+    },
+    {
+      "id": "barrel-scw-10-extended",
+      "name": "Cano Estendido",
+      "originalName": "Extended",
+      "slot": "barrel",
+      "cost": 5,
+      "description": "Cano Estendido da arma; o efeito ainda não foi medido.",
+      "mods": {},
+      "compat": {
+        "weapons": ["scw-10"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel",
+        "item": "extended",
+        "clonadaDe": "barrel-scw-10-extended"
+      }
+    },
+    {
+      "id": "magazine-100rnd-belt-pouch-m250",
+      "name": "Bolsa de Fita de 100",
+      "originalName": "100RND Belt Pouch",
+      "slot": "magazine",
+      "cost": 55,
+      "description": "Fita de cartuchos para fogo sustentado.",
+      "magazineSize": 100,
+      "mods": {
+        "reload": {
+          "mult": 1.5
+        },
+        "mobility": {
+          "add": -6
+        }
+      },
+      "compat": {
+        "weapons": ["m250"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "100_rnd",
+        "clonadaDe": "magazine-100rnd-belt-pouch"
+      }
+    },
+    {
+      "id": "magazine-10rnd-fast-mag-tr-7",
+      "name": "Carregador Rápido de 10",
+      "originalName": "10RND Fast Mag",
+      "slot": "magazine",
+      "cost": 5,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "magazineSize": 10,
+      "mods": {
+        "reload": {
+          "mult": 0.84
+        }
+      },
+      "compat": {
+        "weapons": ["tr-7"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "10_fast",
+        "clonadaDe": "magazine-10rnd-fast-mag"
+      }
+    },
+    {
+      "id": "magazine-15rnd-fast-mag-lmr27",
+      "name": "Carregador Rápido de 15",
+      "originalName": "15RND Fast Mag",
+      "slot": "magazine",
+      "cost": 25,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "magazineSize": 15,
+      "mods": {
+        "reload": {
+          "mult": 0.84
+        }
+      },
+      "compat": {
+        "weapons": ["lmr27"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "15_fast",
+        "clonadaDe": "magazine-15rnd-fast-mag"
+      }
+    },
+    {
+      "id": "magazine-15rnd-fast-mag-mini-scout",
+      "name": "Carregador Rápido de 15",
+      "originalName": "15RND Fast Mag",
+      "slot": "magazine",
+      "cost": 35,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "magazineSize": 15,
+      "mods": {
+        "reload": {
+          "mult": 0.84
+        }
+      },
+      "compat": {
+        "weapons": ["mini-scout"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "15_fast",
+        "clonadaDe": "magazine-15rnd-fast-mag"
+      }
+    },
+    {
+      "id": "magazine-15rnd-magazine-lmr27",
+      "name": "Carregador de 15",
+      "originalName": "15RND Magazine",
+      "slot": "magazine",
+      "cost": 20,
+      "description": "Carregador de 15 tiros.",
+      "magazineSize": 15,
+      "mods": {},
+      "compat": {
+        "weapons": ["lmr27"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "15_rnd",
+        "clonadaDe": "magazine-15rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-15rnd-magazine-mini-scout",
+      "name": "Carregador de 15",
+      "originalName": "15RND Magazine",
+      "slot": "magazine",
+      "cost": 30,
+      "description": "Carregador de 15 tiros.",
+      "magazineSize": 15,
+      "mods": {},
+      "compat": {
+        "weapons": ["mini-scout"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "15_rnd",
+        "clonadaDe": "magazine-15rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-20rnd-fast-mag-ak4d",
+      "name": "Carregador Rápido de 20",
+      "originalName": "20RND Fast Mag",
+      "slot": "magazine",
+      "cost": 10,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "magazineSize": 20,
+      "mods": {
+        "reload": {
+          "mult": 0.84
+        }
+      },
+      "compat": {
+        "weapons": ["ak4d"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "20_fast",
+        "clonadaDe": "magazine-20rnd-fast-mag"
+      }
+    },
+    {
+      "id": "magazine-20rnd-fast-mag-grt-cps",
+      "name": "Carregador Rápido de 20",
+      "originalName": "20RND Fast Mag",
+      "slot": "magazine",
+      "cost": 10,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "magazineSize": 20,
+      "mods": {
+        "reload": {
+          "mult": 0.84
+        }
+      },
+      "compat": {
+        "weapons": ["grt-cps"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "20_fast",
+        "clonadaDe": "magazine-20rnd-fast-mag"
+      }
+    },
+    {
+      "id": "magazine-20rnd-fast-mag-lmr27",
+      "name": "Carregador Rápido de 20",
+      "originalName": "20RND Fast Mag",
+      "slot": "magazine",
+      "cost": 50,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "magazineSize": 20,
+      "mods": {
+        "reload": {
+          "mult": 0.84
+        }
+      },
+      "compat": {
+        "weapons": ["lmr27"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "20_fast",
+        "clonadaDe": "magazine-20rnd-fast-mag"
+      }
+    },
+    {
+      "id": "magazine-20rnd-fast-mag-m277",
+      "name": "Carregador Rápido de 20",
+      "originalName": "20RND Fast Mag",
+      "slot": "magazine",
+      "cost": 10,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "magazineSize": 20,
+      "mods": {
+        "reload": {
+          "mult": 0.84
+        }
+      },
+      "compat": {
+        "weapons": ["m277"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "20_fast",
+        "clonadaDe": "magazine-20rnd-fast-mag"
+      }
+    },
+    {
+      "id": "magazine-20rnd-fast-mag-m39-emr",
+      "name": "Carregador Rápido de 20",
+      "originalName": "20RND Fast Mag",
+      "slot": "magazine",
+      "cost": 10,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "magazineSize": 20,
+      "mods": {
+        "reload": {
+          "mult": 0.84
+        }
+      },
+      "compat": {
+        "weapons": ["m39-emr"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "20_fast",
+        "clonadaDe": "magazine-20rnd-fast-mag"
+      }
+    },
+    {
+      "id": "magazine-20rnd-fast-mag-m417-a2",
+      "name": "Carregador Rápido de 20",
+      "originalName": "20RND Fast Mag",
+      "slot": "magazine",
+      "cost": 10,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "magazineSize": 20,
+      "mods": {
+        "reload": {
+          "mult": 0.84
+        }
+      },
+      "compat": {
+        "weapons": ["m417-a2"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "20_fast",
+        "clonadaDe": "magazine-20rnd-fast-mag"
+      }
+    },
+    {
+      "id": "magazine-20rnd-fast-mag-mini-scout",
+      "name": "Carregador Rápido de 20",
+      "originalName": "20RND Fast Mag",
+      "slot": "magazine",
+      "cost": 60,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "magazineSize": 20,
+      "mods": {
+        "reload": {
+          "mult": 0.84
+        }
+      },
+      "compat": {
+        "weapons": ["mini-scout"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "20_fast",
+        "clonadaDe": "magazine-20rnd-fast-mag"
+      }
+    },
+    {
+      "id": "magazine-20rnd-fast-mag-tr-7",
+      "name": "Carregador Rápido de 20",
+      "originalName": "20RND Fast Mag",
+      "slot": "magazine",
+      "cost": 10,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "magazineSize": 20,
+      "mods": {
+        "reload": {
+          "mult": 0.84
+        }
+      },
+      "compat": {
+        "weapons": ["tr-7"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "20_fast",
+        "clonadaDe": "magazine-20rnd-fast-mag"
+      }
+    },
+    {
+      "id": "magazine-20rnd-fast-mag-vssm",
+      "name": "Carregador Rápido de 20",
+      "originalName": "20RND Fast Mag",
+      "slot": "magazine",
+      "cost": 10,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "magazineSize": 20,
+      "mods": {
+        "reload": {
+          "mult": 0.84
+        }
+      },
+      "compat": {
+        "weapons": ["vssm"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "20_fast",
+        "clonadaDe": "magazine-20rnd-fast-mag"
+      }
+    },
+    {
+      "id": "magazine-20rnd-magazine-ggh-22",
+      "name": "Carregador de 20",
+      "originalName": "20RND Magazine",
+      "slot": "magazine",
+      "cost": 20,
+      "description": "Carregador de 20 tiros.",
+      "magazineSize": 20,
+      "mods": {},
+      "compat": {
+        "weapons": ["ggh-22"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "20_rnd",
+        "clonadaDe": "magazine-20rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-20rnd-magazine-lmr27",
+      "name": "Carregador de 20",
+      "originalName": "20RND Magazine",
+      "slot": "magazine",
+      "cost": 45,
+      "description": "Carregador de 20 tiros.",
+      "magazineSize": 20,
+      "mods": {},
+      "compat": {
+        "weapons": ["lmr27"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "20_rnd",
+        "clonadaDe": "magazine-20rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-20rnd-magazine-mini-scout",
+      "name": "Carregador de 20",
+      "originalName": "20RND Magazine",
+      "slot": "magazine",
+      "cost": 55,
+      "description": "Carregador de 20 tiros.",
+      "magazineSize": 20,
+      "mods": {},
+      "compat": {
+        "weapons": ["mini-scout"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "20_rnd",
+        "clonadaDe": "magazine-20rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-20rnd-magazine-scw-10",
+      "name": "Carregador de 20",
+      "originalName": "20RND Magazine",
+      "slot": "magazine",
+      "cost": 20,
+      "description": "Carregador de 20 tiros.",
+      "magazineSize": 20,
+      "mods": {},
+      "compat": {
+        "weapons": ["scw-10"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "20_rnd",
+        "clonadaDe": "magazine-20rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-20rnd-magazine-svdm",
+      "name": "Carregador de 20",
+      "originalName": "20RND Magazine",
+      "slot": "magazine",
+      "cost": 45,
+      "description": "Carregador de 20 tiros.",
+      "magazineSize": 20,
+      "mods": {},
+      "compat": {
+        "weapons": ["svdm"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "20_rnd",
+        "clonadaDe": "magazine-20rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-20rnd-magazine-vz-61",
+      "name": "Carregador de 20",
+      "originalName": "20RND Magazine",
+      "slot": "magazine",
+      "cost": 40,
+      "description": "Carregador de 20 tiros.",
+      "magazineSize": 20,
+      "mods": {},
+      "compat": {
+        "weapons": ["vz-61"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "20_rnd",
+        "clonadaDe": "magazine-20rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-25rnd-fast-mag-umg-40",
+      "name": "Carregador Rápido de 25",
+      "originalName": "25RND Fast Mag",
+      "slot": "magazine",
+      "cost": 10,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "magazineSize": 25,
+      "mods": {
+        "reload": {
+          "mult": 0.84
+        }
+      },
+      "compat": {
+        "weapons": ["umg-40"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "25_fast",
+        "clonadaDe": "magazine-25rnd-fast-mag"
+      }
+    },
+    {
+      "id": "magazine-25rnd-magazine-m417-a2",
+      "name": "Carregador de 25",
+      "originalName": "25RND Magazine",
+      "slot": "magazine",
+      "cost": 15,
+      "description": "Carregador de 25 tiros.",
+      "magazineSize": 25,
+      "mods": {},
+      "compat": {
+        "weapons": ["m417-a2"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "25_rnd",
+        "clonadaDe": "magazine-25rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-25rnd-magazine-scw-10",
+      "name": "Carregador de 25",
+      "originalName": "25RND Magazine",
+      "slot": "magazine",
+      "cost": 45,
+      "description": "Carregador de 25 tiros.",
+      "magazineSize": 25,
+      "mods": {},
+      "compat": {
+        "weapons": ["scw-10"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "25_rnd",
+        "clonadaDe": "magazine-25rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-25rnd-magazine-umg-40",
+      "name": "Carregador de 25",
+      "originalName": "25RND Magazine",
+      "slot": "magazine",
+      "cost": 5,
+      "description": "Carregador de 25 tiros.",
+      "magazineSize": 25,
+      "mods": {},
+      "compat": {
+        "weapons": ["umg-40"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "25_rnd",
+        "clonadaDe": "magazine-25rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-30rnd-magazine-ak4d",
+      "name": "Carregador de 30",
+      "originalName": "30RND Magazine",
+      "slot": "magazine",
+      "cost": 40,
+      "description": "Carregador de 30 tiros.",
+      "magazineSize": 30,
+      "mods": {},
+      "compat": {
+        "weapons": ["ak4d"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "30_rnd",
+        "clonadaDe": "magazine-30rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-30rnd-magazine-es-57",
+      "name": "Carregador de 30",
+      "originalName": "30RND Magazine",
+      "slot": "magazine",
+      "cost": 40,
+      "description": "Carregador de 30 tiros.",
+      "magazineSize": 30,
+      "mods": {},
+      "compat": {
+        "weapons": ["es-57"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "30_rnd",
+        "clonadaDe": "magazine-30rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-30rnd-magazine-grt-cps",
+      "name": "Carregador de 30",
+      "originalName": "30RND Magazine",
+      "slot": "magazine",
+      "cost": 40,
+      "description": "Carregador de 30 tiros.",
+      "magazineSize": 30,
+      "mods": {},
+      "compat": {
+        "weapons": ["grt-cps"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "30_rnd",
+        "clonadaDe": "magazine-30rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-30rnd-magazine-m277",
+      "name": "Carregador de 30",
+      "originalName": "30RND Magazine",
+      "slot": "magazine",
+      "cost": 40,
+      "description": "Carregador de 30 tiros.",
+      "magazineSize": 30,
+      "mods": {},
+      "compat": {
+        "weapons": ["m277"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "30_rnd",
+        "clonadaDe": "magazine-30rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-30rnd-magazine-tr-7",
+      "name": "Carregador de 30",
+      "originalName": "30RND Magazine",
+      "slot": "magazine",
+      "cost": 40,
+      "description": "Carregador de 30 tiros.",
+      "magazineSize": 30,
+      "mods": {},
+      "compat": {
+        "weapons": ["tr-7"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "30_rnd",
+        "clonadaDe": "magazine-30rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-30rnd-magazine-vssm",
+      "name": "Carregador de 30",
+      "originalName": "30RND Magazine",
+      "slot": "magazine",
+      "cost": 40,
+      "description": "Carregador de 30 tiros.",
+      "magazineSize": 30,
+      "mods": {},
+      "compat": {
+        "weapons": ["vssm"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "30_rnd",
+        "clonadaDe": "magazine-30rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-36rnd-magazine-rpk-74m",
+      "name": "Carregador de 36",
+      "originalName": "36RND Magazine",
+      "slot": "magazine",
+      "cost": 5,
+      "description": "Carregador de 36 tiros.",
+      "magazineSize": 36,
+      "mods": {},
+      "compat": {
+        "weapons": ["rpk-74m"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "36_rnd",
+        "clonadaDe": "magazine-36rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-36rnd-magazine-rpkm",
+      "name": "Carregador de 36",
+      "originalName": "36RND Magazine",
+      "slot": "magazine",
+      "cost": 5,
+      "description": "Carregador de 36 tiros.",
+      "magazineSize": 36,
+      "mods": {},
+      "compat": {
+        "weapons": ["rpkm"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "36_rnd",
+        "clonadaDe": "magazine-36rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-40rnd-fast-mag-rpkm",
+      "name": "Carregador Rápido de 40",
+      "originalName": "40RND Fast Mag",
+      "slot": "magazine",
+      "cost": 10,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "magazineSize": 40,
+      "mods": {
+        "reload": {
+          "mult": 0.84
+        }
+      },
+      "compat": {
+        "weapons": ["rpkm"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "40_fast",
+        "clonadaDe": "magazine-40rnd-fast-mag"
+      }
+    },
+    {
+      "id": "magazine-40rnd-magazine-rpkm",
+      "name": "Carregador de 40",
+      "originalName": "40RND Magazine",
+      "slot": "magazine",
+      "cost": 5,
+      "description": "Carregador de 40 tiros.",
+      "magazineSize": 40,
+      "mods": {},
+      "compat": {
+        "weapons": ["rpkm"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "40_rnd",
+        "clonadaDe": "magazine-40rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-45rnd-fast-mag-kts100-mk8",
+      "name": "Carregador Rápido de 45",
+      "originalName": "45RND Fast Mag",
+      "slot": "magazine",
+      "cost": 10,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "magazineSize": 45,
+      "mods": {
+        "reload": {
+          "mult": 0.84
+        }
+      },
+      "compat": {
+        "weapons": ["kts100-mk8"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "45_fast",
+        "clonadaDe": "magazine-45rnd-fast-mag"
+      }
+    },
+    {
+      "id": "magazine-45rnd-fast-mag-rpk-74m",
+      "name": "Carregador Rápido de 45",
+      "originalName": "45RND Fast Mag",
+      "slot": "magazine",
+      "cost": 10,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "magazineSize": 45,
+      "mods": {
+        "reload": {
+          "mult": 0.84
+        }
+      },
+      "compat": {
+        "weapons": ["rpk-74m"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "45_fast",
+        "clonadaDe": "magazine-45rnd-fast-mag"
+      }
+    },
+    {
+      "id": "magazine-45rnd-magazine-kts100-mk8",
+      "name": "Carregador de 45",
+      "originalName": "45RND Magazine",
+      "slot": "magazine",
+      "cost": 5,
+      "description": "Carregador de 45 tiros.",
+      "magazineSize": 45,
+      "mods": {},
+      "compat": {
+        "weapons": ["kts100-mk8"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "45_rnd",
+        "clonadaDe": "magazine-45rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-45rnd-magazine-rpk-74m",
+      "name": "Carregador de 45",
+      "originalName": "45RND Magazine",
+      "slot": "magazine",
+      "cost": 5,
+      "description": "Carregador de 45 tiros.",
+      "magazineSize": 45,
+      "mods": {},
+      "compat": {
+        "weapons": ["rpk-74m"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "45_rnd",
+        "clonadaDe": "magazine-45rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-50rnd-magazine-ak-205",
+      "name": "Carregador de 50",
+      "originalName": "50RND Magazine",
+      "slot": "magazine",
+      "cost": 45,
+      "description": "Carregador de 50 tiros.",
+      "magazineSize": 50,
+      "mods": {},
+      "compat": {
+        "weapons": ["ak-205"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "50_rnd",
+        "clonadaDe": "magazine-50rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-50rnd-magazine-drs-iar",
+      "name": "Carregador de 50",
+      "originalName": "50RND Magazine",
+      "slot": "magazine",
+      "cost": 45,
+      "description": "Carregador de 50 tiros.",
+      "magazineSize": 50,
+      "mods": {},
+      "compat": {
+        "weapons": ["drs-iar"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "50_rnd",
+        "clonadaDe": "magazine-50rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-50rnd-magazine-rpk-74m",
+      "name": "Carregador de 50",
+      "originalName": "50RND Magazine",
+      "slot": "magazine",
+      "cost": 10,
+      "description": "Carregador de 50 tiros.",
+      "magazineSize": 50,
+      "mods": {},
+      "compat": {
+        "weapons": ["rpk-74m"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "50_rnd",
+        "clonadaDe": "magazine-50rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-5rnd-fast-mag-m87a1",
+      "name": "Carregador Rápido de 5",
+      "originalName": "5RND Fast Mag",
+      "slot": "magazine",
+      "cost": 20,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "magazineSize": 5,
+      "mods": {
+        "reload": {
+          "mult": 0.84
+        }
+      },
+      "compat": {
+        "weapons": ["m87a1"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "5_fast",
+        "clonadaDe": "magazine-5rnd-fast-mag"
+      }
+    },
+    {
+      "id": "magazine-60rnd-fast-mag-kts100-mk8",
+      "name": "Carregador Rápido de 60",
+      "originalName": "60RND Fast Mag",
+      "slot": "magazine",
+      "cost": 10,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "magazineSize": 60,
+      "mods": {
+        "reload": {
+          "mult": 0.84
+        }
+      },
+      "compat": {
+        "weapons": ["kts100-mk8"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "60_fast",
+        "clonadaDe": "magazine-60rnd-fast-mag"
+      }
+    },
+    {
+      "id": "magazine-60rnd-magazine-rpk-74m",
+      "name": "Carregador de 60",
+      "originalName": "60RND Magazine",
+      "slot": "magazine",
+      "cost": 20,
+      "description": "Carregador de 60 tiros.",
+      "magazineSize": 60,
+      "mods": {},
+      "compat": {
+        "weapons": ["rpk-74m"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "60_rnd",
+        "clonadaDe": "magazine-60rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-60rnd-magazine-rpkm",
+      "name": "Carregador de 60",
+      "originalName": "60RND Magazine",
+      "slot": "magazine",
+      "cost": 30,
+      "description": "Carregador de 60 tiros.",
+      "magazineSize": 60,
+      "mods": {},
+      "compat": {
+        "weapons": ["rpkm"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "60_rnd",
+        "clonadaDe": "magazine-60rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-7rnd-fast-mag-l115",
+      "name": "Carregador Rápido de 7",
+      "originalName": "7RND Fast Mag",
+      "slot": "magazine",
+      "cost": 20,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "magazineSize": 7,
+      "mods": {
+        "reload": {
+          "mult": 0.84
+        }
+      },
+      "compat": {
+        "weapons": ["l115"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "7_fast",
+        "clonadaDe": "magazine-7rnd-fast-mag"
+      }
+    },
+    {
+      "id": "magazine-7rnd-magazine-interdictor",
+      "name": "Carregador de 7",
+      "originalName": "7RND Magazine",
+      "slot": "magazine",
+      "cost": 15,
+      "description": "Carregador de 7 tiros.",
+      "magazineSize": 7,
+      "mods": {},
+      "compat": {
+        "weapons": ["interdictor"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "7_rnd",
+        "clonadaDe": "magazine-7rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-7rnd-magazine-l115",
+      "name": "Carregador de 7",
+      "originalName": "7RND Magazine",
+      "slot": "magazine",
+      "cost": 15,
+      "description": "Carregador de 7 tiros.",
+      "magazineSize": 7,
+      "mods": {},
+      "compat": {
+        "weapons": ["l115"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "7_rnd",
+        "clonadaDe": "magazine-7rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-8rnd-magazine-18-5ks-k",
+      "name": "Carregador de 8",
+      "originalName": "8RND Magazine",
+      "slot": "magazine",
+      "cost": 5,
+      "description": "Carregador de 8 tiros.",
+      "magazineSize": 8,
+      "mods": {},
+      "compat": {
+        "weapons": ["18-5ks-k"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "8_rnd",
+        "clonadaDe": "magazine-8rnd-magazine"
+      }
+    },
+    {
+      "id": "muzzle-single-port-brake-es-57",
+      "name": "Freio de Porta Única",
+      "originalName": "Single-Port Brake",
+      "slot": "muzzle",
+      "cost": 10,
+      "description": "Freio de boca: derruba o salto do cano e esconde a marcação do disparo.",
+      "mods": {
+        "verticalRecoil": {
+          "mult": 0.89
+        },
+        "control": {
+          "add": 6
+        },
+        "hipfire": {
+          "add": -3
+        }
+      },
+      "compat": {
+        "weapons": ["es-57"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
+        "item": "sp_brake",
+        "clonadaDe": "muzzle-single-port-brake"
+      }
+    },
+    {
+      "id": "muzzle-single-port-brake-ggh-22",
+      "name": "Freio de Porta Única",
+      "originalName": "Single-Port Brake",
+      "slot": "muzzle",
+      "cost": 10,
+      "description": "Freio de boca: derruba o salto do cano e esconde a marcação do disparo.",
+      "mods": {
+        "verticalRecoil": {
+          "mult": 0.89
+        },
+        "control": {
+          "add": 6
+        },
+        "hipfire": {
+          "add": -3
+        }
+      },
+      "compat": {
+        "weapons": ["ggh-22"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
+        "item": "sp_brake",
+        "clonadaDe": "muzzle-single-port-brake"
+      }
+    },
+    {
+      "id": "muzzle-single-port-brake-m45a1",
+      "name": "Freio de Porta Única",
+      "originalName": "Single-Port Brake",
+      "slot": "muzzle",
+      "cost": 10,
+      "description": "Freio de boca: derruba o salto do cano e esconde a marcação do disparo.",
+      "mods": {
+        "verticalRecoil": {
+          "mult": 0.89
+        },
+        "control": {
+          "add": 6
+        },
+        "hipfire": {
+          "add": -3
+        }
+      },
+      "compat": {
+        "weapons": ["m45a1"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
+        "item": "sp_brake",
+        "clonadaDe": "muzzle-single-port-brake"
+      }
+    },
+    {
+      "id": "muzzle-single-port-brake-p18",
+      "name": "Freio de Porta Única",
+      "originalName": "Single-Port Brake",
+      "slot": "muzzle",
+      "cost": 10,
+      "description": "Freio de boca: derruba o salto do cano e esconde a marcação do disparo.",
+      "mods": {
+        "verticalRecoil": {
+          "mult": 0.89
+        },
+        "control": {
+          "add": 6
+        },
+        "hipfire": {
+          "add": -3
+        }
+      },
+      "compat": {
+        "weapons": ["p18"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
+        "item": "sp_brake",
+        "clonadaDe": "muzzle-single-port-brake"
+      }
+    },
+    {
+      "id": "muzzle-single-port-brake-vz-61",
+      "name": "Freio de Porta Única",
+      "originalName": "Single-Port Brake",
+      "slot": "muzzle",
+      "cost": 10,
+      "description": "Freio de boca: derruba o salto do cano e esconde a marcação do disparo.",
+      "mods": {
+        "verticalRecoil": {
+          "mult": 0.89
+        },
+        "control": {
+          "add": 6
+        },
+        "hipfire": {
+          "add": -3
+        }
+      },
+      "compat": {
+        "weapons": ["vz-61"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
+        "item": "sp_brake",
+        "clonadaDe": "muzzle-single-port-brake"
+      }
+    },
+    {
+      "id": "sight-iron-sights-l115",
+      "name": "Alça de Ferro",
+      "originalName": "Iron Sights",
+      "slot": "sight",
+      "cost": 15,
+      "description": "Mira de fábrica, a que menos pesa no manejo.",
+      "mods": {
+        "hipfire": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["l115"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "item": "iron",
+        "clonadaDe": "sight-iron-sights"
+      }
+    },
+    {
+      "id": "sight-iron-sights-m2010-esr",
+      "name": "Alça de Ferro",
+      "originalName": "Iron Sights",
+      "slot": "sight",
+      "cost": 15,
+      "description": "Mira de fábrica, a que menos pesa no manejo.",
+      "mods": {
+        "hipfire": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["m2010-esr"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "item": "iron",
+        "clonadaDe": "sight-iron-sights"
+      }
+    },
+    {
+      "id": "sight-iron-sights-mini-scout",
+      "name": "Alça de Ferro",
+      "originalName": "Iron Sights",
+      "slot": "sight",
+      "cost": 15,
+      "description": "Mira de fábrica, a que menos pesa no manejo.",
+      "mods": {
+        "hipfire": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["mini-scout"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "item": "iron",
+        "clonadaDe": "sight-iron-sights"
+      }
+    },
+    {
+      "id": "sight-iron-sights-psr",
+      "name": "Alça de Ferro",
+      "originalName": "Iron Sights",
+      "slot": "sight",
+      "cost": 15,
+      "description": "Mira de fábrica, a que menos pesa no manejo.",
+      "mods": {
+        "hipfire": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["psr"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "item": "iron",
+        "clonadaDe": "sight-iron-sights"
+      }
+    },
+    {
+      "id": "sight-iron-sights-sv-98",
+      "name": "Alça de Ferro",
+      "originalName": "Iron Sights",
+      "slot": "sight",
+      "cost": 15,
+      "description": "Mira de fábrica, a que menos pesa no manejo.",
+      "mods": {
+        "hipfire": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["sv-98"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "item": "iron",
+        "clonadaDe": "sight-iron-sights"
+      }
+    },
+    {
+      "id": "underbarrel-classic-grip-pod-interdictor",
+      "name": "Empunhadura com Bipé",
+      "originalName": "Classic Grip Pod",
+      "slot": "underbarrel",
+      "cost": 20,
+      "description": "Empunhadura e bipé na mesma peça.",
+      "mods": {
+        "verticalRecoil": {
+          "mult": 0.7
+        },
+        "horizontalRecoil": {
+          "mult": 0.7
+        },
+        "mobility": {
+          "add": -6
+        },
+        "adsMs": {
+          "mult": 1.05
+        }
+      },
+      "conditional": ["verticalRecoil", "horizontalRecoil"],
+      "compat": {
+        "weapons": ["interdictor"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "classic_grip_pod_sr",
+        "clonadaDe": "underbarrel-classic-grip-pod"
+      }
+    },
+    {
+      "id": "underbarrel-classic-grip-pod-l115",
+      "name": "Empunhadura com Bipé",
+      "originalName": "Classic Grip Pod",
+      "slot": "underbarrel",
+      "cost": 20,
+      "description": "Empunhadura e bipé na mesma peça.",
+      "mods": {
+        "verticalRecoil": {
+          "mult": 0.7
+        },
+        "horizontalRecoil": {
+          "mult": 0.7
+        },
+        "mobility": {
+          "add": -6
+        },
+        "adsMs": {
+          "mult": 1.05
+        }
+      },
+      "conditional": ["verticalRecoil", "horizontalRecoil"],
+      "compat": {
+        "weapons": ["l115"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "classic_grip_pod_sr",
+        "clonadaDe": "underbarrel-classic-grip-pod"
+      }
+    },
+    {
+      "id": "underbarrel-classic-grip-pod-m2010-esr",
+      "name": "Empunhadura com Bipé",
+      "originalName": "Classic Grip Pod",
+      "slot": "underbarrel",
+      "cost": 20,
+      "description": "Empunhadura e bipé na mesma peça.",
+      "mods": {
+        "verticalRecoil": {
+          "mult": 0.7
+        },
+        "horizontalRecoil": {
+          "mult": 0.7
+        },
+        "mobility": {
+          "add": -6
+        },
+        "adsMs": {
+          "mult": 1.05
+        }
+      },
+      "conditional": ["verticalRecoil", "horizontalRecoil"],
+      "compat": {
+        "weapons": ["m2010-esr"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "classic_grip_pod_sr",
+        "clonadaDe": "underbarrel-classic-grip-pod"
+      }
+    },
+    {
+      "id": "underbarrel-classic-grip-pod-mini-scout",
+      "name": "Empunhadura com Bipé",
+      "originalName": "Classic Grip Pod",
+      "slot": "underbarrel",
+      "cost": 20,
+      "description": "Empunhadura e bipé na mesma peça.",
+      "mods": {
+        "verticalRecoil": {
+          "mult": 0.7
+        },
+        "horizontalRecoil": {
+          "mult": 0.7
+        },
+        "mobility": {
+          "add": -6
+        },
+        "adsMs": {
+          "mult": 1.05
+        }
+      },
+      "conditional": ["verticalRecoil", "horizontalRecoil"],
+      "compat": {
+        "weapons": ["mini-scout"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "classic_grip_pod_sr",
+        "clonadaDe": "underbarrel-classic-grip-pod"
+      }
+    },
+    {
+      "id": "underbarrel-classic-grip-pod-psr",
+      "name": "Empunhadura com Bipé",
+      "originalName": "Classic Grip Pod",
+      "slot": "underbarrel",
+      "cost": 20,
+      "description": "Empunhadura e bipé na mesma peça.",
+      "mods": {
+        "verticalRecoil": {
+          "mult": 0.7
+        },
+        "horizontalRecoil": {
+          "mult": 0.7
+        },
+        "mobility": {
+          "add": -6
+        },
+        "adsMs": {
+          "mult": 1.05
+        }
+      },
+      "conditional": ["verticalRecoil", "horizontalRecoil"],
+      "compat": {
+        "weapons": ["psr"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "classic_grip_pod_sr",
+        "clonadaDe": "underbarrel-classic-grip-pod"
+      }
+    },
+    {
+      "id": "underbarrel-classic-grip-pod-sv-98",
+      "name": "Empunhadura com Bipé",
+      "originalName": "Classic Grip Pod",
+      "slot": "underbarrel",
+      "cost": 20,
+      "description": "Empunhadura e bipé na mesma peça.",
+      "mods": {
+        "verticalRecoil": {
+          "mult": 0.7
+        },
+        "horizontalRecoil": {
+          "mult": 0.7
+        },
+        "mobility": {
+          "add": -6
+        },
+        "adsMs": {
+          "mult": 1.05
+        }
+      },
+      "conditional": ["verticalRecoil", "horizontalRecoil"],
+      "compat": {
+        "weapons": ["sv-98"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "classic_grip_pod_sr",
+        "clonadaDe": "underbarrel-classic-grip-pod"
+      }
+    },
+    {
+      "id": "underbarrel-factory-angled-lmr27",
+      "name": "Angular de Fábrica",
+      "originalName": "Factory Angled",
+      "slot": "underbarrel",
+      "cost": 25,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["lmr27"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "factory_angled_lmr27",
+        "clonadaDe": "underbarrel-factory-angled"
+      }
+    },
+    {
+      "id": "underbarrel-factory-angled-sl9",
+      "name": "Angular de Fábrica",
+      "originalName": "Factory Angled",
+      "slot": "underbarrel",
+      "cost": 20,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["sl9"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "factory_angled_sl9",
+        "clonadaDe": "underbarrel-factory-angled"
+      }
+    },
+    {
+      "id": "underbarrel-full-angled-interdictor",
+      "name": "Angular Completa",
+      "originalName": "Full Angled",
+      "slot": "underbarrel",
+      "cost": 5,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["interdictor"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "full_angled_sr",
+        "clonadaDe": "underbarrel-full-angled"
+      }
+    },
+    {
+      "id": "underbarrel-full-angled-l115",
+      "name": "Angular Completa",
+      "originalName": "Full Angled",
+      "slot": "underbarrel",
+      "cost": 5,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["l115"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "full_angled_sr",
+        "clonadaDe": "underbarrel-full-angled"
+      }
+    },
+    {
+      "id": "underbarrel-full-angled-m2010-esr",
+      "name": "Angular Completa",
+      "originalName": "Full Angled",
+      "slot": "underbarrel",
+      "cost": 5,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["m2010-esr"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "full_angled_sr",
+        "clonadaDe": "underbarrel-full-angled"
+      }
+    },
+    {
+      "id": "underbarrel-full-angled-mini-scout",
+      "name": "Angular Completa",
+      "originalName": "Full Angled",
+      "slot": "underbarrel",
+      "cost": 5,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["mini-scout"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "full_angled_sr",
+        "clonadaDe": "underbarrel-full-angled"
+      }
+    },
+    {
+      "id": "underbarrel-full-angled-psr",
+      "name": "Angular Completa",
+      "originalName": "Full Angled",
+      "slot": "underbarrel",
+      "cost": 5,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["psr"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "full_angled_sr",
+        "clonadaDe": "underbarrel-full-angled"
+      }
+    },
+    {
+      "id": "underbarrel-full-angled-sv-98",
+      "name": "Angular Completa",
+      "originalName": "Full Angled",
+      "slot": "underbarrel",
+      "cost": 5,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["sv-98"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "full_angled_sr",
+        "clonadaDe": "underbarrel-full-angled"
+      }
+    },
+    {
+      "id": "underbarrel-low-profile-stubby-interdictor",
+      "name": "Perfil discreto",
+      "originalName": "Low-Profile Stubby",
+      "slot": "underbarrel",
+      "cost": 10,
+      "description": "Recuperação de mira mais rápida entre disparos.",
+      "mods": {
+        "horizontalRecoil": {
+          "mult": 0.86
+        },
+        "adsMs": {
+          "mult": 0.97
+        },
+        "control": {
+          "add": 4
+        }
+      },
+      "compat": {
+        "weapons": ["interdictor"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "lp_stubby_sr",
+        "clonadaDe": "underbarrel-low-profile-stubby"
+      }
+    },
+    {
+      "id": "underbarrel-low-profile-stubby-l115",
+      "name": "Perfil discreto",
+      "originalName": "Low-Profile Stubby",
+      "slot": "underbarrel",
+      "cost": 10,
+      "description": "Recuperação de mira mais rápida entre disparos.",
+      "mods": {
+        "horizontalRecoil": {
+          "mult": 0.86
+        },
+        "adsMs": {
+          "mult": 0.97
+        },
+        "control": {
+          "add": 4
+        }
+      },
+      "compat": {
+        "weapons": ["l115"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "lp_stubby_sr",
+        "clonadaDe": "underbarrel-low-profile-stubby"
+      }
+    },
+    {
+      "id": "underbarrel-low-profile-stubby-m2010-esr",
+      "name": "Perfil discreto",
+      "originalName": "Low-Profile Stubby",
+      "slot": "underbarrel",
+      "cost": 10,
+      "description": "Recuperação de mira mais rápida entre disparos.",
+      "mods": {
+        "horizontalRecoil": {
+          "mult": 0.86
+        },
+        "adsMs": {
+          "mult": 0.97
+        },
+        "control": {
+          "add": 4
+        }
+      },
+      "compat": {
+        "weapons": ["m2010-esr"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "lp_stubby_sr",
+        "clonadaDe": "underbarrel-low-profile-stubby"
+      }
+    },
+    {
+      "id": "underbarrel-low-profile-stubby-mini-scout",
+      "name": "Perfil discreto",
+      "originalName": "Low-Profile Stubby",
+      "slot": "underbarrel",
+      "cost": 10,
+      "description": "Recuperação de mira mais rápida entre disparos.",
+      "mods": {
+        "horizontalRecoil": {
+          "mult": 0.86
+        },
+        "adsMs": {
+          "mult": 0.97
+        },
+        "control": {
+          "add": 4
+        }
+      },
+      "compat": {
+        "weapons": ["mini-scout"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "lp_stubby_sr",
+        "clonadaDe": "underbarrel-low-profile-stubby"
+      }
+    },
+    {
+      "id": "underbarrel-low-profile-stubby-psr",
+      "name": "Perfil discreto",
+      "originalName": "Low-Profile Stubby",
+      "slot": "underbarrel",
+      "cost": 10,
+      "description": "Recuperação de mira mais rápida entre disparos.",
+      "mods": {
+        "horizontalRecoil": {
+          "mult": 0.86
+        },
+        "adsMs": {
+          "mult": 0.97
+        },
+        "control": {
+          "add": 4
+        }
+      },
+      "compat": {
+        "weapons": ["psr"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "lp_stubby_sr",
+        "clonadaDe": "underbarrel-low-profile-stubby"
+      }
+    },
+    {
+      "id": "underbarrel-low-profile-stubby-sv-98",
+      "name": "Perfil discreto",
+      "originalName": "Low-Profile Stubby",
+      "slot": "underbarrel",
+      "cost": 10,
+      "description": "Recuperação de mira mais rápida entre disparos.",
+      "mods": {
+        "horizontalRecoil": {
+          "mult": 0.86
+        },
+        "adsMs": {
+          "mult": 0.97
+        },
+        "control": {
+          "add": 4
+        }
+      },
+      "compat": {
+        "weapons": ["sv-98"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "lp_stubby_sr",
+        "clonadaDe": "underbarrel-low-profile-stubby"
+      }
+    },
+    {
+      "id": "underbarrel-qd-grip-pod-interdictor",
+      "name": "Empunhadura com Bipé QD",
+      "originalName": "QD Grip Pod",
+      "slot": "underbarrel",
+      "cost": 10,
+      "description": "Empunhadura e bipé na mesma peça.",
+      "mods": {
+        "verticalRecoil": {
+          "mult": 0.7
+        },
+        "horizontalRecoil": {
+          "mult": 0.7
+        },
+        "mobility": {
+          "add": -6
+        },
+        "adsMs": {
+          "mult": 1.05
+        }
+      },
+      "conditional": ["verticalRecoil", "horizontalRecoil"],
+      "compat": {
+        "weapons": ["interdictor"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "qd_grip_pod_sr",
+        "clonadaDe": "underbarrel-qd-grip-pod"
+      }
+    },
+    {
+      "id": "underbarrel-qd-grip-pod-l115",
+      "name": "Empunhadura com Bipé QD",
+      "originalName": "QD Grip Pod",
+      "slot": "underbarrel",
+      "cost": 10,
+      "description": "Empunhadura e bipé na mesma peça.",
+      "mods": {
+        "verticalRecoil": {
+          "mult": 0.7
+        },
+        "horizontalRecoil": {
+          "mult": 0.7
+        },
+        "mobility": {
+          "add": -6
+        },
+        "adsMs": {
+          "mult": 1.05
+        }
+      },
+      "conditional": ["verticalRecoil", "horizontalRecoil"],
+      "compat": {
+        "weapons": ["l115"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "qd_grip_pod_sr",
+        "clonadaDe": "underbarrel-qd-grip-pod"
+      }
+    },
+    {
+      "id": "underbarrel-qd-grip-pod-m2010-esr",
+      "name": "Empunhadura com Bipé QD",
+      "originalName": "QD Grip Pod",
+      "slot": "underbarrel",
+      "cost": 10,
+      "description": "Empunhadura e bipé na mesma peça.",
+      "mods": {
+        "verticalRecoil": {
+          "mult": 0.7
+        },
+        "horizontalRecoil": {
+          "mult": 0.7
+        },
+        "mobility": {
+          "add": -6
+        },
+        "adsMs": {
+          "mult": 1.05
+        }
+      },
+      "conditional": ["verticalRecoil", "horizontalRecoil"],
+      "compat": {
+        "weapons": ["m2010-esr"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "qd_grip_pod_sr",
+        "clonadaDe": "underbarrel-qd-grip-pod"
+      }
+    },
+    {
+      "id": "underbarrel-qd-grip-pod-mini-scout",
+      "name": "Empunhadura com Bipé QD",
+      "originalName": "QD Grip Pod",
+      "slot": "underbarrel",
+      "cost": 10,
+      "description": "Empunhadura e bipé na mesma peça.",
+      "mods": {
+        "verticalRecoil": {
+          "mult": 0.7
+        },
+        "horizontalRecoil": {
+          "mult": 0.7
+        },
+        "mobility": {
+          "add": -6
+        },
+        "adsMs": {
+          "mult": 1.05
+        }
+      },
+      "conditional": ["verticalRecoil", "horizontalRecoil"],
+      "compat": {
+        "weapons": ["mini-scout"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "qd_grip_pod_sr",
+        "clonadaDe": "underbarrel-qd-grip-pod"
+      }
+    },
+    {
+      "id": "underbarrel-qd-grip-pod-psr",
+      "name": "Empunhadura com Bipé QD",
+      "originalName": "QD Grip Pod",
+      "slot": "underbarrel",
+      "cost": 10,
+      "description": "Empunhadura e bipé na mesma peça.",
+      "mods": {
+        "verticalRecoil": {
+          "mult": 0.7
+        },
+        "horizontalRecoil": {
+          "mult": 0.7
+        },
+        "mobility": {
+          "add": -6
+        },
+        "adsMs": {
+          "mult": 1.05
+        }
+      },
+      "conditional": ["verticalRecoil", "horizontalRecoil"],
+      "compat": {
+        "weapons": ["psr"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "qd_grip_pod_sr",
+        "clonadaDe": "underbarrel-qd-grip-pod"
+      }
+    },
+    {
+      "id": "underbarrel-qd-grip-pod-sv-98",
+      "name": "Empunhadura com Bipé QD",
+      "originalName": "QD Grip Pod",
+      "slot": "underbarrel",
+      "cost": 10,
+      "description": "Empunhadura e bipé na mesma peça.",
+      "mods": {
+        "verticalRecoil": {
+          "mult": 0.7
+        },
+        "horizontalRecoil": {
+          "mult": 0.7
+        },
+        "mobility": {
+          "add": -6
+        },
+        "adsMs": {
+          "mult": 1.05
+        }
+      },
+      "conditional": ["verticalRecoil", "horizontalRecoil"],
+      "compat": {
+        "weapons": ["sv-98"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "qd_grip_pod_sr",
+        "clonadaDe": "underbarrel-qd-grip-pod"
+      }
+    },
+    {
+      "id": "underbarrel-slim-angled-cz3a1",
+      "name": "Angular Fina",
+      "originalName": "Slim Angled",
+      "slot": "underbarrel",
+      "cost": 20,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["cz3a1"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "slim_angled_smg",
+        "clonadaDe": "underbarrel-slim-angled"
+      }
+    },
+    {
+      "id": "underbarrel-slim-angled-interdictor",
+      "name": "Angular Fina",
+      "originalName": "Slim Angled",
+      "slot": "underbarrel",
+      "cost": 15,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["interdictor"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "slim_angled_interdictor",
+        "clonadaDe": "underbarrel-slim-angled"
+      }
+    },
+    {
+      "id": "underbarrel-slim-angled-kv9",
+      "name": "Angular Fina",
+      "originalName": "Slim Angled",
+      "slot": "underbarrel",
+      "cost": 20,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["kv9"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "slim_angled_smg",
+        "clonadaDe": "underbarrel-slim-angled"
+      }
+    },
+    {
+      "id": "underbarrel-slim-angled-l115",
+      "name": "Angular Fina",
+      "originalName": "Slim Angled",
+      "slot": "underbarrel",
+      "cost": 15,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["l115"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "slim_angled_sr",
+        "clonadaDe": "underbarrel-slim-angled"
+      }
+    },
+    {
+      "id": "underbarrel-slim-angled-m2010-esr",
+      "name": "Angular Fina",
+      "originalName": "Slim Angled",
+      "slot": "underbarrel",
+      "cost": 15,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["m2010-esr"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "slim_angled_sr",
+        "clonadaDe": "underbarrel-slim-angled"
+      }
+    },
+    {
+      "id": "underbarrel-slim-angled-mini-scout",
+      "name": "Angular Fina",
+      "originalName": "Slim Angled",
+      "slot": "underbarrel",
+      "cost": 15,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["mini-scout"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "slim_angled_sr",
+        "clonadaDe": "underbarrel-slim-angled"
+      }
+    },
+    {
+      "id": "underbarrel-slim-angled-pp-19",
+      "name": "Angular Fina",
+      "originalName": "Slim Angled",
+      "slot": "underbarrel",
+      "cost": 20,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["pp-19"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "slim_angled_smg",
+        "clonadaDe": "underbarrel-slim-angled"
+      }
+    },
+    {
+      "id": "underbarrel-slim-angled-psr",
+      "name": "Angular Fina",
+      "originalName": "Slim Angled",
+      "slot": "underbarrel",
+      "cost": 15,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["psr"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "slim_angled_sr",
+        "clonadaDe": "underbarrel-slim-angled"
+      }
+    },
+    {
+      "id": "underbarrel-slim-angled-pw5a3",
+      "name": "Angular Fina",
+      "originalName": "Slim Angled",
+      "slot": "underbarrel",
+      "cost": 20,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["pw5a3"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "slim_angled_smg",
+        "clonadaDe": "underbarrel-slim-angled"
+      }
+    },
+    {
+      "id": "underbarrel-slim-angled-pw7a2",
+      "name": "Angular Fina",
+      "originalName": "Slim Angled",
+      "slot": "underbarrel",
+      "cost": 20,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["pw7a2"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "slim_angled_smg",
+        "clonadaDe": "underbarrel-slim-angled"
+      }
+    },
+    {
+      "id": "underbarrel-slim-angled-scw-10",
+      "name": "Angular Fina",
+      "originalName": "Slim Angled",
+      "slot": "underbarrel",
+      "cost": 20,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["scw-10"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "slim_angled_smg",
+        "clonadaDe": "underbarrel-slim-angled"
+      }
+    },
+    {
+      "id": "underbarrel-slim-angled-sgx",
+      "name": "Angular Fina",
+      "originalName": "Slim Angled",
+      "slot": "underbarrel",
+      "cost": 20,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["sgx"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "slim_angled_smg",
+        "clonadaDe": "underbarrel-slim-angled"
+      }
+    },
+    {
+      "id": "underbarrel-slim-angled-sv-98",
+      "name": "Angular Fina",
+      "originalName": "Slim Angled",
+      "slot": "underbarrel",
+      "cost": 15,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["sv-98"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "slim_angled_sr",
+        "clonadaDe": "underbarrel-slim-angled"
+      }
+    },
+    {
+      "id": "underbarrel-slim-angled-umg-40",
+      "name": "Angular Fina",
+      "originalName": "Slim Angled",
+      "slot": "underbarrel",
+      "cost": 20,
+      "description": "Acelera a subida à mira e segura o desvio lateral.",
+      "mods": {
+        "adsMs": {
+          "mult": 0.94
+        },
+        "horizontalRecoil": {
+          "mult": 0.88
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["umg-40"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "slim_angled_smg",
+        "clonadaDe": "underbarrel-slim-angled"
+      }
+    }
+  ],
+  "custoDoCano": {},
+  "municaoDeSerie": {
+    "grt-cps": "ammo-hollow-point-grt-cps",
+    "vssm": "ammo-tungsten-match"
+  }
+}

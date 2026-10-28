@@ -41,10 +41,16 @@ QUALITY = 82
 # simplesmente não aparece. A paleta reduzida deixa o arquivo do tamanho do
 # WebP original, e a largura basta para a faixa do cartão.
 CARD_TARGET = ROOT / 'public' / 'weapons' / 'card'
-# A faixa do cartão tem 680x180; passar disso só engorda o arquivo, e as fotos
-# mais altas engordam muito. O limite vale para os dois lados.
-CARD_BOX = (680, 180)
-CARD_COLORS = 128
+# O cartão virou imagem no padrão do Instagram (1080 de largura), e a foto ocupa
+# quase a largura inteira dele, com até ~620 de altura. A caixa antiga, de
+# 680x180, entregava fotos de 320 px que saíam esticadas três vezes e borradas
+# no celular. Esta caixa é maior que quase todas as originais (600–800 px), ou
+# seja, na prática a cópia sai na resolução da própria fonte — e a foto é
+# ampliada no máximo 1,6 vez, em vez de 3.
+CARD_BOX = (960, 600)
+# Com a foto grande, 128 cores deixavam degraus visíveis no fundo de estúdio em
+# degradê. 256 é o teto do PNG com paleta e custa quase nada a mais no arquivo.
+CARD_COLORS = 256
 # O ícone de gadget aparece pequeno na interface; 256 px já é o dobro do que ele
 # ocupa na maior tela, e cabe num arquivo de poucos quilobytes.
 GADGET_WIDTH = 256

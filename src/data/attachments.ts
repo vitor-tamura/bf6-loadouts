@@ -1,5 +1,6 @@
 import type { Attachment, Weapon } from './types';
 import { COMPAT_EXTRA, PECAS_NOVAS } from './novidades.ts';
+import { sincronizarPecas } from './analyzer-sync.ts';
 
 /* -------------------------------------------------------------------------- *
  * Catálogo de acessórios
@@ -4405,11 +4406,15 @@ export const ATTACHMENTS_CURADOS: Attachment[] = [
 ];
 
 /**
- * Os acessórios do site: o cadastro, com as armas novas acrescentadas à lista
- * de cada peça que a ficha delas mostra, mais as peças que o jogo ganhou e
- * ninguém cadastrou ainda (`novidades.ts`). Peça curada tem precedência.
+ * O cadastro com as armas novas acrescentadas à lista de cada peça que a ficha
+ * delas mostra, mais as peças que o jogo ganhou e ninguém cadastrou ainda
+ * (`novidades.ts`). Peça curada tem precedência.
+ *
+ * É contra esta lista, antes das correções do jogo, que
+ * `catalog:sincronizar-analyzer` calcula o que muda — ler `ATTACHMENTS` lá
+ * faria cada rodada comparar o Analyzer com ele mesmo.
  */
-export const ATTACHMENTS: Attachment[] = [
+export const ATTACHMENTS_SEM_SINCRONIA: Attachment[] = [
   ...ATTACHMENTS_CURADOS.map((peca) => {
     const extra = COMPAT_EXTRA[peca.id];
     if (!extra?.length || !peca.compat.weapons) return peca;
@@ -4418,14 +4423,22 @@ export const ATTACHMENTS: Attachment[] = [
   ...PECAS_NOVAS.filter((nova) => !ATTACHMENTS_CURADOS.some((a) => a.id === nova.id)),
 ];
 
+/**
+ * Os acessórios do site: a lista acima com o custo e as armas que os arquivos
+ * do jogo dão a cada peça, mais as variantes por arma que o cadastro não tinha
+ * (`analyzer-sync.ts`). Onde a sincronização não diz nada, vale o cadastro.
+ */
+export const ATTACHMENTS: Attachment[] = sincronizarPecas(ATTACHMENTS_SEM_SINCRONIA);
+
 export const ATTACHMENTS_BY_ID = new Map<string, Attachment>(ATTACHMENTS.map((a) => [a.id, a]));
 
 /** Decide se um acessório pode ser montado em determinada arma. */
 export function isCompatible(attachment: Attachment, weapon: Weapon): boolean {
   if (!weapon.slots.includes(attachment.slot)) return false;
 
-  const { weapons, except, categories, archetypes } = attachment.compat;
+  const { weapons, except, categories, archetypes, extraWeapons } = attachment.compat;
   if (except?.includes(weapon.id)) return false;
+  if (extraWeapons?.includes(weapon.id)) return true;
   if (weapons) return weapons.includes(weapon.id);
 
   const byCategory = categories ? categories.includes(weapon.category) : false;

@@ -1,6 +1,7 @@
 import { ATTACHMENTS_BY_ID, attachmentsForWeapon, isCompatible } from '@/data/attachments';
 import { WEAPONS_BY_ID } from '@/data/weapons';
 import { GADGETS_BY_ID } from '@/data/gadgets';
+import { CUSTO_DO_CANO_SINCRONIZADO, MUNICAO_DE_SERIE } from '@/data/analyzer-sync';
 import type { Attachment, Weapon, ClassId, SlotId } from '@/data/types';
 
 export interface Loadout {
@@ -57,22 +58,33 @@ export function attachmentName(attachment: Attachment, weapon: Weapon | null): s
 
 export function defaultAmmo(weapon: Weapon): string | null {
   if (!weapon.slots.includes('ammo')) return null;
+  /*
+   * Duas armas fogem da regra no jogo — a VSSM sai com Tungsten Match, a
+   * GRT-CPS com ponta oca —, e quem diz isso é a sincronização com o Analyzer
+   * (`MUNICAO_DE_SERIE`). A peça dela vem sem efeito, como toda de série.
+   */
+  const doJogo = MUNICAO_DE_SERIE[weapon.id];
+  const peca = doJogo ? ATTACHMENTS_BY_ID.get(doJogo) : undefined;
+  if (peca && isCompatible(peca, weapon)) return peca.id;
   return weapon.category === 'shotgun' ? 'ammo-buckshot' : 'ammo-fmj';
 }
 
 /**
  * Mira que já vem na arma.
  *
- * Toda arma sai de fábrica enxergando alguma coisa: a alça de ferro, por cinco
- * pontos. Sete não a aceitam — os seis rifles de precisão, que nascem com
- * luneta, e a UMG-40, que traz alça própria —, e nessas vale a mira mais barata
- * que a arma aceita.
+ * Toda arma sai de fábrica enxergando alguma coisa: a alça de ferro. Ela custa
+ * cinco pontos na maioria e quinze nos sete rifles de precisão
+ * (`sightPoints.iron` no Analyzer, que monta a alça quando nenhuma mira é
+ * escolhida) — nesses ela é a variante da arma, `sight-iron-sights-<arma>`. A
+ * UMG-40 traz alça própria, e nela vale a mira mais barata que a arma aceita.
  */
 export function defaultSight(weapon: Weapon): string | null {
   if (!weapon.slots.includes('sight')) return null;
 
-  const iron = ATTACHMENTS_BY_ID.get('sight-iron-sights');
-  if (iron && isCompatible(iron, weapon)) return iron.id;
+  for (const id of [`sight-iron-sights-${weapon.id}`, 'sight-iron-sights']) {
+    const iron = ATTACHMENTS_BY_ID.get(id);
+    if (iron && isCompatible(iron, weapon)) return iron.id;
+  }
 
   // A lista de cada slot vem ordenada por custo, então a primeira é a mais barata.
   return attachmentsForWeapon(weapon).get('sight')?.[0]?.id ?? null;
@@ -99,6 +111,12 @@ const CUSTO_DO_CANO: Record<string, number> = {
   'Cano Crio': 20,
   'Cano Curto Leve': 25,
   'Cano Estendido Leve': 25,
+  /*
+   * Os arquivos do jogo têm a palavra final. A sincronização com o Analyzer
+   * (`analyzer-sync.ts`) só traz papel cujo custo lá difere deste — hoje a
+   * tabela bate inteira, e a entrada fica vazia.
+   */
+  ...CUSTO_DO_CANO_SINCRONIZADO,
 };
 
 export function attachmentCost(attachment: Attachment, weapon: Weapon | null): number {
@@ -200,7 +218,16 @@ function keepValidAttachments(
     const attachment = ATTACHMENTS_BY_ID.get(id);
     if (attachment && attachment.slot === slot && isCompatible(attachment, weapon)) {
       kept[slot] = id;
+      continue;
     }
+    /*
+     * A peça pode ter se dividido depois que o link foi gerado: quando o jogo
+     * cobra outro preço numa arma, ela ganha a variante `<peça>-<arma>` e a
+     * geral deixa de valer ali (`analyzer-sync.ts`). O link antigo continua
+     * querendo dizer a mesma peça, e é a variante que a monta.
+     */
+    const variante = ATTACHMENTS_BY_ID.get(`${id}-${weapon.id}`);
+    if (variante && variante.slot === slot && isCompatible(variante, weapon)) kept[slot] = variante.id;
   }
 
   // Trocar de arma, abrir um link antigo ou limpar a montagem não deixa slot de

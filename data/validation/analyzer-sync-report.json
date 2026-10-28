@@ -1,0 +1,8359 @@
+{
+  "fonte": {
+    "repo": "raymdl/BF6-Weapon-Analyzer",
+    "commit": "912b84eb9245b2f3272a5ee2889348c39c34b9ae",
+    "data": "2026-10-27T11:09:57-04:00",
+    "versaoDeclarada": "2.1.1.0"
+  },
+  "ultimaLeitura": {
+    "repo": "raymdl/BF6-Weapon-Analyzer",
+    "commit": "912b84eb9245b2f3272a5ee2889348c39c34b9ae",
+    "data": "2026-10-27T11:09:57-04:00",
+    "versaoDeclarada": "2.1.1.0"
+  },
+  "resumo": {
+    "armasCorrigidas": 63,
+    "camposDeArmaCorrigidos": 278,
+    "custosCorrigidos": 11,
+    "compatAdicionadas": 819,
+    "compatRemovidas": 200,
+    "variantesNovas": 141,
+    "pecasDoAnalyzerSemPar": 7,
+    "pecasDoSiteSemPar": 4,
+    "pecasSemArma": 0,
+    "carregadoresAmbiguos": 1,
+    "canosParaRevisar": 22
+  },
+  "armas": [
+    {
+      "arma": "m433",
+      "campo": "damage",
+      "antes": [
+        [24, 0],
+        [22, 15],
+        [20, 32],
+        [18, 50]
+      ],
+      "depois": [
+        [26.05, 0],
+        [20.67, 21],
+        [17.13, 75]
+      ]
+    },
+    {
+      "arma": "m433",
+      "campo": "rpm",
+      "antes": 830,
+      "depois": 831
+    },
+    {
+      "arma": "m433",
+      "campo": "reload",
+      "antes": 2.6,
+      "depois": 2.384
+    },
+    {
+      "arma": "m433",
+      "campo": "emptyReload",
+      "antes": 3.35,
+      "depois": 2.967
+    },
+    {
+      "arma": "m433",
+      "campo": "fireModes",
+      "antes": ["auto", "burst"],
+      "depois": ["auto", "semi"]
+    },
+    {
+      "arma": "b36a4",
+      "campo": "damage",
+      "antes": [
+        [25, 0],
+        [20, 35]
+      ],
+      "depois": [
+        [26.05, 0],
+        [20.67, 21],
+        [17.13, 75]
+      ]
+    },
+    {
+      "arma": "b36a4",
+      "campo": "reload",
+      "antes": 2.75,
+      "depois": 2.384
+    },
+    {
+      "arma": "b36a4",
+      "campo": "emptyReload",
+      "antes": 3.5,
+      "depois": 2.95
+    },
+    {
+      "arma": "b36a4",
+      "campo": "fireModes",
+      "antes": ["auto", "burst"],
+      "depois": ["auto", "semi"]
+    },
+    {
+      "arma": "sor-556-mk2",
+      "campo": "damage",
+      "antes": [
+        [25, 0],
+        [22.7, 15],
+        [20.3, 38],
+        [18, 60]
+      ],
+      "depois": [
+        [26.05, 0],
+        [20.67, 21],
+        [17.13, 75]
+      ]
+    },
+    {
+      "arma": "sor-556-mk2",
+      "campo": "reload",
+      "antes": 2.67,
+      "depois": 2.384
+    },
+    {
+      "arma": "sor-556-mk2",
+      "campo": "emptyReload",
+      "antes": 3.4,
+      "depois": 2.667
+    },
+    {
+      "arma": "sor-556-mk2",
+      "campo": "fireModes",
+      "antes": ["auto", "burst", "semi"],
+      "depois": ["auto", "semi"]
+    },
+    {
+      "arma": "ak4d",
+      "campo": "damage",
+      "antes": [
+        [28, 0],
+        [26, 20],
+        [24, 42],
+        [22, 65]
+      ],
+      "depois": [
+        [35.22, 0],
+        [26.05, 21],
+        [20.67, 75]
+      ]
+    },
+    {
+      "arma": "ak4d",
+      "campo": "reload",
+      "antes": 3.3,
+      "depois": 2.467
+    },
+    {
+      "arma": "ak4d",
+      "campo": "emptyReload",
+      "antes": 4.1,
+      "depois": 3.3
+    },
+    {
+      "arma": "tr-7",
+      "campo": "damage",
+      "antes": [
+        [26, 0],
+        [23.7, 15],
+        [21.3, 32],
+        [19, 50]
+      ],
+      "depois": [
+        [35.22, 0],
+        [26.05, 21],
+        [20.67, 75]
+      ]
+    },
+    {
+      "arma": "tr-7",
+      "campo": "reload",
+      "antes": 3.3,
+      "depois": 2.4
+    },
+    {
+      "arma": "tr-7",
+      "campo": "emptyReload",
+      "antes": 4.05,
+      "depois": 3.367
+    },
+    {
+      "arma": "tr-7",
+      "campo": "fireModes",
+      "antes": ["auto", "burst"],
+      "depois": ["auto", "semi"]
+    },
+    {
+      "arma": "kord-6p67",
+      "campo": "damage",
+      "antes": [
+        [22, 0],
+        [20, 12],
+        [18, 28],
+        [16, 45]
+      ],
+      "depois": [
+        [20.67, 0],
+        [17.13, 21],
+        [14.62, 75]
+      ]
+    },
+    {
+      "arma": "kord-6p67",
+      "campo": "reload",
+      "antes": 2.7,
+      "depois": 2.45
+    },
+    {
+      "arma": "kord-6p67",
+      "campo": "emptyReload",
+      "antes": 3.45,
+      "depois": 3.017
+    },
+    {
+      "arma": "kord-6p67",
+      "campo": "fireModes",
+      "antes": ["auto", "burst"],
+      "depois": ["auto", "burst", "semi"]
+    },
+    {
+      "arma": "nvo-228e",
+      "campo": "damage",
+      "antes": [
+        [26, 0],
+        [23, 10],
+        [20, 25],
+        [17, 40]
+      ],
+      "depois": [
+        [35.22, 0],
+        [27.48, 9],
+        [21.56, 21],
+        [20.67, 36],
+        [17.13, 75]
+      ]
+    },
+    {
+      "arma": "nvo-228e",
+      "campo": "rpm",
+      "antes": 654,
+      "depois": 655
+    },
+    {
+      "arma": "nvo-228e",
+      "campo": "reload",
+      "antes": 2.8,
+      "depois": 2.5
+    },
+    {
+      "arma": "nvo-228e",
+      "campo": "emptyReload",
+      "antes": 3.55,
+      "depois": 3
+    },
+    {
+      "arma": "l85a3",
+      "campo": "damage",
+      "antes": [
+        [25, 0],
+        [20, 35]
+      ],
+      "depois": [
+        [26.05, 0],
+        [20.67, 21],
+        [17.13, 75]
+      ]
+    },
+    {
+      "arma": "l85a3",
+      "campo": "reload",
+      "antes": 2.85,
+      "depois": 2.767
+    },
+    {
+      "arma": "l85a3",
+      "campo": "emptyReload",
+      "antes": 3.6,
+      "depois": 2.834
+    },
+    {
+      "arma": "vcr-2",
+      "campo": "damage",
+      "antes": [
+        [25, 0],
+        [20, 30],
+        [16.7, 75]
+      ],
+      "depois": [
+        [26.05, 0],
+        [20.67, 21],
+        [17.13, 75]
+      ]
+    },
+    {
+      "arma": "vcr-2",
+      "campo": "rpm",
+      "antes": 780,
+      "depois": 900
+    },
+    {
+      "arma": "vcr-2",
+      "campo": "reload",
+      "antes": 2.65,
+      "depois": 2.434
+    },
+    {
+      "arma": "vcr-2",
+      "campo": "emptyReload",
+      "antes": 3.4,
+      "depois": 3.117
+    },
+    {
+      "arma": "vcr-2",
+      "campo": "fireModes",
+      "antes": ["auto", "burst"],
+      "depois": ["auto", "semi"]
+    },
+    {
+      "arma": "m16a4",
+      "campo": "damage",
+      "antes": [
+        [25, 0],
+        [20, 25],
+        [16.7, 80]
+      ],
+      "depois": [
+        [26.05, 0],
+        [20.67, 21],
+        [17.13, 75]
+      ]
+    },
+    {
+      "arma": "m16a4",
+      "campo": "rpm",
+      "antes": 800,
+      "depois": 771
+    },
+    {
+      "arma": "m16a4",
+      "campo": "reload",
+      "antes": 2.72,
+      "depois": 2.2
+    },
+    {
+      "arma": "m16a4",
+      "campo": "emptyReload",
+      "antes": 3.5,
+      "depois": 2.634
+    },
+    {
+      "arma": "m4a1",
+      "campo": "damage",
+      "antes": [
+        [21.5, 0],
+        [19.7, 10],
+        [17.8, 27],
+        [16, 45]
+      ],
+      "depois": [
+        [26.05, 0],
+        [21.56, 9],
+        [17.74, 21],
+        [17.13, 36],
+        [14.62, 75]
+      ]
+    },
+    {
+      "arma": "m4a1",
+      "campo": "reload",
+      "antes": 2.5,
+      "depois": 2.2
+    },
+    {
+      "arma": "m4a1",
+      "campo": "emptyReload",
+      "antes": 3.2,
+      "depois": 2.634
+    },
+    {
+      "arma": "m4a1",
+      "campo": "fireModes",
+      "antes": ["auto", "burst", "semi"],
+      "depois": ["auto", "semi"]
+    },
+    {
+      "arma": "m277",
+      "campo": "damage",
+      "antes": [
+        [25, 0],
+        [24, 55],
+        [23, 65],
+        [22, 75]
+      ],
+      "depois": [
+        [26.05, 0],
+        [20.67, 75]
+      ]
+    },
+    {
+      "arma": "m277",
+      "campo": "magazine",
+      "antes": 25,
+      "depois": 20
+    },
+    {
+      "arma": "m277",
+      "campo": "reload",
+      "antes": 2.7,
+      "depois": 2.384
+    },
+    {
+      "arma": "m277",
+      "campo": "emptyReload",
+      "antes": 3.4,
+      "depois": 2.55
+    },
+    {
+      "arma": "ak-205",
+      "campo": "damage",
+      "antes": [
+        [20, 0],
+        [17.7, 9],
+        [15, 21],
+        [14.3, 36],
+        [12.5, 75]
+      ],
+      "depois": [
+        [20.67, 0],
+        [17.74, 9],
+        [15.07, 21],
+        [14.62, 36],
+        [12.76, 75]
+      ]
+    },
+    {
+      "arma": "ak-205",
+      "campo": "reload",
+      "antes": 2.8,
+      "depois": 2.484
+    },
+    {
+      "arma": "ak-205",
+      "campo": "emptyReload",
+      "antes": 3.5,
+      "depois": 2.917
+    },
+    {
+      "arma": "m417-a2",
+      "campo": "damage",
+      "antes": [
+        [33.4, 0],
+        [27.3, 9],
+        [21.5, 21],
+        [20, 36],
+        [16.7, 75]
+      ],
+      "depois": [
+        [35.22, 0],
+        [27.48, 9],
+        [21.56, 21],
+        [20.67, 36],
+        [17.13, 75]
+      ]
+    },
+    {
+      "arma": "m417-a2",
+      "campo": "rpm",
+      "antes": 654,
+      "depois": 655
+    },
+    {
+      "arma": "m417-a2",
+      "campo": "reload",
+      "antes": 2.57,
+      "depois": 2.467
+    },
+    {
+      "arma": "m417-a2",
+      "campo": "emptyReload",
+      "antes": 3.3,
+      "depois": 2.567
+    },
+    {
+      "arma": "grt-bc",
+      "campo": "damage",
+      "antes": [
+        [25, 0],
+        [21.5, 9],
+        [17.7, 21],
+        [16.7, 36],
+        [14.3, 75]
+      ],
+      "depois": [
+        [26.05, 0],
+        [21.56, 9],
+        [17.74, 21],
+        [17.13, 36],
+        [14.62, 75]
+      ]
+    },
+    {
+      "arma": "grt-bc",
+      "campo": "rpm",
+      "antes": 830,
+      "depois": 831
+    },
+    {
+      "arma": "grt-bc",
+      "campo": "reload",
+      "antes": 3.35,
+      "depois": 2.5
+    },
+    {
+      "arma": "grt-bc",
+      "campo": "emptyReload",
+      "antes": 4.05,
+      "depois": 3.35
+    },
+    {
+      "arma": "grt-bc",
+      "campo": "fireModes",
+      "antes": ["auto", "burst"],
+      "depois": ["auto", "semi"]
+    },
+    {
+      "arma": "qbz-192",
+      "campo": "damage",
+      "antes": [
+        [25, 0],
+        [21.5, 9],
+        [17.7, 21],
+        [16.7, 36],
+        [14.3, 75]
+      ],
+      "depois": [
+        [26.05, 0],
+        [21.56, 9],
+        [17.74, 21],
+        [17.13, 36],
+        [14.62, 75]
+      ]
+    },
+    {
+      "arma": "qbz-192",
+      "campo": "reload",
+      "antes": 2.9,
+      "depois": 2.567
+    },
+    {
+      "arma": "qbz-192",
+      "campo": "emptyReload",
+      "antes": 3.6,
+      "depois": 2.784
+    },
+    {
+      "arma": "qbz-192",
+      "campo": "fireModes",
+      "antes": ["auto", "burst"],
+      "depois": ["auto", "semi"]
+    },
+    {
+      "arma": "sg-553r",
+      "campo": "damage",
+      "antes": [
+        [33, 0],
+        [27.3, 5],
+        [21.7, 20],
+        [16, 35]
+      ],
+      "depois": [
+        [35.22, 0],
+        [26.05, 9],
+        [20.67, 21],
+        [17.13, 36],
+        [14.62, 75]
+      ]
+    },
+    {
+      "arma": "sg-553r",
+      "campo": "reload",
+      "antes": 2.75,
+      "depois": 2.5
+    },
+    {
+      "arma": "sg-553r",
+      "campo": "emptyReload",
+      "antes": 3.45,
+      "depois": 2.934
+    },
+    {
+      "arma": "sg-553r",
+      "campo": "fireModes",
+      "antes": ["auto", "burst"],
+      "depois": ["auto", "burst", "semi"]
+    },
+    {
+      "arma": "sor-300sc",
+      "campo": "damage",
+      "antes": [
+        [25, 0],
+        [21.5, 9],
+        [17.7, 21],
+        [16.7, 36],
+        [14.3, 75]
+      ],
+      "depois": [
+        [35.22, 0],
+        [26.05, 9],
+        [20.67, 21],
+        [17.13, 36],
+        [14.62, 75]
+      ]
+    },
+    {
+      "arma": "sor-300sc",
+      "campo": "rpm",
+      "antes": 700,
+      "depois": 600
+    },
+    {
+      "arma": "sor-300sc",
+      "campo": "reload",
+      "antes": 2.6,
+      "depois": 2.25
+    },
+    {
+      "arma": "sor-300sc",
+      "campo": "emptyReload",
+      "antes": 3.3,
+      "depois": 3.2
+    },
+    {
+      "arma": "sor-300sc",
+      "campo": "fireModes",
+      "antes": ["auto", "burst", "semi"],
+      "depois": ["auto", "semi"]
+    },
+    {
+      "arma": "sgx",
+      "campo": "damage",
+      "antes": [
+        [25, 0],
+        [20, 9],
+        [16.7, 21],
+        [14.3, 36],
+        [12.5, 75]
+      ],
+      "depois": [
+        [26.05, 0],
+        [20.67, 9],
+        [17.13, 21],
+        [14.62, 36],
+        [12.76, 75]
+      ]
+    },
+    {
+      "arma": "sgx",
+      "campo": "rpm",
+      "antes": 830,
+      "depois": 831
+    },
+    {
+      "arma": "sgx",
+      "campo": "magazine",
+      "antes": 25,
+      "depois": 30
+    },
+    {
+      "arma": "sgx",
+      "campo": "reload",
+      "antes": 2.45,
+      "depois": 2.517
+    },
+    {
+      "arma": "sgx",
+      "campo": "emptyReload",
+      "antes": 3.1,
+      "depois": 2.917
+    },
+    {
+      "arma": "sgx",
+      "campo": "fireModes",
+      "antes": ["auto"],
+      "depois": ["auto", "semi"]
+    },
+    {
+      "arma": "pw5a3",
+      "campo": "damage",
+      "antes": [
+        [20, 0],
+        [17.7, 10],
+        [15.3, 20],
+        [13, 30]
+      ],
+      "depois": [
+        [26.05, 0],
+        [20.67, 9],
+        [17.13, 21],
+        [14.62, 36],
+        [12.76, 75]
+      ]
+    },
+    {
+      "arma": "pw5a3",
+      "campo": "reload",
+      "antes": 2.55,
+      "depois": 2.517
+    },
+    {
+      "arma": "pw5a3",
+      "campo": "emptyReload",
+      "antes": 3.2,
+      "depois": 3
+    },
+    {
+      "arma": "pw7a2",
+      "campo": "damage",
+      "antes": [
+        [16.7, 0],
+        [14.3, 21],
+        [12.5, 75]
+      ],
+      "depois": [
+        [17.13, 0],
+        [14.62, 21],
+        [12.76, 75]
+      ]
+    },
+    {
+      "arma": "pw7a2",
+      "campo": "reload",
+      "antes": 2.97,
+      "depois": 2.184
+    },
+    {
+      "arma": "pw7a2",
+      "campo": "emptyReload",
+      "antes": 3.6,
+      "depois": 3.067
+    },
+    {
+      "arma": "pw7a2",
+      "campo": "fireModes",
+      "antes": ["auto"],
+      "depois": ["auto", "semi"]
+    },
+    {
+      "arma": "umg-40",
+      "campo": "damage",
+      "antes": [
+        [26, 0],
+        [22.3, 12],
+        [18.7, 24],
+        [15, 35]
+      ],
+      "depois": [
+        [26.05, 0],
+        [21.56, 9],
+        [17.74, 21],
+        [17.13, 36],
+        [14.62, 75]
+      ]
+    },
+    {
+      "arma": "umg-40",
+      "campo": "reload",
+      "antes": 2.92,
+      "depois": 2.517
+    },
+    {
+      "arma": "umg-40",
+      "campo": "emptyReload",
+      "antes": 3.55,
+      "depois": 2.917
+    },
+    {
+      "arma": "umg-40",
+      "campo": "fireModes",
+      "antes": ["auto", "semi"],
+      "depois": ["auto", "burst", "semi"]
+    },
+    {
+      "arma": "usg-90",
+      "campo": "damage",
+      "antes": [
+        [18, 0],
+        [16, 10],
+        [14, 25],
+        [12, 40]
+      ],
+      "depois": [
+        [20.67, 0],
+        [17.74, 9],
+        [15.07, 21],
+        [14.62, 36],
+        [12.76, 75]
+      ]
+    },
+    {
+      "arma": "usg-90",
+      "campo": "reload",
+      "antes": 3.17,
+      "depois": 3
+    },
+    {
+      "arma": "usg-90",
+      "campo": "emptyReload",
+      "antes": 3.8,
+      "depois": 3.284
+    },
+    {
+      "arma": "usg-90",
+      "campo": "fireModes",
+      "antes": ["auto"],
+      "depois": ["auto", "semi"]
+    },
+    {
+      "arma": "kv9",
+      "campo": "damage",
+      "antes": [
+        [22, 0],
+        [18.7, 5],
+        [15.3, 12],
+        [12, 20]
+      ],
+      "depois": [
+        [26.05, 0],
+        [20.67, 9],
+        [17.13, 21],
+        [14.62, 36],
+        [12.76, 75]
+      ]
+    },
+    {
+      "arma": "kv9",
+      "campo": "reload",
+      "antes": 2.9,
+      "depois": 2.384
+    },
+    {
+      "arma": "kv9",
+      "campo": "emptyReload",
+      "antes": 3.5,
+      "depois": 2.9
+    },
+    {
+      "arma": "kv9",
+      "campo": "fireModes",
+      "antes": ["auto"],
+      "depois": ["auto", "burst", "semi"]
+    },
+    {
+      "arma": "scw-10",
+      "campo": "damage",
+      "antes": [
+        [33.4, 0],
+        [25, 20],
+        [20, 35],
+        [16.7, 75]
+      ],
+      "depois": [
+        [35.22, 0],
+        [26.05, 9],
+        [20.67, 21],
+        [17.13, 36],
+        [14.62, 75]
+      ]
+    },
+    {
+      "arma": "scw-10",
+      "campo": "magazine",
+      "antes": 30,
+      "depois": 15
+    },
+    {
+      "arma": "scw-10",
+      "campo": "reload",
+      "antes": 2.4,
+      "depois": 2.6
+    },
+    {
+      "arma": "scw-10",
+      "campo": "emptyReload",
+      "antes": 3.05,
+      "depois": 3.117
+    },
+    {
+      "arma": "scw-10",
+      "campo": "fireModes",
+      "antes": ["auto"],
+      "depois": ["auto", "semi"]
+    },
+    {
+      "arma": "sl9",
+      "campo": "damage",
+      "antes": [
+        [25, 0],
+        [20, 9],
+        [16.7, 21],
+        [14.3, 36],
+        [12.5, 75]
+      ],
+      "depois": [
+        [26.05, 0],
+        [20.67, 9],
+        [17.13, 21],
+        [14.62, 36],
+        [12.76, 75]
+      ]
+    },
+    {
+      "arma": "sl9",
+      "campo": "reload",
+      "antes": 2.6,
+      "depois": 2.65
+    },
+    {
+      "arma": "sl9",
+      "campo": "emptyReload",
+      "antes": 3.25,
+      "depois": 3.184
+    },
+    {
+      "arma": "cz3a1",
+      "campo": "damage",
+      "antes": [
+        [24, 0],
+        [20, 5],
+        [16, 15],
+        [12, 25]
+      ],
+      "depois": [
+        [26.05, 0],
+        [20.67, 9],
+        [17.13, 21],
+        [14.62, 36],
+        [12.76, 75]
+      ]
+    },
+    {
+      "arma": "cz3a1",
+      "campo": "rpm",
+      "antes": 1150,
+      "depois": 982
+    },
+    {
+      "arma": "cz3a1",
+      "campo": "reload",
+      "antes": 2.5,
+      "depois": 2.217
+    },
+    {
+      "arma": "cz3a1",
+      "campo": "emptyReload",
+      "antes": 3.1,
+      "depois": 2.95
+    },
+    {
+      "arma": "cz3a1",
+      "campo": "fireModes",
+      "antes": ["auto"],
+      "depois": ["auto", "burst", "semi"]
+    },
+    {
+      "arma": "pp-19",
+      "campo": "damage",
+      "antes": [
+        [24, 0],
+        [20.7, 8],
+        [17.3, 19],
+        [14, 30]
+      ],
+      "depois": [
+        [26.05, 0],
+        [20.67, 9],
+        [17.13, 21],
+        [14.62, 36],
+        [12.76, 75]
+      ]
+    },
+    {
+      "arma": "pp-19",
+      "campo": "rpm",
+      "antes": 700,
+      "depois": 720
+    },
+    {
+      "arma": "pp-19",
+      "campo": "magazine",
+      "antes": 53,
+      "depois": 30
+    },
+    {
+      "arma": "pp-19",
+      "campo": "reload",
+      "antes": 3.1,
+      "depois": 2.467
+    },
+    {
+      "arma": "pp-19",
+      "campo": "emptyReload",
+      "antes": 3.75,
+      "depois": 2.967
+    },
+    {
+      "arma": "pp-19",
+      "campo": "fireModes",
+      "antes": ["auto"],
+      "depois": ["auto", "semi"]
+    },
+    {
+      "arma": "l110",
+      "campo": "damage",
+      "antes": [
+        [25, 0],
+        [20, 35]
+      ],
+      "depois": [
+        [26.05, 0],
+        [20.67, 21],
+        [17.13, 75]
+      ]
+    },
+    {
+      "arma": "l110",
+      "campo": "magazine",
+      "antes": 75,
+      "depois": 100
+    },
+    {
+      "arma": "l110",
+      "campo": "reload",
+      "antes": 6.4,
+      "depois": 6.5
+    },
+    {
+      "arma": "l110",
+      "campo": "emptyReload",
+      "antes": 7.4,
+      "depois": 7.734
+    },
+    {
+      "arma": "drs-iar",
+      "campo": "damage",
+      "antes": [
+        [24, 0],
+        [22.7, 30],
+        [21.3, 52],
+        [20, 75]
+      ],
+      "depois": [
+        [26.05, 0],
+        [20.67, 21],
+        [17.13, 75]
+      ]
+    },
+    {
+      "arma": "drs-iar",
+      "campo": "magazine",
+      "antes": 45,
+      "depois": 30
+    },
+    {
+      "arma": "drs-iar",
+      "campo": "reload",
+      "antes": 4.2,
+      "depois": 2.467
+    },
+    {
+      "arma": "drs-iar",
+      "campo": "emptyReload",
+      "antes": 5.1,
+      "depois": 2.95
+    },
+    {
+      "arma": "drs-iar",
+      "campo": "fireModes",
+      "antes": ["auto"],
+      "depois": ["auto", "semi"]
+    },
+    {
+      "arma": "m60",
+      "campo": "damage",
+      "antes": [
+        [33.4, 0],
+        [25, 35]
+      ],
+      "depois": [
+        [35.22, 0],
+        [26.05, 21],
+        [20.67, 75]
+      ]
+    },
+    {
+      "arma": "m60",
+      "campo": "reload",
+      "antes": 7.8,
+      "depois": 7.35
+    },
+    {
+      "arma": "m60",
+      "campo": "emptyReload",
+      "antes": 8.8,
+      "depois": 8.15
+    },
+    {
+      "arma": "rpkm",
+      "campo": "damage",
+      "antes": [
+        [33.4, 0],
+        [27.3, 9],
+        [21.5, 21],
+        [20, 36],
+        [16.7, 75]
+      ],
+      "depois": [
+        [35.22, 0],
+        [27.48, 9],
+        [21.56, 21],
+        [20.67, 36],
+        [17.13, 75]
+      ]
+    },
+    {
+      "arma": "rpkm",
+      "campo": "rpm",
+      "antes": 553,
+      "depois": 554
+    },
+    {
+      "arma": "rpkm",
+      "campo": "reload",
+      "antes": 3.28,
+      "depois": 2.8
+    },
+    {
+      "arma": "rpkm",
+      "campo": "emptyReload",
+      "antes": 4.15,
+      "depois": 3.284
+    },
+    {
+      "arma": "m123k",
+      "campo": "damage",
+      "antes": [
+        [25, 0],
+        [20, 21],
+        [16.7, 75]
+      ],
+      "depois": [
+        [26.05, 0],
+        [20.67, 21],
+        [17.13, 75]
+      ]
+    },
+    {
+      "arma": "m123k",
+      "campo": "rpm",
+      "antes": 830,
+      "depois": 831
+    },
+    {
+      "arma": "m123k",
+      "campo": "reload",
+      "antes": 7.43,
+      "depois": 6.65
+    },
+    {
+      "arma": "m123k",
+      "campo": "emptyReload",
+      "antes": 8.4,
+      "depois": 7.434
+    },
+    {
+      "arma": "m250",
+      "campo": "damage",
+      "antes": [
+        [25, 0],
+        [24, 50],
+        [23, 68],
+        [22, 85]
+      ],
+      "depois": [
+        [26.05, 0]
+      ]
+    },
+    {
+      "arma": "m250",
+      "campo": "reload",
+      "antes": 6.13,
+      "depois": 5.75
+    },
+    {
+      "arma": "m250",
+      "campo": "emptyReload",
+      "antes": 7.1,
+      "depois": 6.134
+    },
+    {
+      "arma": "m250",
+      "campo": "fireModes",
+      "antes": ["auto"],
+      "depois": ["auto", "semi"]
+    },
+    {
+      "arma": "kts100-mk8",
+      "campo": "damage",
+      "antes": [
+        [25, 0],
+        [20, 21],
+        [16.7, 75]
+      ],
+      "depois": [
+        [26.05, 0],
+        [20.67, 21],
+        [17.13, 75]
+      ]
+    },
+    {
+      "arma": "kts100-mk8",
+      "campo": "reload",
+      "antes": 5.6,
+      "depois": 3.25
+    },
+    {
+      "arma": "kts100-mk8",
+      "campo": "emptyReload",
+      "antes": 6.6,
+      "depois": 3.984
+    },
+    {
+      "arma": "kts100-mk8",
+      "campo": "fireModes",
+      "antes": ["auto"],
+      "depois": ["auto", "semi"]
+    },
+    {
+      "arma": "m240l",
+      "campo": "damage",
+      "antes": [
+        [28, 0],
+        [26, 35],
+        [24, 58],
+        [22, 80]
+      ],
+      "depois": [
+        [35.22, 0],
+        [26.05, 21],
+        [20.67, 75]
+      ]
+    },
+    {
+      "arma": "m240l",
+      "campo": "magazine",
+      "antes": 100,
+      "depois": 50
+    },
+    {
+      "arma": "m240l",
+      "campo": "reload",
+      "antes": 8.1,
+      "depois": 4.25
+    },
+    {
+      "arma": "m240l",
+      "campo": "emptyReload",
+      "antes": 9.1,
+      "depois": 5.6
+    },
+    {
+      "arma": "m121-a2",
+      "campo": "damage",
+      "antes": [
+        [22, 0],
+        [20.3, 20],
+        [18.7, 40],
+        [17, 60]
+      ],
+      "depois": [
+        [35.22, 0],
+        [26.05, 21],
+        [20.67, 75]
+      ]
+    },
+    {
+      "arma": "m121-a2",
+      "campo": "rpm",
+      "antes": 550,
+      "depois": 655
+    },
+    {
+      "arma": "m121-a2",
+      "campo": "magazine",
+      "antes": 100,
+      "depois": 50
+    },
+    {
+      "arma": "m121-a2",
+      "campo": "reload",
+      "antes": 7.6,
+      "depois": 6.267
+    },
+    {
+      "arma": "m121-a2",
+      "campo": "emptyReload",
+      "antes": 8.6,
+      "depois": 7.25
+    },
+    {
+      "arma": "rpk-74m",
+      "campo": "damage",
+      "antes": [
+        [24, 0],
+        [22.3, 25],
+        [20.7, 48],
+        [19, 70]
+      ],
+      "depois": [
+        [20.67, 0],
+        [17.13, 21],
+        [14.62, 75]
+      ]
+    },
+    {
+      "arma": "rpk-74m",
+      "campo": "rpm",
+      "antes": 600,
+      "depois": 686
+    },
+    {
+      "arma": "rpk-74m",
+      "campo": "reload",
+      "antes": 3.5,
+      "depois": 2.784
+    },
+    {
+      "arma": "rpk-74m",
+      "campo": "emptyReload",
+      "antes": 4.4,
+      "depois": 3.1
+    },
+    {
+      "arma": "m39-emr",
+      "campo": "damage",
+      "antes": [
+        [45, 0],
+        [44.5, 30],
+        [44, 75],
+        [43.5, 120]
+      ],
+      "depois": [
+        [41.5, 0],
+        [37.6, 21],
+        [34.4, 75]
+      ]
+    },
+    {
+      "arma": "m39-emr",
+      "campo": "rpm",
+      "antes": 380,
+      "depois": 257
+    },
+    {
+      "arma": "m39-emr",
+      "campo": "reload",
+      "antes": 3.2,
+      "depois": 2.534
+    },
+    {
+      "arma": "m39-emr",
+      "campo": "emptyReload",
+      "antes": 4,
+      "depois": 2.85
+    },
+    {
+      "arma": "lmr27",
+      "campo": "damage",
+      "antes": [
+        [35, 0],
+        [34.5, 25],
+        [34, 68],
+        [33.5, 110]
+      ],
+      "depois": [
+        [29.4, 0],
+        [27.5, 21],
+        [26.2, 75]
+      ]
+    },
+    {
+      "arma": "lmr27",
+      "campo": "reload",
+      "antes": 3.07,
+      "depois": 3.034
+    },
+    {
+      "arma": "lmr27",
+      "campo": "emptyReload",
+      "antes": 3.85,
+      "depois": 3.067
+    },
+    {
+      "arma": "lmr27",
+      "campo": "headshot",
+      "antes": 1.35,
+      "depois": 1.34
+    },
+    {
+      "arma": "svk-86",
+      "campo": "damage",
+      "antes": [
+        [60, 0],
+        [56.7, 40],
+        [53.3, 70],
+        [50, 100]
+      ],
+      "depois": [
+        [66.7, 0],
+        [57.2, 9],
+        [52.4, 21]
+      ]
+    },
+    {
+      "arma": "svk-86",
+      "campo": "rpm",
+      "antes": 260,
+      "depois": 150
+    },
+    {
+      "arma": "svk-86",
+      "campo": "reload",
+      "antes": 3.5,
+      "depois": 2.967
+    },
+    {
+      "arma": "svk-86",
+      "campo": "emptyReload",
+      "antes": 4.35,
+      "depois": 4.217
+    },
+    {
+      "arma": "svk-86",
+      "campo": "headshot",
+      "antes": 1.7,
+      "depois": 1.5
+    },
+    {
+      "arma": "svdm",
+      "campo": "damage",
+      "antes": [
+        [33.4, 0],
+        [30, 50],
+        [27.3, 100]
+      ],
+      "depois": [
+        [41.5, 0],
+        [37.6, 21],
+        [34.4, 75]
+      ]
+    },
+    {
+      "arma": "svdm",
+      "campo": "rpm",
+      "antes": 360,
+      "depois": 300
+    },
+    {
+      "arma": "svdm",
+      "campo": "reload",
+      "antes": 3.35,
+      "depois": 2.5
+    },
+    {
+      "arma": "svdm",
+      "campo": "emptyReload",
+      "antes": 4.2,
+      "depois": 3.45
+    },
+    {
+      "arma": "grt-cps",
+      "campo": "damage",
+      "antes": [
+        [33.4, 0],
+        [28.6, 45],
+        [25, 90]
+      ],
+      "depois": [
+        [29.4, 0],
+        [27.5, 21],
+        [26.2, 75]
+      ]
+    },
+    {
+      "arma": "grt-cps",
+      "campo": "rpm",
+      "antes": 400,
+      "depois": 360
+    },
+    {
+      "arma": "grt-cps",
+      "campo": "magazine",
+      "antes": 15,
+      "depois": 20
+    },
+    {
+      "arma": "grt-cps",
+      "campo": "reload",
+      "antes": 3.15,
+      "depois": 2.75
+    },
+    {
+      "arma": "grt-cps",
+      "campo": "emptyReload",
+      "antes": 3.95,
+      "depois": 3.034
+    },
+    {
+      "arma": "grt-cps",
+      "campo": "headshot",
+      "antes": 1.5,
+      "depois": 1.34
+    },
+    {
+      "arma": "m2010-esr",
+      "campo": "damage",
+      "antes": [
+        [110, 0],
+        [100, 20],
+        [90, 85],
+        [80, 150]
+      ],
+      "depois": [
+        [80, 0],
+        [100, 75],
+        [62, 100]
+      ]
+    },
+    {
+      "arma": "m2010-esr",
+      "campo": "reload",
+      "antes": 3.93,
+      "depois": 3.234
+    },
+    {
+      "arma": "m2010-esr",
+      "campo": "emptyReload",
+      "antes": 4.8,
+      "depois": 3.934
+    },
+    {
+      "arma": "sv-98",
+      "campo": "damage",
+      "antes": [
+        [80, 0],
+        [100, 54],
+        [62.5, 125]
+      ],
+      "depois": [
+        [80, 0],
+        [100, 54],
+        [62, 75]
+      ]
+    },
+    {
+      "arma": "sv-98",
+      "campo": "reload",
+      "antes": 3.97,
+      "depois": 2.984
+    },
+    {
+      "arma": "sv-98",
+      "campo": "emptyReload",
+      "antes": 4.85,
+      "depois": 3.967
+    },
+    {
+      "arma": "psr",
+      "campo": "damage",
+      "antes": [
+        [95, 0],
+        [100, 40],
+        [75, 150]
+      ],
+      "depois": [
+        [80, 0],
+        [100, 90],
+        [62, 120]
+      ]
+    },
+    {
+      "arma": "psr",
+      "campo": "rpm",
+      "antes": 34,
+      "depois": 39
+    },
+    {
+      "arma": "psr",
+      "campo": "magazine",
+      "antes": 5,
+      "depois": 10
+    },
+    {
+      "arma": "psr",
+      "campo": "reload",
+      "antes": 4.3,
+      "depois": 3.35
+    },
+    {
+      "arma": "psr",
+      "campo": "emptyReload",
+      "antes": 5.2,
+      "depois": 4.35
+    },
+    {
+      "arma": "mini-scout",
+      "campo": "damage",
+      "antes": [
+        [70, 0],
+        [80, 40],
+        [55, 110]
+      ],
+      "depois": [
+        [62, 0],
+        [58, 21]
+      ]
+    },
+    {
+      "arma": "mini-scout",
+      "campo": "rpm",
+      "antes": 55,
+      "depois": 47
+    },
+    {
+      "arma": "mini-scout",
+      "campo": "magazine",
+      "antes": 5,
+      "depois": 10
+    },
+    {
+      "arma": "mini-scout",
+      "campo": "reload",
+      "antes": 3.5,
+      "depois": 2.334
+    },
+    {
+      "arma": "mini-scout",
+      "campo": "emptyReload",
+      "antes": 4.35,
+      "depois": 3.9
+    },
+    {
+      "arma": "l115",
+      "campo": "damage",
+      "antes": [
+        [105, 0],
+        [95, 15],
+        [85, 72],
+        [75, 130]
+      ],
+      "depois": [
+        [80, 0],
+        [100, 100],
+        [62, 133]
+      ]
+    },
+    {
+      "arma": "l115",
+      "campo": "rpm",
+      "antes": 40,
+      "depois": 46
+    },
+    {
+      "arma": "l115",
+      "campo": "velocity",
+      "antes": 664,
+      "depois": 742
+    },
+    {
+      "arma": "l115",
+      "campo": "reload",
+      "antes": 4.1,
+      "depois": 2.75
+    },
+    {
+      "arma": "l115",
+      "campo": "emptyReload",
+      "antes": 5,
+      "depois": 4.233
+    },
+    {
+      "arma": "interdictor",
+      "campo": "rpm",
+      "antes": 30,
+      "depois": 32
+    },
+    {
+      "arma": "interdictor",
+      "campo": "velocity",
+      "antes": 1020,
+      "depois": 733
+    },
+    {
+      "arma": "interdictor",
+      "campo": "reload",
+      "antes": 4.6,
+      "depois": 3.5
+    },
+    {
+      "arma": "interdictor",
+      "campo": "emptyReload",
+      "antes": 5.6,
+      "depois": 4.83
+    },
+    {
+      "arma": "m87a1",
+      "campo": "damage",
+      "antes": [
+        [9, 0],
+        [6.5, 10],
+        [4, 18],
+        [2.6, 25]
+      ],
+      "depois": [
+        [8.4, 0],
+        [7.2, 8],
+        [5.6, 15],
+        [3.8, 30]
+      ]
+    },
+    {
+      "arma": "m87a1",
+      "campo": "pellets",
+      "antes": 12,
+      "depois": 16
+    },
+    {
+      "arma": "m87a1",
+      "campo": "rpm",
+      "antes": 75,
+      "depois": 95
+    },
+    {
+      "arma": "m87a1",
+      "campo": "velocity",
+      "antes": 420,
+      "depois": 400
+    },
+    {
+      "arma": "m87a1",
+      "campo": "magazine",
+      "antes": 6,
+      "depois": 7
+    },
+    {
+      "arma": "m1014",
+      "campo": "damage",
+      "antes": [
+        [7.2, 0],
+        [5, 9],
+        [3.1, 16],
+        [2.3, 22]
+      ],
+      "depois": [
+        [7.2, 0],
+        [5, 8],
+        [3.1, 15],
+        [2.3, 21]
+      ]
+    },
+    {
+      "arma": "m1014",
+      "campo": "pellets",
+      "antes": 15,
+      "depois": 16
+    },
+    {
+      "arma": "18-5ks-k",
+      "campo": "damage",
+      "antes": [
+        [6.8, 0],
+        [4.7, 9],
+        [3, 16],
+        [2.2, 22]
+      ],
+      "depois": [
+        [5, 0],
+        [2.8, 15],
+        [2, 21]
+      ]
+    },
+    {
+      "arma": "18-5ks-k",
+      "campo": "pellets",
+      "antes": 15,
+      "depois": 16
+    },
+    {
+      "arma": "18-5ks-k",
+      "campo": "rpm",
+      "antes": 240,
+      "depois": 300
+    },
+    {
+      "arma": "18-5ks-k",
+      "campo": "velocity",
+      "antes": 390,
+      "depois": 400
+    },
+    {
+      "arma": "18-5ks-k",
+      "campo": "magazine",
+      "antes": 7,
+      "depois": 8
+    },
+    {
+      "arma": "18-5ks-k",
+      "campo": "reload",
+      "antes": 0.42,
+      "depois": 2.75
+    },
+    {
+      "arma": "18-5ks-k",
+      "campo": "emptyReload",
+      "antes": 0.95,
+      "depois": 3.7
+    },
+    {
+      "arma": "db-12",
+      "campo": "damage",
+      "antes": [
+        [10, 0],
+        [7, 10],
+        [4.5, 18],
+        [2.8, 24]
+      ],
+      "depois": [
+        [5.6, 0],
+        [3.3, 15],
+        [2.5, 21]
+      ]
+    },
+    {
+      "arma": "db-12",
+      "campo": "pellets",
+      "antes": 12,
+      "depois": 16
+    },
+    {
+      "arma": "db-12",
+      "campo": "rpm",
+      "antes": 300,
+      "depois": 360
+    },
+    {
+      "arma": "db-12",
+      "campo": "velocity",
+      "antes": 410,
+      "depois": 400
+    },
+    {
+      "arma": "db-12",
+      "campo": "magazine",
+      "antes": 2,
+      "depois": 14
+    },
+    {
+      "arma": "db-12",
+      "campo": "fireModes",
+      "antes": ["semi"],
+      "depois": ["bombeamento"]
+    },
+    {
+      "arma": "p18",
+      "campo": "damage",
+      "antes": [
+        [16.7, 0],
+        [14.3, 9],
+        [12.5, 21],
+        [11.2, 36]
+      ],
+      "depois": [
+        [25, 0],
+        [20, 9],
+        [16.7, 21],
+        [14.3, 36],
+        [12.5, 75]
+      ]
+    },
+    {
+      "arma": "p18",
+      "campo": "rpm",
+      "antes": 1100,
+      "depois": 400
+    },
+    {
+      "arma": "p18",
+      "campo": "velocity",
+      "antes": 380,
+      "depois": 350
+    },
+    {
+      "arma": "p18",
+      "campo": "reload",
+      "antes": 2.1,
+      "depois": 1.934
+    },
+    {
+      "arma": "p18",
+      "campo": "emptyReload",
+      "antes": 2.6,
+      "depois": 2.167
+    },
+    {
+      "arma": "p18",
+      "campo": "headshot",
+      "antes": 1.35,
+      "depois": 1.34
+    },
+    {
+      "arma": "p18",
+      "campo": "fireModes",
+      "antes": ["auto", "semi"],
+      "depois": ["semi"]
+    },
+    {
+      "arma": "es-57",
+      "campo": "reload",
+      "antes": 2.2,
+      "depois": 2.017
+    },
+    {
+      "arma": "es-57",
+      "campo": "emptyReload",
+      "antes": 2.7,
+      "depois": 2.2
+    },
+    {
+      "arma": "es-57",
+      "campo": "headshot",
+      "antes": 1.35,
+      "depois": 1.34
+    },
+    {
+      "arma": "m45a1",
+      "campo": "magazine",
+      "antes": 8,
+      "depois": 7
+    },
+    {
+      "arma": "m45a1",
+      "campo": "reload",
+      "antes": 2,
+      "depois": 1.867
+    },
+    {
+      "arma": "m45a1",
+      "campo": "emptyReload",
+      "antes": 2.5,
+      "depois": 2
+    },
+    {
+      "arma": "m45a1",
+      "campo": "headshot",
+      "antes": 1.35,
+      "depois": 1.34
+    },
+    {
+      "arma": "m44",
+      "campo": "headshot",
+      "antes": 1.35,
+      "depois": 1.5
+    },
+    {
+      "arma": "ggh-22",
+      "campo": "damage",
+      "antes": [
+        [25, 0],
+        [20, 9],
+        [16.7, 21],
+        [14.3, 36],
+        [12.5, 75]
+      ],
+      "depois": [
+        [25, 0],
+        [21.5, 9],
+        [17.7, 21],
+        [16.7, 36],
+        [14.3, 75]
+      ]
+    },
+    {
+      "arma": "ggh-22",
+      "campo": "rpm",
+      "antes": 400,
+      "depois": 360
+    },
+    {
+      "arma": "ggh-22",
+      "campo": "velocity",
+      "antes": 420,
+      "depois": 400
+    },
+    {
+      "arma": "ggh-22",
+      "campo": "reload",
+      "antes": 2.15,
+      "depois": 1.934
+    },
+    {
+      "arma": "ggh-22",
+      "campo": "emptyReload",
+      "antes": 2.65,
+      "depois": 2.25
+    },
+    {
+      "arma": "ggh-22",
+      "campo": "headshot",
+      "antes": 1.35,
+      "depois": 1.34
+    },
+    {
+      "arma": "m357-trait",
+      "campo": "damage",
+      "antes": [
+        [50, 0],
+        [40, 15],
+        [33.4, 30]
+      ],
+      "depois": [
+        [50, 0],
+        [37.5, 9],
+        [27.3, 21],
+        [25, 36],
+        [20, 75]
+      ]
+    },
+    {
+      "arma": "m357-trait",
+      "campo": "rpm",
+      "antes": 220,
+      "depois": 225
+    },
+    {
+      "arma": "m357-trait",
+      "campo": "velocity",
+      "antes": 400,
+      "depois": 410
+    },
+    {
+      "arma": "m357-trait",
+      "campo": "reload",
+      "antes": 3.1,
+      "depois": 3.067
+    },
+    {
+      "arma": "m357-trait",
+      "campo": "emptyReload",
+      "antes": 3.1,
+      "depois": 3.067
+    },
+    {
+      "arma": "m357-trait",
+      "campo": "headshot",
+      "antes": 1.35,
+      "depois": 1.5
+    },
+    {
+      "arma": "vz-61",
+      "campo": "damage",
+      "antes": [
+        [16.7, 0],
+        [14.3, 9],
+        [12.5, 25]
+      ],
+      "depois": [
+        [17.13, 0],
+        [15.07, 9],
+        [13.09, 21],
+        [12.76, 36],
+        [11.32, 75]
+      ]
+    },
+    {
+      "arma": "vz-61",
+      "campo": "rpm",
+      "antes": 850,
+      "depois": 818
+    },
+    {
+      "arma": "vz-61",
+      "campo": "magazine",
+      "antes": 20,
+      "depois": 10
+    },
+    {
+      "arma": "vz-61",
+      "campo": "reload",
+      "antes": 2.25,
+      "depois": 2.134
+    },
+    {
+      "arma": "vz-61",
+      "campo": "emptyReload",
+      "antes": 2.8,
+      "depois": 2.833
+    },
+    {
+      "arma": "vz-61",
+      "campo": "headshot",
+      "antes": 1.35,
+      "depois": 1.4
+    },
+    {
+      "arma": "brod-3",
+      "campo": "damage",
+      "antes": [
+        [20, 0],
+        [18.3, 8],
+        [16.7, 22],
+        [15, 35]
+      ],
+      "depois": [
+        [26.05, 0],
+        [21.56, 9],
+        [17.74, 21],
+        [17.13, 36],
+        [14.62, 75]
+      ]
+    },
+    {
+      "arma": "brod-3",
+      "campo": "rpm",
+      "antes": 750,
+      "depois": 831
+    },
+    {
+      "arma": "brod-3",
+      "campo": "velocity",
+      "antes": 700,
+      "depois": 563
+    },
+    {
+      "arma": "brod-3",
+      "campo": "reload",
+      "antes": 2.65,
+      "depois": 2.217
+    },
+    {
+      "arma": "brod-3",
+      "campo": "emptyReload",
+      "antes": 3.35,
+      "depois": 3.05
+    },
+    {
+      "arma": "brod-3",
+      "campo": "fireModes",
+      "antes": ["auto", "burst"],
+      "depois": ["auto", "semi"]
+    },
+    {
+      "arma": "ef88",
+      "campo": "damage",
+      "antes": [
+        [24, 0],
+        [22.3, 18],
+        [20.7, 36],
+        [19, 55]
+      ],
+      "depois": [
+        [26.05, 0],
+        [20.67, 21],
+        [17.13, 75]
+      ]
+    },
+    {
+      "arma": "ef88",
+      "campo": "rpm",
+      "antes": 700,
+      "depois": 675
+    },
+    {
+      "arma": "ef88",
+      "campo": "velocity",
+      "antes": 800,
+      "depois": 724
+    },
+    {
+      "arma": "ef88",
+      "campo": "reload",
+      "antes": 2.7,
+      "depois": 2.4
+    },
+    {
+      "arma": "ef88",
+      "campo": "emptyReload",
+      "antes": 3.45,
+      "depois": 3.534
+    },
+    {
+      "arma": "ef88",
+      "campo": "fireModes",
+      "antes": ["auto", "burst", "semi"],
+      "depois": ["auto", "semi"]
+    },
+    {
+      "arma": "vssm",
+      "campo": "damage",
+      "antes": [
+        [38, 0],
+        [34.7, 15],
+        [31.3, 38],
+        [28, 60]
+      ],
+      "depois": [
+        [35.22, 0],
+        [27.48, 9],
+        [21.56, 21],
+        [20.67, 36],
+        [17.13, 75]
+      ]
+    },
+    {
+      "arma": "vssm",
+      "campo": "rpm",
+      "antes": 600,
+      "depois": 450
+    },
+    {
+      "arma": "vssm",
+      "campo": "velocity",
+      "antes": 640,
+      "depois": 321
+    },
+    {
+      "arma": "vssm",
+      "campo": "reload",
+      "antes": 2.9,
+      "depois": 2.467
+    },
+    {
+      "arma": "vssm",
+      "campo": "emptyReload",
+      "antes": 3.7,
+      "depois": 3.584
+    },
+    {
+      "arma": "vssm",
+      "campo": "headshot",
+      "antes": 1.5,
+      "depois": 1.8
+    },
+    {
+      "arma": "vssm",
+      "campo": "fireModes",
+      "antes": ["auto", "semi"],
+      "depois": ["semi"]
+    }
+  ],
+  "armasSemPar": {
+    "site": ["kbr-mark-ii", "bighorn-hk-16", "sledgehammer-14lb", "nomad-cx-12", "ripper-14"],
+    "analyzer": []
+  },
+  "recargaDeTubo": ["m87a1", "m1014", "db-12"],
+  "custos": [
+    {
+      "peca": "sight-1p86-lpvo",
+      "antes": 25,
+      "depois": 20,
+      "armas": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "db-12", "drs-iar", "ef88", "elr-40", "grt-bc", "grt-cps", "interdictor", "kord-6p67", "kts100-mk8", "kv9", "l110", "l115", "l85a3", "lmr27", "m1014", "m121-a2", "m123k", "m16a4", "m2010-esr", "m240l", "m250", "m277", "m39-emr", "m417-a2", "m433", "m4a1", "m60", "mini-scout", "mk-24", "nvo-228e", "pp-19", "psr", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "sv-98", "svdm", "svk-86", "tr-7", "umg-40", "usg-90", "vcr-2", "vssm", "z84m"]
+    },
+    {
+      "peca": "rightRail-laser-light-combo-red",
+      "antes": 10,
+      "depois": 20,
+      "armas": ["es-57", "ggh-22", "grt-bc", "kts100-mk8", "m357-trait", "m45a1", "p18", "sl9", "vz-61"]
+    },
+    {
+      "peca": "ammo-hollow-point",
+      "antes": 20,
+      "depois": 15,
+      "armas": ["ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "drs-iar", "ef88", "es-57", "ggh-22", "grt-bc", "grt-cps", "kord-6p67", "kts100-mk8", "kv9", "l110", "l85a3", "lmr27", "m121-a2", "m123k", "m16a4", "m240l", "m250", "m277", "m357-trait", "m39-emr", "m417-a2", "m433", "m44", "m45a1", "m4a1", "m60", "nvo-228e", "p18", "pp-19", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "svdm", "svk-86", "tr-7", "umg-40", "usg-90", "vcr-2", "vz-61", "z84m"]
+    },
+    {
+      "peca": "ammo-synthetic-tip",
+      "antes": 30,
+      "depois": 20,
+      "armas": ["ak-205", "b36a4", "drs-iar", "ef88", "grt-cps", "kts100-mk8", "l85a3", "lmr27", "pp-19", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "sl9", "sor-556-mk2", "umg-40", "vz-61"]
+    },
+    {
+      "peca": "magazine-10rnd-fast-mag",
+      "antes": 5,
+      "depois": 10,
+      "armas": ["lmr27", "mini-scout", "svdm", "svk-86", "tr-7", "vssm"]
+    },
+    {
+      "peca": "magazine-200rnd-belt-box",
+      "antes": 55,
+      "depois": 50,
+      "armas": ["l110", "m123k"]
+    },
+    {
+      "peca": "magazine-41rnd-magazine",
+      "antes": 10,
+      "depois": 25,
+      "armas": ["sgx"]
+    },
+    {
+      "peca": "magazine-50rnd-fast-mag",
+      "antes": 45,
+      "depois": 10,
+      "armas": ["m121-a2"]
+    },
+    {
+      "peca": "magazine-5rnd-fast-mag",
+      "antes": 5,
+      "depois": 10,
+      "armas": ["interdictor", "m2010-esr", "m87a1"]
+    },
+    {
+      "peca": "magazine-42rnd-fast-mag",
+      "antes": 10,
+      "depois": 30,
+      "armas": ["ef88"]
+    },
+    {
+      "peca": "magazine-42rnd-magazine",
+      "antes": 10,
+      "depois": 25,
+      "armas": ["ef88"]
+    }
+  ],
+  "compat": {
+    "sight": {
+      "adicionadas": [
+        {
+          "peca": "sight-1p87-1-50x",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "sight-1p87-1-50x",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "sight-1p87-1-50x",
+          "arma": "psr"
+        },
+        {
+          "peca": "sight-1p87-1-50x",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-1p87-1-50x",
+          "arma": "l115"
+        },
+        {
+          "peca": "sight-1p87-1-50x",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-1p87-1-50x",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-1p87-1-50x",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-1p87-1-50x",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-1p87-1-50x",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-1p87-1-50x",
+          "arma": "m44"
+        },
+        {
+          "peca": "sight-1p87-1-50x",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "sight-1p87-1-50x",
+          "arma": "elr-40"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "m433"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "b36a4"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "sor-556-mk2"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "ak4d"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "tr-7"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "kord-6p67"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "nvo-228e"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "l85a3"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "vcr-2"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "m16a4"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "m4a1"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "m277"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "ak-205"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "m417-a2"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "grt-bc"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "qbz-192"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "sg-553r"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "sgx"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "pw5a3"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "pw7a2"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "kv9"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "scw-10"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "sl9"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "cz3a1"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "l110"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "drs-iar"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "m60"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "rpkm"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "m123k"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "m250"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "kts100-mk8"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "m240l"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "m121-a2"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "rpk-74m"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "brod-3"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "ef88"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "mk-24"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "z84m"
+        },
+        {
+          "peca": "sight-1p86-lpvo",
+          "arma": "rspr"
+        },
+        {
+          "peca": "sight-2pro-1-25x",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "sight-2pro-1-25x",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "sight-2pro-1-25x",
+          "arma": "psr"
+        },
+        {
+          "peca": "sight-2pro-1-25x",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-2pro-1-25x",
+          "arma": "l115"
+        },
+        {
+          "peca": "sight-2pro-1-25x",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-2pro-1-25x",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "sight-2pro-1-25x",
+          "arma": "elr-40"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "sgx"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "pw5a3"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "pw7a2"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "kv9"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "scw-10"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "sl9"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "cz3a1"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "psr"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "l115"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "m44"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "elr-40"
+        },
+        {
+          "peca": "sight-3vzr-1-75x",
+          "arma": "rspr"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "sgx"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "pw5a3"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "pw7a2"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "kv9"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "scw-10"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "sl9"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "cz3a1"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "psr"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "l115"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "p18"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "es-57"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "m45a1"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "m44"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "ggh-22"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "vz-61"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "elr-40"
+        },
+        {
+          "peca": "sight-a-p2-1-75x",
+          "arma": "rspr"
+        },
+        {
+          "peca": "sight-bf-2m-2-50x",
+          "arma": "sgx"
+        },
+        {
+          "peca": "sight-bf-2m-2-50x",
+          "arma": "pw5a3"
+        },
+        {
+          "peca": "sight-bf-2m-2-50x",
+          "arma": "pw7a2"
+        },
+        {
+          "peca": "sight-bf-2m-2-50x",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "sight-bf-2m-2-50x",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "sight-bf-2m-2-50x",
+          "arma": "kv9"
+        },
+        {
+          "peca": "sight-bf-2m-2-50x",
+          "arma": "scw-10"
+        },
+        {
+          "peca": "sight-bf-2m-2-50x",
+          "arma": "sl9"
+        },
+        {
+          "peca": "sight-bf-2m-2-50x",
+          "arma": "cz3a1"
+        },
+        {
+          "peca": "sight-bf-2m-2-50x",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "sight-bf-2m-2-50x",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-bf-2m-2-50x",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-bf-2m-2-50x",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-bf-2m-2-50x",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-bf-2m-2-50x",
+          "arma": "m44"
+        },
+        {
+          "peca": "sight-bf-2m-2-50x",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "sight-bf-2m-2-50x",
+          "arma": "rspr"
+        },
+        {
+          "peca": "sight-baker-3-00x",
+          "arma": "sgx"
+        },
+        {
+          "peca": "sight-baker-3-00x",
+          "arma": "pw5a3"
+        },
+        {
+          "peca": "sight-baker-3-00x",
+          "arma": "pw7a2"
+        },
+        {
+          "peca": "sight-baker-3-00x",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "sight-baker-3-00x",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "sight-baker-3-00x",
+          "arma": "kv9"
+        },
+        {
+          "peca": "sight-baker-3-00x",
+          "arma": "scw-10"
+        },
+        {
+          "peca": "sight-baker-3-00x",
+          "arma": "sl9"
+        },
+        {
+          "peca": "sight-baker-3-00x",
+          "arma": "cz3a1"
+        },
+        {
+          "peca": "sight-baker-3-00x",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "sight-baker-3-00x",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-baker-3-00x",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-baker-3-00x",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-baker-3-00x",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-baker-3-00x",
+          "arma": "m44"
+        },
+        {
+          "peca": "sight-baker-3-00x",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "sight-baker-3-00x",
+          "arma": "rspr"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "sgx"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "pw5a3"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "pw7a2"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "kv9"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "scw-10"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "sl9"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "cz3a1"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "psr"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "l115"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "m44"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "elr-40"
+        },
+        {
+          "peca": "sight-cco-2-00x",
+          "arma": "rspr"
+        },
+        {
+          "peca": "sight-cq-rds-1-25x",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "sight-cq-rds-1-25x",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "sight-cq-rds-1-25x",
+          "arma": "psr"
+        },
+        {
+          "peca": "sight-cq-rds-1-25x",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-cq-rds-1-25x",
+          "arma": "l115"
+        },
+        {
+          "peca": "sight-cq-rds-1-25x",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-cq-rds-1-25x",
+          "arma": "elr-40"
+        },
+        {
+          "peca": "sight-dvo-lpvo",
+          "arma": "m277"
+        },
+        {
+          "peca": "sight-dvo-lpvo",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "sight-dvo-lpvo",
+          "arma": "l115"
+        },
+        {
+          "peca": "sight-dvo-lpvo",
+          "arma": "elr-40"
+        },
+        {
+          "peca": "sight-grim-1-50x",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "sight-grim-1-50x",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "sight-grim-1-50x",
+          "arma": "psr"
+        },
+        {
+          "peca": "sight-grim-1-50x",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-grim-1-50x",
+          "arma": "l115"
+        },
+        {
+          "peca": "sight-grim-1-50x",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-grim-1-50x",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-grim-1-50x",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-grim-1-50x",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-grim-1-50x",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-grim-1-50x",
+          "arma": "elr-40"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "m4a1"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "m277"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "ak-205"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "m417-a2"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "grt-bc"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "qbz-192"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "sg-553r"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "sgx"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "pw5a3"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "pw7a2"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "kv9"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "scw-10"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "sl9"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "cz3a1"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "l110"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "drs-iar"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "m60"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "rpkm"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "m123k"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "m250"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "kts100-mk8"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "m240l"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "m121-a2"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "rpk-74m"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "m44"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "brod-3"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "z84m"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "rspr"
+        },
+        {
+          "peca": "sight-mc-co-lpvo",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "sight-mars-f-lpvo",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "sight-mars-f-lpvo",
+          "arma": "sgx"
+        },
+        {
+          "peca": "sight-mars-f-lpvo",
+          "arma": "pw5a3"
+        },
+        {
+          "peca": "sight-mars-f-lpvo",
+          "arma": "pw7a2"
+        },
+        {
+          "peca": "sight-mars-f-lpvo",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "sight-mars-f-lpvo",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "sight-mars-f-lpvo",
+          "arma": "kv9"
+        },
+        {
+          "peca": "sight-mars-f-lpvo",
+          "arma": "scw-10"
+        },
+        {
+          "peca": "sight-mars-f-lpvo",
+          "arma": "sl9"
+        },
+        {
+          "peca": "sight-mars-f-lpvo",
+          "arma": "cz3a1"
+        },
+        {
+          "peca": "sight-mars-f-lpvo",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "sight-mars-f-lpvo",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-mars-f-lpvo",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-mars-f-lpvo",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-mars-f-lpvo",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-mars-f-lpvo",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-mars-f-lpvo",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-mars-f-lpvo",
+          "arma": "brod-3"
+        },
+        {
+          "peca": "sight-mars-f-lpvo",
+          "arma": "elr-40"
+        },
+        {
+          "peca": "sight-mars-f-lpvo",
+          "arma": "z84m"
+        },
+        {
+          "peca": "sight-mars-f-lpvo",
+          "arma": "rspr"
+        },
+        {
+          "peca": "sight-mini-flex-1-00x",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "sight-mini-flex-1-00x",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "sight-mini-flex-1-00x",
+          "arma": "psr"
+        },
+        {
+          "peca": "sight-mini-flex-1-00x",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-mini-flex-1-00x",
+          "arma": "l115"
+        },
+        {
+          "peca": "sight-mini-flex-1-00x",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-mini-flex-1-00x",
+          "arma": "elr-40"
+        },
+        {
+          "peca": "sight-ngfc-lpvo",
+          "arma": "rpk-74m"
+        },
+        {
+          "peca": "sight-ngfc-lpvo",
+          "arma": "mk-24"
+        },
+        {
+          "peca": "sight-osa-7-1-00x",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "sight-osa-7-1-00x",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "sight-osa-7-1-00x",
+          "arma": "psr"
+        },
+        {
+          "peca": "sight-osa-7-1-00x",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-osa-7-1-00x",
+          "arma": "l115"
+        },
+        {
+          "peca": "sight-osa-7-1-00x",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-osa-7-1-00x",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "sight-osa-7-1-00x",
+          "arma": "elr-40"
+        },
+        {
+          "peca": "sight-pas-35-3-00x",
+          "arma": "sgx"
+        },
+        {
+          "peca": "sight-pas-35-3-00x",
+          "arma": "pw5a3"
+        },
+        {
+          "peca": "sight-pas-35-3-00x",
+          "arma": "pw7a2"
+        },
+        {
+          "peca": "sight-pas-35-3-00x",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "sight-pas-35-3-00x",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "sight-pas-35-3-00x",
+          "arma": "kv9"
+        },
+        {
+          "peca": "sight-pas-35-3-00x",
+          "arma": "scw-10"
+        },
+        {
+          "peca": "sight-pas-35-3-00x",
+          "arma": "sl9"
+        },
+        {
+          "peca": "sight-pas-35-3-00x",
+          "arma": "cz3a1"
+        },
+        {
+          "peca": "sight-pas-35-3-00x",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "sight-pas-35-3-00x",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-pas-35-3-00x",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-pas-35-3-00x",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-pas-35-3-00x",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-pas-35-3-00x",
+          "arma": "rspr"
+        },
+        {
+          "peca": "sight-pvq-31-4-00x",
+          "arma": "sgx"
+        },
+        {
+          "peca": "sight-pvq-31-4-00x",
+          "arma": "pw5a3"
+        },
+        {
+          "peca": "sight-pvq-31-4-00x",
+          "arma": "pw7a2"
+        },
+        {
+          "peca": "sight-pvq-31-4-00x",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "sight-pvq-31-4-00x",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "sight-pvq-31-4-00x",
+          "arma": "kv9"
+        },
+        {
+          "peca": "sight-pvq-31-4-00x",
+          "arma": "scw-10"
+        },
+        {
+          "peca": "sight-pvq-31-4-00x",
+          "arma": "sl9"
+        },
+        {
+          "peca": "sight-pvq-31-4-00x",
+          "arma": "cz3a1"
+        },
+        {
+          "peca": "sight-pvq-31-4-00x",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "sight-pvq-31-4-00x",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-pvq-31-4-00x",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-pvq-31-4-00x",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-pvq-31-4-00x",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-pvq-31-4-00x",
+          "arma": "m44"
+        },
+        {
+          "peca": "sight-pvq-31-4-00x",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "sight-pvq-31-4-00x",
+          "arma": "rspr"
+        },
+        {
+          "peca": "sight-r-mr-1-00x",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "sight-r-mr-1-00x",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "sight-r-mr-1-00x",
+          "arma": "psr"
+        },
+        {
+          "peca": "sight-r-mr-1-00x",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-r-mr-1-00x",
+          "arma": "l115"
+        },
+        {
+          "peca": "sight-r-mr-1-00x",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-r-mr-1-00x",
+          "arma": "elr-40"
+        },
+        {
+          "peca": "sight-r-mr-1-00x",
+          "arma": "rspr"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "sgx"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "pw5a3"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "pw7a2"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "kv9"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "scw-10"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "sl9"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "cz3a1"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "psr"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "l115"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "m44"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "elr-40"
+        },
+        {
+          "peca": "sight-r4t-2-00x",
+          "arma": "rspr"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "sgx"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "pw5a3"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "pw7a2"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "kv9"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "scw-10"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "sl9"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "cz3a1"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "psr"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "l115"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "m44"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "elr-40"
+        },
+        {
+          "peca": "sight-ro-m-1-75x",
+          "arma": "rspr"
+        },
+        {
+          "peca": "sight-ro-s-1-25x",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "sight-ro-s-1-25x",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "sight-ro-s-1-25x",
+          "arma": "psr"
+        },
+        {
+          "peca": "sight-ro-s-1-25x",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-ro-s-1-25x",
+          "arma": "l115"
+        },
+        {
+          "peca": "sight-ro-s-1-25x",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-ro-s-1-25x",
+          "arma": "elr-40"
+        },
+        {
+          "peca": "sight-rox-1-50x",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "sight-rox-1-50x",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "sight-rox-1-50x",
+          "arma": "psr"
+        },
+        {
+          "peca": "sight-rox-1-50x",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-rox-1-50x",
+          "arma": "l115"
+        },
+        {
+          "peca": "sight-rox-1-50x",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-rox-1-50x",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-rox-1-50x",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-rox-1-50x",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-rox-1-50x",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-rox-1-50x",
+          "arma": "p18"
+        },
+        {
+          "peca": "sight-rox-1-50x",
+          "arma": "es-57"
+        },
+        {
+          "peca": "sight-rox-1-50x",
+          "arma": "m45a1"
+        },
+        {
+          "peca": "sight-rox-1-50x",
+          "arma": "m44"
+        },
+        {
+          "peca": "sight-rox-1-50x",
+          "arma": "ggh-22"
+        },
+        {
+          "peca": "sight-rox-1-50x",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "sight-rox-1-50x",
+          "arma": "vz-61"
+        },
+        {
+          "peca": "sight-rox-1-50x",
+          "arma": "elr-40"
+        },
+        {
+          "peca": "sight-sdo-3-50x",
+          "arma": "sgx"
+        },
+        {
+          "peca": "sight-sdo-3-50x",
+          "arma": "pw5a3"
+        },
+        {
+          "peca": "sight-sdo-3-50x",
+          "arma": "pw7a2"
+        },
+        {
+          "peca": "sight-sdo-3-50x",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "sight-sdo-3-50x",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "sight-sdo-3-50x",
+          "arma": "kv9"
+        },
+        {
+          "peca": "sight-sdo-3-50x",
+          "arma": "scw-10"
+        },
+        {
+          "peca": "sight-sdo-3-50x",
+          "arma": "sl9"
+        },
+        {
+          "peca": "sight-sdo-3-50x",
+          "arma": "cz3a1"
+        },
+        {
+          "peca": "sight-sdo-3-50x",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "sight-sdo-3-50x",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-sdo-3-50x",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-sdo-3-50x",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-sdo-3-50x",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-sdo-3-50x",
+          "arma": "m44"
+        },
+        {
+          "peca": "sight-sdo-3-50x",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "sight-sdo-3-50x",
+          "arma": "rspr"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "m433"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "b36a4"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "sor-556-mk2"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "ak4d"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "tr-7"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "kord-6p67"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "nvo-228e"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "l85a3"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "vcr-2"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "m16a4"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "m4a1"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "m277"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "ak-205"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "m417-a2"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "grt-bc"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "qbz-192"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "sg-553r"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "sgx"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "pw5a3"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "pw7a2"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "kv9"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "scw-10"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "sl9"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "cz3a1"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "l110"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "drs-iar"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "m60"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "rpkm"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "m123k"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "m250"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "kts100-mk8"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "m240l"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "m121-a2"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "rpk-74m"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "m44"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "brod-3"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "ef88"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "mk-24"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "z84m"
+        },
+        {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "rspr"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "m433"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "b36a4"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "sor-556-mk2"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "ak4d"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "tr-7"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "kord-6p67"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "nvo-228e"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "l85a3"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "vcr-2"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "m16a4"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "m4a1"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "m277"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "ak-205"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "m417-a2"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "grt-bc"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "qbz-192"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "sg-553r"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "sgx"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "pw5a3"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "pw7a2"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "kv9"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "scw-10"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "sl9"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "cz3a1"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "l110"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "drs-iar"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "m60"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "rpkm"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "m123k"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "m250"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "kts100-mk8"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "m240l"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "m121-a2"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "rpk-74m"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "m44"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "brod-3"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "ef88"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "mk-24"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "z84m"
+        },
+        {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "rspr"
+        },
+        {
+          "peca": "sight-su-123-1-50x",
+          "arma": "m16a4"
+        },
+        {
+          "peca": "sight-su-123-1-50x",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "sight-su-123-1-50x",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "sight-su-123-1-50x",
+          "arma": "psr"
+        },
+        {
+          "peca": "sight-su-123-1-50x",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-su-123-1-50x",
+          "arma": "l115"
+        },
+        {
+          "peca": "sight-su-123-1-50x",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-su-123-1-50x",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-su-123-1-50x",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-su-123-1-50x",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-su-123-1-50x",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-su-123-1-50x",
+          "arma": "m44"
+        },
+        {
+          "peca": "sight-su-123-1-50x",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "sight-su-123-1-50x",
+          "arma": "mk-24"
+        },
+        {
+          "peca": "sight-su-123-1-50x",
+          "arma": "elr-40"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "m433"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "b36a4"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "sor-556-mk2"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "ak4d"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "tr-7"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "kord-6p67"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "nvo-228e"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "l85a3"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "m4a1"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "m277"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "ak-205"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "m417-a2"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "grt-bc"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "qbz-192"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "sg-553r"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "sgx"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "pw5a3"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "pw7a2"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "kv9"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "scw-10"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "sl9"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "cz3a1"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "l110"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "drs-iar"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "m60"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "rpkm"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "m123k"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "m250"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "kts100-mk8"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "m240l"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "m39-emr"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "lmr27"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "svk-86"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "svdm"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "psr"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "brod-3"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "ef88"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "vssm"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "mk-24"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "elr-40"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "z84m"
+        },
+        {
+          "peca": "sight-su-230-lpvo",
+          "arma": "rspr"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "m433"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "b36a4"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "sor-556-mk2"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "ak4d"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "tr-7"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "kord-6p67"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "nvo-228e"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "l85a3"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "m16a4"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "m4a1"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "m277"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "ak-205"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "m417-a2"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "grt-bc"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "qbz-192"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "sg-553r"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "sgx"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "pw5a3"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "pw7a2"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "kv9"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "scw-10"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "sl9"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "cz3a1"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "l110"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "drs-iar"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "m60"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "rpkm"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "m123k"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "m250"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "kts100-mk8"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "m240l"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "m39-emr"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "lmr27"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "svk-86"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "svdm"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "psr"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "l115"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "brod-3"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "ef88"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "vssm"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "mk-24"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "elr-40"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "z84m"
+        },
+        {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "rspr"
+        },
+        {
+          "peca": "sight-r-vps-10-00x",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-r-vps-10-00x",
+          "arma": "l115"
+        },
+        {
+          "peca": "sight-r-vps-10-00x",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-r-vps-10-00x",
+          "arma": "vssm"
+        },
+        {
+          "peca": "sight-r-vps-10-00x",
+          "arma": "elr-40"
+        },
+        {
+          "peca": "sight-mgo-350x",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "sight-mgo-350x",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "sight-mgo-350x",
+          "arma": "psr"
+        },
+        {
+          "peca": "sight-mgo-350x",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-mgo-350x",
+          "arma": "l115"
+        },
+        {
+          "peca": "sight-mgo-350x",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-mgo-350x",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-mgo-350x",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-mgo-350x",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-mgo-350x",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-mgo-350x",
+          "arma": "m44"
+        },
+        {
+          "peca": "sight-mgo-350x",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "sight-qmk-300x",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "sight-qmk-300x",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "sight-qmk-300x",
+          "arma": "psr"
+        },
+        {
+          "peca": "sight-qmk-300x",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-qmk-300x",
+          "arma": "l115"
+        },
+        {
+          "peca": "sight-qmk-300x",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-qmk-300x",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "sight-qmk-300x",
+          "arma": "m1014"
+        },
+        {
+          "peca": "sight-qmk-300x",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "sight-qmk-300x",
+          "arma": "db-12"
+        },
+        {
+          "peca": "sight-qmk-300x",
+          "arma": "m44"
+        },
+        {
+          "peca": "sight-qmk-300x",
+          "arma": "m357-trait"
+        }
+      ],
+      "removidas": [
+        {
+          "peca": "sight-iron-sights",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "sight-iron-sights",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "sight-iron-sights",
+          "arma": "psr"
+        },
+        {
+          "peca": "sight-iron-sights",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-iron-sights",
+          "arma": "l115"
+        },
+        {
+          "peca": "sight-ngfc-lpvo",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "sight-ngfc-lpvo",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "sight-ts-hd-6-00x",
+          "arma": "vssm"
+        }
+      ]
+    },
+    "muzzle": {
+      "adicionadas": [
+        {
+          "peca": "muzzle-flash-comp",
+          "arma": "m433"
+        },
+        {
+          "peca": "muzzle-flash-comp",
+          "arma": "b36a4"
+        },
+        {
+          "peca": "muzzle-flash-comp",
+          "arma": "ak4d"
+        },
+        {
+          "peca": "muzzle-flash-comp",
+          "arma": "m4a1"
+        },
+        {
+          "peca": "muzzle-flash-comp",
+          "arma": "m277"
+        },
+        {
+          "peca": "muzzle-flash-comp",
+          "arma": "pw5a3"
+        },
+        {
+          "peca": "muzzle-flash-comp",
+          "arma": "pw7a2"
+        },
+        {
+          "peca": "muzzle-flash-comp",
+          "arma": "l110"
+        },
+        {
+          "peca": "muzzle-flash-comp",
+          "arma": "m60"
+        },
+        {
+          "peca": "muzzle-flash-comp",
+          "arma": "rpkm"
+        },
+        {
+          "peca": "muzzle-flash-comp",
+          "arma": "m123k"
+        },
+        {
+          "peca": "muzzle-flash-comp",
+          "arma": "m250"
+        },
+        {
+          "peca": "muzzle-flash-comp",
+          "arma": "lmr27"
+        },
+        {
+          "peca": "muzzle-hybrid-suppressor-l",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "muzzle-hybrid-suppressor-s",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "muzzle-hybrid-suppressor-k",
+          "arma": "usg-90"
+        }
+      ],
+      "removidas": [
+        {
+          "peca": "muzzle-cqb-suppressor",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "muzzle-compensated-brake",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "muzzle-compensated-brake",
+          "arma": "vssm"
+        },
+        {
+          "peca": "muzzle-double-port-brake",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "muzzle-double-port-brake",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "muzzle-double-port-brake",
+          "arma": "vssm"
+        },
+        {
+          "peca": "muzzle-double-port-brake",
+          "arma": "elr-40"
+        },
+        {
+          "peca": "muzzle-flash-hider",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "muzzle-flash-hider",
+          "arma": "vz-61"
+        },
+        {
+          "peca": "muzzle-flash-hider",
+          "arma": "vssm"
+        },
+        {
+          "peca": "muzzle-lightened-suppressor",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "muzzle-lightened-suppressor",
+          "arma": "vssm"
+        },
+        {
+          "peca": "muzzle-linear-comp",
+          "arma": "vssm"
+        },
+        {
+          "peca": "muzzle-long-suppressor",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "muzzle-long-suppressor",
+          "arma": "vssm"
+        },
+        {
+          "peca": "muzzle-single-port-brake",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "muzzle-single-port-brake",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "muzzle-single-port-brake",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "muzzle-single-port-brake",
+          "arma": "vssm"
+        },
+        {
+          "peca": "muzzle-single-port-brake",
+          "arma": "p18"
+        },
+        {
+          "peca": "muzzle-single-port-brake",
+          "arma": "es-57"
+        },
+        {
+          "peca": "muzzle-single-port-brake",
+          "arma": "m45a1"
+        },
+        {
+          "peca": "muzzle-single-port-brake",
+          "arma": "ggh-22"
+        },
+        {
+          "peca": "muzzle-single-port-brake",
+          "arma": "vz-61"
+        },
+        {
+          "peca": "muzzle-standard-suppressor",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "muzzle-standard-suppressor",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "muzzle-standard-suppressor",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "muzzle-standard-suppressor",
+          "arma": "vssm"
+        },
+        {
+          "peca": "muzzle-hybrid-suppressor-l",
+          "arma": "kord-6p67"
+        },
+        {
+          "peca": "muzzle-hybrid-suppressor-l",
+          "arma": "ak-205"
+        },
+        {
+          "peca": "muzzle-hybrid-suppressor-s",
+          "arma": "kord-6p67"
+        },
+        {
+          "peca": "muzzle-hybrid-suppressor-s",
+          "arma": "ak-205"
+        },
+        {
+          "peca": "muzzle-hybrid-suppressor-k",
+          "arma": "kord-6p67"
+        },
+        {
+          "peca": "muzzle-hybrid-suppressor-k",
+          "arma": "ak-205"
+        }
+      ]
+    },
+    "underbarrel": {
+      "adicionadas": [
+        {
+          "peca": "underbarrel-6h64-vertical",
+          "arma": "m16a4"
+        },
+        {
+          "peca": "underbarrel-classic-grip-pod",
+          "arma": "vssm"
+        },
+        {
+          "peca": "underbarrel-ribbed-vertical",
+          "arma": "m16a4"
+        },
+        {
+          "peca": "underbarrel-slim-handstop",
+          "arma": "m433"
+        },
+        {
+          "peca": "underbarrel-slim-handstop",
+          "arma": "b36a4"
+        },
+        {
+          "peca": "underbarrel-slim-handstop",
+          "arma": "ak4d"
+        },
+        {
+          "peca": "underbarrel-slim-handstop",
+          "arma": "m4a1"
+        },
+        {
+          "peca": "underbarrel-slim-handstop",
+          "arma": "m277"
+        },
+        {
+          "peca": "underbarrel-slim-handstop",
+          "arma": "l110"
+        },
+        {
+          "peca": "underbarrel-slim-handstop",
+          "arma": "m60"
+        },
+        {
+          "peca": "underbarrel-slim-handstop",
+          "arma": "rpkm"
+        },
+        {
+          "peca": "underbarrel-slim-handstop",
+          "arma": "m123k"
+        },
+        {
+          "peca": "underbarrel-slim-handstop",
+          "arma": "m250"
+        },
+        {
+          "peca": "underbarrel-slim-handstop",
+          "arma": "m240l"
+        },
+        {
+          "peca": "underbarrel-slim-handstop",
+          "arma": "lmr27"
+        },
+        {
+          "peca": "underbarrel-slim-handstop",
+          "arma": "svdm"
+        },
+        {
+          "peca": "underbarrel-slim-handstop",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "underbarrel-slim-handstop",
+          "arma": "m1014"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "m433"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "b36a4"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "sor-556-mk2"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "ak4d"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "tr-7"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "kord-6p67"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "l85a3"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "m16a4"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "m4a1"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "m277"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "ak-205"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "m417-a2"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "grt-bc"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "sg-553r"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "sgx"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "kv9"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "drs-iar"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "rpkm"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "m123k"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "m250"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "kts100-mk8"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "m121-a2"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "rpk-74m"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "lmr27"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "svk-86"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "svdm"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "grt-cps"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "psr"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "m1014"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "brod-3"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "vssm"
+        }
+      ],
+      "removidas": [
+        {
+          "peca": "underbarrel-adjustable-angled",
+          "arma": "svk-86"
+        },
+        {
+          "peca": "underbarrel-adjustable-angled",
+          "arma": "brod-3"
+        },
+        {
+          "peca": "underbarrel-adjustable-angled",
+          "arma": "ef88"
+        },
+        {
+          "peca": "underbarrel-adjustable-angled",
+          "arma": "vssm"
+        },
+        {
+          "peca": "underbarrel-bipod",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "underbarrel-bipod",
+          "arma": "brod-3"
+        },
+        {
+          "peca": "underbarrel-classic-grip-pod",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "underbarrel-classic-grip-pod",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "underbarrel-classic-grip-pod",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "underbarrel-classic-grip-pod",
+          "arma": "psr"
+        },
+        {
+          "peca": "underbarrel-classic-grip-pod",
+          "arma": "l115"
+        },
+        {
+          "peca": "underbarrel-classic-grip-pod",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "underbarrel-factory-angled",
+          "arma": "vssm"
+        },
+        {
+          "peca": "underbarrel-factory-angled",
+          "arma": "sl9"
+        },
+        {
+          "peca": "underbarrel-factory-angled",
+          "arma": "lmr27"
+        },
+        {
+          "peca": "underbarrel-full-angled",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "underbarrel-full-angled",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "underbarrel-full-angled",
+          "arma": "psr"
+        },
+        {
+          "peca": "underbarrel-full-angled",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "underbarrel-full-angled",
+          "arma": "l115"
+        },
+        {
+          "peca": "underbarrel-full-angled",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "underbarrel-low-profile-stubby",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "underbarrel-low-profile-stubby",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "underbarrel-low-profile-stubby",
+          "arma": "psr"
+        },
+        {
+          "peca": "underbarrel-low-profile-stubby",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "underbarrel-low-profile-stubby",
+          "arma": "l115"
+        },
+        {
+          "peca": "underbarrel-low-profile-stubby",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "underbarrel-ptt-grip-pod",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "underbarrel-qd-grip-pod",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "underbarrel-qd-grip-pod",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "underbarrel-qd-grip-pod",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "underbarrel-qd-grip-pod",
+          "arma": "psr"
+        },
+        {
+          "peca": "underbarrel-qd-grip-pod",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "underbarrel-qd-grip-pod",
+          "arma": "l115"
+        },
+        {
+          "peca": "underbarrel-qd-grip-pod",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "underbarrel-slim-angled",
+          "arma": "ef88"
+        },
+        {
+          "peca": "underbarrel-slim-angled",
+          "arma": "sgx"
+        },
+        {
+          "peca": "underbarrel-slim-angled",
+          "arma": "pw5a3"
+        },
+        {
+          "peca": "underbarrel-slim-angled",
+          "arma": "pw7a2"
+        },
+        {
+          "peca": "underbarrel-slim-angled",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "underbarrel-slim-angled",
+          "arma": "kv9"
+        },
+        {
+          "peca": "underbarrel-slim-angled",
+          "arma": "scw-10"
+        },
+        {
+          "peca": "underbarrel-slim-angled",
+          "arma": "cz3a1"
+        },
+        {
+          "peca": "underbarrel-slim-angled",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "underbarrel-slim-angled",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "underbarrel-slim-angled",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "underbarrel-slim-angled",
+          "arma": "psr"
+        },
+        {
+          "peca": "underbarrel-slim-angled",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "underbarrel-slim-angled",
+          "arma": "l115"
+        },
+        {
+          "peca": "underbarrel-slim-angled",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "underbarrel-underslung-mount",
+          "arma": "ak-205"
+        },
+        {
+          "peca": "underbarrel-underslung-mount",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "underbarrel-underslung-mount",
+          "arma": "brod-3"
+        },
+        {
+          "peca": "underbarrel-underslung-mount",
+          "arma": "ef88"
+        }
+      ]
+    },
+    "rail": {
+      "adicionadas": [
+        {
+          "peca": "rightRail-120-mw-blue",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "rightRail-5-mw-green",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "rightRail-5-mw-red",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "rightRail-50-mw-blue",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "rightRail-50-mw-green",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "rightRail-50-mw-violet",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "leftRail-taclight-hipfire",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "leftRail-taclight-aimed",
+          "arma": "interdictor"
+        }
+      ],
+      "removidas": [
+        {
+          "peca": "rightRail-range-finder",
+          "arma": "vssm"
+        }
+      ]
+    },
+    "ergonomics": {
+      "adicionadas": [
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "b36a4"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "sor-556-mk2"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "ak4d"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "nvo-228e"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "vcr-2"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "m4a1"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "ak-205"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "m417-a2"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "grt-bc"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "sg-553r"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "sgx"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "pw5a3"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "cz3a1"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "drs-iar"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "rpkm"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "rpk-74m"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "m39-emr"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "svdm"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "grt-cps"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "brod-3"
+        },
+        {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "ef88"
+        },
+        {
+          "peca": "ergonomics-improved-mag-catch",
+          "arma": "ef88"
+        },
+        {
+          "peca": "ergonomics-rail-cover",
+          "arma": "sor-556-mk2"
+        },
+        {
+          "peca": "ergonomics-rail-cover",
+          "arma": "m4a1"
+        },
+        {
+          "peca": "ergonomics-rail-cover",
+          "arma": "qbz-192"
+        },
+        {
+          "peca": "ergonomics-rail-cover",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "ergonomics-rail-cover",
+          "arma": "drs-iar"
+        },
+        {
+          "peca": "ergonomics-rail-cover",
+          "arma": "kts100-mk8"
+        },
+        {
+          "peca": "ergonomics-rail-cover",
+          "arma": "m240l"
+        },
+        {
+          "peca": "ergonomics-rail-cover",
+          "arma": "brod-3"
+        }
+      ],
+      "removidas": [
+        {
+          "peca": "ergonomics-dlc-bolt",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "ergonomics-dlc-bolt",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "ergonomics-improved-mag-catch",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "ergonomics-improved-mag-catch",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "ergonomics-magwell-flare",
+          "arma": "brod-3"
+        }
+      ]
+    },
+    "opticAccessory": {
+      "adicionadas": [
+        {
+          "peca": "opticAccessory-canted-iron-sights",
+          "arma": "l115"
+        },
+        {
+          "peca": "opticAccessory-canted-iron-sights",
+          "arma": "m87a1"
+        }
+      ],
+      "removidas": []
+    },
+    "ammo": {
+      "adicionadas": [
+        {
+          "peca": "ammo-polymer-case",
+          "arma": "m4a1"
+        },
+        {
+          "peca": "ammo-polymer-case",
+          "arma": "ak-205"
+        },
+        {
+          "peca": "ammo-polymer-case",
+          "arma": "m417-a2"
+        },
+        {
+          "peca": "ammo-polymer-case",
+          "arma": "grt-bc"
+        },
+        {
+          "peca": "ammo-polymer-case",
+          "arma": "qbz-192"
+        },
+        {
+          "peca": "ammo-polymer-case",
+          "arma": "sg-553r"
+        },
+        {
+          "peca": "ammo-polymer-case",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "ammo-polymer-case",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "ammo-polymer-case",
+          "arma": "m39-emr"
+        },
+        {
+          "peca": "ammo-polymer-case",
+          "arma": "grt-cps"
+        },
+        {
+          "peca": "ammo-polymer-case",
+          "arma": "brod-3"
+        },
+        {
+          "peca": "ammo-polymer-case",
+          "arma": "rspr"
+        },
+        {
+          "peca": "ammo-synthetic-tip",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "ammo-subsonic",
+          "arma": "m417-a2"
+        },
+        {
+          "peca": "ammo-subsonic",
+          "arma": "sg-553r"
+        },
+        {
+          "peca": "ammo-subsonic",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "ammo-subsonic",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "ammo-subsonic",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "ammo-subsonic",
+          "arma": "sl9"
+        },
+        {
+          "peca": "ammo-subsonic",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "ammo-subsonic",
+          "arma": "p18"
+        },
+        {
+          "peca": "ammo-subsonic",
+          "arma": "es-57"
+        },
+        {
+          "peca": "ammo-subsonic",
+          "arma": "ggh-22"
+        },
+        {
+          "peca": "ammo-subsonic-hp",
+          "arma": "m417-a2"
+        },
+        {
+          "peca": "ammo-subsonic-hp",
+          "arma": "sg-553r"
+        },
+        {
+          "peca": "ammo-subsonic-hp",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "ammo-subsonic-hp",
+          "arma": "sgx"
+        },
+        {
+          "peca": "ammo-subsonic-hp",
+          "arma": "pw5a3"
+        },
+        {
+          "peca": "ammo-subsonic-hp",
+          "arma": "kv9"
+        },
+        {
+          "peca": "ammo-subsonic-hp",
+          "arma": "cz3a1"
+        },
+        {
+          "peca": "ammo-subsonic-hp",
+          "arma": "p18"
+        },
+        {
+          "peca": "ammo-subsonic-hp",
+          "arma": "es-57"
+        },
+        {
+          "peca": "ammo-subsonic-hp",
+          "arma": "ggh-22"
+        }
+      ],
+      "removidas": [
+        {
+          "peca": "ammo-fmj",
+          "arma": "vssm"
+        },
+        {
+          "peca": "ammo-frangible",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "ammo-hollow-point",
+          "arma": "vssm"
+        },
+        {
+          "peca": "ammo-hollow-point",
+          "arma": "ak4d"
+        },
+        {
+          "peca": "ammo-hollow-point",
+          "arma": "tr-7"
+        },
+        {
+          "peca": "ammo-hollow-point",
+          "arma": "nvo-228e"
+        },
+        {
+          "peca": "ammo-hollow-point",
+          "arma": "m417-a2"
+        },
+        {
+          "peca": "ammo-hollow-point",
+          "arma": "sg-553r"
+        },
+        {
+          "peca": "ammo-hollow-point",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "ammo-hollow-point",
+          "arma": "scw-10"
+        },
+        {
+          "peca": "ammo-hollow-point",
+          "arma": "m60"
+        },
+        {
+          "peca": "ammo-hollow-point",
+          "arma": "rpkm"
+        },
+        {
+          "peca": "ammo-hollow-point",
+          "arma": "m240l"
+        },
+        {
+          "peca": "ammo-hollow-point",
+          "arma": "m121-a2"
+        },
+        {
+          "peca": "ammo-hollow-point",
+          "arma": "m39-emr"
+        },
+        {
+          "peca": "ammo-hollow-point",
+          "arma": "lmr27"
+        },
+        {
+          "peca": "ammo-hollow-point",
+          "arma": "svk-86"
+        },
+        {
+          "peca": "ammo-hollow-point",
+          "arma": "svdm"
+        },
+        {
+          "peca": "ammo-hollow-point",
+          "arma": "grt-cps"
+        },
+        {
+          "peca": "ammo-hollow-point",
+          "arma": "m44"
+        },
+        {
+          "peca": "ammo-hollow-point",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "ammo-hollow-point",
+          "arma": "z84m"
+        },
+        {
+          "peca": "ammo-hollow-point",
+          "arma": "rspr"
+        },
+        {
+          "peca": "ammo-match-grade",
+          "arma": "lmr27"
+        },
+        {
+          "peca": "ammo-match-grade",
+          "arma": "grt-cps"
+        },
+        {
+          "peca": "ammo-match-grade",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "ammo-synthetic-tip",
+          "arma": "vssm"
+        },
+        {
+          "peca": "ammo-synthetic-tip",
+          "arma": "ak-205"
+        },
+        {
+          "peca": "ammo-synthetic-tip",
+          "arma": "qbz-192"
+        },
+        {
+          "peca": "ammo-synthetic-tip",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "ammo-synthetic-tip",
+          "arma": "rpkm"
+        },
+        {
+          "peca": "ammo-synthetic-tip",
+          "arma": "lmr27"
+        },
+        {
+          "peca": "ammo-synthetic-tip",
+          "arma": "grt-cps"
+        },
+        {
+          "peca": "ammo-tungsten-core",
+          "arma": "m357-trait"
+        }
+      ]
+    },
+    "magazine": {
+      "adicionadas": [
+        {
+          "peca": "magazine-10rnd-fast-mag",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "magazine-10rnd-magazine",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "magazine-10rnd-magazine",
+          "arma": "vz-61"
+        },
+        {
+          "peca": "magazine-15rnd-magazine",
+          "arma": "ggh-22"
+        },
+        {
+          "peca": "magazine-20rnd-fast-mag",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "magazine-30rnd-fast-mag",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "magazine-30rnd-magazine",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "magazine-35rnd-magazine",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "magazine-4rnd-fast-mag",
+          "arma": "m1014"
+        },
+        {
+          "peca": "magazine-50rnd-fast-mag",
+          "arma": "m121-a2"
+        },
+        {
+          "peca": "magazine-5rnd-fast-mag",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "magazine-5rnd-magazine",
+          "arma": "svdm"
+        },
+        {
+          "peca": "magazine-5rnd-magazine",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "magazine-6-shell-tube",
+          "arma": "m1014"
+        }
+      ],
+      "removidas": [
+        {
+          "peca": "magazine-100rnd-belt-pouch",
+          "arma": "m250"
+        },
+        {
+          "peca": "magazine-10rnd-fast-mag",
+          "arma": "tr-7"
+        },
+        {
+          "peca": "magazine-10rnd-magazine",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "magazine-11rnd-magazine",
+          "arma": "ggh-22"
+        },
+        {
+          "peca": "magazine-11rnd-magazine",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "magazine-15rnd-fast-mag",
+          "arma": "vssm"
+        },
+        {
+          "peca": "magazine-15rnd-fast-mag",
+          "arma": "lmr27"
+        },
+        {
+          "peca": "magazine-15rnd-magazine",
+          "arma": "vssm"
+        },
+        {
+          "peca": "magazine-15rnd-magazine",
+          "arma": "lmr27"
+        },
+        {
+          "peca": "magazine-17rnd-magazine",
+          "arma": "vz-61"
+        },
+        {
+          "peca": "magazine-20rnd-fast-mag",
+          "arma": "svdm"
+        },
+        {
+          "peca": "magazine-20rnd-fast-mag",
+          "arma": "ef88"
+        },
+        {
+          "peca": "magazine-20rnd-fast-mag",
+          "arma": "ak4d"
+        },
+        {
+          "peca": "magazine-20rnd-fast-mag",
+          "arma": "tr-7"
+        },
+        {
+          "peca": "magazine-20rnd-fast-mag",
+          "arma": "m277"
+        },
+        {
+          "peca": "magazine-20rnd-fast-mag",
+          "arma": "m417-a2"
+        },
+        {
+          "peca": "magazine-20rnd-fast-mag",
+          "arma": "m39-emr"
+        },
+        {
+          "peca": "magazine-20rnd-fast-mag",
+          "arma": "lmr27"
+        },
+        {
+          "peca": "magazine-20rnd-fast-mag",
+          "arma": "grt-cps"
+        },
+        {
+          "peca": "magazine-20rnd-fast-mag",
+          "arma": "vssm"
+        },
+        {
+          "peca": "magazine-20rnd-magazine",
+          "arma": "ef88"
+        },
+        {
+          "peca": "magazine-20rnd-magazine",
+          "arma": "scw-10"
+        },
+        {
+          "peca": "magazine-20rnd-magazine",
+          "arma": "lmr27"
+        },
+        {
+          "peca": "magazine-21rnd-magazine",
+          "arma": "vz-61"
+        },
+        {
+          "peca": "magazine-25rnd-fast-mag",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "magazine-25rnd-magazine",
+          "arma": "m417-a2"
+        },
+        {
+          "peca": "magazine-25rnd-magazine",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "magazine-25rnd-magazine",
+          "arma": "scw-10"
+        },
+        {
+          "peca": "magazine-30rnd-magazine",
+          "arma": "ak4d"
+        },
+        {
+          "peca": "magazine-30rnd-magazine",
+          "arma": "tr-7"
+        },
+        {
+          "peca": "magazine-30rnd-magazine",
+          "arma": "m277"
+        },
+        {
+          "peca": "magazine-30rnd-magazine",
+          "arma": "grt-cps"
+        },
+        {
+          "peca": "magazine-30rnd-magazine",
+          "arma": "es-57"
+        },
+        {
+          "peca": "magazine-36rnd-magazine",
+          "arma": "rpkm"
+        },
+        {
+          "peca": "magazine-36rnd-magazine",
+          "arma": "rpk-74m"
+        },
+        {
+          "peca": "magazine-40rnd-fast-mag",
+          "arma": "rpk-74m"
+        },
+        {
+          "peca": "magazine-40rnd-fast-mag",
+          "arma": "ef88"
+        },
+        {
+          "peca": "magazine-40rnd-fast-mag",
+          "arma": "rpkm"
+        },
+        {
+          "peca": "magazine-40rnd-magazine",
+          "arma": "rpk-74m"
+        },
+        {
+          "peca": "magazine-40rnd-magazine",
+          "arma": "ef88"
+        },
+        {
+          "peca": "magazine-40rnd-magazine",
+          "arma": "rpkm"
+        },
+        {
+          "peca": "magazine-45rnd-fast-mag",
+          "arma": "ef88"
+        },
+        {
+          "peca": "magazine-45rnd-fast-mag",
+          "arma": "kts100-mk8"
+        },
+        {
+          "peca": "magazine-45rnd-magazine",
+          "arma": "ef88"
+        },
+        {
+          "peca": "magazine-45rnd-magazine",
+          "arma": "kts100-mk8"
+        },
+        {
+          "peca": "magazine-5-shell-tube",
+          "arma": "m1014"
+        },
+        {
+          "peca": "magazine-50rnd-fast-mag",
+          "arma": "ak-205"
+        },
+        {
+          "peca": "magazine-50rnd-magazine",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "magazine-50rnd-magazine",
+          "arma": "drs-iar"
+        },
+        {
+          "peca": "magazine-5rnd-fast-mag",
+          "arma": "svdm"
+        },
+        {
+          "peca": "magazine-5rnd-fast-mag",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "magazine-5rnd-magazine",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "magazine-60rnd-magazine",
+          "arma": "kts100-mk8"
+        },
+        {
+          "peca": "magazine-60rnd-magazine",
+          "arma": "rpkm"
+        },
+        {
+          "peca": "magazine-60rnd-magazine",
+          "arma": "rpk-74m"
+        },
+        {
+          "peca": "magazine-7-shell-tube",
+          "arma": "m1014"
+        },
+        {
+          "peca": "magazine-75rnd-drum",
+          "arma": "rpk-74m"
+        },
+        {
+          "peca": "magazine-7rnd-fast-mag",
+          "arma": "l115"
+        },
+        {
+          "peca": "magazine-7rnd-magazine",
+          "arma": "ggh-22"
+        },
+        {
+          "peca": "magazine-7rnd-magazine",
+          "arma": "m357-trait"
+        },
+        {
+          "peca": "magazine-7rnd-magazine",
+          "arma": "l115"
+        },
+        {
+          "peca": "magazine-7rnd-magazine",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "magazine-8rnd-magazine",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "magazine-8rnd-magazine",
+          "arma": "18-5ks-k"
+        }
+      ]
+    }
+  },
+  "variantes": [
+    {
+      "id": "sight-iron-sights-m2010-esr",
+      "de": "sight-iron-sights",
+      "arma": "m2010-esr",
+      "custo": 15,
+      "item": "iron"
+    },
+    {
+      "id": "sight-iron-sights-sv-98",
+      "de": "sight-iron-sights",
+      "arma": "sv-98",
+      "custo": 15,
+      "item": "iron"
+    },
+    {
+      "id": "sight-iron-sights-psr",
+      "de": "sight-iron-sights",
+      "arma": "psr",
+      "custo": 15,
+      "item": "iron"
+    },
+    {
+      "id": "sight-iron-sights-mini-scout",
+      "de": "sight-iron-sights",
+      "arma": "mini-scout",
+      "custo": 15,
+      "item": "iron"
+    },
+    {
+      "id": "sight-iron-sights-l115",
+      "de": "sight-iron-sights",
+      "arma": "l115",
+      "custo": 15,
+      "item": "iron"
+    },
+    {
+      "id": "muzzle-single-port-brake-p18",
+      "de": "muzzle-single-port-brake",
+      "arma": "p18",
+      "custo": 10,
+      "item": "sp_brake"
+    },
+    {
+      "id": "muzzle-single-port-brake-es-57",
+      "de": "muzzle-single-port-brake",
+      "arma": "es-57",
+      "custo": 10,
+      "item": "sp_brake"
+    },
+    {
+      "id": "muzzle-single-port-brake-m45a1",
+      "de": "muzzle-single-port-brake",
+      "arma": "m45a1",
+      "custo": 10,
+      "item": "sp_brake"
+    },
+    {
+      "id": "muzzle-single-port-brake-ggh-22",
+      "de": "muzzle-single-port-brake",
+      "arma": "ggh-22",
+      "custo": 10,
+      "item": "sp_brake"
+    },
+    {
+      "id": "muzzle-single-port-brake-vz-61",
+      "de": "muzzle-single-port-brake",
+      "arma": "vz-61",
+      "custo": 10,
+      "item": "sp_brake"
+    },
+    {
+      "id": "underbarrel-classic-grip-pod-m2010-esr",
+      "de": "underbarrel-classic-grip-pod",
+      "arma": "m2010-esr",
+      "custo": 20,
+      "item": "classic_grip_pod_sr"
+    },
+    {
+      "id": "underbarrel-classic-grip-pod-sv-98",
+      "de": "underbarrel-classic-grip-pod",
+      "arma": "sv-98",
+      "custo": 20,
+      "item": "classic_grip_pod_sr"
+    },
+    {
+      "id": "underbarrel-classic-grip-pod-psr",
+      "de": "underbarrel-classic-grip-pod",
+      "arma": "psr",
+      "custo": 20,
+      "item": "classic_grip_pod_sr"
+    },
+    {
+      "id": "underbarrel-classic-grip-pod-mini-scout",
+      "de": "underbarrel-classic-grip-pod",
+      "arma": "mini-scout",
+      "custo": 20,
+      "item": "classic_grip_pod_sr"
+    },
+    {
+      "id": "underbarrel-classic-grip-pod-l115",
+      "de": "underbarrel-classic-grip-pod",
+      "arma": "l115",
+      "custo": 20,
+      "item": "classic_grip_pod_sr"
+    },
+    {
+      "id": "underbarrel-classic-grip-pod-interdictor",
+      "de": "underbarrel-classic-grip-pod",
+      "arma": "interdictor",
+      "custo": 20,
+      "item": "classic_grip_pod_sr"
+    },
+    {
+      "id": "underbarrel-factory-angled-sl9",
+      "de": "underbarrel-factory-angled",
+      "arma": "sl9",
+      "custo": 20,
+      "item": "factory_angled_sl9"
+    },
+    {
+      "id": "underbarrel-factory-angled-lmr27",
+      "de": "underbarrel-factory-angled",
+      "arma": "lmr27",
+      "custo": 25,
+      "item": "factory_angled_lmr27"
+    },
+    {
+      "id": "underbarrel-full-angled-m2010-esr",
+      "de": "underbarrel-full-angled",
+      "arma": "m2010-esr",
+      "custo": 5,
+      "item": "full_angled_sr"
+    },
+    {
+      "id": "underbarrel-full-angled-sv-98",
+      "de": "underbarrel-full-angled",
+      "arma": "sv-98",
+      "custo": 5,
+      "item": "full_angled_sr"
+    },
+    {
+      "id": "underbarrel-full-angled-psr",
+      "de": "underbarrel-full-angled",
+      "arma": "psr",
+      "custo": 5,
+      "item": "full_angled_sr"
+    },
+    {
+      "id": "underbarrel-full-angled-mini-scout",
+      "de": "underbarrel-full-angled",
+      "arma": "mini-scout",
+      "custo": 5,
+      "item": "full_angled_sr"
+    },
+    {
+      "id": "underbarrel-full-angled-l115",
+      "de": "underbarrel-full-angled",
+      "arma": "l115",
+      "custo": 5,
+      "item": "full_angled_sr"
+    },
+    {
+      "id": "underbarrel-full-angled-interdictor",
+      "de": "underbarrel-full-angled",
+      "arma": "interdictor",
+      "custo": 5,
+      "item": "full_angled_sr"
+    },
+    {
+      "id": "underbarrel-low-profile-stubby-m2010-esr",
+      "de": "underbarrel-low-profile-stubby",
+      "arma": "m2010-esr",
+      "custo": 10,
+      "item": "lp_stubby_sr"
+    },
+    {
+      "id": "underbarrel-low-profile-stubby-sv-98",
+      "de": "underbarrel-low-profile-stubby",
+      "arma": "sv-98",
+      "custo": 10,
+      "item": "lp_stubby_sr"
+    },
+    {
+      "id": "underbarrel-low-profile-stubby-psr",
+      "de": "underbarrel-low-profile-stubby",
+      "arma": "psr",
+      "custo": 10,
+      "item": "lp_stubby_sr"
+    },
+    {
+      "id": "underbarrel-low-profile-stubby-mini-scout",
+      "de": "underbarrel-low-profile-stubby",
+      "arma": "mini-scout",
+      "custo": 10,
+      "item": "lp_stubby_sr"
+    },
+    {
+      "id": "underbarrel-low-profile-stubby-l115",
+      "de": "underbarrel-low-profile-stubby",
+      "arma": "l115",
+      "custo": 10,
+      "item": "lp_stubby_sr"
+    },
+    {
+      "id": "underbarrel-low-profile-stubby-interdictor",
+      "de": "underbarrel-low-profile-stubby",
+      "arma": "interdictor",
+      "custo": 10,
+      "item": "lp_stubby_sr"
+    },
+    {
+      "id": "underbarrel-qd-grip-pod-m2010-esr",
+      "de": "underbarrel-qd-grip-pod",
+      "arma": "m2010-esr",
+      "custo": 10,
+      "item": "qd_grip_pod_sr"
+    },
+    {
+      "id": "underbarrel-qd-grip-pod-sv-98",
+      "de": "underbarrel-qd-grip-pod",
+      "arma": "sv-98",
+      "custo": 10,
+      "item": "qd_grip_pod_sr"
+    },
+    {
+      "id": "underbarrel-qd-grip-pod-psr",
+      "de": "underbarrel-qd-grip-pod",
+      "arma": "psr",
+      "custo": 10,
+      "item": "qd_grip_pod_sr"
+    },
+    {
+      "id": "underbarrel-qd-grip-pod-mini-scout",
+      "de": "underbarrel-qd-grip-pod",
+      "arma": "mini-scout",
+      "custo": 10,
+      "item": "qd_grip_pod_sr"
+    },
+    {
+      "id": "underbarrel-qd-grip-pod-l115",
+      "de": "underbarrel-qd-grip-pod",
+      "arma": "l115",
+      "custo": 10,
+      "item": "qd_grip_pod_sr"
+    },
+    {
+      "id": "underbarrel-qd-grip-pod-interdictor",
+      "de": "underbarrel-qd-grip-pod",
+      "arma": "interdictor",
+      "custo": 10,
+      "item": "qd_grip_pod_sr"
+    },
+    {
+      "id": "underbarrel-slim-angled-sgx",
+      "de": "underbarrel-slim-angled",
+      "arma": "sgx",
+      "custo": 20,
+      "item": "slim_angled_smg"
+    },
+    {
+      "id": "underbarrel-slim-angled-pw5a3",
+      "de": "underbarrel-slim-angled",
+      "arma": "pw5a3",
+      "custo": 20,
+      "item": "slim_angled_smg"
+    },
+    {
+      "id": "underbarrel-slim-angled-pw7a2",
+      "de": "underbarrel-slim-angled",
+      "arma": "pw7a2",
+      "custo": 20,
+      "item": "slim_angled_smg"
+    },
+    {
+      "id": "underbarrel-slim-angled-umg-40",
+      "de": "underbarrel-slim-angled",
+      "arma": "umg-40",
+      "custo": 20,
+      "item": "slim_angled_smg"
+    },
+    {
+      "id": "underbarrel-slim-angled-kv9",
+      "de": "underbarrel-slim-angled",
+      "arma": "kv9",
+      "custo": 20,
+      "item": "slim_angled_smg"
+    },
+    {
+      "id": "underbarrel-slim-angled-scw-10",
+      "de": "underbarrel-slim-angled",
+      "arma": "scw-10",
+      "custo": 20,
+      "item": "slim_angled_smg"
+    },
+    {
+      "id": "underbarrel-slim-angled-cz3a1",
+      "de": "underbarrel-slim-angled",
+      "arma": "cz3a1",
+      "custo": 20,
+      "item": "slim_angled_smg"
+    },
+    {
+      "id": "underbarrel-slim-angled-pp-19",
+      "de": "underbarrel-slim-angled",
+      "arma": "pp-19",
+      "custo": 20,
+      "item": "slim_angled_smg"
+    },
+    {
+      "id": "underbarrel-slim-angled-m2010-esr",
+      "de": "underbarrel-slim-angled",
+      "arma": "m2010-esr",
+      "custo": 15,
+      "item": "slim_angled_sr"
+    },
+    {
+      "id": "underbarrel-slim-angled-sv-98",
+      "de": "underbarrel-slim-angled",
+      "arma": "sv-98",
+      "custo": 15,
+      "item": "slim_angled_sr"
+    },
+    {
+      "id": "underbarrel-slim-angled-psr",
+      "de": "underbarrel-slim-angled",
+      "arma": "psr",
+      "custo": 15,
+      "item": "slim_angled_sr"
+    },
+    {
+      "id": "underbarrel-slim-angled-mini-scout",
+      "de": "underbarrel-slim-angled",
+      "arma": "mini-scout",
+      "custo": 15,
+      "item": "slim_angled_sr"
+    },
+    {
+      "id": "underbarrel-slim-angled-l115",
+      "de": "underbarrel-slim-angled",
+      "arma": "l115",
+      "custo": 15,
+      "item": "slim_angled_sr"
+    },
+    {
+      "id": "underbarrel-slim-angled-interdictor",
+      "de": "underbarrel-slim-angled",
+      "arma": "interdictor",
+      "custo": 15,
+      "item": "slim_angled_interdictor"
+    },
+    {
+      "id": "ammo-hollow-point-ak4d",
+      "de": "ammo-hollow-point",
+      "arma": "ak4d",
+      "custo": 20,
+      "item": "hollow_pt"
+    },
+    {
+      "id": "ammo-hollow-point-tr-7",
+      "de": "ammo-hollow-point",
+      "arma": "tr-7",
+      "custo": 20,
+      "item": "hollow_pt"
+    },
+    {
+      "id": "ammo-hollow-point-nvo-228e",
+      "de": "ammo-hollow-point",
+      "arma": "nvo-228e",
+      "custo": 20,
+      "item": "hollow_pt"
+    },
+    {
+      "id": "ammo-hollow-point-m417-a2",
+      "de": "ammo-hollow-point",
+      "arma": "m417-a2",
+      "custo": 20,
+      "item": "hollow_pt"
+    },
+    {
+      "id": "ammo-hollow-point-sg-553r",
+      "de": "ammo-hollow-point",
+      "arma": "sg-553r",
+      "custo": 20,
+      "item": "hollow_pt"
+    },
+    {
+      "id": "ammo-hollow-point-sor-300sc",
+      "de": "ammo-hollow-point",
+      "arma": "sor-300sc",
+      "custo": 20,
+      "item": "hollow_pt"
+    },
+    {
+      "id": "ammo-hollow-point-scw-10",
+      "de": "ammo-hollow-point",
+      "arma": "scw-10",
+      "custo": 20,
+      "item": "hollow_pt"
+    },
+    {
+      "id": "ammo-hollow-point-m60",
+      "de": "ammo-hollow-point",
+      "arma": "m60",
+      "custo": 20,
+      "item": "hollow_pt"
+    },
+    {
+      "id": "ammo-hollow-point-rpkm",
+      "de": "ammo-hollow-point",
+      "arma": "rpkm",
+      "custo": 20,
+      "item": "hollow_pt"
+    },
+    {
+      "id": "ammo-hollow-point-m240l",
+      "de": "ammo-hollow-point",
+      "arma": "m240l",
+      "custo": 20,
+      "item": "hollow_pt"
+    },
+    {
+      "id": "ammo-hollow-point-m121-a2",
+      "de": "ammo-hollow-point",
+      "arma": "m121-a2",
+      "custo": 20,
+      "item": "hollow_pt"
+    },
+    {
+      "id": "ammo-hollow-point-m39-emr",
+      "de": "ammo-hollow-point",
+      "arma": "m39-emr",
+      "custo": 20,
+      "item": "hollow_pt"
+    },
+    {
+      "id": "ammo-hollow-point-lmr27",
+      "de": "ammo-hollow-point",
+      "arma": "lmr27",
+      "custo": 20,
+      "item": "hollow_pt"
+    },
+    {
+      "id": "ammo-hollow-point-svk-86",
+      "de": "ammo-hollow-point",
+      "arma": "svk-86",
+      "custo": 20,
+      "item": "hollow_pt"
+    },
+    {
+      "id": "ammo-hollow-point-svdm",
+      "de": "ammo-hollow-point",
+      "arma": "svdm",
+      "custo": 20,
+      "item": "hollow_pt"
+    },
+    {
+      "id": "ammo-hollow-point-grt-cps",
+      "de": "ammo-hollow-point",
+      "arma": "grt-cps",
+      "custo": 20,
+      "item": "hollow_pt"
+    },
+    {
+      "id": "ammo-hollow-point-m44",
+      "de": "ammo-hollow-point",
+      "arma": "m44",
+      "custo": 20,
+      "item": "hollow_pt"
+    },
+    {
+      "id": "ammo-hollow-point-m357-trait",
+      "de": "ammo-hollow-point",
+      "arma": "m357-trait",
+      "custo": 20,
+      "item": "hollow_pt"
+    },
+    {
+      "id": "ammo-hollow-point-z84m",
+      "de": "ammo-hollow-point",
+      "arma": "z84m",
+      "custo": 20,
+      "item": "hollow_pt"
+    },
+    {
+      "id": "ammo-hollow-point-rspr",
+      "de": "ammo-hollow-point",
+      "arma": "rspr",
+      "custo": 20,
+      "item": "hollow_pt"
+    },
+    {
+      "id": "ammo-synthetic-tip-ak-205",
+      "de": "ammo-synthetic-tip",
+      "arma": "ak-205",
+      "custo": 25,
+      "item": "synthetic"
+    },
+    {
+      "id": "ammo-synthetic-tip-qbz-192",
+      "de": "ammo-synthetic-tip",
+      "arma": "qbz-192",
+      "custo": 25,
+      "item": "synthetic"
+    },
+    {
+      "id": "ammo-synthetic-tip-umg-40",
+      "de": "ammo-synthetic-tip",
+      "arma": "umg-40",
+      "custo": 25,
+      "item": "synthetic"
+    },
+    {
+      "id": "ammo-synthetic-tip-rpkm",
+      "de": "ammo-synthetic-tip",
+      "arma": "rpkm",
+      "custo": 30,
+      "item": "synthetic"
+    },
+    {
+      "id": "ammo-synthetic-tip-lmr27",
+      "de": "ammo-synthetic-tip",
+      "arma": "lmr27",
+      "custo": 30,
+      "item": "synthetic"
+    },
+    {
+      "id": "ammo-synthetic-tip-grt-cps",
+      "de": "ammo-synthetic-tip",
+      "arma": "grt-cps",
+      "custo": 30,
+      "item": "synthetic"
+    },
+    {
+      "id": "ammo-synthetic-tip-vz-61",
+      "de": "ammo-synthetic-tip",
+      "arma": "vz-61",
+      "custo": 25,
+      "item": "synthetic"
+    },
+    {
+      "id": "ammo-subsonic-sgx",
+      "de": "ammo-subsonic",
+      "arma": "sgx",
+      "custo": 15,
+      "item": "subsonic"
+    },
+    {
+      "id": "ammo-subsonic-pw5a3",
+      "de": "ammo-subsonic",
+      "arma": "pw5a3",
+      "custo": 15,
+      "item": "subsonic"
+    },
+    {
+      "id": "ammo-subsonic-kv9",
+      "de": "ammo-subsonic",
+      "arma": "kv9",
+      "custo": 15,
+      "item": "subsonic"
+    },
+    {
+      "id": "ammo-subsonic-scw-10",
+      "de": "ammo-subsonic",
+      "arma": "scw-10",
+      "custo": 15,
+      "item": "subsonic"
+    },
+    {
+      "id": "ammo-subsonic-cz3a1",
+      "de": "ammo-subsonic",
+      "arma": "cz3a1",
+      "custo": 15,
+      "item": "subsonic"
+    },
+    {
+      "id": "ammo-subsonic-hp-umg-40",
+      "de": "ammo-subsonic-hp",
+      "arma": "umg-40",
+      "custo": 25,
+      "item": "subsonic_hp"
+    },
+    {
+      "id": "ammo-subsonic-hp-usg-90",
+      "de": "ammo-subsonic-hp",
+      "arma": "usg-90",
+      "custo": 25,
+      "item": "subsonic_hp"
+    },
+    {
+      "id": "ammo-subsonic-hp-scw-10",
+      "de": "ammo-subsonic-hp",
+      "arma": "scw-10",
+      "custo": 35,
+      "item": "subsonic_hp"
+    },
+    {
+      "id": "ammo-subsonic-hp-sl9",
+      "de": "ammo-subsonic-hp",
+      "arma": "sl9",
+      "custo": 25,
+      "item": "subsonic_hp"
+    },
+    {
+      "id": "ammo-subsonic-hp-pp-19",
+      "de": "ammo-subsonic-hp",
+      "arma": "pp-19",
+      "custo": 25,
+      "item": "subsonic_hp"
+    },
+    {
+      "id": "magazine-60rnd-fast-mag-kts100-mk8",
+      "de": "magazine-60rnd-fast-mag",
+      "arma": "kts100-mk8",
+      "custo": 10,
+      "item": "60_fast"
+    },
+    {
+      "id": "magazine-100rnd-belt-pouch-m250",
+      "de": "magazine-100rnd-belt-pouch",
+      "arma": "m250",
+      "custo": 55,
+      "item": "100_rnd"
+    },
+    {
+      "id": "magazine-10rnd-fast-mag-tr-7",
+      "de": "magazine-10rnd-fast-mag",
+      "arma": "tr-7",
+      "custo": 5,
+      "item": "10_fast"
+    },
+    {
+      "id": "magazine-15rnd-fast-mag-lmr27",
+      "de": "magazine-15rnd-fast-mag",
+      "arma": "lmr27",
+      "custo": 25,
+      "item": "15_fast"
+    },
+    {
+      "id": "magazine-15rnd-fast-mag-mini-scout",
+      "de": "magazine-15rnd-fast-mag",
+      "arma": "mini-scout",
+      "custo": 35,
+      "item": "15_fast"
+    },
+    {
+      "id": "magazine-15rnd-magazine-lmr27",
+      "de": "magazine-15rnd-magazine",
+      "arma": "lmr27",
+      "custo": 20,
+      "item": "15_rnd"
+    },
+    {
+      "id": "magazine-15rnd-magazine-mini-scout",
+      "de": "magazine-15rnd-magazine",
+      "arma": "mini-scout",
+      "custo": 30,
+      "item": "15_rnd"
+    },
+    {
+      "id": "magazine-20rnd-fast-mag-ak4d",
+      "de": "magazine-20rnd-fast-mag",
+      "arma": "ak4d",
+      "custo": 10,
+      "item": "20_fast"
+    },
+    {
+      "id": "magazine-20rnd-fast-mag-tr-7",
+      "de": "magazine-20rnd-fast-mag",
+      "arma": "tr-7",
+      "custo": 10,
+      "item": "20_fast"
+    },
+    {
+      "id": "magazine-20rnd-fast-mag-m277",
+      "de": "magazine-20rnd-fast-mag",
+      "arma": "m277",
+      "custo": 10,
+      "item": "20_fast"
+    },
+    {
+      "id": "magazine-20rnd-fast-mag-m417-a2",
+      "de": "magazine-20rnd-fast-mag",
+      "arma": "m417-a2",
+      "custo": 10,
+      "item": "20_fast"
+    },
+    {
+      "id": "magazine-20rnd-fast-mag-m39-emr",
+      "de": "magazine-20rnd-fast-mag",
+      "arma": "m39-emr",
+      "custo": 10,
+      "item": "20_fast"
+    },
+    {
+      "id": "magazine-20rnd-fast-mag-lmr27",
+      "de": "magazine-20rnd-fast-mag",
+      "arma": "lmr27",
+      "custo": 50,
+      "item": "20_fast"
+    },
+    {
+      "id": "magazine-20rnd-fast-mag-grt-cps",
+      "de": "magazine-20rnd-fast-mag",
+      "arma": "grt-cps",
+      "custo": 10,
+      "item": "20_fast"
+    },
+    {
+      "id": "magazine-20rnd-fast-mag-mini-scout",
+      "de": "magazine-20rnd-fast-mag",
+      "arma": "mini-scout",
+      "custo": 60,
+      "item": "20_fast"
+    },
+    {
+      "id": "magazine-20rnd-fast-mag-vssm",
+      "de": "magazine-20rnd-fast-mag",
+      "arma": "vssm",
+      "custo": 10,
+      "item": "20_fast"
+    },
+    {
+      "id": "magazine-20rnd-magazine-scw-10",
+      "de": "magazine-20rnd-magazine",
+      "arma": "scw-10",
+      "custo": 20,
+      "item": "20_rnd"
+    },
+    {
+      "id": "magazine-20rnd-magazine-lmr27",
+      "de": "magazine-20rnd-magazine",
+      "arma": "lmr27",
+      "custo": 45,
+      "item": "20_rnd"
+    },
+    {
+      "id": "magazine-20rnd-magazine-svdm",
+      "de": "magazine-20rnd-magazine",
+      "arma": "svdm",
+      "custo": 45,
+      "item": "20_rnd"
+    },
+    {
+      "id": "magazine-20rnd-magazine-mini-scout",
+      "de": "magazine-20rnd-magazine",
+      "arma": "mini-scout",
+      "custo": 55,
+      "item": "20_rnd"
+    },
+    {
+      "id": "magazine-20rnd-magazine-ggh-22",
+      "de": "magazine-20rnd-magazine",
+      "arma": "ggh-22",
+      "custo": 20,
+      "item": "20_rnd"
+    },
+    {
+      "id": "magazine-20rnd-magazine-vz-61",
+      "de": "magazine-20rnd-magazine",
+      "arma": "vz-61",
+      "custo": 40,
+      "item": "20_rnd"
+    },
+    {
+      "id": "magazine-25rnd-fast-mag-umg-40",
+      "de": "magazine-25rnd-fast-mag",
+      "arma": "umg-40",
+      "custo": 10,
+      "item": "25_fast"
+    },
+    {
+      "id": "magazine-25rnd-magazine-m417-a2",
+      "de": "magazine-25rnd-magazine",
+      "arma": "m417-a2",
+      "custo": 15,
+      "item": "25_rnd"
+    },
+    {
+      "id": "magazine-25rnd-magazine-umg-40",
+      "de": "magazine-25rnd-magazine",
+      "arma": "umg-40",
+      "custo": 5,
+      "item": "25_rnd"
+    },
+    {
+      "id": "magazine-25rnd-magazine-scw-10",
+      "de": "magazine-25rnd-magazine",
+      "arma": "scw-10",
+      "custo": 45,
+      "item": "25_rnd"
+    },
+    {
+      "id": "magazine-30rnd-magazine-ak4d",
+      "de": "magazine-30rnd-magazine",
+      "arma": "ak4d",
+      "custo": 40,
+      "item": "30_rnd"
+    },
+    {
+      "id": "magazine-30rnd-magazine-tr-7",
+      "de": "magazine-30rnd-magazine",
+      "arma": "tr-7",
+      "custo": 40,
+      "item": "30_rnd"
+    },
+    {
+      "id": "magazine-30rnd-magazine-m277",
+      "de": "magazine-30rnd-magazine",
+      "arma": "m277",
+      "custo": 40,
+      "item": "30_rnd"
+    },
+    {
+      "id": "magazine-30rnd-magazine-grt-cps",
+      "de": "magazine-30rnd-magazine",
+      "arma": "grt-cps",
+      "custo": 40,
+      "item": "30_rnd"
+    },
+    {
+      "id": "magazine-30rnd-magazine-es-57",
+      "de": "magazine-30rnd-magazine",
+      "arma": "es-57",
+      "custo": 40,
+      "item": "30_rnd"
+    },
+    {
+      "id": "magazine-30rnd-magazine-vssm",
+      "de": "magazine-30rnd-magazine",
+      "arma": "vssm",
+      "custo": 40,
+      "item": "30_rnd"
+    },
+    {
+      "id": "magazine-36rnd-magazine-rpkm",
+      "de": "magazine-36rnd-magazine",
+      "arma": "rpkm",
+      "custo": 5,
+      "item": "36_rnd"
+    },
+    {
+      "id": "magazine-36rnd-magazine-rpk-74m",
+      "de": "magazine-36rnd-magazine",
+      "arma": "rpk-74m",
+      "custo": 5,
+      "item": "36_rnd"
+    },
+    {
+      "id": "magazine-40rnd-fast-mag-rpkm",
+      "de": "magazine-40rnd-fast-mag",
+      "arma": "rpkm",
+      "custo": 10,
+      "item": "40_fast"
+    },
+    {
+      "id": "magazine-40rnd-magazine-rpkm",
+      "de": "magazine-40rnd-magazine",
+      "arma": "rpkm",
+      "custo": 5,
+      "item": "40_rnd"
+    },
+    {
+      "id": "magazine-45rnd-fast-mag-kts100-mk8",
+      "de": "magazine-45rnd-fast-mag",
+      "arma": "kts100-mk8",
+      "custo": 10,
+      "item": "45_fast"
+    },
+    {
+      "id": "magazine-45rnd-fast-mag-rpk-74m",
+      "de": "magazine-45rnd-fast-mag",
+      "arma": "rpk-74m",
+      "custo": 10,
+      "item": "45_fast"
+    },
+    {
+      "id": "magazine-45rnd-magazine-kts100-mk8",
+      "de": "magazine-45rnd-magazine",
+      "arma": "kts100-mk8",
+      "custo": 5,
+      "item": "45_rnd"
+    },
+    {
+      "id": "magazine-45rnd-magazine-rpk-74m",
+      "de": "magazine-45rnd-magazine",
+      "arma": "rpk-74m",
+      "custo": 5,
+      "item": "45_rnd"
+    },
+    {
+      "id": "magazine-50rnd-magazine-ak-205",
+      "de": "magazine-50rnd-magazine",
+      "arma": "ak-205",
+      "custo": 45,
+      "item": "50_rnd"
+    },
+    {
+      "id": "magazine-50rnd-magazine-drs-iar",
+      "de": "magazine-50rnd-magazine",
+      "arma": "drs-iar",
+      "custo": 45,
+      "item": "50_rnd"
+    },
+    {
+      "id": "magazine-50rnd-magazine-rpk-74m",
+      "de": "magazine-50rnd-magazine",
+      "arma": "rpk-74m",
+      "custo": 10,
+      "item": "50_rnd"
+    },
+    {
+      "id": "magazine-5rnd-fast-mag-m87a1",
+      "de": "magazine-5rnd-fast-mag",
+      "arma": "m87a1",
+      "custo": 20,
+      "item": "5_fast"
+    },
+    {
+      "id": "magazine-60rnd-magazine-rpkm",
+      "de": "magazine-60rnd-magazine",
+      "arma": "rpkm",
+      "custo": 30,
+      "item": "60_rnd"
+    },
+    {
+      "id": "magazine-60rnd-magazine-rpk-74m",
+      "de": "magazine-60rnd-magazine",
+      "arma": "rpk-74m",
+      "custo": 20,
+      "item": "60_rnd"
+    },
+    {
+      "id": "magazine-7rnd-fast-mag-l115",
+      "de": "magazine-7rnd-fast-mag",
+      "arma": "l115",
+      "custo": 20,
+      "item": "7_fast"
+    },
+    {
+      "id": "magazine-7rnd-magazine-l115",
+      "de": "magazine-7rnd-magazine",
+      "arma": "l115",
+      "custo": 15,
+      "item": "7_rnd"
+    },
+    {
+      "id": "magazine-7rnd-magazine-interdictor",
+      "de": "magazine-7rnd-magazine",
+      "arma": "interdictor",
+      "custo": 15,
+      "item": "7_rnd"
+    },
+    {
+      "id": "magazine-8rnd-magazine-18-5ks-k",
+      "de": "magazine-8rnd-magazine",
+      "arma": "18-5ks-k",
+      "custo": 5,
+      "item": "8_rnd"
+    },
+    {
+      "id": "barrel-scw-10-extended",
+      "de": "barrel-scw-10-extended",
+      "arma": "scw-10",
+      "custo": 5,
+      "item": "extended"
+    },
+    {
+      "id": "barrel-mini-scout-short",
+      "de": "barrel-mini-scout-short",
+      "arma": "mini-scout",
+      "custo": 15,
+      "item": "short"
+    },
+    {
+      "id": "barrel-interdictor-light",
+      "de": "barrel-interdictor-light",
+      "arma": "interdictor",
+      "custo": 20,
+      "item": "light"
+    },
+    {
+      "id": "barrel-ggh-22-light",
+      "de": "barrel-ggh-22-light",
+      "arma": "ggh-22",
+      "custo": 20,
+      "item": "light"
+    }
+  ],
+  "pecasDoAnalyzerSemPar": [
+    {
+      "slot": "ergonomics",
+      "item": "burst_training",
+      "nome": "Burst Training",
+      "armas": ["kord-6p67", "sg-553r", "pw5a3", "umg-40", "kv9", "cz3a1"]
+    },
+    {
+      "slot": "ergonomics",
+      "item": "grtbc_burst_mode",
+      "nome": "Burst Mode",
+      "armas": ["grt-bc"]
+    },
+    {
+      "slot": "ergonomics",
+      "item": "burst_mode",
+      "nome": "Burst Mode",
+      "armas": ["sl9"]
+    },
+    {
+      "slot": "ergonomics",
+      "item": "fast_deploy",
+      "nome": "Speed Holster",
+      "armas": ["p18", "m45a1", "m44", "ggh-22", "m357-trait"]
+    },
+    {
+      "slot": "ergonomics",
+      "item": "fast_deploy_10",
+      "nome": "Gunslinger",
+      "armas": ["m44"]
+    },
+    {
+      "slot": "ammo",
+      "item": "subsonic_pen",
+      "nome": "Sub Pen",
+      "armas": ["pw7a2"]
+    },
+    {
+      "slot": "ammo",
+      "item": "buckshot_00",
+      "nome": "#00 BUCK",
+      "armas": ["m87a1", "m1014", "18-5ks-k", "db-12"]
+    }
+  ],
+  "pecasDoSiteSemPar": [
+    {
+      "id": "sight-dvo-500x",
+      "slot": "sight",
+      "originalName": "DVO 5.00x"
+    },
+    {
+      "id": "muzzle-shortened-suppressor",
+      "slot": "muzzle",
+      "originalName": "Shortened Suppressor"
+    },
+    {
+      "id": "underbarrel-laser-light-combo-red",
+      "slot": "underbarrel",
+      "originalName": "Laser Light Combo Red"
+    },
+    {
+      "id": "underbarrel-laser-light-combo-green",
+      "slot": "underbarrel",
+      "originalName": "Laser Light Combo Green"
+    }
+  ],
+  "pecasSemArma": [],
+  "travadas": [
+    {
+      "peca": "ergonomics-match-trigger",
+      "arma": "brod-3",
+      "motivo": "desligado pelo estúdio por comunicado em agosto de 2026; o arquivo do jogo ainda o lista"
+    },
+    {
+      "peca": "ergonomics-match-trigger",
+      "arma": "ef88",
+      "motivo": "desligado pelo estúdio por comunicado em agosto de 2026; o arquivo do jogo ainda o lista"
+    }
+  ],
+  "municaoDeSerie": [
+    {
+      "arma": "grt-cps",
+      "item": "hollow_pt",
+      "peca": "ammo-hollow-point-grt-cps"
+    },
+    {
+      "arma": "vssm",
+      "item": "range_pen",
+      "peca": "ammo-tungsten-match"
+    }
+  ],
+  "grupos": [
+    {
+      "grupo": "secondary_optic",
+      "arma": "cz3a1",
+      "nota": "o Analyzer dá mira secundária à arma e o cadastro não dá nenhuma das peças do grupo; qual delas é, a fonte não diz"
+    },
+    {
+      "grupo": "secondary_optic",
+      "arma": "m87a1",
+      "nota": "o Analyzer dá mira secundária à arma e o cadastro não dá nenhuma das peças do grupo; qual delas é, a fonte não diz"
+    }
+  ],
+  "slotsQueAArmaNaoTem": [
+    {
+      "arma": "es-57",
+      "slot": "ergonomics",
+      "itens": ["mag_catch"]
+    },
+    {
+      "arma": "m44",
+      "slot": "ergonomics",
+      "itens": ["fast_deploy", "fast_deploy_10"]
+    },
+    {
+      "arma": "ggh-22",
+      "slot": "ergonomics",
+      "itens": ["mag_catch", "fast_deploy"]
+    },
+    {
+      "arma": "m357-trait",
+      "slot": "ergonomics",
+      "itens": ["fast_deploy"]
+    },
+    {
+      "arma": "vz-61",
+      "slot": "ergonomics",
+      "itens": ["mag_catch"]
+    },
+    {
+      "arma": "m87a1",
+      "slot": "opticAccessory",
+      "itens": ["canted_irons", "secondary_optic"]
+    },
+    {
+      "arma": "18-5ks-k",
+      "slot": "opticAccessory",
+      "itens": ["canted_irons", "secondary_optic"]
+    },
+    {
+      "arma": "db-12",
+      "slot": "opticAccessory",
+      "itens": ["canted_irons", "secondary_optic"]
+    }
+  ],
+  "carregadores": {
+    "ambiguos": [
+      {
+        "arma": "m121-a2",
+        "carregador": "50_rnd (50 Rnd)",
+        "pecas": ["magazine-50rnd-belt-pouch", "magazine-50rnd-drum"]
+      }
+    ],
+    "criados": [
+      {
+        "id": "magazine-60rnd-fast-mag-kts100-mk8",
+        "arma": "kts100-mk8",
+        "carregador": "60_fast (60 Fast)"
+      }
+    ]
+  },
+  "canos": {
+    "removidos": [],
+    "criados": [
+      {
+        "id": "barrel-scw-10-extended",
+        "arma": "scw-10",
+        "papel": "extended"
+      },
+      {
+        "id": "barrel-mini-scout-short",
+        "arma": "mini-scout",
+        "papel": "short"
+      },
+      {
+        "id": "barrel-interdictor-light",
+        "arma": "interdictor",
+        "papel": "light"
+      },
+      {
+        "id": "barrel-ggh-22-light",
+        "arma": "ggh-22",
+        "papel": "light"
+      }
+    ],
+    "revisar": [
+      {
+        "arma": "b36a4",
+        "motivo": "faltam Cano Ext. Pesado e sobram 510mm Fluted (Cano Estendido Leve) — algum cano está com o papel errado",
+        "papeisDoJogo": ["basic", "heavy", "extended", "heavy_ext", "short", "light", "cryo"],
+        "noSite": [
+          {
+            "peca": "barrel-391mm-cqb",
+            "papel": "Cano Curto"
+          },
+          {
+            "peca": "barrel-480mm-factory",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-480mm-fluted",
+            "papel": "Cano Leve"
+          },
+          {
+            "peca": "barrel-480mm-mg",
+            "papel": "Cano Pesado"
+          },
+          {
+            "peca": "barrel-510mm-dmr",
+            "papel": "Cano Estendido"
+          },
+          {
+            "peca": "barrel-510mm-fluted",
+            "papel": "Cano Estendido Leve"
+          },
+          {
+            "peca": "barrel-cryogenic",
+            "papel": "Cano Crio"
+          }
+        ]
+      },
+      {
+        "arma": "sor-556-mk2",
+        "motivo": "faltam Cano Ext. Pesado e há nome repetido (Cano Estendido) — um dos repetidos pode ser o papel que falta",
+        "papeisDoJogo": ["basic", "short", "heavy", "extended", "heavy_ext", "cryo"],
+        "noSite": [
+          {
+            "peca": "barrel-14-5-factory",
+            "papel": "Cano Curto"
+          },
+          {
+            "peca": "barrel-16-us",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-18-custom",
+            "papel": "Cano Estendido"
+          },
+          {
+            "peca": "barrel-18-us-lb",
+            "papel": "Cano Estendido"
+          },
+          {
+            "peca": "barrel-cryogenic",
+            "papel": "Cano Crio"
+          },
+          {
+            "peca": "barrel-iar-heavy",
+            "papel": "Cano Pesado"
+          }
+        ]
+      },
+      {
+        "arma": "ak4d",
+        "motivo": "faltam Cano Pesado, Cano Ext. Pesado e sobram 600mm Fluted (Cano Estendido Leve) — algum cano está com o papel errado",
+        "papeisDoJogo": ["basic", "heavy", "extended", "heavy_ext", "short", "cryo"],
+        "noSite": [
+          {
+            "peca": "barrel-409mm-us",
+            "papel": "Cano Curto"
+          },
+          {
+            "peca": "barrel-450mm-factory",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-600mm-cut",
+            "papel": "Cano Estendido"
+          },
+          {
+            "peca": "barrel-600mm-dmr",
+            "papel": "Cano Estendido"
+          },
+          {
+            "peca": "barrel-600mm-fluted",
+            "papel": "Cano Estendido Leve"
+          },
+          {
+            "peca": "barrel-cryogenic",
+            "papel": "Cano Crio"
+          }
+        ]
+      },
+      {
+        "arma": "tr-7",
+        "motivo": "faltam Cano Curto e há nome repetido (Cano Básico) — um dos repetidos pode ser o papel que falta",
+        "papeisDoJogo": ["basic", "extended", "short", "light"],
+        "noSite": [
+          {
+            "peca": "barrel-17-cut",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-17-factory",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-20-long",
+            "papel": "Cano Estendido"
+          },
+          {
+            "peca": "barrel-432mm-fluted",
+            "papel": "Cano Leve"
+          }
+        ]
+      },
+      {
+        "arma": "kord-6p67",
+        "motivo": "faltam Cano Pesado e há nome repetido (Cano Básico) — um dos repetidos pode ser o papel que falta",
+        "papeisDoJogo": ["basic", "heavy", "light", "cryo"],
+        "noSite": [
+          {
+            "peca": "barrel-415mm-factory",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-415mm-fluted",
+            "papel": "Cano Leve"
+          },
+          {
+            "peca": "barrel-415mm-prototype",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-cryogenic",
+            "papel": "Cano Crio"
+          }
+        ]
+      },
+      {
+        "arma": "nvo-228e",
+        "motivo": "faltam Cano Curto e há nome repetido (Cano Básico) — um dos repetidos pode ser o papel que falta",
+        "papeisDoJogo": ["basic", "extended", "short", "light", "cryo"],
+        "noSite": [
+          {
+            "peca": "barrel-409mm-cut",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-409mm-factory",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-409mm-fluted",
+            "papel": "Cano Leve"
+          },
+          {
+            "peca": "barrel-458mm-custom",
+            "papel": "Cano Estendido"
+          },
+          {
+            "peca": "barrel-cryogenic",
+            "papel": "Cano Crio"
+          }
+        ]
+      },
+      {
+        "arma": "l85a3",
+        "motivo": "faltam Cano Ext. Pesado e sobram 510mm Fluted (Cano Estendido Leve) — algum cano está com o papel errado",
+        "papeisDoJogo": ["basic", "heavy", "extended", "heavy_ext", "short", "light", "cryo"],
+        "noSite": [
+          {
+            "peca": "barrel-391mm-cqb",
+            "papel": "Cano Curto"
+          },
+          {
+            "peca": "barrel-480mm-factory",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-480mm-fluted",
+            "papel": "Cano Leve"
+          },
+          {
+            "peca": "barrel-480mm-mg",
+            "papel": "Cano Pesado"
+          },
+          {
+            "peca": "barrel-510mm-dmr",
+            "papel": "Cano Estendido"
+          },
+          {
+            "peca": "barrel-510mm-fluted",
+            "papel": "Cano Estendido Leve"
+          },
+          {
+            "peca": "barrel-cryogenic",
+            "papel": "Cano Crio"
+          }
+        ]
+      },
+      {
+        "arma": "m277",
+        "motivo": "faltam Cano Pesado, Cano Ext. Pesado e há nome repetido (Cano Básico, Cano Estendido) — um dos repetidos pode ser o papel que falta",
+        "papeisDoJogo": ["basic", "heavy", "extended", "heavy_ext", "light", "cryo"],
+        "noSite": [
+          {
+            "peca": "barrel-13-factory",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-13-fluted",
+            "papel": "Cano Leve"
+          },
+          {
+            "peca": "barrel-13-prototype",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-16-custom",
+            "papel": "Cano Estendido"
+          },
+          {
+            "peca": "barrel-16-rifle",
+            "papel": "Cano Estendido"
+          },
+          {
+            "peca": "barrel-cryogenic",
+            "papel": "Cano Crio"
+          }
+        ]
+      },
+      {
+        "arma": "ak-205",
+        "motivo": "faltam Cano Pesado e há nome repetido (Cano Básico) — um dos repetidos pode ser o papel que falta",
+        "papeisDoJogo": ["basic", "heavy", "light", "cryo"],
+        "noSite": [
+          {
+            "peca": "barrel-314mm-factory",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-314mm-fluted",
+            "papel": "Cano Leve"
+          },
+          {
+            "peca": "barrel-314mm-prototype",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-cryogenic",
+            "papel": "Cano Crio"
+          }
+        ]
+      },
+      {
+        "arma": "pw7a2",
+        "motivo": "faltam Cano Pesado e há nome repetido (Cano Básico) — um dos repetidos pode ser o papel que falta",
+        "papeisDoJogo": ["basic", "heavy", "cryo"],
+        "noSite": [
+          {
+            "peca": "barrel-180mm-prototype",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-180mm-standard",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-cryogenic",
+            "papel": "Cano Crio"
+          }
+        ]
+      },
+      {
+        "arma": "umg-40",
+        "motivo": "faltam Cano Pesado, Cano Ext. Pesado e há nome repetido (Cano Básico, Cano Estendido) — um dos repetidos pode ser o papel que falta",
+        "papeisDoJogo": ["basic", "heavy", "extended", "heavy_ext", "light", "cryo"],
+        "noSite": [
+          {
+            "peca": "barrel-200mm-custom",
+            "papel": "Cano Leve"
+          },
+          {
+            "peca": "barrel-200mm-custom-h",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-200mm-factory",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-cryogenic",
+            "papel": "Cano Crio"
+          },
+          {
+            "peca": "barrel-305mm-custom-h",
+            "papel": "Cano Estendido"
+          },
+          {
+            "peca": "barrel-305mm-custom",
+            "papel": "Cano Estendido"
+          }
+        ]
+      },
+      {
+        "arma": "usg-90",
+        "motivo": "faltam Cano Pesado e sobram 246mm Factory (Cano Curto) — algum cano está com o papel errado",
+        "papeisDoJogo": ["basic", "heavy", "heavy_ext", "light", "cryo"],
+        "noSite": [
+          {
+            "peca": "barrel-246mm-factory",
+            "papel": "Cano Curto"
+          },
+          {
+            "peca": "barrel-264mm-fluted",
+            "papel": "Cano Leve"
+          },
+          {
+            "peca": "barrel-264mm-prototype",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-cryogenic",
+            "papel": "Cano Crio"
+          },
+          {
+            "peca": "barrel-407mm-civ-s",
+            "papel": "Cano Ext. Pesado"
+          }
+        ]
+      },
+      {
+        "arma": "pp-19",
+        "motivo": "faltam Cano Leve e sobram 264mm Fluted (Cano Estendido Leve) — algum cano está com o papel errado",
+        "papeisDoJogo": ["basic", "light", "extended", "cryo"],
+        "noSite": [
+          {
+            "peca": "barrel-246mm-factory",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-264mm-fluted",
+            "papel": "Cano Estendido Leve"
+          },
+          {
+            "peca": "barrel-264mm-prototype",
+            "papel": "Cano Estendido"
+          },
+          {
+            "peca": "barrel-cryogenic",
+            "papel": "Cano Crio"
+          }
+        ]
+      },
+      {
+        "arma": "l110",
+        "motivo": "faltam Cano Ext. Pesado e sobram 465mm LB (Cano Estendido) — algum cano está com o papel errado",
+        "papeisDoJogo": ["heavy", "heavy_ext", "light"],
+        "noSite": [
+          {
+            "peca": "barrel-394mm-sb",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-465mm-lb",
+            "papel": "Cano Estendido"
+          },
+          {
+            "peca": "barrel-349mm-fluted",
+            "papel": "Cano Leve"
+          }
+        ]
+      },
+      {
+        "arma": "drs-iar",
+        "motivo": "faltam Cano Ext. Pesado e há nome repetido (Cano Estendido) — um dos repetidos pode ser o papel que falta",
+        "papeisDoJogo": ["basic", "heavy", "heavy_ext", "extended", "light", "short"],
+        "noSite": [
+          {
+            "peca": "barrel-14-5-carbine",
+            "papel": "Cano Curto"
+          },
+          {
+            "peca": "barrel-16-5-basic",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-16-5-fluted",
+            "papel": "Cano Leve"
+          },
+          {
+            "peca": "barrel-16-5-lsw",
+            "papel": "Cano Pesado"
+          },
+          {
+            "peca": "barrel-20-le",
+            "papel": "Cano Estendido"
+          },
+          {
+            "peca": "barrel-20-sdm-r",
+            "papel": "Cano Estendido"
+          }
+        ]
+      },
+      {
+        "arma": "rpkm",
+        "motivo": "faltam Cano Pesado, Cano Ext. Pesado e há nome repetido (Cano Básico, Cano Estendido) — um dos repetidos pode ser o papel que falta",
+        "papeisDoJogo": ["basic", "heavy", "heavy_ext", "extended", "short"],
+        "noSite": [
+          {
+            "peca": "barrel-419mm-boar-f",
+            "papel": "Cano Curto"
+          },
+          {
+            "peca": "barrel-521mm-boar",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-521mm-boar-f",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-590mm-factory",
+            "papel": "Cano Estendido"
+          },
+          {
+            "peca": "barrel-600mm-tabuk",
+            "papel": "Cano Estendido"
+          }
+        ]
+      },
+      {
+        "arma": "rpk-74m",
+        "motivo": "faltam Cano Pesado, Cano Ext. Pesado e sobram 590mm Factory (Cano Estendido), 600mm Tabuk (Cano Estendido) — algum cano está com o papel errado",
+        "papeisDoJogo": ["basic", "heavy", "heavy_ext", "short"],
+        "noSite": [
+          {
+            "peca": "barrel-419mm-boar-f",
+            "papel": "Cano Curto"
+          },
+          {
+            "peca": "barrel-521mm-boar",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-521mm-boar-f",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-590mm-factory",
+            "papel": "Cano Estendido"
+          },
+          {
+            "peca": "barrel-600mm-tabuk",
+            "papel": "Cano Estendido"
+          }
+        ]
+      },
+      {
+        "arma": "svk-86",
+        "motivo": "faltam Cano Curto e há nome repetido (Cano Estendido) — um dos repetidos pode ser o papel que falta",
+        "papeisDoJogo": ["basic", "extended", "short"],
+        "noSite": [
+          {
+            "peca": "barrel-457mm-urban",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-560mm-cut",
+            "papel": "Cano Estendido"
+          },
+          {
+            "peca": "barrel-560mm-factory",
+            "papel": "Cano Estendido"
+          }
+        ]
+      },
+      {
+        "arma": "svdm",
+        "motivo": "faltam Cano Leve e sobram 565mm Fluted (Cano Estendido Leve) — algum cano está com o papel errado",
+        "papeisDoJogo": ["basic", "extended", "short", "light"],
+        "noSite": [
+          {
+            "peca": "barrel-550mm-factory",
+            "papel": "Cano Curto"
+          },
+          {
+            "peca": "barrel-556mm-para",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-565mm-fluted",
+            "papel": "Cano Estendido Leve"
+          },
+          {
+            "peca": "barrel-620mm-classic",
+            "papel": "Cano Estendido"
+          }
+        ]
+      },
+      {
+        "arma": "l115",
+        "motivo": "faltam Cano Leve e há nome repetido (Cano Básico) — um dos repetidos pode ser o papel que falta",
+        "papeisDoJogo": ["basic", "light", "extended", "short"],
+        "noSite": [
+          {
+            "peca": "barrel-20-custom-covert",
+            "papel": "Cano Curto"
+          },
+          {
+            "peca": "barrel-27-factory",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-27-full",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-32-custom",
+            "papel": "Cano Estendido"
+          }
+        ]
+      },
+      {
+        "arma": "ef88",
+        "motivo": "faltam Cano Ext. Pesado, Cano Curto Leve e sobram 480mm MG (Cano Pesado) — algum cano está com o papel errado",
+        "papeisDoJogo": ["basic", "extended", "heavy_ext", "short", "light", "cryo", "ext_light", "short_light"],
+        "noSite": [
+          {
+            "peca": "barrel-391mm-cqb",
+            "papel": "Cano Curto"
+          },
+          {
+            "peca": "barrel-480mm-factory",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-480mm-fluted",
+            "papel": "Cano Leve"
+          },
+          {
+            "peca": "barrel-480mm-mg",
+            "papel": "Cano Pesado"
+          },
+          {
+            "peca": "barrel-510mm-dmr",
+            "papel": "Cano Estendido"
+          },
+          {
+            "peca": "barrel-510mm-fluted",
+            "papel": "Cano Estendido Leve"
+          },
+          {
+            "peca": "barrel-cryogenic",
+            "papel": "Cano Crio"
+          }
+        ]
+      },
+      {
+        "arma": "vssm",
+        "motivo": "o Analyzer usa papel sem nome na tela de seleção (ou dois papéis com o mesmo nome)",
+        "papeisDoJogo": ["vssm_suppressed", "vssm_suppressed_asm"],
+        "noSite": [
+          {
+            "peca": "barrel-21-5-factory",
+            "papel": "Cano Básico"
+          },
+          {
+            "peca": "barrel-21-5-fluted",
+            "papel": "Cano Leve"
+          },
+          {
+            "peca": "barrel-24-extended",
+            "papel": "Cano Estendido"
+          }
+        ]
+      }
+    ],
+    "duplicados": [
+      {
+        "arma": "sor-556-mk2",
+        "papel": "Cano Estendido",
+        "pecas": ["barrel-18-custom", "barrel-18-us-lb"]
+      },
+      {
+        "arma": "ak4d",
+        "papel": "Cano Estendido",
+        "pecas": ["barrel-600mm-cut", "barrel-600mm-dmr"]
+      },
+      {
+        "arma": "tr-7",
+        "papel": "Cano Básico",
+        "pecas": ["barrel-17-cut", "barrel-17-factory"]
+      },
+      {
+        "arma": "kord-6p67",
+        "papel": "Cano Básico",
+        "pecas": ["barrel-415mm-factory", "barrel-415mm-prototype"]
+      },
+      {
+        "arma": "nvo-228e",
+        "papel": "Cano Básico",
+        "pecas": ["barrel-409mm-cut", "barrel-409mm-factory"]
+      },
+      {
+        "arma": "m277",
+        "papel": "Cano Básico",
+        "pecas": ["barrel-13-factory", "barrel-13-prototype"]
+      },
+      {
+        "arma": "m277",
+        "papel": "Cano Estendido",
+        "pecas": ["barrel-16-custom", "barrel-16-rifle"]
+      },
+      {
+        "arma": "ak-205",
+        "papel": "Cano Básico",
+        "pecas": ["barrel-314mm-factory", "barrel-314mm-prototype"]
+      },
+      {
+        "arma": "pw7a2",
+        "papel": "Cano Básico",
+        "pecas": ["barrel-180mm-prototype", "barrel-180mm-standard"]
+      },
+      {
+        "arma": "umg-40",
+        "papel": "Cano Básico",
+        "pecas": ["barrel-200mm-custom-h", "barrel-200mm-factory"]
+      },
+      {
+        "arma": "umg-40",
+        "papel": "Cano Estendido",
+        "pecas": ["barrel-305mm-custom-h", "barrel-305mm-custom"]
+      },
+      {
+        "arma": "drs-iar",
+        "papel": "Cano Estendido",
+        "pecas": ["barrel-20-le", "barrel-20-sdm-r"]
+      },
+      {
+        "arma": "rpkm",
+        "papel": "Cano Básico",
+        "pecas": ["barrel-521mm-boar", "barrel-521mm-boar-f"]
+      },
+      {
+        "arma": "rpkm",
+        "papel": "Cano Estendido",
+        "pecas": ["barrel-590mm-factory", "barrel-600mm-tabuk"]
+      },
+      {
+        "arma": "rpk-74m",
+        "papel": "Cano Básico",
+        "pecas": ["barrel-521mm-boar", "barrel-521mm-boar-f"]
+      },
+      {
+        "arma": "svk-86",
+        "papel": "Cano Estendido",
+        "pecas": ["barrel-560mm-cut", "barrel-560mm-factory"]
+      },
+      {
+        "arma": "l115",
+        "papel": "Cano Básico",
+        "pecas": ["barrel-27-factory", "barrel-27-full"]
+      },
+      {
+        "arma": "18-5ks-k",
+        "papel": "Cano Básico",
+        "pecas": ["barrel-430mm-cut", "barrel-430mm-factory"]
+      }
+    ],
+    "custoPorPapel": [
+      {
+        "papel": "Cano Básico",
+        "site": 10,
+        "jogo": 10
+      },
+      {
+        "papel": "Cano Curto",
+        "site": 15,
+        "jogo": 15
+      },
+      {
+        "papel": "Cano Estendido",
+        "site": 5,
+        "jogo": 5
+      },
+      {
+        "papel": "Cano Pesado",
+        "site": 10,
+        "jogo": 10
+      },
+      {
+        "papel": "Cano Ext. Pesado",
+        "site": 10,
+        "jogo": 10
+      },
+      {
+        "papel": "Cano Leve",
+        "site": 20,
+        "jogo": 20
+      },
+      {
+        "papel": "Cano Crio",
+        "site": 20,
+        "jogo": 20
+      },
+      {
+        "papel": "Cano Estendido Leve",
+        "site": 25,
+        "jogo": 25
+      },
+      {
+        "papel": "Cano Curto Leve",
+        "site": 25,
+        "jogo": 25
+      }
+    ]
+  }
+}

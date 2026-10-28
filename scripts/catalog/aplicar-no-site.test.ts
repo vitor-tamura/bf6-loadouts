@@ -74,7 +74,10 @@ describe('propostaDeArma', () => {
 describe('pecaDoSite', () => {
   it('acha a entrada da peça que a arma aceita, no singular ou no plural', () => {
     expect(pecaDoSite('Iron Sights', 'interdictor')?.id).toBe('sight-iron-sights-interdictor');
-    expect(pecaDoSite('Iron Sight', 'l115')?.id).toBe('sight-iron-sights');
+    // A alça da L115 custa 15 no jogo (`sightPoints.iron` no Analyzer), e a
+    // sincronização a separou na variante da arma.
+    expect(pecaDoSite('Iron Sight', 'l115')?.id).toBe('sight-iron-sights-l115');
+    expect(pecaDoSite('Iron Sight', 'ak4d')?.id).toBe('sight-iron-sights');
   });
 
   it('não escolhe a esmo quando a arma não aceita a peça', () => {

@@ -195,7 +195,76 @@ export const IMAGE_PATH = '/api/loadout/imagem/';
  * um arquivo no aparelho para mostrar o que um endereço já mostra. Quem cola em
  * conversa, fórum ou aba nova quer isto aqui.
  */
-export function loadoutImageUrl(loadout: Loadout, origin?: string): string {
+export function loadoutImageUrl(
+  loadout: Loadout,
+  origin?: string,
+  formato: ImageFormat = DEFAULT_IMAGE_FORMAT,
+): string {
   const base = origin ?? (typeof window !== 'undefined' ? window.location.origin : '');
-  return `${base}${IMAGE_PATH}?${LOADOUT_PARAM}=${encodeLoadout(loadout)}`;
+  /*
+   * O formato padrão não vai no endereço. Assim o link da imagem que já estava
+   * colado por aí continua sendo exatamente o mesmo endereço — só o desenho
+   * mudou —, e o cache da borda não guarda duas cópias da mesma imagem, uma
+   * com `?formato=feed` e outra sem.
+   */
+  const extra = formato === DEFAULT_IMAGE_FORMAT ? '' : `&${IMAGE_FORMAT_PARAM}=${formato}`;
+  return `${base}${IMAGE_PATH}?${LOADOUT_PARAM}=${encodeLoadout(loadout)}${extra}`;
+}
+
+/**
+ * Os formatos do cartão, nas medidas que o Instagram publica sem cortar.
+ *
+ * O cartão nasceu para ser colado em conversa e tinha a altura que a lista de
+ * peças pedisse. Só que o lugar onde build de Battlefield circula é o
+ * Instagram, e ele não aceita qualquer proporção: imagem fora do padrão chega
+ * cortada no feed ou com tarja nos stories. Por isso as duas medidas são as do
+ * próprio aplicativo:
+ *
+ * - `feed`: 1080x1350 (4:5), o retrato mais alto que o feed mostra inteiro. É
+ *   o padrão, porque também é o que melhor aparece colado numa conversa.
+ * - `story`: 1080x1920 (9:16), a tela cheia do story. O aplicativo cobre o topo
+ *   (barra de progresso e nome do perfil) e o pé (campo de resposta), então
+ *   `topo` e `base` dizem quanto de cada ponta fica fora do conteúdo.
+ *
+ * As medidas moram aqui, e não só na rota, porque o botão de compartilhar
+ * também precisa delas — para dizer ao jogador o que cada opção entrega.
+ */
+export const IMAGE_FORMATS = {
+  feed: { largura: 1080, altura: 1350, topo: 0, base: 0, rotulo: 'Feed', proporcao: '4:5' },
+  story: { largura: 1080, altura: 1920, topo: 250, base: 340, rotulo: 'Story', proporcao: '9:16' },
+} as const;
+
+export type ImageFormat = keyof typeof IMAGE_FORMATS;
+
+export const DEFAULT_IMAGE_FORMAT: ImageFormat = 'feed';
+
+/** Parâmetro que escolhe o formato do cartão: `?formato=story`. */
+export const IMAGE_FORMAT_PARAM = 'formato';
+
+/**
+ * Lê o formato pedido no endereço.
+ *
+ * Valor desconhecido cai no padrão em vez de virar erro: um link digitado à mão
+ * ou de uma versão futura ainda deve devolver uma imagem, não uma página 400.
+ */
+export function parseImageFormat(value: string | null | undefined): ImageFormat {
+  return value && Object.hasOwn(IMAGE_FORMATS, value) ? (value as ImageFormat) : DEFAULT_IMAGE_FORMAT;
+}
+
+/**
+ * Nome do arquivo baixado ou enviado: `loadout-m16a4-story.png`.
+ *
+ * Espaço e acento atrapalham no nome do arquivo em alguns aparelhos, e o
+ * formato no nome evita que o jogador confunda, na galeria, a versão do feed
+ * com a do story.
+ */
+export function loadoutImageFilename(loadout: Loadout, formato: ImageFormat = DEFAULT_IMAGE_FORMAT): string {
+  const arma = loadout.weapon ? WEAPONS_BY_ID.get(loadout.weapon)?.name : null;
+  const slug = (arma ?? 'bf6')
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  return `loadout-${slug || 'bf6'}-${formato}.png`;
 }

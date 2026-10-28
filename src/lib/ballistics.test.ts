@@ -14,35 +14,36 @@ import {
 } from './ballistics';
 import { resolveAttachments, calculateStats, baseStats } from './stats';
 
-const ak4d = baseStats(WEAPONS_BY_ID.get('ak4d')!); // 28 até 20 m, caindo a 22 aos 65 m
-const m1014 = baseStats(WEAPONS_BY_ID.get('m1014')!); // escopeta de 15 projéteis
+// Curvas do jogo, pelo BF6-Weapon-Analyzer (`src/data/analyzer-sync.json`):
+const ak4d = baseStats(WEAPONS_BY_ID.get('ak4d')!); // 35,22 até 21 m, 26,05 até 75 m, depois 20,67
+const m1014 = baseStats(WEAPONS_BY_ID.get('m1014')!); // escopeta de 16 projéteis
 
 describe('dano por distância', () => {
   it('mantém o valor do degrau até o degrau seguinte', () => {
-    expect(damageAtDistance(ak4d, 0)).toBe(28);
-    expect(damageAtDistance(ak4d, 19.9)).toBe(28);
-    expect(damageAtDistance(ak4d, 20)).toBe(26);
-    expect(damageAtDistance(ak4d, 41)).toBe(26);
-    expect(damageAtDistance(ak4d, 65)).toBe(22);
-    expect(damageAtDistance(ak4d, 500)).toBe(22);
+    expect(damageAtDistance(ak4d, 0)).toBe(35.22);
+    expect(damageAtDistance(ak4d, 20.9)).toBe(35.22);
+    expect(damageAtDistance(ak4d, 21)).toBe(26.05);
+    expect(damageAtDistance(ak4d, 74)).toBe(26.05);
+    expect(damageAtDistance(ak4d, 75)).toBe(20.67);
+    expect(damageAtDistance(ak4d, 500)).toBe(20.67);
   });
 
   it('soma os projéteis de uma escopeta em um único disparo', () => {
-    expect(damagePerShot(m1014, 0)).toBeCloseTo(7.2 * 15, 5);
+    expect(damagePerShot(m1014, 0)).toBeCloseTo(7.2 * 16, 5);
     expect(shotsToKill(m1014, 0)).toBe(1);
   });
 });
 
 describe('tiros e tempo para eliminar', () => {
   it('calcula os tiros a partir dos 100 de vida', () => {
-    expect(shotsToKill(ak4d, 0)).toBe(4); // 28 × 4 = 112
-    expect(shotsToKill(ak4d, 30)).toBe(4); // 26 × 4 = 104
-    expect(shotsToKill(ak4d, 100)).toBe(5); // 22 × 5 = 110
+    expect(shotsToKill(ak4d, 0)).toBe(3); // 35,22 × 3 = 105,66
+    expect(shotsToKill(ak4d, 30)).toBe(4); // 26,05 × 4 = 104,2
+    expect(shotsToKill(ak4d, 100)).toBe(5); // 20,67 × 5 = 103,35
   });
 
   it('conta apenas os intervalos entre disparos', () => {
-    // 514 RPM → 116,7 ms entre disparos; quatro tiros levam três intervalos.
-    expect(timeToKill(ak4d, 0)).toBeCloseTo(3 * (60_000 / 514), 3);
+    // 514 RPM → 116,7 ms entre disparos; três tiros levam dois intervalos.
+    expect(timeToKill(ak4d, 0)).toBeCloseTo(2 * (60_000 / 514), 3);
   });
 
   it('reduz os tiros necessários no acerto de cabeça', () => {
@@ -55,8 +56,8 @@ describe('tiros e tempo para eliminar', () => {
 
 describe('alcance efetivo', () => {
   it('aponta onde a arma passa a precisar de mais um tiro', () => {
-    // 28 e 26 matam em 4 tiros; o degrau de 24, aos 42 m, já exige 5.
-    expect(effectiveRange(ak4d)).toBe(42);
+    // 35,22 mata em 3 tiros; o degrau de 26,05, aos 21 m, já exige 4.
+    expect(effectiveRange(ak4d)).toBe(21);
   });
 
   it('não encontra queda em arma de dano constante', () => {
@@ -112,10 +113,10 @@ describe('curvas dos gráficos', () => {
   it('desenha a queda de dano em ângulo reto', () => {
     const points = damageCurve(ak4d, 100);
     // Cada transição repete a distância: uma vez fechando o patamar, outra abrindo.
-    const at20 = points.filter((p) => p.distance === 20);
-    expect(at20).toHaveLength(2);
-    expect(at20[0].value).toBe(28);
-    expect(at20[1].value).toBe(26);
+    const at21 = points.filter((p) => p.distance === 21);
+    expect(at21).toHaveLength(2);
+    expect(at21[0].value).toBe(35.22);
+    expect(at21[1].value).toBe(26.05);
   });
 
   it('estende a curva até o limite pedido', () => {

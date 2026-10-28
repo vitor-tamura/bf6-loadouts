@@ -9,6 +9,10 @@
 # parte (ids de componente), e colher um deles faria o pipeline processar uma
 # versão que não existe.
 #
+# Pergunta também ao BF6-Weapon-Analyzer se ele publicou commit novo desde a
+# última sincronização dos números do jogo (ver o passo "Analyzer com commit
+# novo").
+#
 # Este workflow não escreve nada no repositório. Quem escreve é o de
 # processamento, que aplica e publica em `main` sem esperar revisão.
 
@@ -93,8 +97,46 @@ jobs:
             echo "pendentes=sim" >> "$GITHUB_OUTPUT"
           fi
 
+      # O BF6-Weapon-Analyzer lê os arquivos do jogo e publica quase todo dia,
+      # inclusive correção de número que nenhum patch note menciona. O commit
+      # que o site aplica fica em src/data/analyzer-sync.json (`fonte.commit`),
+      # e o último que a sincronização leu — mesmo quando ela segurou a
+      # gravação porque o Analyzer estava atrás do patch — fica no relatório
+      # (`ultimaLeitura.commit`). Se o `main` de lá não é nenhum dos dois, o
+      # processamento roda e a sincronização dele traz o que mudou.
+      #
+      # `continue-on-error` porque é a API de terceiro: falhou, nada é disparado
+      # por este motivo, e a pergunta se repete amanhã.
+      - name: Analyzer com commit novo
+        id: analyzer
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          fonte=$(node -e '
+            const { fontes } = JSON.parse(require("fs").readFileSync("data/sources/registry.json", "utf8"));
+            const f = fontes.find((x) => x.papel === "numeros_de_simulacao" && x.ativo !== false);
+            process.stdout.write(`${f.repo} ${f.branch || "main"}`);
+          ')
+          repo=${fonte% *}
+          branch=${fonte#* }
+          remoto=$(gh api "repos/$repo/commits/$branch" --jq .sha)
+          gravados=$(node -e '
+            const fs = require("fs");
+            const ler = (p) => (fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, "utf8")) : {});
+            const aplicado = ler("src/data/analyzer-sync.json").fonte?.commit ?? "";
+            const lido = ler("data/validation/analyzer-sync-report.json").ultimaLeitura?.commit ?? "";
+            process.stdout.write(`${aplicado} ${lido}`);
+          ')
+          echo "Analyzer: $repo@$branch em ${remoto:0:7}; aplicado/lido: $gravados"
+          if [ -n "$remoto" ] && ! echo " $gravados " | grep -q " $remoto "; then
+            echo "novo=sim" >> "$GITHUB_OUTPUT"
+          else
+            echo "novo=" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Disparar o processamento
-        if: steps.discover.outputs.versions != '' || steps.analise.outputs.pendentes != '' || steps.imagens.outputs.pendentes != ''
+        if: steps.discover.outputs.versions != '' || steps.analise.outputs.pendentes != '' || steps.imagens.outputs.pendentes != '' || steps.analyzer.outputs.novo != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh workflow run bf6-update-process.yml

@@ -215,7 +215,15 @@ function main(): void {
 
     const bruto = pecasDoCatalogo.get(linha.attachmentId) ?? linha.attachmentId;
     const nome = APELIDOS_DE_PECA[bruto.toLowerCase()] ?? bruto;
-    const peca = ATTACHMENTS.find((a) => a.slot === slot && chave(a.originalName) === chave(nome));
+    /*
+      A mesma peça pode estar em mais de uma entrada: a geral e a variante de
+      uma arma, com o preço dela ali (`underbarrel-slim-angled-pp-19`, que a
+      sincronização com o Analyzer cria). Para a arma da linha, vale a entrada
+      que ela aceita — ler só a primeira do nome daria a peça por ausente numa
+      arma que a tem, só que pela variante.
+    */
+    const homonimas = ATTACHMENTS.filter((a) => a.slot === slot && chave(a.originalName) === chave(nome));
+    const peca = homonimas.find((a) => isCompatible(a, arma)) ?? homonimas[0];
 
     if (!peca) {
       if (SEM_METRICA.has(linha.slot)) continue;

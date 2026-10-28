@@ -156,9 +156,11 @@ describe('ficha da arma', () => {
   });
 
   it('arma de um tiro não mostra tempo até a morte', () => {
-    // Era a Interdictor até a 1.4.3.0, que a pôs em dois tiros ao peito. A L115
-    // segue matando com um tiro de perto.
-    const ficha = fichaDaArma(WEAPONS_BY_ID.get('l115')!);
+    // Era a Interdictor até a 1.4.3.0, que a pôs em dois tiros ao peito, e
+    // depois a L115 — até a curva do jogo (BF6-Weapon-Analyzer) mostrar que ela
+    // dá 80 de perto e só chega a 100 entre 100 e 133 m. De perto, quem mata
+    // com um disparo é a escopeta: 16 projéteis de 8,4 na M87A1.
+    const ficha = fichaDaArma(WEAPONS_BY_ID.get('m87a1')!);
 
     expect(ficha.tiros).toBe(1);
     expect(ficha.ttk).toBeNull();

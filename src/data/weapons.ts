@@ -1,5 +1,6 @@
 import type { Weapon, WeaponArchetype, WeaponCategory, DamageStep, ClassId, SlotId } from './types';
 import { ARMAS_NOVAS } from './novidades.ts';
+import { sincronizarArma } from './analyzer-sync.ts';
 
 /* -------------------------------------------------------------------------- *
  * Procedência dos números
@@ -2351,13 +2352,23 @@ export const WEAPONS_CURADAS: Weapon[] = [
 ].map(buildWeapon);
 
 /**
- * O arsenal do site: o cadastro, mais as armas que o jogo ganhou e ninguém
- * cadastrou ainda (`novidades.ts`). Arma curada tem precedência.
+ * O cadastro, mais as armas que o jogo ganhou e ninguém cadastrou ainda
+ * (`novidades.ts`), antes das correções do jogo. Arma curada tem precedência.
+ *
+ * É contra esta lista que `catalog:sincronizar-analyzer` calcula o que muda.
  */
-export const WEAPONS: Weapon[] = [
+export const WEAPONS_SEM_SINCRONIA: Weapon[] = [
   ...WEAPONS_CURADAS,
   ...ARMAS_NOVAS.filter((nova) => !WEAPONS_CURADAS.some((w) => w.id === nova.id)).map(buildWeapon),
 ];
+
+/**
+ * O arsenal do site: a lista acima com curva de dano, cadência, velocidade,
+ * pente, recargas, multiplicador na cabeça e modos de tiro lidos dos arquivos
+ * do jogo (`analyzer-sync.ts`). Campo que a sincronização não corrige — ou que
+ * a curadoria mudou depois dela — fica com o valor do cadastro.
+ */
+export const WEAPONS: Weapon[] = WEAPONS_SEM_SINCRONIA.map((arma) => sincronizarArma(arma));
 
 export const WEAPONS_BY_ID = new Map<string, Weapon>(WEAPONS.map((a) => [a.id, a]));
 
