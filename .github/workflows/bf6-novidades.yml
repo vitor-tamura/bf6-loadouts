@@ -63,14 +63,29 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run catalog:novidades
 
+      # A foto da arma nova: a arte grande do BattlefieldMeta, no mesmo padrão
+      # das outras 67 (ver IMAGENS.md). Só baixa o que falta. Falha na origem
+      # não segura a publicação: o site cai na URL de reserva.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar Pillow para as imagens
+        run: python -m pip install --disable-pip-version-check Pillow
+
+      - name: Baixar a foto de arma nova
+        continue-on-error: true
+        run: python3 scripts/download_images.py --armas
+
       - name: Ver se mudou
         id: mudou
         run: |
-          if git diff --quiet -- src/data/novidades.json; then
+          # `status`, e não `diff`: a foto de arma nova é arquivo que o git ainda não conhece.
+          if [ -z "$(git status --porcelain -- src/data/novidades.json public/weapons)" ]; then
             echo "Nada novo no arsenal."
             echo "sim=false" >> "$GITHUB_OUTPUT"
           else
-            git diff --stat -- src/data/novidades.json
+            git status --short -- src/data/novidades.json public/weapons
             echo "sim=true" >> "$GITHUB_OUTPUT"
           fi
 
@@ -101,7 +116,7 @@ jobs:
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/novidades.json
+          git add src/data/novidades.json public/weapons
           git commit -m "feat(data): novidades do arsenal — $resumo"
           git remote set-url origin "https://x-access-token:${MAIN_PUSH_TOKEN}@github.com/${{ github.repository }}.git"
 

@@ -115,7 +115,7 @@ export function ShareButton({ loadout, disabled }: { loadout: Loadout; disabled:
         if (!resposta.ok) throw new Error(`imagem respondeu ${resposta.status}`);
         return resposta.blob();
       })
-      .then((blob) => new File([blob], loadoutImageFilename(loadout, formato), { type: 'image/png' }));
+      .then((blob) => new File([blob], loadoutImageFilename(loadout), { type: 'image/png' }));
     // Falha não fica guardada: o próximo toque tenta de novo.
     busca.catch(() => arquivos.current.delete(endereco));
     arquivos.current.set(endereco, busca);
@@ -176,7 +176,7 @@ export function ShareButton({ loadout, disabled }: { loadout: Loadout; disabled:
       }
     }
     baixar(arquivo);
-    message.success(`Imagem para ${IMAGE_FORMATS[formato].rotulo.toLowerCase()} baixada`);
+    message.success(`Imagem para o ${IMAGE_FORMATS[formato].rotulo} baixada`);
   }
 
   async function copyLink() {
@@ -300,14 +300,12 @@ export function ShareButton({ loadout, disabled }: { loadout: Loadout; disabled:
         </div>
 
         {/*
-          Os formatos do Instagram. O "Baixar" que ficava ao lado do link virou
-          estes dois botões: a imagem padrão já é a do feed, então baixar o
-          feed é exatamente o que ele fazia — e o story, que tem outra
-          proporção, ganhou o seu.
+          A imagem do Instagram, em 1080x1920. O "Baixar" que ficava ao lado
+          do link virou este botão.
 
-          No celular, cada botão abre a folha de compartilhamento com o arquivo,
-          de onde o Instagram (feed ou story) recebe a imagem direto. No
-          computador, onde essa folha não aceita arquivo, o botão baixa.
+          No celular, ele abre a folha de compartilhamento com o arquivo, de
+          onde o Instagram recebe a imagem direto. No computador, onde essa
+          folha não aceita arquivo, o botão baixa.
         */}
         <Typography.Paragraph
           className="mt-4 mb-1 text-[11px]"

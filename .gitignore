@@ -23,3 +23,6 @@ coverage/
 # alguém instala com yarn e confundiria o build, que escolhe o gerenciador
 # pelo lockfile encontrado.
 yarn.lock
+
+# Cache do Python (scripts/download_images.py)
+__pycache__/

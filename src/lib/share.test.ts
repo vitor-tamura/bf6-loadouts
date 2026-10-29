@@ -134,51 +134,35 @@ describe('URL de compartilhamento', () => {
   });
 });
 
-describe('formatos do Instagram', () => {
-  it('seguem as medidas que o Instagram publica sem cortar', () => {
-    expect(IMAGE_FORMATS.feed.largura / IMAGE_FORMATS.feed.altura).toBe(4 / 5);
-    expect(IMAGE_FORMATS.story.largura / IMAGE_FORMATS.story.altura).toBe(9 / 16);
-    expect(IMAGE_FORMATS.feed.largura).toBe(1080);
-    expect(IMAGE_FORMATS.story.largura).toBe(1080);
+describe('formato do Instagram', () => {
+  it('é 1080x1920, a tela cheia do aplicativo', () => {
+    expect(IMAGE_FORMATS[DEFAULT_IMAGE_FORMAT].largura).toBe(1080);
+    expect(IMAGE_FORMATS[DEFAULT_IMAGE_FORMAT].altura).toBe(1920);
+    expect(Object.keys(IMAGE_FORMATS)).toEqual([DEFAULT_IMAGE_FORMAT]);
   });
 
-  it('o story reserva o topo e o pé que a interface do aplicativo cobre', () => {
+  it('reserva o topo e o pé que a interface do aplicativo cobre', () => {
     expect(IMAGE_FORMATS.story.topo).toBeGreaterThanOrEqual(250);
     expect(IMAGE_FORMATS.story.base).toBeGreaterThanOrEqual(340);
-    // A área útil do story cabe o mesmo miolo do feed, a menos de 2% de diferença.
-    const util = IMAGE_FORMATS.story.altura - IMAGE_FORMATS.story.topo - IMAGE_FORMATS.story.base;
-    expect(util / IMAGE_FORMATS.feed.altura).toBeGreaterThan(0.98);
   });
 
-  it('o feed é o padrão e não muda o endereço que já circulava', () => {
-    expect(DEFAULT_IMAGE_FORMAT).toBe('feed');
-    expect(loadoutImageUrl(full, 'https://exemplo.com', 'feed')).toBe(
-      loadoutImageUrl(full, 'https://exemplo.com'),
-    );
-    expect(new URL(loadoutImageUrl(full, 'https://exemplo.com')).searchParams.has('formato')).toBe(false);
-  });
-
-  it('o story vai no parâmetro de busca, com o mesmo código do link', () => {
-    const url = new URL(loadoutImageUrl(full, 'https://exemplo.com', 'story'));
+  it('não põe parâmetro no endereço, que já é o do 1080x1920', () => {
+    const url = new URL(loadoutImageUrl(full, 'https://exemplo.com'));
     expect(url.pathname).toBe('/api/loadout/imagem/');
-    expect(url.searchParams.get('formato')).toBe('story');
+    expect(url.searchParams.has('formato')).toBe(false);
     expect(decodeLoadout(url.searchParams.get('l')!)).toEqual(full);
   });
 
-  it('formato desconhecido ou ausente cai no feed em vez de virar erro', () => {
-    expect(parseImageFormat('story')).toBe('story');
-    expect(parseImageFormat('feed')).toBe('feed');
-    expect(parseImageFormat(null)).toBe('feed');
-    expect(parseImageFormat('')).toBe('feed');
-    expect(parseImageFormat('reels')).toBe('feed');
-    // Nome herdado de objeto não pode passar por formato.
-    expect(parseImageFormat('toString')).toBe('feed');
+  it('formato antigo, desconhecido ou ausente devolve o 1080x1920', () => {
+    for (const valor of ['feed', 'story', null, '', 'reels', 'toString']) {
+      expect(parseImageFormat(valor)).toBe('story');
+    }
   });
 
-  it('o arquivo leva a arma e o formato no nome, sem espaço nem acento', () => {
-    expect(loadoutImageFilename(full, 'story')).toBe('loadout-ak4d-story.png');
-    expect(loadoutImageFilename({ ...full, weapon: 'sor-556-mk2' })).toBe('loadout-sor-556-mk2-feed.png');
-    expect(loadoutImageFilename({ ...EMPTY_LOADOUT })).toBe('loadout-bf6-feed.png');
+  it('o arquivo leva a arma no nome, sem espaço nem acento', () => {
+    expect(loadoutImageFilename(full)).toBe('loadout-ak4d.png');
+    expect(loadoutImageFilename({ ...full, weapon: 'sor-556-mk2' })).toBe('loadout-sor-556-mk2.png');
+    expect(loadoutImageFilename({ ...EMPTY_LOADOUT })).toBe('loadout-bf6.png');
   });
 });
 

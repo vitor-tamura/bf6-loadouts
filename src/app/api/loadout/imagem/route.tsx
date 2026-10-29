@@ -28,10 +28,10 @@ import { calculateStats } from '@/lib/stats';
  *
  * Ele tinha largura fixa e a altura que a lista pedisse, o que servia para a
  * conversa e para mais nada: no Instagram, que é onde build de Battlefield
- * circula, uma proporção qualquer chega cortada no feed ou com tarja no story.
- * Agora o cartão sai nas medidas do aplicativo — 1080x1350 no feed, 1080x1920
- * no story (ver `IMAGE_FORMATS`) — e a altura fixa é preenchida pela foto da
- * arma, que cresce quando a lista é curta.
+ * circula, uma proporção qualquer chega cortada ou com tarja. Agora o cartão
+ * sai na tela cheia do aplicativo — 1080x1920 (ver `IMAGE_FORMATS`) — e a
+ * altura fixa é preenchida pela foto da arma, que cresce quando a lista é
+ * curta.
  *
  * E como a imagem passa a circular sozinha, longe do link, ela carrega a marca
  * do site: sem isso, quem vê o post não tem como chegar até aqui.
@@ -75,11 +75,9 @@ const COR = {
 /*
  * Medidas do miolo do cartão.
  *
- * O feed e o story têm praticamente a mesma área útil: o story tem 1920 de
- * altura, mas o aplicativo cobre 250 no topo e 340 no pé, e sobram 1330 —
- * vinte a menos que os 1350 do feed. Por isso os dois usam o mesmo miolo, e o
- * story só ganha as duas faixas de fora, decorativas, onde nada importante pode
- * ficar.
+ * A imagem tem 1920 de altura, mas o aplicativo cobre 250 no topo e 340 no
+ * pé, e sobram 1330 para o miolo. As duas faixas de fora são decorativas, onde
+ * nada importante pode ficar.
  *
  * As alturas fixas existem porque a foto precisa de tamanho em número: o
  * Satori não estica imagem com flex, e a foto é o que absorve a sobra.

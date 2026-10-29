@@ -12,44 +12,44 @@ Duas coisas diferentes aparecem na tela, e elas seguem caminhos separados:
 
 ## A arma
 
-As 67 fotos ficam no projeto, em `public/weapons/<id-da-arma>.webp` — 2,3 MB no
-total. A aplicação não faz nenhuma requisição para fora: nada depende de site de
+As 67 fotos ficam no projeto, em `public/weapons/<id-da-arma>.webp`. A
+aplicação não faz nenhuma requisição para fora: nada depende de site de
 terceiros continuar no ar nem de o CDN permitir hotlink.
+
+Todas seguem um padrão só: a arte de catálogo do BattlefieldMeta, a mesma
+renderização que o jogo mostra na tela de montagem — uma arma, de perfil, com
+fundo transparente —, em 1366 x 409 px, com a arma centrada no quadro. Até
+outubro de 2026 a primeira escolha era a captura do IMFDB, e o arsenal parecia
+de três sites diferentes: duas armas empilhadas num fundo escuro, capturas do
+menu com a interface na tela, e renders de 320 px ao lado de fotos de 800.
 
 O preview procura, nesta ordem:
 
 1. `public/weapons/<id-da-arma>.webp`;
-2. a URL de origem em `src/data/weapon-images.ts`, se o arquivo local faltar;
+2. a URL de origem, se o arquivo local faltar — a arte grande do BattlefieldMeta
+   primeiro, a captura de `src/data/weapon-images.ts` de reserva;
 3. um marcador com o nome da arma, quando não há nenhuma das duas.
 
-O arsenal está completo. A última a entrar foi a **Interdictor**, da Temporada 4,
-e ela demorou por um motivo que vale registrar: a busca era pelo nome do jogo. A
-Battlefield Wiki não tem página dela, e `Interdictor_BF6.png` nunca existiu — o
-nome é trocadilho da EA com o da arma real, a **Desert Tech HTI** (*Hard Target
-Interdiction*), e é sob esse nome que a captura do menu de personalização está
-catalogada na IMFDB. Arma nova que "não apareceu em nenhuma fonte" costuma ser
-isto: procurada pelo nome errado.
-
-As quatro da Temporada 5 — Mk 24, RSPR, Z84M e ELR-40 — chegaram de outro jeito:
-o workflow baixou o render do BattlefieldMeta no dia seguinte ao lançamento,
-antes de haver captura no IMFDB. São fotos de catálogo, menores e com a arma
-virada para a esquerda; quando a captura sair, ela entra em `photo` e tem
-preferência. No IMFDB, a Z84M está como **Zastava M84M** e a ELR-40 como
+Busca de foto que "não acha a arma" costuma ser nome errado: a Interdictor é a
+**Desert Tech HTI** no IMFDB, a Z84M é a **Zastava M84M**, a ELR-40 é a
 **Cadex Defence CDX-40 SHDW**.
 
 ### Baixar
 
-`weapon-images.ts` guarda, por arma, até duas URLs de origem: a arte de catálogo
-da Battlefield Wiki (`<ARMA>_BF6.png` — a arma no cenário de inspeção do jogo) e
-uma reserva no IMFDB ou no battlefieldmeta.gg. O download é um comando:
+A versão da arte vem da API do BattlefieldMeta (`imageVersion`), e o endereço
+é `https://img.battlefieldmeta.gg/<id>_version<n>/public`. Arma que a API ainda
+não lista cai na reserva de `weapon-images.ts` (Battlefield Wiki, IMFDB). O
+download é um comando:
 
 ```bash
-python3 scripts/download_images.py           # só o que falta
-python3 scripts/download_images.py --forcar  # rebaixa tudo
+npm run images:download                                  # só o que falta
+python3 scripts/download_images.py --force --armas       # rebaixa todas as armas
 ```
 
-Ele converte para WebP a até 800 px de largura — a mesma foto em PNG ocupa perto
-de dez vezes mais. Para conferir o inventário sem baixar nada:
+Ele grava o WebP na largura da fonte, com qualidade 90 (cerca de 45 KB por
+arma), e a cópia em PNG de 960 px para o cartão de compartilhamento, que o
+Satori monta sem ler WebP. O workflow de novidades roda o mesmo comando, então
+arma nova chega com foto. Para conferir o inventário sem baixar nada:
 
 ```bash
 node scripts/images.mjs          # o que falta
@@ -65,10 +65,11 @@ nome, sem mexer em código.
 
 | Item | Valor |
 | --- | --- |
-| Formato | WebP, sRGB, alfa preservado quando a origem tem |
-| Largura | até 800 px |
-| Orientação | arma apontando para a **direita**, coronha à esquerda |
-| Vista | lateral, de perfil |
+| Formato | WebP, sRGB, fundo transparente, qualidade 90 |
+| Quadro | 1366 x 409 px, arma centrada |
+| Orientação | cano à **esquerda**, coronha à direita, como na tela de montagem do jogo |
+| Vista | lateral, de perfil, uma arma só |
+| Cartão | cópia em PNG de 960 x 287, paleta de 256 cores, em `public/weapons/card/` |
 
 A foto mostra a arma **montada de fábrica**, então ela não muda quando um
 acessório é encaixado — quem responde à montagem é o ícone do slot.

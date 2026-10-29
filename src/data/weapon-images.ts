@@ -6,9 +6,10 @@
  * em `public/armas/<id>.webp` — é de lá que o preview lê. Assim a aplicação não
  * depende de site de terceiros continuar no ar nem de o CDN permitir hotlink.
  *
- * As URLs seguem três origens, da preferida à reserva: a arte de catálogo da
- * Battlefield Wiki (`<ARMA>_BF6.png` — a arma de lado, no cenário de inspeção do
- * jogo), capturas publicadas no IMFDB, e os renders do battlefieldmeta.gg.
+ * A fonte principal das fotos locais não mora aqui: é a arte grande do
+ * BattlefieldMeta, que `scripts/download_images.py` resolve pela API dele. Este
+ * mapa é a reserva — a arte de catálogo da Battlefield Wiki (`<ARMA>_BF6.png`),
+ * capturas publicadas no IMFDB e o endereço do render do battlefieldmeta.gg.
  *
  * Uma arma sem arquivo local ainda carrega pela URL, então o mapa continua
  * valendo como reserva para conteúdo novo que chegue antes do download.
@@ -117,10 +118,17 @@ export const WEAPON_IMAGES: Record<string, WeaponImageSources> = {
   'vz-61': { photo: 'https://www.imfdb.org/images/thumb/9/9b/BF6_VZ61.jpg/600px-BF6_VZ61.jpg', render: 'https://img.battlefieldmeta.gg/vz-61/gunMiniDisplay' },
 };
 
-/** Fontes externas de uma arma, da preferida para a reserva. */
+/**
+ * Fontes externas de uma arma, da preferida para a reserva.
+ *
+ * O render do BattlefieldMeta vem primeiro, na variante grande (`/public`,
+ * 1366 px): é o mesmo padrão das fotos locais. O cadastro guarda o endereço da
+ * miniatura (`gunMiniDisplay`, 120 px), que aqui é trocado pelo grande.
+ */
 export function externalImageSources(weaponId: string): string[] {
   // Arma nova sem foto cadastrada usa a da ficha de onde veio (`novidades.ts`).
   const entry = WEAPON_IMAGES[weaponId] ?? IMAGENS_NOVAS[weaponId];
   if (!entry) return [];
-  return [entry.photo, entry.render].filter((url): url is string => Boolean(url));
+  const render = entry.render?.replace(/\/gunMiniDisplay$/, '/public');
+  return [render, entry.photo].filter((url): url is string => Boolean(url));
 }
