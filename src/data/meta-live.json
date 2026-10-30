@@ -1,6 +1,6 @@
 {
-  "readAt": "2026-10-28",
-  "model": "claude-haiku-5-5",
+  "readAt": "2026-10-30",
+  "model": "gemini-flash-lite-latest",
   "patch": {
     "name": "Atualização 2.1.1.0",
     "date": "2026-10-12"
@@ -8,42 +8,56 @@
   "picks": [
     {
       "weapon": "mk-24",
-      "reason": "Lidera o ranking de uso com tier S e 16% de escolha, e os números do jogo dão 4 tiros para eliminar de 10 a 50 m (283 ms), com tiros do vão curto mantidos até 75 m, contra 21 m dos outros fuzis. Os números em jogo ainda não foram conferidos.",
+      "reason": "Alcança o topo do ranking de uso com taxa de escolha de 15,8% e entrega eliminação em 283 ms até 50 metros nos números do jogo.",
       "sources": [
-        1
+        2
       ]
     },
     {
       "weapon": "b36a4",
-      "reason": "Está em 1º no ranking de força geral e de fuzis; os números do jogo dão 4 tiros a 10 m (250 ms) e 5 tiros a 30 m (333 ms), com vão curto até 21 m e bala a 740 m/s.",
+      "reason": "Lidera o ranking de força geral e de fuzis, combinando 720 RPM com tempo para eliminar de 250 ms nos primeiros 10 metros.",
       "sources": [
         0
       ]
     },
     {
       "weapon": "m16a4",
-      "reason": "Fica em 2º no ranking de força e empata com a DRS-IAR como o mais rápido em 4 tiros a 10 m (233 ms), com 771 RPM e carregador de 30.",
+      "reason": "Ocupa a segunda posição no ranking de força geral de fuzis com cadência de 771 RPM e eliminação inicial em 233 ms.",
       "sources": [
-        0
+        1
       ]
     },
     {
       "weapon": "drs-iar",
-      "reason": "É a 1ª metralhadora no ranking de força e tem tier S com 4,5% de escolha no ranking de uso; os números do jogo dão 4 tiros a 10 m (233 ms) e 5 tiros a 30 m (311 ms), e as notas do patch 2.1.1.0 não mexem nela.",
+      "reason": "Mantém a liderança no ranking de força de metralhadoras e alcança tier S no ranking de uso com 5% de escolha.",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "weapon": "kord-6p67",
+      "reason": "Registra 900 RPM no catálogo de números do jogo e assegura a terceira posição no ranking de força de fuzis.",
       "sources": [
         1
       ]
     },
     {
       "weapon": "sgx",
-      "reason": "Tier S no ranking de uso, com 4,4% de escolha, e 2º submetralhadora no ranking de força; a cadência de 831 RPM dá 5 tiros a 10 m em 289 ms.",
+      "reason": "Posiciona-se no tier S do ranking de uso com taxa de 3,9% e alcança o segundo lugar na classe de submetralhadoras no ranking de força.",
       "sources": [
-        1
+        0
       ]
     },
     {
-      "weapon": "kord-6p67",
-      "reason": "Fica em 4º no ranking de força e tem a maior cadência entre os fuzis (900 RPM); os números do jogo dão 5 tiros a 10 m (267 ms) e mantêm os tiros do vão curto até 21 m.",
+      "weapon": "cz3a1",
+      "reason": "Registra a maior cadência da classe com 982 RPM e lidera a preferência no ranking de uso de submetralhadoras com 6,2%.",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "weapon": "m2010-esr",
+      "reason": "Lidera o ranking de força de rifles de precisão e mantém dois tiros garantidos até 100 metros nos números do catálogo.",
       "sources": [
         0
       ]
@@ -51,60 +65,69 @@
   ],
   "trending": [
     {
-      "weapon": "m87a1",
-      "reason": "A thread da comunidade de 2026-10-28, 'The most despised weapon in BF6?', discute os slugs da escopeta como o ponto de maior reclamação.",
+      "weapon": "z84m",
+      "reason": "Thread da comunidade discute relatos de eliminações instantâneas e consistência de abate em partidas recentes.",
       "sources": [
-        2
+        7
       ],
-      "trend": "reclamação sobre os slugs"
+      "trend": "discussão de desync e instakill"
     },
     {
-      "weapon": "rspr",
-      "reason": "Na thread da comunidade de 2026-10-27, 'Season 5', um jogador diz que a submetralhadora 'slaps close quarters' e a elogia junto com as armas novas da temporada.",
+      "weapon": "m87a1",
+      "reason": "Thread da comunidade discute a efetividade e a frustração gerada pelo uso de munição slug na escopeta.",
       "sources": [
         3
       ],
-      "trend": "elogio no combate fechado"
+      "trend": "debate sobre uso de slugs"
     },
     {
-      "weapon": "z84m",
-      "reason": "A thread da comunidade de 2026-10-26, 'Z84M - Is it bugged?', relata inimigos que acertam sempre, em movimento, com eliminação em 3 tiros, e pergunta se a arma está bugada.",
-      "sources": [
-        4
-      ],
-      "trend": "suspeita de bug e mortes dessincronizadas"
-    },
-    {
-      "weapon": "ak-205",
-      "reason": "A thread da comunidade de 2026-10-25, 'The AK205 is insanely underrated', diz que ela complementa a SCW-10 e que aceita munição de cabeça para atingir a 100 m.",
+      "weapon": "rspr",
+      "reason": "Thread da comunidade relata bom desempenho e alta letalidade nos confrontos a curta distância com a nova arma.",
       "sources": [
         5
       ],
-      "trend": "defesa como arma complementar"
+      "trend": "aproveitamento em combate próximo"
     },
     {
-      "weapon": "kv9",
-      "reason": "A thread da comunidade de 2026-10-21 cita o comunicado de atualização da desenvolvedora: o nerf no carregador estendido da KV9 e da SCW-10 está em estudo para a fase 2 da Temporada 5.",
+      "weapon": "tr-7",
+      "reason": "Thread da comunidade aponta a correspondência entre o nome fictício no jogo e o modelo Tavor 7 real.",
+      "sources": [
+        4
+      ],
+      "trend": "descoberta de nome real"
+    },
+    {
+      "weapon": "interdictor",
+      "reason": "Thread da comunidade relata a liberação completa de modificações e camuflagens após o fim de semana de XP em dobro.",
       "sources": [
         6
       ],
-      "trend": "nerf de carregador estendido em estudo"
+      "trend": "conclusão de progressão de acessórios"
     }
   ],
   "sources": [
     {
       "name": "wzstats.gg — ranking do multiplayer",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-10-28",
+      "date": "2026-10-30",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Tem página só de multiplayer, separada das de REDSEC e de REDSEC Ranqueado, e ordena arma por arma dentro de cada classe.",
       "timeframe": "season-5"
     },
     {
+      "name": "wzstats.gg — fuzis de assalto no multiplayer",
+      "url": "https://wzstats.gg/battlefield-6/multiplayer/best-gun/best-assault-rifles-in-battlefield",
+      "date": "2026-10-30",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Página de classe do mesmo rastreador, também só de multiplayer: publica a ordem completa dos onze fuzis, que a página de resumo corta no quinto.",
+      "timeframe": "season-5"
+    },
+    {
       "name": "battlefinity.gg — meta do multiplayer",
       "url": "https://battlefinity.gg/battlefield",
-      "date": "2026-10-28",
+      "date": "2026-10-30",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Meta do multiplayer do battlefinity: tier da melhor montagem de cada arma (julgamento de força) e ordem pela taxa de escolha entre os jogadores que o site acompanha.",
@@ -120,6 +143,15 @@
       "timeframe": "season-5"
     },
     {
+      "name": "Reddit — Guns with acfual weapon name",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1xhmztc/guns_with_acfual_weapon_name/",
+      "date": "2026-10-28",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita TR-7. Mostra do que se fala, não mede força.",
+      "timeframe": "season-5"
+    },
+    {
       "name": "Reddit — Season 5",
       "url": "https://www.reddit.com/r/Battlefield6/comments/1xh3nhk/season_5/",
       "date": "2026-10-27",
@@ -129,30 +161,21 @@
       "timeframe": "season-5"
     },
     {
+      "name": "Reddit — Thank you Double XP Weekend",
+      "url": "https://www.reddit.com/r/Battlefield6/comments/1xfy11z/thank_you_double_xp_weekend/",
+      "date": "2026-10-26",
+      "country": "INT",
+      "mode": "multiplayer",
+      "scope": "Thread do r/Battlefield6 que cita Interdictor, M44. Mostra do que se fala, não mede força.",
+      "timeframe": "season-5"
+    },
+    {
       "name": "Reddit — Z84M - Is it bugged?",
       "url": "https://www.reddit.com/r/Battlefield6/comments/1xfjada/z84m_is_it_bugged/",
       "date": "2026-10-26",
       "country": "INT",
       "mode": "multiplayer",
       "scope": "Thread do r/Battlefield6 que cita Z84M. Mostra do que se fala, não mede força.",
-      "timeframe": "season-5"
-    },
-    {
-      "name": "Reddit — The AK205 is insanely underrated",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1xetf4z/the_ak205_is_insanely_underrated/",
-      "date": "2026-10-25",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita AK-205, SCW-10. Mostra do que se fala, não mede força.",
-      "timeframe": "season-5"
-    },
-    {
-      "name": "Reddit — Battlefield 6 - Community Update - More to Season 5",
-      "url": "https://www.reddit.com/r/Battlefield6/comments/1xbpk0q/battlefield_6_community_update_more_to_season_5/",
-      "date": "2026-10-21",
-      "country": "INT",
-      "mode": "multiplayer",
-      "scope": "Thread do r/Battlefield6 que cita SCW-10, KV9. Mostra do que se fala, não mede força.",
       "timeframe": "season-5"
     },
     {
@@ -178,7 +201,7 @@
     "multiplayer": {
       "name": "wzstats.gg — ranking do multiplayer",
       "url": "https://wzstats.gg/battlefield-6/multiplayer/meta",
-      "date": "2026-10-28",
+      "date": "2026-10-30",
       "entries": [
         {
           "weapon": "b36a4",
@@ -569,7 +592,7 @@
     "redsec": {
       "name": "wzstats.gg — ranking do REDSEC",
       "url": "https://wzstats.gg/battlefield-6/meta",
-      "date": "2026-10-28",
+      "date": "2026-10-30",
       "entries": [
         {
           "weapon": "kts100-mk8",
@@ -961,7 +984,7 @@
       "name": "battlefinity.gg — meta do multiplayer",
       "url": "https://battlefinity.gg/battlefield",
       "scope": "Meta do multiplayer (a raiz do site é o REDSEC): tier da melhor montagem de cada arma e ordem pela taxa de escolha entre os jogadores que o site acompanha.",
-      "date": "2026-10-28",
+      "date": "2026-10-30",
       "entries": [
         {
           "weapon": "mk-24",
@@ -969,7 +992,7 @@
           "categoryRank": 1,
           "overall": 1,
           "tier": "S",
-          "pickRate": 16
+          "pickRate": 15.8
         },
         {
           "weapon": "cz3a1",
@@ -977,514 +1000,514 @@
           "categoryRank": 1,
           "overall": 2,
           "tier": "A",
-          "pickRate": 6.5
-        },
-        {
-          "weapon": "kts100-mk8",
-          "category": "lmg",
-          "categoryRank": 1,
-          "overall": 3,
-          "tier": "A",
-          "pickRate": 5.6
-        },
-        {
-          "weapon": "elr-40",
-          "category": "sniper",
-          "categoryRank": 1,
-          "overall": 4,
-          "tier": "A",
-          "pickRate": 4.8
+          "pickRate": 6.2
         },
         {
           "weapon": "drs-iar",
           "category": "lmg",
-          "categoryRank": 2,
-          "overall": 5,
+          "categoryRank": 1,
+          "overall": 3,
           "tier": "S",
-          "pickRate": 4.5
+          "pickRate": 5
+        },
+        {
+          "weapon": "kts100-mk8",
+          "category": "lmg",
+          "categoryRank": 2,
+          "overall": 4,
+          "tier": "A",
+          "pickRate": 4.1
         },
         {
           "weapon": "sgx",
           "category": "smg",
           "categoryRank": 2,
-          "overall": 6,
+          "overall": 5,
           "tier": "S",
-          "pickRate": 4.4
+          "pickRate": 3.9
         },
         {
           "weapon": "m4a1",
           "category": "carbine",
           "categoryRank": 1,
-          "overall": 7,
+          "overall": 6,
           "tier": "B",
-          "pickRate": 3.9
-        },
-        {
-          "weapon": "z84m",
-          "category": "lmg",
-          "categoryRank": 3,
-          "overall": 8,
-          "tier": "A",
-          "pickRate": 3.9
-        },
-        {
-          "weapon": "m433",
-          "category": "ar",
-          "categoryRank": 2,
-          "overall": 9,
-          "tier": "A",
-          "pickRate": 2.7
+          "pickRate": 3.8
         },
         {
           "weapon": "rspr",
           "category": "smg",
           "categoryRank": 3,
-          "overall": 10,
+          "overall": 7,
           "tier": "A",
-          "pickRate": 2.6
+          "pickRate": 3.7
         },
         {
-          "weapon": "l110",
-          "category": "lmg",
-          "categoryRank": 4,
-          "overall": 11,
+          "weapon": "m433",
+          "category": "ar",
+          "categoryRank": 2,
+          "overall": 8,
           "tier": "A",
-          "pickRate": 2.5
+          "pickRate": 3.4
+        },
+        {
+          "weapon": "elr-40",
+          "category": "sniper",
+          "categoryRank": 1,
+          "overall": 9,
+          "tier": "A",
+          "pickRate": 3.4
         },
         {
           "weapon": "kord-6p67",
           "category": "ar",
           "categoryRank": 3,
+          "overall": 10,
+          "tier": "A",
+          "pickRate": 2.7
+        },
+        {
+          "weapon": "nvo-228e",
+          "category": "ar",
+          "categoryRank": 4,
+          "overall": 11,
+          "tier": "B",
+          "pickRate": 2.5
+        },
+        {
+          "weapon": "m16a4",
+          "category": "ar",
+          "categoryRank": 5,
           "overall": 12,
+          "tier": "S",
+          "pickRate": 2.5
+        },
+        {
+          "weapon": "z84m",
+          "category": "lmg",
+          "categoryRank": 3,
+          "overall": 13,
           "tier": "A",
           "pickRate": 2.4
         },
         {
-          "weapon": "brod-3",
-          "category": "carbine",
-          "categoryRank": 2,
-          "overall": 13,
+          "weapon": "tr-7",
+          "category": "ar",
+          "categoryRank": 6,
+          "overall": 14,
+          "tier": "C",
+          "pickRate": 2.2
+        },
+        {
+          "weapon": "scw-10",
+          "category": "smg",
+          "categoryRank": 4,
+          "overall": 15,
           "tier": "B",
-          "pickRate": 2
+          "pickRate": 2.2
         },
         {
           "weapon": "m2010-esr",
           "category": "sniper",
           "categoryRank": 2,
-          "overall": 14,
-          "tier": "A",
-          "pickRate": 1.8
-        },
-        {
-          "weapon": "tr-7",
-          "category": "ar",
-          "categoryRank": 4,
-          "overall": 15,
-          "tier": "C",
-          "pickRate": 1.8
-        },
-        {
-          "weapon": "nvo-228e",
-          "category": "ar",
-          "categoryRank": 5,
           "overall": 16,
-          "tier": "B",
-          "pickRate": 1.5
-        },
-        {
-          "weapon": "ak-205",
-          "category": "carbine",
-          "categoryRank": 3,
-          "overall": 17,
-          "tier": "C",
-          "pickRate": 1.5
-        },
-        {
-          "weapon": "b36a4",
-          "category": "ar",
-          "categoryRank": 6,
-          "overall": 18,
-          "tier": "S",
-          "pickRate": 1.4
-        },
-        {
-          "weapon": "qbz-192",
-          "category": "carbine",
-          "categoryRank": 4,
-          "overall": 19,
           "tier": "A",
-          "pickRate": 1.4
-        },
-        {
-          "weapon": "m417-a2",
-          "category": "carbine",
-          "categoryRank": 5,
-          "overall": 20,
-          "tier": "C",
-          "pickRate": 1.3
+          "pickRate": 2.1
         },
         {
           "weapon": "sor-556-mk2",
           "category": "ar",
           "categoryRank": 7,
-          "overall": 21,
+          "overall": 17,
           "tier": "B",
-          "pickRate": 1.3
+          "pickRate": 2
+        },
+        {
+          "weapon": "b36a4",
+          "category": "ar",
+          "categoryRank": 8,
+          "overall": 18,
+          "tier": "S",
+          "pickRate": 1.7
+        },
+        {
+          "weapon": "rpk-74m",
+          "category": "lmg",
+          "categoryRank": 4,
+          "overall": 19,
+          "tier": "A",
+          "pickRate": 1.7
+        },
+        {
+          "weapon": "pw5a3",
+          "category": "smg",
+          "categoryRank": 5,
+          "overall": 20,
+          "tier": "B",
+          "pickRate": 1.6
+        },
+        {
+          "weapon": "sg-553r",
+          "category": "carbine",
+          "categoryRank": 2,
+          "overall": 21,
+          "tier": "C",
+          "pickRate": 1.4
+        },
+        {
+          "weapon": "rpkm",
+          "category": "lmg",
+          "categoryRank": 5,
+          "overall": 22,
+          "tier": "B",
+          "pickRate": 1.4
         },
         {
           "weapon": "m87a1",
           "category": "shotgun",
           "categoryRank": 1,
-          "overall": 22,
+          "overall": 23,
           "tier": "B",
           "pickRate": 1.2
-        },
-        {
-          "weapon": "rpk-74m",
-          "category": "lmg",
-          "categoryRank": 5,
-          "overall": 23,
-          "tier": "A",
-          "pickRate": 1.2
-        },
-        {
-          "weapon": "sor-300sc",
-          "category": "carbine",
-          "categoryRank": 6,
-          "overall": 24,
-          "tier": "C",
-          "pickRate": 1.1
-        },
-        {
-          "weapon": "vcr-2",
-          "category": "ar",
-          "categoryRank": 8,
-          "overall": 25,
-          "tier": "A",
-          "pickRate": 1.1
         },
         {
           "weapon": "m39-emr",
           "category": "dmr",
           "categoryRank": 1,
-          "overall": 26,
+          "overall": 24,
           "tier": "B",
-          "pickRate": 1
+          "pickRate": 1.2
         },
         {
-          "weapon": "m16a4",
+          "weapon": "ak-205",
+          "category": "carbine",
+          "categoryRank": 3,
+          "overall": 25,
+          "tier": "C",
+          "pickRate": 1.2
+        },
+        {
+          "weapon": "l85a3",
           "category": "ar",
           "categoryRank": 9,
-          "overall": 27,
-          "tier": "S",
-          "pickRate": 1
+          "overall": 26,
+          "tier": "A",
+          "pickRate": 1.2
         },
         {
           "weapon": "svdm",
           "category": "dmr",
           "categoryRank": 2,
-          "overall": 28,
+          "overall": 27,
           "tier": "C",
-          "pickRate": 1
-        },
-        {
-          "weapon": "l115",
-          "category": "sniper",
-          "categoryRank": 3,
-          "overall": 29,
-          "tier": "C",
-          "pickRate": 1
-        },
-        {
-          "weapon": "p18",
-          "category": "pistol",
-          "categoryRank": 1,
-          "overall": 30,
-          "tier": "D",
-          "pickRate": 0.9
-        },
-        {
-          "weapon": "usg-90",
-          "category": "smg",
-          "categoryRank": 4,
-          "overall": 31,
-          "tier": "B",
-          "pickRate": 0.9
-        },
-        {
-          "weapon": "kv9",
-          "category": "smg",
-          "categoryRank": 5,
-          "overall": 32,
-          "tier": "A",
-          "pickRate": 0.9
+          "pickRate": 1.2
         },
         {
           "weapon": "m1014",
           "category": "shotgun",
           "categoryRank": 2,
-          "overall": 33,
+          "overall": 28,
           "tier": "C",
-          "pickRate": 0.9
-        },
-        {
-          "weapon": "pw5a3",
-          "category": "smg",
-          "categoryRank": 6,
-          "overall": 34,
-          "tier": "B",
-          "pickRate": 0.8
-        },
-        {
-          "weapon": "rpkm",
-          "category": "lmg",
-          "categoryRank": 6,
-          "overall": 35,
-          "tier": "B",
-          "pickRate": 0.8
-        },
-        {
-          "weapon": "vssm",
-          "category": "dmr",
-          "categoryRank": 3,
-          "overall": 36,
-          "tier": "B",
-          "pickRate": 0.7
+          "pickRate": 1.1
         },
         {
           "weapon": "pw7a2",
           "category": "smg",
+          "categoryRank": 6,
+          "overall": 29,
+          "tier": "A",
+          "pickRate": 1
+        },
+        {
+          "weapon": "svk-86",
+          "category": "dmr",
+          "categoryRank": 3,
+          "overall": 30,
+          "tier": "C",
+          "pickRate": 1
+        },
+        {
+          "weapon": "qbz-192",
+          "category": "carbine",
+          "categoryRank": 4,
+          "overall": 31,
+          "tier": "A",
+          "pickRate": 0.9
+        },
+        {
+          "weapon": "18-5ks-k",
+          "category": "shotgun",
+          "categoryRank": 3,
+          "overall": 32,
+          "tier": "C",
+          "pickRate": 0.9
+        },
+        {
+          "weapon": "usg-90",
+          "category": "smg",
           "categoryRank": 7,
-          "overall": 37,
+          "overall": 33,
+          "tier": "B",
+          "pickRate": 0.8
+        },
+        {
+          "weapon": "m44",
+          "category": "pistol",
+          "categoryRank": 1,
+          "overall": 34,
+          "tier": "D",
+          "pickRate": 0.8
+        },
+        {
+          "weapon": "vcr-2",
+          "category": "ar",
+          "categoryRank": 10,
+          "overall": 35,
           "tier": "A",
           "pickRate": 0.7
         },
         {
-          "weapon": "sg-553r",
-          "category": "carbine",
-          "categoryRank": 7,
-          "overall": 38,
+          "weapon": "ef88",
+          "category": "ar",
+          "categoryRank": 11,
+          "overall": 36,
           "tier": "C",
           "pickRate": 0.7
+        },
+        {
+          "weapon": "umg-40",
+          "category": "smg",
+          "categoryRank": 8,
+          "overall": 37,
+          "tier": "C",
+          "pickRate": 0.7
+        },
+        {
+          "weapon": "vssm",
+          "category": "dmr",
+          "categoryRank": 4,
+          "overall": 38,
+          "tier": "B",
+          "pickRate": 0.7
+        },
+        {
+          "weapon": "brod-3",
+          "category": "carbine",
+          "categoryRank": 5,
+          "overall": 39,
+          "tier": "B",
+          "pickRate": 0.7
+        },
+        {
+          "weapon": "l110",
+          "category": "lmg",
+          "categoryRank": 6,
+          "overall": 40,
+          "tier": "A",
+          "pickRate": 0.6
+        },
+        {
+          "weapon": "ggh-22",
+          "category": "pistol",
+          "categoryRank": 2,
+          "overall": 41,
+          "tier": "D",
+          "pickRate": 0.6
         },
         {
           "weapon": "m123k",
           "category": "lmg",
           "categoryRank": 7,
-          "overall": 39,
-          "tier": "C",
-          "pickRate": 0.7
-        },
-        {
-          "weapon": "mini-scout",
-          "category": "sniper",
-          "categoryRank": 4,
-          "overall": 40,
-          "tier": "B",
-          "pickRate": 0.7
-        },
-        {
-          "weapon": "grt-cps",
-          "category": "dmr",
-          "categoryRank": 4,
-          "overall": 41,
-          "tier": "C",
-          "pickRate": 0.7
-        },
-        {
-          "weapon": "m121-a2",
-          "category": "lmg",
-          "categoryRank": 8,
           "overall": 42,
-          "tier": "C",
-          "pickRate": 0.7
-        },
-        {
-          "weapon": "ak4d",
-          "category": "ar",
-          "categoryRank": 10,
-          "overall": 43,
-          "tier": "B",
-          "pickRate": 0.6
-        },
-        {
-          "weapon": "pp-19",
-          "category": "smg",
-          "categoryRank": 8,
-          "overall": 44,
-          "tier": "C",
-          "pickRate": 0.6
-        },
-        {
-          "weapon": "svk-86",
-          "category": "dmr",
-          "categoryRank": 5,
-          "overall": 45,
           "tier": "C",
           "pickRate": 0.5
         },
         {
           "weapon": "psr",
           "category": "sniper",
-          "categoryRank": 5,
-          "overall": 46,
-          "tier": "C",
-          "pickRate": 0.5
-        },
-        {
-          "weapon": "vz-61",
-          "category": "pistol",
-          "categoryRank": 2,
-          "overall": 47,
+          "categoryRank": 3,
+          "overall": 43,
           "tier": "C",
           "pickRate": 0.5
         },
         {
           "weapon": "m277",
           "category": "carbine",
-          "categoryRank": 8,
-          "overall": 48,
+          "categoryRank": 6,
+          "overall": 44,
           "tier": "B",
+          "pickRate": 0.5
+        },
+        {
+          "weapon": "pp-19",
+          "category": "smg",
+          "categoryRank": 9,
+          "overall": 45,
+          "tier": "C",
+          "pickRate": 0.5
+        },
+        {
+          "weapon": "grt-bc",
+          "category": "carbine",
+          "categoryRank": 7,
+          "overall": 46,
+          "tier": "C",
           "pickRate": 0.4
         },
         {
           "weapon": "lmr27",
           "category": "dmr",
-          "categoryRank": 6,
-          "overall": 49,
-          "tier": "C",
-          "pickRate": 0.4
-        },
-        {
-          "weapon": "es-57",
-          "category": "pistol",
-          "categoryRank": 3,
-          "overall": 50,
-          "tier": "D",
-          "pickRate": 0.4
-        },
-        {
-          "weapon": "m44",
-          "category": "pistol",
-          "categoryRank": 4,
-          "overall": 51,
-          "tier": "D",
-          "pickRate": 0.4
-        },
-        {
-          "weapon": "interdictor",
-          "category": "sniper",
-          "categoryRank": 6,
-          "overall": 52,
-          "tier": "C",
-          "pickRate": 0.4
-        },
-        {
-          "weapon": "ef88",
-          "category": "ar",
-          "categoryRank": 11,
-          "overall": 53,
-          "tier": "C",
-          "pickRate": 0.4
-        },
-        {
-          "weapon": "scw-10",
-          "category": "smg",
-          "categoryRank": 9,
-          "overall": 54,
-          "tier": "B",
-          "pickRate": 0.4
-        },
-        {
-          "weapon": "18-5ks-k",
-          "category": "shotgun",
-          "categoryRank": 3,
-          "overall": 55,
+          "categoryRank": 5,
+          "overall": 47,
           "tier": "C",
           "pickRate": 0.4
         },
         {
           "weapon": "sv-98",
           "category": "sniper",
-          "categoryRank": 7,
-          "overall": 56,
+          "categoryRank": 4,
+          "overall": 48,
+          "tier": "C",
+          "pickRate": 0.4
+        },
+        {
+          "weapon": "sor-300sc",
+          "category": "carbine",
+          "categoryRank": 8,
+          "overall": 49,
+          "tier": "C",
+          "pickRate": 0.4
+        },
+        {
+          "weapon": "vz-61",
+          "category": "pistol",
+          "categoryRank": 3,
+          "overall": 50,
+          "tier": "C",
+          "pickRate": 0.4
+        },
+        {
+          "weapon": "interdictor",
+          "category": "sniper",
+          "categoryRank": 5,
+          "overall": 51,
+          "tier": "C",
+          "pickRate": 0.4
+        },
+        {
+          "weapon": "m240l",
+          "category": "lmg",
+          "categoryRank": 8,
+          "overall": 52,
           "tier": "C",
           "pickRate": 0.3
         },
         {
-          "weapon": "ggh-22",
-          "category": "pistol",
-          "categoryRank": 5,
-          "overall": 57,
-          "tier": "D",
+          "weapon": "l115",
+          "category": "sniper",
+          "categoryRank": 6,
+          "overall": 53,
+          "tier": "C",
           "pickRate": 0.3
         },
         {
-          "weapon": "m357-trait",
-          "category": "pistol",
-          "categoryRank": 6,
-          "overall": 58,
-          "tier": "D",
-          "pickRate": 0.2
-        },
-        {
-          "weapon": "grt-bc",
+          "weapon": "m417-a2",
           "category": "carbine",
           "categoryRank": 9,
-          "overall": 59,
+          "overall": 54,
           "tier": "C",
-          "pickRate": 0.1
+          "pickRate": 0.3
         },
         {
-          "weapon": "sl9",
-          "category": "smg",
-          "categoryRank": 10,
-          "overall": 60,
-          "tier": "C",
-          "pickRate": 0.1
-        },
-        {
-          "weapon": "m45a1",
-          "category": "pistol",
-          "categoryRank": 7,
-          "overall": 61,
-          "tier": "C",
-          "pickRate": 0.1
+          "weapon": "ak4d",
+          "category": "ar",
+          "categoryRank": 12,
+          "overall": 55,
+          "tier": "B",
+          "pickRate": 0.3
         },
         {
           "weapon": "m250",
           "category": "lmg",
           "categoryRank": 9,
-          "overall": 62,
+          "overall": 56,
           "tier": "A",
+          "pickRate": 0.3
+        },
+        {
+          "weapon": "mini-scout",
+          "category": "sniper",
+          "categoryRank": 7,
+          "overall": 57,
+          "tier": "B",
+          "pickRate": 0.3
+        },
+        {
+          "weapon": "kv9",
+          "category": "smg",
+          "categoryRank": 10,
+          "overall": 58,
+          "tier": "A",
+          "pickRate": 0.2
+        },
+        {
+          "weapon": "sl9",
+          "category": "smg",
+          "categoryRank": 11,
+          "overall": 59,
+          "tier": "C",
+          "pickRate": 0.2
+        },
+        {
+          "weapon": "m45a1",
+          "category": "pistol",
+          "categoryRank": 4,
+          "overall": 60,
+          "tier": "C",
+          "pickRate": 0.2
+        },
+        {
+          "weapon": "p18",
+          "category": "pistol",
+          "categoryRank": 5,
+          "overall": 61,
+          "tier": "D",
           "pickRate": 0.1
         },
         {
-          "weapon": "l85a3",
-          "category": "ar",
-          "categoryRank": 12,
-          "overall": 63,
-          "tier": "A",
-          "pickRate": 0
+          "weapon": "es-57",
+          "category": "pistol",
+          "categoryRank": 6,
+          "overall": 62,
+          "tier": "D",
+          "pickRate": 0.1
         },
         {
-          "weapon": "umg-40",
-          "category": "smg",
-          "categoryRank": 11,
+          "weapon": "m357-trait",
+          "category": "pistol",
+          "categoryRank": 7,
+          "overall": 63,
+          "tier": "D",
+          "pickRate": 0.1
+        },
+        {
+          "weapon": "grt-cps",
+          "category": "dmr",
+          "categoryRank": 6,
           "overall": 64,
           "tier": "C",
-          "pickRate": 0
+          "pickRate": 0.1
         },
         {
-          "weapon": "m60",
+          "weapon": "m121-a2",
           "category": "lmg",
           "categoryRank": 10,
           "overall": 65,
           "tier": "C",
-          "pickRate": 0
+          "pickRate": 0.1
         },
         {
-          "weapon": "m240l",
+          "weapon": "m60",
           "category": "lmg",
           "categoryRank": 11,
           "overall": 66,
