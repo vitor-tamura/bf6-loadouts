@@ -2,8 +2,8 @@
   "_leiaMe": "Gerado por `npm run catalog:sincronizar-analyzer` a partir do BF6-Weapon-Analyzer. Não edite à mão: corrija o cadastro em weapons.ts ou attachments.ts e rode o script de novo. Relatório em data/validation/analyzer-sync-report.json.",
   "fonte": {
     "repo": "raymdl/BF6-Weapon-Analyzer",
-    "commit": "cfca3e5f017d05bda1f41f2d7123d4cf25101282",
-    "data": "2026-10-30T17:33:20Z",
+    "commit": "71f3d25ebbf25b1f53d478e036682994bc7c5f17",
+    "data": "2026-10-30T19:12:26Z",
     "versaoDeclarada": "2.1.1.0"
   },
   "armas": {
