@@ -9,7 +9,8 @@
     "repo": "raymdl/BF6-Weapon-Analyzer",
     "commit": "43c6f57c5523d6c22fb625f99098c4fe8852fd72",
     "data": "2026-10-31T00:26:00Z",
-    "versaoDeclarada": "2.1.1.0"
+    "versaoDeclarada": "2.1.1.0",
+    "bloqueada": "o Analyzer descreve 2.1.1.0 e o catálogo está em 2.1.2.0"
   },
   "resumo": {
     "armasCorrigidas": 63,

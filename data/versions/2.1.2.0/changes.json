@@ -1,0 +1,310 @@
+{
+  "gameVersion": "2.1.2.0",
+  "events": [
+    {
+      "id": "evt-2.1.2.0-review-0",
+      "gameVersion": "2.1.2.0",
+      "timestamp": "2026-11-09",
+      "type": "weapon_added",
+      "entityType": "weapon",
+      "entityId": "m44",
+      "changes": {
+        "field": null,
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "M44",
+        "line": "Added the S-VPS 6.00x, MC-CO Low-Power Variable Optic (1.00x–6.00x), PAS-35 3.00x Thermal, and GRIM 1.50x Thermal scopes to the M44."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-2-0",
+          "version": "2.1.2.0",
+          "retrievedAt": "2026-11-09T22:23:39.407Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Adição anunciada de entidade que já existe no catálogo — conferir se é reintrodução."
+      }
+    },
+    {
+      "id": "evt-2.1.2.0-review-1",
+      "gameVersion": "2.1.2.0",
+      "timestamp": "2026-11-09",
+      "type": "stat_changed",
+      "entityType": "weapon",
+      "entityId": "kts100",
+      "changes": {
+        "field": null,
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "Weapon",
+        "line": "Weapon & Attachment Balance Pass: Tuned damage drop-off, recoil recovery, and handling across the Mini Scout, SVDM, M39 EMR, SCW-10, GRT-BC, and KTS100 MK8, alongside customisation point and attribute updates for Extended Magazines, Match Grade Ammunition, and muzzle attachments."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-2-0",
+          "version": "2.1.2.0",
+          "retrievedAt": "2026-11-09T22:23:39.407Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Parâmetro do modelo de recuo (recoil recovery) que o catálogo não guarda como campo. Conferir no levantamento de simulação."
+      }
+    },
+    {
+      "id": "evt-2.1.2.0-review-2",
+      "gameVersion": "2.1.2.0",
+      "timestamp": "2026-11-09",
+      "type": "stat_changed",
+      "entityType": "weapon",
+      "entityId": "interdictor",
+      "changes": {
+        "field": "magazineCapacity",
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "Updated the",
+        "line": "Updated the layer icon for the 5-Round Fast Magazine on the Interdictor."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-2-0",
+          "version": "2.1.2.0",
+          "retrievedAt": "2026-11-09T22:23:39.407Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Mudança descrita sem número: precisa de medição de outra fonte."
+      }
+    },
+    {
+      "id": "evt-2.1.2.0-review-3",
+      "gameVersion": "2.1.2.0",
+      "timestamp": "2026-11-09",
+      "type": "stat_changed",
+      "entityType": "weapon",
+      "entityId": "miniscout",
+      "changes": {
+        "field": "damage",
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "Added a",
+        "line": "Added a third damage drop-off step at 150m. Beyond 150m, the Mini Scout no longer deals a one-hit headshot elimination, dealing 50 damage to the chest and 33.5 damage to limbs (three hits to eliminate via limb shots)."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-2-0",
+          "version": "2.1.2.0",
+          "retrievedAt": "2026-11-09T22:23:39.407Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Mudança descrita sem número: precisa de medição de outra fonte."
+      }
+    },
+    {
+      "id": "evt-2.1.2.0-review-4",
+      "gameVersion": "2.1.2.0",
+      "timestamp": "2026-11-09",
+      "type": "stat_changed",
+      "entityType": "weapon",
+      "entityId": "kts100",
+      "changes": {
+        "field": "reload",
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "Developer Comment",
+        "line": "Developer Comment: Re-establishes the KTS100 MK8 as a steady, methodical squad support platform. Magazines that previously granted a +20% reload speed benefit have been adjusted to ensure tangible vulnerability between reloads. Dialling back the handling attributes of the KTS100 MK8 helps in preventing the weapon from functioning as an oversized assault rifle, opening strategic space for the SOR-556 Mk2."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-2-0",
+          "version": "2.1.2.0",
+          "retrievedAt": "2026-11-09T22:23:39.407Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Mudança descrita sem número: precisa de medição de outra fonte."
+      }
+    },
+    {
+      "id": "evt-2.1.2.0-review-5",
+      "gameVersion": "2.1.2.0",
+      "timestamp": "2026-11-09",
+      "type": "stat_changed",
+      "entityType": "weapon",
+      "entityId": "sg553r",
+      "changes": {
+        "field": "magazineCapacity",
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "SG 553R",
+        "line": "SG 553R Extended Magazine 1 and 2 now apply a weapon draw speed penalty, and Fast Extended Magazine 2 now applies a weapon draw speed penalty and a reduced reload speed bonus."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-2-0",
+          "version": "2.1.2.0",
+          "retrievedAt": "2026-11-09T22:23:39.407Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Mudança descrita sem número: precisa de medição de outra fonte."
+      }
+    },
+    {
+      "id": "evt-2.1.2.0-review-6",
+      "gameVersion": "2.1.2.0",
+      "timestamp": "2026-11-09",
+      "type": "stat_changed",
+      "entityType": "attachment",
+      "entityId": "buffer",
+      "changes": {
+        "field": "recoil",
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "Reduced the",
+        "line": "Reduced the recoil reduction effectiveness of the Aftermarket Buffer attachment."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-2-0",
+          "version": "2.1.2.0",
+          "retrievedAt": "2026-11-09T22:23:39.407Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Mudança descrita sem número: precisa de medição de outra fonte."
+      }
+    },
+    {
+      "id": "evt-2.1.2.0-review-7",
+      "gameVersion": "2.1.2.0",
+      "timestamp": "2026-11-09",
+      "type": "cost_changed",
+      "entityType": "attachment",
+      "entityId": "iron",
+      "changes": {
+        "field": "cost",
+        "operation": "set",
+        "value": 10,
+        "before": 15,
+        "after": 10,
+        "mentioned": "Iron Sights",
+        "line": "Iron Sights customisation point cost reduced from 15 to 10 points across all Sniper Rifles."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-2-0",
+          "version": "2.1.2.0",
+          "retrievedAt": "2026-11-09T22:23:39.407Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Precisa de confirmação humana."
+      }
+    },
+    {
+      "id": "evt-2.1.2.0-review-8",
+      "gameVersion": "2.1.2.0",
+      "timestamp": "2026-11-09",
+      "type": "stat_changed",
+      "entityType": "catalog",
+      "entityId": null,
+      "changes": {
+        "field": "damage",
+        "operation": "none",
+        "value": null,
+        "before": null,
+        "after": null,
+        "mentioned": "Battle Royale Wreckage",
+        "line": "The bomb in the Battle Royale Wreckage mission now deals environmental damage when its fuse expires and downs any player holding it."
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-2-0",
+          "version": "2.1.2.0",
+          "retrievedAt": "2026-11-09T22:23:39.407Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "Mudança descrita sem número, e a entidade citada não existe no catálogo."
+      }
+    },
+    {
+      "id": "evt-2.1.2.0-compatibility-carried-0",
+      "gameVersion": "2.1.2.0",
+      "timestamp": "2026-11-09",
+      "type": "source_conflict",
+      "entityType": "compatibility",
+      "entityId": null,
+      "changes": {
+        "carried": 2877,
+        "closed": 0
+      },
+      "sources": [
+        {
+          "provider": "EA",
+          "type": "official",
+          "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-2-0",
+          "version": "2.1.2.0",
+          "retrievedAt": "2026-11-09T22:23:39.407Z"
+        }
+      ],
+      "automation": "review",
+      "resolution": {
+        "status": "open",
+        "reason": "A matriz veio da versão anterior sem confirmação do estado atual. Rode catalog:fetch-loadouts e confirme antes de publicar."
+      }
+    }
+  ]
+}

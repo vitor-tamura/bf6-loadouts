@@ -1,0 +1,82 @@
+{
+  "version": "2.1.2.0",
+  "analisadoEm": "2026-11-09",
+  "modelo": "claude-haiku-5-5",
+  "fontes": {
+    "ea": "ata/patches/2.1.2.0.json",
+    "balancelog": null
+  },
+  "aplicadas": [
+    {
+      "attachment": "underbarrel-underslung-mount",
+      "weapon": null,
+      "cost": 5,
+      "evidence": [
+        "Underslung Mount customisation point cost reduced from 10 to 5 points across all compatible weapons."
+      ]
+    }
+  ],
+  "recusadas": [
+    {
+      "proposta": {
+        "weapon": "mini-scout",
+        "field": "damage",
+        "value": [
+          [
+            62,
+            0
+          ],
+          [
+            58,
+            21
+          ],
+          [
+            50,
+            150
+          ]
+        ],
+        "evidence": [
+          "Added a third damage drop-off step at 150m.",
+          "Beyond 150m, the Mini Scout no longer deals a one-hit headshot elimination, dealing 50 damage to the chest and 33.5 damage to limbs (three hits to eliminate via limb shots)."
+        ]
+      },
+      "motivo": "número sem frase que o sustente: 62, 58, 21"
+    },
+    {
+      "proposta": {
+        "weapon": "scw-10",
+        "field": "damage",
+        "value": [
+          [
+            35.22,
+            0
+          ],
+          [
+            26.05,
+            9
+          ],
+          [
+            20.67,
+            21
+          ],
+          [
+            17.13,
+            36
+          ],
+          [
+            14.3,
+            55
+          ],
+          [
+            12.76,
+            75
+          ]
+        ],
+        "evidence": [
+          "Added a damage drop-off step at 55m (dealing 14.3 chest damage from 55–75m) and a new minimum damage floor of 12.76 beyond 75m."
+        ]
+      },
+      "motivo": "número sem frase que o sustente: 35.22, 26.05, 9, 20.67, 21, 17.13, 36"
+    }
+  ]
+}

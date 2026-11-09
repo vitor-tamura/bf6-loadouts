@@ -3,9 +3,27 @@
     "provider": "bf6balancelog",
     "type": "community",
     "url": "https://bf6balancelog.com/",
-    "retrievedAt": "2026-10-13T00:31:41.779Z"
+    "retrievedAt": "2026-11-09T22:23:41.036Z"
   },
   "patches": [
+    {
+      "version": "2.1.1.0",
+      "publishedAt": "2026-10-12",
+      "url": "https://www.ea.com/games/battlefield/battlefield-6/news/battlefield-6-game-update-2-1-1-0",
+      "categories": [
+        "player",
+        "vehicles",
+        "gadgets",
+        "redsec",
+        "progression",
+        "ui",
+        "audio",
+        "portal",
+        "ai",
+        "misc"
+      ],
+      "weaponLines": []
+    },
     {
       "version": "1.4.3.5",
       "publishedAt": "2026-09-28",

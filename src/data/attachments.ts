@@ -289,7 +289,8 @@ export const ATTACHMENTS_CURADOS: Attachment[] = [
     name: 'Lança-Granadas',
     originalName: 'Underslung Mount',
     slot: 'underbarrel',
-    cost: 10,
+    // Atualização 2.1.2.0: "Underslung Mount customisation point cost reduced from 10 to 5 points across all compatible weapons."
+    cost: 5,
     description: 'Lança-granadas acoplado sob o cano, no lugar da empunhadura.',
     mods: {},
     compat: { weapons: ['ak-205', 'b36a4', 'brod-3', 'ef88', 'l85a3', 'm16a4', 'm277', 'm417-a2', 'm433', 'm4a1', 'mk-24', 'sor-300sc', 'sor-556-mk2'] },
