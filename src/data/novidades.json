@@ -1,7 +1,65 @@
 {
-  "_leiaMe": "Gerado por `npm run catalog:novidades` a partir do rnkd.gg. Não edite à mão: cure o item em weapons.ts ou attachments.ts (ele sai daqui sozinho) ou ponha a chave dele em `ignorar`.",
-  "atualizadoEm": "2026-10-23",
-  "armas": [],
+  "_leiaMe": "Gerado por `npm run catalog:novidades` (armas do BF6-Weapon-Analyzer, acessórios do rnkd.gg). Não edite à mão: cure o item em weapons.ts ou attachments.ts (ele sai daqui sozinho) ou ponha a chave dele em `ignorar`.",
+  "atualizadoEm": "2026-11-10",
+  "armas": [
+    {
+      "id": "nsw4",
+      "name": "NSW4",
+      "category": "carbine",
+      "archetype": "carbine-short",
+      "summary": "Carabina de cadência alta: 35,22 de dano por tiro, 655 disparos/min e multiplicador de 1,4 na cabeça, com pente de 30 tiros.",
+      "damage": [
+        [
+          35.22,
+          0
+        ],
+        [
+          26.05,
+          9
+        ],
+        [
+          20.67,
+          21
+        ],
+        [
+          17.13,
+          36
+        ],
+        [
+          14.62,
+          75
+        ]
+      ],
+      "rpm": 655,
+      "velocity": 313,
+      "drag": 1,
+      "headshot": 1.4,
+      "magazine": 30,
+      "reload": 2.367,
+      "emptyReload": 3,
+      "adsMs": 350,
+      "swapMs": 575,
+      "accuracy": 28,
+      "control": 30,
+      "mobility": 60,
+      "hipfire": 47,
+      "verticalRecoil": 0.565,
+      "horizontalRecoil": 0.299,
+      "fireModes": [
+        "auto",
+        "semi"
+      ],
+      "season": 5,
+      "provenance": "curated",
+      "origem": {
+        "fonte": "https://github.com/raymdl/BF6-Weapon-Analyzer",
+        "detectadaEm": "2026-11-10",
+        "gemea": "m417-a2",
+        "idNaFonte": "nsw4",
+        "fichaDoRnkd": false
+      }
+    }
+  ],
   "acessorios": [
     {
       "id": "ammo-polymer-links",
@@ -569,7 +627,233 @@
       }
     }
   ],
-  "compatExtra": {},
+  "compatExtra": {
+    "underbarrel-6h64-vertical": [
+      "nsw4"
+    ],
+    "underbarrel-adjustable-angled": [
+      "nsw4"
+    ],
+    "underbarrel-alloy-vertical": [
+      "nsw4"
+    ],
+    "underbarrel-bipod": [
+      "nsw4"
+    ],
+    "underbarrel-canted-stubby": [
+      "nsw4"
+    ],
+    "underbarrel-classic-grip-pod": [
+      "nsw4"
+    ],
+    "underbarrel-classic-vertical": [
+      "nsw4"
+    ],
+    "underbarrel-folding-stubby": [
+      "nsw4"
+    ],
+    "underbarrel-folding-vertical": [
+      "nsw4"
+    ],
+    "underbarrel-full-angled": [
+      "nsw4"
+    ],
+    "underbarrel-low-profile-stubby": [
+      "nsw4"
+    ],
+    "underbarrel-ptt-grip-pod": [
+      "nsw4"
+    ],
+    "underbarrel-qd-grip-pod": [
+      "nsw4"
+    ],
+    "underbarrel-ribbed-stubby": [
+      "nsw4"
+    ],
+    "underbarrel-ribbed-vertical": [
+      "nsw4"
+    ],
+    "underbarrel-slim-angled": [
+      "nsw4"
+    ],
+    "underbarrel-slim-handstop": [
+      "nsw4"
+    ],
+    "underbarrel-stippled-stubby": [
+      "nsw4"
+    ],
+    "underbarrel-underslung-mount": [
+      "nsw4"
+    ],
+    "muzzle-cqb-suppressor": [
+      "nsw4"
+    ],
+    "muzzle-compensated-brake": [
+      "nsw4"
+    ],
+    "muzzle-compensator": [
+      "nsw4"
+    ],
+    "muzzle-double-port-brake": [
+      "nsw4"
+    ],
+    "muzzle-flash-comp": [
+      "nsw4"
+    ],
+    "muzzle-flash-hider": [
+      "nsw4"
+    ],
+    "muzzle-lightened-suppressor": [
+      "nsw4"
+    ],
+    "muzzle-linear-comp": [
+      "nsw4"
+    ],
+    "muzzle-long-suppressor": [
+      "nsw4"
+    ],
+    "muzzle-standard-suppressor": [
+      "nsw4"
+    ],
+    "muzzle-hybrid-suppressor-l": [
+      "nsw4"
+    ],
+    "muzzle-hybrid-suppressor-s": [
+      "nsw4"
+    ],
+    "muzzle-hybrid-suppressor-k": [
+      "nsw4"
+    ],
+    "barrel-12-assaulter": [
+      "nsw4"
+    ],
+    "barrel-13-commando": [
+      "nsw4"
+    ],
+    "barrel-cryogenic": [
+      "nsw4"
+    ],
+    "magazine-10rnd-magazine": [
+      "nsw4"
+    ],
+    "magazine-20rnd-fast-mag": [
+      "nsw4"
+    ],
+    "magazine-20rnd-magazine": [
+      "nsw4"
+    ],
+    "magazine-25rnd-magazine": [
+      "nsw4"
+    ],
+    "ergonomics-magwell-flare": [
+      "nsw4"
+    ],
+    "ergonomics-match-trigger": [
+      "nsw4"
+    ],
+    "rightRail-120-mw-blue": [
+      "nsw4"
+    ],
+    "rightRail-5-mw-green": [
+      "nsw4"
+    ],
+    "rightRail-5-mw-red": [
+      "nsw4"
+    ],
+    "rightRail-50-mw-blue": [
+      "nsw4"
+    ],
+    "rightRail-50-mw-green": [
+      "nsw4"
+    ],
+    "rightRail-50-mw-violet": [
+      "nsw4"
+    ],
+    "leftRail-flashlight": [
+      "nsw4"
+    ],
+    "leftRail-taclight-hipfire": [
+      "nsw4"
+    ],
+    "leftRail-taclight-aimed": [
+      "nsw4"
+    ],
+    "sight-1p87-1-50x": [
+      "nsw4"
+    ],
+    "sight-2pro-1-25x": [
+      "nsw4"
+    ],
+    "sight-3vzr-1-75x": [
+      "nsw4"
+    ],
+    "sight-a-p2-1-75x": [
+      "nsw4"
+    ],
+    "sight-bf-2m-2-50x": [
+      "nsw4"
+    ],
+    "sight-baker-3-00x": [
+      "nsw4"
+    ],
+    "sight-cco-2-00x": [
+      "nsw4"
+    ],
+    "sight-cq-rds-1-25x": [
+      "nsw4"
+    ],
+    "sight-grim-1-50x": [
+      "nsw4"
+    ],
+    "sight-iron-sights": [
+      "nsw4"
+    ],
+    "sight-mini-flex-1-00x": [
+      "nsw4"
+    ],
+    "sight-ngfc-lpvo": [
+      "nsw4"
+    ],
+    "sight-osa-7-1-00x": [
+      "nsw4"
+    ],
+    "sight-pas-35-3-00x": [
+      "nsw4"
+    ],
+    "sight-pvq-31-4-00x": [
+      "nsw4"
+    ],
+    "sight-r-mr-1-00x": [
+      "nsw4"
+    ],
+    "sight-r4t-2-00x": [
+      "nsw4"
+    ],
+    "sight-ro-m-1-75x": [
+      "nsw4"
+    ],
+    "sight-ro-s-1-25x": [
+      "nsw4"
+    ],
+    "sight-rox-1-50x": [
+      "nsw4"
+    ],
+    "sight-sdo-3-50x": [
+      "nsw4"
+    ],
+    "sight-su-123-1-50x": [
+      "nsw4"
+    ],
+    "opticAccessory-canted-iron-sights": [
+      "nsw4"
+    ],
+    "opticAccessory-canted-reflex": [
+      "nsw4"
+    ],
+    "opticAccessory-piggyback-reflex": [
+      "nsw4"
+    ]
+  },
   "imagens": {},
   "ignorar": []
 }
