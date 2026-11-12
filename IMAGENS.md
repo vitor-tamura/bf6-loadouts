@@ -12,7 +12,7 @@ Duas coisas diferentes aparecem na tela, e elas seguem caminhos separados:
 
 ## A arma
 
-As 67 fotos ficam no projeto, em `public/weapons/<id-da-arma>.webp`. A
+As 68 fotos ficam no projeto, em `public/weapons/<id-da-arma>.webp`. A
 aplicação não faz nenhuma requisição para fora: nada depende de site de
 terceiros continuar no ar nem de o CDN permitir hotlink.
 

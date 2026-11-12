@@ -37,7 +37,10 @@ function extract(arquivo, withPart) {
   return items;
 }
 
-const weapons = extract('src/data/weapons.ts', false).filter(
+// As armas que a rotina de novidades trouxe (a NSW4, na Season 5) não estão em
+// `weapons.ts`, e sem elas o inventário dizia "tudo pronto" com a foto faltando.
+const novidades = JSON.parse(readFileSync(join(root, 'src/data/novidades.json'), 'utf8')).armas ?? [];
+const weapons = [...extract('src/data/weapons.ts', false), ...novidades.map((a) => ({ id: a.id, name: a.name }))].filter(
   // Corpo a corpo não usa o compositor de camadas.
   (a) => !['kbr-mark-ii', 'bighorn-hk-16', 'sledgehammer-14lb', 'nomad-cx-12', 'ripper-14'].includes(a.id),
 );

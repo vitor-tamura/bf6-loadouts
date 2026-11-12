@@ -202,6 +202,13 @@ def write_image(
     # Modo P com transparência vira RGBA; o resto segue como está.
     if image.mode not in ('RGB', 'RGBA'):
         image = image.convert('RGBA' if 'transparency' in image.info else 'RGB')
+    # Render transparente menor que o quadro nos dois lados (o do rnkd, 888 x 319)
+    # sobe até encostar nele, como os do BattlefieldMeta, que ocupam a altura
+    # toda; sem isso a arma aparece menor que as outras. Render que já encosta
+    # num dos lados (a SVDM, 1366 x 271) fica como está.
+    if canvas and image.mode == 'RGBA' and image.width < canvas[0] and image.height < canvas[1]:
+        escala = min(canvas[0] / image.width, canvas[1] / image.height)
+        image = image.resize((round(image.width * escala), round(image.height * escala)), Image.LANCZOS)
     # Render transparente vai para o quadro comum, centrado; foto com fundo não.
     if canvas and image.mode == 'RGBA' and image.width <= canvas[0] and image.height <= canvas[1]:
         quadro = Image.new('RGBA', canvas, (0, 0, 0, 0))

@@ -105,6 +105,8 @@ export const WEAPON_IMAGES: Record<string, WeaponImageSources> = {
   rspr: { render: 'https://img.wzstats.gg/rspr/gunDisplayLoadouts' },
   z84m: { render: 'https://img.wzstats.gg/z84m/gunDisplayLoadouts' },
   'elr-40': { render: 'https://img.wzstats.gg/elr-40/gunDisplayLoadouts' },
+  // Season 5: o BattlefieldMeta ainda não lista a NSW4; o render é o do rnkd.
+  nsw4: { render: 'https://rnkd.gg/media/battlefield6/weapons/cropped_processed_NSW4.png' },
   m1014: { photo: 'https://www.imfdb.org/images/thumb/f/f8/BF6_BenM4.jpg/600px-BF6_BenM4.jpg', render: 'https://img.battlefieldmeta.gg/m1014_version2/gunMiniDisplay' },
   '18-5ks-k': { photo: 'https://www.imfdb.org/images/thumb/e/ef/BF6_KSK.jpg/600px-BF6_KSK.jpg', render: 'https://img.battlefieldmeta.gg/185ks-k_version2/gunMiniDisplay' },
   m87a1: { photo: 'https://www.imfdb.org/images/thumb/e/e9/BF6_M590.jpg/600px-BF6_M590.jpg', render: 'https://img.battlefieldmeta.gg/m87a1_version2/gunMiniDisplay' },
