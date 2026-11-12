@@ -93,7 +93,9 @@ if (process.argv.includes('--check')) {
     process.exitCode = 1;
   }
 
-  if (pendentesExternas > 0) process.exitCode = 1;
+  // Arma do site sem foto local também é pendência: é ela que faz o check
+  // disparar o processamento, que baixa a foto quando a origem publicar.
+  if (pendentesExternas > 0 || missing > 0) process.exitCode = 1;
   console.log(`\\nArmas novas sem imagem local no dataset externo: ${pendentesExternas}\\n`);
 }
 

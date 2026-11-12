@@ -297,6 +297,20 @@ export function lerFichaDaArma(html: string, base = 'https://rnkd.gg'): Ficha {
   return { nome, rotulo, numeros, imagem, pecas };
 }
 
+/**
+ * O render da arma no rnkd, pelo nome que o jogo dá a ela.
+ *
+ * Do GitHub Actions a ficha não abre (403), e a NSW4 entrou no site sem foto
+ * nenhuma: o BattlefieldMeta ainda não a listava, e a única URL conhecida era
+ * a da ficha. O arquivo do render, porém, segue um padrão — o nome da arma como
+ * o jogo o escreve, `cropped_processed_NSW4.png`, `cropped_processed_ELR-40.png`
+ * —, e o navegador de quem abre o site o alcança mesmo quando o Actions não.
+ * Fica como reserva: a ficha, quando abre, e o BattlefieldMeta, quando lista a
+ * arma, vêm antes.
+ */
+export const renderDoRnkd = (nome: string) =>
+  `https://rnkd.gg/media/battlefield6/weapons/cropped_processed_${encodeURIComponent(nome.trim().replace(/\s+/g, '-'))}.png`;
+
 /** Os endereços de arma da lista do rnkd, sem as imagens que moram no mesmo caminho. */
 export function lerListaDeArmas(html: string): string[] {
   return [
@@ -896,6 +910,7 @@ export function detectar({
 
     if (ficha?.imagem) imagens[id] = { render: ficha.imagem };
     else if (anterior.imagens[id]) imagens[id] = anterior.imagens[id];
+    else imagens[id] = { render: renderDoRnkd(fora.name) };
   }
 
   const idsNovos = new Set(resultadoArmas.map((a) => a.id));

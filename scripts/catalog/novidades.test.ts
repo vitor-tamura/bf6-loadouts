@@ -298,6 +298,10 @@ describe('detectar', () => {
     const primeira = detectar(contexto);
     const anterior = { ...structuredClone(NOVIDADES_VAZIO), acessorios: primeira.acessorios, armas: [] };
     const { armas: novas, acessorios, compatExtra } = detectar({ ...contexto, fichas: null, anterior });
+    // Sem a ficha, a foto é o render do rnkd pelo nome do jogo.
+    expect(detectar({ ...contexto, fichas: null }).imagens['elr-40']).toEqual({
+      render: 'https://rnkd.gg/media/battlefield6/weapons/cropped_processed_ELR-40.png',
+    });
     expect(novas[0]).toMatchObject({ id: 'elr-40', adsMs: 800, headshot: 2, origem: { fichaDoRnkd: false } });
     expect(compatExtra).toEqual({ 'sight-mgo': ['elr-40'], 'barrel-basic': ['elr-40'] });
     expect(acessorios.map((p) => p.originalName)).toEqual(['QMK 3.00x']);

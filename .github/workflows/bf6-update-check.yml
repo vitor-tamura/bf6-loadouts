@@ -84,8 +84,10 @@ jobs:
           echo "pendentes=$pendentes" >> "$GITHUB_OUTPUT"
           echo "Análises pendentes: ${pendentes:-nenhuma}"
 
-      # O CDN pode publicar a arte depois dos dados da arma. Enquanto
-      # faltar imagem, reexecuta o processamento a cada seis horas; a etapa de
+      # O CDN pode publicar a arte depois dos dados da arma. Enquanto faltar
+      # imagem — de arma do cadastro, de arma que a rotina de novidades trouxe
+      # (a NSW4 passou despercebida aqui) ou de lançamento que o BattlefieldMeta
+      # marca como novo —, reexecuta o processamento a cada rodada; a etapa de
       # download não bloqueia o catálogo se a imagem ainda não existir.
       - name: Imagens novas pendentes
         id: imagens

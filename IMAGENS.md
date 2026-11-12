@@ -38,8 +38,11 @@ Busca de foto que "não acha a arma" costuma ser nome errado: a Interdictor é a
 
 A versão da arte vem da API do BattlefieldMeta (`imageVersion`), e o endereço
 é `https://img.battlefieldmeta.gg/<id>_version<n>/public`. Arma que a API ainda
-não lista cai na reserva de `weapon-images.ts` (Battlefield Wiki, IMFDB). O
-download é um comando:
+não lista cai na reserva de `weapon-images.ts` (Battlefield Wiki, IMFDB). Arma
+que a rotina de novidades trouxe (`src/data/novidades.json`) tenta ainda o
+render do rnkd pelo nome do jogo, `cropped_processed_<NOME>.png` — foi de lá
+que veio a NSW4. Render menor que o quadro sobe até encostar nele, para a arma
+não aparecer menor que as outras. O download é um comando:
 
 ```bash
 npm run images:download                                  # só o que falta

@@ -31,6 +31,7 @@ endereço sem versão às vezes devolve um modelo antigo.
 import json
 import re
 import sys
+import urllib.parse
 import urllib.request
 from io import BytesIO
 from pathlib import Path
@@ -162,6 +163,7 @@ def render_sources() -> dict[str, list[str]]:
         for m in re.finditer(r"id: '([^']+)',\n\s*name: '[^']*',\n\s*category: '([^']+)'", cadastro)
         if m.group(2) != 'melee'
     }
+    de_fogo |= set(novidades_sources())
 
     result: dict[str, list[str]] = {}
     for weapon in data.get('data', []):
@@ -171,6 +173,31 @@ def render_sources() -> dict[str, list[str]]:
         version = str(weapon.get('imageVersion') or '').strip()
         asset = f'{slug}_version{version}' if version else slug
         result[BATTLEFIELDMETA_ID.get(slug, slug)] = [f'https://img.battlefieldmeta.gg/{asset}/public']
+    return result
+
+
+def novidades_sources() -> dict[str, list[str]]:
+    """
+    Id → URLs das armas que a rotina de novidades trouxe (`src/data/novidades.json`).
+
+    Elas não estão em `weapons.ts` nem em `weapon-images.ts`, e o BattlefieldMeta
+    costuma listá-las dias depois do lançamento. A URL que a rotina gravou
+    (`imagens`) vem primeiro; o render do rnkd pelo nome do jogo, de reserva —
+    foi assim que a NSW4 ganhou foto.
+    """
+    caminho = ROOT / 'src' / 'data' / 'novidades.json'
+    if not caminho.exists():
+        return {}
+    dados = json.loads(caminho.read_text(encoding='utf8'))
+    result: dict[str, list[str]] = {}
+    for arma in dados.get('armas', []):
+        nome = re.sub(r'\s+', '-', str(arma.get('name', '')).strip())
+        urls = [
+            (dados.get('imagens', {}).get(arma['id']) or {}).get('render'),
+            f'https://rnkd.gg/media/battlefield6/weapons/cropped_processed_{urllib.parse.quote(nome)}.png',
+            f'https://rnkd.gg/media/battlefield6/weapons/cropped_processed_{nome.replace("-", "")}.png',
+        ]
+        result[arma['id']] = list(dict.fromkeys(url for url in urls if url))
     return result
 
 
@@ -282,7 +309,7 @@ def main() -> int:
     # A arte de catálogo grande primeiro; captura e render do cadastro, e o
     # render pequeno da API, de reserva.
     image_sources = render_sources()
-    for weapon_id, urls in [*weapon_sources().items(), *battlefieldmeta_weapon_sources().items()]:
+    for weapon_id, urls in [*weapon_sources().items(), *battlefieldmeta_weapon_sources().items(), *novidades_sources().items()]:
         image_sources[weapon_id] = list(dict.fromkeys([*image_sources.get(weapon_id, []), *urls]))
 
     totals = [download('Armas', image_sources, WEAPONS_TARGET, force, WEAPON_WIDTH, WEAPON_QUALITY, WEAPON_CANVAS)]

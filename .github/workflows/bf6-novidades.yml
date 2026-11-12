@@ -8,8 +8,10 @@
 # aviso de valor aproximado. Ver o cabeçalho de `scripts/catalog/novidades.ts`.
 #
 # Acessório novo vem do rnkd.gg, que recusa (403) acesso de datacenter — o
-# GitHub Actions incluído. Aqui essa parte é pulada e os acessórios ficam como
-# a última rodada local (`npm run catalog:novidades` num computador) deixou.
+# GitHub Actions incluído. Aqui essa parte é pulada; quem traz as peças da arma
+# nova é a sincronização com os arquivos do jogo, que roda logo depois (ver o
+# passo "Sincronizar com os arquivos do jogo"). A foto segue o mesmo caminho:
+# BattlefieldMeta quando ele já lista a arma, o render do rnkd de reserva.
 #
 # Como no processamento do patch, quem segura a publicação é a validação, não
 # uma pessoa: testes, lint, tipos e build. Falhou, nada vai para `main` e
@@ -63,9 +65,25 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run catalog:novidades
 
+      # A arma nova nasce com as peças e os canos da gêmea (a NSW4 veio com os
+      # da M417 A2). Sem esta sincronização no mesmo dia, ela ficava assim até o
+      # próximo processamento de patch — e a NSW4 ficou dois dias sem a FMJ
+      # Supersônica, sem três canos e com um cano que não tem. A sincronização
+      # troca os canos pelos papéis do jogo, acerta as peças, os custos e os
+      # números, e cria a peça que o jogo tem e o site não.
+      #
+      # Sem `continue-on-error`: GitHub fora do ar derruba a rodada e abre
+      # issue, em vez de publicar a arma nova com as peças da gêmea.
+      - name: Sincronizar com os arquivos do jogo (BF6-Weapon-Analyzer)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run catalog:sincronizar-analyzer
+
       # A foto da arma nova: a arte grande do BattlefieldMeta, no mesmo padrão
-      # das outras 67 (ver IMAGENS.md). Só baixa o que falta. Falha na origem
-      # não segura a publicação: o site cai na URL de reserva.
+      # das outras (ver IMAGENS.md); arma que ele ainda não lista tenta o render
+      # do rnkd pelo nome do jogo. Só baixa o que falta. Falha na origem não
+      # segura a publicação: o site cai na URL de reserva, e o check diário
+      # dispara o processamento até a foto chegar.
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -81,11 +99,11 @@ jobs:
         id: mudou
         run: |
           # `status`, e não `diff`: a foto de arma nova é arquivo que o git ainda não conhece.
-          if [ -z "$(git status --porcelain -- src/data/novidades.json public/weapons)" ]; then
+          if [ -z "$(git status --porcelain -- src/data/novidades.json src/data/analyzer-sync.json data/validation/analyzer-sync-report.json public/weapons)" ]; then
             echo "Nada novo no arsenal."
             echo "sim=false" >> "$GITHUB_OUTPUT"
           else
-            git status --short -- src/data/novidades.json public/weapons
+            git status --short -- src/data/novidades.json src/data/analyzer-sync.json data/validation/analyzer-sync-report.json public/weapons
             echo "sim=true" >> "$GITHUB_OUTPUT"
           fi
 
@@ -97,6 +115,7 @@ jobs:
           npm test
           npm run lint
           npm run typecheck
+          npm run catalog:compat
           npm run build
 
       - name: Publicar em main
@@ -116,11 +135,13 @@ jobs:
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/novidades.json public/weapons
+          git add src/data/novidades.json src/data/analyzer-sync.json data/validation/analyzer-sync-report.json public/weapons
           git commit -m "feat(data): novidades do arsenal — $resumo"
           git remote set-url origin "https://x-access-token:${MAIN_PUSH_TOKEN}@github.com/${{ github.repository }}.git"
 
-          # O arquivo só esta automação escreve, então o rebase é seguro.
+          # Os arquivos são desta automação e da sincronização, que o
+          # processamento também roda — os dois estão na mesma fila
+          # (`concurrency`), então o rebase não cruza com nada.
           for tentativa in 1 2 3; do
             git push origin HEAD:main && exit 0
             echo "::warning::A main andou. Tentativa $tentativa: rebase e novo push."
