@@ -1,6 +1,6 @@
 {
   "_leiaMe": "Gerado por `npm run catalog:novidades` (armas do BF6-Weapon-Analyzer, acessórios do rnkd.gg). Não edite à mão: cure o item em weapons.ts ou attachments.ts (ele sai daqui sozinho) ou ponha a chave dele em `ignorar`.",
-  "atualizadoEm": "2026-11-10",
+  "atualizadoEm": "2026-11-12",
   "armas": [
     {
       "id": "nsw4",
@@ -854,6 +854,10 @@
       "nsw4"
     ]
   },
-  "imagens": {},
+  "imagens": {
+    "nsw4": {
+      "render": "https://rnkd.gg/media/battlefield6/weapons/cropped_processed_NSW4.png"
+    }
+  },
   "ignorar": []
 }
