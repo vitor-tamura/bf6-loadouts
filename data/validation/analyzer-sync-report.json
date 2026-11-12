@@ -1,25 +1,25 @@
 {
   "fonte": {
     "repo": "raymdl/BF6-Weapon-Analyzer",
-    "commit": "43c6f57c5523d6c22fb625f99098c4fe8852fd72",
-    "data": "2026-10-31T00:26:00Z",
-    "versaoDeclarada": "2.1.1.0"
+    "commit": "8395d17d42d38fc0b7c9fbdef8fad92a446f330d",
+    "data": "2026-11-10T22:26:06-05:00",
+    "versaoDeclarada": "2.1.2.0"
   },
   "ultimaLeitura": {
     "repo": "raymdl/BF6-Weapon-Analyzer",
-    "commit": "43c6f57c5523d6c22fb625f99098c4fe8852fd72",
-    "data": "2026-10-31T00:26:00Z",
-    "versaoDeclarada": "2.1.1.0",
-    "bloqueada": "o Analyzer descreve 2.1.1.0 e o catálogo está em 2.1.2.0"
+    "commit": "8395d17d42d38fc0b7c9fbdef8fad92a446f330d",
+    "data": "2026-11-10T22:26:06-05:00",
+    "versaoDeclarada": "2.1.2.0"
   },
   "resumo": {
     "armasCorrigidas": 63,
     "camposDeArmaCorrigidos": 278,
-    "custosCorrigidos": 11,
-    "compatAdicionadas": 819,
-    "compatRemovidas": 200,
-    "variantesNovas": 141,
-    "pecasDoAnalyzerSemPar": 7,
+    "custosCorrigidos": 17,
+    "compatAdicionadas": 873,
+    "compatRemovidas": 209,
+    "variantesNovas": 154,
+    "pecasDoAnalyzerSemPar": 3,
+    "pecasCriadas": 10,
     "pecasDoSiteSemPar": 4,
     "pecasSemArma": 0,
     "carregadoresAmbiguos": 1,
@@ -868,7 +868,8 @@
         [26.05, 9],
         [20.67, 21],
         [17.13, 36],
-        [14.62, 75]
+        [14.62, 55],
+        [12.76, 75]
       ]
     },
     {
@@ -1626,7 +1627,8 @@
       ],
       "depois": [
         [62, 0],
-        [58, 21]
+        [58, 21],
+        [50, 150]
       ]
     },
     {
@@ -2271,7 +2273,19 @@
       "peca": "sight-1p86-lpvo",
       "antes": 25,
       "depois": 20,
-      "armas": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "db-12", "drs-iar", "ef88", "elr-40", "grt-bc", "grt-cps", "interdictor", "kord-6p67", "kts100-mk8", "kv9", "l110", "l115", "l85a3", "lmr27", "m1014", "m121-a2", "m123k", "m16a4", "m2010-esr", "m240l", "m250", "m277", "m39-emr", "m417-a2", "m433", "m4a1", "m60", "mini-scout", "mk-24", "nvo-228e", "pp-19", "psr", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "sv-98", "svdm", "svk-86", "tr-7", "umg-40", "usg-90", "vcr-2", "vssm", "z84m"]
+      "armas": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "db-12", "drs-iar", "ef88", "elr-40", "grt-bc", "grt-cps", "interdictor", "kord-6p67", "kts100-mk8", "kv9", "l110", "l115", "l85a3", "lmr27", "m1014", "m121-a2", "m123k", "m16a4", "m2010-esr", "m240l", "m250", "m277", "m39-emr", "m417-a2", "m433", "m4a1", "m60", "mini-scout", "mk-24", "nsw4", "nvo-228e", "pp-19", "psr", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "sv-98", "svdm", "svk-86", "tr-7", "umg-40", "usg-90", "vcr-2", "vssm", "z84m"]
+    },
+    {
+      "peca": "sight-iron-sights-interdictor",
+      "antes": 15,
+      "depois": 10,
+      "armas": ["interdictor"]
+    },
+    {
+      "peca": "sight-iron-sights-elr-40",
+      "antes": 15,
+      "depois": 10,
+      "armas": ["elr-40"]
     },
     {
       "peca": "rightRail-laser-light-combo-red",
@@ -2280,16 +2294,22 @@
       "armas": ["es-57", "ggh-22", "grt-bc", "kts100-mk8", "m357-trait", "m45a1", "p18", "sl9", "vz-61"]
     },
     {
+      "peca": "ammo-frangible",
+      "antes": 20,
+      "depois": 15,
+      "armas": ["ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "drs-iar", "ef88", "elr-40", "es-57", "ggh-22", "grt-bc", "grt-cps", "interdictor", "kord-6p67", "kts100-mk8", "kv9", "l110", "l115", "l85a3", "lmr27", "m121-a2", "m123k", "m16a4", "m2010-esr", "m240l", "m250", "m277", "m357-trait", "m39-emr", "m417-a2", "m433", "m44", "m45a1", "m4a1", "m60", "mini-scout", "mk-24", "nsw4", "nvo-228e", "p18", "pp-19", "psr", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "sv-98", "svdm", "svk-86", "tr-7", "umg-40", "usg-90", "vcr-2", "vssm", "vz-61", "z84m"]
+    },
+    {
       "peca": "ammo-hollow-point",
       "antes": 20,
       "depois": 15,
-      "armas": ["ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "drs-iar", "ef88", "es-57", "ggh-22", "grt-bc", "grt-cps", "kord-6p67", "kts100-mk8", "kv9", "l110", "l85a3", "lmr27", "m121-a2", "m123k", "m16a4", "m240l", "m250", "m277", "m357-trait", "m39-emr", "m417-a2", "m433", "m44", "m45a1", "m4a1", "m60", "nvo-228e", "p18", "pp-19", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "svdm", "svk-86", "tr-7", "umg-40", "usg-90", "vcr-2", "vz-61", "z84m"]
+      "armas": ["ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "drs-iar", "ef88", "es-57", "ggh-22", "grt-bc", "grt-cps", "kord-6p67", "kts100-mk8", "kv9", "l110", "l85a3", "lmr27", "m121-a2", "m123k", "m16a4", "m240l", "m250", "m277", "m357-trait", "m39-emr", "m417-a2", "m433", "m44", "m45a1", "m4a1", "m60", "nsw4", "nvo-228e", "p18", "pp-19", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "svdm", "svk-86", "tr-7", "umg-40", "usg-90", "vcr-2", "vz-61", "z84m"]
     },
     {
       "peca": "ammo-synthetic-tip",
       "antes": 30,
       "depois": 20,
-      "armas": ["ak-205", "b36a4", "drs-iar", "ef88", "grt-cps", "kts100-mk8", "l85a3", "lmr27", "pp-19", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "sl9", "sor-556-mk2", "umg-40", "vz-61"]
+      "armas": ["ak-205", "b36a4", "ef88", "es-57", "ggh-22", "grt-cps", "kts100-mk8", "l85a3", "lmr27", "pp-19", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "sl9", "sor-556-mk2", "umg-40", "vz-61"]
     },
     {
       "peca": "magazine-10rnd-fast-mag",
@@ -2320,6 +2340,24 @@
       "antes": 5,
       "depois": 10,
       "armas": ["interdictor", "m2010-esr", "m87a1"]
+    },
+    {
+      "peca": "magazine-25rnd-magazine-mk-24",
+      "antes": 15,
+      "depois": 20,
+      "armas": ["mk-24"]
+    },
+    {
+      "peca": "magazine-25rnd-fast-mag-mk-24",
+      "antes": 20,
+      "depois": 25,
+      "armas": ["mk-24"]
+    },
+    {
+      "peca": "magazine-30rnd-magazine-mk-24",
+      "antes": 25,
+      "depois": 40,
+      "armas": ["mk-24"]
     },
     {
       "peca": "magazine-42rnd-fast-mag",
@@ -2574,6 +2612,10 @@
           "arma": "rspr"
         },
         {
+          "peca": "sight-1p86-lpvo",
+          "arma": "nsw4"
+        },
+        {
           "peca": "sight-2pro-1-25x",
           "arma": "m2010-esr"
         },
@@ -2818,6 +2860,18 @@
           "arma": "rspr"
         },
         {
+          "peca": "sight-aperture-sights",
+          "arma": "m16a4"
+        },
+        {
+          "peca": "sight-aperture-sights",
+          "arma": "m4a1"
+        },
+        {
+          "peca": "sight-aperture-sights",
+          "arma": "pw7a2"
+        },
+        {
           "peca": "sight-bf-2m-2-50x",
           "arma": "sgx"
         },
@@ -3079,7 +3133,31 @@
         },
         {
           "peca": "sight-dvo-lpvo",
+          "arma": "m4a1"
+        },
+        {
+          "peca": "sight-dvo-lpvo",
           "arma": "m277"
+        },
+        {
+          "peca": "sight-dvo-lpvo",
+          "arma": "ak-205"
+        },
+        {
+          "peca": "sight-dvo-lpvo",
+          "arma": "m417-a2"
+        },
+        {
+          "peca": "sight-dvo-lpvo",
+          "arma": "grt-bc"
+        },
+        {
+          "peca": "sight-dvo-lpvo",
+          "arma": "qbz-192"
+        },
+        {
+          "peca": "sight-dvo-lpvo",
+          "arma": "sg-553r"
         },
         {
           "peca": "sight-dvo-lpvo",
@@ -3091,7 +3169,15 @@
         },
         {
           "peca": "sight-dvo-lpvo",
+          "arma": "brod-3"
+        },
+        {
+          "peca": "sight-dvo-lpvo",
           "arma": "elr-40"
+        },
+        {
+          "peca": "sight-dvo-lpvo",
+          "arma": "nsw4"
         },
         {
           "peca": "sight-grim-1-50x",
@@ -3132,6 +3218,10 @@
         {
           "peca": "sight-grim-1-50x",
           "arma": "db-12"
+        },
+        {
+          "peca": "sight-grim-1-50x",
+          "arma": "m44"
         },
         {
           "peca": "sight-grim-1-50x",
@@ -3284,14 +3374,14 @@
         {
           "peca": "sight-lds-4-50x",
           "arma": "rspr"
+        },
+        {
+          "peca": "sight-lds-4-50x",
+          "arma": "nsw4"
         },
         {
           "peca": "sight-mc-co-lpvo",
-          "arma": "sor-300sc"
-        },
-        {
-          "peca": "sight-mars-f-lpvo",
-          "arma": "sor-300sc"
+          "arma": "m44"
         },
         {
           "peca": "sight-mars-f-lpvo",
@@ -3402,6 +3492,10 @@
           "arma": "elr-40"
         },
         {
+          "peca": "sight-nfx-8-00x",
+          "arma": "m44"
+        },
+        {
           "peca": "sight-ngfc-lpvo",
           "arma": "rpk-74m"
         },
@@ -3496,6 +3590,10 @@
         {
           "peca": "sight-pas-35-3-00x",
           "arma": "db-12"
+        },
+        {
+          "peca": "sight-pas-35-3-00x",
+          "arma": "m44"
         },
         {
           "peca": "sight-pas-35-3-00x",
@@ -4158,6 +4256,10 @@
           "arma": "rspr"
         },
         {
+          "peca": "sight-sf-g2-5-00x",
+          "arma": "nsw4"
+        },
+        {
           "peca": "sight-st-prism-5-00x",
           "arma": "m433"
         },
@@ -4354,6 +4456,10 @@
           "arma": "rspr"
         },
         {
+          "peca": "sight-st-prism-5-00x",
+          "arma": "nsw4"
+        },
+        {
           "peca": "sight-su-123-1-50x",
           "arma": "m16a4"
         },
@@ -4630,6 +4736,10 @@
           "arma": "rspr"
         },
         {
+          "peca": "sight-su-230-lpvo",
+          "arma": "nsw4"
+        },
+        {
           "peca": "sight-th-rds-1-00x",
           "arma": "m433"
         },
@@ -4850,6 +4960,10 @@
           "arma": "rspr"
         },
         {
+          "peca": "sight-th-rds-1-00x",
+          "arma": "nsw4"
+        },
+        {
           "peca": "sight-r-vps-10-00x",
           "arma": "mini-scout"
         },
@@ -4918,6 +5032,10 @@
           "arma": "m357-trait"
         },
         {
+          "peca": "sight-mgo-350x",
+          "arma": "nsw4"
+        },
+        {
           "peca": "sight-qmk-300x",
           "arma": "m2010-esr"
         },
@@ -4964,9 +5082,25 @@
         {
           "peca": "sight-qmk-300x",
           "arma": "m357-trait"
+        },
+        {
+          "peca": "sight-qmk-300x",
+          "arma": "nsw4"
         }
       ],
       "removidas": [
+        {
+          "peca": "sight-iron-sights",
+          "arma": "m16a4"
+        },
+        {
+          "peca": "sight-iron-sights",
+          "arma": "m4a1"
+        },
+        {
+          "peca": "sight-iron-sights",
+          "arma": "pw7a2"
+        },
         {
           "peca": "sight-iron-sights",
           "arma": "m2010-esr"
@@ -5056,6 +5190,26 @@
           "arma": "lmr27"
         },
         {
+          "peca": "muzzle-flash-comp",
+          "arma": "es-57"
+        },
+        {
+          "peca": "muzzle-flash-hider",
+          "arma": "sv-98"
+        },
+        {
+          "peca": "muzzle-flash-hider",
+          "arma": "l115"
+        },
+        {
+          "peca": "muzzle-single-port-brake",
+          "arma": "nsw4"
+        },
+        {
+          "peca": "muzzle-standard-suppressor",
+          "arma": "sv-98"
+        },
+        {
           "peca": "muzzle-hybrid-suppressor-l",
           "arma": "usg-90"
         },
@@ -5066,6 +5220,10 @@
         {
           "peca": "muzzle-hybrid-suppressor-k",
           "arma": "usg-90"
+        },
+        {
+          "peca": "muzzle-multi-port-brake",
+          "arma": "18-5ks-k"
         }
       ],
       "removidas": [
@@ -5098,6 +5256,10 @@
           "arma": "elr-40"
         },
         {
+          "peca": "muzzle-flash-comp",
+          "arma": "sv-98"
+        },
+        {
           "peca": "muzzle-flash-hider",
           "arma": "m357-trait"
         },
@@ -5112,6 +5274,10 @@
         {
           "peca": "muzzle-lightened-suppressor",
           "arma": "pp-19"
+        },
+        {
+          "peca": "muzzle-lightened-suppressor",
+          "arma": "sv-98"
         },
         {
           "peca": "muzzle-lightened-suppressor",
@@ -5204,6 +5370,10 @@
         {
           "peca": "muzzle-hybrid-suppressor-k",
           "arma": "ak-205"
+        },
+        {
+          "peca": "muzzle-triple-port-brake",
+          "arma": "18-5ks-k"
         }
       ]
     },
@@ -5216,6 +5386,10 @@
         {
           "peca": "underbarrel-classic-grip-pod",
           "arma": "vssm"
+        },
+        {
+          "peca": "underbarrel-compact-handstop",
+          "arma": "db-12"
         },
         {
           "peca": "underbarrel-ribbed-vertical",
@@ -5424,6 +5598,10 @@
         {
           "peca": "underbarrel-actuated-module",
           "arma": "vssm"
+        },
+        {
+          "peca": "underbarrel-actuated-module",
+          "arma": "nsw4"
         }
       ],
       "removidas": [
@@ -5450,6 +5628,10 @@
         {
           "peca": "underbarrel-bipod",
           "arma": "brod-3"
+        },
+        {
+          "peca": "underbarrel-bipod",
+          "arma": "nsw4"
         },
         {
           "peca": "underbarrel-classic-grip-pod",
@@ -5794,8 +5976,24 @@
           "arma": "ef88"
         },
         {
+          "peca": "ergonomics-aftermarket-buffer",
+          "arma": "nsw4"
+        },
+        {
           "peca": "ergonomics-improved-mag-catch",
           "arma": "ef88"
+        },
+        {
+          "peca": "ergonomics-improved-mag-catch",
+          "arma": "nsw4"
+        },
+        {
+          "peca": "ergonomics-rail-cover",
+          "arma": "m433"
+        },
+        {
+          "peca": "ergonomics-rail-cover",
+          "arma": "b36a4"
         },
         {
           "peca": "ergonomics-rail-cover",
@@ -5803,7 +6001,15 @@
         },
         {
           "peca": "ergonomics-rail-cover",
+          "arma": "l85a3"
+        },
+        {
+          "peca": "ergonomics-rail-cover",
           "arma": "m4a1"
+        },
+        {
+          "peca": "ergonomics-rail-cover",
+          "arma": "m277"
         },
         {
           "peca": "ergonomics-rail-cover",
@@ -5815,7 +6021,15 @@
         },
         {
           "peca": "ergonomics-rail-cover",
+          "arma": "sgx"
+        },
+        {
+          "peca": "ergonomics-rail-cover",
           "arma": "drs-iar"
+        },
+        {
+          "peca": "ergonomics-rail-cover",
+          "arma": "m250"
         },
         {
           "peca": "ergonomics-rail-cover",
@@ -5827,7 +6041,31 @@
         },
         {
           "peca": "ergonomics-rail-cover",
+          "arma": "rpk-74m"
+        },
+        {
+          "peca": "ergonomics-rail-cover",
+          "arma": "svk-86"
+        },
+        {
+          "peca": "ergonomics-rail-cover",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "ergonomics-rail-cover",
+          "arma": "psr"
+        },
+        {
+          "peca": "ergonomics-rail-cover",
+          "arma": "m1014"
+        },
+        {
+          "peca": "ergonomics-rail-cover",
           "arma": "brod-3"
+        },
+        {
+          "peca": "ergonomics-rail-cover",
+          "arma": "nsw4"
         }
       ],
       "removidas": [
@@ -5917,8 +6155,20 @@
           "arma": "rspr"
         },
         {
+          "peca": "ammo-polymer-case",
+          "arma": "nsw4"
+        },
+        {
           "peca": "ammo-synthetic-tip",
           "arma": "pp-19"
+        },
+        {
+          "peca": "ammo-synthetic-tip",
+          "arma": "es-57"
+        },
+        {
+          "peca": "ammo-synthetic-tip",
+          "arma": "ggh-22"
         },
         {
           "peca": "ammo-subsonic",
@@ -6008,7 +6258,7 @@
         },
         {
           "peca": "ammo-frangible",
-          "arma": "m357-trait"
+          "arma": "mk-24"
         },
         {
           "peca": "ammo-hollow-point",
@@ -6108,6 +6358,10 @@
         },
         {
           "peca": "ammo-synthetic-tip",
+          "arma": "drs-iar"
+        },
+        {
+          "peca": "ammo-synthetic-tip",
           "arma": "vssm"
         },
         {
@@ -6133,10 +6387,6 @@
         {
           "peca": "ammo-synthetic-tip",
           "arma": "grt-cps"
-        },
-        {
-          "peca": "ammo-tungsten-core",
-          "arma": "m357-trait"
         }
       ]
     },
@@ -6160,19 +6410,47 @@
         },
         {
           "peca": "magazine-20rnd-fast-mag",
+          "arma": "grt-bc"
+        },
+        {
+          "peca": "magazine-20rnd-fast-mag",
           "arma": "pp-19"
+        },
+        {
+          "peca": "magazine-20rnd-magazine",
+          "arma": "grt-bc"
         },
         {
           "peca": "magazine-30rnd-fast-mag",
           "arma": "pp-19"
         },
         {
+          "peca": "magazine-30rnd-fast-mag",
+          "arma": "nsw4"
+        },
+        {
           "peca": "magazine-30rnd-magazine",
           "arma": "pp-19"
         },
         {
+          "peca": "magazine-30rnd-magazine",
+          "arma": "nsw4"
+        },
+        {
           "peca": "magazine-35rnd-magazine",
           "arma": "pp-19"
+        },
+        {
+          "peca": "magazine-36rnd-magazine",
+          "arma": "nsw4"
+        },
+        {
+          "peca": "magazine-40rnd-fast-mag",
+          "arma": "nsw4"
+        },
+        {
+          "peca": "magazine-40rnd-magazine",
+          "arma": "nsw4"
         },
         {
           "peca": "magazine-4rnd-fast-mag",
@@ -6197,6 +6475,10 @@
         {
           "peca": "magazine-6-shell-tube",
           "arma": "m1014"
+        },
+        {
+          "peca": "magazine-60rnd-magazine",
+          "arma": "ak-205"
         }
       ],
       "removidas": [
@@ -6211,6 +6493,10 @@
         {
           "peca": "magazine-10rnd-magazine",
           "arma": "interdictor"
+        },
+        {
+          "peca": "magazine-10rnd-magazine",
+          "arma": "nsw4"
         },
         {
           "peca": "magazine-11rnd-magazine",
@@ -6302,7 +6588,7 @@
         },
         {
           "peca": "magazine-25rnd-magazine",
-          "arma": "m417-a2"
+          "arma": "nsw4"
         },
         {
           "peca": "magazine-25rnd-magazine",
@@ -6457,6 +6743,15 @@
           "arma": "18-5ks-k"
         }
       ]
+    },
+    "barrel": {
+      "adicionadas": [],
+      "removidas": [
+        {
+          "peca": "barrel-12-assaulter",
+          "arma": "nsw4"
+        }
+      ]
     }
   },
   "variantes": [
@@ -6464,35 +6759,35 @@
       "id": "sight-iron-sights-m2010-esr",
       "de": "sight-iron-sights",
       "arma": "m2010-esr",
-      "custo": 15,
+      "custo": 10,
       "item": "iron"
     },
     {
       "id": "sight-iron-sights-sv-98",
       "de": "sight-iron-sights",
       "arma": "sv-98",
-      "custo": 15,
+      "custo": 10,
       "item": "iron"
     },
     {
       "id": "sight-iron-sights-psr",
       "de": "sight-iron-sights",
       "arma": "psr",
-      "custo": 15,
+      "custo": 10,
       "item": "iron"
     },
     {
       "id": "sight-iron-sights-mini-scout",
       "de": "sight-iron-sights",
       "arma": "mini-scout",
-      "custo": 15,
+      "custo": 10,
       "item": "iron"
     },
     {
       "id": "sight-iron-sights-l115",
       "de": "sight-iron-sights",
       "arma": "l115",
-      "custo": 15,
+      "custo": 10,
       "item": "iron"
     },
     {
@@ -6811,6 +7106,41 @@
       "item": "slim_angled_interdictor"
     },
     {
+      "id": "ergonomics-match-trigger-m44",
+      "de": "ergonomics-match-trigger",
+      "arma": "m44",
+      "custo": 10,
+      "item": "match_trigger"
+    },
+    {
+      "id": "ammo-00-buck-m1014",
+      "de": "ammo-00-buck",
+      "arma": "m1014",
+      "custo": 20,
+      "item": "buckshot_00"
+    },
+    {
+      "id": "ammo-00-buck-18-5ks-k",
+      "de": "ammo-00-buck",
+      "arma": "18-5ks-k",
+      "custo": 20,
+      "item": "buckshot_00"
+    },
+    {
+      "id": "ammo-00-buck-db-12",
+      "de": "ammo-00-buck",
+      "arma": "db-12",
+      "custo": 20,
+      "item": "buckshot_00"
+    },
+    {
+      "id": "ammo-frangible-mk-24",
+      "de": "ammo-frangible",
+      "arma": "mk-24",
+      "custo": 20,
+      "item": "frangible"
+    },
+    {
       "id": "ammo-hollow-point-ak4d",
       "de": "ammo-hollow-point",
       "arma": "ak4d",
@@ -7070,11 +7400,25 @@
       "item": "subsonic_hp"
     },
     {
+      "id": "magazine-100rnd-fast-mag-m60",
+      "de": "magazine-100rnd-fast-mag",
+      "arma": "m60",
+      "custo": 40,
+      "item": "100_fast"
+    },
+    {
       "id": "magazine-60rnd-fast-mag-kts100-mk8",
       "de": "magazine-60rnd-fast-mag",
       "arma": "kts100-mk8",
       "custo": 10,
       "item": "60_fast"
+    },
+    {
+      "id": "magazine-75rnd-fast-mag-m240l",
+      "de": "magazine-75rnd-fast-mag",
+      "arma": "m240l",
+      "custo": 40,
+      "item": "75_fast"
     },
     {
       "id": "magazine-100rnd-belt-pouch-m250",
@@ -7231,13 +7575,6 @@
       "item": "25_fast"
     },
     {
-      "id": "magazine-25rnd-magazine-m417-a2",
-      "de": "magazine-25rnd-magazine",
-      "arma": "m417-a2",
-      "custo": 15,
-      "item": "25_rnd"
-    },
-    {
       "id": "magazine-25rnd-magazine-umg-40",
       "de": "magazine-25rnd-magazine",
       "arma": "umg-40",
@@ -7392,6 +7729,20 @@
       "item": "60_rnd"
     },
     {
+      "id": "magazine-75rnd-drum-m60",
+      "de": "magazine-75rnd-drum",
+      "arma": "m60",
+      "custo": 20,
+      "item": "75_rnd"
+    },
+    {
+      "id": "magazine-75rnd-drum-m250",
+      "de": "magazine-75rnd-drum",
+      "arma": "m250",
+      "custo": 30,
+      "item": "75_rnd"
+    },
+    {
       "id": "magazine-7rnd-fast-mag-l115",
       "de": "magazine-7rnd-fast-mag",
       "arma": "l115",
@@ -7411,6 +7762,20 @@
       "arma": "interdictor",
       "custo": 15,
       "item": "7_rnd"
+    },
+    {
+      "id": "magazine-8rnd-magazine-m87a1",
+      "de": "magazine-8rnd-magazine",
+      "arma": "m87a1",
+      "custo": 20,
+      "item": "8_rnd"
+    },
+    {
+      "id": "magazine-8rnd-magazine-m1014",
+      "de": "magazine-8rnd-magazine",
+      "arma": "m1014",
+      "custo": 35,
+      "item": "8_rnd"
     },
     {
       "id": "magazine-8rnd-magazine-18-5ks-k",
@@ -7446,50 +7811,129 @@
       "arma": "ggh-22",
       "custo": 20,
       "item": "light"
+    },
+    {
+      "id": "barrel-nsw4-extended",
+      "de": "barrel-nsw4-extended",
+      "arma": "nsw4",
+      "custo": 5,
+      "item": "extended"
+    },
+    {
+      "id": "barrel-nsw4-heavy",
+      "de": "barrel-nsw4-heavy",
+      "arma": "nsw4",
+      "custo": 10,
+      "item": "heavy"
+    },
+    {
+      "id": "barrel-nsw4-light",
+      "de": "barrel-nsw4-light",
+      "arma": "nsw4",
+      "custo": 20,
+      "item": "light"
     }
   ],
   "pecasDoAnalyzerSemPar": [
     {
-      "slot": "ergonomics",
+      "slot": "sight",
+      "item": "flip_up_irons",
+      "nome": "Flip-Up Irons",
+      "armas": ["m16a4"]
+    },
+    {
+      "slot": "sight",
+      "item": "carry_handle_irons",
+      "nome": "Carry Handle Irons",
+      "armas": ["m4a1"]
+    },
+    {
+      "slot": "sight",
+      "item": "cqb_sights",
+      "nome": "CQB Sights",
+      "armas": ["pw7a2", "umg-40"]
+    }
+  ],
+  "pecasCriadas": [
+    {
+      "id": "sight-pa-sl-2-50x",
+      "item": "pa_sl_2_50x",
+      "nome": "PA-SL 2.50x",
+      "custo": 10,
+      "armas": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "db-12", "drs-iar", "ef88", "elr-40", "grt-bc", "grt-cps", "interdictor", "kord-6p67", "kts100-mk8", "kv9", "l110", "l115", "l85a3", "lmr27", "m1014", "m121-a2", "m123k", "m16a4", "m2010-esr", "m240l", "m250", "m277", "m357-trait", "m39-emr", "m417-a2", "m433", "m44", "m4a1", "m60", "m87a1", "mini-scout", "mk-24", "nsw4", "nvo-228e", "pp-19", "psr", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "sv-98", "svdm", "svk-86", "tr-7", "umg-40", "usg-90", "vcr-2", "vssm", "z84m"],
+      "traduzida": true
+    },
+    {
+      "id": "underbarrel-rubberized-vertical",
+      "item": "rubberized_vert",
+      "nome": "Vertical Emborrachada",
+      "custo": 30,
+      "armas": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "db-12", "drs-iar", "ef88", "grt-bc", "grt-cps", "kord-6p67", "kts100-mk8", "kv9", "l110", "l85a3", "lmr27", "m1014", "m121-a2", "m123k", "m16a4", "m240l", "m250", "m277", "m39-emr", "m417-a2", "m433", "m4a1", "m60", "m87a1", "mk-24", "nsw4", "nvo-228e", "pp-19", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "svdm", "svk-86", "tr-7", "umg-40", "vcr-2", "vssm", "z84m"],
+      "traduzida": true
+    },
+    {
+      "id": "ergonomics-burst-training",
       "item": "burst_training",
-      "nome": "Burst Training",
-      "armas": ["kord-6p67", "sg-553r", "pw5a3", "umg-40", "kv9", "cz3a1"]
+      "nome": "Treino de Rajada",
+      "custo": 15,
+      "armas": ["cz3a1", "kord-6p67", "kv9", "pw5a3", "sg-553r", "umg-40"],
+      "traduzida": true
     },
     {
-      "slot": "ergonomics",
+      "id": "ergonomics-burst-mode",
       "item": "grtbc_burst_mode",
-      "nome": "Burst Mode",
-      "armas": ["grt-bc"]
+      "nome": "Modo Rajada",
+      "custo": 10,
+      "armas": ["grt-bc"],
+      "traduzida": true
     },
     {
-      "slot": "ergonomics",
-      "item": "burst_mode",
-      "nome": "Burst Mode",
-      "armas": ["sl9"]
-    },
-    {
-      "slot": "ergonomics",
+      "id": "ergonomics-speed-holster",
       "item": "fast_deploy",
-      "nome": "Speed Holster",
-      "armas": ["p18", "m45a1", "m44", "ggh-22", "m357-trait"]
+      "nome": "Coldre Rápido",
+      "custo": 5,
+      "armas": ["ggh-22", "m357-trait", "m44", "m45a1", "p18", "usg-90"],
+      "traduzida": true
     },
     {
-      "slot": "ergonomics",
+      "id": "ergonomics-burst-mode-sl9",
+      "item": "burst_mode",
+      "nome": "Modo Rajada",
+      "custo": 10,
+      "armas": ["sl9"],
+      "traduzida": true
+    },
+    {
+      "id": "ergonomics-gunslinger",
       "item": "fast_deploy_10",
-      "nome": "Gunslinger",
-      "armas": ["m44"]
+      "nome": "Pistoleiro",
+      "custo": 10,
+      "armas": ["m44"],
+      "traduzida": true
     },
     {
-      "slot": "ammo",
+      "id": "ammo-sub-pen",
       "item": "subsonic_pen",
-      "nome": "Sub Pen",
-      "armas": ["pw7a2"]
+      "nome": "Subsônica Perfurante",
+      "custo": 10,
+      "armas": ["pw7a2"],
+      "traduzida": true
     },
     {
-      "slot": "ammo",
+      "id": "ammo-00-buck",
       "item": "buckshot_00",
-      "nome": "#00 BUCK",
-      "armas": ["m87a1", "m1014", "18-5ks-k", "db-12"]
+      "nome": "Chumbo #00",
+      "custo": 20,
+      "armas": ["18-5ks-k", "db-12", "m1014", "m87a1"],
+      "traduzida": true
+    },
+    {
+      "id": "ammo-supersonic-fmj",
+      "item": "supersonic",
+      "nome": "FMJ Supersônica",
+      "custo": 15,
+      "armas": ["nsw4"],
+      "traduzida": true
     }
   ],
   "pecasDoSiteSemPar": [
@@ -7560,7 +8004,7 @@
     {
       "arma": "m44",
       "slot": "ergonomics",
-      "itens": ["fast_deploy", "fast_deploy_10"]
+      "itens": ["fast_deploy", "fast_deploy_10", "match_trigger"]
     },
     {
       "arma": "ggh-22",
@@ -7603,14 +8047,30 @@
     ],
     "criados": [
       {
+        "id": "magazine-100rnd-fast-mag-m60",
+        "arma": "m60",
+        "carregador": "100_fast (100 Fast)"
+      },
+      {
         "id": "magazine-60rnd-fast-mag-kts100-mk8",
         "arma": "kts100-mk8",
         "carregador": "60_fast (60 Fast)"
+      },
+      {
+        "id": "magazine-75rnd-fast-mag-m240l",
+        "arma": "m240l",
+        "carregador": "75_fast (75 Fast)"
       }
     ]
   },
   "canos": {
-    "removidos": [],
+    "removidos": [
+      {
+        "peca": "barrel-12-assaulter",
+        "arma": "nsw4",
+        "papelNoSite": "Cano Curto"
+      }
+    ],
     "criados": [
       {
         "id": "barrel-scw-10-extended",
@@ -7630,6 +8090,21 @@
       {
         "id": "barrel-ggh-22-light",
         "arma": "ggh-22",
+        "papel": "light"
+      },
+      {
+        "id": "barrel-nsw4-extended",
+        "arma": "nsw4",
+        "papel": "extended"
+      },
+      {
+        "id": "barrel-nsw4-heavy",
+        "arma": "nsw4",
+        "papel": "heavy"
+      },
+      {
+        "id": "barrel-nsw4-light",
+        "arma": "nsw4",
         "papel": "light"
       }
     ],

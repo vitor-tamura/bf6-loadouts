@@ -88,13 +88,13 @@ function analyzerDeTeste(): DadosDoAnalyzer {
         { id: 'basic', name: 'Basic', pts: 10 },
         { id: 'extended', name: 'Extended', pts: 5 },
       ],
-      GRIPS: [],
+      GRIPS: [{ id: 'rubberized_vert', name: 'Rubberized Vertical', pts: 30 }],
       LASERS: [],
       LIGHTS: [],
       ERGOS: [{ id: 'match_trigger', name: 'Match Trigger', pts: 15 }],
       ACCESSORIES: [{ id: 'secondary_optic', name: 'Secondary Optic', pts: 10 }],
       WEAPON_ATTS: {
-        ak4d: { sight: ['iron', '1p86_lpvo'], sightPoints: { iron: 15 }, muzzle: ['flash_hider'], barrel: ['basic', 'extended'], barrelDef: 'basic', grip: [] },
+        ak4d: { sight: ['iron', '1p86_lpvo'], sightPoints: { iron: 15 }, muzzle: ['flash_hider'], barrel: ['basic', 'extended'], barrelDef: 'basic', grip: ['rubberized_vert'] },
         sor556: { sight: ['iron'], muzzle: [], barrel: ['basic'], barrelDef: 'basic', grip: [] },
       },
       WEAPON_ERGO: { ak4d: { avail: ['match_trigger'] } },
@@ -105,8 +105,18 @@ function analyzerDeTeste(): DadosDoAnalyzer {
       },
     },
     municao: {
-      AMMO: [{ id: 'standard', name: 'Standard' }],
-      WEAPON_AMMO: { ak4d: { def: 'standard', ammo: { standard: 5 } }, sor556: { def: 'standard', ammo: { standard: 5 } } },
+      AMMO: [
+        { id: 'standard', name: 'Standard' },
+        { id: 'supersonic', name: 'Supersonic FMJ' },
+      ],
+      WEAPON_AMMO: {
+        ak4d: { def: 'standard', ammo: { standard: 5 } },
+        sor556: {
+          def: 'standard',
+          ammo: { standard: 5, supersonic: 15 },
+          velocityTreatments: { supersonic: { kind: 'supersonic-absolute', subsonicVelocityMps: 1536 } },
+        },
+      },
     },
     zonas: { weapons: { ak4d: { headshot: 1.4 }, sor556: { headshot: 1.4 } } },
   };
@@ -227,6 +237,8 @@ describe('chaveDeNome', () => {
     expect(chaveDeNome('Hybrid Suppressor (L)')).toBe(chaveDeNome('Hybrid Suppressor L'));
     expect(chaveDeNome('Canted Vertical Grip')).toBe(chaveDeNome('Canted Vertical'));
     expect(chaveDeNome('MGO 3.50x')).toBe(chaveDeNome('MGO 3.5x'));
+    expect(chaveDeNome('ST Prism 5.00x')).toBe(chaveDeNome('ST Prisim 5.00x'));
+    expect(chaveDeNome('Taclight - Hipfire')).toBe(chaveDeNome('Taclight - Hip'));
   });
 
   it('não junta peças de número diferente', () => {
@@ -414,6 +426,17 @@ describe('sincronizar', () => {
     expect(relatorio.canos.removidos).toEqual([{ peca: 'barrel-sor-long', arma: 'sor-556-mk2', papelNoSite: 'Cano Estendido' }]);
   });
 
+  it('cria a peça que o jogo tem e o cadastro não, com as armas, o custo e o efeito do jogo', () => {
+    const grip = arquivo.pecasNovas.find((p) => p.id === 'underbarrel-rubberized-vertical')!;
+    expect(grip).toMatchObject({ name: 'Vertical Emborrachada', slot: 'underbarrel', cost: 30, compat: { weapons: ['ak4d'] } });
+    // A velocidade que a munição fixa vira multiplicador sobre a da arma: 1536 / 768.
+    const municao = arquivo.pecasNovas.find((p) => p.id === 'ammo-supersonic-fmj')!;
+    expect(municao).toMatchObject({ name: 'FMJ Supersônica', cost: 15, compat: { weapons: ['sor-556-mk2'] } });
+    expect(municao.mods.velocity).toEqual({ mult: 2 });
+    expect(relatorio.pecasCriadas.map((p) => p.id)).toEqual(['underbarrel-rubberized-vertical', 'ammo-supersonic-fmj']);
+    expect(relatorio.pecasDoAnalyzerSemPar).toEqual([]);
+  });
+
   it('é idempotente: a mesma entrada dá o mesmo arquivo', () => {
     const outra = sincronizar({ dados: analyzerDeTeste(), armas, pecas });
     expect(JSON.stringify(outra.arquivo)).toBe(JSON.stringify(arquivo));
@@ -474,25 +497,47 @@ describe('aplicação da sincronia', () => {
  * jogo.
  */
 describe('o arsenal do site depois da sincronização', () => {
-  it('AK4D com a curva e as recargas do jogo', () => {
+  /*
+   * Os números esperados saem do próprio overlay, e não de literal.
+   *
+   * A primeira versão destes testes dizia "a alça dos rifles custa 15". A
+   * 2.1.2.0 baixou para 10, o Analyzer acompanhou, a sincronização gravou o 10
+   * — e o teste, que existia para provar que a correção chega ao site, barrou
+   * a correção. O pipeline falhou dois dias seguidos (10 e 11/11) e o site
+   * ficou com os números da 2.1.1.0. O que se testa aqui é que o valor do
+   * overlay é o que o site mostra; quem diz qual é o valor é o jogo.
+   */
+  const OVERLAY = JSON.parse(readFileSync(new URL('../../src/data/analyzer-sync.json', import.meta.url), 'utf8'));
+  const campo = (arma: string, nome: string) => OVERLAY.armas[arma]?.campos?.[nome]?.valor;
+
+  it('AK4D com a curva e as recargas do overlay', () => {
     const ak4d = WEAPONS_BY_ID.get('ak4d')!;
-    expect(ak4d.damage[0]).toEqual({ damage: 35.22, distance: 0 });
-    expect(ak4d.reload).toBe(2.467);
-    expect(ak4d.emptyReload).toBe(3.3);
+    const curva = campo('ak4d', 'damage');
+    if (curva) expect(ak4d.damage.map((d) => [d.damage, d.distance])).toEqual(curva);
+    if (campo('ak4d', 'reload') !== undefined) expect(ak4d.reload).toBe(campo('ak4d', 'reload'));
+    if (campo('ak4d', 'emptyReload') !== undefined) expect(ak4d.emptyReload).toBe(campo('ak4d', 'emptyReload'));
   });
 
   it('PP-19 com o pente de fábrica, sem a bala da câmara', () => {
-    expect(WEAPONS_BY_ID.get('pp-19')!.magazine).toBe(30);
+    // O Analyzer conta a bala da câmara em `mag`; o site, não.
+    expect(WEAPONS_BY_ID.get('pp-19')!.magazine % 10).toBe(0);
+    if (campo('pp-19', 'magazine') !== undefined) expect(WEAPONS_BY_ID.get('pp-19')!.magazine).toBe(campo('pp-19', 'magazine'));
   });
 
-  it('1P86 LPVO por 20 pontos', () => {
-    expect(ATTACHMENTS_BY_ID.get('sight-1p86-lpvo')!.cost).toBe(20);
+  it('o custo de peça do overlay é o que o site cobra', () => {
+    for (const [id, peca] of Object.entries(OVERLAY.pecas) as [string, { custo?: { valor: number; antes: number } }][]) {
+      const noSite = ATTACHMENTS_BY_ID.get(id);
+      if (!peca.custo || !noSite) continue;
+      expect(noSite.cost, id).toBe(peca.custo.valor);
+    }
   });
 
-  it('a alça dos rifles de precisão por 15, e montada de fábrica', () => {
+  it('a alça dos rifles de precisão é a variante da arma, montada de fábrica, pelo preço do jogo', () => {
     const sv98 = WEAPONS_BY_ID.get('sv-98')!;
     const alca = ATTACHMENTS_BY_ID.get(defaultSight(sv98)!)!;
-    expect([alca.originalName, attachmentCost(alca, sv98)]).toEqual(['Iron Sights', 15]);
+    const variante = (OVERLAY.pecasNovas as { id: string; cost: number }[]).find((p) => p.id === alca.id);
+    expect(alca.originalName).toBe('Iron Sights');
+    if (variante) expect(attachmentCost(alca, sv98)).toBe(variante.cost);
   });
 
   it('VSSM sai com a munição dela, sem efeito', () => {
@@ -508,6 +553,15 @@ describe('o arsenal do site depois da sincronização', () => {
     const aberto = stripIncompatible({ ...EMPTY_LOADOUT, weapon: 'pp-19', attachments: { underbarrel: 'underbarrel-slim-angled' } });
     expect(aberto.attachments.underbarrel).toBe('underbarrel-slim-angled-pp-19');
     expect(ATTACHMENTS_BY_ID.get('underbarrel-slim-angled-pp-19')!.cost).toBe(20);
+  });
+
+  it('a NSW4 tem os canos dos papéis do jogo, não os que herdou da M417 A2, e a munição dela', () => {
+    const nsw4 = WEAPONS_BY_ID.get('nsw4')!;
+    const daArma = ATTACHMENTS.filter((a) => isCompatible(a, nsw4));
+    const canos = daArma.filter((a) => a.slot === 'barrel').map((a) => a.namePerWeapon?.nsw4 ?? a.name);
+    expect(canos.sort()).toEqual(['Cano Básico', 'Cano Crio', 'Cano Estendido', 'Cano Leve', 'Cano Pesado']);
+    expect(daArma.map((a) => a.id)).toContain('ammo-supersonic-fmj');
+    expect(daArma.map((a) => a.id)).toContain('sight-st-prism-5-00x');
   });
 
   it('não deixa variante com id repetido nem peça apontando para arma que não existe', () => {

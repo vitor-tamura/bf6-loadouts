@@ -265,10 +265,11 @@ describe('munição', () => {
     expect(defaultSight(WEAPONS_BY_ID.get('ak4d')!)).toBe('sight-iron-sights');
     // Ferrolho também enxerga por alça de ferro: o filtro por categoria a negava
     // à classe inteira, e as duas fontes que olham o Gunsmith dizem o contrário.
-    // Nos rifles de precisão ela custa 15 (`sightPoints.iron` no Analyzer), e
-    // por isso é a variante da arma.
+    // Nos rifles de precisão ela tem preço próprio (`sightPoints.iron` no
+    // Analyzer), e por isso é a variante da arma. O preço em si é o do jogo e
+    // muda de patch para patch — a 2.1.2.0 o levou de 15 para 10 —, então quem
+    // o confere é o teste da sincronização, contra o overlay.
     expect(defaultSight(WEAPONS_BY_ID.get('sv-98')!)).toBe('sight-iron-sights-sv-98');
-    expect(ATTACHMENTS_BY_ID.get('sight-iron-sights-sv-98')!.cost).toBe(15);
     expect(defaultSight(WEAPONS_BY_ID.get('umg-40')!)).not.toBe('sight-iron-sights');
   });
 

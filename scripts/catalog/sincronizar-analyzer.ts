@@ -86,6 +86,25 @@ import { DATA, ROOT, compareVersions, isGameVersion, listVersions, log } from '.
 import { fonteAtiva } from './lib/sources.ts';
 
 export const ARQUIVO = join(ROOT, 'src', 'data', 'analyzer-sync.json');
+
+/**
+ * As armas que entraram no site pela rotina de novidades (`novidades.ts`), e
+ * não pela curadoria.
+ *
+ * A novidade nasce com os canos da arma gêmea — a NSW4 entrou com os da
+ * M417 A2: 12" Assaulter, 13" Commando —, porque no dia em que aparece ninguém
+ * sabe o nome físico dos dela. Nessas armas o cano do site não é escolha de
+ * ninguém para proteger, e a sincronização refaz o conjunto inteiro pelos
+ * papéis do jogo (ver `sincronizarCanos`).
+ */
+function armasDetectadas(): Set<string> {
+  try {
+    const novidades = JSON.parse(readFileSync(join(ROOT, 'src', 'data', 'novidades.json'), 'utf8'));
+    return new Set((novidades.armas ?? []).map((arma: { id: string }) => arma.id));
+  } catch {
+    return new Set();
+  }
+}
 export const RELATORIO = join(DATA, 'validation', 'analyzer-sync-report.json');
 
 /** Os arquivos do Analyzer que esta rotina lê, todos em `data/`. */
@@ -161,7 +180,17 @@ export interface DadosDoAnalyzer {
   };
   municao: {
     AMMO: { id: string; name: string }[];
-    WEAPON_AMMO: Record<string, { def: string; ammo: Record<string, number> }>;
+    WEAPON_AMMO: Record<
+      string,
+      {
+        def: string;
+        ammo: Record<string, number>;
+        /** Munição que fixa a velocidade da bala (a supersônica da NSW4): m/s absolutos. */
+        velocityTreatments?: Record<string, { kind?: string; subsonicVelocityMps?: number }>;
+        /** Munição que troca o projétil (o #00 das escopetas): bagos e curva de dano. */
+        projectileOverrides?: Record<string, { pellets?: number; dmg?: { r: number; d: number }[] }>;
+      }
+    >;
   };
   zonas: { weapons: Record<string, { headshot?: number }> };
 }
@@ -323,6 +352,11 @@ export function chaveDeNome(nome: string): string {
     .replace(/laser\s*\/?\s*light\s+combo/g, 'combo')
     .replace(/\s+\d+(?:[.,]\d+)?\s*-\s*\d+(?:[.,]\d+)?\s*x\s*$/, '')
     .replace(/\s+grip\s*$/, '')
+    // Grafias que não são peças diferentes: o Analyzer escreve "ST Prisim
+    // 5.00x" (o jogo, "Prism"), e o site chama de "Taclight - Hipfire" o que lá
+    // é "Taclight - Hip".
+    .replace(/\bprisim\b/g, 'prism')
+    .replace(/\bhipfire\b/g, 'hip')
     .trim();
   return chaveDePeca(limpo);
 }
@@ -387,6 +421,217 @@ export const TRAVAS_DA_CURADORIA: Record<string, { armas: string[]; motivo: stri
     motivo: 'desligado pelo estúdio por comunicado em agosto de 2026; o arquivo do jogo ainda o lista',
   },
 };
+
+/**
+ * A peça que o jogo tem e o cadastro não.
+ *
+ * Até a 2.1.2.0 a sincronização só corrigia peças que o site já conhecia: o
+ * que o Analyzer listava sem par no cadastro ia para o relatório e parava ali.
+ * A NSW4 chegou com a FMJ Supersônica, a PA-SL 2.50x entrou em 63 armas, a
+ * Vertical Emborrachada em 53 — e nenhuma aparecia no montador, por mais que
+ * o fluxo rodasse.
+ *
+ * Agora a peça sem par nasce no overlay (`pecasNovas`), com as armas e o custo
+ * do jogo. Esta tabela traduz as conhecidas: nome em português, descrição e o
+ * efeito na escala do site — copiado da peça do cadastro que tem **o mesmo
+ * efeito no arquivo do jogo** (`semente`), ou calculado arma a arma quando o
+ * jogo fixa um número absoluto (velocidade da bala, bagos). Peça que não está
+ * aqui nasce do mesmo jeito, com o nome do jogo e sem efeito modelado, e o
+ * relatório a marca como não traduzida (`pecasCriadas[].traduzida`): aparece
+ * no montador no mesmo dia, e a curadoria completa depois.
+ *
+ * Mira de ferro própria de uma arma (Flip-Up Irons da M16A4, Carry Handle da
+ * M4A1) não nasce: o site já monta a alça de ferro de série em toda arma, e a
+ * peça a mais seria a mesma alça com outro nome.
+ */
+interface PecaDeFora {
+  name: string;
+  description: string;
+  /** Slot do site, quando o do Analyzer mora em dois (laser e lanterna). */
+  slot?: SlotId;
+  /** Peça do cadastro com o mesmo efeito no jogo: o `mods` vem dela. */
+  semente?: string;
+  mods?: Attachment['mods'];
+  magnification?: number;
+  /** O efeito numa arma, quando ele depende da arma (velocidade absoluta, bagos). */
+  naArma?: (contexto: { fora: string; item: string; dados: DadosDoAnalyzer }) => Partial<Attachment> | null;
+}
+
+
+/** A bala com a velocidade que a munição fixa, como multiplicador sobre a da arma. */
+function velocidadeFixa({ fora, item, dados }: { fora: string; item: string; dados: DadosDoAnalyzer }) {
+  const alvo = dados.municao.WEAPON_AMMO[fora]?.velocityTreatments?.[item]?.subsonicVelocityMps;
+  const base = dados.armas.find((a) => a.id === fora)?.bulletVel;
+  if (!alvo || !base) return null;
+  return { velocity: { mult: arredondar(alvo / base, 3) } };
+}
+
+export const PECAS_DE_FORA: Record<string, PecaDeFora> = {
+  pa_sl_2_50x: {
+    name: 'PA-SL 2.50x',
+    description: 'Mira com ampliação de 2.5×.',
+    semente: 'sight-bf-2m-2-50x',
+    magnification: 2.5,
+  },
+  rubberized_vert: {
+    // No jogo: os mesmos três degraus de recuo da Vertical Estriada, sem o degrau de dispersão em movimento.
+    name: 'Vertical Emborrachada',
+    description: 'O controle de recuo da Vertical Estriada, sem perder precisão ao mirar andando.',
+    mods: { verticalRecoil: { mult: 0.84 }, control: { add: 7 } },
+  },
+  hip_taclight: {
+    name: 'Lanterna sem Visada',
+    description: 'Feixe que acende no tiro sem visada.',
+    slot: 'leftRail',
+    semente: 'leftRail-taclight-hipfire',
+  },
+  supersonic: {
+    // `velocityTreatments.supersonic` fixa 611 m/s na NSW4, que sai de fábrica subsônica (313 m/s).
+    name: 'FMJ Supersônica',
+    description: 'Tira a arma do subsônico: bala quase duas vezes mais rápida, um degrau a mais de recuo e o disparo volta a aparecer no minimapa.',
+    mods: { verticalRecoil: { mult: 1.06 } },
+    naArma: (contexto) => {
+      const velocidade = velocidadeFixa(contexto);
+      return velocidade ? { mods: { ...velocidade, verticalRecoil: { mult: 1.06 } } } : null;
+    },
+  },
+  subsonic_pen: {
+    name: 'Subsônica Perfurante',
+    description: 'Subsônica com núcleo de tungstênio: bala lenta, fora do minimapa, e atravessa cobertura como a Penetração.',
+    mods: {},
+    naArma: (contexto) => {
+      const velocidade = velocidadeFixa(contexto);
+      return velocidade ? { mods: velocidade } : null;
+    },
+  },
+  buckshot_00: {
+    name: 'Chumbo #00',
+    description: 'Menos bagos e mais pesados: o mesmo dano no tiro inteiro, que alcança alguns metros mais longe.',
+    semente: 'ammo-buckshot',
+    naArma: ({ fora, item, dados }) => {
+      const troca = dados.municao.WEAPON_AMMO[fora]?.projectileOverrides?.[item];
+      const arma = dados.armas.find((a) => a.id === fora);
+      const curva = arma?.dmg;
+      if (!troca?.pellets || !troca.dmg?.length || !curva?.length) return null;
+      const ultimo = (pontos: { r: number }[]) => pontos[pontos.length - 1].r || 1;
+      return {
+        pelletsOverride: troca.pellets,
+        mods: {
+          damage: { mult: arredondar(troca.dmg[0].d / curva[0].d, 3) },
+          range: { mult: arredondar(ultimo(troca.dmg) / ultimo(curva), 2) },
+        },
+      };
+    },
+  },
+  fast_deploy: {
+    // No jogo é o mesmo efeito da Cobertura de Trilho: um degrau no saque e na volta do sprint.
+    name: 'Coldre Rápido',
+    description: 'Saca e volta do sprint mais rápido.',
+    semente: 'ergonomics-rail-cover',
+  },
+  fast_deploy_10: {
+    // A tela do jogo: "Greatly improves weapon draw speed", com tiro sem visada e mobilidade para cima.
+    name: 'Pistoleiro',
+    description: 'Saca bem mais rápido, volta do sprint antes e melhora o tiro sem visada.',
+    mods: { hipfire: { add: 6 }, mobility: { add: 3 } },
+  },
+  burst_training: {
+    name: 'Treino de Rajada',
+    description: 'Põe a arma em rajada: o recuo varia bem menos de um tiro para o outro, e o automático sai.',
+    mods: { control: { add: 6 } },
+  },
+  burst_mode: {
+    name: 'Modo Rajada',
+    description: 'Põe a arma em rajada: o recuo varia bem menos de um tiro para o outro.',
+    mods: { control: { add: 6 } },
+  },
+  grtbc_burst_mode: {
+    name: 'Modo Rajada',
+    description: 'Põe a arma em rajada: o recuo varia bem menos de um tiro para o outro, com um degrau a menos de recuo.',
+    mods: { control: { add: 6 }, verticalRecoil: { mult: 0.97 } },
+  },
+};
+
+/** Mira de ferro própria de uma arma: não vira peça (ver `PECAS_DE_FORA`). */
+const MIRAS_DE_FERRO = new Set(['flip_up_irons', 'carry_handle_irons', 'cqb_sights', 'iron']);
+
+const slug = (texto: string) =>
+  texto
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+
+/**
+ * A peça nova, com as armas e o custo do jogo, e a variante onde o custo ou o
+ * efeito muda de arma para arma. Devolve falso quando a peça não deve nascer.
+ */
+export function criarPecaDeFora(
+  config: Pick<ConfigDeSlot, 'nome' | 'slots' | 'fonte'>,
+  registro: { item: string; nome: string; armas: string[]; pts: number[] },
+  obra: Construcao,
+): boolean {
+  if (MIRAS_DE_FERRO.has(registro.item) || !obra.dados) return false;
+  const traducao = PECAS_DE_FORA[registro.item];
+  const custos = registro.pts.filter(Number.isFinite);
+  if (!custos.length) return false;
+
+  const ehLuz = obra.dados.pecas.LIGHTS.some((p) => p.id === registro.item);
+  const slot: SlotId = traducao?.slot ?? (config.slots.length > 1 ? (ehLuz ? 'leftRail' : 'rightRail') : config.slots[0]);
+  // Dois itens com o mesmo nome no jogo ("Burst Mode" da SL9 e o da GRT-BC) ficam com o id do item.
+  const pelo = `${slot}-${slug(registro.nome)}`;
+  const id = obra.existe(pelo) ? `${pelo}-${registro.armas.length === 1 ? registro.armas[0] : slug(registro.item)}` : pelo;
+  if (obra.existe(id)) return false;
+
+  const semente = traducao?.semente ? obra.peca(traducao.semente) : undefined;
+  const geral = moda(custos);
+  const fonte = config.fonte;
+  const dados = obra.dados;
+
+  // O efeito de cada arma; a peça geral fica com o da primeira, e quem difere ganha variante.
+  const efeitos = registro.armas.map((arma) => traducao?.naArma?.({ fora: obra.pares.get(arma)!, item: registro.item, dados }) ?? null);
+  const efeitoGeral = efeitos.find(Boolean) ?? null;
+
+  const base: Attachment = {
+    id,
+    name: traducao?.name ?? registro.nome,
+    originalName: registro.nome,
+    slot,
+    cost: geral,
+    description: traducao?.description ?? 'Peça nova nos arquivos do jogo; o efeito ainda não foi traduzido para os números do site.',
+    mods: structuredClone(traducao?.mods ?? semente?.mods ?? {}),
+    ...(traducao?.magnification ?? semente?.magnification ? { magnification: traducao?.magnification ?? semente?.magnification } : {}),
+    ...(efeitoGeral ?? {}),
+    compat: { weapons: [] },
+    provenance: 'game',
+  };
+
+  const naGeral: string[] = [];
+  registro.armas.forEach((arma, i) => {
+    const pts = registro.pts[i];
+    const mesmoEfeito = JSON.stringify(efeitos[i]) === JSON.stringify(efeitoGeral);
+    if ((pts === geral || !Number.isFinite(pts)) && mesmoEfeito) {
+      naGeral.push(arma);
+      obra.escolher(config.nome, arma, registro.item, id);
+      return;
+    }
+    const variante = obra.variante(base, arma, Number.isFinite(pts) ? pts : geral, registro.item, fonte, efeitos[i] ?? {});
+    if (variante) obra.escolher(config.nome, arma, registro.item, variante.id);
+  });
+
+  base.compat = { weapons: [...new Set(naGeral)].sort() };
+  obra.pecasNovas.push({ ...base, origem: { fonte, item: registro.item, criada: true } } as Attachment & { origem: unknown });
+  obra.relatorio.pecasCriadas.push({
+    id,
+    item: registro.item,
+    nome: base.name,
+    custo: geral,
+    armas: [...registro.armas].sort(),
+    traduzida: Boolean(traducao),
+  });
+  return true;
+}
 
 /** A arma de que a peça é variante — `sight-iron-sights-interdictor` é a da Interdictor —, ou nulo. */
 export function varianteDe(peca: Pick<Attachment, 'id' | 'compat'>, idsDeArma: string[]): string | null {
@@ -453,6 +698,8 @@ export interface Relatorio {
   compat: Record<string, { adicionadas: { peca: string; arma: string }[]; removidas: { peca: string; arma: string }[] }>;
   variantes: { id: string; de: string; arma: string; custo: number; item: string }[];
   pecasDoAnalyzerSemPar: { slot: string; item: string; nome: string; armas: string[] }[];
+  /** Peça que o jogo tem e o cadastro não tinha, criada pela sincronização (`PECAS_DE_FORA`). */
+  pecasCriadas: { id: string; item: string; nome: string; custo: number; armas: string[]; traduzida: boolean }[];
   pecasDoSiteSemPar: { id: string; slot: SlotId; originalName: string }[];
   /** Peça que, com as correções, não sobra em arma nenhuma do jogo — fica no cadastro, sem aparecer no montador. */
   pecasSemArma: { id: string; slot: SlotId; originalName: string }[];
@@ -489,6 +736,8 @@ class Construcao {
   armas: Weapon[];
   pecasDoSite: Attachment[];
   pares: Map<string, string>;
+  /** Os dados do Analyzer, para a peça nova calcular o efeito numa arma. */
+  dados: DadosDoAnalyzer | null = null;
   private porId: Map<string, Attachment>;
 
   constructor(armas: Weapon[], pecasDoSite: Attachment[], pares: Map<string, string>) {
@@ -507,6 +756,7 @@ class Construcao {
       compat: {},
       variantes: [],
       pecasDoAnalyzerSemPar: [],
+      pecasCriadas: [],
       pecasDoSiteSemPar: [],
       pecasSemArma: [],
       travadas: [],
@@ -762,7 +1012,7 @@ export function sincronizarSlot(config: ConfigDeSlot, obra: Construcao): void {
 
   const atribuicoes = new Map<string, Atribuicao[]>();
   const enumeradas = new Set<string>();
-  const semPar = new Map<string, { slot: string; item: string; nome: string; armas: string[] }>();
+  const semPar = new Map<string, { slot: string; item: string; nome: string; armas: string[]; pts: number[] }>();
 
   for (const [site, fora] of obra.pares) {
     const itens = config.itens(fora);
@@ -783,8 +1033,9 @@ export function sincronizarSlot(config: ConfigDeSlot, obra: Construcao): void {
 
       if (!familia.length) {
         const k = `${item.id}:${item.nome}`;
-        const registro = semPar.get(k) ?? { slot: config.nome, item: item.id, nome: item.nome, armas: [] };
+        const registro = semPar.get(k) ?? { slot: config.nome, item: item.id, nome: item.nome, armas: [], pts: [] };
         registro.armas.push(site);
+        registro.pts.push(item.pts);
         semPar.set(k, registro);
         continue;
       }
@@ -816,7 +1067,11 @@ export function sincronizarSlot(config: ConfigDeSlot, obra: Construcao): void {
     }
   }
 
-  obra.relatorio.pecasDoAnalyzerSemPar.push(...semPar.values());
+  for (const registro of semPar.values()) {
+    if (criarPecaDeFora(config, registro, obra)) continue;
+    const { slot, item, nome, armas } = registro;
+    obra.relatorio.pecasDoAnalyzerSemPar.push({ slot, item, nome, armas });
+  }
 
   for (const p of comPar) {
     const daPeca = atribuicoes.get(p.id) ?? [];
@@ -1110,6 +1365,7 @@ function sincronizarCanos(obra: Construcao, dados: DadosDoAnalyzer): void {
   const fonte = 'data/attachments.json#WEAPON_ATTS.barrel';
   const canos = obra.pecasDoSite.filter((p) => p.slot === 'barrel');
   const daTabela = new Map(dados.pecas.BARRELS.map((b) => [b.id, b]));
+  const detectadas = armasDetectadas();
 
   for (const [site, fora] of obra.pares) {
     const slots = dados.pecas.WEAPON_ATTS[fora];
@@ -1149,6 +1405,19 @@ function sincronizarCanos(obra: Construcao, dados: DadosDoAnalyzer): void {
     const repetidos = [...porPapel].filter(([nome, lista]) => papeis.has(nome) && lista.length > 1);
     for (const [papel, lista] of repetidos) {
       obra.relatorio.canos.duplicados.push({ arma: site, papel, pecas: lista.map((p) => p.id) });
+    }
+
+    /*
+      Arma que veio da rotina de novidades: os canos são os da gêmea, e o
+      conflito de papel não é de curadoria nenhuma. Sai o que sobra, nasce o
+      que falta — e os canos que ela herdou e servem num papel do jogo ficam.
+    */
+    if (sobram.length && faltam.length && detectadas.has(site)) {
+      for (const c of sobram) {
+        obra.remover(c.peca, site, fonte, 'barrel');
+        obra.relatorio.canos.removidos.push({ peca: c.peca.id, arma: site, papelNoSite: c.papel });
+      }
+      sobram.length = 0;
     }
 
     if (sobram.length && faltam.length) {
@@ -1291,6 +1560,7 @@ export function sincronizar({
 }): { arquivo: Omit<ArquivoDeSincronia, 'fonte' | '_leiaMe'>; relatorio: Relatorio } {
   const { pares, siteSemPar, analyzerSemPar } = casarArmas(armas, dados.armas);
   const obra = new Construcao(armas, pecas, pares);
+  obra.dados = dados;
   obra.relatorio.armasSemPar = { site: siteSemPar, analyzer: analyzerSemPar };
 
   const armasCorrigidas: ArquivoDeSincronia['armas'] = {};
@@ -1335,6 +1605,7 @@ export function sincronizar({
     compatRemovidas: contar('removidas'),
     variantesNovas: r.variantes.length,
     pecasDoAnalyzerSemPar: r.pecasDoAnalyzerSemPar.length,
+    pecasCriadas: r.pecasCriadas.length,
     pecasDoSiteSemPar: r.pecasDoSiteSemPar.length,
     pecasSemArma: r.pecasSemArma.length,
     carregadoresAmbiguos: r.carregadores.ambiguos.length,
@@ -1534,6 +1805,7 @@ async function main(): Promise<void> {
     'compatibilidade': `+${r.compatAdicionadas} / -${r.compatRemovidas}`,
     'variantes novas': r.variantesNovas,
     'peças do Analyzer sem par no site': r.pecasDoAnalyzerSemPar,
+    'peças criadas pela sincronização': relatorio.pecasCriadas.map((p) => `${p.id} (${p.armas.length} armas, ${p.custo} pts${p.traduzida ? '' : ', sem tradução'})`),
     'peças do site sem par no Analyzer': r.pecasDoSiteSemPar,
     'carregadores ambíguos': r.carregadoresAmbiguos,
     'armas com cano para revisar': r.canosParaRevisar,

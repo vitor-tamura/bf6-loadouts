@@ -2,9 +2,9 @@
   "_leiaMe": "Gerado por `npm run catalog:sincronizar-analyzer` a partir do BF6-Weapon-Analyzer. Não edite à mão: corrija o cadastro em weapons.ts ou attachments.ts e rode o script de novo. Relatório em data/validation/analyzer-sync-report.json.",
   "fonte": {
     "repo": "raymdl/BF6-Weapon-Analyzer",
-    "commit": "43c6f57c5523d6c22fb625f99098c4fe8852fd72",
-    "data": "2026-10-31T00:26:00Z",
-    "versaoDeclarada": "2.1.1.0"
+    "commit": "8395d17d42d38fc0b7c9fbdef8fad92a446f330d",
+    "data": "2026-11-10T22:26:06-05:00",
+    "versaoDeclarada": "2.1.2.0"
   },
   "armas": {
     "18-5ks-k": {
@@ -1332,7 +1332,8 @@
         "damage": {
           "valor": [
             [62, 0],
-            [58, 21]
+            [58, 21],
+            [50, 150]
           ],
           "antes": [
             [70, 0],
@@ -1715,7 +1716,8 @@
             [26.05, 9],
             [20.67, 21],
             [17.13, 36],
-            [14.62, 75]
+            [14.62, 55],
+            [12.76, 75]
           ],
           "antes": [
             [33.4, 0],
@@ -2287,9 +2289,14 @@
       }
     },
     "ammo-frangible": {
+      "custo": {
+        "valor": 15,
+        "antes": 20,
+        "fonte": "data/ammo.json#WEAPON_AMMO"
+      },
       "compat": {
         "fonte": "data/ammo.json#WEAPON_AMMO",
-        "remover": ["m357-trait"]
+        "remover": ["mk-24"]
       }
     },
     "ammo-hollow-point": {
@@ -2312,7 +2319,7 @@
     "ammo-polymer-case": {
       "compat": {
         "fonte": "data/ammo.json#WEAPON_AMMO",
-        "adicionar": ["ak-205", "brod-3", "grt-bc", "grt-cps", "m39-emr", "m417-a2", "m4a1", "qbz-192", "rspr", "sg-553r", "sor-300sc", "usg-90"]
+        "adicionar": ["ak-205", "brod-3", "grt-bc", "grt-cps", "m39-emr", "m417-a2", "m4a1", "nsw4", "qbz-192", "rspr", "sg-553r", "sor-300sc", "usg-90"]
       }
     },
     "ammo-subsonic": {
@@ -2330,8 +2337,8 @@
     "ammo-synthetic-tip": {
       "compat": {
         "fonte": "data/ammo.json#WEAPON_AMMO",
-        "remover": ["ak-205", "grt-cps", "lmr27", "qbz-192", "rpkm", "umg-40", "vssm"],
-        "adicionar": ["pp-19"]
+        "remover": ["ak-205", "drs-iar", "grt-cps", "lmr27", "qbz-192", "rpkm", "umg-40", "vssm"],
+        "adicionar": ["es-57", "ggh-22", "pp-19"]
       },
       "custo": {
         "valor": 20,
@@ -2339,16 +2346,16 @@
         "fonte": "data/ammo.json#WEAPON_AMMO"
       }
     },
-    "ammo-tungsten-core": {
+    "barrel-12-assaulter": {
       "compat": {
-        "fonte": "data/ammo.json#WEAPON_AMMO",
-        "remover": ["m357-trait"]
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel",
+        "remover": ["nsw4"]
       }
     },
     "ergonomics-aftermarket-buffer": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ERGO",
-        "adicionar": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "drs-iar", "ef88", "grt-bc", "grt-cps", "m39-emr", "m417-a2", "m4a1", "nvo-228e", "pp-19", "pw5a3", "rpk-74m", "rpkm", "sg-553r", "sgx", "sor-300sc", "sor-556-mk2", "svdm", "umg-40", "usg-90", "vcr-2"]
+        "adicionar": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "drs-iar", "ef88", "grt-bc", "grt-cps", "m39-emr", "m417-a2", "m4a1", "nsw4", "nvo-228e", "pp-19", "pw5a3", "rpk-74m", "rpkm", "sg-553r", "sgx", "sor-300sc", "sor-556-mk2", "svdm", "umg-40", "usg-90", "vcr-2"]
       }
     },
     "ergonomics-dlc-bolt": {
@@ -2361,7 +2368,7 @@
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ERGO",
         "remover": ["m357-trait", "sor-300sc"],
-        "adicionar": ["ef88"]
+        "adicionar": ["ef88", "nsw4"]
       }
     },
     "ergonomics-magwell-flare": {
@@ -2373,7 +2380,7 @@
     "ergonomics-rail-cover": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ERGO",
-        "adicionar": ["brod-3", "drs-iar", "kts100-mk8", "m240l", "m4a1", "qbz-192", "sor-300sc", "sor-556-mk2"]
+        "adicionar": ["b36a4", "brod-3", "drs-iar", "kts100-mk8", "l85a3", "m1014", "m2010-esr", "m240l", "m250", "m277", "m433", "m4a1", "nsw4", "psr", "qbz-192", "rpk-74m", "sgx", "sor-300sc", "sor-556-mk2", "svk-86"]
       }
     },
     "leftRail-taclight-aimed": {
@@ -2409,7 +2416,7 @@
     "magazine-10rnd-magazine": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_MAG",
-        "remover": ["interdictor"],
+        "remover": ["interdictor", "nsw4"],
         "adicionar": ["mini-scout", "vz-61"]
       }
     },
@@ -2449,13 +2456,14 @@
       "compat": {
         "fonte": "data/attachments.json#WEAPON_MAG",
         "remover": ["ak4d", "ef88", "grt-cps", "lmr27", "m277", "m39-emr", "m417-a2", "svdm", "tr-7", "vssm"],
-        "adicionar": ["pp-19"]
+        "adicionar": ["grt-bc", "pp-19"]
       }
     },
     "magazine-20rnd-magazine": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_MAG",
-        "remover": ["ef88", "lmr27", "scw-10"]
+        "remover": ["ef88", "lmr27", "scw-10"],
+        "adicionar": ["grt-bc"]
       }
     },
     "magazine-21rnd-magazine": {
@@ -2470,23 +2478,44 @@
         "remover": ["umg-40"]
       }
     },
+    "magazine-25rnd-fast-mag-mk-24": {
+      "custo": {
+        "valor": 25,
+        "antes": 20,
+        "fonte": "data/attachments.json#WEAPON_MAG"
+      }
+    },
     "magazine-25rnd-magazine": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_MAG",
-        "remover": ["m417-a2", "scw-10", "umg-40"]
+        "remover": ["nsw4", "scw-10", "umg-40"]
+      }
+    },
+    "magazine-25rnd-magazine-mk-24": {
+      "custo": {
+        "valor": 20,
+        "antes": 15,
+        "fonte": "data/attachments.json#WEAPON_MAG"
       }
     },
     "magazine-30rnd-fast-mag": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_MAG",
-        "adicionar": ["pp-19"]
+        "adicionar": ["nsw4", "pp-19"]
       }
     },
     "magazine-30rnd-magazine": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_MAG",
         "remover": ["ak4d", "es-57", "grt-cps", "m277", "tr-7"],
-        "adicionar": ["pp-19"]
+        "adicionar": ["nsw4", "pp-19"]
+      }
+    },
+    "magazine-30rnd-magazine-mk-24": {
+      "custo": {
+        "valor": 40,
+        "antes": 25,
+        "fonte": "data/attachments.json#WEAPON_MAG"
       }
     },
     "magazine-35rnd-magazine": {
@@ -2498,19 +2527,22 @@
     "magazine-36rnd-magazine": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_MAG",
-        "remover": ["rpk-74m", "rpkm"]
+        "remover": ["rpk-74m", "rpkm"],
+        "adicionar": ["nsw4"]
       }
     },
     "magazine-40rnd-fast-mag": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_MAG",
-        "remover": ["ef88", "rpk-74m", "rpkm"]
+        "remover": ["ef88", "rpk-74m", "rpkm"],
+        "adicionar": ["nsw4"]
       }
     },
     "magazine-40rnd-magazine": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_MAG",
-        "remover": ["ef88", "rpk-74m", "rpkm"]
+        "remover": ["ef88", "rpk-74m", "rpkm"],
+        "adicionar": ["nsw4"]
       }
     },
     "magazine-41rnd-magazine": {
@@ -2604,7 +2636,8 @@
     "magazine-60rnd-magazine": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_MAG",
-        "remover": ["kts100-mk8", "rpk-74m", "rpkm"]
+        "remover": ["kts100-mk8", "rpk-74m", "rpkm"],
+        "adicionar": ["ak-205"]
       }
     },
     "magazine-7-shell-tube": {
@@ -2658,13 +2691,15 @@
     "muzzle-flash-comp": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
-        "adicionar": ["ak4d", "b36a4", "l110", "lmr27", "m123k", "m250", "m277", "m433", "m4a1", "m60", "pw5a3", "pw7a2", "rpkm"]
+        "remover": ["sv-98"],
+        "adicionar": ["ak4d", "b36a4", "es-57", "l110", "lmr27", "m123k", "m250", "m277", "m433", "m4a1", "m60", "pw5a3", "pw7a2", "rpkm"]
       }
     },
     "muzzle-flash-hider": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
-        "remover": ["m357-trait", "vssm", "vz-61"]
+        "remover": ["m357-trait", "vssm", "vz-61"],
+        "adicionar": ["l115", "sv-98"]
       }
     },
     "muzzle-hybrid-suppressor-k": {
@@ -2691,7 +2726,7 @@
     "muzzle-lightened-suppressor": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
-        "remover": ["pp-19", "vssm"]
+        "remover": ["pp-19", "sv-98", "vssm"]
       }
     },
     "muzzle-linear-comp": {
@@ -2706,16 +2741,30 @@
         "remover": ["sv-98", "vssm"]
       }
     },
+    "muzzle-multi-port-brake": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
+        "adicionar": ["18-5ks-k"]
+      }
+    },
     "muzzle-single-port-brake": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
-        "remover": ["es-57", "ggh-22", "interdictor", "m357-trait", "m45a1", "p18", "pp-19", "vssm", "vz-61"]
+        "remover": ["es-57", "ggh-22", "interdictor", "m357-trait", "m45a1", "p18", "pp-19", "vssm", "vz-61"],
+        "adicionar": ["nsw4"]
       }
     },
     "muzzle-standard-suppressor": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
-        "remover": ["interdictor", "m357-trait", "pp-19", "vssm"]
+        "remover": ["interdictor", "m357-trait", "pp-19", "vssm"],
+        "adicionar": ["sv-98"]
+      }
+    },
+    "muzzle-triple-port-brake": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
+        "remover": ["18-5ks-k"]
       }
     },
     "opticAccessory-canted-iron-sights": {
@@ -2781,7 +2830,7 @@
       },
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.sight",
-        "adicionar": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "db-12", "drs-iar", "ef88", "grt-bc", "kord-6p67", "kts100-mk8", "kv9", "l110", "l85a3", "m1014", "m121-a2", "m123k", "m16a4", "m240l", "m250", "m277", "m417-a2", "m433", "m4a1", "m60", "mk-24", "nvo-228e", "pp-19", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "tr-7", "umg-40", "usg-90", "vcr-2", "z84m"]
+        "adicionar": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "db-12", "drs-iar", "ef88", "grt-bc", "kord-6p67", "kts100-mk8", "kv9", "l110", "l85a3", "m1014", "m121-a2", "m123k", "m16a4", "m240l", "m250", "m277", "m417-a2", "m433", "m4a1", "m60", "mk-24", "nsw4", "nvo-228e", "pp-19", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "tr-7", "umg-40", "usg-90", "vcr-2", "z84m"]
       }
     },
     "sight-1p87-1-50x": {
@@ -2806,6 +2855,12 @@
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.sight",
         "adicionar": ["18-5ks-k", "cz3a1", "db-12", "elr-40", "es-57", "ggh-22", "interdictor", "kv9", "l115", "m1014", "m2010-esr", "m357-trait", "m44", "m45a1", "m87a1", "mini-scout", "p18", "pp-19", "psr", "pw5a3", "pw7a2", "rspr", "scw-10", "sgx", "sl9", "sv-98", "umg-40", "usg-90", "vz-61"]
+      }
+    },
+    "sight-aperture-sights": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["m16a4", "m4a1", "pw7a2"]
       }
     },
     "sight-baker-3-00x": {
@@ -2835,49 +2890,69 @@
     "sight-dvo-lpvo": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.sight",
-        "adicionar": ["elr-40", "l115", "m277", "sor-300sc"]
+        "adicionar": ["ak-205", "brod-3", "elr-40", "grt-bc", "l115", "m277", "m417-a2", "m4a1", "nsw4", "qbz-192", "sg-553r", "sor-300sc"]
       }
     },
     "sight-grim-1-50x": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.sight",
-        "adicionar": ["18-5ks-k", "db-12", "elr-40", "interdictor", "l115", "m1014", "m2010-esr", "m87a1", "mini-scout", "psr", "sv-98"]
+        "adicionar": ["18-5ks-k", "db-12", "elr-40", "interdictor", "l115", "m1014", "m2010-esr", "m44", "m87a1", "mini-scout", "psr", "sv-98"]
       }
     },
     "sight-iron-sights": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.sight",
-        "remover": ["l115", "m2010-esr", "mini-scout", "psr", "sv-98"]
+        "remover": ["l115", "m16a4", "m2010-esr", "m4a1", "mini-scout", "psr", "pw7a2", "sv-98"]
+      }
+    },
+    "sight-iron-sights-elr-40": {
+      "custo": {
+        "valor": 10,
+        "antes": 15,
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight"
+      }
+    },
+    "sight-iron-sights-interdictor": {
+      "custo": {
+        "valor": 10,
+        "antes": 15,
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight"
       }
     },
     "sight-lds-4-50x": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.sight",
-        "adicionar": ["18-5ks-k", "ak-205", "brod-3", "cz3a1", "db-12", "drs-iar", "grt-bc", "kts100-mk8", "kv9", "l110", "m1014", "m121-a2", "m123k", "m240l", "m250", "m277", "m357-trait", "m417-a2", "m44", "m4a1", "m60", "m87a1", "pp-19", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "umg-40", "usg-90", "z84m"]
+        "adicionar": ["18-5ks-k", "ak-205", "brod-3", "cz3a1", "db-12", "drs-iar", "grt-bc", "kts100-mk8", "kv9", "l110", "m1014", "m121-a2", "m123k", "m240l", "m250", "m277", "m357-trait", "m417-a2", "m44", "m4a1", "m60", "m87a1", "nsw4", "pp-19", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "umg-40", "usg-90", "z84m"]
       }
     },
     "sight-mars-f-lpvo": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.sight",
-        "adicionar": ["18-5ks-k", "brod-3", "cz3a1", "db-12", "elr-40", "interdictor", "kv9", "m1014", "m87a1", "mini-scout", "pp-19", "pw5a3", "pw7a2", "rspr", "scw-10", "sgx", "sl9", "sor-300sc", "umg-40", "usg-90", "z84m"]
+        "adicionar": ["18-5ks-k", "brod-3", "cz3a1", "db-12", "elr-40", "interdictor", "kv9", "m1014", "m87a1", "mini-scout", "pp-19", "pw5a3", "pw7a2", "rspr", "scw-10", "sgx", "sl9", "umg-40", "usg-90", "z84m"]
       }
     },
     "sight-mc-co-lpvo": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.sight",
-        "adicionar": ["sor-300sc"]
+        "adicionar": ["m44"]
       }
     },
     "sight-mgo-350x": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.sight",
-        "adicionar": ["18-5ks-k", "db-12", "interdictor", "l115", "m1014", "m2010-esr", "m357-trait", "m44", "m87a1", "mini-scout", "psr", "sv-98"]
+        "adicionar": ["18-5ks-k", "db-12", "interdictor", "l115", "m1014", "m2010-esr", "m357-trait", "m44", "m87a1", "mini-scout", "nsw4", "psr", "sv-98"]
       }
     },
     "sight-mini-flex-1-00x": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.sight",
         "adicionar": ["elr-40", "interdictor", "l115", "m2010-esr", "mini-scout", "psr", "sv-98"]
+      }
+    },
+    "sight-nfx-8-00x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "adicionar": ["m44"]
       }
     },
     "sight-ngfc-lpvo": {
@@ -2896,7 +2971,7 @@
     "sight-pas-35-3-00x": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.sight",
-        "adicionar": ["18-5ks-k", "cz3a1", "db-12", "kv9", "m1014", "m87a1", "pp-19", "pw5a3", "pw7a2", "rspr", "scw-10", "sgx", "sl9", "umg-40", "usg-90"]
+        "adicionar": ["18-5ks-k", "cz3a1", "db-12", "kv9", "m1014", "m44", "m87a1", "pp-19", "pw5a3", "pw7a2", "rspr", "scw-10", "sgx", "sl9", "umg-40", "usg-90"]
       }
     },
     "sight-pvq-31-4-00x": {
@@ -2908,7 +2983,7 @@
     "sight-qmk-300x": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.sight",
-        "adicionar": ["18-5ks-k", "db-12", "interdictor", "l115", "m1014", "m2010-esr", "m357-trait", "m44", "m87a1", "mini-scout", "psr", "sv-98"]
+        "adicionar": ["18-5ks-k", "db-12", "interdictor", "l115", "m1014", "m2010-esr", "m357-trait", "m44", "m87a1", "mini-scout", "nsw4", "psr", "sv-98"]
       }
     },
     "sight-r-mr-1-00x": {
@@ -2956,13 +3031,13 @@
     "sight-sf-g2-5-00x": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.sight",
-        "adicionar": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "db-12", "drs-iar", "ef88", "grt-bc", "kord-6p67", "kts100-mk8", "kv9", "l110", "l85a3", "m1014", "m121-a2", "m123k", "m16a4", "m240l", "m250", "m277", "m357-trait", "m417-a2", "m433", "m44", "m4a1", "m60", "m87a1", "mk-24", "nvo-228e", "pp-19", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "tr-7", "umg-40", "usg-90", "vcr-2", "z84m"]
+        "adicionar": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "db-12", "drs-iar", "ef88", "grt-bc", "kord-6p67", "kts100-mk8", "kv9", "l110", "l85a3", "m1014", "m121-a2", "m123k", "m16a4", "m240l", "m250", "m277", "m357-trait", "m417-a2", "m433", "m44", "m4a1", "m60", "m87a1", "mk-24", "nsw4", "nvo-228e", "pp-19", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "tr-7", "umg-40", "usg-90", "vcr-2", "z84m"]
       }
     },
     "sight-st-prism-5-00x": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.sight",
-        "adicionar": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "db-12", "drs-iar", "ef88", "grt-bc", "kord-6p67", "kts100-mk8", "kv9", "l110", "l85a3", "m1014", "m121-a2", "m123k", "m16a4", "m240l", "m250", "m277", "m357-trait", "m417-a2", "m433", "m44", "m4a1", "m60", "m87a1", "mk-24", "nvo-228e", "pp-19", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "tr-7", "umg-40", "usg-90", "vcr-2", "z84m"]
+        "adicionar": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "db-12", "drs-iar", "ef88", "grt-bc", "kord-6p67", "kts100-mk8", "kv9", "l110", "l85a3", "m1014", "m121-a2", "m123k", "m16a4", "m240l", "m250", "m277", "m357-trait", "m417-a2", "m433", "m44", "m4a1", "m60", "m87a1", "mk-24", "nsw4", "nvo-228e", "pp-19", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "tr-7", "umg-40", "usg-90", "vcr-2", "z84m"]
       }
     },
     "sight-su-123-1-50x": {
@@ -2974,13 +3049,13 @@
     "sight-su-230-lpvo": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.sight",
-        "adicionar": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "db-12", "drs-iar", "ef88", "elr-40", "grt-bc", "interdictor", "kord-6p67", "kts100-mk8", "kv9", "l110", "l85a3", "lmr27", "m1014", "m123k", "m2010-esr", "m240l", "m250", "m277", "m39-emr", "m417-a2", "m433", "m4a1", "m60", "m87a1", "mini-scout", "mk-24", "nvo-228e", "pp-19", "psr", "pw5a3", "pw7a2", "qbz-192", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "sv-98", "svdm", "svk-86", "tr-7", "umg-40", "usg-90", "vssm", "z84m"]
+        "adicionar": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "db-12", "drs-iar", "ef88", "elr-40", "grt-bc", "interdictor", "kord-6p67", "kts100-mk8", "kv9", "l110", "l85a3", "lmr27", "m1014", "m123k", "m2010-esr", "m240l", "m250", "m277", "m39-emr", "m417-a2", "m433", "m4a1", "m60", "m87a1", "mini-scout", "mk-24", "nsw4", "nvo-228e", "pp-19", "psr", "pw5a3", "pw7a2", "qbz-192", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "sv-98", "svdm", "svk-86", "tr-7", "umg-40", "usg-90", "vssm", "z84m"]
       }
     },
     "sight-th-rds-1-00x": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.sight",
-        "adicionar": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "drs-iar", "ef88", "elr-40", "grt-bc", "interdictor", "kord-6p67", "kts100-mk8", "kv9", "l110", "l115", "l85a3", "lmr27", "m1014", "m123k", "m16a4", "m2010-esr", "m240l", "m250", "m277", "m39-emr", "m417-a2", "m433", "m4a1", "m60", "m87a1", "mini-scout", "mk-24", "nvo-228e", "pp-19", "psr", "pw5a3", "pw7a2", "qbz-192", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "sv-98", "svdm", "svk-86", "tr-7", "umg-40", "usg-90", "vssm", "z84m"]
+        "adicionar": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "drs-iar", "ef88", "elr-40", "grt-bc", "interdictor", "kord-6p67", "kts100-mk8", "kv9", "l110", "l115", "l85a3", "lmr27", "m1014", "m123k", "m16a4", "m2010-esr", "m240l", "m250", "m277", "m39-emr", "m417-a2", "m433", "m4a1", "m60", "m87a1", "mini-scout", "mk-24", "nsw4", "nvo-228e", "pp-19", "psr", "pw5a3", "pw7a2", "qbz-192", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "sv-98", "svdm", "svk-86", "tr-7", "umg-40", "usg-90", "vssm", "z84m"]
       }
     },
     "sight-ts-hd-6-00x": {
@@ -2998,7 +3073,7 @@
     "underbarrel-actuated-module": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.grip",
-        "adicionar": ["ak-205", "ak4d", "b36a4", "brod-3", "drs-iar", "grt-bc", "grt-cps", "interdictor", "kord-6p67", "kts100-mk8", "kv9", "l85a3", "lmr27", "m1014", "m121-a2", "m123k", "m16a4", "m2010-esr", "m250", "m277", "m417-a2", "m433", "m4a1", "m87a1", "mini-scout", "psr", "rpk-74m", "rpkm", "sg-553r", "sgx", "sor-300sc", "sor-556-mk2", "svdm", "svk-86", "tr-7", "vssm"]
+        "adicionar": ["ak-205", "ak4d", "b36a4", "brod-3", "drs-iar", "grt-bc", "grt-cps", "interdictor", "kord-6p67", "kts100-mk8", "kv9", "l85a3", "lmr27", "m1014", "m121-a2", "m123k", "m16a4", "m2010-esr", "m250", "m277", "m417-a2", "m433", "m4a1", "m87a1", "mini-scout", "nsw4", "psr", "rpk-74m", "rpkm", "sg-553r", "sgx", "sor-300sc", "sor-556-mk2", "svdm", "svk-86", "tr-7", "vssm"]
       }
     },
     "underbarrel-adjustable-angled": {
@@ -3010,7 +3085,7 @@
     "underbarrel-bipod": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.grip",
-        "remover": ["brod-3", "sor-300sc"]
+        "remover": ["brod-3", "nsw4", "sor-300sc"]
       }
     },
     "underbarrel-classic-grip-pod": {
@@ -3018,6 +3093,12 @@
         "fonte": "data/attachments.json#WEAPON_ATTS.grip",
         "remover": ["interdictor", "l115", "m2010-esr", "psr", "sor-300sc", "sv-98"],
         "adicionar": ["vssm"]
+      }
+    },
+    "underbarrel-compact-handstop": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "adicionar": ["db-12"]
       }
     },
     "underbarrel-factory-angled": {
@@ -3076,6 +3157,135 @@
     }
   },
   "pecasNovas": [
+    {
+      "id": "ammo-00-buck",
+      "name": "Chumbo #00",
+      "originalName": "#00 BUCK",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Menos bagos e mais pesados: o mesmo dano no tiro inteiro, que alcança alguns metros mais longe.",
+      "mods": {
+        "damage": {
+          "mult": 2
+        },
+        "range": {
+          "mult": 1.1
+        }
+      },
+      "pelletsOverride": 8,
+      "compat": {
+        "weapons": ["m87a1"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "buckshot_00",
+        "criada": true
+      }
+    },
+    {
+      "id": "ammo-00-buck-18-5ks-k",
+      "name": "Chumbo #00",
+      "originalName": "#00 BUCK",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Menos bagos e mais pesados: o mesmo dano no tiro inteiro, que alcança alguns metros mais longe.",
+      "mods": {
+        "damage": {
+          "mult": 2
+        },
+        "range": {
+          "mult": 1.14
+        }
+      },
+      "pelletsOverride": 8,
+      "compat": {
+        "weapons": ["18-5ks-k"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "buckshot_00",
+        "clonadaDe": "ammo-00-buck"
+      }
+    },
+    {
+      "id": "ammo-00-buck-db-12",
+      "name": "Chumbo #00",
+      "originalName": "#00 BUCK",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Menos bagos e mais pesados: o mesmo dano no tiro inteiro, que alcança alguns metros mais longe.",
+      "mods": {
+        "damage": {
+          "mult": 2
+        },
+        "range": {
+          "mult": 1.14
+        }
+      },
+      "pelletsOverride": 8,
+      "compat": {
+        "weapons": ["db-12"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "buckshot_00",
+        "clonadaDe": "ammo-00-buck"
+      }
+    },
+    {
+      "id": "ammo-00-buck-m1014",
+      "name": "Chumbo #00",
+      "originalName": "#00 BUCK",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Menos bagos e mais pesados: o mesmo dano no tiro inteiro, que alcança alguns metros mais longe.",
+      "mods": {
+        "damage": {
+          "mult": 2
+        },
+        "range": {
+          "mult": 1.14
+        }
+      },
+      "pelletsOverride": 8,
+      "compat": {
+        "weapons": ["m1014"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "buckshot_00",
+        "clonadaDe": "ammo-00-buck"
+      }
+    },
+    {
+      "id": "ammo-frangible-mk-24",
+      "name": "Fragmentável",
+      "originalName": "Frangible",
+      "slot": "ammo",
+      "cost": 20,
+      "description": "Atrasa a regeneração de vida do alvo.",
+      "mods": {
+        "damage": {
+          "mult": 1.05
+        },
+        "range": {
+          "mult": 0.85
+        }
+      },
+      "compat": {
+        "weapons": ["mk-24"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "frangible",
+        "clonadaDe": "ammo-frangible"
+      }
+    },
     {
       "id": "ammo-hollow-point-ak4d",
       "name": "Ponta Oca",
@@ -3532,6 +3742,28 @@
       }
     },
     {
+      "id": "ammo-sub-pen",
+      "name": "Subsônica Perfurante",
+      "originalName": "Sub Pen",
+      "slot": "ammo",
+      "cost": 10,
+      "description": "Subsônica com núcleo de tungstênio: bala lenta, fora do minimapa, e atravessa cobertura como a Penetração.",
+      "mods": {
+        "velocity": {
+          "mult": 0.593
+        }
+      },
+      "compat": {
+        "weapons": ["pw7a2"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "subsonic_pen",
+        "criada": true
+      }
+    },
+    {
       "id": "ammo-subsonic-cz3a1",
       "name": "Subsônica",
       "originalName": "Subsonic",
@@ -3709,6 +3941,31 @@
         "fonte": "data/ammo.json#WEAPON_AMMO",
         "item": "subsonic",
         "clonadaDe": "ammo-subsonic"
+      }
+    },
+    {
+      "id": "ammo-supersonic-fmj",
+      "name": "FMJ Supersônica",
+      "originalName": "Supersonic FMJ",
+      "slot": "ammo",
+      "cost": 15,
+      "description": "Tira a arma do subsônico: bala quase duas vezes mais rápida, um degrau a mais de recuo e o disparo volta a aparecer no minimapa.",
+      "mods": {
+        "velocity": {
+          "mult": 1.953
+        },
+        "verticalRecoil": {
+          "mult": 1.06
+        }
+      },
+      "compat": {
+        "weapons": ["nsw4"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/ammo.json#WEAPON_AMMO",
+        "item": "supersonic",
+        "criada": true
       }
     },
     {
@@ -3948,6 +4205,60 @@
       }
     },
     {
+      "id": "barrel-nsw4-extended",
+      "name": "Cano Estendido",
+      "originalName": "Extended",
+      "slot": "barrel",
+      "cost": 5,
+      "description": "Cano Estendido da arma; o efeito ainda não foi medido.",
+      "mods": {},
+      "compat": {
+        "weapons": ["nsw4"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel",
+        "item": "extended",
+        "clonadaDe": "barrel-nsw4-extended"
+      }
+    },
+    {
+      "id": "barrel-nsw4-heavy",
+      "name": "Cano Pesado",
+      "originalName": "Heavy",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano Pesado da arma; o efeito ainda não foi medido.",
+      "mods": {},
+      "compat": {
+        "weapons": ["nsw4"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel",
+        "item": "heavy",
+        "clonadaDe": "barrel-nsw4-heavy"
+      }
+    },
+    {
+      "id": "barrel-nsw4-light",
+      "name": "Cano Leve",
+      "originalName": "Light",
+      "slot": "barrel",
+      "cost": 20,
+      "description": "Cano Leve da arma; o efeito ainda não foi medido.",
+      "mods": {},
+      "compat": {
+        "weapons": ["nsw4"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel",
+        "item": "light",
+        "clonadaDe": "barrel-nsw4-light"
+      }
+    },
+    {
       "id": "barrel-scw-10-extended",
       "name": "Cano Estendido",
       "originalName": "Extended",
@@ -3963,6 +4274,150 @@
         "fonte": "data/attachments.json#WEAPON_ATTS.barrel",
         "item": "extended",
         "clonadaDe": "barrel-scw-10-extended"
+      }
+    },
+    {
+      "id": "ergonomics-burst-mode",
+      "name": "Modo Rajada",
+      "originalName": "Burst Mode",
+      "slot": "ergonomics",
+      "cost": 10,
+      "description": "Põe a arma em rajada: o recuo varia bem menos de um tiro para o outro, com um degrau a menos de recuo.",
+      "mods": {
+        "control": {
+          "add": 6
+        },
+        "verticalRecoil": {
+          "mult": 0.97
+        }
+      },
+      "compat": {
+        "weapons": ["grt-bc"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ERGO",
+        "item": "grtbc_burst_mode",
+        "criada": true
+      }
+    },
+    {
+      "id": "ergonomics-burst-mode-sl9",
+      "name": "Modo Rajada",
+      "originalName": "Burst Mode",
+      "slot": "ergonomics",
+      "cost": 10,
+      "description": "Põe a arma em rajada: o recuo varia bem menos de um tiro para o outro.",
+      "mods": {
+        "control": {
+          "add": 6
+        }
+      },
+      "compat": {
+        "weapons": ["sl9"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ERGO",
+        "item": "burst_mode",
+        "criada": true
+      }
+    },
+    {
+      "id": "ergonomics-burst-training",
+      "name": "Treino de Rajada",
+      "originalName": "Burst Training",
+      "slot": "ergonomics",
+      "cost": 15,
+      "description": "Põe a arma em rajada: o recuo varia bem menos de um tiro para o outro, e o automático sai.",
+      "mods": {
+        "control": {
+          "add": 6
+        }
+      },
+      "compat": {
+        "weapons": ["cz3a1", "kord-6p67", "kv9", "pw5a3", "sg-553r", "umg-40"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ERGO",
+        "item": "burst_training",
+        "criada": true
+      }
+    },
+    {
+      "id": "ergonomics-gunslinger",
+      "name": "Pistoleiro",
+      "originalName": "Gunslinger",
+      "slot": "ergonomics",
+      "cost": 10,
+      "description": "Saca bem mais rápido, volta do sprint antes e melhora o tiro sem visada.",
+      "mods": {
+        "hipfire": {
+          "add": 6
+        },
+        "mobility": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["m44"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ERGO",
+        "item": "fast_deploy_10",
+        "criada": true
+      }
+    },
+    {
+      "id": "ergonomics-match-trigger-m44",
+      "name": "Gatilho",
+      "originalName": "Match Trigger",
+      "slot": "ergonomics",
+      "cost": 10,
+      "description": "Gatilho leve: tiro sai mais rápido.",
+      "mods": {
+        "rpm": {
+          "mult": 1.04
+        },
+        "control": {
+          "add": 3
+        }
+      },
+      "compat": {
+        "weapons": ["m44"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ERGO",
+        "item": "match_trigger",
+        "clonadaDe": "ergonomics-match-trigger"
+      }
+    },
+    {
+      "id": "ergonomics-speed-holster",
+      "name": "Coldre Rápido",
+      "originalName": "Speed Holster",
+      "slot": "ergonomics",
+      "cost": 5,
+      "description": "Saca e volta do sprint mais rápido.",
+      "mods": {
+        "hipfire": {
+          "add": 4
+        },
+        "mobility": {
+          "add": 2
+        }
+      },
+      "compat": {
+        "weapons": ["ggh-22", "m357-trait", "m44", "m45a1", "p18", "usg-90"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ERGO",
+        "item": "fast_deploy",
+        "criada": true
       }
     },
     {
@@ -3989,6 +4444,29 @@
         "fonte": "data/attachments.json#WEAPON_MAG",
         "item": "100_rnd",
         "clonadaDe": "magazine-100rnd-belt-pouch"
+      }
+    },
+    {
+      "id": "magazine-100rnd-fast-mag-m60",
+      "name": "Carregador Rápido de 100",
+      "originalName": "100RND Fast Mag",
+      "slot": "magazine",
+      "cost": 40,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "magazineSize": 100,
+      "mods": {
+        "reload": {
+          "mult": 0.84
+        }
+      },
+      "compat": {
+        "weapons": ["m60"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "100_fast",
+        "clonadaDe": "magazine-100rnd-fast-mag"
       }
     },
     {
@@ -4440,25 +4918,6 @@
         "fonte": "data/attachments.json#WEAPON_MAG",
         "item": "25_fast",
         "clonadaDe": "magazine-25rnd-fast-mag"
-      }
-    },
-    {
-      "id": "magazine-25rnd-magazine-m417-a2",
-      "name": "Carregador de 25",
-      "originalName": "25RND Magazine",
-      "slot": "magazine",
-      "cost": 15,
-      "description": "Carregador de 25 tiros.",
-      "magazineSize": 25,
-      "mods": {},
-      "compat": {
-        "weapons": ["m417-a2"]
-      },
-      "provenance": "game",
-      "origem": {
-        "fonte": "data/attachments.json#WEAPON_MAG",
-        "item": "25_rnd",
-        "clonadaDe": "magazine-25rnd-magazine"
       }
     },
     {
@@ -4919,6 +5378,87 @@
       }
     },
     {
+      "id": "magazine-75rnd-drum-m250",
+      "name": "Drum de 75",
+      "originalName": "75RND Drum",
+      "slot": "magazine",
+      "cost": 30,
+      "description": "Muita munição sem parar de atirar.",
+      "magazineSize": 75,
+      "mods": {
+        "reload": {
+          "mult": 1.4
+        },
+        "mobility": {
+          "add": -8
+        },
+        "adsMs": {
+          "mult": 1.05
+        }
+      },
+      "compat": {
+        "weapons": ["m250"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "75_rnd",
+        "clonadaDe": "magazine-75rnd-drum"
+      }
+    },
+    {
+      "id": "magazine-75rnd-drum-m60",
+      "name": "Drum de 75",
+      "originalName": "75RND Drum",
+      "slot": "magazine",
+      "cost": 20,
+      "description": "Muita munição sem parar de atirar.",
+      "magazineSize": 75,
+      "mods": {
+        "reload": {
+          "mult": 1.4
+        },
+        "mobility": {
+          "add": -8
+        },
+        "adsMs": {
+          "mult": 1.05
+        }
+      },
+      "compat": {
+        "weapons": ["m60"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "75_rnd",
+        "clonadaDe": "magazine-75rnd-drum"
+      }
+    },
+    {
+      "id": "magazine-75rnd-fast-mag-m240l",
+      "name": "Carregador Rápido de 75",
+      "originalName": "75RND Fast Mag",
+      "slot": "magazine",
+      "cost": 40,
+      "description": "Mesma capacidade, recarga mais rápida.",
+      "magazineSize": 75,
+      "mods": {
+        "reload": {
+          "mult": 0.84
+        }
+      },
+      "compat": {
+        "weapons": ["m240l"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "75_fast",
+        "clonadaDe": "magazine-75rnd-fast-mag"
+      }
+    },
+    {
       "id": "magazine-7rnd-fast-mag-l115",
       "name": "Carregador Rápido de 7",
       "originalName": "7RND Fast Mag",
@@ -4990,6 +5530,44 @@
       "mods": {},
       "compat": {
         "weapons": ["18-5ks-k"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "8_rnd",
+        "clonadaDe": "magazine-8rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-8rnd-magazine-m1014",
+      "name": "Carregador de 8",
+      "originalName": "8RND Magazine",
+      "slot": "magazine",
+      "cost": 35,
+      "description": "Carregador de 8 tiros.",
+      "magazineSize": 8,
+      "mods": {},
+      "compat": {
+        "weapons": ["m1014"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_MAG",
+        "item": "8_rnd",
+        "clonadaDe": "magazine-8rnd-magazine"
+      }
+    },
+    {
+      "id": "magazine-8rnd-magazine-m87a1",
+      "name": "Carregador de 8",
+      "originalName": "8RND Magazine",
+      "slot": "magazine",
+      "cost": 20,
+      "description": "Carregador de 8 tiros.",
+      "magazineSize": 8,
+      "mods": {},
+      "compat": {
+        "weapons": ["m87a1"]
       },
       "provenance": "game",
       "origem": {
@@ -5143,7 +5721,7 @@
       "name": "Alça de Ferro",
       "originalName": "Iron Sights",
       "slot": "sight",
-      "cost": 15,
+      "cost": 10,
       "description": "Mira de fábrica, a que menos pesa no manejo.",
       "mods": {
         "hipfire": {
@@ -5165,7 +5743,7 @@
       "name": "Alça de Ferro",
       "originalName": "Iron Sights",
       "slot": "sight",
-      "cost": 15,
+      "cost": 10,
       "description": "Mira de fábrica, a que menos pesa no manejo.",
       "mods": {
         "hipfire": {
@@ -5187,7 +5765,7 @@
       "name": "Alça de Ferro",
       "originalName": "Iron Sights",
       "slot": "sight",
-      "cost": 15,
+      "cost": 10,
       "description": "Mira de fábrica, a que menos pesa no manejo.",
       "mods": {
         "hipfire": {
@@ -5209,7 +5787,7 @@
       "name": "Alça de Ferro",
       "originalName": "Iron Sights",
       "slot": "sight",
-      "cost": 15,
+      "cost": 10,
       "description": "Mira de fábrica, a que menos pesa no manejo.",
       "mods": {
         "hipfire": {
@@ -5231,7 +5809,7 @@
       "name": "Alça de Ferro",
       "originalName": "Iron Sights",
       "slot": "sight",
-      "cost": 15,
+      "cost": 10,
       "description": "Mira de fábrica, a que menos pesa no manejo.",
       "mods": {
         "hipfire": {
@@ -5246,6 +5824,35 @@
         "fonte": "data/attachments.json#WEAPON_ATTS.sight",
         "item": "iron",
         "clonadaDe": "sight-iron-sights"
+      }
+    },
+    {
+      "id": "sight-pa-sl-2-50x",
+      "name": "PA-SL 2.50x",
+      "originalName": "PA-SL 2.50x",
+      "slot": "sight",
+      "cost": 10,
+      "description": "Mira com ampliação de 2.5×.",
+      "mods": {
+        "adsMs": {
+          "mult": 1.09
+        },
+        "accuracy": {
+          "add": 10
+        },
+        "mobility": {
+          "add": -2
+        }
+      },
+      "magnification": 2.5,
+      "compat": {
+        "weapons": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "db-12", "drs-iar", "ef88", "elr-40", "grt-bc", "grt-cps", "interdictor", "kord-6p67", "kts100-mk8", "kv9", "l110", "l115", "l85a3", "lmr27", "m1014", "m121-a2", "m123k", "m16a4", "m2010-esr", "m240l", "m250", "m277", "m357-trait", "m39-emr", "m417-a2", "m433", "m44", "m4a1", "m60", "m87a1", "mini-scout", "mk-24", "nsw4", "nvo-228e", "pp-19", "psr", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "sv-98", "svdm", "svk-86", "tr-7", "umg-40", "usg-90", "vcr-2", "vssm", "z84m"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight",
+        "item": "pa_sl_2_50x",
+        "criada": true
       }
     },
     {
@@ -6022,6 +6629,31 @@
         "fonte": "data/attachments.json#WEAPON_ATTS.grip",
         "item": "qd_grip_pod_sr",
         "clonadaDe": "underbarrel-qd-grip-pod"
+      }
+    },
+    {
+      "id": "underbarrel-rubberized-vertical",
+      "name": "Vertical Emborrachada",
+      "originalName": "Rubberized Vertical",
+      "slot": "underbarrel",
+      "cost": 30,
+      "description": "O controle de recuo da Vertical Estriada, sem perder precisão ao mirar andando.",
+      "mods": {
+        "verticalRecoil": {
+          "mult": 0.84
+        },
+        "control": {
+          "add": 7
+        }
+      },
+      "compat": {
+        "weapons": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "db-12", "drs-iar", "ef88", "grt-bc", "grt-cps", "kord-6p67", "kts100-mk8", "kv9", "l110", "l85a3", "lmr27", "m1014", "m121-a2", "m123k", "m16a4", "m240l", "m250", "m277", "m39-emr", "m417-a2", "m433", "m4a1", "m60", "m87a1", "mk-24", "nsw4", "nvo-228e", "pp-19", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "svdm", "svk-86", "tr-7", "umg-40", "vcr-2", "vssm", "z84m"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.grip",
+        "item": "rubberized_vert",
+        "criada": true
       }
     },
     {
