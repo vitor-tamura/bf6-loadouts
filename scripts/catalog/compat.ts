@@ -232,6 +232,17 @@ function main(): void {
       continue;
     }
 
+    /*
+      Cano por família só bate com o cano de uma arma específica: a Mk 24 e a
+      Z84M têm canos com o nome do papel (`Basic`, `Heavy`), e o "Basic" da
+      matriz em cinquenta armas virava "o montador não dá o cano básico da Mk 24
+      à AK4D" — 189 avisos falsos. A AK4D tem o cano básico dela, com outro nome
+      físico. Peça de cano exclusiva de outra arma não diz nada sobre esta.
+    */
+    if (SEM_METRICA.has(linha.slot) && !isCompatible(peca, arma) && peca.compat.weapons && !peca.compat.weapons.includes(arma.id)) {
+      continue;
+    }
+
     daFonte.add(`${peca.id}|${arma.id}`);
     if (isCompatible(peca, arma)) {
       confirmados += 1;
