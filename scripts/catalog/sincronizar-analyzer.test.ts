@@ -8,6 +8,8 @@ import {
   casarCarregador,
   chaveDeNome,
   curvaDoJogo,
+  efeitoValido,
+  promptDasPecasNovas,
   jsonLegivel,
   moda,
   papeisNaTela,
@@ -435,6 +437,42 @@ describe('sincronizar', () => {
     expect(municao.mods.velocity).toEqual({ mult: 2 });
     expect(relatorio.pecasCriadas.map((p) => p.id)).toEqual(['underbarrel-rubberized-vertical', 'ammo-supersonic-fmj']);
     expect(relatorio.pecasDoAnalyzerSemPar).toEqual([]);
+  });
+
+  it('a peça que a tabela não traduz usa o que o modelo escreveu, e só ela', () => {
+    const dados = analyzerDeTeste();
+    dados.pecas.ERGOS.push({ id: 'quick_bolt', name: 'Quick Bolt', pts: 10 });
+    dados.pecas.WEAPON_ERGO.ak4d = { avail: ['match_trigger', 'quick_bolt'] };
+    const sem = sincronizar({ dados, armas, pecas });
+    expect(sem.relatorio.pecasCriadas.find((p) => p.item === 'quick_bolt')).toMatchObject({ traduzida: false, slot: 'ergonomics' });
+
+    const traducoes = { quick_bolt: { name: 'Ferrolho Rápido', description: 'Rearma mais rápido.', mods: { rpm: { mult: 1.05 } } } };
+    const com = sincronizar({ dados, armas, pecas, traducoes });
+    expect(com.arquivo.pecasNovas.find((p) => p.id === 'ergonomics-quick-bolt')).toMatchObject({
+      name: 'Ferrolho Rápido', originalName: 'Quick Bolt', cost: 10, mods: { rpm: { mult: 1.05 } }, compat: { weapons: ['ak4d'] },
+    });
+    expect(com.relatorio.pecasCriadas.find((p) => p.item === 'quick_bolt')).toMatchObject({ traduzida: true, pelaIa: true });
+    // A tabela vence o arquivo do modelo.
+    const tabela = sincronizar({ dados, armas, pecas, traducoes: { rubberized_vert: { name: 'Outra', description: 'x', mods: {} } } });
+    expect(tabela.arquivo.pecasNovas.find((p) => p.id === 'underbarrel-rubberized-vertical')!.name).toBe('Vertical Emborrachada');
+
+    const prompt = promptDasPecasNovas(sem.relatorio.pecasCriadas.filter((p) => !p.traduzida), dados, pecas);
+    expect(prompt).toContain('item "quick_bolt"');
+    expect(prompt).toContain('"Quick Bolt"');
+  });
+
+  it('do efeito escrito pelo modelo, só passa o que o site lê e em faixa crível', () => {
+    expect(
+      efeitoValido({
+        rpm: { mult: 1.05 },
+        control: { add: 6.4 },
+        recoil: { mult: 0.9 },
+        velocity: { mult: 5 },
+        hipfire: { add: 0 },
+        adsMs: 'rápido',
+      }),
+    ).toEqual({ rpm: { mult: 1.05 }, control: { add: 6 } });
+    expect(efeitoValido(null)).toEqual({});
   });
 
   it('é idempotente: a mesma entrada dá o mesmo arquivo', () => {

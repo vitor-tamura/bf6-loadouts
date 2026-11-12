@@ -84,8 +84,21 @@ import { chave, chaveDePeca, escadaDoJogo, modosDeTiro } from './novidades.ts';
 import { fetchJson } from './lib/http.ts';
 import { DATA, ROOT, compareVersions, isGameVersion, listVersions, log } from './lib/io.ts';
 import { fonteAtiva } from './lib/sources.ts';
+import { candidatos, modelosDe, perguntarSemBusca, temAlgumaChave } from '../meta/provedores.mjs';
+import { extrairJson } from '../meta/leitura.mjs';
 
 export const ARQUIVO = join(ROOT, 'src', 'data', 'analyzer-sync.json');
+
+/**
+ * O que o modelo escreveu para as peças novas que `PECAS_DE_FORA` não traduz.
+ *
+ * Cada peça é perguntada uma vez só e fica aqui: a rodada seguinte lê o
+ * arquivo e não pergunta de novo — o nome não muda de um dia para o outro, e
+ * o crédito do Claude não se gasta repetindo a mesma resposta. Para refazer
+ * uma, apague a entrada dela; para corrigir, passe a peça para `PECAS_DE_FORA`,
+ * que vence o arquivo.
+ */
+export const TRADUCOES_DA_IA = join(ROOT, 'data', 'entities', 'pecas-traduzidas-pela-ia.json');
 
 /**
  * As armas que entraram no site pela rotina de novidades (`novidades.ts`), e
@@ -436,15 +449,19 @@ export const TRAVAS_DA_CURADORIA: Record<string, { armas: string[]; motivo: stri
  * efeito na escala do site — copiado da peça do cadastro que tem **o mesmo
  * efeito no arquivo do jogo** (`semente`), ou calculado arma a arma quando o
  * jogo fixa um número absoluto (velocidade da bala, bagos). Peça que não está
- * aqui nasce do mesmo jeito, com o nome do jogo e sem efeito modelado, e o
- * relatório a marca como não traduzida (`pecasCriadas[].traduzida`): aparece
- * no montador no mesmo dia, e a curadoria completa depois.
+ * aqui é perguntada ao modelo — o Claude primeiro —, que escreve nome,
+ * descrição e efeito a partir do que o arquivo do jogo diz dela e de pares de
+ * peças que existem dos dois lados (`promptDasPecasNovas`); a resposta fica em
+ * `TRADUCOES_DA_IA` e não é perguntada de novo. Sem modelo, a peça nasce com o
+ * nome do jogo e sem efeito, e o relatório a marca como não traduzida
+ * (`pecasCriadas[].traduzida`): aparece no montador no mesmo dia de qualquer
+ * jeito, e a curadoria completa depois.
  *
  * Mira de ferro própria de uma arma (Flip-Up Irons da M16A4, Carry Handle da
  * M4A1) não nasce: o site já monta a alça de ferro de série em toda arma, e a
  * peça a mais seria a mesma alça com outro nome.
  */
-interface PecaDeFora {
+export interface PecaDeFora {
   name: string;
   description: string;
   /** Slot do site, quando o do Analyzer mora em dois (laser e lanterna). */
@@ -573,7 +590,7 @@ export function criarPecaDeFora(
   obra: Construcao,
 ): boolean {
   if (MIRAS_DE_FERRO.has(registro.item) || !obra.dados) return false;
-  const traducao = PECAS_DE_FORA[registro.item];
+  const traducao = PECAS_DE_FORA[registro.item] ?? obra.traducoes[registro.item];
   const custos = registro.pts.filter(Number.isFinite);
   if (!custos.length) return false;
 
@@ -625,10 +642,12 @@ export function criarPecaDeFora(
   obra.relatorio.pecasCriadas.push({
     id,
     item: registro.item,
+    slot: config.nome,
     nome: base.name,
     custo: geral,
     armas: [...registro.armas].sort(),
     traduzida: Boolean(traducao),
+    ...(traducao && !PECAS_DE_FORA[registro.item] ? { pelaIa: true } : {}),
   });
   return true;
 }
@@ -699,7 +718,7 @@ export interface Relatorio {
   variantes: { id: string; de: string; arma: string; custo: number; item: string }[];
   pecasDoAnalyzerSemPar: { slot: string; item: string; nome: string; armas: string[] }[];
   /** Peça que o jogo tem e o cadastro não tinha, criada pela sincronização (`PECAS_DE_FORA`). */
-  pecasCriadas: { id: string; item: string; nome: string; custo: number; armas: string[]; traduzida: boolean }[];
+  pecasCriadas: { id: string; item: string; slot: string; nome: string; custo: number; armas: string[]; traduzida: boolean; pelaIa?: boolean }[];
   pecasDoSiteSemPar: { id: string; slot: SlotId; originalName: string }[];
   /** Peça que, com as correções, não sobra em arma nenhuma do jogo — fica no cadastro, sem aparecer no montador. */
   pecasSemArma: { id: string; slot: SlotId; originalName: string }[];
@@ -738,6 +757,8 @@ class Construcao {
   pares: Map<string, string>;
   /** Os dados do Analyzer, para a peça nova calcular o efeito numa arma. */
   dados: DadosDoAnalyzer | null = null;
+  /** O que o modelo escreveu para as peças novas fora de `PECAS_DE_FORA` (`TRADUCOES_DA_IA`). */
+  traducoes: Record<string, PecaDeFora> = {};
   private porId: Map<string, Attachment>;
 
   constructor(armas: Weapon[], pecasDoSite: Attachment[], pares: Map<string, string>) {
@@ -1553,14 +1574,17 @@ export function sincronizar({
   dados,
   armas,
   pecas,
+  traducoes = {},
 }: {
   dados: DadosDoAnalyzer;
   armas: Weapon[];
   pecas: Attachment[];
+  traducoes?: Record<string, PecaDeFora>;
 }): { arquivo: Omit<ArquivoDeSincronia, 'fonte' | '_leiaMe'>; relatorio: Relatorio } {
   const { pares, siteSemPar, analyzerSemPar } = casarArmas(armas, dados.armas);
   const obra = new Construcao(armas, pecas, pares);
   obra.dados = dados;
+  obra.traducoes = traducoes;
   obra.relatorio.armasSemPar = { site: siteSemPar, analyzer: analyzerSemPar };
 
   const armasCorrigidas: ArquivoDeSincronia['armas'] = {};
@@ -1723,6 +1747,149 @@ function dadosDe(arquivos: Record<string, unknown>): DadosDoAnalyzer {
 }
 
 /* ========================================================================== *
+ * A peça nova pelo modelo
+ * ========================================================================== */
+
+/** Os campos de efeito que o site modela, e a faixa em que um modificador é crível. */
+const CHAVES_DE_EFEITO = new Set([
+  'damage', 'range', 'rpm', 'velocity', 'drag', 'magazine', 'reload', 'adsMs', 'swapMs',
+  'accuracy', 'control', 'mobility', 'hipfire', 'verticalRecoil', 'horizontalRecoil', 'headshot',
+]);
+
+/** O efeito como o modelo o escreveu, só com o que o site sabe ler e em faixa crível. */
+export function efeitoValido(bruto: unknown): Attachment['mods'] {
+  const mods: Attachment['mods'] = {};
+  if (!bruto || typeof bruto !== 'object') return mods;
+  for (const [chave, valor] of Object.entries(bruto as Record<string, unknown>)) {
+    if (!CHAVES_DE_EFEITO.has(chave) || !valor || typeof valor !== 'object') continue;
+    const { add, mult } = valor as { add?: unknown; mult?: unknown };
+    const modificador: { add?: number; mult?: number } = {};
+    if (typeof mult === 'number' && Number.isFinite(mult) && mult >= 0.5 && mult <= 2 && mult !== 1) modificador.mult = Math.round(mult * 1000) / 1000;
+    if (typeof add === 'number' && Number.isFinite(add) && Math.abs(add) <= 30 && add !== 0) modificador.add = Math.round(add);
+    if (Object.keys(modificador).length) (mods as Record<string, unknown>)[chave] = modificador;
+  }
+  return mods;
+}
+
+/** A peça do Analyzer como ele a escreve, sem os mapas por arma que só fazem volume. */
+function pecaCrua(dados: DadosDoAnalyzer, item: string): Record<string, unknown> | null {
+  const todas = [
+    ...Object.entries(dados.pecas)
+      .filter(([, v]) => Array.isArray(v))
+      .flatMap(([, v]) => v as unknown as Record<string, unknown>[]),
+    ...(dados.municao.AMMO as unknown as Record<string, unknown>[]),
+  ];
+  const peca = todas.find((p) => p.id === item);
+  if (!peca) return null;
+  return Object.fromEntries(Object.entries(peca).filter(([k]) => !/ByWeapon$|^frostyModifiers$|^weaponOverrides$/.test(k)));
+}
+
+/**
+ * A pergunta ao modelo: as peças novas, cada uma com o que o arquivo do jogo
+ * diz dela, e — para calibrar a escala, que é do site e não do jogo — pares de
+ * peças que já existem dos dois lados, no mesmo slot: o efeito cru do Analyzer
+ * ao lado do `mods` que o site dá.
+ */
+export function promptDasPecasNovas(
+  pendentes: { item: string; slot: string; nome: string; custo: number; armas: string[] }[],
+  dados: DadosDoAnalyzer,
+  cadastro: Attachment[],
+): string {
+  const exemplos = (slot: string) => {
+    const slotsDoSite = slot === 'rail' ? ['leftRail', 'rightRail'] : [slot];
+    return cadastro
+      .filter((p) => slotsDoSite.includes(p.slot) && Object.keys(p.mods).length)
+      .map((p) => {
+        const crua = [
+          ...Object.entries(dados.pecas).filter(([, v]) => Array.isArray(v)).flatMap(([, v]) => v as unknown as PecaDoAnalyzer[]),
+          ...(dados.municao.AMMO as PecaDoAnalyzer[]),
+        ].find((a) => chaveDeNome(a.name) === chaveDeNome(p.originalName));
+        return crua ? { p, crua: pecaCrua(dados, crua.id) } : null;
+      })
+      .filter(Boolean)
+      .slice(0, 8)
+      .map((e) => `  - "${e!.p.originalName}" → "${e!.p.name}", "${e!.p.description}"; jogo: ${JSON.stringify(e!.crua)}; site: ${JSON.stringify(e!.p.mods)}`)
+      .join('\n');
+  };
+
+  const blocos = pendentes.map(
+    (p) => `### item "${p.item}" — slot ${p.slot}, "${p.nome}", ${p.custo} pts, em ${p.armas.length} arma(s) (${p.armas.slice(0, 6).join(', ')}${p.armas.length > 6 ? ', …' : ''})
+No arquivo do jogo: ${JSON.stringify(pecaCrua(dados, p.item))}
+Peças do mesmo slot que o site já tem (nome original → nome no site, descrição; efeito no jogo; efeito no site):
+${exemplos(p.slot) || '  (nenhuma com efeito modelado)'}`,
+  );
+
+  return `Você cadastra acessórios de Battlefield 6 num site brasileiro de montagens. Os acessórios abaixo existem nos arquivos do jogo e ainda não estão no site. Escreva em português do Brasil.
+
+Para cada um:
+- "name": o nome como a localização brasileira do jogo chamaria, no estilo dos exemplos. Modelo de mira, sigla e número não se traduzem ("PA-SL 2,50x").
+- "description": uma frase curta dizendo o que a peça faz, sem inventar número.
+- "mods": o efeito na escala do site, no formato dos exemplos ({"campo": {"mult": n} ou {"add": n}}). Campos válidos: ${[...CHAVES_DE_EFEITO].join(', ')}. Use os pares de exemplo para converter os degraus do jogo ("TierMod", "Mult") na escala do site: peça com o mesmo efeito no jogo ganha o mesmo efeito aqui. Em "verticalRecoil", "horizontalRecoil", "adsMs", "swapMs" e "reload", mult menor que 1 é melhora. Na dúvida, deixe o campo de fora — efeito vazio é melhor que efeito inventado.
+- "magnification": só para mira, o número de ampliação.
+
+${blocos.join('\n\n')}
+
+Responda SOMENTE com este JSON, sem cercas de código:
+
+{"pecas":[{"item":"…","name":"…","description":"…","mods":{},"magnification":null}]}`;
+}
+
+export function lerTraducoesDaIa(caminho = TRADUCOES_DA_IA): Record<string, PecaDeFora & { modelo?: string; em?: string }> {
+  if (!existsSync(caminho)) return {};
+  try {
+    return JSON.parse(readFileSync(caminho, 'utf8')).pecas ?? {};
+  } catch {
+    return {};
+  }
+}
+
+/**
+ * Pergunta ao modelo (o Claude primeiro, os gratuitos de reserva — ver
+ * `meta/provedores.mjs`) pelas peças que nasceram sem tradução, e devolve só
+ * as respostas que passaram na conferência. Sem chave ou sem resposta, nada:
+ * a peça segue com o nome do jogo e sem efeito, como antes.
+ */
+async function traduzirPecasNovas(
+  pendentes: Relatorio['pecasCriadas'],
+  dados: DadosDoAnalyzer,
+  cadastro: Attachment[],
+): Promise<Record<string, PecaDeFora & { modelo: string; em: string }>> {
+  if (!pendentes.length || !temAlgumaChave()) return {};
+  const prompt = promptDasPecasNovas(pendentes, dados, cadastro);
+  for await (const candidato of candidatos(modelosDe(process.env.SINCRONIA_MODELS), { busca: false })) {
+    try {
+      const lida = await perguntarSemBusca(candidato, prompt, { maxOutputTokens: 6000, tentativas: 2 });
+      const resposta = extrairJson(lida.texto) as { pecas?: Record<string, unknown>[] } | null;
+      if (!Array.isArray(resposta?.pecas)) continue;
+      const em = new Date().toISOString().slice(0, 10);
+      const traducoes: Record<string, PecaDeFora & { modelo: string; em: string }> = {};
+      for (const r of resposta.pecas) {
+        const item = String(r.item ?? '');
+        if (!pendentes.some((p) => p.item === item)) continue;
+        if (typeof r.name !== 'string' || !r.name.trim() || typeof r.description !== 'string' || !r.description.trim()) continue;
+        const ampliacao = typeof r.magnification === 'number' && r.magnification > 0 && r.magnification <= 20 ? r.magnification : undefined;
+        traducoes[item] = {
+          name: r.name.trim(),
+          description: r.description.trim(),
+          mods: efeitoValido(r.mods),
+          ...(ampliacao ? { magnification: ampliacao } : {}),
+          modelo: candidato.modelo,
+          em,
+        };
+      }
+      if (Object.keys(traducoes).length) {
+        log('peças novas traduzidas', { modelo: candidato.modelo, pecas: Object.keys(traducoes) });
+        return traducoes;
+      }
+    } catch (erro) {
+      log('tradução das peças novas falhou', { modelo: candidato.modelo, erro: (erro as Error).message });
+    }
+  }
+  log('peças novas', { aviso: 'nenhum modelo respondeu; seguem com o nome do jogo e sem efeito' });
+  return {};
+}
+
+/* ========================================================================== *
  * Rodar
  * ========================================================================== */
 
@@ -1792,7 +1959,27 @@ async function main(): Promise<void> {
   }
 
   const dados = dadosDe(arquivos);
-  const { arquivo, relatorio } = sincronizar({ dados, armas: WEAPONS_SEM_SINCRONIA, pecas: ATTACHMENTS_SEM_SINCRONIA });
+  const traducoes = lerTraducoesDaIa();
+  let { arquivo, relatorio } = sincronizar({ dados, armas: WEAPONS_SEM_SINCRONIA, pecas: ATTACHMENTS_SEM_SINCRONIA, traducoes });
+
+  // Peça nova sem tradução: o modelo escreve nome, descrição e efeito uma vez, e a sincronização refaz com eles.
+  const semTraducao = relatorio.pecasCriadas.filter((p) => !p.traduzida);
+  if (semTraducao.length && !seco) {
+    const novas = await traduzirPecasNovas(semTraducao, dados, ATTACHMENTS_SEM_SINCRONIA);
+    if (Object.keys(novas).length) {
+      const todas = { ...traducoes, ...novas };
+      writeFileSync(
+        TRADUCOES_DA_IA,
+        jsonLegivel({
+          _leiaMe:
+            'Escrito por `npm run catalog:sincronizar-analyzer`: nome, descrição e efeito que o modelo deu às peças novas do jogo que PECAS_DE_FORA não traduz. Cada peça é perguntada uma vez. Apague a entrada para perguntar de novo; para corrigir, passe a peça para PECAS_DE_FORA.',
+          pecas: Object.fromEntries(Object.entries(todas).sort(([a], [b]) => a.localeCompare(b))),
+        }),
+        'utf8',
+      );
+      ({ arquivo, relatorio } = sincronizar({ dados, armas: WEAPONS_SEM_SINCRONIA, pecas: ATTACHMENTS_SEM_SINCRONIA, traducoes: todas }));
+    }
+  }
   relatorio.fonte = fonte;
   relatorio.ultimaLeitura = fonte;
 
@@ -1805,7 +1992,9 @@ async function main(): Promise<void> {
     'compatibilidade': `+${r.compatAdicionadas} / -${r.compatRemovidas}`,
     'variantes novas': r.variantesNovas,
     'peças do Analyzer sem par no site': r.pecasDoAnalyzerSemPar,
-    'peças criadas pela sincronização': relatorio.pecasCriadas.map((p) => `${p.id} (${p.armas.length} armas, ${p.custo} pts${p.traduzida ? '' : ', sem tradução'})`),
+    'peças criadas pela sincronização': relatorio.pecasCriadas.map(
+      (p) => `${p.id} (${p.armas.length} armas, ${p.custo} pts${p.pelaIa ? ', traduzida pelo modelo' : p.traduzida ? '' : ', sem tradução'})`,
+    ),
     'peças do site sem par no Analyzer': r.pecasDoSiteSemPar,
     'carregadores ambíguos': r.carregadoresAmbiguos,
     'armas com cano para revisar': r.canosParaRevisar,

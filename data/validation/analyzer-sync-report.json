@@ -7858,6 +7858,7 @@
     {
       "id": "sight-pa-sl-2-50x",
       "item": "pa_sl_2_50x",
+      "slot": "sight",
       "nome": "PA-SL 2.50x",
       "custo": 10,
       "armas": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "db-12", "drs-iar", "ef88", "elr-40", "grt-bc", "grt-cps", "interdictor", "kord-6p67", "kts100-mk8", "kv9", "l110", "l115", "l85a3", "lmr27", "m1014", "m121-a2", "m123k", "m16a4", "m2010-esr", "m240l", "m250", "m277", "m357-trait", "m39-emr", "m417-a2", "m433", "m44", "m4a1", "m60", "m87a1", "mini-scout", "mk-24", "nsw4", "nvo-228e", "pp-19", "psr", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "sv-98", "svdm", "svk-86", "tr-7", "umg-40", "usg-90", "vcr-2", "vssm", "z84m"],
@@ -7866,6 +7867,7 @@
     {
       "id": "underbarrel-rubberized-vertical",
       "item": "rubberized_vert",
+      "slot": "underbarrel",
       "nome": "Vertical Emborrachada",
       "custo": 30,
       "armas": ["18-5ks-k", "ak-205", "ak4d", "b36a4", "brod-3", "cz3a1", "db-12", "drs-iar", "ef88", "grt-bc", "grt-cps", "kord-6p67", "kts100-mk8", "kv9", "l110", "l85a3", "lmr27", "m1014", "m121-a2", "m123k", "m16a4", "m240l", "m250", "m277", "m39-emr", "m417-a2", "m433", "m4a1", "m60", "m87a1", "mk-24", "nsw4", "nvo-228e", "pp-19", "pw5a3", "pw7a2", "qbz-192", "rpk-74m", "rpkm", "rspr", "scw-10", "sg-553r", "sgx", "sl9", "sor-300sc", "sor-556-mk2", "svdm", "svk-86", "tr-7", "umg-40", "vcr-2", "vssm", "z84m"],
@@ -7874,6 +7876,7 @@
     {
       "id": "ergonomics-burst-training",
       "item": "burst_training",
+      "slot": "ergonomics",
       "nome": "Treino de Rajada",
       "custo": 15,
       "armas": ["cz3a1", "kord-6p67", "kv9", "pw5a3", "sg-553r", "umg-40"],
@@ -7882,6 +7885,7 @@
     {
       "id": "ergonomics-burst-mode",
       "item": "grtbc_burst_mode",
+      "slot": "ergonomics",
       "nome": "Modo Rajada",
       "custo": 10,
       "armas": ["grt-bc"],
@@ -7890,6 +7894,7 @@
     {
       "id": "ergonomics-speed-holster",
       "item": "fast_deploy",
+      "slot": "ergonomics",
       "nome": "Coldre Rápido",
       "custo": 5,
       "armas": ["ggh-22", "m357-trait", "m44", "m45a1", "p18", "usg-90"],
@@ -7898,6 +7903,7 @@
     {
       "id": "ergonomics-burst-mode-sl9",
       "item": "burst_mode",
+      "slot": "ergonomics",
       "nome": "Modo Rajada",
       "custo": 10,
       "armas": ["sl9"],
@@ -7906,6 +7912,7 @@
     {
       "id": "ergonomics-gunslinger",
       "item": "fast_deploy_10",
+      "slot": "ergonomics",
       "nome": "Pistoleiro",
       "custo": 10,
       "armas": ["m44"],
@@ -7914,6 +7921,7 @@
     {
       "id": "ammo-sub-pen",
       "item": "subsonic_pen",
+      "slot": "ammo",
       "nome": "Subsônica Perfurante",
       "custo": 10,
       "armas": ["pw7a2"],
@@ -7922,6 +7930,7 @@
     {
       "id": "ammo-00-buck",
       "item": "buckshot_00",
+      "slot": "ammo",
       "nome": "Chumbo #00",
       "custo": 20,
       "armas": ["18-5ks-k", "db-12", "m1014", "m87a1"],
@@ -7930,6 +7939,7 @@
     {
       "id": "ammo-supersonic-fmj",
       "item": "supersonic",
+      "slot": "ammo",
       "nome": "FMJ Supersônica",
       "custo": 15,
       "armas": ["nsw4"],

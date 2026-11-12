@@ -198,6 +198,12 @@ jobs:
       - name: Sincronizar com os arquivos do jogo (BF6-Weapon-Analyzer)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Peça nova que PECAS_DE_FORA não traduz: o Claude Haiku (crédito do
+          # plano Max) escreve nome, descrição e efeito, uma vez por peça, em
+          # data/entities/pecas-traduzidas-pela-ia.json; os gratuitos são a reserva.
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run catalog:sincronizar-analyzer
 
       # A tranca que substitui a revisão: se o catálogo novo quebrar o site,

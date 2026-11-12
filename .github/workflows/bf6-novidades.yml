@@ -77,6 +77,12 @@ jobs:
       - name: Sincronizar com os arquivos do jogo (BF6-Weapon-Analyzer)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Peça nova que PECAS_DE_FORA não traduz: o Claude Haiku (crédito do
+          # plano Max) escreve nome, descrição e efeito, uma vez por peça, em
+          # data/entities/pecas-traduzidas-pela-ia.json; os gratuitos são a reserva.
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run catalog:sincronizar-analyzer
 
       # A foto da arma nova: a arte grande do BattlefieldMeta, no mesmo padrão
@@ -99,11 +105,11 @@ jobs:
         id: mudou
         run: |
           # `status`, e não `diff`: a foto de arma nova é arquivo que o git ainda não conhece.
-          if [ -z "$(git status --porcelain -- src/data/novidades.json src/data/analyzer-sync.json data/validation/analyzer-sync-report.json public/weapons)" ]; then
+          if [ -z "$(git status --porcelain -- src/data/novidades.json src/data/analyzer-sync.json data/validation/analyzer-sync-report.json data/entities/pecas-traduzidas-pela-ia.json public/weapons)" ]; then
             echo "Nada novo no arsenal."
             echo "sim=false" >> "$GITHUB_OUTPUT"
           else
-            git status --short -- src/data/novidades.json src/data/analyzer-sync.json data/validation/analyzer-sync-report.json public/weapons
+            git status --short -- src/data/novidades.json src/data/analyzer-sync.json data/validation/analyzer-sync-report.json data/entities/pecas-traduzidas-pela-ia.json public/weapons
             echo "sim=true" >> "$GITHUB_OUTPUT"
           fi
 
@@ -136,6 +142,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add src/data/novidades.json src/data/analyzer-sync.json data/validation/analyzer-sync-report.json public/weapons
+          # Só existe depois que o modelo traduziu a primeira peça nova.
+          if [ -f data/entities/pecas-traduzidas-pela-ia.json ]; then git add data/entities/pecas-traduzidas-pela-ia.json; fi
           git commit -m "feat(data): novidades do arsenal — $resumo"
           git remote set-url origin "https://x-access-token:${MAIN_PUSH_TOKEN}@github.com/${{ github.repository }}.git"
 
