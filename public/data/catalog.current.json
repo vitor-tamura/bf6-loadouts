@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "gameVersion": "2.1.2.0",
-  "generatedAt": "2026-11-09T22:23:45.155Z",
+  "generatedAt": "2026-11-16T12:12:05.471Z",
   "capabilities": {
     "weapons": true,
     "attachments": true,
@@ -14243,7 +14243,7 @@
     {
       "id": "slim_angled",
       "sourceId": "slim_angled",
-      "name": "Angular Fina",
+      "name": "Empunhadura Slim",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -14274,7 +14274,7 @@
     {
       "id": "slim_angled_smg",
       "sourceId": "slim_angled_smg",
-      "name": "Angular Fina",
+      "name": "Empunhadura Slim",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -14305,7 +14305,7 @@
     {
       "id": "slim_angled_sr",
       "sourceId": "slim_angled_sr",
-      "name": "Angular Fina",
+      "name": "Empunhadura Slim",
       "slot": "underbarrel",
       "scope": "global",
       "group": "GRIPS",
@@ -42779,7 +42779,7 @@
   ],
   "indexes": {
     "gameVersion": "2.1.2.0",
-    "generatedAt": "2026-11-09T22:23:45.155Z",
+    "generatedAt": "2026-11-16T12:12:05.471Z",
     "attachmentsByWeapon": {
       "ak205": [
         "120mw_blue",

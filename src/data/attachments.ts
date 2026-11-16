@@ -253,7 +253,7 @@ export const ATTACHMENTS_CURADOS: Attachment[] = [
   },
   {
     id: 'underbarrel-slim-angled',
-    name: 'Angular Fina',
+    name: 'Empunhadura Slim',
     originalName: 'Slim Angled',
     slot: 'underbarrel',
     cost: 25,
@@ -4304,7 +4304,7 @@ export const ATTACHMENTS_CURADOS: Attachment[] = [
   /* Empunhaduras com custo próprio nas armas novas. */
   {
     id: 'underbarrel-slim-angled-rspr',
-    name: 'Angular Fina',
+    name: 'Empunhadura Slim',
     originalName: 'Slim Angled',
     slot: 'underbarrel',
     cost: 20,
@@ -4328,7 +4328,7 @@ export const ATTACHMENTS_CURADOS: Attachment[] = [
   },
   {
     id: 'underbarrel-slim-angled-elr-40',
-    name: 'Angular Fina',
+    name: 'Empunhadura Slim',
     originalName: 'Slim Angled',
     slot: 'underbarrel',
     cost: 15,
