@@ -400,13 +400,14 @@ describe('nome do cano', () => {
    * Os dois primeiros são os que mais pesam: `14.5" Carbine` é barato por ser
    * Estendido na maioria das armas, e nestas duas ele é o Curto.
    */
-  it('encarece exatamente os cinco canos que estavam com o preço de outro papel', () => {
+  it('encarece exatamente os canos que estavam com o preço de outro papel', () => {
     const casos = [
       ['drs-iar', '14.5" Carbine', 5, 15],
       ['grt-cps', '14.5" Carbine', 5, 15],
       ['grt-cps', '16" Rifle', 5, 10],
       ['m87a1', '20" Factory', 5, 10],
-      ['pp-19', '264mm Fluted', 20, 25],
+      // O quinto era o 264mm Fluted da PP-19, que não é cano dela: pelo
+      // BattlefieldMeta, a PP-19 tem 238mm Factory, 238mm Pencil e 367mm CIV.
     ] as const;
 
     for (const [armaId, original, antes, agora] of casos) {

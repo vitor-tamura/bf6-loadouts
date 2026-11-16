@@ -1,0 +1,1034 @@
+{
+  "_leiaMe": "Escrito por `npm run catalog:sincronizar-analyzer`: o nome físico de cada cano, arma por arma, e o papel dele, de app.battlefieldmeta.gg/api/weapons/<id>/unlocked-attachments. Leitura que falha mantém a anterior.",
+  "lidoEm": "2026-11-16",
+  "armas": {
+    "18-5ks-k": [
+      {
+        "nome": "430mm Cut",
+        "papel": "basic"
+      },
+      {
+        "nome": "430mm Factory",
+        "papel": "extended"
+      }
+    ],
+    "ak-205": [
+      {
+        "nome": "314mm Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "314mm Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "314mm Prototype",
+        "papel": "heavy"
+      },
+      {
+        "nome": "Cryogenic",
+        "papel": "cryo"
+      }
+    ],
+    "ak4d": [
+      {
+        "nome": "409mm US",
+        "papel": "short"
+      },
+      {
+        "nome": "450mm Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "600mm Cut",
+        "papel": "heavy"
+      },
+      {
+        "nome": "600mm DMR",
+        "papel": "heavy_ext"
+      },
+      {
+        "nome": "600mm Fluted",
+        "papel": "extended"
+      },
+      {
+        "nome": "Cryogenic",
+        "papel": "cryo"
+      }
+    ],
+    "b36a4": [
+      {
+        "nome": "391mm CQB",
+        "papel": "short"
+      },
+      {
+        "nome": "480mm Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "480mm Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "480mm MG",
+        "papel": "heavy"
+      },
+      {
+        "nome": "510mm DMR",
+        "papel": "heavy_ext"
+      },
+      {
+        "nome": "510mm Fluted",
+        "papel": "extended"
+      },
+      {
+        "nome": "Cryogenic",
+        "papel": "cryo"
+      }
+    ],
+    "brod-3": [
+      {
+        "nome": "11\" Mid",
+        "papel": "basic"
+      },
+      {
+        "nome": "11\" Pencil",
+        "papel": "light"
+      },
+      {
+        "nome": "14.5\" Carbine",
+        "papel": "extended"
+      },
+      {
+        "nome": "7\" Compact",
+        "papel": "short"
+      }
+    ],
+    "cz3a1": [
+      {
+        "nome": "16.2\" Cut",
+        "papel": "extended"
+      },
+      {
+        "nome": "7.7\" Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "7.7\" Pencil",
+        "papel": "light"
+      }
+    ],
+    "db-12": [
+      {
+        "nome": "18.9\" Factory",
+        "papel": "basic"
+      }
+    ],
+    "drs-iar": [
+      {
+        "nome": "14.5\" Carbine",
+        "papel": "short"
+      },
+      {
+        "nome": "16.5\" Basic",
+        "papel": "basic"
+      },
+      {
+        "nome": "16.5\" Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "16.5\" LSW",
+        "papel": "heavy"
+      },
+      {
+        "nome": "20\" LE",
+        "papel": "extended"
+      },
+      {
+        "nome": "20\" SDM-R",
+        "papel": "heavy_ext"
+      }
+    ],
+    "ef88": [
+      {
+        "nome": "14.5\" Cob",
+        "papel": "short_light"
+      },
+      {
+        "nome": "14.5\" Standard",
+        "papel": "short"
+      },
+      {
+        "nome": "16\" Cryogenic",
+        "papel": "cryo"
+      },
+      {
+        "nome": "16\" Factory",
+        "papel": "light"
+      },
+      {
+        "nome": "16\" Standard",
+        "papel": "basic"
+      },
+      {
+        "nome": "20\" Marksman",
+        "papel": "ext_light"
+      },
+      {
+        "nome": "20\" Standard",
+        "papel": "extended"
+      },
+      {
+        "nome": "24\" Hbar",
+        "papel": "heavy_ext"
+      }
+    ],
+    "es-57": [
+      {
+        "nome": "122mm Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "122mm Pencil",
+        "papel": "light"
+      }
+    ],
+    "ggh-22": [
+      {
+        "nome": "114mm Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "114mm Pencil",
+        "papel": "light"
+      }
+    ],
+    "grt-bc": [
+      {
+        "nome": "10\" Factory",
+        "papel": "light"
+      },
+      {
+        "nome": "10\" Full",
+        "papel": "basic"
+      },
+      {
+        "nome": "14.5\" Alt",
+        "papel": "extended"
+      }
+    ],
+    "grt-cps": [
+      {
+        "nome": "14.5\" Carbine",
+        "papel": "short"
+      },
+      {
+        "nome": "16\" Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "16\" Rifle",
+        "papel": "basic"
+      },
+      {
+        "nome": "20\" Factory",
+        "papel": "extended"
+      }
+    ],
+    "interdictor": [
+      {
+        "nome": "29\" Factory",
+        "papel": "light"
+      },
+      {
+        "nome": "29\" Full",
+        "papel": "basic"
+      },
+      {
+        "nome": "32\" Custom",
+        "papel": "extended"
+      }
+    ],
+    "kord-6p67": [
+      {
+        "nome": "415mm Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "415mm Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "415mm Prototype",
+        "papel": "heavy"
+      },
+      {
+        "nome": "Cryogenic",
+        "papel": "cryo"
+      }
+    ],
+    "kts100-mk8": [
+      {
+        "nome": "330mm MK3",
+        "papel": "short"
+      },
+      {
+        "nome": "457mm MK9",
+        "papel": "heavy"
+      },
+      {
+        "nome": "508mm MK8",
+        "papel": "heavy_ext"
+      }
+    ],
+    "kv9": [
+      {
+        "nome": "5.5\" Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "5.5\" Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "6.5\" Extended",
+        "papel": "extended"
+      }
+    ],
+    "l110": [
+      {
+        "nome": "349mm Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "349mm SB",
+        "papel": "heavy"
+      },
+      {
+        "nome": "465mm LB",
+        "papel": "heavy_ext"
+      }
+    ],
+    "l115": [
+      {
+        "nome": "20\" Custom Covert",
+        "papel": "short"
+      },
+      {
+        "nome": "27\" Factory",
+        "papel": "light"
+      },
+      {
+        "nome": "27\" Full",
+        "papel": "basic"
+      },
+      {
+        "nome": "32\" Custom",
+        "papel": "extended"
+      }
+    ],
+    "l85a3": [
+      {
+        "nome": "442mm CQB",
+        "papel": "short"
+      },
+      {
+        "nome": "518mm Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "518mm Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "646mm Cut",
+        "papel": "heavy"
+      },
+      {
+        "nome": "646mm Fluted",
+        "papel": "extended"
+      },
+      {
+        "nome": "646mm LSW",
+        "papel": "heavy_ext"
+      },
+      {
+        "nome": "Cryogenic",
+        "papel": "cryo"
+      }
+    ],
+    "lmr27": [
+      {
+        "nome": "21.5\" Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "21.5\" Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "24\" Extended",
+        "papel": "extended"
+      }
+    ],
+    "m1014": [
+      {
+        "nome": "18.5\" Factory",
+        "papel": "basic"
+      }
+    ],
+    "m121-a2": [
+      {
+        "nome": "460mm Factory",
+        "papel": "short"
+      },
+      {
+        "nome": "550mm Infantry",
+        "papel": "heavy"
+      },
+      {
+        "nome": "660mm VMW",
+        "papel": "heavy_ext"
+      }
+    ],
+    "m123k": [
+      {
+        "nome": "370mm Compact",
+        "papel": "short"
+      },
+      {
+        "nome": "450mm Standard",
+        "papel": "heavy"
+      },
+      {
+        "nome": "612mm VMW",
+        "papel": "heavy_ext"
+      }
+    ],
+    "m16a4": [
+      {
+        "nome": "16\" Dissipator",
+        "papel": "short"
+      },
+      {
+        "nome": "18\" Govt.",
+        "papel": "basic"
+      },
+      {
+        "nome": "18\" Pencil",
+        "papel": "light"
+      },
+      {
+        "nome": "18\" SPR",
+        "papel": "heavy"
+      },
+      {
+        "nome": "20\" Factory",
+        "papel": "extended"
+      },
+      {
+        "nome": "20\" Hbar",
+        "papel": "heavy_ext"
+      },
+      {
+        "nome": "Cryogenic",
+        "papel": "cryo"
+      }
+    ],
+    "m2010-esr": [
+      {
+        "nome": "24\" Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "24\" Full",
+        "papel": "basic"
+      },
+      {
+        "nome": "26\" Carbon",
+        "papel": "extended"
+      }
+    ],
+    "m240l": [
+      {
+        "nome": "20\" Lima",
+        "papel": "heavy"
+      },
+      {
+        "nome": "20\" OH",
+        "papel": "light"
+      },
+      {
+        "nome": "24\" Bravo",
+        "papel": "heavy_ext"
+      }
+    ],
+    "m250": [
+      {
+        "nome": "406mm Standard",
+        "papel": "heavy"
+      },
+      {
+        "nome": "556mm Prototype",
+        "papel": "heavy_ext"
+      }
+    ],
+    "m277": [
+      {
+        "nome": "13\" Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "13\" Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "13\" Prototype",
+        "papel": "heavy"
+      },
+      {
+        "nome": "16\" Custom",
+        "papel": "heavy_ext"
+      },
+      {
+        "nome": "16\" Rifle",
+        "papel": "extended"
+      },
+      {
+        "nome": "Cryogenic",
+        "papel": "cryo"
+      }
+    ],
+    "m39-emr": [
+      {
+        "nome": "16\" Short",
+        "papel": "short"
+      },
+      {
+        "nome": "18\" Ebr",
+        "papel": "basic"
+      }
+    ],
+    "m417-a2": [
+      {
+        "nome": "12\" Assaulter",
+        "papel": "short"
+      },
+      {
+        "nome": "13\" Standard",
+        "papel": "basic"
+      },
+      {
+        "nome": "16.5\" Rifle",
+        "papel": "extended"
+      },
+      {
+        "nome": "Cryogenic",
+        "papel": "cryo"
+      }
+    ],
+    "m433": [
+      {
+        "nome": "14.5\" Standard",
+        "papel": "short"
+      },
+      {
+        "nome": "16.5\" Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "16.5\" Rifle",
+        "papel": "basic"
+      },
+      {
+        "nome": "18.9\" Prototype",
+        "papel": "extended"
+      }
+    ],
+    "m44": [
+      {
+        "nome": "5.12\" Compact",
+        "papel": "short"
+      },
+      {
+        "nome": "6.75\" Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "8.37\" Long",
+        "papel": "extended"
+      }
+    ],
+    "m45a1": [
+      {
+        "nome": "5\" Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "5\" Pencil",
+        "papel": "light"
+      }
+    ],
+    "m4a1": [
+      {
+        "nome": "11.5\" Commando",
+        "papel": "short"
+      },
+      {
+        "nome": "12.5\" Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "12.5\" Mid",
+        "papel": "basic"
+      },
+      {
+        "nome": "14.5\" Carbine",
+        "papel": "extended"
+      }
+    ],
+    "m60": [
+      {
+        "nome": "17\" Factory",
+        "papel": "heavy"
+      },
+      {
+        "nome": "22\" E3 Long",
+        "papel": "heavy_ext"
+      }
+    ],
+    "m87a1": [
+      {
+        "nome": "20\" Factory",
+        "papel": "basic"
+      }
+    ],
+    "mini-scout": [
+      {
+        "nome": "12\" SBR",
+        "papel": "short"
+      },
+      {
+        "nome": "16\" Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "16\" Pencil",
+        "papel": "light"
+      },
+      {
+        "nome": "18\" Extended",
+        "papel": "extended"
+      }
+    ],
+    "nvo-228e": [
+      {
+        "nome": "409mm Cut",
+        "papel": "short"
+      },
+      {
+        "nome": "409mm Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "409mm Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "458mm Custom",
+        "papel": "extended"
+      },
+      {
+        "nome": "Cryogenic",
+        "papel": "cryo"
+      }
+    ],
+    "p18": [
+      {
+        "nome": "3.9\" Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "3.9\" Pencil",
+        "papel": "light"
+      }
+    ],
+    "pp-19": [
+      {
+        "nome": "238mm Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "238mm Pencil",
+        "papel": "light"
+      },
+      {
+        "nome": "367mm CIV",
+        "papel": "extended"
+      }
+    ],
+    "psr": [
+      {
+        "nome": "26\" Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "27\" MK22",
+        "papel": "extended"
+      }
+    ],
+    "pw5a3": [
+      {
+        "nome": "225mm Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "245mm Custom",
+        "papel": "extended"
+      },
+      {
+        "nome": "Cryogenic",
+        "papel": "cryo"
+      }
+    ],
+    "pw7a2": [
+      {
+        "nome": "180mm Prototype",
+        "papel": "heavy"
+      },
+      {
+        "nome": "180mm Standard",
+        "papel": "basic"
+      },
+      {
+        "nome": "Cryogenic",
+        "papel": "cryo"
+      }
+    ],
+    "qbz-192": [
+      {
+        "nome": "10.5\" Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "14.5\" Common",
+        "papel": "extended"
+      },
+      {
+        "nome": "Cryogenic",
+        "papel": "cryo"
+      }
+    ],
+    "rpk-74m": [
+      {
+        "nome": "419mm Boar-F",
+        "papel": "short"
+      },
+      {
+        "nome": "521mm Boar",
+        "papel": "heavy"
+      },
+      {
+        "nome": "521mm Boar-F",
+        "papel": "basic"
+      },
+      {
+        "nome": "590mm Factory",
+        "papel": "heavy_ext"
+      }
+    ],
+    "rpkm": [
+      {
+        "nome": "419mm Boar-F",
+        "papel": "short"
+      },
+      {
+        "nome": "521mm Boar",
+        "papel": "heavy"
+      },
+      {
+        "nome": "521mm Boar-F",
+        "papel": "basic"
+      },
+      {
+        "nome": "590mm Factory",
+        "papel": "heavy_ext"
+      },
+      {
+        "nome": "600mm Tabuk",
+        "papel": "extended"
+      }
+    ],
+    "rspr": [
+      {
+        "nome": "11\" Rifle",
+        "papel": "extended"
+      },
+      {
+        "nome": "7.75\" Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "7.75\" Pencil",
+        "papel": "light"
+      }
+    ],
+    "scw-10": [
+      {
+        "nome": "6.8\" Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "6.8\" Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "Extended Barrel",
+        "papel": "extended"
+      }
+    ],
+    "sg-553r": [
+      {
+        "nome": "240mm Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "240mm SB",
+        "papel": "basic"
+      },
+      {
+        "nome": "303mm LB",
+        "papel": "extended"
+      }
+    ],
+    "sgx": [
+      {
+        "nome": "4.5\" Compact",
+        "papel": "short"
+      },
+      {
+        "nome": "6\" Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "6\" Standard",
+        "papel": "basic"
+      },
+      {
+        "nome": "8\" Extended",
+        "papel": "extended"
+      }
+    ],
+    "sl9": [
+      {
+        "nome": "11\" Extended",
+        "papel": "extended"
+      },
+      {
+        "nome": "11\" Heavy",
+        "papel": "heavy_ext"
+      },
+      {
+        "nome": "9\" Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "9\" Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "9\" Heavy",
+        "papel": "heavy"
+      },
+      {
+        "nome": "Cryogenic",
+        "papel": "cryo"
+      }
+    ],
+    "sor-300sc": [
+      {
+        "nome": "10.5\" Custom",
+        "papel": "extended"
+      },
+      {
+        "nome": "7.5\" Compact",
+        "papel": "short"
+      },
+      {
+        "nome": "9\" Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "9\" Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "Cryogenic",
+        "papel": "cryo"
+      }
+    ],
+    "sor-556-mk2": [
+      {
+        "nome": "14.5\" Factory",
+        "papel": "short"
+      },
+      {
+        "nome": "16\" US",
+        "papel": "basic"
+      },
+      {
+        "nome": "18\" Custom",
+        "papel": "heavy_ext"
+      },
+      {
+        "nome": "18\" US-LB",
+        "papel": "extended"
+      },
+      {
+        "nome": "Cryogenic",
+        "papel": "cryo"
+      },
+      {
+        "nome": "IAR Heavy",
+        "papel": "heavy"
+      }
+    ],
+    "sv-98": [
+      {
+        "nome": "514mm Carbine",
+        "papel": "short"
+      },
+      {
+        "nome": "650mm Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "650mm Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "730mm 3LR",
+        "papel": "extended"
+      }
+    ],
+    "svdm": [
+      {
+        "nome": "550mm Factory",
+        "papel": "short"
+      },
+      {
+        "nome": "565mm Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "565mm Para",
+        "papel": "basic"
+      },
+      {
+        "nome": "620mm Classic",
+        "papel": "extended"
+      }
+    ],
+    "svk-86": [
+      {
+        "nome": "457mm Urban",
+        "papel": "short"
+      },
+      {
+        "nome": "560mm Cut",
+        "papel": "basic"
+      }
+    ],
+    "tr-7": [
+      {
+        "nome": "17\" Cut",
+        "papel": "short"
+      },
+      {
+        "nome": "17\" Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "20\" Long",
+        "papel": "extended"
+      },
+      {
+        "nome": "432mm Fluted",
+        "papel": "light"
+      }
+    ],
+    "umg-40": [
+      {
+        "nome": "200mm Custom-H",
+        "papel": "heavy"
+      },
+      {
+        "nome": "200mm Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "200mm Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "305mm Custom",
+        "papel": "extended"
+      },
+      {
+        "nome": "305mm Custom-H",
+        "papel": "heavy_ext"
+      },
+      {
+        "nome": "Cryogenic",
+        "papel": "cryo"
+      }
+    ],
+    "usg-90": [
+      {
+        "nome": "264mm Factory",
+        "papel": "basic"
+      },
+      {
+        "nome": "264mm Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "264mm Prototype",
+        "papel": "heavy"
+      },
+      {
+        "nome": "407mm CIV-S",
+        "papel": "heavy_ext"
+      },
+      {
+        "nome": "Cryogenic",
+        "papel": "cryo"
+      }
+    ],
+    "vcr-2": [
+      {
+        "nome": "16\" Factory",
+        "papel": "short"
+      },
+      {
+        "nome": "18\" Fluted",
+        "papel": "light"
+      },
+      {
+        "nome": "18\" US",
+        "papel": "basic"
+      },
+      {
+        "nome": "20\" Marksman",
+        "papel": "extended"
+      }
+    ],
+    "vz-61": [
+      {
+        "nome": "115mm Factory",
+        "papel": "basic"
+      }
+    ]
+  }
+}

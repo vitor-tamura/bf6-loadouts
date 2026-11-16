@@ -2,13 +2,13 @@
   "fonte": {
     "repo": "raymdl/BF6-Weapon-Analyzer",
     "commit": "eac42a4ab7e2a5821e88f7d3d76c338e0cda0b3e",
-    "data": "2026-11-14T22:20:49Z",
+    "data": "2026-11-14T17:20:49-05:00",
     "versaoDeclarada": "2.1.2.0"
   },
   "ultimaLeitura": {
     "repo": "raymdl/BF6-Weapon-Analyzer",
     "commit": "eac42a4ab7e2a5821e88f7d3d76c338e0cda0b3e",
-    "data": "2026-11-14T22:20:49Z",
+    "data": "2026-11-14T17:20:49-05:00",
     "versaoDeclarada": "2.1.2.0"
   },
   "resumo": {
@@ -16,14 +16,14 @@
     "camposDeArmaCorrigidos": 278,
     "custosCorrigidos": 17,
     "compatAdicionadas": 873,
-    "compatRemovidas": 209,
-    "variantesNovas": 154,
+    "compatRemovidas": 282,
+    "variantesNovas": 226,
     "pecasDoAnalyzerSemPar": 3,
     "pecasCriadas": 10,
     "pecasDoSiteSemPar": 4,
-    "pecasSemArma": 0,
+    "pecasSemArma": 36,
     "carregadoresAmbiguos": 1,
-    "canosParaRevisar": 22
+    "canosParaRevisar": 1
   },
   "armas": [
     {
@@ -6748,6 +6748,298 @@
       "adicionadas": [],
       "removidas": [
         {
+          "peca": "barrel-510mm-dmr",
+          "arma": "b36a4"
+        },
+        {
+          "peca": "barrel-510mm-fluted",
+          "arma": "b36a4"
+        },
+        {
+          "peca": "barrel-18-custom",
+          "arma": "sor-556-mk2"
+        },
+        {
+          "peca": "barrel-600mm-cut",
+          "arma": "ak4d"
+        },
+        {
+          "peca": "barrel-600mm-dmr",
+          "arma": "ak4d"
+        },
+        {
+          "peca": "barrel-600mm-fluted",
+          "arma": "ak4d"
+        },
+        {
+          "peca": "barrel-17-cut",
+          "arma": "tr-7"
+        },
+        {
+          "peca": "barrel-415mm-prototype",
+          "arma": "kord-6p67"
+        },
+        {
+          "peca": "barrel-409mm-cut",
+          "arma": "nvo-228e"
+        },
+        {
+          "peca": "barrel-391mm-cqb",
+          "arma": "l85a3"
+        },
+        {
+          "peca": "barrel-480mm-factory",
+          "arma": "l85a3"
+        },
+        {
+          "peca": "barrel-480mm-fluted",
+          "arma": "l85a3"
+        },
+        {
+          "peca": "barrel-480mm-mg",
+          "arma": "l85a3"
+        },
+        {
+          "peca": "barrel-510mm-dmr",
+          "arma": "l85a3"
+        },
+        {
+          "peca": "barrel-510mm-fluted",
+          "arma": "l85a3"
+        },
+        {
+          "peca": "barrel-13-prototype",
+          "arma": "m277"
+        },
+        {
+          "peca": "barrel-16-custom",
+          "arma": "m277"
+        },
+        {
+          "peca": "barrel-314mm-prototype",
+          "arma": "ak-205"
+        },
+        {
+          "peca": "barrel-13-commando",
+          "arma": "m417-a2"
+        },
+        {
+          "peca": "barrel-11-5-commando",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "barrel-12-5-fluted",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "barrel-12-5-mid",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "barrel-14-5-carbine",
+          "arma": "sor-300sc"
+        },
+        {
+          "peca": "barrel-180mm-prototype",
+          "arma": "pw7a2"
+        },
+        {
+          "peca": "barrel-200mm-custom-h",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "barrel-305mm-custom-h",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "barrel-200mm-custom",
+          "arma": "umg-40"
+        },
+        {
+          "peca": "barrel-264mm-prototype",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "barrel-246mm-factory",
+          "arma": "usg-90"
+        },
+        {
+          "peca": "barrel-246mm-factory",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "barrel-264mm-fluted",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "barrel-264mm-prototype",
+          "arma": "pp-19"
+        },
+        {
+          "peca": "barrel-465mm-lb",
+          "arma": "l110"
+        },
+        {
+          "peca": "barrel-394mm-sb",
+          "arma": "l110"
+        },
+        {
+          "peca": "barrel-20-sdm-r",
+          "arma": "drs-iar"
+        },
+        {
+          "peca": "barrel-17-fluted",
+          "arma": "m60"
+        },
+        {
+          "peca": "barrel-521mm-boar",
+          "arma": "rpkm"
+        },
+        {
+          "peca": "barrel-590mm-factory",
+          "arma": "rpkm"
+        },
+        {
+          "peca": "barrel-521mm-boar",
+          "arma": "rpk-74m"
+        },
+        {
+          "peca": "barrel-590mm-factory",
+          "arma": "rpk-74m"
+        },
+        {
+          "peca": "barrel-600mm-tabuk",
+          "arma": "rpk-74m"
+        },
+        {
+          "peca": "barrel-22-factory",
+          "arma": "m39-emr"
+        },
+        {
+          "peca": "barrel-457mm-urban",
+          "arma": "svk-86"
+        },
+        {
+          "peca": "barrel-560mm-cut",
+          "arma": "svk-86"
+        },
+        {
+          "peca": "barrel-560mm-factory",
+          "arma": "svk-86"
+        },
+        {
+          "peca": "barrel-565mm-fluted",
+          "arma": "svdm"
+        },
+        {
+          "peca": "barrel-556mm-para",
+          "arma": "svdm"
+        },
+        {
+          "peca": "barrel-24-fluted",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "barrel-24-full",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "barrel-26-carbon",
+          "arma": "mini-scout"
+        },
+        {
+          "peca": "barrel-27-factory",
+          "arma": "l115"
+        },
+        {
+          "peca": "barrel-26-factory",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "barrel-27-mk22",
+          "arma": "interdictor"
+        },
+        {
+          "peca": "barrel-extended-barrel",
+          "arma": "m87a1"
+        },
+        {
+          "peca": "barrel-extended-barrel",
+          "arma": "m1014"
+        },
+        {
+          "peca": "barrel-430mm-factory",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "barrel-extended-barrel",
+          "arma": "18-5ks-k"
+        },
+        {
+          "peca": "barrel-extended-barrel",
+          "arma": "db-12"
+        },
+        {
+          "peca": "barrel-5-factory",
+          "arma": "ggh-22"
+        },
+        {
+          "peca": "barrel-3-9-factory",
+          "arma": "vz-61"
+        },
+        {
+          "peca": "barrel-11-5-commando",
+          "arma": "brod-3"
+        },
+        {
+          "peca": "barrel-12-5-fluted",
+          "arma": "brod-3"
+        },
+        {
+          "peca": "barrel-12-5-mid",
+          "arma": "brod-3"
+        },
+        {
+          "peca": "barrel-391mm-cqb",
+          "arma": "ef88"
+        },
+        {
+          "peca": "barrel-480mm-factory",
+          "arma": "ef88"
+        },
+        {
+          "peca": "barrel-480mm-fluted",
+          "arma": "ef88"
+        },
+        {
+          "peca": "barrel-480mm-mg",
+          "arma": "ef88"
+        },
+        {
+          "peca": "barrel-510mm-dmr",
+          "arma": "ef88"
+        },
+        {
+          "peca": "barrel-510mm-fluted",
+          "arma": "ef88"
+        },
+        {
+          "peca": "barrel-cryogenic",
+          "arma": "ef88"
+        },
+        {
+          "peca": "barrel-rspr-basic",
+          "arma": "rspr"
+        },
+        {
+          "peca": "barrel-rspr-extended",
+          "arma": "rspr"
+        },
+        {
+          "peca": "barrel-rspr-light",
+          "arma": "rspr"
+        },
+        {
           "peca": "barrel-12-assaulter",
           "arma": "nsw4"
         }
@@ -7785,30 +8077,534 @@
       "item": "8_rnd"
     },
     {
-      "id": "barrel-scw-10-extended",
-      "de": "barrel-scw-10-extended",
+      "id": "barrel-510mm-dmr-b36a4",
+      "de": "barrel-510mm-dmr",
+      "arma": "b36a4",
+      "custo": 10,
+      "item": "heavy_ext"
+    },
+    {
+      "id": "barrel-510mm-fluted-b36a4",
+      "de": "barrel-510mm-fluted",
+      "arma": "b36a4",
+      "custo": 5,
+      "item": "extended"
+    },
+    {
+      "id": "barrel-18-custom-sor-556-mk2",
+      "de": "barrel-18-custom",
+      "arma": "sor-556-mk2",
+      "custo": 10,
+      "item": "heavy_ext"
+    },
+    {
+      "id": "barrel-600mm-cut-ak4d",
+      "de": "barrel-600mm-cut",
+      "arma": "ak4d",
+      "custo": 10,
+      "item": "heavy"
+    },
+    {
+      "id": "barrel-600mm-dmr-ak4d",
+      "de": "barrel-600mm-dmr",
+      "arma": "ak4d",
+      "custo": 10,
+      "item": "heavy_ext"
+    },
+    {
+      "id": "barrel-600mm-fluted-ak4d",
+      "de": "barrel-600mm-fluted",
+      "arma": "ak4d",
+      "custo": 5,
+      "item": "extended"
+    },
+    {
+      "id": "barrel-17-cut-tr-7",
+      "de": "barrel-17-cut",
+      "arma": "tr-7",
+      "custo": 15,
+      "item": "short"
+    },
+    {
+      "id": "barrel-415mm-prototype-kord-6p67",
+      "de": "barrel-415mm-prototype",
+      "arma": "kord-6p67",
+      "custo": 10,
+      "item": "heavy"
+    },
+    {
+      "id": "barrel-409mm-cut-nvo-228e",
+      "de": "barrel-409mm-cut",
+      "arma": "nvo-228e",
+      "custo": 15,
+      "item": "short"
+    },
+    {
+      "id": "barrel-442mm-cqb-l85a3",
+      "de": "barrel-442mm-cqb",
+      "arma": "l85a3",
+      "custo": 15,
+      "item": "short"
+    },
+    {
+      "id": "barrel-518mm-factory-l85a3",
+      "de": "barrel-518mm-factory",
+      "arma": "l85a3",
+      "custo": 10,
+      "item": "basic"
+    },
+    {
+      "id": "barrel-518mm-fluted-l85a3",
+      "de": "barrel-518mm-fluted",
+      "arma": "l85a3",
+      "custo": 20,
+      "item": "light"
+    },
+    {
+      "id": "barrel-646mm-cut-l85a3",
+      "de": "barrel-646mm-cut",
+      "arma": "l85a3",
+      "custo": 10,
+      "item": "heavy"
+    },
+    {
+      "id": "barrel-646mm-fluted-l85a3",
+      "de": "barrel-646mm-fluted",
+      "arma": "l85a3",
+      "custo": 5,
+      "item": "extended"
+    },
+    {
+      "id": "barrel-646mm-lsw-l85a3",
+      "de": "barrel-646mm-lsw",
+      "arma": "l85a3",
+      "custo": 10,
+      "item": "heavy_ext"
+    },
+    {
+      "id": "barrel-13-prototype-m277",
+      "de": "barrel-13-prototype",
+      "arma": "m277",
+      "custo": 10,
+      "item": "heavy"
+    },
+    {
+      "id": "barrel-16-custom-m277",
+      "de": "barrel-16-custom",
+      "arma": "m277",
+      "custo": 10,
+      "item": "heavy_ext"
+    },
+    {
+      "id": "barrel-314mm-prototype-ak-205",
+      "de": "barrel-314mm-prototype",
+      "arma": "ak-205",
+      "custo": 10,
+      "item": "heavy"
+    },
+    {
+      "id": "barrel-13-standard-m417-a2",
+      "de": "barrel-13-standard",
+      "arma": "m417-a2",
+      "custo": 10,
+      "item": "basic"
+    },
+    {
+      "id": "barrel-10-5-custom-sor-300sc",
+      "de": "barrel-10-5-custom",
+      "arma": "sor-300sc",
+      "custo": 5,
+      "item": "extended"
+    },
+    {
+      "id": "barrel-7-5-compact-sor-300sc",
+      "de": "barrel-7-5-compact",
+      "arma": "sor-300sc",
+      "custo": 15,
+      "item": "short"
+    },
+    {
+      "id": "barrel-9-factory-sor-300sc",
+      "de": "barrel-9-factory",
+      "arma": "sor-300sc",
+      "custo": 10,
+      "item": "basic"
+    },
+    {
+      "id": "barrel-9-fluted-sor-300sc",
+      "de": "barrel-9-fluted",
+      "arma": "sor-300sc",
+      "custo": 20,
+      "item": "light"
+    },
+    {
+      "id": "barrel-180mm-prototype-pw7a2",
+      "de": "barrel-180mm-prototype",
+      "arma": "pw7a2",
+      "custo": 10,
+      "item": "heavy"
+    },
+    {
+      "id": "barrel-200mm-custom-h-umg-40",
+      "de": "barrel-200mm-custom-h",
+      "arma": "umg-40",
+      "custo": 10,
+      "item": "heavy"
+    },
+    {
+      "id": "barrel-200mm-fluted-umg-40",
+      "de": "barrel-200mm-fluted",
+      "arma": "umg-40",
+      "custo": 20,
+      "item": "light"
+    },
+    {
+      "id": "barrel-305mm-custom-h-umg-40",
+      "de": "barrel-305mm-custom-h",
+      "arma": "umg-40",
+      "custo": 10,
+      "item": "heavy_ext"
+    },
+    {
+      "id": "barrel-264mm-factory-usg-90",
+      "de": "barrel-264mm-factory",
+      "arma": "usg-90",
+      "custo": 10,
+      "item": "basic"
+    },
+    {
+      "id": "barrel-264mm-prototype-usg-90",
+      "de": "barrel-264mm-prototype",
+      "arma": "usg-90",
+      "custo": 10,
+      "item": "heavy"
+    },
+    {
+      "id": "barrel-extended-barrel-scw-10",
+      "de": "barrel-extended-barrel",
       "arma": "scw-10",
       "custo": 5,
       "item": "extended"
     },
     {
-      "id": "barrel-mini-scout-short",
-      "de": "barrel-mini-scout-short",
+      "id": "barrel-238mm-factory-pp-19",
+      "de": "barrel-238mm-factory",
+      "arma": "pp-19",
+      "custo": 10,
+      "item": "basic"
+    },
+    {
+      "id": "barrel-238mm-pencil-pp-19",
+      "de": "barrel-238mm-pencil",
+      "arma": "pp-19",
+      "custo": 20,
+      "item": "light"
+    },
+    {
+      "id": "barrel-367mm-civ-pp-19",
+      "de": "barrel-367mm-civ",
+      "arma": "pp-19",
+      "custo": 5,
+      "item": "extended"
+    },
+    {
+      "id": "barrel-349mm-sb-l110",
+      "de": "barrel-349mm-sb",
+      "arma": "l110",
+      "custo": 10,
+      "item": "heavy"
+    },
+    {
+      "id": "barrel-465mm-lb-l110",
+      "de": "barrel-465mm-lb",
+      "arma": "l110",
+      "custo": 10,
+      "item": "heavy_ext"
+    },
+    {
+      "id": "barrel-20-sdm-r-drs-iar",
+      "de": "barrel-20-sdm-r",
+      "arma": "drs-iar",
+      "custo": 10,
+      "item": "heavy_ext"
+    },
+    {
+      "id": "barrel-m60-light",
+      "de": "barrel-m60-light",
+      "arma": "m60",
+      "custo": 20,
+      "item": "light"
+    },
+    {
+      "id": "barrel-521mm-boar-rpkm",
+      "de": "barrel-521mm-boar",
+      "arma": "rpkm",
+      "custo": 10,
+      "item": "heavy"
+    },
+    {
+      "id": "barrel-590mm-factory-rpkm",
+      "de": "barrel-590mm-factory",
+      "arma": "rpkm",
+      "custo": 10,
+      "item": "heavy_ext"
+    },
+    {
+      "id": "barrel-521mm-boar-rpk-74m",
+      "de": "barrel-521mm-boar",
+      "arma": "rpk-74m",
+      "custo": 10,
+      "item": "heavy"
+    },
+    {
+      "id": "barrel-590mm-factory-rpk-74m",
+      "de": "barrel-590mm-factory",
+      "arma": "rpk-74m",
+      "custo": 10,
+      "item": "heavy_ext"
+    },
+    {
+      "id": "barrel-m39-emr-extended",
+      "de": "barrel-m39-emr-extended",
+      "arma": "m39-emr",
+      "custo": 5,
+      "item": "extended"
+    },
+    {
+      "id": "barrel-457mm-urban-svk-86",
+      "de": "barrel-457mm-urban",
+      "arma": "svk-86",
+      "custo": 15,
+      "item": "short"
+    },
+    {
+      "id": "barrel-560mm-cut-svk-86",
+      "de": "barrel-560mm-cut",
+      "arma": "svk-86",
+      "custo": 10,
+      "item": "basic"
+    },
+    {
+      "id": "barrel-svk-86-extended",
+      "de": "barrel-svk-86-extended",
+      "arma": "svk-86",
+      "custo": 5,
+      "item": "extended"
+    },
+    {
+      "id": "barrel-565mm-fluted-svdm",
+      "de": "barrel-565mm-fluted",
+      "arma": "svdm",
+      "custo": 20,
+      "item": "light"
+    },
+    {
+      "id": "barrel-565mm-para-svdm",
+      "de": "barrel-565mm-para",
+      "arma": "svdm",
+      "custo": 10,
+      "item": "basic"
+    },
+    {
+      "id": "barrel-12-sbr-mini-scout",
+      "de": "barrel-12-sbr",
       "arma": "mini-scout",
       "custo": 15,
       "item": "short"
     },
     {
-      "id": "barrel-interdictor-light",
-      "de": "barrel-interdictor-light",
+      "id": "barrel-16-factory-mini-scout",
+      "de": "barrel-16-factory",
+      "arma": "mini-scout",
+      "custo": 10,
+      "item": "basic"
+    },
+    {
+      "id": "barrel-16-pencil-mini-scout",
+      "de": "barrel-16-pencil",
+      "arma": "mini-scout",
+      "custo": 20,
+      "item": "light"
+    },
+    {
+      "id": "barrel-18-extended-mini-scout",
+      "de": "barrel-18-extended",
+      "arma": "mini-scout",
+      "custo": 5,
+      "item": "extended"
+    },
+    {
+      "id": "barrel-27-factory-l115",
+      "de": "barrel-27-factory",
+      "arma": "l115",
+      "custo": 20,
+      "item": "light"
+    },
+    {
+      "id": "barrel-29-factory-interdictor",
+      "de": "barrel-29-factory",
       "arma": "interdictor",
       "custo": 20,
       "item": "light"
     },
     {
-      "id": "barrel-ggh-22-light",
-      "de": "barrel-ggh-22-light",
+      "id": "barrel-29-full-interdictor",
+      "de": "barrel-29-full",
+      "arma": "interdictor",
+      "custo": 10,
+      "item": "basic"
+    },
+    {
+      "id": "barrel-32-custom-interdictor",
+      "de": "barrel-32-custom",
+      "arma": "interdictor",
+      "custo": 5,
+      "item": "extended"
+    },
+    {
+      "id": "barrel-m87a1-extended",
+      "de": "barrel-m87a1-extended",
+      "arma": "m87a1",
+      "custo": 5,
+      "item": "extended"
+    },
+    {
+      "id": "barrel-m1014-extended",
+      "de": "barrel-m1014-extended",
+      "arma": "m1014",
+      "custo": 5,
+      "item": "extended"
+    },
+    {
+      "id": "barrel-430mm-factory-18-5ks-k",
+      "de": "barrel-430mm-factory",
+      "arma": "18-5ks-k",
+      "custo": 5,
+      "item": "extended"
+    },
+    {
+      "id": "barrel-db-12-extended",
+      "de": "barrel-db-12-extended",
+      "arma": "db-12",
+      "custo": 5,
+      "item": "extended"
+    },
+    {
+      "id": "barrel-114mm-factory-ggh-22",
+      "de": "barrel-114mm-factory",
       "arma": "ggh-22",
+      "custo": 10,
+      "item": "basic"
+    },
+    {
+      "id": "barrel-114mm-pencil-ggh-22",
+      "de": "barrel-114mm-pencil",
+      "arma": "ggh-22",
+      "custo": 20,
+      "item": "light"
+    },
+    {
+      "id": "barrel-115mm-factory-vz-61",
+      "de": "barrel-115mm-factory",
+      "arma": "vz-61",
+      "custo": 10,
+      "item": "basic"
+    },
+    {
+      "id": "barrel-11-mid-brod-3",
+      "de": "barrel-11-mid",
+      "arma": "brod-3",
+      "custo": 10,
+      "item": "basic"
+    },
+    {
+      "id": "barrel-11-pencil-brod-3",
+      "de": "barrel-11-pencil",
+      "arma": "brod-3",
+      "custo": 20,
+      "item": "light"
+    },
+    {
+      "id": "barrel-7-compact-brod-3",
+      "de": "barrel-7-compact",
+      "arma": "brod-3",
+      "custo": 15,
+      "item": "short"
+    },
+    {
+      "id": "barrel-14-5-cob-ef88",
+      "de": "barrel-14-5-cob",
+      "arma": "ef88",
+      "custo": 25,
+      "item": "short_light"
+    },
+    {
+      "id": "barrel-14-5-standard-ef88",
+      "de": "barrel-14-5-standard",
+      "arma": "ef88",
+      "custo": 15,
+      "item": "short"
+    },
+    {
+      "id": "barrel-16-cryogenic-ef88",
+      "de": "barrel-16-cryogenic",
+      "arma": "ef88",
+      "custo": 20,
+      "item": "cryo"
+    },
+    {
+      "id": "barrel-16-factory-ef88",
+      "de": "barrel-16-factory",
+      "arma": "ef88",
+      "custo": 20,
+      "item": "light"
+    },
+    {
+      "id": "barrel-16-standard-ef88",
+      "de": "barrel-16-standard",
+      "arma": "ef88",
+      "custo": 10,
+      "item": "basic"
+    },
+    {
+      "id": "barrel-20-marksman-ef88",
+      "de": "barrel-20-marksman",
+      "arma": "ef88",
+      "custo": 25,
+      "item": "ext_light"
+    },
+    {
+      "id": "barrel-20-standard-ef88",
+      "de": "barrel-20-standard",
+      "arma": "ef88",
+      "custo": 5,
+      "item": "extended"
+    },
+    {
+      "id": "barrel-24-hbar-ef88",
+      "de": "barrel-24-hbar",
+      "arma": "ef88",
+      "custo": 10,
+      "item": "heavy_ext"
+    },
+    {
+      "id": "barrel-11-rifle-rspr",
+      "de": "barrel-11-rifle",
+      "arma": "rspr",
+      "custo": 5,
+      "item": "extended"
+    },
+    {
+      "id": "barrel-7-75-factory-rspr",
+      "de": "barrel-7-75-factory",
+      "arma": "rspr",
+      "custo": 10,
+      "item": "basic"
+    },
+    {
+      "id": "barrel-7-75-pencil-rspr",
+      "de": "barrel-7-75-pencil",
+      "arma": "rspr",
       "custo": 20,
       "item": "light"
     },
@@ -7968,7 +8764,188 @@
       "originalName": "Laser Light Combo Green"
     }
   ],
-  "pecasSemArma": [],
+  "pecasSemArma": [
+    {
+      "id": "barrel-13-prototype",
+      "slot": "barrel",
+      "originalName": "13\" Prototype"
+    },
+    {
+      "id": "barrel-16-custom",
+      "slot": "barrel",
+      "originalName": "16\" Custom"
+    },
+    {
+      "id": "barrel-17-cut",
+      "slot": "barrel",
+      "originalName": "17\" Cut"
+    },
+    {
+      "id": "barrel-17-fluted",
+      "slot": "barrel",
+      "originalName": "17\" Fluted"
+    },
+    {
+      "id": "barrel-18-custom",
+      "slot": "barrel",
+      "originalName": "18\" Custom"
+    },
+    {
+      "id": "barrel-180mm-prototype",
+      "slot": "barrel",
+      "originalName": "180mm Prototype"
+    },
+    {
+      "id": "barrel-20-sdm-r",
+      "slot": "barrel",
+      "originalName": "20\" SDM-R"
+    },
+    {
+      "id": "barrel-200mm-custom",
+      "slot": "barrel",
+      "originalName": "200mm Custom"
+    },
+    {
+      "id": "barrel-200mm-custom-h",
+      "slot": "barrel",
+      "originalName": "200mm Custom-H"
+    },
+    {
+      "id": "barrel-22-factory",
+      "slot": "barrel",
+      "originalName": "22\" Factory"
+    },
+    {
+      "id": "barrel-246mm-factory",
+      "slot": "barrel",
+      "originalName": "246mm Factory"
+    },
+    {
+      "id": "barrel-264mm-prototype",
+      "slot": "barrel",
+      "originalName": "264mm Prototype"
+    },
+    {
+      "id": "barrel-27-factory",
+      "slot": "barrel",
+      "originalName": "27\" Factory"
+    },
+    {
+      "id": "barrel-314mm-prototype",
+      "slot": "barrel",
+      "originalName": "314mm Prototype"
+    },
+    {
+      "id": "barrel-394mm-sb",
+      "slot": "barrel",
+      "originalName": "394mm SB"
+    },
+    {
+      "id": "barrel-409mm-cut",
+      "slot": "barrel",
+      "originalName": "409mm Cut"
+    },
+    {
+      "id": "barrel-415mm-prototype",
+      "slot": "barrel",
+      "originalName": "415mm Prototype"
+    },
+    {
+      "id": "barrel-430mm-factory",
+      "slot": "barrel",
+      "originalName": "430mm Factory"
+    },
+    {
+      "id": "barrel-457mm-urban",
+      "slot": "barrel",
+      "originalName": "457mm Urban"
+    },
+    {
+      "id": "barrel-465mm-lb",
+      "slot": "barrel",
+      "originalName": "465mm LB"
+    },
+    {
+      "id": "barrel-510mm-dmr",
+      "slot": "barrel",
+      "originalName": "510mm DMR"
+    },
+    {
+      "id": "barrel-510mm-fluted",
+      "slot": "barrel",
+      "originalName": "510mm Fluted"
+    },
+    {
+      "id": "barrel-521mm-boar",
+      "slot": "barrel",
+      "originalName": "521mm Boar"
+    },
+    {
+      "id": "barrel-556mm-para",
+      "slot": "barrel",
+      "originalName": "556mm Para"
+    },
+    {
+      "id": "barrel-560mm-cut",
+      "slot": "barrel",
+      "originalName": "560mm Cut"
+    },
+    {
+      "id": "barrel-560mm-factory",
+      "slot": "barrel",
+      "originalName": "560mm Factory"
+    },
+    {
+      "id": "barrel-565mm-fluted",
+      "slot": "barrel",
+      "originalName": "565mm Fluted"
+    },
+    {
+      "id": "barrel-590mm-factory",
+      "slot": "barrel",
+      "originalName": "590mm Factory"
+    },
+    {
+      "id": "barrel-600mm-cut",
+      "slot": "barrel",
+      "originalName": "600mm Cut"
+    },
+    {
+      "id": "barrel-600mm-dmr",
+      "slot": "barrel",
+      "originalName": "600mm DMR"
+    },
+    {
+      "id": "barrel-600mm-fluted",
+      "slot": "barrel",
+      "originalName": "600mm Fluted"
+    },
+    {
+      "id": "barrel-extended-barrel",
+      "slot": "barrel",
+      "originalName": "Extended Barrel"
+    },
+    {
+      "id": "barrel-305mm-custom-h",
+      "slot": "barrel",
+      "originalName": "305mm Custom-H"
+    },
+    {
+      "id": "barrel-rspr-basic",
+      "slot": "barrel",
+      "originalName": "Basic"
+    },
+    {
+      "id": "barrel-rspr-extended",
+      "slot": "barrel",
+      "originalName": "Extended"
+    },
+    {
+      "id": "barrel-rspr-light",
+      "slot": "barrel",
+      "originalName": "Light"
+    }
+  ],
   "travadas": [
     {
       "peca": "ergonomics-match-trigger",
@@ -8083,24 +9060,34 @@
     ],
     "criados": [
       {
-        "id": "barrel-scw-10-extended",
-        "arma": "scw-10",
+        "id": "barrel-m60-light",
+        "arma": "m60",
+        "papel": "light"
+      },
+      {
+        "id": "barrel-m39-emr-extended",
+        "arma": "m39-emr",
         "papel": "extended"
       },
       {
-        "id": "barrel-mini-scout-short",
-        "arma": "mini-scout",
-        "papel": "short"
+        "id": "barrel-svk-86-extended",
+        "arma": "svk-86",
+        "papel": "extended"
       },
       {
-        "id": "barrel-interdictor-light",
-        "arma": "interdictor",
-        "papel": "light"
+        "id": "barrel-m87a1-extended",
+        "arma": "m87a1",
+        "papel": "extended"
       },
       {
-        "id": "barrel-ggh-22-light",
-        "arma": "ggh-22",
-        "papel": "light"
+        "id": "barrel-m1014-extended",
+        "arma": "m1014",
+        "papel": "extended"
+      },
+      {
+        "id": "barrel-db-12-extended",
+        "arma": "db-12",
+        "papel": "extended"
       },
       {
         "id": "barrel-nsw4-extended",
@@ -8119,569 +9106,6 @@
       }
     ],
     "revisar": [
-      {
-        "arma": "b36a4",
-        "motivo": "faltam Cano Ext. Pesado e sobram 510mm Fluted (Cano Estendido Leve) — algum cano está com o papel errado",
-        "papeisDoJogo": ["basic", "heavy", "extended", "heavy_ext", "short", "light", "cryo"],
-        "noSite": [
-          {
-            "peca": "barrel-391mm-cqb",
-            "papel": "Cano Curto"
-          },
-          {
-            "peca": "barrel-480mm-factory",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-480mm-fluted",
-            "papel": "Cano Leve"
-          },
-          {
-            "peca": "barrel-480mm-mg",
-            "papel": "Cano Pesado"
-          },
-          {
-            "peca": "barrel-510mm-dmr",
-            "papel": "Cano Estendido"
-          },
-          {
-            "peca": "barrel-510mm-fluted",
-            "papel": "Cano Estendido Leve"
-          },
-          {
-            "peca": "barrel-cryogenic",
-            "papel": "Cano Crio"
-          }
-        ]
-      },
-      {
-        "arma": "sor-556-mk2",
-        "motivo": "faltam Cano Ext. Pesado e há nome repetido (Cano Estendido) — um dos repetidos pode ser o papel que falta",
-        "papeisDoJogo": ["basic", "short", "heavy", "extended", "heavy_ext", "cryo"],
-        "noSite": [
-          {
-            "peca": "barrel-14-5-factory",
-            "papel": "Cano Curto"
-          },
-          {
-            "peca": "barrel-16-us",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-18-custom",
-            "papel": "Cano Estendido"
-          },
-          {
-            "peca": "barrel-18-us-lb",
-            "papel": "Cano Estendido"
-          },
-          {
-            "peca": "barrel-cryogenic",
-            "papel": "Cano Crio"
-          },
-          {
-            "peca": "barrel-iar-heavy",
-            "papel": "Cano Pesado"
-          }
-        ]
-      },
-      {
-        "arma": "ak4d",
-        "motivo": "faltam Cano Pesado, Cano Ext. Pesado e sobram 600mm Fluted (Cano Estendido Leve) — algum cano está com o papel errado",
-        "papeisDoJogo": ["basic", "heavy", "extended", "heavy_ext", "short", "cryo"],
-        "noSite": [
-          {
-            "peca": "barrel-409mm-us",
-            "papel": "Cano Curto"
-          },
-          {
-            "peca": "barrel-450mm-factory",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-600mm-cut",
-            "papel": "Cano Estendido"
-          },
-          {
-            "peca": "barrel-600mm-dmr",
-            "papel": "Cano Estendido"
-          },
-          {
-            "peca": "barrel-600mm-fluted",
-            "papel": "Cano Estendido Leve"
-          },
-          {
-            "peca": "barrel-cryogenic",
-            "papel": "Cano Crio"
-          }
-        ]
-      },
-      {
-        "arma": "tr-7",
-        "motivo": "faltam Cano Curto e há nome repetido (Cano Básico) — um dos repetidos pode ser o papel que falta",
-        "papeisDoJogo": ["basic", "extended", "short", "light"],
-        "noSite": [
-          {
-            "peca": "barrel-17-cut",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-17-factory",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-20-long",
-            "papel": "Cano Estendido"
-          },
-          {
-            "peca": "barrel-432mm-fluted",
-            "papel": "Cano Leve"
-          }
-        ]
-      },
-      {
-        "arma": "kord-6p67",
-        "motivo": "faltam Cano Pesado e há nome repetido (Cano Básico) — um dos repetidos pode ser o papel que falta",
-        "papeisDoJogo": ["basic", "heavy", "light", "cryo"],
-        "noSite": [
-          {
-            "peca": "barrel-415mm-factory",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-415mm-fluted",
-            "papel": "Cano Leve"
-          },
-          {
-            "peca": "barrel-415mm-prototype",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-cryogenic",
-            "papel": "Cano Crio"
-          }
-        ]
-      },
-      {
-        "arma": "nvo-228e",
-        "motivo": "faltam Cano Curto e há nome repetido (Cano Básico) — um dos repetidos pode ser o papel que falta",
-        "papeisDoJogo": ["basic", "extended", "short", "light", "cryo"],
-        "noSite": [
-          {
-            "peca": "barrel-409mm-cut",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-409mm-factory",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-409mm-fluted",
-            "papel": "Cano Leve"
-          },
-          {
-            "peca": "barrel-458mm-custom",
-            "papel": "Cano Estendido"
-          },
-          {
-            "peca": "barrel-cryogenic",
-            "papel": "Cano Crio"
-          }
-        ]
-      },
-      {
-        "arma": "l85a3",
-        "motivo": "faltam Cano Ext. Pesado e sobram 510mm Fluted (Cano Estendido Leve) — algum cano está com o papel errado",
-        "papeisDoJogo": ["basic", "heavy", "extended", "heavy_ext", "short", "light", "cryo"],
-        "noSite": [
-          {
-            "peca": "barrel-391mm-cqb",
-            "papel": "Cano Curto"
-          },
-          {
-            "peca": "barrel-480mm-factory",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-480mm-fluted",
-            "papel": "Cano Leve"
-          },
-          {
-            "peca": "barrel-480mm-mg",
-            "papel": "Cano Pesado"
-          },
-          {
-            "peca": "barrel-510mm-dmr",
-            "papel": "Cano Estendido"
-          },
-          {
-            "peca": "barrel-510mm-fluted",
-            "papel": "Cano Estendido Leve"
-          },
-          {
-            "peca": "barrel-cryogenic",
-            "papel": "Cano Crio"
-          }
-        ]
-      },
-      {
-        "arma": "m277",
-        "motivo": "faltam Cano Pesado, Cano Ext. Pesado e há nome repetido (Cano Básico, Cano Estendido) — um dos repetidos pode ser o papel que falta",
-        "papeisDoJogo": ["basic", "heavy", "extended", "heavy_ext", "light", "cryo"],
-        "noSite": [
-          {
-            "peca": "barrel-13-factory",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-13-fluted",
-            "papel": "Cano Leve"
-          },
-          {
-            "peca": "barrel-13-prototype",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-16-custom",
-            "papel": "Cano Estendido"
-          },
-          {
-            "peca": "barrel-16-rifle",
-            "papel": "Cano Estendido"
-          },
-          {
-            "peca": "barrel-cryogenic",
-            "papel": "Cano Crio"
-          }
-        ]
-      },
-      {
-        "arma": "ak-205",
-        "motivo": "faltam Cano Pesado e há nome repetido (Cano Básico) — um dos repetidos pode ser o papel que falta",
-        "papeisDoJogo": ["basic", "heavy", "light", "cryo"],
-        "noSite": [
-          {
-            "peca": "barrel-314mm-factory",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-314mm-fluted",
-            "papel": "Cano Leve"
-          },
-          {
-            "peca": "barrel-314mm-prototype",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-cryogenic",
-            "papel": "Cano Crio"
-          }
-        ]
-      },
-      {
-        "arma": "pw7a2",
-        "motivo": "faltam Cano Pesado e há nome repetido (Cano Básico) — um dos repetidos pode ser o papel que falta",
-        "papeisDoJogo": ["basic", "heavy", "cryo"],
-        "noSite": [
-          {
-            "peca": "barrel-180mm-prototype",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-180mm-standard",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-cryogenic",
-            "papel": "Cano Crio"
-          }
-        ]
-      },
-      {
-        "arma": "umg-40",
-        "motivo": "faltam Cano Pesado, Cano Ext. Pesado e há nome repetido (Cano Básico, Cano Estendido) — um dos repetidos pode ser o papel que falta",
-        "papeisDoJogo": ["basic", "heavy", "extended", "heavy_ext", "light", "cryo"],
-        "noSite": [
-          {
-            "peca": "barrel-200mm-custom",
-            "papel": "Cano Leve"
-          },
-          {
-            "peca": "barrel-200mm-custom-h",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-200mm-factory",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-cryogenic",
-            "papel": "Cano Crio"
-          },
-          {
-            "peca": "barrel-305mm-custom-h",
-            "papel": "Cano Estendido"
-          },
-          {
-            "peca": "barrel-305mm-custom",
-            "papel": "Cano Estendido"
-          }
-        ]
-      },
-      {
-        "arma": "usg-90",
-        "motivo": "faltam Cano Pesado e sobram 246mm Factory (Cano Curto) — algum cano está com o papel errado",
-        "papeisDoJogo": ["basic", "heavy", "heavy_ext", "light", "cryo"],
-        "noSite": [
-          {
-            "peca": "barrel-246mm-factory",
-            "papel": "Cano Curto"
-          },
-          {
-            "peca": "barrel-264mm-fluted",
-            "papel": "Cano Leve"
-          },
-          {
-            "peca": "barrel-264mm-prototype",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-cryogenic",
-            "papel": "Cano Crio"
-          },
-          {
-            "peca": "barrel-407mm-civ-s",
-            "papel": "Cano Ext. Pesado"
-          }
-        ]
-      },
-      {
-        "arma": "pp-19",
-        "motivo": "faltam Cano Leve e sobram 264mm Fluted (Cano Estendido Leve) — algum cano está com o papel errado",
-        "papeisDoJogo": ["basic", "light", "extended", "cryo"],
-        "noSite": [
-          {
-            "peca": "barrel-246mm-factory",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-264mm-fluted",
-            "papel": "Cano Estendido Leve"
-          },
-          {
-            "peca": "barrel-264mm-prototype",
-            "papel": "Cano Estendido"
-          },
-          {
-            "peca": "barrel-cryogenic",
-            "papel": "Cano Crio"
-          }
-        ]
-      },
-      {
-        "arma": "l110",
-        "motivo": "faltam Cano Ext. Pesado e sobram 465mm LB (Cano Estendido) — algum cano está com o papel errado",
-        "papeisDoJogo": ["heavy", "heavy_ext", "light"],
-        "noSite": [
-          {
-            "peca": "barrel-394mm-sb",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-465mm-lb",
-            "papel": "Cano Estendido"
-          },
-          {
-            "peca": "barrel-349mm-fluted",
-            "papel": "Cano Leve"
-          }
-        ]
-      },
-      {
-        "arma": "drs-iar",
-        "motivo": "faltam Cano Ext. Pesado e há nome repetido (Cano Estendido) — um dos repetidos pode ser o papel que falta",
-        "papeisDoJogo": ["basic", "heavy", "heavy_ext", "extended", "light", "short"],
-        "noSite": [
-          {
-            "peca": "barrel-14-5-carbine",
-            "papel": "Cano Curto"
-          },
-          {
-            "peca": "barrel-16-5-basic",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-16-5-fluted",
-            "papel": "Cano Leve"
-          },
-          {
-            "peca": "barrel-16-5-lsw",
-            "papel": "Cano Pesado"
-          },
-          {
-            "peca": "barrel-20-le",
-            "papel": "Cano Estendido"
-          },
-          {
-            "peca": "barrel-20-sdm-r",
-            "papel": "Cano Estendido"
-          }
-        ]
-      },
-      {
-        "arma": "rpkm",
-        "motivo": "faltam Cano Pesado, Cano Ext. Pesado e há nome repetido (Cano Básico, Cano Estendido) — um dos repetidos pode ser o papel que falta",
-        "papeisDoJogo": ["basic", "heavy", "heavy_ext", "extended", "short"],
-        "noSite": [
-          {
-            "peca": "barrel-419mm-boar-f",
-            "papel": "Cano Curto"
-          },
-          {
-            "peca": "barrel-521mm-boar",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-521mm-boar-f",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-590mm-factory",
-            "papel": "Cano Estendido"
-          },
-          {
-            "peca": "barrel-600mm-tabuk",
-            "papel": "Cano Estendido"
-          }
-        ]
-      },
-      {
-        "arma": "rpk-74m",
-        "motivo": "faltam Cano Pesado, Cano Ext. Pesado e sobram 590mm Factory (Cano Estendido), 600mm Tabuk (Cano Estendido) — algum cano está com o papel errado",
-        "papeisDoJogo": ["basic", "heavy", "heavy_ext", "short"],
-        "noSite": [
-          {
-            "peca": "barrel-419mm-boar-f",
-            "papel": "Cano Curto"
-          },
-          {
-            "peca": "barrel-521mm-boar",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-521mm-boar-f",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-590mm-factory",
-            "papel": "Cano Estendido"
-          },
-          {
-            "peca": "barrel-600mm-tabuk",
-            "papel": "Cano Estendido"
-          }
-        ]
-      },
-      {
-        "arma": "svk-86",
-        "motivo": "faltam Cano Curto e há nome repetido (Cano Estendido) — um dos repetidos pode ser o papel que falta",
-        "papeisDoJogo": ["basic", "extended", "short"],
-        "noSite": [
-          {
-            "peca": "barrel-457mm-urban",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-560mm-cut",
-            "papel": "Cano Estendido"
-          },
-          {
-            "peca": "barrel-560mm-factory",
-            "papel": "Cano Estendido"
-          }
-        ]
-      },
-      {
-        "arma": "svdm",
-        "motivo": "faltam Cano Leve e sobram 565mm Fluted (Cano Estendido Leve) — algum cano está com o papel errado",
-        "papeisDoJogo": ["basic", "extended", "short", "light"],
-        "noSite": [
-          {
-            "peca": "barrel-550mm-factory",
-            "papel": "Cano Curto"
-          },
-          {
-            "peca": "barrel-556mm-para",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-565mm-fluted",
-            "papel": "Cano Estendido Leve"
-          },
-          {
-            "peca": "barrel-620mm-classic",
-            "papel": "Cano Estendido"
-          }
-        ]
-      },
-      {
-        "arma": "l115",
-        "motivo": "faltam Cano Leve e há nome repetido (Cano Básico) — um dos repetidos pode ser o papel que falta",
-        "papeisDoJogo": ["basic", "light", "extended", "short"],
-        "noSite": [
-          {
-            "peca": "barrel-20-custom-covert",
-            "papel": "Cano Curto"
-          },
-          {
-            "peca": "barrel-27-factory",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-27-full",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-32-custom",
-            "papel": "Cano Estendido"
-          }
-        ]
-      },
-      {
-        "arma": "ef88",
-        "motivo": "faltam Cano Ext. Pesado, Cano Curto Leve e sobram 480mm MG (Cano Pesado) — algum cano está com o papel errado",
-        "papeisDoJogo": ["basic", "extended", "heavy_ext", "short", "light", "cryo", "ext_light", "short_light"],
-        "noSite": [
-          {
-            "peca": "barrel-391mm-cqb",
-            "papel": "Cano Curto"
-          },
-          {
-            "peca": "barrel-480mm-factory",
-            "papel": "Cano Básico"
-          },
-          {
-            "peca": "barrel-480mm-fluted",
-            "papel": "Cano Leve"
-          },
-          {
-            "peca": "barrel-480mm-mg",
-            "papel": "Cano Pesado"
-          },
-          {
-            "peca": "barrel-510mm-dmr",
-            "papel": "Cano Estendido"
-          },
-          {
-            "peca": "barrel-510mm-fluted",
-            "papel": "Cano Estendido Leve"
-          },
-          {
-            "peca": "barrel-cryogenic",
-            "papel": "Cano Crio"
-          }
-        ]
-      },
       {
         "arma": "vssm",
         "motivo": "o Analyzer usa papel sem nome na tela de seleção (ou dois papéis com o mesmo nome)",
@@ -8702,98 +9126,7 @@
         ]
       }
     ],
-    "duplicados": [
-      {
-        "arma": "sor-556-mk2",
-        "papel": "Cano Estendido",
-        "pecas": ["barrel-18-custom", "barrel-18-us-lb"]
-      },
-      {
-        "arma": "ak4d",
-        "papel": "Cano Estendido",
-        "pecas": ["barrel-600mm-cut", "barrel-600mm-dmr"]
-      },
-      {
-        "arma": "tr-7",
-        "papel": "Cano Básico",
-        "pecas": ["barrel-17-cut", "barrel-17-factory"]
-      },
-      {
-        "arma": "kord-6p67",
-        "papel": "Cano Básico",
-        "pecas": ["barrel-415mm-factory", "barrel-415mm-prototype"]
-      },
-      {
-        "arma": "nvo-228e",
-        "papel": "Cano Básico",
-        "pecas": ["barrel-409mm-cut", "barrel-409mm-factory"]
-      },
-      {
-        "arma": "m277",
-        "papel": "Cano Básico",
-        "pecas": ["barrel-13-factory", "barrel-13-prototype"]
-      },
-      {
-        "arma": "m277",
-        "papel": "Cano Estendido",
-        "pecas": ["barrel-16-custom", "barrel-16-rifle"]
-      },
-      {
-        "arma": "ak-205",
-        "papel": "Cano Básico",
-        "pecas": ["barrel-314mm-factory", "barrel-314mm-prototype"]
-      },
-      {
-        "arma": "pw7a2",
-        "papel": "Cano Básico",
-        "pecas": ["barrel-180mm-prototype", "barrel-180mm-standard"]
-      },
-      {
-        "arma": "umg-40",
-        "papel": "Cano Básico",
-        "pecas": ["barrel-200mm-custom-h", "barrel-200mm-factory"]
-      },
-      {
-        "arma": "umg-40",
-        "papel": "Cano Estendido",
-        "pecas": ["barrel-305mm-custom-h", "barrel-305mm-custom"]
-      },
-      {
-        "arma": "drs-iar",
-        "papel": "Cano Estendido",
-        "pecas": ["barrel-20-le", "barrel-20-sdm-r"]
-      },
-      {
-        "arma": "rpkm",
-        "papel": "Cano Básico",
-        "pecas": ["barrel-521mm-boar", "barrel-521mm-boar-f"]
-      },
-      {
-        "arma": "rpkm",
-        "papel": "Cano Estendido",
-        "pecas": ["barrel-590mm-factory", "barrel-600mm-tabuk"]
-      },
-      {
-        "arma": "rpk-74m",
-        "papel": "Cano Básico",
-        "pecas": ["barrel-521mm-boar", "barrel-521mm-boar-f"]
-      },
-      {
-        "arma": "svk-86",
-        "papel": "Cano Estendido",
-        "pecas": ["barrel-560mm-cut", "barrel-560mm-factory"]
-      },
-      {
-        "arma": "l115",
-        "papel": "Cano Básico",
-        "pecas": ["barrel-27-factory", "barrel-27-full"]
-      },
-      {
-        "arma": "18-5ks-k",
-        "papel": "Cano Básico",
-        "pecas": ["barrel-430mm-cut", "barrel-430mm-factory"]
-      }
-    ],
+    "duplicados": [],
     "custoPorPapel": [
       {
         "papel": "Cano Básico",
@@ -8839,6 +9172,820 @@
         "papel": "Cano Curto Leve",
         "site": 25,
         "jogo": 25
+      }
+    ],
+    "pelosNomes": [
+      {
+        "arma": "b36a4",
+        "cano": "510mm DMR",
+        "papel": "Cano Ext. Pesado",
+        "acao": "renomeado",
+        "peca": "barrel-510mm-dmr-b36a4"
+      },
+      {
+        "arma": "b36a4",
+        "cano": "510mm Fluted",
+        "papel": "Cano Estendido",
+        "acao": "renomeado",
+        "peca": "barrel-510mm-fluted-b36a4"
+      },
+      {
+        "arma": "sor-556-mk2",
+        "cano": "18\" Custom",
+        "papel": "Cano Ext. Pesado",
+        "acao": "renomeado",
+        "peca": "barrel-18-custom-sor-556-mk2"
+      },
+      {
+        "arma": "ak4d",
+        "cano": "600mm Cut",
+        "papel": "Cano Pesado",
+        "acao": "renomeado",
+        "peca": "barrel-600mm-cut-ak4d"
+      },
+      {
+        "arma": "ak4d",
+        "cano": "600mm DMR",
+        "papel": "Cano Ext. Pesado",
+        "acao": "renomeado",
+        "peca": "barrel-600mm-dmr-ak4d"
+      },
+      {
+        "arma": "ak4d",
+        "cano": "600mm Fluted",
+        "papel": "Cano Estendido",
+        "acao": "renomeado",
+        "peca": "barrel-600mm-fluted-ak4d"
+      },
+      {
+        "arma": "tr-7",
+        "cano": "17\" Cut",
+        "papel": "Cano Curto",
+        "acao": "renomeado",
+        "peca": "barrel-17-cut-tr-7"
+      },
+      {
+        "arma": "kord-6p67",
+        "cano": "415mm Prototype",
+        "papel": "Cano Pesado",
+        "acao": "renomeado",
+        "peca": "barrel-415mm-prototype-kord-6p67"
+      },
+      {
+        "arma": "nvo-228e",
+        "cano": "409mm Cut",
+        "papel": "Cano Curto",
+        "acao": "renomeado",
+        "peca": "barrel-409mm-cut-nvo-228e"
+      },
+      {
+        "arma": "l85a3",
+        "cano": "442mm CQB",
+        "papel": "Cano Curto",
+        "acao": "criado",
+        "peca": "barrel-442mm-cqb-l85a3"
+      },
+      {
+        "arma": "l85a3",
+        "cano": "518mm Factory",
+        "papel": "Cano Básico",
+        "acao": "criado",
+        "peca": "barrel-518mm-factory-l85a3"
+      },
+      {
+        "arma": "l85a3",
+        "cano": "518mm Fluted",
+        "papel": "Cano Leve",
+        "acao": "criado",
+        "peca": "barrel-518mm-fluted-l85a3"
+      },
+      {
+        "arma": "l85a3",
+        "cano": "646mm Cut",
+        "papel": "Cano Pesado",
+        "acao": "criado",
+        "peca": "barrel-646mm-cut-l85a3"
+      },
+      {
+        "arma": "l85a3",
+        "cano": "646mm Fluted",
+        "papel": "Cano Estendido",
+        "acao": "criado",
+        "peca": "barrel-646mm-fluted-l85a3"
+      },
+      {
+        "arma": "l85a3",
+        "cano": "646mm LSW",
+        "papel": "Cano Ext. Pesado",
+        "acao": "criado",
+        "peca": "barrel-646mm-lsw-l85a3"
+      },
+      {
+        "arma": "l85a3",
+        "cano": "391mm CQB",
+        "papel": "Cano Curto",
+        "acao": "removido",
+        "peca": "barrel-391mm-cqb"
+      },
+      {
+        "arma": "l85a3",
+        "cano": "480mm Factory",
+        "papel": "Cano Básico",
+        "acao": "removido",
+        "peca": "barrel-480mm-factory"
+      },
+      {
+        "arma": "l85a3",
+        "cano": "480mm Fluted",
+        "papel": "Cano Leve",
+        "acao": "removido",
+        "peca": "barrel-480mm-fluted"
+      },
+      {
+        "arma": "l85a3",
+        "cano": "480mm MG",
+        "papel": "Cano Pesado",
+        "acao": "removido",
+        "peca": "barrel-480mm-mg"
+      },
+      {
+        "arma": "l85a3",
+        "cano": "510mm DMR",
+        "papel": "Cano Estendido",
+        "acao": "removido",
+        "peca": "barrel-510mm-dmr"
+      },
+      {
+        "arma": "l85a3",
+        "cano": "510mm Fluted",
+        "papel": "Cano Estendido Leve",
+        "acao": "removido",
+        "peca": "barrel-510mm-fluted"
+      },
+      {
+        "arma": "m277",
+        "cano": "13\" Prototype",
+        "papel": "Cano Pesado",
+        "acao": "renomeado",
+        "peca": "barrel-13-prototype-m277"
+      },
+      {
+        "arma": "m277",
+        "cano": "16\" Custom",
+        "papel": "Cano Ext. Pesado",
+        "acao": "renomeado",
+        "peca": "barrel-16-custom-m277"
+      },
+      {
+        "arma": "ak-205",
+        "cano": "314mm Prototype",
+        "papel": "Cano Pesado",
+        "acao": "renomeado",
+        "peca": "barrel-314mm-prototype-ak-205"
+      },
+      {
+        "arma": "m417-a2",
+        "cano": "13\" Standard",
+        "papel": "Cano Básico",
+        "acao": "criado",
+        "peca": "barrel-13-standard-m417-a2"
+      },
+      {
+        "arma": "m417-a2",
+        "cano": "13\" Commando",
+        "papel": "Cano Básico",
+        "acao": "removido",
+        "peca": "barrel-13-commando"
+      },
+      {
+        "arma": "sor-300sc",
+        "cano": "10.5\" Custom",
+        "papel": "Cano Estendido",
+        "acao": "criado",
+        "peca": "barrel-10-5-custom-sor-300sc"
+      },
+      {
+        "arma": "sor-300sc",
+        "cano": "7.5\" Compact",
+        "papel": "Cano Curto",
+        "acao": "criado",
+        "peca": "barrel-7-5-compact-sor-300sc"
+      },
+      {
+        "arma": "sor-300sc",
+        "cano": "9\" Factory",
+        "papel": "Cano Básico",
+        "acao": "criado",
+        "peca": "barrel-9-factory-sor-300sc"
+      },
+      {
+        "arma": "sor-300sc",
+        "cano": "9\" Fluted",
+        "papel": "Cano Leve",
+        "acao": "criado",
+        "peca": "barrel-9-fluted-sor-300sc"
+      },
+      {
+        "arma": "sor-300sc",
+        "cano": "11.5\" Commando",
+        "papel": "Cano Curto",
+        "acao": "removido",
+        "peca": "barrel-11-5-commando"
+      },
+      {
+        "arma": "sor-300sc",
+        "cano": "12.5\" Fluted",
+        "papel": "Cano Leve",
+        "acao": "removido",
+        "peca": "barrel-12-5-fluted"
+      },
+      {
+        "arma": "sor-300sc",
+        "cano": "12.5\" Mid",
+        "papel": "Cano Básico",
+        "acao": "removido",
+        "peca": "barrel-12-5-mid"
+      },
+      {
+        "arma": "sor-300sc",
+        "cano": "14.5\" Carbine",
+        "papel": "Cano Estendido",
+        "acao": "removido",
+        "peca": "barrel-14-5-carbine"
+      },
+      {
+        "arma": "pw7a2",
+        "cano": "180mm Prototype",
+        "papel": "Cano Pesado",
+        "acao": "renomeado",
+        "peca": "barrel-180mm-prototype-pw7a2"
+      },
+      {
+        "arma": "umg-40",
+        "cano": "200mm Custom-H",
+        "papel": "Cano Pesado",
+        "acao": "renomeado",
+        "peca": "barrel-200mm-custom-h-umg-40"
+      },
+      {
+        "arma": "umg-40",
+        "cano": "200mm Fluted",
+        "papel": "Cano Leve",
+        "acao": "criado",
+        "peca": "barrel-200mm-fluted-umg-40"
+      },
+      {
+        "arma": "umg-40",
+        "cano": "305mm Custom-H",
+        "papel": "Cano Ext. Pesado",
+        "acao": "renomeado",
+        "peca": "barrel-305mm-custom-h-umg-40"
+      },
+      {
+        "arma": "umg-40",
+        "cano": "200mm Custom",
+        "papel": "Cano Leve",
+        "acao": "removido",
+        "peca": "barrel-200mm-custom"
+      },
+      {
+        "arma": "usg-90",
+        "cano": "264mm Factory",
+        "papel": "Cano Básico",
+        "acao": "criado",
+        "peca": "barrel-264mm-factory-usg-90"
+      },
+      {
+        "arma": "usg-90",
+        "cano": "264mm Prototype",
+        "papel": "Cano Pesado",
+        "acao": "renomeado",
+        "peca": "barrel-264mm-prototype-usg-90"
+      },
+      {
+        "arma": "usg-90",
+        "cano": "246mm Factory",
+        "papel": "Cano Curto",
+        "acao": "removido",
+        "peca": "barrel-246mm-factory"
+      },
+      {
+        "arma": "scw-10",
+        "cano": "Extended Barrel",
+        "papel": "Cano Estendido",
+        "acao": "criado",
+        "peca": "barrel-extended-barrel-scw-10"
+      },
+      {
+        "arma": "pp-19",
+        "cano": "238mm Factory",
+        "papel": "Cano Básico",
+        "acao": "criado",
+        "peca": "barrel-238mm-factory-pp-19"
+      },
+      {
+        "arma": "pp-19",
+        "cano": "238mm Pencil",
+        "papel": "Cano Leve",
+        "acao": "criado",
+        "peca": "barrel-238mm-pencil-pp-19"
+      },
+      {
+        "arma": "pp-19",
+        "cano": "367mm CIV",
+        "papel": "Cano Estendido",
+        "acao": "criado",
+        "peca": "barrel-367mm-civ-pp-19"
+      },
+      {
+        "arma": "pp-19",
+        "cano": "246mm Factory",
+        "papel": "Cano Básico",
+        "acao": "removido",
+        "peca": "barrel-246mm-factory"
+      },
+      {
+        "arma": "pp-19",
+        "cano": "264mm Fluted",
+        "papel": "Cano Estendido Leve",
+        "acao": "removido",
+        "peca": "barrel-264mm-fluted"
+      },
+      {
+        "arma": "pp-19",
+        "cano": "264mm Prototype",
+        "papel": "Cano Estendido",
+        "acao": "removido",
+        "peca": "barrel-264mm-prototype"
+      },
+      {
+        "arma": "l110",
+        "cano": "349mm SB",
+        "papel": "Cano Básico",
+        "acao": "criado",
+        "peca": "barrel-349mm-sb-l110"
+      },
+      {
+        "arma": "l110",
+        "cano": "465mm LB",
+        "papel": "Cano Ext. Pesado",
+        "acao": "renomeado",
+        "peca": "barrel-465mm-lb-l110"
+      },
+      {
+        "arma": "l110",
+        "cano": "394mm SB",
+        "papel": "Cano Básico",
+        "acao": "removido",
+        "peca": "barrel-394mm-sb"
+      },
+      {
+        "arma": "drs-iar",
+        "cano": "20\" SDM-R",
+        "papel": "Cano Ext. Pesado",
+        "acao": "renomeado",
+        "peca": "barrel-20-sdm-r-drs-iar"
+      },
+      {
+        "arma": "m60",
+        "cano": "17\" Fluted",
+        "papel": "Cano Leve",
+        "acao": "removido",
+        "peca": "barrel-17-fluted"
+      },
+      {
+        "arma": "rpkm",
+        "cano": "521mm Boar",
+        "papel": "Cano Pesado",
+        "acao": "renomeado",
+        "peca": "barrel-521mm-boar-rpkm"
+      },
+      {
+        "arma": "rpkm",
+        "cano": "590mm Factory",
+        "papel": "Cano Ext. Pesado",
+        "acao": "renomeado",
+        "peca": "barrel-590mm-factory-rpkm"
+      },
+      {
+        "arma": "rpk-74m",
+        "cano": "521mm Boar",
+        "papel": "Cano Pesado",
+        "acao": "renomeado",
+        "peca": "barrel-521mm-boar-rpk-74m"
+      },
+      {
+        "arma": "rpk-74m",
+        "cano": "590mm Factory",
+        "papel": "Cano Ext. Pesado",
+        "acao": "renomeado",
+        "peca": "barrel-590mm-factory-rpk-74m"
+      },
+      {
+        "arma": "rpk-74m",
+        "cano": "600mm Tabuk",
+        "papel": "Cano Estendido",
+        "acao": "removido",
+        "peca": "barrel-600mm-tabuk"
+      },
+      {
+        "arma": "m39-emr",
+        "cano": "22\" Factory",
+        "papel": "Cano Estendido",
+        "acao": "removido",
+        "peca": "barrel-22-factory"
+      },
+      {
+        "arma": "svk-86",
+        "cano": "457mm Urban",
+        "papel": "Cano Curto",
+        "acao": "renomeado",
+        "peca": "barrel-457mm-urban-svk-86"
+      },
+      {
+        "arma": "svk-86",
+        "cano": "560mm Cut",
+        "papel": "Cano Básico",
+        "acao": "renomeado",
+        "peca": "barrel-560mm-cut-svk-86"
+      },
+      {
+        "arma": "svk-86",
+        "cano": "560mm Factory",
+        "papel": "Cano Estendido",
+        "acao": "removido",
+        "peca": "barrel-560mm-factory"
+      },
+      {
+        "arma": "svdm",
+        "cano": "565mm Fluted",
+        "papel": "Cano Leve",
+        "acao": "renomeado",
+        "peca": "barrel-565mm-fluted-svdm"
+      },
+      {
+        "arma": "svdm",
+        "cano": "565mm Para",
+        "papel": "Cano Básico",
+        "acao": "criado",
+        "peca": "barrel-565mm-para-svdm"
+      },
+      {
+        "arma": "svdm",
+        "cano": "556mm Para",
+        "papel": "Cano Básico",
+        "acao": "removido",
+        "peca": "barrel-556mm-para"
+      },
+      {
+        "arma": "mini-scout",
+        "cano": "12\" SBR",
+        "papel": "Cano Curto",
+        "acao": "criado",
+        "peca": "barrel-12-sbr-mini-scout"
+      },
+      {
+        "arma": "mini-scout",
+        "cano": "16\" Factory",
+        "papel": "Cano Básico",
+        "acao": "criado",
+        "peca": "barrel-16-factory-mini-scout"
+      },
+      {
+        "arma": "mini-scout",
+        "cano": "16\" Pencil",
+        "papel": "Cano Leve",
+        "acao": "criado",
+        "peca": "barrel-16-pencil-mini-scout"
+      },
+      {
+        "arma": "mini-scout",
+        "cano": "18\" Extended",
+        "papel": "Cano Estendido",
+        "acao": "criado",
+        "peca": "barrel-18-extended-mini-scout"
+      },
+      {
+        "arma": "mini-scout",
+        "cano": "24\" Fluted",
+        "papel": "Cano Leve",
+        "acao": "removido",
+        "peca": "barrel-24-fluted"
+      },
+      {
+        "arma": "mini-scout",
+        "cano": "24\" Full",
+        "papel": "Cano Básico",
+        "acao": "removido",
+        "peca": "barrel-24-full"
+      },
+      {
+        "arma": "mini-scout",
+        "cano": "26\" Carbon",
+        "papel": "Cano Estendido",
+        "acao": "removido",
+        "peca": "barrel-26-carbon"
+      },
+      {
+        "arma": "l115",
+        "cano": "27\" Factory",
+        "papel": "Cano Leve",
+        "acao": "renomeado",
+        "peca": "barrel-27-factory-l115"
+      },
+      {
+        "arma": "interdictor",
+        "cano": "29\" Factory",
+        "papel": "Cano Leve",
+        "acao": "criado",
+        "peca": "barrel-29-factory-interdictor"
+      },
+      {
+        "arma": "interdictor",
+        "cano": "29\" Full",
+        "papel": "Cano Básico",
+        "acao": "criado",
+        "peca": "barrel-29-full-interdictor"
+      },
+      {
+        "arma": "interdictor",
+        "cano": "32\" Custom",
+        "papel": "Cano Estendido",
+        "acao": "criado",
+        "peca": "barrel-32-custom-interdictor"
+      },
+      {
+        "arma": "interdictor",
+        "cano": "26\" Factory",
+        "papel": "Cano Básico",
+        "acao": "removido",
+        "peca": "barrel-26-factory"
+      },
+      {
+        "arma": "interdictor",
+        "cano": "27\" MK22",
+        "papel": "Cano Estendido",
+        "acao": "removido",
+        "peca": "barrel-27-mk22"
+      },
+      {
+        "arma": "m87a1",
+        "cano": "Extended Barrel",
+        "papel": "Cano Estendido",
+        "acao": "removido",
+        "peca": "barrel-extended-barrel"
+      },
+      {
+        "arma": "m1014",
+        "cano": "Extended Barrel",
+        "papel": "Cano Estendido",
+        "acao": "removido",
+        "peca": "barrel-extended-barrel"
+      },
+      {
+        "arma": "18-5ks-k",
+        "cano": "430mm Factory",
+        "papel": "Cano Estendido",
+        "acao": "renomeado",
+        "peca": "barrel-430mm-factory-18-5ks-k"
+      },
+      {
+        "arma": "18-5ks-k",
+        "cano": "Extended Barrel",
+        "papel": "Cano Estendido",
+        "acao": "removido",
+        "peca": "barrel-extended-barrel"
+      },
+      {
+        "arma": "db-12",
+        "cano": "Extended Barrel",
+        "papel": "Cano Estendido",
+        "acao": "removido",
+        "peca": "barrel-extended-barrel"
+      },
+      {
+        "arma": "ggh-22",
+        "cano": "114mm Factory",
+        "papel": "Cano Básico",
+        "acao": "criado",
+        "peca": "barrel-114mm-factory-ggh-22"
+      },
+      {
+        "arma": "ggh-22",
+        "cano": "114mm Pencil",
+        "papel": "Cano Leve",
+        "acao": "criado",
+        "peca": "barrel-114mm-pencil-ggh-22"
+      },
+      {
+        "arma": "ggh-22",
+        "cano": "5\" Factory",
+        "papel": "Cano Básico",
+        "acao": "removido",
+        "peca": "barrel-5-factory"
+      },
+      {
+        "arma": "vz-61",
+        "cano": "115mm Factory",
+        "papel": "Cano Básico",
+        "acao": "criado",
+        "peca": "barrel-115mm-factory-vz-61"
+      },
+      {
+        "arma": "vz-61",
+        "cano": "3.9\" Factory",
+        "papel": "Cano Básico",
+        "acao": "removido",
+        "peca": "barrel-3-9-factory"
+      },
+      {
+        "arma": "brod-3",
+        "cano": "11\" Mid",
+        "papel": "Cano Básico",
+        "acao": "criado",
+        "peca": "barrel-11-mid-brod-3"
+      },
+      {
+        "arma": "brod-3",
+        "cano": "11\" Pencil",
+        "papel": "Cano Leve",
+        "acao": "criado",
+        "peca": "barrel-11-pencil-brod-3"
+      },
+      {
+        "arma": "brod-3",
+        "cano": "7\" Compact",
+        "papel": "Cano Curto",
+        "acao": "criado",
+        "peca": "barrel-7-compact-brod-3"
+      },
+      {
+        "arma": "brod-3",
+        "cano": "11.5\" Commando",
+        "papel": "Cano Curto",
+        "acao": "removido",
+        "peca": "barrel-11-5-commando"
+      },
+      {
+        "arma": "brod-3",
+        "cano": "12.5\" Fluted",
+        "papel": "Cano Leve",
+        "acao": "removido",
+        "peca": "barrel-12-5-fluted"
+      },
+      {
+        "arma": "brod-3",
+        "cano": "12.5\" Mid",
+        "papel": "Cano Básico",
+        "acao": "removido",
+        "peca": "barrel-12-5-mid"
+      },
+      {
+        "arma": "ef88",
+        "cano": "14.5\" Cob",
+        "papel": "Cano Curto Leve",
+        "acao": "criado",
+        "peca": "barrel-14-5-cob-ef88"
+      },
+      {
+        "arma": "ef88",
+        "cano": "14.5\" Standard",
+        "papel": "Cano Curto",
+        "acao": "criado",
+        "peca": "barrel-14-5-standard-ef88"
+      },
+      {
+        "arma": "ef88",
+        "cano": "16\" Cryogenic",
+        "papel": "Cano Crio",
+        "acao": "criado",
+        "peca": "barrel-16-cryogenic-ef88"
+      },
+      {
+        "arma": "ef88",
+        "cano": "16\" Factory",
+        "papel": "Cano Leve",
+        "acao": "criado",
+        "peca": "barrel-16-factory-ef88"
+      },
+      {
+        "arma": "ef88",
+        "cano": "16\" Standard",
+        "papel": "Cano Básico",
+        "acao": "criado",
+        "peca": "barrel-16-standard-ef88"
+      },
+      {
+        "arma": "ef88",
+        "cano": "20\" Marksman",
+        "papel": "Cano Estendido Leve",
+        "acao": "criado",
+        "peca": "barrel-20-marksman-ef88"
+      },
+      {
+        "arma": "ef88",
+        "cano": "20\" Standard",
+        "papel": "Cano Estendido",
+        "acao": "criado",
+        "peca": "barrel-20-standard-ef88"
+      },
+      {
+        "arma": "ef88",
+        "cano": "24\" Hbar",
+        "papel": "Cano Ext. Pesado",
+        "acao": "criado",
+        "peca": "barrel-24-hbar-ef88"
+      },
+      {
+        "arma": "ef88",
+        "cano": "391mm CQB",
+        "papel": "Cano Curto",
+        "acao": "removido",
+        "peca": "barrel-391mm-cqb"
+      },
+      {
+        "arma": "ef88",
+        "cano": "480mm Factory",
+        "papel": "Cano Básico",
+        "acao": "removido",
+        "peca": "barrel-480mm-factory"
+      },
+      {
+        "arma": "ef88",
+        "cano": "480mm Fluted",
+        "papel": "Cano Leve",
+        "acao": "removido",
+        "peca": "barrel-480mm-fluted"
+      },
+      {
+        "arma": "ef88",
+        "cano": "480mm MG",
+        "papel": "Cano Pesado",
+        "acao": "removido",
+        "peca": "barrel-480mm-mg"
+      },
+      {
+        "arma": "ef88",
+        "cano": "510mm DMR",
+        "papel": "Cano Estendido",
+        "acao": "removido",
+        "peca": "barrel-510mm-dmr"
+      },
+      {
+        "arma": "ef88",
+        "cano": "510mm Fluted",
+        "papel": "Cano Estendido Leve",
+        "acao": "removido",
+        "peca": "barrel-510mm-fluted"
+      },
+      {
+        "arma": "ef88",
+        "cano": "Cryogenic",
+        "papel": "Cano Crio",
+        "acao": "removido",
+        "peca": "barrel-cryogenic"
+      },
+      {
+        "arma": "rspr",
+        "cano": "11\" Rifle",
+        "papel": "Cano Estendido",
+        "acao": "criado",
+        "peca": "barrel-11-rifle-rspr"
+      },
+      {
+        "arma": "rspr",
+        "cano": "7.75\" Factory",
+        "papel": "Cano Básico",
+        "acao": "criado",
+        "peca": "barrel-7-75-factory-rspr"
+      },
+      {
+        "arma": "rspr",
+        "cano": "7.75\" Pencil",
+        "papel": "Cano Leve",
+        "acao": "criado",
+        "peca": "barrel-7-75-pencil-rspr"
+      },
+      {
+        "arma": "rspr",
+        "cano": "Basic",
+        "papel": "Cano Básico",
+        "acao": "removido",
+        "peca": "barrel-rspr-basic"
+      },
+      {
+        "arma": "rspr",
+        "cano": "Extended",
+        "papel": "Cano Estendido",
+        "acao": "removido",
+        "peca": "barrel-rspr-extended"
+      },
+      {
+        "arma": "rspr",
+        "cano": "Light",
+        "papel": "Cano Leve",
+        "acao": "removido",
+        "peca": "barrel-rspr-light"
       }
     ]
   }

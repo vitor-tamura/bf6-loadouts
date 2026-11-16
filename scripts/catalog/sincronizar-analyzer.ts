@@ -101,6 +101,116 @@ export const ARQUIVO = join(ROOT, 'src', 'data', 'analyzer-sync.json');
 export const TRADUCOES_DA_IA = join(ROOT, 'data', 'entities', 'pecas-traduzidas-pela-ia.json');
 
 /**
+ * O cano físico de cada arma e o papel dele, lidos do BattlefieldMeta.
+ *
+ * O Analyzer só conhece o papel (`basic`, `heavy`…): o arquivo do jogo que ele
+ * lê não traz o nome que a tela mostra. O nome físico — "180mm Prototype",
+ * "600mm DMR" — foi cadastrado à mão, e em 22 armas o cadastro errou o papel
+ * (a PW7A2 tinha dois Canos Básicos e nenhum Pesado) ou trouxe os canos de
+ * outra arma (a L85A3 mostrava os 480mm do B36A4). O BattlefieldMeta lista,
+ * arma por arma, cada cano com o nome da tela e o papel (`summaryName`), e é
+ * dele que sai o par nome → papel. Os papéis que existem continuam vindo do
+ * Analyzer; arma em que as duas fontes discordam fica como estava.
+ */
+export const CANOS_DO_BATTLEFIELDMETA = join(ROOT, 'data', 'sources', 'battlefieldmeta-canos.json');
+
+/** O papel no BattlefieldMeta (`summaryName`) → o papel no Analyzer. */
+const PAPEL_NO_BATTLEFIELDMETA: Record<string, string> = {
+  BASIC: 'basic',
+  SHORT: 'short',
+  EXTENDED: 'extended',
+  HEAVY: 'heavy',
+  'HEAVY EXT.': 'heavy_ext',
+  LIGHT: 'light',
+  CRYO: 'cryo',
+  'EXT. LIGHT': 'ext_light',
+  'SHORT LIGHT': 'short_light',
+};
+
+/** Cano físico de uma arma: o nome da tela e o papel no Analyzer. */
+export type CanosFisicos = Record<string, { nome: string; papel: string }[]>;
+
+/** "600MM CUT" → "600mm Cut", "18\" US-LB" → "18\" US-LB", "200MM CUSTOM-H" → "200mm Custom-H". */
+export function nomeDeCano(bruto: string): string {
+  // Sigla fica em caixa alta (CQB, LSW, DMR, US-LB); palavra vira Título (Cut, Custom, Boar-F).
+  const sigla = (parte: string) => parte.length <= 2 || !/[AEIOU]/i.test(parte) || ['CIV', 'IAR', 'ASM'].includes(parte.toUpperCase());
+  return bruto
+    .trim()
+    .replace(/(\d)\s+MM\b/gi, '$1MM')
+    .replace(/"(?=[A-Z])/gi, '" ')
+    .replace(/\bCARABINE\b/gi, 'CARBINE')
+    .replace(/\bEXTENTED\b/gi, 'EXTENDED')
+    .replace(/^(\d{3}) (?=[A-Z])/i, '$1MM ')
+    .split(/\s+/)
+    .map((palavra) =>
+      palavra
+        .split('-')
+        .map((parte) =>
+          /^\d/.test(parte)
+            ? parte.replace(/MM$/i, 'mm')
+            : sigla(parte)
+              ? parte.toUpperCase()
+              : parte[0].toUpperCase() + parte.slice(1).toLowerCase(),
+        )
+        .join('-'),
+    )
+    .join(' ');
+}
+
+/** A resposta de `/api/weapons/<id>/unlocked-attachments`, reduzida aos canos com papel. */
+export function canosDaResposta(lista: { slotId?: string; name?: string; summaryName?: string | null }[]): { nome: string; papel: string }[] {
+  const porNome = new Map<string, string>();
+  for (const peca of lista) {
+    if (peca.slotId !== 'barrel' || !peca.name) continue;
+    // "EXTENDED", "CRYO": o lugar que o site guarda para o papel quando não cadastrou o cano da arma — não é nome de cano.
+    if (PAPEL_NO_BATTLEFIELDMETA[peca.name.trim().toUpperCase()] || /^CRYO$/i.test(peca.name.trim())) continue;
+    const papel = PAPEL_NO_BATTLEFIELDMETA[String(peca.summaryName ?? '').trim().toUpperCase()];
+    // O site repete o cano (o cadastro dele e o do script); o que tem papel vence o que não tem.
+    if (papel && !porNome.has(peca.name)) porNome.set(peca.name, papel);
+  }
+  return [...porNome].map(([nome, papel]) => ({ nome: nomeDeCano(nome), papel })).sort((a, b) => a.nome.localeCompare(b.nome));
+}
+
+/** O id da arma no BattlefieldMeta, onde não é o daqui. */
+const ID_NO_BATTLEFIELDMETA: Record<string, string> = { '18-5ks-k': '185ks-k', 'es-57': 'es57' };
+
+async function lerCanosDoBattlefieldMeta(armas: string[]): Promise<CanosFisicos> {
+  const anterior: CanosFisicos = existsSync(CANOS_DO_BATTLEFIELDMETA)
+    ? (JSON.parse(readFileSync(CANOS_DO_BATTLEFIELDMETA, 'utf8')).armas ?? {})
+    : {};
+  const lidos: CanosFisicos = { ...anterior };
+  let novos = 0;
+  for (const arma of armas) {
+    try {
+      const resposta = await fetchJson<{ data?: unknown[] }>(
+        `https://app.battlefieldmeta.gg/api/weapons/${ID_NO_BATTLEFIELDMETA[arma] ?? arma}/unlocked-attachments`,
+      );
+      const canos = canosDaResposta((resposta.data ?? []) as { slotId?: string; name?: string; summaryName?: string }[]);
+      if (canos.length) {
+        lidos[arma] = canos;
+        novos += 1;
+      }
+    } catch {
+      // Arma que o BattlefieldMeta não lista (ou fora do ar): fica a leitura anterior.
+    }
+  }
+  log('canos do BattlefieldMeta', { lidas: novos, guardadas: Object.keys(lidos).length });
+  if (novos) {
+    writeFileSync(
+      CANOS_DO_BATTLEFIELDMETA,
+      jsonLegivel({
+        _leiaMe:
+          'Escrito por `npm run catalog:sincronizar-analyzer`: o nome físico de cada cano, arma por arma, e o papel dele, de app.battlefieldmeta.gg/api/weapons/<id>/unlocked-attachments. Leitura que falha mantém a anterior.',
+        lidoEm: new Date().toISOString().slice(0, 10),
+        armas: Object.fromEntries(Object.entries(lidos).sort(([a], [b]) => a.localeCompare(b))),
+      }),
+      'utf8',
+    );
+  }
+  return lidos;
+}
+
+/**
  * As armas que entraram no site pela rotina de novidades (`novidades.ts`), e
  * não pela curadoria.
  *
@@ -370,6 +480,9 @@ export function chaveDeNome(nome: string): string {
     // é "Taclight - Hip".
     .replace(/\bprisim\b/g, 'prism')
     .replace(/\bhipfire\b/g, 'hip')
+    // O BattlefieldMeta escreve "14.5\" Carabine" na DRS-IAR e "11\" Extented".
+    .replace(/\bcarabine\b/g, 'carbine')
+    .replace(/\bextented\b/g, 'extended')
     .trim();
   return chaveDePeca(limpo);
 }
@@ -738,6 +851,8 @@ export interface Relatorio {
     revisar: { arma: string; motivo: string; papeisDoJogo: string[]; noSite: { peca: string; papel: string }[] }[];
     duplicados: { arma: string; papel: string; pecas: string[] }[];
     custoPorPapel: { papel: string; site: number | null; jogo: number }[];
+    /** O que mudou pelo nome físico do BattlefieldMeta (`CANOS_DO_BATTLEFIELDMETA`). */
+    pelosNomes: { arma: string; cano: string; papel: string; acao: 'renomeado' | 'criado' | 'removido'; peca: string }[];
   };
 }
 
@@ -759,6 +874,8 @@ class Construcao {
   dados: DadosDoAnalyzer | null = null;
   /** O que o modelo escreveu para as peças novas fora de `PECAS_DE_FORA` (`TRADUCOES_DA_IA`). */
   traducoes: Record<string, PecaDeFora> = {};
+  /** O nome físico de cada cano e o papel dele, arma por arma (`CANOS_DO_BATTLEFIELDMETA`). */
+  canosFisicos: CanosFisicos = {};
   private porId: Map<string, Attachment>;
 
   constructor(armas: Weapon[], pecasDoSite: Attachment[], pares: Map<string, string>) {
@@ -785,7 +902,7 @@ class Construcao {
       grupos: [],
       slotsQueAArmaNaoTem: [],
       carregadores: { ambiguos: [], criados: [] },
-      canos: { removidos: [], criados: [], revisar: [], duplicados: [], custoPorPapel: [] },
+      canos: { removidos: [], criados: [], revisar: [], duplicados: [], custoPorPapel: [], pelosNomes: [] },
     };
   }
 
@@ -1364,6 +1481,99 @@ export function papeisNaTela(papeis: string[], padrao: string | undefined): Map<
 }
 
 /**
+ * Os canos da arma pelo nome físico, quando o BattlefieldMeta o dá.
+ *
+ * Cada cano que ele lista para a arma vira o cano dela no site, com o papel
+ * dele: o do cadastro com o mesmo nome físico quando existe (renomeado para o
+ * papel certo, por variante, quando o cadastro errou), um novo quando não.
+ * Cano do cadastro que a lista não traz sai da arma — era de outra. O papel
+ * que a lista não cobre (o Crio, quase sempre) segue para a regra de sempre e
+ * nasce pelo papel.
+ *
+ * Só vale quando cada papel da lista existe no Analyzer para a arma: arma em
+ * que as duas fontes discordam (a ELR-40, que o BattlefieldMeta lista com os
+ * canos de um fuzil) volta nula e fica como estava.
+ */
+function canosPeloNome(
+  obra: Construcao,
+  site: string,
+  papeisDoJogo: string[],
+  padrao: string | undefined,
+  noSite: { peca: Attachment; papel: string }[],
+  canos: Attachment[],
+  daTabela: Map<string, PecaDoAnalyzer & { velMult?: number }>,
+  fonte: string,
+): { peca: Attachment; papel: string }[] | null {
+  const lista = obra.canosFisicos[site];
+  if (!lista?.length) return null;
+  // Nas metralhadoras de fita o cano de fábrica é o `heavy` (`barrelDef`), e o BattlefieldMeta o chama de BASIC.
+  const papelDe = (papel: string) => (papel === 'basic' && !papeisDoJogo.includes('basic') && padrao ? padrao : papel);
+  if (!lista.every((c) => papeisDoJogo.includes(papelDe(c.papel)))) return null;
+
+  const naTela = (papel: string) => (papel === padrao ? 'Cano Básico' : PAPEL_DO_CANO[papel]);
+  const fonteDoNome = `${fonte} + data/sources/battlefieldmeta-canos.json`;
+  const resultado: { peca: Attachment; papel: string }[] = [];
+  const usados = new Set<string>();
+
+  for (const fisico of lista) {
+    const papel = papelDe(fisico.papel);
+    const nome = naTela(papel);
+    const custo = CUSTO_DO_CANO_NO_SITE[nome] ?? daTabela.get(papel)?.pts ?? 10;
+    const doCadastro = noSite.find((c) => chaveDeNome(c.peca.originalName) === chaveDeNome(fisico.nome) && !usados.has(c.peca.id));
+    if (doCadastro) {
+      usados.add(doCadastro.peca.id);
+      if (doCadastro.papel === nome) {
+        resultado.push(doCadastro);
+        continue;
+      }
+      // O cadastro deu o papel errado: a arma ganha a variante dele com o papel certo.
+      obra.remover(doCadastro.peca, site, fonteDoNome, 'barrel');
+      const { namePerWeapon: _nomes, ...semNome } = doCadastro.peca;
+      const variante = obra.variante(semNome as Attachment, site, custo, papel, fonteDoNome, { name: nome });
+      if (variante) {
+        resultado.push({ peca: variante, papel: nome });
+        obra.relatorio.canos.pelosNomes.push({ arma: site, cano: fisico.nome, papel: nome, acao: 'renomeado', peca: variante.id });
+      }
+      continue;
+    }
+    // Cano que o cadastro tem, mas em outras armas: a variante dele para esta.
+    const deOutra = canos.find((c) => chaveDeNome(c.originalName) === chaveDeNome(fisico.nome));
+    const velocidade = daTabela.get(papel)?.velMult;
+    const semente: Attachment = deOutra
+      ? (({ namePerWeapon: _n, ...resto }) => resto as Attachment)(deOutra)
+      : {
+          id: `barrel-${slug(fisico.nome)}`,
+          name: nome,
+          originalName: fisico.nome,
+          slot: 'barrel',
+          cost: custo,
+          description: nome === 'Cano Básico' ? 'Cano de fábrica da arma.' : `${nome} da arma.`,
+          mods: velocidade && velocidade !== 1 ? { velocity: { mult: velocidade } } : {},
+          compat: { weapons: [] },
+          provenance: 'curated',
+        };
+    if (obra.existe(`${semente.id}-${site}`)) continue;
+    const variante = obra.variante(semente, site, custo, papel, fonteDoNome, { name: nome, originalName: fisico.nome });
+    if (variante) {
+      resultado.push({ peca: variante, papel: nome });
+      obra.relatorio.canos.pelosNomes.push({ arma: site, cano: fisico.nome, papel: nome, acao: 'criado', peca: variante.id });
+    }
+  }
+
+  for (const c of noSite) {
+    if (usados.has(c.peca.id)) continue;
+    // O Crio do cadastro é um só para todas as armas e o BattlefieldMeta às vezes não o lista: fica, se o jogo tem o papel.
+    if (c.papel === 'Cano Crio' && papeisDoJogo.includes('cryo') && !resultado.some((r) => r.papel === 'Cano Crio')) {
+      resultado.push(c);
+      continue;
+    }
+    obra.remover(c.peca, site, fonteDoNome, 'barrel');
+    obra.relatorio.canos.pelosNomes.push({ arma: site, cano: c.peca.originalName, papel: c.papel, acao: 'removido', peca: c.peca.id });
+  }
+  return resultado;
+}
+
+/**
  * Canos, com a cautela que o nome físico exige.
  *
  * Arma por arma, o conjunto de papéis do site (o nome que cada cano tem nela)
@@ -1392,10 +1602,12 @@ function sincronizarCanos(obra: Construcao, dados: DadosDoAnalyzer): void {
     const slots = dados.pecas.WEAPON_ATTS[fora];
     if (!slots?.barrel) continue;
     const arma = obra.arma(site);
-    const noSite = canos
+    let noSite = canos
       .filter((c) => cabeNaLista(c, arma))
       .map((c) => ({ peca: c, papel: c.namePerWeapon?.[site] ?? c.name }));
     const papeis = papeisNaTela(slots.barrel, slots.barrelDef);
+    const fisicos = papeis ? canosPeloNome(obra, site, slots.barrel, slots.barrelDef, noSite, canos, daTabela, fonte) : null;
+    if (fisicos) noSite = fisicos;
     const resumo = noSite.map((c) => ({ peca: c.peca.id, papel: c.papel }));
 
     if (!papeis) {
@@ -1575,16 +1787,19 @@ export function sincronizar({
   armas,
   pecas,
   traducoes = {},
+  canosFisicos = {},
 }: {
   dados: DadosDoAnalyzer;
   armas: Weapon[];
   pecas: Attachment[];
   traducoes?: Record<string, PecaDeFora>;
+  canosFisicos?: CanosFisicos;
 }): { arquivo: Omit<ArquivoDeSincronia, 'fonte' | '_leiaMe'>; relatorio: Relatorio } {
   const { pares, siteSemPar, analyzerSemPar } = casarArmas(armas, dados.armas);
   const obra = new Construcao(armas, pecas, pares);
   obra.dados = dados;
   obra.traducoes = traducoes;
+  obra.canosFisicos = canosFisicos;
   obra.relatorio.armasSemPar = { site: siteSemPar, analyzer: analyzerSemPar };
 
   const armasCorrigidas: ArquivoDeSincronia['armas'] = {};
@@ -1960,7 +2175,10 @@ async function main(): Promise<void> {
 
   const dados = dadosDe(arquivos);
   const traducoes = lerTraducoesDaIa();
-  let { arquivo, relatorio } = sincronizar({ dados, armas: WEAPONS_SEM_SINCRONIA, pecas: ATTACHMENTS_SEM_SINCRONIA, traducoes });
+  const canosFisicos = seco
+    ? (existsSync(CANOS_DO_BATTLEFIELDMETA) ? JSON.parse(readFileSync(CANOS_DO_BATTLEFIELDMETA, 'utf8')).armas ?? {} : {})
+    : await lerCanosDoBattlefieldMeta(WEAPONS_SEM_SINCRONIA.filter((w) => w.category !== 'melee').map((w) => w.id));
+  let { arquivo, relatorio } = sincronizar({ dados, armas: WEAPONS_SEM_SINCRONIA, pecas: ATTACHMENTS_SEM_SINCRONIA, traducoes, canosFisicos });
 
   // Peça nova sem tradução: o modelo escreve nome, descrição e efeito uma vez, e a sincronização refaz com eles.
   const semTraducao = relatorio.pecasCriadas.filter((p) => !p.traduzida);
@@ -1977,7 +2195,7 @@ async function main(): Promise<void> {
         }),
         'utf8',
       );
-      ({ arquivo, relatorio } = sincronizar({ dados, armas: WEAPONS_SEM_SINCRONIA, pecas: ATTACHMENTS_SEM_SINCRONIA, traducoes: todas }));
+      ({ arquivo, relatorio } = sincronizar({ dados, armas: WEAPONS_SEM_SINCRONIA, pecas: ATTACHMENTS_SEM_SINCRONIA, traducoes: todas, canosFisicos }));
     }
   }
   relatorio.fonte = fonte;

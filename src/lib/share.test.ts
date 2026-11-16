@@ -23,7 +23,8 @@ const full: Loadout = {
   attachments: {
     sight: 'sight-iron-sights',
     muzzle: 'muzzle-compensated-brake',
-    barrel: 'barrel-600mm-dmr',
+    // O 600mm DMR é o Ext. Pesado da AK4D (BattlefieldMeta), e a arma o recebe por variante.
+    barrel: 'barrel-600mm-dmr-ak4d',
     underbarrel: 'underbarrel-classic-vertical',
     ammo: 'ammo-fmj',
   },
@@ -37,6 +38,11 @@ const full: Loadout = {
 describe('ida e volta do link', () => {
   it('reproduz o loadout completo', () => {
     expect(decodeLoadout(encodeLoadout(full))).toEqual(full);
+  });
+
+  it('link antigo com o cano geral abre com a variante da arma', () => {
+    const antigo = { ...full, attachments: { ...full.attachments, barrel: 'barrel-600mm-dmr' } };
+    expect(decodeLoadout(encodeLoadout(antigo))?.attachments.barrel).toBe('barrel-600mm-dmr-ak4d');
   });
 
   it('reproduz um loadout só com a arma, já com as peças de série', () => {

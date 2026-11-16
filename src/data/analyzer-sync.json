@@ -3,7 +3,7 @@
   "fonte": {
     "repo": "raymdl/BF6-Weapon-Analyzer",
     "commit": "eac42a4ab7e2a5821e88f7d3d76c338e0cda0b3e",
-    "data": "2026-11-14T22:20:49Z",
+    "data": "2026-11-14T17:20:49-05:00",
     "versaoDeclarada": "2.1.2.0"
   },
   "armas": {
@@ -2346,10 +2346,340 @@
         "fonte": "data/ammo.json#WEAPON_AMMO"
       }
     },
+    "barrel-11-5-commando": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["brod-3", "sor-300sc"]
+      }
+    },
+    "barrel-12-5-fluted": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["brod-3", "sor-300sc"]
+      }
+    },
+    "barrel-12-5-mid": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["brod-3", "sor-300sc"]
+      }
+    },
     "barrel-12-assaulter": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.barrel",
         "remover": ["nsw4"]
+      }
+    },
+    "barrel-13-commando": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["m417-a2"]
+      }
+    },
+    "barrel-13-prototype": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["m277"]
+      }
+    },
+    "barrel-14-5-carbine": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["sor-300sc"]
+      }
+    },
+    "barrel-16-custom": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["m277"]
+      }
+    },
+    "barrel-17-cut": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["tr-7"]
+      }
+    },
+    "barrel-17-fluted": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["m60"]
+      }
+    },
+    "barrel-18-custom": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["sor-556-mk2"]
+      }
+    },
+    "barrel-180mm-prototype": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["pw7a2"]
+      }
+    },
+    "barrel-20-sdm-r": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["drs-iar"]
+      }
+    },
+    "barrel-200mm-custom": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["umg-40"]
+      }
+    },
+    "barrel-200mm-custom-h": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["umg-40"]
+      }
+    },
+    "barrel-22-factory": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["m39-emr"]
+      }
+    },
+    "barrel-24-fluted": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["mini-scout"]
+      }
+    },
+    "barrel-24-full": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["mini-scout"]
+      }
+    },
+    "barrel-246mm-factory": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["pp-19", "usg-90"]
+      }
+    },
+    "barrel-26-carbon": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["mini-scout"]
+      }
+    },
+    "barrel-26-factory": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["interdictor"]
+      }
+    },
+    "barrel-264mm-fluted": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["pp-19"]
+      }
+    },
+    "barrel-264mm-prototype": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["pp-19", "usg-90"]
+      }
+    },
+    "barrel-27-factory": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["l115"]
+      }
+    },
+    "barrel-27-mk22": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["interdictor"]
+      }
+    },
+    "barrel-3-9-factory": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["vz-61"]
+      }
+    },
+    "barrel-305mm-custom-h": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["umg-40"]
+      }
+    },
+    "barrel-314mm-prototype": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["ak-205"]
+      }
+    },
+    "barrel-391mm-cqb": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["ef88", "l85a3"]
+      }
+    },
+    "barrel-394mm-sb": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["l110"]
+      }
+    },
+    "barrel-409mm-cut": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["nvo-228e"]
+      }
+    },
+    "barrel-415mm-prototype": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["kord-6p67"]
+      }
+    },
+    "barrel-430mm-factory": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["18-5ks-k"]
+      }
+    },
+    "barrel-457mm-urban": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["svk-86"]
+      }
+    },
+    "barrel-465mm-lb": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["l110"]
+      }
+    },
+    "barrel-480mm-factory": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["ef88", "l85a3"]
+      }
+    },
+    "barrel-480mm-fluted": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["ef88", "l85a3"]
+      }
+    },
+    "barrel-480mm-mg": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["ef88", "l85a3"]
+      }
+    },
+    "barrel-5-factory": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["ggh-22"]
+      }
+    },
+    "barrel-510mm-dmr": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["b36a4", "ef88", "l85a3"]
+      }
+    },
+    "barrel-510mm-fluted": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["b36a4", "ef88", "l85a3"]
+      }
+    },
+    "barrel-521mm-boar": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["rpk-74m", "rpkm"]
+      }
+    },
+    "barrel-556mm-para": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["svdm"]
+      }
+    },
+    "barrel-560mm-cut": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["svk-86"]
+      }
+    },
+    "barrel-560mm-factory": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["svk-86"]
+      }
+    },
+    "barrel-565mm-fluted": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["svdm"]
+      }
+    },
+    "barrel-590mm-factory": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["rpk-74m", "rpkm"]
+      }
+    },
+    "barrel-600mm-cut": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["ak4d"]
+      }
+    },
+    "barrel-600mm-dmr": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["ak4d"]
+      }
+    },
+    "barrel-600mm-fluted": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["ak4d"]
+      }
+    },
+    "barrel-600mm-tabuk": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["rpk-74m"]
+      }
+    },
+    "barrel-cryogenic": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["ef88"]
+      }
+    },
+    "barrel-extended-barrel": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["18-5ks-k", "db-12", "m1014", "m87a1"]
+      }
+    },
+    "barrel-rspr-basic": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["rspr"]
+      }
+    },
+    "barrel-rspr-extended": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["rspr"]
+      }
+    },
+    "barrel-rspr-light": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "remover": ["rspr"]
       }
     },
     "ergonomics-aftermarket-buffer": {
@@ -4151,25 +4481,1830 @@
       }
     },
     {
-      "id": "barrel-ggh-22-light",
+      "id": "barrel-10-5-custom-sor-300sc",
+      "name": "Cano Estendido",
+      "originalName": "10.5\" Custom",
+      "slot": "barrel",
+      "cost": 5,
+      "description": "Cano Estendido da arma.",
+      "mods": {
+        "velocity": {
+          "mult": 1.25
+        }
+      },
+      "compat": {
+        "weapons": ["sor-300sc"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "extended",
+        "clonadaDe": "barrel-10-5-custom"
+      }
+    },
+    {
+      "id": "barrel-11-mid-brod-3",
+      "name": "Cano Básico",
+      "originalName": "11\" Mid",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano de fábrica da arma.",
+      "mods": {},
+      "compat": {
+        "weapons": ["brod-3"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "basic",
+        "clonadaDe": "barrel-11-mid"
+      }
+    },
+    {
+      "id": "barrel-11-pencil-brod-3",
       "name": "Cano Leve",
-      "originalName": "Light",
+      "originalName": "11\" Pencil",
       "slot": "barrel",
       "cost": 20,
-      "description": "Cano Leve da arma; o efeito ainda não foi medido.",
+      "description": "Cano Leve da arma.",
+      "mods": {},
+      "compat": {
+        "weapons": ["brod-3"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "light",
+        "clonadaDe": "barrel-11-pencil"
+      }
+    },
+    {
+      "id": "barrel-11-rifle-rspr",
+      "name": "Cano Estendido",
+      "originalName": "11\" Rifle",
+      "slot": "barrel",
+      "cost": 5,
+      "description": "Cano Estendido da arma.",
+      "mods": {
+        "velocity": {
+          "mult": 1.25
+        }
+      },
+      "compat": {
+        "weapons": ["rspr"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "extended",
+        "clonadaDe": "barrel-11-rifle"
+      }
+    },
+    {
+      "id": "barrel-114mm-factory-ggh-22",
+      "name": "Cano Básico",
+      "originalName": "114mm Factory",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano de fábrica da arma.",
       "mods": {},
       "compat": {
         "weapons": ["ggh-22"]
       },
       "provenance": "curated",
       "origem": {
-        "fonte": "data/attachments.json#WEAPON_ATTS.barrel",
-        "item": "light",
-        "clonadaDe": "barrel-ggh-22-light"
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "basic",
+        "clonadaDe": "barrel-114mm-factory"
       }
     },
     {
-      "id": "barrel-interdictor-light",
+      "id": "barrel-114mm-pencil-ggh-22",
+      "name": "Cano Leve",
+      "originalName": "114mm Pencil",
+      "slot": "barrel",
+      "cost": 20,
+      "description": "Cano Leve da arma.",
+      "mods": {},
+      "compat": {
+        "weapons": ["ggh-22"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "light",
+        "clonadaDe": "barrel-114mm-pencil"
+      }
+    },
+    {
+      "id": "barrel-115mm-factory-vz-61",
+      "name": "Cano Básico",
+      "originalName": "115mm Factory",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano de fábrica da arma.",
+      "mods": {},
+      "compat": {
+        "weapons": ["vz-61"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "basic",
+        "clonadaDe": "barrel-115mm-factory"
+      }
+    },
+    {
+      "id": "barrel-12-sbr-mini-scout",
+      "name": "Cano Curto",
+      "originalName": "12\" SBR",
+      "slot": "barrel",
+      "cost": 15,
+      "description": "Cano Curto da arma.",
+      "mods": {
+        "velocity": {
+          "mult": 0.8
+        }
+      },
+      "compat": {
+        "weapons": ["mini-scout"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "short",
+        "clonadaDe": "barrel-12-sbr"
+      }
+    },
+    {
+      "id": "barrel-13-prototype-m277",
+      "name": "Cano Pesado",
+      "originalName": "13\" Prototype",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano de comprimento intermediário.",
+      "mods": {
+        "velocity": {
+          "mult": 1.011
+        },
+        "range": {
+          "mult": 1.009
+        },
+        "adsMs": {
+          "mult": 1.006
+        },
+        "mobility": {
+          "add": 0
+        }
+      },
+      "compat": {
+        "weapons": ["m277"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy",
+        "clonadaDe": "barrel-13-prototype"
+      }
+    },
+    {
+      "id": "barrel-13-standard-m417-a2",
+      "name": "Cano Básico",
+      "originalName": "13\" Standard",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano de fábrica da arma.",
+      "mods": {},
+      "compat": {
+        "weapons": ["m417-a2"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "basic",
+        "clonadaDe": "barrel-13-standard"
+      }
+    },
+    {
+      "id": "barrel-14-5-cob-ef88",
+      "name": "Cano Curto Leve",
+      "originalName": "14.5\" Cob",
+      "slot": "barrel",
+      "cost": 25,
+      "description": "Cano Curto Leve da arma.",
+      "mods": {
+        "velocity": {
+          "mult": 0.8
+        }
+      },
+      "compat": {
+        "weapons": ["ef88"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "short_light",
+        "clonadaDe": "barrel-14-5-cob"
+      }
+    },
+    {
+      "id": "barrel-14-5-standard-ef88",
+      "name": "Cano Curto",
+      "originalName": "14.5\" Standard",
+      "slot": "barrel",
+      "cost": 15,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.044
+        },
+        "range": {
+          "mult": 1.036
+        },
+        "adsMs": {
+          "mult": 1.024
+        },
+        "mobility": {
+          "add": -2
+        }
+      },
+      "compat": {
+        "weapons": ["ef88"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "short",
+        "clonadaDe": "barrel-14-5-standard"
+      }
+    },
+    {
+      "id": "barrel-16-cryogenic-ef88",
+      "name": "Cano Crio",
+      "originalName": "16\" Cryogenic",
+      "slot": "barrel",
+      "cost": 20,
+      "description": "Cano Crio da arma.",
+      "mods": {},
+      "compat": {
+        "weapons": ["ef88"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "cryo",
+        "clonadaDe": "barrel-16-cryogenic"
+      }
+    },
+    {
+      "id": "barrel-16-custom-m277",
+      "name": "Cano Ext. Pesado",
+      "originalName": "16\" Custom",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.077
+        },
+        "range": {
+          "mult": 1.063
+        },
+        "adsMs": {
+          "mult": 1.042
+        },
+        "mobility": {
+          "add": -3
+        }
+      },
+      "compat": {
+        "weapons": ["m277"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy_ext",
+        "clonadaDe": "barrel-16-custom"
+      }
+    },
+    {
+      "id": "barrel-16-factory-ef88",
+      "name": "Cano Leve",
+      "originalName": "16\" Factory",
+      "slot": "barrel",
+      "cost": 20,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.077
+        },
+        "range": {
+          "mult": 1.063
+        },
+        "adsMs": {
+          "mult": 1.042
+        },
+        "mobility": {
+          "add": -3
+        }
+      },
+      "compat": {
+        "weapons": ["ef88"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "light",
+        "clonadaDe": "barrel-16-factory"
+      }
+    },
+    {
+      "id": "barrel-16-factory-mini-scout",
+      "name": "Cano Básico",
+      "originalName": "16\" Factory",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.077
+        },
+        "range": {
+          "mult": 1.063
+        },
+        "adsMs": {
+          "mult": 1.042
+        },
+        "mobility": {
+          "add": -3
+        }
+      },
+      "compat": {
+        "weapons": ["mini-scout"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "basic",
+        "clonadaDe": "barrel-16-factory"
+      }
+    },
+    {
+      "id": "barrel-16-pencil-mini-scout",
+      "name": "Cano Leve",
+      "originalName": "16\" Pencil",
+      "slot": "barrel",
+      "cost": 20,
+      "description": "Cano Leve da arma.",
+      "mods": {},
+      "compat": {
+        "weapons": ["mini-scout"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "light",
+        "clonadaDe": "barrel-16-pencil"
+      }
+    },
+    {
+      "id": "barrel-16-standard-ef88",
+      "name": "Cano Básico",
+      "originalName": "16\" Standard",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano de fábrica da arma.",
+      "mods": {},
+      "compat": {
+        "weapons": ["ef88"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "basic",
+        "clonadaDe": "barrel-16-standard"
+      }
+    },
+    {
+      "id": "barrel-17-cut-tr-7",
+      "name": "Cano Curto",
+      "originalName": "17\" Cut",
+      "slot": "barrel",
+      "cost": 15,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.099
+        },
+        "range": {
+          "mult": 1.081
+        },
+        "adsMs": {
+          "mult": 1.054
+        },
+        "mobility": {
+          "add": -4
+        }
+      },
+      "compat": {
+        "weapons": ["tr-7"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "short",
+        "clonadaDe": "barrel-17-cut"
+      }
+    },
+    {
+      "id": "barrel-18-custom-sor-556-mk2",
+      "name": "Cano Ext. Pesado",
+      "originalName": "18\" Custom",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.121
+        },
+        "range": {
+          "mult": 1.099
+        },
+        "adsMs": {
+          "mult": 1.066
+        },
+        "mobility": {
+          "add": -5
+        }
+      },
+      "compat": {
+        "weapons": ["sor-556-mk2"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy_ext",
+        "clonadaDe": "barrel-18-custom"
+      }
+    },
+    {
+      "id": "barrel-18-extended-mini-scout",
+      "name": "Cano Estendido",
+      "originalName": "18\" Extended",
+      "slot": "barrel",
+      "cost": 5,
+      "description": "Cano Estendido da arma.",
+      "mods": {
+        "velocity": {
+          "mult": 1.25
+        }
+      },
+      "compat": {
+        "weapons": ["mini-scout"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "extended",
+        "clonadaDe": "barrel-18-extended"
+      }
+    },
+    {
+      "id": "barrel-180mm-prototype-pw7a2",
+      "name": "Cano Pesado",
+      "originalName": "180mm Prototype",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano curto: mira e movimento mais rápidos.",
+      "mods": {
+        "velocity": {
+          "mult": 0.881
+        },
+        "range": {
+          "mult": 0.903
+        },
+        "adsMs": {
+          "mult": 0.935
+        },
+        "mobility": {
+          "add": 5
+        },
+        "hipfire": {
+          "add": 6
+        }
+      },
+      "compat": {
+        "weapons": ["pw7a2"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy",
+        "clonadaDe": "barrel-180mm-prototype"
+      }
+    },
+    {
+      "id": "barrel-20-marksman-ef88",
+      "name": "Cano Estendido Leve",
+      "originalName": "20\" Marksman",
+      "slot": "barrel",
+      "cost": 25,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.165
+        },
+        "range": {
+          "mult": 1.135
+        },
+        "adsMs": {
+          "mult": 1.09
+        },
+        "mobility": {
+          "add": -7
+        }
+      },
+      "compat": {
+        "weapons": ["ef88"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "ext_light",
+        "clonadaDe": "barrel-20-marksman"
+      }
+    },
+    {
+      "id": "barrel-20-sdm-r-drs-iar",
+      "name": "Cano Ext. Pesado",
+      "originalName": "20\" SDM-R",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.165
+        },
+        "range": {
+          "mult": 1.135
+        },
+        "adsMs": {
+          "mult": 1.09
+        },
+        "mobility": {
+          "add": -7
+        }
+      },
+      "compat": {
+        "weapons": ["drs-iar"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy_ext",
+        "clonadaDe": "barrel-20-sdm-r"
+      }
+    },
+    {
+      "id": "barrel-20-standard-ef88",
+      "name": "Cano Estendido",
+      "originalName": "20\" Standard",
+      "slot": "barrel",
+      "cost": 5,
+      "description": "Cano Estendido da arma.",
+      "mods": {
+        "velocity": {
+          "mult": 1.25
+        }
+      },
+      "compat": {
+        "weapons": ["ef88"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "extended",
+        "clonadaDe": "barrel-20-standard"
+      }
+    },
+    {
+      "id": "barrel-200mm-custom-h-umg-40",
+      "name": "Cano Pesado",
+      "originalName": "200mm Custom-H",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano curto: mira e movimento mais rápidos.",
+      "mods": {
+        "velocity": {
+          "mult": 0.898
+        },
+        "range": {
+          "mult": 0.917
+        },
+        "adsMs": {
+          "mult": 0.944
+        },
+        "mobility": {
+          "add": 4
+        },
+        "hipfire": {
+          "add": 6
+        }
+      },
+      "compat": {
+        "weapons": ["umg-40"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy",
+        "clonadaDe": "barrel-200mm-custom-h"
+      }
+    },
+    {
+      "id": "barrel-200mm-fluted-umg-40",
+      "name": "Cano Leve",
+      "originalName": "200mm Fluted",
+      "slot": "barrel",
+      "cost": 20,
+      "description": "Cano Leve da arma.",
+      "mods": {},
+      "compat": {
+        "weapons": ["umg-40"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "light",
+        "clonadaDe": "barrel-200mm-fluted"
+      }
+    },
+    {
+      "id": "barrel-238mm-factory-pp-19",
+      "name": "Cano Básico",
+      "originalName": "238mm Factory",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano de fábrica da arma.",
+      "mods": {},
+      "compat": {
+        "weapons": ["pp-19"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "basic",
+        "clonadaDe": "barrel-238mm-factory"
+      }
+    },
+    {
+      "id": "barrel-238mm-pencil-pp-19",
+      "name": "Cano Leve",
+      "originalName": "238mm Pencil",
+      "slot": "barrel",
+      "cost": 20,
+      "description": "Cano Leve da arma.",
+      "mods": {},
+      "compat": {
+        "weapons": ["pp-19"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "light",
+        "clonadaDe": "barrel-238mm-pencil"
+      }
+    },
+    {
+      "id": "barrel-24-hbar-ef88",
+      "name": "Cano Ext. Pesado",
+      "originalName": "24\" Hbar",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano Ext. Pesado da arma.",
+      "mods": {
+        "velocity": {
+          "mult": 1.25
+        }
+      },
+      "compat": {
+        "weapons": ["ef88"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy_ext",
+        "clonadaDe": "barrel-24-hbar"
+      }
+    },
+    {
+      "id": "barrel-264mm-factory-usg-90",
+      "name": "Cano Básico",
+      "originalName": "264mm Factory",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano de fábrica da arma.",
+      "mods": {},
+      "compat": {
+        "weapons": ["usg-90"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "basic",
+        "clonadaDe": "barrel-264mm-factory"
+      }
+    },
+    {
+      "id": "barrel-264mm-prototype-usg-90",
+      "name": "Cano Pesado",
+      "originalName": "264mm Prototype",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano curto: mira e movimento mais rápidos.",
+      "mods": {
+        "velocity": {
+          "mult": 0.954
+        },
+        "range": {
+          "mult": 0.962
+        },
+        "adsMs": {
+          "mult": 0.975
+        },
+        "mobility": {
+          "add": 2
+        },
+        "hipfire": {
+          "add": 6
+        }
+      },
+      "compat": {
+        "weapons": ["usg-90"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy",
+        "clonadaDe": "barrel-264mm-prototype"
+      }
+    },
+    {
+      "id": "barrel-27-factory-l115",
+      "name": "Cano Leve",
+      "originalName": "27\" Factory",
+      "slot": "barrel",
+      "cost": 20,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.319
+        },
+        "range": {
+          "mult": 1.261
+        },
+        "adsMs": {
+          "mult": 1.174
+        },
+        "mobility": {
+          "add": -13
+        }
+      },
+      "compat": {
+        "weapons": ["l115"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "light",
+        "clonadaDe": "barrel-27-factory"
+      }
+    },
+    {
+      "id": "barrel-29-factory-interdictor",
+      "name": "Cano Leve",
+      "originalName": "29\" Factory",
+      "slot": "barrel",
+      "cost": 20,
+      "description": "Cano Leve da arma.",
+      "mods": {},
+      "compat": {
+        "weapons": ["interdictor"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "light",
+        "clonadaDe": "barrel-29-factory"
+      }
+    },
+    {
+      "id": "barrel-29-full-interdictor",
+      "name": "Cano Básico",
+      "originalName": "29\" Full",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano de fábrica da arma.",
+      "mods": {},
+      "compat": {
+        "weapons": ["interdictor"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "basic",
+        "clonadaDe": "barrel-29-full"
+      }
+    },
+    {
+      "id": "barrel-305mm-custom-h-umg-40",
+      "name": "Cano Ext. Pesado",
+      "originalName": "305mm Custom-H",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.171
+        },
+        "range": {
+          "mult": 1.14
+        },
+        "adsMs": {
+          "mult": 1.093
+        },
+        "mobility": {
+          "add": -7
+        }
+      },
+      "compat": {
+        "weapons": ["umg-40"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy_ext",
+        "clonadaDe": "barrel-305mm-custom-h"
+      }
+    },
+    {
+      "id": "barrel-314mm-prototype-ak-205",
+      "name": "Cano Pesado",
+      "originalName": "314mm Prototype",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano de comprimento intermediário.",
+      "mods": {},
+      "compat": {
+        "weapons": ["ak-205"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy",
+        "clonadaDe": "barrel-314mm-prototype"
+      }
+    },
+    {
+      "id": "barrel-32-custom-interdictor",
+      "name": "Cano Estendido",
+      "originalName": "32\" Custom",
+      "slot": "barrel",
+      "cost": 5,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.429
+        },
+        "range": {
+          "mult": 1.351
+        },
+        "adsMs": {
+          "mult": 1.234
+        },
+        "mobility": {
+          "add": -18
+        }
+      },
+      "compat": {
+        "weapons": ["interdictor"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "extended",
+        "clonadaDe": "barrel-32-custom"
+      }
+    },
+    {
+      "id": "barrel-349mm-sb-l110",
+      "name": "Cano Básico",
+      "originalName": "349mm SB",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano de fábrica da arma.",
+      "mods": {},
+      "compat": {
+        "weapons": ["l110"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy",
+        "clonadaDe": "barrel-349mm-sb"
+      }
+    },
+    {
+      "id": "barrel-367mm-civ-pp-19",
+      "name": "Cano Estendido",
+      "originalName": "367mm CIV",
+      "slot": "barrel",
+      "cost": 5,
+      "description": "Cano Estendido da arma.",
+      "mods": {
+        "velocity": {
+          "mult": 1.25
+        }
+      },
+      "compat": {
+        "weapons": ["pp-19"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "extended",
+        "clonadaDe": "barrel-367mm-civ"
+      }
+    },
+    {
+      "id": "barrel-409mm-cut-nvo-228e",
+      "name": "Cano Curto",
+      "originalName": "409mm Cut",
+      "slot": "barrel",
+      "cost": 15,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.079
+        },
+        "range": {
+          "mult": 1.065
+        },
+        "adsMs": {
+          "mult": 1.043
+        },
+        "mobility": {
+          "add": -3
+        }
+      },
+      "compat": {
+        "weapons": ["nvo-228e"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "short",
+        "clonadaDe": "barrel-409mm-cut"
+      }
+    },
+    {
+      "id": "barrel-415mm-prototype-kord-6p67",
+      "name": "Cano Pesado",
+      "originalName": "415mm Prototype",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.084
+        },
+        "range": {
+          "mult": 1.069
+        },
+        "adsMs": {
+          "mult": 1.046
+        },
+        "mobility": {
+          "add": -3
+        }
+      },
+      "compat": {
+        "weapons": ["kord-6p67"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy",
+        "clonadaDe": "barrel-415mm-prototype"
+      }
+    },
+    {
+      "id": "barrel-430mm-factory-18-5ks-k",
+      "name": "Cano Estendido",
+      "originalName": "430mm Factory",
+      "slot": "barrel",
+      "cost": 5,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.097
+        },
+        "range": {
+          "mult": 1.08
+        },
+        "adsMs": {
+          "mult": 1.053
+        },
+        "mobility": {
+          "add": -4
+        }
+      },
+      "compat": {
+        "weapons": ["18-5ks-k"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "extended",
+        "clonadaDe": "barrel-430mm-factory"
+      }
+    },
+    {
+      "id": "barrel-442mm-cqb-l85a3",
+      "name": "Cano Curto",
+      "originalName": "442mm CQB",
+      "slot": "barrel",
+      "cost": 15,
+      "description": "Cano Curto da arma.",
+      "mods": {
+        "velocity": {
+          "mult": 0.8
+        }
+      },
+      "compat": {
+        "weapons": ["l85a3"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "short",
+        "clonadaDe": "barrel-442mm-cqb"
+      }
+    },
+    {
+      "id": "barrel-457mm-urban-svk-86",
+      "name": "Cano Curto",
+      "originalName": "457mm Urban",
+      "slot": "barrel",
+      "cost": 15,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.121
+        },
+        "range": {
+          "mult": 1.099
+        },
+        "adsMs": {
+          "mult": 1.066
+        },
+        "mobility": {
+          "add": -5
+        }
+      },
+      "compat": {
+        "weapons": ["svk-86"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "short",
+        "clonadaDe": "barrel-457mm-urban"
+      }
+    },
+    {
+      "id": "barrel-465mm-lb-l110",
+      "name": "Cano Ext. Pesado",
+      "originalName": "465mm LB",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.128
+        },
+        "range": {
+          "mult": 1.105
+        },
+        "adsMs": {
+          "mult": 1.07
+        },
+        "mobility": {
+          "add": -5
+        }
+      },
+      "compat": {
+        "weapons": ["l110"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy_ext",
+        "clonadaDe": "barrel-465mm-lb"
+      }
+    },
+    {
+      "id": "barrel-510mm-dmr-b36a4",
+      "name": "Cano Ext. Pesado",
+      "originalName": "510mm DMR",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.167
+        },
+        "range": {
+          "mult": 1.136
+        },
+        "adsMs": {
+          "mult": 1.091
+        },
+        "mobility": {
+          "add": -7
+        }
+      },
+      "compat": {
+        "weapons": ["b36a4"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy_ext",
+        "clonadaDe": "barrel-510mm-dmr"
+      }
+    },
+    {
+      "id": "barrel-510mm-fluted-b36a4",
+      "name": "Cano Estendido",
+      "originalName": "510mm Fluted",
+      "slot": "barrel",
+      "cost": 5,
+      "description": "Cano aliviado por estrias: manejo mais leve.",
+      "mods": {
+        "velocity": {
+          "mult": 1.167
+        },
+        "range": {
+          "mult": 1.136
+        },
+        "adsMs": {
+          "mult": 1.026
+        },
+        "mobility": {
+          "add": -2
+        }
+      },
+      "compat": {
+        "weapons": ["b36a4"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "extended",
+        "clonadaDe": "barrel-510mm-fluted"
+      }
+    },
+    {
+      "id": "barrel-518mm-factory-l85a3",
+      "name": "Cano Básico",
+      "originalName": "518mm Factory",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano de fábrica da arma.",
+      "mods": {},
+      "compat": {
+        "weapons": ["l85a3"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "basic",
+        "clonadaDe": "barrel-518mm-factory"
+      }
+    },
+    {
+      "id": "barrel-518mm-fluted-l85a3",
+      "name": "Cano Leve",
+      "originalName": "518mm Fluted",
+      "slot": "barrel",
+      "cost": 20,
+      "description": "Cano Leve da arma.",
+      "mods": {},
+      "compat": {
+        "weapons": ["l85a3"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "light",
+        "clonadaDe": "barrel-518mm-fluted"
+      }
+    },
+    {
+      "id": "barrel-521mm-boar-rpk-74m",
+      "name": "Cano Pesado",
+      "originalName": "521mm Boar",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.176
+        },
+        "range": {
+          "mult": 1.144
+        },
+        "adsMs": {
+          "mult": 1.096
+        },
+        "mobility": {
+          "add": -7
+        }
+      },
+      "compat": {
+        "weapons": ["rpk-74m"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy",
+        "clonadaDe": "barrel-521mm-boar"
+      }
+    },
+    {
+      "id": "barrel-521mm-boar-rpkm",
+      "name": "Cano Pesado",
+      "originalName": "521mm Boar",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.176
+        },
+        "range": {
+          "mult": 1.144
+        },
+        "adsMs": {
+          "mult": 1.096
+        },
+        "mobility": {
+          "add": -7
+        }
+      },
+      "compat": {
+        "weapons": ["rpkm"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy",
+        "clonadaDe": "barrel-521mm-boar"
+      }
+    },
+    {
+      "id": "barrel-560mm-cut-svk-86",
+      "name": "Cano Básico",
+      "originalName": "560mm Cut",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.21
+        },
+        "range": {
+          "mult": 1.172
+        },
+        "adsMs": {
+          "mult": 1.115
+        },
+        "mobility": {
+          "add": -9
+        }
+      },
+      "compat": {
+        "weapons": ["svk-86"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "basic",
+        "clonadaDe": "barrel-560mm-cut"
+      }
+    },
+    {
+      "id": "barrel-565mm-fluted-svdm",
+      "name": "Cano Leve",
+      "originalName": "565mm Fluted",
+      "slot": "barrel",
+      "cost": 20,
+      "description": "Cano aliviado por estrias: manejo mais leve.",
+      "mods": {
+        "velocity": {
+          "mult": 1.214
+        },
+        "range": {
+          "mult": 1.175
+        },
+        "adsMs": {
+          "mult": 1.05
+        },
+        "mobility": {
+          "add": -4
+        }
+      },
+      "compat": {
+        "weapons": ["svdm"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "light",
+        "clonadaDe": "barrel-565mm-fluted"
+      }
+    },
+    {
+      "id": "barrel-565mm-para-svdm",
+      "name": "Cano Básico",
+      "originalName": "565mm Para",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano de fábrica da arma.",
+      "mods": {},
+      "compat": {
+        "weapons": ["svdm"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "basic",
+        "clonadaDe": "barrel-565mm-para"
+      }
+    },
+    {
+      "id": "barrel-590mm-factory-rpk-74m",
+      "name": "Cano Ext. Pesado",
+      "originalName": "590mm Factory",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.236
+        },
+        "range": {
+          "mult": 1.193
+        },
+        "adsMs": {
+          "mult": 1.129
+        },
+        "mobility": {
+          "add": -10
+        }
+      },
+      "compat": {
+        "weapons": ["rpk-74m"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy_ext",
+        "clonadaDe": "barrel-590mm-factory"
+      }
+    },
+    {
+      "id": "barrel-590mm-factory-rpkm",
+      "name": "Cano Ext. Pesado",
+      "originalName": "590mm Factory",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.236
+        },
+        "range": {
+          "mult": 1.193
+        },
+        "adsMs": {
+          "mult": 1.129
+        },
+        "mobility": {
+          "add": -10
+        }
+      },
+      "compat": {
+        "weapons": ["rpkm"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy_ext",
+        "clonadaDe": "barrel-590mm-factory"
+      }
+    },
+    {
+      "id": "barrel-600mm-cut-ak4d",
+      "name": "Cano Pesado",
+      "originalName": "600mm Cut",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.245
+        },
+        "range": {
+          "mult": 1.2
+        },
+        "adsMs": {
+          "mult": 1.133
+        },
+        "mobility": {
+          "add": -10
+        }
+      },
+      "compat": {
+        "weapons": ["ak4d"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy",
+        "clonadaDe": "barrel-600mm-cut"
+      }
+    },
+    {
+      "id": "barrel-600mm-dmr-ak4d",
+      "name": "Cano Ext. Pesado",
+      "originalName": "600mm DMR",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano longo: acelera a bala e estica o alcance.",
+      "mods": {
+        "velocity": {
+          "mult": 1.245
+        },
+        "range": {
+          "mult": 1.2
+        },
+        "adsMs": {
+          "mult": 1.133
+        },
+        "mobility": {
+          "add": -10
+        }
+      },
+      "compat": {
+        "weapons": ["ak4d"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy_ext",
+        "clonadaDe": "barrel-600mm-dmr"
+      }
+    },
+    {
+      "id": "barrel-600mm-fluted-ak4d",
+      "name": "Cano Estendido",
+      "originalName": "600mm Fluted",
+      "slot": "barrel",
+      "cost": 5,
+      "description": "Cano aliviado por estrias: manejo mais leve.",
+      "mods": {
+        "velocity": {
+          "mult": 1.245
+        },
+        "range": {
+          "mult": 1.2
+        },
+        "adsMs": {
+          "mult": 1.065
+        },
+        "mobility": {
+          "add": -5
+        }
+      },
+      "compat": {
+        "weapons": ["ak4d"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "extended",
+        "clonadaDe": "barrel-600mm-fluted"
+      }
+    },
+    {
+      "id": "barrel-646mm-cut-l85a3",
+      "name": "Cano Pesado",
+      "originalName": "646mm Cut",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano Pesado da arma.",
+      "mods": {},
+      "compat": {
+        "weapons": ["l85a3"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy",
+        "clonadaDe": "barrel-646mm-cut"
+      }
+    },
+    {
+      "id": "barrel-646mm-fluted-l85a3",
+      "name": "Cano Estendido",
+      "originalName": "646mm Fluted",
+      "slot": "barrel",
+      "cost": 5,
+      "description": "Cano Estendido da arma.",
+      "mods": {
+        "velocity": {
+          "mult": 1.25
+        }
+      },
+      "compat": {
+        "weapons": ["l85a3"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "extended",
+        "clonadaDe": "barrel-646mm-fluted"
+      }
+    },
+    {
+      "id": "barrel-646mm-lsw-l85a3",
+      "name": "Cano Ext. Pesado",
+      "originalName": "646mm LSW",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano Ext. Pesado da arma.",
+      "mods": {
+        "velocity": {
+          "mult": 1.25
+        }
+      },
+      "compat": {
+        "weapons": ["l85a3"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "heavy_ext",
+        "clonadaDe": "barrel-646mm-lsw"
+      }
+    },
+    {
+      "id": "barrel-7-5-compact-sor-300sc",
+      "name": "Cano Curto",
+      "originalName": "7.5\" Compact",
+      "slot": "barrel",
+      "cost": 15,
+      "description": "Cano Curto da arma.",
+      "mods": {
+        "velocity": {
+          "mult": 0.8
+        }
+      },
+      "compat": {
+        "weapons": ["sor-300sc"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "short",
+        "clonadaDe": "barrel-7-5-compact"
+      }
+    },
+    {
+      "id": "barrel-7-75-factory-rspr",
+      "name": "Cano Básico",
+      "originalName": "7.75\" Factory",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano de fábrica da arma.",
+      "mods": {},
+      "compat": {
+        "weapons": ["rspr"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "basic",
+        "clonadaDe": "barrel-7-75-factory"
+      }
+    },
+    {
+      "id": "barrel-7-75-pencil-rspr",
+      "name": "Cano Leve",
+      "originalName": "7.75\" Pencil",
+      "slot": "barrel",
+      "cost": 20,
+      "description": "Cano Leve da arma.",
+      "mods": {},
+      "compat": {
+        "weapons": ["rspr"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "light",
+        "clonadaDe": "barrel-7-75-pencil"
+      }
+    },
+    {
+      "id": "barrel-7-compact-brod-3",
+      "name": "Cano Curto",
+      "originalName": "7\" Compact",
+      "slot": "barrel",
+      "cost": 15,
+      "description": "Cano Curto da arma.",
+      "mods": {
+        "velocity": {
+          "mult": 0.8
+        }
+      },
+      "compat": {
+        "weapons": ["brod-3"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "short",
+        "clonadaDe": "barrel-7-compact"
+      }
+    },
+    {
+      "id": "barrel-9-factory-sor-300sc",
+      "name": "Cano Básico",
+      "originalName": "9\" Factory",
+      "slot": "barrel",
+      "cost": 10,
+      "description": "Cano curto: mira e movimento mais rápidos.",
+      "mods": {
+        "velocity": {
+          "mult": 0.923
+        },
+        "range": {
+          "mult": 0.937
+        },
+        "adsMs": {
+          "mult": 0.958
+        },
+        "mobility": {
+          "add": 3
+        },
+        "hipfire": {
+          "add": 6
+        }
+      },
+      "compat": {
+        "weapons": ["sor-300sc"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "basic",
+        "clonadaDe": "barrel-9-factory"
+      }
+    },
+    {
+      "id": "barrel-9-fluted-sor-300sc",
+      "name": "Cano Leve",
+      "originalName": "9\" Fluted",
+      "slot": "barrel",
+      "cost": 20,
+      "description": "Cano aliviado por estrias: manejo mais leve.",
+      "mods": {
+        "velocity": {
+          "mult": 0.923
+        },
+        "range": {
+          "mult": 0.937
+        },
+        "adsMs": {
+          "mult": 0.901
+        },
+        "mobility": {
+          "add": 8
+        },
+        "hipfire": {
+          "add": 6
+        }
+      },
+      "compat": {
+        "weapons": ["sor-300sc"]
+      },
+      "provenance": "game",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "light",
+        "clonadaDe": "barrel-9-fluted"
+      }
+    },
+    {
+      "id": "barrel-db-12-extended",
+      "name": "Cano Estendido",
+      "originalName": "Extended",
+      "slot": "barrel",
+      "cost": 5,
+      "description": "Cano Estendido da arma; o efeito ainda não foi medido.",
+      "mods": {},
+      "compat": {
+        "weapons": ["db-12"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel",
+        "item": "extended",
+        "clonadaDe": "barrel-db-12-extended"
+      }
+    },
+    {
+      "id": "barrel-extended-barrel-scw-10",
+      "name": "Cano Estendido",
+      "originalName": "Extended Barrel",
+      "slot": "barrel",
+      "cost": 5,
+      "description": "Extensão de quatro polegadas: acelera a bala e pesa na mira.",
+      "mods": {
+        "velocity": {
+          "mult": 1.12
+        },
+        "range": {
+          "mult": 1.08
+        },
+        "adsMs": {
+          "mult": 1.06
+        },
+        "mobility": {
+          "add": -4
+        }
+      },
+      "compat": {
+        "weapons": ["scw-10"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel + data/sources/battlefieldmeta-canos.json",
+        "item": "extended",
+        "clonadaDe": "barrel-extended-barrel"
+      }
+    },
+    {
+      "id": "barrel-m1014-extended",
+      "name": "Cano Estendido",
+      "originalName": "Extended",
+      "slot": "barrel",
+      "cost": 5,
+      "description": "Cano Estendido da arma; o efeito ainda não foi medido.",
+      "mods": {},
+      "compat": {
+        "weapons": ["m1014"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel",
+        "item": "extended",
+        "clonadaDe": "barrel-m1014-extended"
+      }
+    },
+    {
+      "id": "barrel-m39-emr-extended",
+      "name": "Cano Estendido",
+      "originalName": "Extended",
+      "slot": "barrel",
+      "cost": 5,
+      "description": "Cano Estendido da arma; o efeito ainda não foi medido.",
+      "mods": {},
+      "compat": {
+        "weapons": ["m39-emr"]
+      },
+      "provenance": "curated",
+      "origem": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.barrel",
+        "item": "extended",
+        "clonadaDe": "barrel-m39-emr-extended"
+      }
+    },
+    {
+      "id": "barrel-m60-light",
       "name": "Cano Leve",
       "originalName": "Light",
       "slot": "barrel",
@@ -4177,31 +6312,31 @@
       "description": "Cano Leve da arma; o efeito ainda não foi medido.",
       "mods": {},
       "compat": {
-        "weapons": ["interdictor"]
+        "weapons": ["m60"]
       },
       "provenance": "curated",
       "origem": {
         "fonte": "data/attachments.json#WEAPON_ATTS.barrel",
         "item": "light",
-        "clonadaDe": "barrel-interdictor-light"
+        "clonadaDe": "barrel-m60-light"
       }
     },
     {
-      "id": "barrel-mini-scout-short",
-      "name": "Cano Curto",
-      "originalName": "Short",
+      "id": "barrel-m87a1-extended",
+      "name": "Cano Estendido",
+      "originalName": "Extended",
       "slot": "barrel",
-      "cost": 15,
-      "description": "Cano Curto da arma; o efeito ainda não foi medido.",
+      "cost": 5,
+      "description": "Cano Estendido da arma; o efeito ainda não foi medido.",
       "mods": {},
       "compat": {
-        "weapons": ["mini-scout"]
+        "weapons": ["m87a1"]
       },
       "provenance": "curated",
       "origem": {
         "fonte": "data/attachments.json#WEAPON_ATTS.barrel",
-        "item": "short",
-        "clonadaDe": "barrel-mini-scout-short"
+        "item": "extended",
+        "clonadaDe": "barrel-m87a1-extended"
       }
     },
     {
@@ -4259,7 +6394,7 @@
       }
     },
     {
-      "id": "barrel-scw-10-extended",
+      "id": "barrel-svk-86-extended",
       "name": "Cano Estendido",
       "originalName": "Extended",
       "slot": "barrel",
@@ -4267,13 +6402,13 @@
       "description": "Cano Estendido da arma; o efeito ainda não foi medido.",
       "mods": {},
       "compat": {
-        "weapons": ["scw-10"]
+        "weapons": ["svk-86"]
       },
       "provenance": "curated",
       "origem": {
         "fonte": "data/attachments.json#WEAPON_ATTS.barrel",
         "item": "extended",
-        "clonadaDe": "barrel-scw-10-extended"
+        "clonadaDe": "barrel-svk-86-extended"
       }
     },
     {

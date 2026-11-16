@@ -10,6 +10,8 @@ import {
   curvaDoJogo,
   efeitoValido,
   promptDasPecasNovas,
+  nomeDeCano,
+  canosDaResposta,
   jsonLegivel,
   moda,
   papeisNaTela,
@@ -461,6 +463,28 @@ describe('sincronizar', () => {
     expect(prompt).toContain('"Quick Bolt"');
   });
 
+  it('lê o nome físico e o papel do cano na resposta do BattlefieldMeta', () => {
+    expect(nomeDeCano('600MM CUT')).toBe('600mm Cut');
+    expect(nomeDeCano('442 MM CQB')).toBe('442mm CQB');
+    expect(nomeDeCano('18" US-LB')).toBe('18" US-LB');
+    expect(nomeDeCano('200MM CUSTOM-H')).toBe('200mm Custom-H');
+    expect(nomeDeCano('7.75"PENCIL')).toBe('7.75" Pencil');
+    expect(nomeDeCano('14.5" CARABINE')).toBe('14.5" Carbine');
+    expect(
+      canosDaResposta([
+        { slotId: 'barrel', name: '180MM STANDARD', summaryName: 'BASIC' },
+        { slotId: 'barrel', name: '180MM STANDARD', summaryName: 'BASIC' },
+        { slotId: 'barrel', name: '480MM FLUTED', summaryName: '' },
+        { slotId: 'barrel', name: '180MM PROTOTYPE', summaryName: 'HEAVY' },
+        { slotId: 'barrel', name: 'EXTENDED', summaryName: 'EXTENDED' },
+        { slotId: 'muzzle', name: 'FLASH HIDER', summaryName: 'FLASH' },
+      ]),
+    ).toEqual([
+      { nome: '180mm Prototype', papel: 'heavy' },
+      { nome: '180mm Standard', papel: 'basic' },
+    ]);
+  });
+
   it('do efeito escrito pelo modelo, só passa o que o site lê e em faixa crível', () => {
     expect(
       efeitoValido({
@@ -591,6 +615,21 @@ describe('o arsenal do site depois da sincronização', () => {
     const aberto = stripIncompatible({ ...EMPTY_LOADOUT, weapon: 'pp-19', attachments: { underbarrel: 'underbarrel-slim-angled' } });
     expect(aberto.attachments.underbarrel).toBe('underbarrel-slim-angled-pp-19');
     expect(ATTACHMENTS_BY_ID.get('underbarrel-slim-angled-pp-19')!.cost).toBe(20);
+  });
+
+  it('cada cano tem o papel que o BattlefieldMeta dá a ele, e a arma não leva cano de outra', () => {
+    const canos = (id: string) => {
+      const w = WEAPONS_BY_ID.get(id)!;
+      return Object.fromEntries(
+        ATTACHMENTS.filter((a) => a.slot === 'barrel' && isCompatible(a, w)).map((a) => [a.originalName, a.namePerWeapon?.[id] ?? a.name]),
+      );
+    };
+    // A PW7A2 tinha dois Canos Básicos e nenhum Pesado.
+    expect(canos('pw7a2')).toEqual({ '180mm Standard': 'Cano Básico', '180mm Prototype': 'Cano Pesado', Cryogenic: 'Cano Crio' });
+    // A L85A3 mostrava os 480mm do B36A4.
+    expect(Object.keys(canos('l85a3'))).not.toContain('480mm Factory');
+    expect(canos('l85a3')['518mm Factory']).toBe('Cano Básico');
+    expect(canos('ak4d')['600mm DMR']).toBe('Cano Ext. Pesado');
   });
 
   it('a NSW4 tem os canos dos papéis do jogo, não os que herdou da M417 A2, e a munição dela', () => {
