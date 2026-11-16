@@ -298,9 +298,9 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | Vertical Dobrável | Folding Vertical | 10 | 52 weapons | O maior controle de recuo vertical. |
 | Angular Ajustável | Adjustable Angled | 15 | 28 weapons | Acelera a subida à mira e segura o desvio lateral. |
 | Angular de Fábrica | Factory Angled | 15 | DB-12, LMR27, SL9, VSSM | Acelera a subida à mira e segura o desvio lateral. |
-| Empunhadura Slim | Slim Angled | 15 | ELR-40 | Acelera a subida à mira e segura o desvio lateral. |
-| Apoio de Mão Fino | Slim Handstop | 15 | 24 weapons | Melhora o tiro sem visada e o deslocamento. |
-| Empunhadura Slim | Slim Angled | 20 | RSPR | Acelera a subida à mira e segura o desvio lateral. |
+| Angular Fino | Slim Angled | 15 | ELR-40 | Reduz um pouco o recuo, aumenta a velocidade de saque da arma e deixa a subida à mira um pouco mais rápida. |
+| Empunhadura Slim | Slim Handstop | 15 | 24 weapons | Aumenta ligeiramente a velocidade de saque da arma e deixa a subida à mira um pouco mais rápida. |
+| Angular Fino | Slim Angled | 20 | RSPR | Reduz um pouco o recuo, aumenta a velocidade de saque da arma e deixa a subida à mira um pouco mais rápida. |
 | Curta Dobrável | Folding Stubby | 20 | 53 weapons | Recuperação de mira mais rápida entre disparos. |
 | Empunhadura com Bipé | Classic Grip Pod | 20 | ELR-40 | Empunhadura e bipé na mesma peça. |
 | Empunhadura com Bipé PTT | PTT Grip Pod | 20 | 35 weapons | Empunhadura e bipé na mesma peça. |
@@ -309,7 +309,7 @@ Gerado por `node scripts/attachments-doc.mjs`.
 | Vertical de Liga | Alloy Vertical | 20 | 52 weapons | O maior controle de recuo vertical. |
 | Vertical Estriada | Ribbed Vertical | 20 | 51 weapons | O maior controle de recuo vertical. |
 | Angular Completa | Full Angled | 25 | 45 weapons | Acelera a subida à mira e segura o desvio lateral. |
-| Empunhadura Slim | Slim Angled | 25 | 52 weapons | Acelera a subida à mira e segura o desvio lateral. |
+| Angular Fino | Slim Angled | 25 | 52 weapons | Reduz um pouco o recuo, aumenta a velocidade de saque da arma e deixa a subida à mira um pouco mais rápida. |
 | Vertical 6H64 | 6H64 Vertical | 25 | 51 weapons | O maior controle de recuo vertical. |
 | Curta Estriada | Ribbed Stubby | 30 | 53 weapons | Recuperação de mira mais rápida entre disparos. |
 | Curta Inclinada | Canted Stubby | 30 | 53 weapons | Recuperação de mira mais rápida entre disparos. |

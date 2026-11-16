@@ -253,23 +253,29 @@ export const ATTACHMENTS_CURADOS: Attachment[] = [
   },
   {
     id: 'underbarrel-slim-angled',
-    name: 'Empunhadura Slim',
+    name: 'Angular Fino',
     originalName: 'Slim Angled',
     slot: 'underbarrel',
     cost: 25,
-    description: 'Acelera a subida à mira e segura o desvio lateral.',
+    description: 'Reduz um pouco o recuo, aumenta a velocidade de saque da arma e deixa a subida à mira um pouco mais rápida.',
     mods: { adsMs: { mult: 0.94 }, horizontalRecoil: { mult: 0.88 }, control: { add: 3 } },
     compat: { weapons: ['18-5ks-k', 'ak-205', 'ak4d', 'b36a4', 'brod-3', 'cz3a1', 'db-12', 'drs-iar', 'ef88', 'grt-cps', 'interdictor', 'kord-6p67', 'kts100-mk8', 'kv9', 'l110', 'l115', 'l85a3', 'm1014', 'm121-a2', 'm16a4', 'm2010-esr', 'm240l', 'm250', 'm277', 'm39-emr', 'm417-a2', 'm433', 'm4a1', 'm60', 'm87a1', 'mini-scout', 'mk-24', 'nvo-228e', 'pp-19', 'psr', 'pw5a3', 'pw7a2', 'qbz-192', 'rpk-74m', 'rpkm', 'scw-10', 'sg-553r', 'sgx', 'sor-300sc', 'sor-556-mk2', 'sv-98', 'svdm', 'svk-86', 'umg-40', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
   {
     id: 'underbarrel-slim-handstop',
-    name: 'Apoio de Mão Fino',
+    name: 'Empunhadura Slim',
     originalName: 'Slim Handstop',
     slot: 'underbarrel',
     cost: 15,
-    description: 'Melhora o tiro sem visada e o deslocamento.',
-    mods: { hipfire: { add: 8 }, mobility: { add: 4 }, verticalRecoil: { mult: 0.96 } },
+    /*
+      O nome e o texto são os do jogo em português. O efeito também: no arquivo
+      do jogo ela é o mesmo degrau de mira e de saque da Angular Fino
+      (`adsTimeTierMod` 1, `deployTimeTierShift` -1), sem nenhum de recuo — o
+      cadastro antigo dava a ela tiro sem visada, mobilidade e recuo vertical.
+    */
+    description: 'Aumenta ligeiramente a velocidade de saque da arma e deixa a subida à mira um pouco mais rápida.',
+    mods: { adsMs: { mult: 0.94 } },
     compat: { weapons: ['18-5ks-k', 'ak-205', 'brod-3', 'db-12', 'drs-iar', 'grt-cps', 'kord-6p67', 'kts100-mk8', 'l85a3', 'm121-a2', 'm16a4', 'm39-emr', 'm417-a2', 'mk-24', 'nvo-228e', 'qbz-192', 'rpk-74m', 'sg-553r', 'sor-300sc', 'sor-556-mk2', 'svk-86', 'vcr-2', 'vssm', 'z84m'] },
     provenance: 'game',
   },
@@ -4304,11 +4310,11 @@ export const ATTACHMENTS_CURADOS: Attachment[] = [
   /* Empunhaduras com custo próprio nas armas novas. */
   {
     id: 'underbarrel-slim-angled-rspr',
-    name: 'Empunhadura Slim',
+    name: 'Angular Fino',
     originalName: 'Slim Angled',
     slot: 'underbarrel',
     cost: 20,
-    description: 'Acelera a subida à mira e segura o desvio lateral.',
+    description: 'Reduz um pouco o recuo, aumenta a velocidade de saque da arma e deixa a subida à mira um pouco mais rápida.',
     // `slim_angled_smg`, 20 pontos.
     mods: { adsMs: { mult: 0.94 }, horizontalRecoil: { mult: 0.88 }, control: { add: 3 } },
     compat: { weapons: ['rspr'] },
@@ -4328,11 +4334,11 @@ export const ATTACHMENTS_CURADOS: Attachment[] = [
   },
   {
     id: 'underbarrel-slim-angled-elr-40',
-    name: 'Empunhadura Slim',
+    name: 'Angular Fino',
     originalName: 'Slim Angled',
     slot: 'underbarrel',
     cost: 15,
-    description: 'Acelera a subida à mira e segura o desvio lateral.',
+    description: 'Reduz um pouco o recuo, aumenta a velocidade de saque da arma e deixa a subida à mira um pouco mais rápida.',
     // `slim_angled_sr`, 15 pontos.
     mods: { adsMs: { mult: 0.94 }, horizontalRecoil: { mult: 0.88 }, control: { add: 3 } },
     compat: { weapons: ['elr-40'] },

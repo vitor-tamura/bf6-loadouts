@@ -363,7 +363,7 @@ function verticalGrip(texture: 'liso' | 'ranhurado' = 'liso', waist = false, can
  * Empunhadura angular: a cunha apoiada no trilho.
  *
  * `slim` é a versão fina, quase um dedo de apoio; `full` desce mais e fecha o
- * triângulo — o mesmo contraste que o jogo mostra entre a Empunhadura Slim e a
+ * triângulo — o mesmo contraste que o jogo mostra entre o Angular Fino e a
  * Angular Completa.
  */
 function angledGrip(size: 'fina' | 'padrao' | 'completa') {
