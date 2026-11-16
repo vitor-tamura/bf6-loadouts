@@ -16,12 +16,12 @@
     "camposDeArmaCorrigidos": 278,
     "custosCorrigidos": 17,
     "compatAdicionadas": 873,
-    "compatRemovidas": 282,
+    "compatRemovidas": 294,
     "variantesNovas": 226,
     "pecasDoAnalyzerSemPar": 3,
     "pecasCriadas": 10,
     "pecasDoSiteSemPar": 4,
-    "pecasSemArma": 36,
+    "pecasSemArma": 38,
     "carregadoresAmbiguos": 1,
     "canosParaRevisar": 1
   },
@@ -5090,6 +5090,50 @@
       ],
       "removidas": [
         {
+          "peca": "sight-dvo-500x",
+          "arma": "m433"
+        },
+        {
+          "peca": "sight-dvo-500x",
+          "arma": "b36a4"
+        },
+        {
+          "peca": "sight-dvo-500x",
+          "arma": "nvo-228e"
+        },
+        {
+          "peca": "sight-dvo-500x",
+          "arma": "m4a1"
+        },
+        {
+          "peca": "sight-dvo-500x",
+          "arma": "m417-a2"
+        },
+        {
+          "peca": "sight-dvo-500x",
+          "arma": "sgx"
+        },
+        {
+          "peca": "sight-dvo-500x",
+          "arma": "l110"
+        },
+        {
+          "peca": "sight-dvo-500x",
+          "arma": "m39-emr"
+        },
+        {
+          "peca": "sight-dvo-500x",
+          "arma": "svk-86"
+        },
+        {
+          "peca": "sight-dvo-500x",
+          "arma": "m2010-esr"
+        },
+        {
+          "peca": "sight-dvo-500x",
+          "arma": "m87a1"
+        },
+        {
           "peca": "sight-iron-sights",
           "arma": "m16a4"
         },
@@ -5227,6 +5271,10 @@
         }
       ],
       "removidas": [
+        {
+          "peca": "muzzle-shortened-suppressor",
+          "arma": "svk-86"
+        },
         {
           "peca": "muzzle-cqb-suppressor",
           "arma": "m357-trait"
@@ -8944,6 +8992,16 @@
       "id": "barrel-rspr-light",
       "slot": "barrel",
       "originalName": "Light"
+    },
+    {
+      "id": "muzzle-shortened-suppressor",
+      "slot": "muzzle",
+      "originalName": "Shortened Suppressor"
+    },
+    {
+      "id": "sight-dvo-500x",
+      "slot": "sight",
+      "originalName": "DVO 5.00x"
     }
   ],
   "travadas": [

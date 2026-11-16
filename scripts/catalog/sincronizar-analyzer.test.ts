@@ -389,7 +389,8 @@ describe('sincronizar', () => {
 
   it('tira a arma que o Analyzer enumera sem a peça, e não apaga a peça que ele não conhece', () => {
     expect(arquivo.pecas['muzzle-flash-hider'].compat?.remover).toEqual(['sor-556-mk2']);
-    expect(arquivo.pecas['sight-dvo-500x']).toBeUndefined();
+    // O DVO 5.00x é da rotina de novidades (rnkd) e o jogo não o tem: continua cadastrado, mas sai das armas.
+    expect(arquivo.pecas['sight-dvo-500x']?.compat?.remover?.length).toBeGreaterThan(0);
     expect(relatorio.pecasDoSiteSemPar.map((p) => p.id)).toContain('sight-dvo-500x');
   });
 

@@ -3077,6 +3077,12 @@
         "adicionar": ["18-5ks-k"]
       }
     },
+    "muzzle-shortened-suppressor": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.muzzle (a peça não está no arquivo do jogo)",
+        "remover": ["svk-86"]
+      }
+    },
     "muzzle-single-port-brake": {
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.muzzle",
@@ -3215,6 +3221,12 @@
       "compat": {
         "fonte": "data/attachments.json#WEAPON_ATTS.sight",
         "adicionar": ["elr-40", "interdictor", "l115", "m2010-esr", "mini-scout", "psr", "sv-98"]
+      }
+    },
+    "sight-dvo-500x": {
+      "compat": {
+        "fonte": "data/attachments.json#WEAPON_ATTS.sight (a peça não está no arquivo do jogo)",
+        "remover": ["b36a4", "l110", "m2010-esr", "m39-emr", "m417-a2", "m433", "m4a1", "m87a1", "nvo-228e", "sgx", "svk-86"]
       }
     },
     "sight-dvo-lpvo": {

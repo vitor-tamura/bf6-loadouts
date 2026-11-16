@@ -220,6 +220,16 @@ async function lerCanosDoBattlefieldMeta(armas: string[]): Promise<CanosFisicos>
  * ninguém para proteger, e a sincronização refaz o conjunto inteiro pelos
  * papéis do jogo (ver `sincronizarCanos`).
  */
+/** As peças que a rotina de novidades cadastrou sozinha (`novidades.json#acessorios`). */
+function pecasDaRotinaDeNovidades(): Set<string> {
+  try {
+    const novidades = JSON.parse(readFileSync(join(ROOT, 'src', 'data', 'novidades.json'), 'utf8'));
+    return new Set((novidades.acessorios ?? []).map((peca: { id: string }) => peca.id));
+  } catch {
+    return new Set();
+  }
+}
+
 function armasDetectadas(): Set<string> {
   try {
     const novidades = JSON.parse(readFileSync(join(ROOT, 'src', 'data', 'novidades.json'), 'utf8'));
@@ -1144,8 +1154,22 @@ export function sincronizarSlot(config: ConfigDeSlot, obra: Construcao): void {
     ...Object.keys(GRUPOS).map((g) => `grupo:${g}`),
   ]);
   const comPar = pecas.filter((p) => chaves.get(p.id)!.some((k) => conhecidas.has(k)));
+  const daRotina = pecasDaRotinaDeNovidades();
   for (const p of pecas) {
-    if (!comPar.includes(p)) obra.relatorio.pecasDoSiteSemPar.push({ id: p.id, slot: p.slot, originalName: p.originalName });
+    if (comPar.includes(p)) continue;
+    obra.relatorio.pecasDoSiteSemPar.push({ id: p.id, slot: p.slot, originalName: p.originalName });
+    /*
+      Peça que a rotina de novidades leu do rnkd e o arquivo do jogo não tem: o
+      "DVO 5.00x" entrou em onze armas, a escopeta M87A1 e a L110 entre elas, e
+      nenhuma outra base (jogo, BattlefieldMeta, wzstats, bf6loadouts) o
+      conhece — é o DVO LPVO com outro nome. Peça de curadoria fica; a da rotina
+      sai das armas em que o Analyzer enumera o slot.
+    */
+    if (!daRotina.has(p.id)) continue;
+    for (const [site, fora] of obra.pares) {
+      if (config.itens(fora) === null || !cabeNaLista(p, obra.arma(site))) continue;
+      obra.remover(p, site, `${config.fonte} (a peça não está no arquivo do jogo)`, config.nome);
+    }
   }
 
   const atribuicoes = new Map<string, Atribuicao[]>();
@@ -1528,7 +1552,8 @@ function canosPeloNome(
       }
       // O cadastro deu o papel errado: a arma ganha a variante dele com o papel certo.
       obra.remover(doCadastro.peca, site, fonteDoNome, 'barrel');
-      const { namePerWeapon: _nomes, ...semNome } = doCadastro.peca;
+      const semNome = { ...doCadastro.peca };
+      delete semNome.namePerWeapon;
       const variante = obra.variante(semNome as Attachment, site, custo, papel, fonteDoNome, { name: nome });
       if (variante) {
         resultado.push({ peca: variante, papel: nome });
@@ -1540,7 +1565,11 @@ function canosPeloNome(
     const deOutra = canos.find((c) => chaveDeNome(c.originalName) === chaveDeNome(fisico.nome));
     const velocidade = daTabela.get(papel)?.velMult;
     const semente: Attachment = deOutra
-      ? (({ namePerWeapon: _n, ...resto }) => resto as Attachment)(deOutra)
+      ? (() => {
+          const copia = { ...deOutra };
+          delete copia.namePerWeapon;
+          return copia;
+        })()
       : {
           id: `barrel-${slug(fisico.nome)}`,
           name: nome,
