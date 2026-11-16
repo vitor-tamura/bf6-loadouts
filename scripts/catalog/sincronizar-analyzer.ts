@@ -171,8 +171,19 @@ export function canosDaResposta(lista: { slotId?: string; name?: string; summary
   return [...porNome].map(([nome, papel]) => ({ nome: nomeDeCano(nome), papel })).sort((a, b) => a.nome.localeCompare(b.nome));
 }
 
+/** Os preços que a conferência com o BattlefieldMeta decidiu por ele (`conferir-battlefieldmeta.ts`). */
+function precosDoBattlefieldMeta(): { arma: string; peca: string; custo: number }[] {
+  const caminho = join(ROOT, 'data', 'sources', 'battlefieldmeta-precos.json');
+  if (!existsSync(caminho)) return [];
+  try {
+    return JSON.parse(readFileSync(caminho, 'utf8')).precos ?? [];
+  } catch {
+    return [];
+  }
+}
+
 /** O id da arma no BattlefieldMeta, onde não é o daqui. */
-const ID_NO_BATTLEFIELDMETA: Record<string, string> = { '18-5ks-k': '185ks-k', 'es-57': 'es57' };
+export const ID_NO_BATTLEFIELDMETA: Record<string, string> = { '18-5ks-k': '185ks-k', 'es-57': 'es57' };
 
 async function lerCanosDoBattlefieldMeta(armas: string[]): Promise<CanosFisicos> {
   const anterior: CanosFisicos = existsSync(CANOS_DO_BATTLEFIELDMETA)
@@ -1121,7 +1132,7 @@ export function configsDeSlot(dados: DadosDoAnalyzer): ConfigDeSlot[] {
 }
 
 /** As chaves por que uma peça do site é procurada: o apelido, se houver, ou o nome original. */
-function chavesDaPeca(peca: Attachment, idsDeArma: string[]): string[] {
+export function chavesDaPeca(peca: Attachment, idsDeArma: string[]): string[] {
   const arma = varianteDe(peca, idsDeArma);
   const base = arma ? peca.id.slice(0, -(arma.length + 1)) : peca.id;
   const grupo = Object.entries(GRUPOS).find(([, membros]) => membros.includes(base));
@@ -1474,7 +1485,7 @@ export const PAPEL_DO_CANO: Record<string, string> = {
 };
 
 /** A mesma tabela de `loadout.ts`, para dizer onde o custo do jogo difere. */
-const CUSTO_DO_CANO_NO_SITE: Record<string, number> = {
+export const CUSTO_DO_CANO_NO_SITE: Record<string, number> = {
   'Cano Estendido': 5,
   'Cano Básico': 10,
   'Cano Pesado': 10,
@@ -1849,6 +1860,38 @@ export function sincronizar({
   const custoDoCano: Record<string, number> = {};
   for (const { papel, site, jogo } of obra.relatorio.canos.custoPorPapel) if (site !== jogo) custoDoCano[papel] = jogo;
 
+  /*
+    O preço do BattlefieldMeta onde o arquivo do jogo não precifica a peça
+    naquela arma (`conferir-battlefieldmeta.ts`): a arma ganha a variante com
+    ele. Onde o jogo dá preço, o do jogo já valeu acima e este não entra.
+  */
+  for (const { arma, peca, custo } of precosDoBattlefieldMeta()) {
+    if (!obra.pares.has(arma)) continue;
+    const daArma = obra.pecasNovas.find((p) => p.id === peca && p.compat.weapons?.length === 1 && p.compat.weapons[0] === arma);
+    if (daArma) {
+      daArma.cost = custo;
+      continue;
+    }
+    const base = obra.peca(peca);
+    if (!base || base.cost === custo || !cabeNaLista(base, obra.arma(arma))) continue;
+    obra.remover(base, arma, 'data/sources/battlefieldmeta-precos.json', base.slot);
+    obra.variante(base, arma, custo, 'battlefieldmeta', 'data/sources/battlefieldmeta-precos.json');
+  }
+
+  /*
+    Slot que o jogo enumera e o cadastro da arma não declarava: a ES 5.7, a
+    GGH-22 e a Vz. 61 têm o Retentor de Carregador no jogo, o M44 o Coldre
+    Rápido, a M87A1 a alça inclinada — e o montador não mostrava o slot. A
+    arma passa a declará-lo; as peças já chegaram a ela pelo slot acima.
+  */
+  for (const { arma: site, slot } of obra.relatorio.slotsQueAArmaNaoTem) {
+    const arma = obra.arma(site);
+    const entrada = (armasCorrigidas[site] ??= { idNoAnalyzer: pares.get(site)!, campos: {} });
+    const atuais = entrada.campos.slots?.valor ?? arma.slots;
+    if (atuais.includes(slot as SlotId)) continue;
+    entrada.campos.slots = { valor: [...atuais, slot as SlotId], antes: arma.slots, fonte: `data/attachments.json#${slot}` };
+  }
+
   // Ordem fixa, para o arquivo só mudar quando o conteúdo muda.
   const ordenado = <T>(registro: Record<string, T>) =>
     Object.fromEntries(Object.entries(registro).sort(([a], [b]) => a.localeCompare(b)));
@@ -1932,7 +1975,7 @@ function commitLocal(dir: string): { commit: string | null; data: string | null 
   return { commit: process.env.ANALYZER_COMMIT ?? commit, data: process.env.ANALYZER_COMMIT_DATE ?? data };
 }
 
-async function lerAnalyzer(): Promise<Leitura> {
+export async function lerAnalyzer(): Promise<Leitura> {
   const { repo, branch = 'main' } = fonteAtiva('numeros_de_simulacao');
   if (!repo) throw new Error('a fonte de numeros_de_simulacao não declara `repo` em data/sources/registry.json');
 
@@ -1971,7 +2014,7 @@ async function lerAnalyzer(): Promise<Leitura> {
   return { arquivos, fonte: { repo, commit: head.sha, data: head.commit.committer.date, versaoDeclarada: null } };
 }
 
-function dadosDe(arquivos: Record<string, unknown>): DadosDoAnalyzer {
+export function dadosDe(arquivos: Record<string, unknown>): DadosDoAnalyzer {
   const armas = arquivos['data/weapons.json'] as ArmaDoAnalyzer[];
   /*
     Lista curta não é "nada mudou": é o arquivo que mudou de forma. Seguir

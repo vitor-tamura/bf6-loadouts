@@ -1,0 +1,3073 @@
+{
+  "_leiaMe": "Escrito por `npm run catalog:conferir-battlefieldmeta`: onde o custo ou a lista de acessórios do site difere do BattlefieldMeta, e como cada divergência foi resolvida (`decisao`). Vale o arquivo do jogo; o BattlefieldMeta só onde o jogo não diz o preço.",
+  "divergencias": [
+    {
+      "arma": "ak-205",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "ak4d",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "b36a4",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "b36a4",
+      "slot": "underbarrel",
+      "peca": "MOUNT",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 10,
+      "idNoSite": "underbarrel-underslung-mount",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "brod-3",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "brod-3",
+      "slot": "magazine",
+      "peca": "40RND MAGAZINE",
+      "tipo": "custo",
+      "site": 25,
+      "battlefieldmeta": 20,
+      "idNoSite": "magazine-40rnd-magazine",
+      "decisao": "jogo",
+      "jogo": 25
+    },
+    {
+      "arma": "cz3a1",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "drs-iar",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "drs-iar",
+      "slot": "top-accessory",
+      "peca": "5 MW GREEN",
+      "tipo": "custo",
+      "site": 10,
+      "battlefieldmeta": 20,
+      "idNoSite": "rightRail-5-mw-green",
+      "decisao": "jogo",
+      "jogo": 10
+    },
+    {
+      "arma": "ef88",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "elr-40",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 30,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "elr-40",
+      "slot": "scope",
+      "peca": "IRON SIGHTS",
+      "tipo": "custo",
+      "site": 10,
+      "battlefieldmeta": 5,
+      "idNoSite": "sight-iron-sights-elr-40",
+      "decisao": "jogo",
+      "jogo": 10
+    },
+    {
+      "arma": "elr-40",
+      "slot": "underbarrel",
+      "peca": "CLASSIC GRIP POD",
+      "tipo": "custo",
+      "site": 20,
+      "battlefieldmeta": 30,
+      "idNoSite": "underbarrel-classic-grip-pod-elr-40",
+      "decisao": "jogo",
+      "jogo": 20
+    },
+    {
+      "arma": "elr-40",
+      "slot": "underbarrel",
+      "peca": "FULL ANGLED",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 25,
+      "idNoSite": "underbarrel-full-angled-elr-40",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "elr-40",
+      "slot": "underbarrel",
+      "peca": "LOW-PROFILE STUBBY",
+      "tipo": "custo",
+      "site": 10,
+      "battlefieldmeta": 45,
+      "idNoSite": "underbarrel-low-profile-stubby-elr-40",
+      "decisao": "jogo",
+      "jogo": 10
+    },
+    {
+      "arma": "elr-40",
+      "slot": "underbarrel",
+      "peca": "QD GRIP POD",
+      "tipo": "custo",
+      "site": 10,
+      "battlefieldmeta": 30,
+      "idNoSite": "underbarrel-qd-grip-pod-elr-40",
+      "decisao": "jogo",
+      "jogo": 10
+    },
+    {
+      "arma": "elr-40",
+      "slot": "underbarrel",
+      "peca": "SLIM ANGLED",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 25,
+      "idNoSite": "underbarrel-slim-angled-elr-40",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "es-57",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "es-57",
+      "slot": "muzzle",
+      "peca": "SINGLE-PORT BRAKE",
+      "tipo": "custo",
+      "site": 10,
+      "battlefieldmeta": 5,
+      "idNoSite": "muzzle-single-port-brake-es-57",
+      "decisao": "jogo",
+      "jogo": 10
+    },
+    {
+      "arma": "ggh-22",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "grt-bc",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 30,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "grt-cps",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "interdictor",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "interdictor",
+      "slot": "scope",
+      "peca": "IRON SIGHTS",
+      "tipo": "custo",
+      "site": 10,
+      "battlefieldmeta": 5,
+      "idNoSite": "sight-iron-sights-interdictor",
+      "decisao": "jogo",
+      "jogo": 10
+    },
+    {
+      "arma": "kord-6p67",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "kts100-mk8",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "kts100-mk8",
+      "slot": "magazine",
+      "peca": "60RND MAGAZINE",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 10,
+      "idNoSite": "magazine-60rnd-drum-mag",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "kts100-mk8",
+      "slot": "scope",
+      "peca": "DVO LPVO",
+      "tipo": "custo",
+      "site": 25,
+      "battlefieldmeta": 10,
+      "idNoSite": "sight-dvo-lpvo",
+      "decisao": "jogo",
+      "jogo": 25
+    },
+    {
+      "arma": "kv9",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 30,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "l110",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "l110",
+      "slot": "optic-accessory",
+      "peca": "CANTED IRON SIGHTS",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 10,
+      "idNoSite": "opticAccessory-canted-iron-sights",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "l115",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "l115",
+      "slot": "scope",
+      "peca": "IRON SIGHTS",
+      "tipo": "custo",
+      "site": 10,
+      "battlefieldmeta": 5,
+      "idNoSite": "sight-iron-sights-l115",
+      "decisao": "jogo",
+      "jogo": 10
+    },
+    {
+      "arma": "l85a3",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "l85a3",
+      "slot": "underbarrel",
+      "peca": "UNDERSLUNG MOUNT",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 10,
+      "idNoSite": "underbarrel-underslung-mount",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "lmr27",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "m121-a2",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "m121-a2",
+      "slot": "magazine",
+      "peca": "50RND BELT POUCH",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 10,
+      "idNoSite": "magazine-50rnd-belt-pouch",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "m123k",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "m16a4",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "m16a4",
+      "slot": "underbarrel",
+      "peca": "MOUNT",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 10,
+      "idNoSite": "underbarrel-underslung-mount",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "m2010-esr",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "m2010-esr",
+      "slot": "optic-accessory",
+      "peca": "CANTED IRON SIGHTS",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 10,
+      "idNoSite": "opticAccessory-canted-iron-sight",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "m2010-esr",
+      "slot": "scope",
+      "peca": "DVO LPVO",
+      "tipo": "custo",
+      "site": 25,
+      "battlefieldmeta": 10,
+      "idNoSite": "sight-dvo-lpvo",
+      "decisao": "jogo",
+      "jogo": 25
+    },
+    {
+      "arma": "m2010-esr",
+      "slot": "scope",
+      "peca": "IRON SIGHTS",
+      "tipo": "custo",
+      "site": 10,
+      "battlefieldmeta": 15,
+      "idNoSite": "sight-iron-sights-m2010-esr",
+      "decisao": "jogo",
+      "jogo": 10
+    },
+    {
+      "arma": "m240l",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "m250",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "m250",
+      "slot": "muzzle",
+      "peca": "SINGLE-PORT BRAKE",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 10,
+      "idNoSite": "muzzle-single-port-brake",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "m277",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "m277",
+      "slot": "muzzle",
+      "peca": "SINGLE-PORT BRAKE",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 10,
+      "idNoSite": "muzzle-single-port-brake",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "m277",
+      "slot": "underbarrel",
+      "peca": "MOUNT",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 10,
+      "idNoSite": "underbarrel-underslung-mount",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "m357-trait",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 30,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "m39-emr",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "m39-emr",
+      "slot": "scope",
+      "peca": "DVO LPVO",
+      "tipo": "custo",
+      "site": 25,
+      "battlefieldmeta": 10,
+      "idNoSite": "sight-dvo-lpvo",
+      "decisao": "jogo",
+      "jogo": 25
+    },
+    {
+      "arma": "m417-a2",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "m417-a2",
+      "slot": "magazine",
+      "peca": "25RND MAGAZINE",
+      "tipo": "custo",
+      "site": 20,
+      "battlefieldmeta": 15,
+      "idNoSite": "magazine-25rnd-magazine",
+      "decisao": "jogo",
+      "jogo": 20
+    },
+    {
+      "arma": "m417-a2",
+      "slot": "underbarrel",
+      "peca": "UNDERSLUNG MOUNT",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 10,
+      "idNoSite": "underbarrel-underslung-mount",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "m433",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "m433",
+      "slot": "ammunition",
+      "peca": "HOLLOW POINT",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-hollow-point",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "m433",
+      "slot": "barrel",
+      "peca": "16.5\" RIFLE",
+      "tipo": "custo",
+      "site": 10,
+      "battlefieldmeta": 15,
+      "idNoSite": "barrel-16-5-rifle",
+      "decisao": "jogo",
+      "jogo": 10
+    },
+    {
+      "arma": "m433",
+      "slot": "underbarrel",
+      "peca": "MOUNT",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 10,
+      "idNoSite": "underbarrel-underslung-mount",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "m44",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "m45a1",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "m4a1",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "m4a1",
+      "slot": "underbarrel",
+      "peca": "MOUNT",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 10,
+      "idNoSite": "underbarrel-underslung-mount",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "m60",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "m60",
+      "slot": "muzzle",
+      "peca": "SINGLE-PORT BRAKE",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 10,
+      "idNoSite": "muzzle-single-port-brake",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "m87a1",
+      "slot": "underbarrel",
+      "peca": "FULL ANGLED",
+      "tipo": "custo",
+      "site": 25,
+      "battlefieldmeta": 30,
+      "idNoSite": "underbarrel-full-angled",
+      "decisao": "jogo",
+      "jogo": 25
+    },
+    {
+      "arma": "mini-scout",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "mini-scout",
+      "slot": "scope",
+      "peca": "IRON SIGHTS",
+      "tipo": "custo",
+      "site": 10,
+      "battlefieldmeta": 5,
+      "idNoSite": "sight-iron-sights-mini-scout",
+      "decisao": "jogo",
+      "jogo": 10
+    },
+    {
+      "arma": "mk-24",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 20,
+      "battlefieldmeta": 30,
+      "idNoSite": "ammo-frangible-mk-24",
+      "decisao": "jogo",
+      "jogo": 20
+    },
+    {
+      "arma": "mk-24",
+      "slot": "ammunition",
+      "peca": "HOLLOW POINT",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-hollow-point-mk-24",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "mk-24",
+      "slot": "underbarrel",
+      "peca": "MOUNT",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 10,
+      "idNoSite": "underbarrel-underslung-mount",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "nvo-228e",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "nvo-228e",
+      "slot": "scope",
+      "peca": "DVO LPVO",
+      "tipo": "custo",
+      "site": 25,
+      "battlefieldmeta": 10,
+      "idNoSite": "sight-dvo-lpvo",
+      "decisao": "jogo",
+      "jogo": 25
+    },
+    {
+      "arma": "p18",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "p18",
+      "slot": "underbarrel",
+      "peca": "50 MW GREEN",
+      "tipo": "custo",
+      "site": 20,
+      "battlefieldmeta": 10,
+      "idNoSite": "rightRail-50-mw-green",
+      "decisao": "jogo",
+      "jogo": 20
+    },
+    {
+      "arma": "pp-19",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "psr",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "psr",
+      "slot": "scope",
+      "peca": "IRON SIGHTS",
+      "tipo": "custo",
+      "site": 10,
+      "battlefieldmeta": 5,
+      "idNoSite": "sight-iron-sights-psr",
+      "decisao": "jogo",
+      "jogo": 10
+    },
+    {
+      "arma": "pw5a3",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "pw7a2",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "qbz-192",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "ammunition",
+      "peca": "SYNTHETIC TIP",
+      "tipo": "custo",
+      "site": 20,
+      "battlefieldmeta": 25,
+      "idNoSite": "ammo-synthetic-tip",
+      "decisao": "jogo",
+      "jogo": 20
+    },
+    {
+      "arma": "rpkm",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "rspr",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "scw-10",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "scw-10",
+      "slot": "optic-accessory",
+      "peca": "CANTED IRON SIGHTS",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 10,
+      "idNoSite": "opticAccessory-canted-iron-sights",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "sg-553r",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "sgx",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "sl9",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "sl9",
+      "slot": "barrel",
+      "peca": "9\" HEAVY",
+      "tipo": "custo",
+      "site": 10,
+      "battlefieldmeta": 15,
+      "idNoSite": "barrel-9-heavy",
+      "decisao": "jogo",
+      "jogo": 10
+    },
+    {
+      "arma": "sor-300sc",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "sor-556-mk2",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "sv-98",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "sv-98",
+      "slot": "scope",
+      "peca": "IRON SIGHTS",
+      "tipo": "custo",
+      "site": 10,
+      "battlefieldmeta": 5,
+      "idNoSite": "sight-iron-sights-sv-98",
+      "decisao": "jogo",
+      "jogo": 10
+    },
+    {
+      "arma": "svdm",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "svdm",
+      "slot": "muzzle",
+      "peca": "SINGLE-PORT BRAKE",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 10,
+      "idNoSite": "muzzle-single-port-brake",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "svk-86",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "svk-86",
+      "slot": "muzzle",
+      "peca": "SINGLE-PORT BRAKE",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 10,
+      "idNoSite": "muzzle-single-port-brake",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "svk-86",
+      "slot": "scope",
+      "peca": "DVO LPVO",
+      "tipo": "custo",
+      "site": 25,
+      "battlefieldmeta": 10,
+      "idNoSite": "sight-dvo-lpvo",
+      "decisao": "jogo",
+      "jogo": 25
+    },
+    {
+      "arma": "tr-7",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "umg-40",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "usg-90",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "vcr-2",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "vssm",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "vssm",
+      "slot": "magazine",
+      "peca": "20",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 10,
+      "idNoSite": "magazine-20rnd-magazine",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "vz-61",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 20,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "vz-61",
+      "slot": "magazine",
+      "peca": "10RND MAGAZINE",
+      "tipo": "custo",
+      "site": 5,
+      "battlefieldmeta": 10,
+      "idNoSite": "magazine-10rnd-magazine",
+      "decisao": "jogo",
+      "jogo": 5
+    },
+    {
+      "arma": "vz-61",
+      "slot": "muzzle",
+      "peca": "SINGLE-PORT BRAKE",
+      "tipo": "custo",
+      "site": 10,
+      "battlefieldmeta": 5,
+      "idNoSite": "muzzle-single-port-brake-vz-61",
+      "decisao": "jogo",
+      "jogo": 10
+    },
+    {
+      "arma": "z84m",
+      "slot": "ammunition",
+      "peca": "FRANGIBLE",
+      "tipo": "custo",
+      "site": 15,
+      "battlefieldmeta": 30,
+      "idNoSite": "ammo-frangible",
+      "decisao": "jogo",
+      "jogo": 15
+    },
+    {
+      "arma": "18-5ks-k",
+      "slot": "muzzle",
+      "peca": "DOUBLE-PORT BRAKE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "18-5ks-k",
+      "slot": "muzzle",
+      "peca": "HYBRID SUPPRESSOR [K]",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 50,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "18-5ks-k",
+      "slot": "muzzle",
+      "peca": "HYBRID SUPPRESSOR [L]",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 30,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "18-5ks-k",
+      "slot": "muzzle",
+      "peca": "HYBRID SUPPRESSOR [S]",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 40,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "brod-3",
+      "slot": "ergonomics",
+      "peca": "MATCH TRIGGER",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 15,
+      "decisao": "curadoria",
+      "jogo": null
+    },
+    {
+      "arma": "brod-3",
+      "slot": "scope",
+      "peca": "1P88 VARIABLE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "brod-3",
+      "slot": "scope",
+      "peca": "LERT 8.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "brod-3",
+      "slot": "scope",
+      "peca": "MC-CO LPVO",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "brod-3",
+      "slot": "scope",
+      "peca": "NFX 8.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "brod-3",
+      "slot": "scope",
+      "peca": "SM RIFLE VARIABLE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "brod-3",
+      "slot": "scope",
+      "peca": "SSDS 6.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "brod-3",
+      "slot": "scope",
+      "peca": "S-VPS 6.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "brod-3",
+      "slot": "scope",
+      "peca": "TS-HD 6.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "cz3a1",
+      "slot": "optic-accessory",
+      "peca": "CANTED REFLEX",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "cz3a1",
+      "slot": "optic-accessory",
+      "peca": "PIGGYBACK REFLEX",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "db-12",
+      "slot": "muzzle",
+      "peca": "HYBRID SUPPRESSOR [K]",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 50,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "db-12",
+      "slot": "muzzle",
+      "peca": "HYBRID SUPPRESSOR [L]",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 30,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "db-12",
+      "slot": "muzzle",
+      "peca": "HYBRID SUPPRESSOR [S]",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 40,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "drs-iar",
+      "slot": "ammunition",
+      "peca": "SYNTHETIC TIP",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "ef88",
+      "slot": "ergonomics",
+      "peca": "MATCH TRIGGER",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 15,
+      "decisao": "curadoria",
+      "jogo": null
+    },
+    {
+      "arma": "ef88",
+      "slot": "scope",
+      "peca": "1P88 VARIABLE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "ef88",
+      "slot": "scope",
+      "peca": "LERT 8.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "ef88",
+      "slot": "scope",
+      "peca": "NFX 8.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "ef88",
+      "slot": "scope",
+      "peca": "NGFC LPVO",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "ef88",
+      "slot": "scope",
+      "peca": "SM RIFLE VARIABLE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "ef88",
+      "slot": "scope",
+      "peca": "SSDS 6.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "ef88",
+      "slot": "scope",
+      "peca": "S-VPS 6.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "ef88",
+      "slot": "scope",
+      "peca": "TS-HD 6.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "ammunition",
+      "peca": "HOLLOW POINT",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "ammunition",
+      "peca": "MATCH GRADE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "ammunition",
+      "peca": "POLYMER CASE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "ammunition",
+      "peca": "SYNTHETIC TIP",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 30,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "ergonomics",
+      "peca": "AFTERMARKET BUFFER",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 5,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "ergonomics",
+      "peca": "MAGWELL FLARE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "ergonomics",
+      "peca": "MATCH TRIGGER",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 15,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "left-accessory",
+      "peca": "LASER/LIGHT COMBO GREEN",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "left-accessory",
+      "peca": "LASER/LIGHT COMBO RED",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "muzzle",
+      "peca": "COMPENSATED BRAKE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "muzzle",
+      "peca": "COMPENSATOR",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "muzzle",
+      "peca": "DOUBLE-PORT BRAKE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "muzzle",
+      "peca": "FLASH COMP",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "muzzle",
+      "peca": "HYBRID SUPPRESSOR [K]",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 50,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "muzzle",
+      "peca": "HYBRID SUPPRESSOR [L]",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 30,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "muzzle",
+      "peca": "HYBRID SUPPRESSOR [S]",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 40,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "muzzle",
+      "peca": "LIGHTENED SUPPRESSOR",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 30,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "muzzle",
+      "peca": "LINEAR COMP",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "muzzle",
+      "peca": "SINGLE-PORT BRAKE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 5,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "muzzle",
+      "peca": "STANDARD SUPPRESSOR",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "muzzle",
+      "peca": "TRIPLE-PORT BRAKE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "optic-accessory",
+      "peca": "ADJUSTABLE MAGNIFICATION 2.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "optic-accessory",
+      "peca": "ADJUSTABLE MAGNIFICATION 3.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "optic-accessory",
+      "peca": "ADJUSTABLE MAGNIFICATION 4.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "optic-accessory",
+      "peca": "PIGGYBACK REFLEX",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "right-accessory",
+      "peca": "LASER/LIGHT COMBO GREEN",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "right-accessory",
+      "peca": "LASER/LIGHT COMBO RED",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "scope",
+      "peca": "NGFC LPVO",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "top-accessory",
+      "peca": "LASER/LIGHT COMBO GREEN",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "top-accessory",
+      "peca": "LASER/LIGHT COMBO RED",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "underbarrel",
+      "peca": "6H64 VERTICAL",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "underbarrel",
+      "peca": "ADJUSTABLE ANGLED",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 15,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "underbarrel",
+      "peca": "ALLOY VERTICAL",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "underbarrel",
+      "peca": "CANTED STUBBY",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 30,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "underbarrel",
+      "peca": "CLASSIC VERTICAL",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 35,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "underbarrel",
+      "peca": "FOLDING STUBBY",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "underbarrel",
+      "peca": "FOLDING VERTICAL",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "underbarrel",
+      "peca": "PTT GRIP POD",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "underbarrel",
+      "peca": "RIBBED STUBBY",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 30,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "underbarrel",
+      "peca": "RIBBED VERTICAL",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "underbarrel",
+      "peca": "SLIM HANDSTOP",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 15,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "underbarrel",
+      "peca": "STIPPLED STUBBY",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 35,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "elr-40",
+      "slot": "underbarrel",
+      "peca": "MOUNT",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "es-57",
+      "slot": "scope",
+      "peca": "SU-230 LPVO",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "es-57",
+      "slot": "underbarrel",
+      "peca": "RED LASER",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "ggh-22",
+      "slot": "scope",
+      "peca": "SU-230 LPVO",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "grt-bc",
+      "slot": "ergonomics",
+      "peca": "BURST TRAINING",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 15,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "interdictor",
+      "slot": "scope",
+      "peca": "NGFC LPVO",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "m1014",
+      "slot": "muzzle",
+      "peca": "HYBRID SUPPRESSOR [K]",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 50,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "m1014",
+      "slot": "muzzle",
+      "peca": "HYBRID SUPPRESSOR [L]",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 30,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "m1014",
+      "slot": "muzzle",
+      "peca": "HYBRID SUPPRESSOR [S]",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 40,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "m123k",
+      "slot": "underbarrel",
+      "peca": "ADJUSTABLE ANGLED",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 15,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "m16a4",
+      "slot": "scope",
+      "peca": "IRON SIGHTS",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 5,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "m357-trait",
+      "slot": "scope",
+      "peca": "SU-230 LPVO",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "m44",
+      "slot": "scope",
+      "peca": "SU-230 LPVO",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "m45a1",
+      "slot": "scope",
+      "peca": "SU-230 LPVO",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "m4a1",
+      "slot": "scope",
+      "peca": "IRON SIGHTS",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 5,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "m87a1",
+      "slot": "muzzle",
+      "peca": "HYBRID SUPPRESSOR [K]",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 50,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "m87a1",
+      "slot": "muzzle",
+      "peca": "HYBRID SUPPRESSOR [L]",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 30,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "m87a1",
+      "slot": "muzzle",
+      "peca": "HYBRID SUPPRESSOR [S]",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 40,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "ammunition",
+      "peca": "MATCH GRADE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "ammunition",
+      "peca": "SYNTHETIC TIP",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 30,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "ergonomics",
+      "peca": "DLC BOLT",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 30,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "left-accessory",
+      "peca": "LASER/LIGHT COMBO GREEN",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "left-accessory",
+      "peca": "LASER/LIGHT COMBO RED",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "left-accessory",
+      "peca": "RANGE FINDER",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 15,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "muzzle",
+      "peca": "TRIPLE-PORT BRAKE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "optic-accessory",
+      "peca": "ADJUSTABLE MAGNIFICATION 2.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "optic-accessory",
+      "peca": "ADJUSTABLE MAGNIFICATION 3.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "optic-accessory",
+      "peca": "ADJUSTABLE MAGNIFICATION 4.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "optic-accessory",
+      "peca": "ANTI-GLARE COATING",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "optic-accessory",
+      "peca": "PIGGYBACK REFLEX",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "right-accessory",
+      "peca": "LASER/LIGHT COMBO GREEN",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "right-accessory",
+      "peca": "LASER/LIGHT COMBO RED",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "right-accessory",
+      "peca": "RANGE FINDER",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 15,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "scope",
+      "peca": "1P88 VARIABLE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "scope",
+      "peca": "LERT 8.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "scope",
+      "peca": "MARS-F LPVO",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "scope",
+      "peca": "NFX 8.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "scope",
+      "peca": "SM RIFLE VARIABLE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "scope",
+      "peca": "SSDS 6.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "scope",
+      "peca": "S-VPS 6.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "scope",
+      "peca": "TS-HD 6.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "top-accessory",
+      "peca": "LASER/LIGHT COMBO GREEN",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "top-accessory",
+      "peca": "LASER/LIGHT COMBO RED",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "mk-24",
+      "slot": "top-accessory",
+      "peca": "RANGE FINDER",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 15,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "p18",
+      "slot": "scope",
+      "peca": "SU-230 LPVO",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "pp-19",
+      "slot": "optic-accessory",
+      "peca": "ADJUSTABLE MAGNIFICATION 2.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "pp-19",
+      "slot": "optic-accessory",
+      "peca": "ADJUSTABLE MAGNIFICATION 3.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "pp-19",
+      "slot": "optic-accessory",
+      "peca": "ADJUSTABLE MAGNIFICATION 4.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "pp-19",
+      "slot": "optic-accessory",
+      "peca": "ANTI-GLARE COATING",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "pp-19",
+      "slot": "scope",
+      "peca": "1P88 VARIABLE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "pp-19",
+      "slot": "scope",
+      "peca": "DVO LPVO",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "pp-19",
+      "slot": "scope",
+      "peca": "LERT 8.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "pp-19",
+      "slot": "scope",
+      "peca": "MC-CO LPVO",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "pp-19",
+      "slot": "scope",
+      "peca": "NFX 8.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "pp-19",
+      "slot": "scope",
+      "peca": "NGFC LPVO",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "pp-19",
+      "slot": "scope",
+      "peca": "SM RIFLE VARIABLE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "pp-19",
+      "slot": "scope",
+      "peca": "SSDS 6.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "pp-19",
+      "slot": "scope",
+      "peca": "S-VPS 6.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "pp-19",
+      "slot": "scope",
+      "peca": "TS-HD 6.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "pw7a2",
+      "slot": "scope",
+      "peca": "IRON SIGHTS",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 5,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "ammunition",
+      "peca": "MATCH GRADE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "ergonomics",
+      "peca": "DLC BOLT",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 30,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "ergonomics",
+      "peca": "IMPROVED MAG CATCH",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 5,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "left-accessory",
+      "peca": "LASER/LIGHT COMBO GREEN",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "left-accessory",
+      "peca": "LASER/LIGHT COMBO RED",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "left-accessory",
+      "peca": "RANGE FINDER",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 15,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "magazine",
+      "peca": "95RN DRUM",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 50,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "muzzle",
+      "peca": "COMPENSATOR",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "muzzle",
+      "peca": "SINGLE-PORT BRAKE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 5,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "muzzle",
+      "peca": "TRIPLE-PORT BRAKE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "optic-accessory",
+      "peca": "ADJUSTABLE MAGNIFICATION 2.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "optic-accessory",
+      "peca": "ADJUSTABLE MAGNIFICATION 3.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "optic-accessory",
+      "peca": "ADJUSTABLE MAGNIFICATION 4.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "optic-accessory",
+      "peca": "ANTI-GLARE COATING",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "right-accessory",
+      "peca": "LASER/LIGHT COMBO GREEN",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "right-accessory",
+      "peca": "LASER/LIGHT COMBO RED",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "right-accessory",
+      "peca": "RANGE FINDER",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 15,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "scope",
+      "peca": "1P88 VARIABLE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "scope",
+      "peca": "LERT 8.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "scope",
+      "peca": "NFX 8.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "scope",
+      "peca": "SM RIFLE VARIABLE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "scope",
+      "peca": "SSDS 6.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "scope",
+      "peca": "S-VPS 6.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "scope",
+      "peca": "TS-HD 6.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "top-accessory",
+      "peca": "LASER/LIGHT COMBO GREEN",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "top-accessory",
+      "peca": "LASER/LIGHT COMBO RED",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "top-accessory",
+      "peca": "RANGE FINDER",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 15,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rpk-74m",
+      "slot": "underbarrel",
+      "peca": "MOUNT",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rspr",
+      "slot": "scope",
+      "peca": "S-VPS 6.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "rspr",
+      "slot": "underbarrel",
+      "peca": "SLIM HANDSTOP",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "sl9",
+      "slot": "ergonomics",
+      "peca": "BURST TRAINING",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 15,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "sv-98",
+      "slot": "ergonomics",
+      "peca": "AFTERMARKET BUFFER",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 5,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "sv-98",
+      "slot": "muzzle",
+      "peca": "DOUBLE-PORT BRAKE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "sv-98",
+      "slot": "muzzle",
+      "peca": "LONG SUPPRESSOR",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 30,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "svdm",
+      "slot": "barrel",
+      "peca": "565 FLUTED",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "svdm",
+      "slot": "magazine",
+      "peca": "5RND FAST MAG",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 5,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "vssm",
+      "slot": "barrel",
+      "peca": "200MM ASM",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "vssm",
+      "slot": "barrel",
+      "peca": "200MM FACTORY",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 30,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "vz-61",
+      "slot": "scope",
+      "peca": "SU-230 LPVO",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "ammunition",
+      "peca": "MATCH GRADE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "ammunition",
+      "peca": "SYNTHETIC TIP",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 30,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "ergonomics",
+      "peca": "AFTERMARKET BUFFER",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 5,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "ergonomics",
+      "peca": "DLC BOLT",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 30,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "ergonomics",
+      "peca": "IMPROVED MAG CATCH",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 5,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "ergonomics",
+      "peca": "MAGWELL FLARE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "ergonomics",
+      "peca": "MATCH TRIGGER",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 15,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "left-accessory",
+      "peca": "LASER/LIGHT COMBO GREEN",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "left-accessory",
+      "peca": "LASER/LIGHT COMBO RED",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "left-accessory",
+      "peca": "RANGE FINDER",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 15,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "muzzle",
+      "peca": "COMPENSATOR",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "muzzle",
+      "peca": "DOUBLE-PORT BRAKE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "muzzle",
+      "peca": "FLASH COMP",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "muzzle",
+      "peca": "SINGLE-PORT BRAKE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 5,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "muzzle",
+      "peca": "TRIPLE-PORT BRAKE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "optic-accessory",
+      "peca": "ADJUSTABLE MAGNIFICATION 2.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "optic-accessory",
+      "peca": "ADJUSTABLE MAGNIFICATION 3.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "optic-accessory",
+      "peca": "ADJUSTABLE MAGNIFICATION 4.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "optic-accessory",
+      "peca": "ANTI-GLARE COATING",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "optic-accessory",
+      "peca": "PIGGYBACK REFLEX",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "right-accessory",
+      "peca": "LASER/LIGHT COMBO GREEN",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "right-accessory",
+      "peca": "LASER/LIGHT COMBO RED",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "right-accessory",
+      "peca": "RANGE FINDER",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 15,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "scope",
+      "peca": "1P88 VARIABLE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "scope",
+      "peca": "LERT 8.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "scope",
+      "peca": "NFX 8.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "scope",
+      "peca": "NGFC LPVO",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "scope",
+      "peca": "SM RIFLE VARIABLE",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "scope",
+      "peca": "SSDS 6.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "scope",
+      "peca": "S-VPS 6.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "scope",
+      "peca": "TS-HD 6.00X",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 25,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "top-accessory",
+      "peca": "LASER/LIGHT COMBO GREEN",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "top-accessory",
+      "peca": "LASER/LIGHT COMBO RED",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 20,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "top-accessory",
+      "peca": "RANGE FINDER",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 15,
+      "decisao": "jogo",
+      "jogo": null
+    },
+    {
+      "arma": "z84m",
+      "slot": "underbarrel",
+      "peca": "MOUNT",
+      "tipo": "faltaNoSite",
+      "battlefieldmeta": 10,
+      "decisao": "jogo",
+      "jogo": null
+    }
+  ]
+}

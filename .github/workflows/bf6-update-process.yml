@@ -184,6 +184,19 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run season:theme
 
+      # Segunda opinião, antes da sincronização: o site contra o BattlefieldMeta,
+      # peça por peça. Cada divergência se resolve aqui mesmo, sem issue: vale
+      # o arquivo do jogo; a trava da curadoria, onde houver; e o preço do
+      # BattlefieldMeta só onde o jogo não diz nenhum — esse vai para
+      # data/sources/battlefieldmeta-precos.json, e a sincronização logo abaixo
+      # o aplica. O resumo da execução mostra cada decisão. BattlefieldMeta
+      # fora do ar não segura a rodada: a lista anterior fica.
+      - name: Conferir com o BattlefieldMeta
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run catalog:conferir-battlefieldmeta
+
       # Curva de dano, cadência, velocidade, pente, recargas, multiplicador na
       # cabeça, custo de peça e a lista exata de armas de cada peça, lidos dos
       # arquivos do jogo pelo BF6-Weapon-Analyzer. Grava só a diferença em

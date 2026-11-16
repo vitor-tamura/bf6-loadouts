@@ -35,7 +35,9 @@ export type CampoSincronizado =
   | 'reload'
   | 'emptyReload'
   | 'headshot'
-  | 'fireModes';
+  | 'fireModes'
+  /** Slot que o jogo enumera para a arma e o cadastro não declarava (a ergonomia da ES 5.7). */
+  | 'slots';
 
 /** Uma correção de um número: o valor do jogo, o do cadastro quando ela foi feita, e de onde ela veio. */
 export interface Correcao<T> {
@@ -49,7 +51,9 @@ export type ValorDoCampo<C extends CampoSincronizado> = C extends 'damage'
   ? [number, number][]
   : C extends 'fireModes'
     ? Weapon['fireModes']
-    : number;
+    : C extends 'slots'
+      ? Weapon['slots']
+      : number;
 
 export interface SincroniaDaArma {
   idNoAnalyzer: string;

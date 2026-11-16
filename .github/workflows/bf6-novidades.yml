@@ -65,6 +65,19 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run catalog:novidades
 
+      # Segunda opinião, antes da sincronização: o site contra o BattlefieldMeta,
+      # peça por peça. Cada divergência se resolve aqui mesmo, sem issue: vale
+      # o arquivo do jogo; a trava da curadoria, onde houver; e o preço do
+      # BattlefieldMeta só onde o jogo não diz nenhum — esse vai para
+      # data/sources/battlefieldmeta-precos.json, e a sincronização logo abaixo
+      # o aplica. O resumo da execução mostra cada decisão. BattlefieldMeta
+      # fora do ar não segura a rodada: a lista anterior fica.
+      - name: Conferir com o BattlefieldMeta
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run catalog:conferir-battlefieldmeta
+
       # A arma nova nasce com as peças e os canos da gêmea (a NSW4 veio com os
       # da M417 A2). Sem esta sincronização no mesmo dia, ela ficava assim até o
       # próximo processamento de patch — e a NSW4 ficou dois dias sem a FMJ
@@ -105,11 +118,11 @@ jobs:
         id: mudou
         run: |
           # `status`, e não `diff`: a foto de arma nova é arquivo que o git ainda não conhece.
-          if [ -z "$(git status --porcelain -- src/data/novidades.json src/data/analyzer-sync.json data/validation/analyzer-sync-report.json data/entities/pecas-traduzidas-pela-ia.json data/sources/battlefieldmeta-canos.json public/weapons)" ]; then
+          if [ -z "$(git status --porcelain -- src/data/novidades.json src/data/analyzer-sync.json data/validation/analyzer-sync-report.json data/entities/pecas-traduzidas-pela-ia.json data/sources/battlefieldmeta-canos.json data/sources/battlefieldmeta-precos.json data/validation/battlefieldmeta-conferencia.json public/weapons)" ]; then
             echo "Nada novo no arsenal."
             echo "sim=false" >> "$GITHUB_OUTPUT"
           else
-            git status --short -- src/data/novidades.json src/data/analyzer-sync.json data/validation/analyzer-sync-report.json data/entities/pecas-traduzidas-pela-ia.json data/sources/battlefieldmeta-canos.json public/weapons
+            git status --short -- src/data/novidades.json src/data/analyzer-sync.json data/validation/analyzer-sync-report.json data/entities/pecas-traduzidas-pela-ia.json data/sources/battlefieldmeta-canos.json data/sources/battlefieldmeta-precos.json data/validation/battlefieldmeta-conferencia.json public/weapons
             echo "sim=true" >> "$GITHUB_OUTPUT"
           fi
 
@@ -141,7 +154,7 @@ jobs:
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/novidades.json src/data/analyzer-sync.json data/validation/analyzer-sync-report.json data/sources/battlefieldmeta-canos.json public/weapons
+          git add src/data/novidades.json src/data/analyzer-sync.json data/validation/analyzer-sync-report.json data/sources/battlefieldmeta-canos.json data/sources/battlefieldmeta-precos.json data/validation/battlefieldmeta-conferencia.json public/weapons
           # Só existe depois que o modelo traduziu a primeira peça nova.
           if [ -f data/entities/pecas-traduzidas-pela-ia.json ]; then git add data/entities/pecas-traduzidas-pela-ia.json; fi
           git commit -m "feat(data): novidades do arsenal — $resumo"

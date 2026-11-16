@@ -53,6 +53,11 @@
           "valor": 3.7,
           "antes": 0.95,
           "fonte": "data/weapons.json#emptyRld"
+        },
+        "slots": {
+          "valor": ["sight", "muzzle", "barrel", "underbarrel", "magazine", "ammo", "ergonomics", "leftRail", "rightRail", "opticAccessory"],
+          "antes": ["sight", "muzzle", "barrel", "underbarrel", "magazine", "ammo", "ergonomics", "leftRail", "rightRail"],
+          "fonte": "data/attachments.json#opticAccessory"
         }
       }
     },
@@ -277,6 +282,11 @@
           "valor": ["bombeamento"],
           "antes": ["semi"],
           "fonte": "data/weapons.json#availableFireModes"
+        },
+        "slots": {
+          "valor": ["sight", "muzzle", "barrel", "underbarrel", "magazine", "ammo", "ergonomics", "leftRail", "rightRail", "opticAccessory"],
+          "antes": ["sight", "muzzle", "barrel", "underbarrel", "magazine", "ammo", "ergonomics", "leftRail", "rightRail"],
+          "fonte": "data/attachments.json#opticAccessory"
         }
       }
     },
@@ -380,6 +390,11 @@
           "valor": 1.34,
           "antes": 1.35,
           "fonte": "data/hit_zones.json#headshot"
+        },
+        "slots": {
+          "valor": ["sight", "muzzle", "barrel", "magazine", "ammo", "leftRail", "rightRail", "ergonomics"],
+          "antes": ["sight", "muzzle", "barrel", "magazine", "ammo", "leftRail", "rightRail"],
+          "fonte": "data/attachments.json#ergonomics"
         }
       }
     },
@@ -427,6 +442,11 @@
           "valor": 1.34,
           "antes": 1.35,
           "fonte": "data/hit_zones.json#headshot"
+        },
+        "slots": {
+          "valor": ["sight", "muzzle", "barrel", "magazine", "ammo", "leftRail", "rightRail", "ergonomics"],
+          "antes": ["sight", "muzzle", "barrel", "magazine", "ammo", "leftRail", "rightRail"],
+          "fonte": "data/attachments.json#ergonomics"
         }
       }
     },
@@ -1075,6 +1095,11 @@
           "valor": 1.5,
           "antes": 1.35,
           "fonte": "data/hit_zones.json#headshot"
+        },
+        "slots": {
+          "valor": ["sight", "muzzle", "barrel", "magazine", "ammo", "leftRail", "rightRail", "ergonomics"],
+          "antes": ["sight", "muzzle", "barrel", "magazine", "ammo", "leftRail", "rightRail"],
+          "fonte": "data/attachments.json#ergonomics"
         }
       }
     },
@@ -1195,6 +1220,11 @@
           "valor": 1.5,
           "antes": 1.35,
           "fonte": "data/hit_zones.json#headshot"
+        },
+        "slots": {
+          "valor": ["sight", "muzzle", "barrel", "magazine", "ammo", "leftRail", "rightRail", "ergonomics"],
+          "antes": ["sight", "muzzle", "barrel", "magazine", "ammo", "leftRail", "rightRail"],
+          "fonte": "data/attachments.json#ergonomics"
         }
       }
     },
@@ -1323,6 +1353,11 @@
           "valor": 7,
           "antes": 6,
           "fonte": "data/attachments.json#WEAPON_MAG.def"
+        },
+        "slots": {
+          "valor": ["sight", "muzzle", "barrel", "underbarrel", "magazine", "ammo", "ergonomics", "leftRail", "rightRail", "opticAccessory"],
+          "antes": ["sight", "muzzle", "barrel", "underbarrel", "magazine", "ammo", "ergonomics", "leftRail", "rightRail"],
+          "fonte": "data/attachments.json#opticAccessory"
         }
       }
     },
@@ -2277,6 +2312,11 @@
           "valor": 1.4,
           "antes": 1.35,
           "fonte": "data/hit_zones.json#headshot"
+        },
+        "slots": {
+          "valor": ["sight", "muzzle", "barrel", "magazine", "ammo", "leftRail", "rightRail", "underbarrel", "ergonomics"],
+          "antes": ["sight", "muzzle", "barrel", "magazine", "ammo", "leftRail", "rightRail", "underbarrel"],
+          "fonte": "data/attachments.json#ergonomics"
         }
       }
     }
