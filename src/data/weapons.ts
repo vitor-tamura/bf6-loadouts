@@ -188,8 +188,8 @@ const ASSAULT_RIFLES: WeaponEntry[] = [
     id: 'b36a4',
     name: 'B36A4',
     category: 'ar',
-    archetype: 'bullpup',
-    summary: 'Bullpup equilibrado: compacto para o vão interno, estável o bastante para média distância.',
+    archetype: 'ar-nato',
+    summary: 'Fuzil equilibrado: ágil no vão interno e estável o bastante para média distância.',
     damage: [
       [25, 0],
       [20, 35],
@@ -606,8 +606,8 @@ const CARBINES: WeaponEntry[] = [
     id: 'qbz-192',
     name: 'QBZ-192',
     category: 'carbine',
-    archetype: 'bullpup',
-    summary: 'Bullpup compacta com boa velocidade de bala para o tamanho.',
+    archetype: 'carbine-short',
+    summary: 'Carabina compacta com boa velocidade de bala para o tamanho.',
     damage: [
       [25, 0],
       [21.5, 9],

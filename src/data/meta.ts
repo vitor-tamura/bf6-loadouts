@@ -339,7 +339,7 @@ export const BY_CATEGORY: CategoryHighlight[] = [
   },
   {
     category: 'carbine',
-    best: { weapon: 'qbz-192', reason: 'Primeira da classe no multiplayer: bullpup compacta com boa velocidade de bala para o tamanho.', sources: [0] },
+    best: { weapon: 'qbz-192', reason: 'Primeira da classe no multiplayer: carabina compacta com boa velocidade de bala para o tamanho.', sources: [0] },
     mentions: [
       { weapon: 'sg-553r', reason: 'Segunda aqui e primeira no REDSEC: três tiros de perto, com a bala mais lenta da classe.', sources: [0] },
       { weapon: 'brod-3', reason: 'Terceira, e a que mais perdeu com a retirada do Match Trigger.', sources: [0, 5] },
