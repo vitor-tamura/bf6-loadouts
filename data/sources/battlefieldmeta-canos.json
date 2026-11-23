@@ -1,6 +1,6 @@
 {
   "_leiaMe": "Escrito por `npm run catalog:sincronizar-analyzer`: o nome físico de cada cano, arma por arma, e o papel dele, de app.battlefieldmeta.gg/api/weapons/<id>/unlocked-attachments. Leitura que falha mantém a anterior.",
-  "lidoEm": "2026-11-22",
+  "lidoEm": "2026-11-23",
   "armas": {
     "18-5ks-k": [
       {
