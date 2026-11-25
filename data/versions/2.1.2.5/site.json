@@ -1,0 +1,11 @@
+{
+  "version": "2.1.2.5",
+  "analisadoEm": "2026-11-25",
+  "modelo": "claude-haiku-5-5",
+  "fontes": {
+    "ea": "ata/patches/2.1.2.5.json",
+    "balancelog": null
+  },
+  "aplicadas": [],
+  "recusadas": []
+}
