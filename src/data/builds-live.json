@@ -1,407 +1,407 @@
 {
-  "readAt": "2026-11-23",
+  "readAt": "2026-11-25",
   "builds": [
     {
       "weapon": "ak4d",
-      "advice": "Mapas grande e pequeno recebem a mesma montagem: supressor híbrido na boca, cano longo de 600 mm, empunhadura curta, munição FMJ, carregador de 20 tiros e mira 1,75x. A combinação de cano longo com mira de ampliação média é coerente com a classificação de alcance longo que o texto dá à arma.",
+      "advice": "Nos mapas grandes e pequenos a montagem é a mesma: cano longo canelado, empunhadura curta, munição FMJ, supressor híbrido na boca, carregador de 20 tiros e mira 1,75x. O conjunto reforça o controle e o alcance, o que combina com a classificação de longo alcance nível A.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/ak4d"
     },
     {
       "weapon": "tr-7",
-      "advice": "No mapa grande, a montagem usa cano de 17 polegadas de fábrica, empunhadura vertical, supressor híbrido, munição FMJ, carregador rápido de 20 tiros e mira 1x. No mapa pequeno, o cano passa a ser longo de 20 polegadas, com empunhadura curta, munição de estojo polimérico, compensador de flash, peça de ergonomia de trava de carregador aprimorada, carregador de 20 tiros e mira 1,25x.",
+      "advice": "No mapa grande, a montagem usa cano de 17 polegadas, empunhadura vertical, munição FMJ, supressor híbrido, carregador de 20 tiros e mira 1x. No mapa pequeno, o cano passa a ser de 20 polegadas, a empunhadura vira curta e entram munição de estojo polimérico, compensador de flash, ergonomia com trava de carregador aprimorada e mira 1,25x, priorizando alcance no mapa grande e manuseio no pequeno.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/tr-7"
     },
     {
       "weapon": "sor-556-mk2",
-      "advice": "Mapas grande e pequeno usam a mesma montagem: cano criogênico, empunhadura angulada, munição de ponta oca, supressor longo na boca, carregador de 30 tiros e mira 1,25x. As escolhas indicam foco em cano de tratamento especial, munição de ponta oca e supressão com boca longa.",
+      "advice": "Nos dois tipos de mapa a montagem é a mesma: cano criogênico, empunhadura angulada completa, munição de ponta oca, supressor longo na boca, carregador de 30 tiros e mira 1,25x. A combinação busca precisão e controle de recuo, com a arma ranqueada em oitavo lugar.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/sor-556-mk2"
     },
     {
       "weapon": "m433",
-      "advice": "Mapas grande e pequeno usam a mesma montagem: cano de 18,9 polegadas, empunhadura curta, munição FMJ, compensador de flash na boca, carregador de 36 tiros e mira 1,25x. A montagem combina cano longo com carregador de maior capacidade, reforçando a arma para trocas de tiro a média distância.",
+      "advice": "A montagem é a mesma nos dois mapas: cano de 18,9 polegadas, empunhadura curta, munição FMJ, compensador de flash, carregador de 36 tiros e mira 1,25x. Essas peças favorecem a mobilidade e a agilidade da arma, que fica com boa mobilidade e controle equilibrado.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/m433"
     },
     {
       "weapon": "kord-6p67",
-      "advice": "No mapa grande, a montagem usa cano criogênico, empunhadura fina, munição de cápsula polímera, supressor leve, carregador de 36 tiros e mira de 1,75x. No mapa pequeno, troca o cano por um de 415 mm, usa empunhadura vertical, munição FMJ e supressor longo, mantendo o carregador de 36 tiros e a mira de 1,75x.",
+      "advice": "Nos mapas grandes, a montagem usa cano criogênico, supressor leve, empunhadura de apoio fina, munição de estojo polimérico, pente de 36 munições e mira 1,75x. Nos mapas pequenos, troca o cano por um de 415 mm protótipo, a empunhadura por uma vertical, a munição por FMJ e a boca por um supressor longo, mantendo pente de 36 e mira 1,75x.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/kord-6p67"
     },
     {
       "weapon": "nvo-228e",
-      "advice": "A montagem é a mesma nos dois mapas: cano criogênico, empunhadura vertical clássica, munição de cápsula polímera, compensador de flash, carregador de 30 tiros e mira de 1,75x. Ela combina controle de recuo com um carregador mais curto e uma mira de média ampliação.",
+      "advice": "As montagens de mapa grande e pequeno são iguais: cano criogênico, empunhadura vertical, munição de estojo polimérico, compensador de clarão, pente de 30 munições e mira 1,75x. A diferença é só o conjunto de peças que se mantém em ambos os mapas.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/nvo-228e"
     },
     {
       "weapon": "ef88",
-      "advice": "No mapa grande, a montagem usa cano criogênico de 16 polegadas, empunhadura curta canelada, munição FMJ, supressor leve, carregador de 30 tiros e mira de 1,75x. No mapa pequeno, muda apenas a mira para uma de 1x, mantendo o restante da montagem.",
+      "advice": "Nos mapas grandes, a montagem usa cano criogênico de 16 polegadas, empunhadura curta estriada, munição FMJ, supressor leve, pente de 30 munições e mira 1,75x. Nos mapas pequenos, as peças são as mesmas, mas a mira passa para uma de 1x, sem ampliação.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/ef88"
     },
     {
       "weapon": "vcr-2",
-      "advice": "A montagem é a mesma nos dois mapas: cano de 20 polegadas, empunhadura vertical clássica, munição FMJ, supressor híbrido, carregador de 30 tiros e mira de 1x. Ela aposta em um cano longo para precisão, com empunhadura vertical para controle e mira de baixa ampliação.",
+      "advice": "As duas montagens são idênticas: cano de precisão de 20 polegadas, empunhadura vertical, munição FMJ, supressor híbrido, pente de 30 munições e mira 1x. A arma fica com cano longo e supressor, voltada para tiros de precisão à distância.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/vcr-2"
     },
     {
       "weapon": "m16a4",
-      "advice": "No mapa grande, a montagem usa cano pesado de 20 polegadas, empunhadura curta, munição FMJ, supressor leve, peça de ergonomia receptor A3, carregador de 30 tiros e mira de 1,75x. No mapa pequeno, a mudança é a mira, que passa para uma de 1x.",
+      "advice": "Nos mapas grandes, a montagem usa cano pesado de 20 polegadas, empunhadura curta fina, munição FMJ, supressor leve, peça de ergonomia específica, pente de 30 munições e mira 1,75x. Nos mapas pequenos, as peças são as mesmas, mas a mira passa para uma de 1x, sem ampliação.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/m16a4"
     },
     {
       "weapon": "m4a1",
-      "advice": "No mapa grande, a montagem usa cano de 14,5 polegadas, empunhadura vertical clássica, munição FMJ, supressor híbrido, carregador de 30 tiros e mira de 1x. No mapa pequeno, mantém o cano, mas troca a empunhadura por uma curta de perfil baixo, usa compensador de flash, carregador de 36 tiros e mira de 1,75x.",
+      "advice": "Nos mapas grandes, a montagem usa cano carabina de 14,5 polegadas, empunhadura vertical, munição FMJ, supressor híbrido, pente de 30 munições e mira 1x. Nos mapas pequenos, o cano continua o mesmo, mas a empunhadura passa para uma curta de perfil baixo, a boca para um compensador de clarão, o pente sobe para 36 munições e a mira vai para 1,75x.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/m4a1"
     },
     {
       "weapon": "ak-205",
-      "advice": "Nos mapas grande e pequeno, a montagem usa cano de tipo criogênico, munição de ponta sintética, boca com supressor padrão, carregador de 40 tiros e mira 1.75x. Ela busca precisão a distância e controle de recuo (precisão 72, controle 63) sem sacrificar muito a mobilidade.",
+      "advice": "Nos mapas grande e pequeno a montagem é a mesma: cano cryogenic, munição de ponta sintética, supressor padrão, carregador de 40 tiros e mira 1,75x. O conjunto combina controle de recuo e mobilidade com alcance de tiro médio, que são os pontos fortes da arma segundo as estatísticas da página.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/ak-205"
     },
     {
       "weapon": "m417-a2",
-      "advice": "Nos dois mapas, a montagem combina cano criogênico, empunhadura angulada, munição de estojo polimérico, compensador linear, carregador de 25 tiros, acessório superior e mira 1.75x. O foco está em manter a arma controlável e precisa a distância, já que o texto indica precisão 35 e controle 33, valores baixos que essas peças procuram compensar.",
+      "advice": "A montagem é igual nos dois mapas: cano cryogenic, empunhadura angulada, munição de estojo polimérico, compensador linear, carregador de 25 tiros, acessório superior de laser e mira 1,75x. As peças buscam reforçar a precisão e o controle, que estão baixos na arma, e o laser no topo completa o conjunto.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/m417-a2"
     },
     {
       "weapon": "qbz-192",
-      "advice": "No mapa grande, a montagem usa cano comum, empunhadura vertical, munição FMJ, supressor híbrido na boca, carregador de 36 tiros e mira 1.75x, o que favorece o controle de recuo. No mapa pequeno, troca para cano criogênico, empunhadura curta, compensador linear e uma peça de ergonomia, mantendo munição FMJ, carregador de 36 tiros e mira 1.75x, o que privilegia manuseio e mobilidade.",
+      "advice": "No mapa grande a arma usa cano de 14,5 polegadas, empunhadura vertical, munição FMJ, supressor híbrido e carregador de 36 tiros, com mira 1,75x. No mapa pequeno troca para cano cryogenic, empunhadura curta com textura, compensador linear e cobertura de trilho, mantendo munição FMJ e a mesma mira. A versão de mapa pequeno prioriza controle e manobra em combate próximo, enquanto a de mapa grande pri",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/qbz-192"
     },
     {
       "weapon": "sg-553r",
-      "advice": "Nos dois mapas, a montagem usa cano longo, empunhadura curta de perfil baixo, munição FMJ, supressor híbrido na boca, carregador de 30 tiros e mira 2.5x. A arma fica mais estável e apoiada em uma mira de maior ampliação para tiros à distância.",
+      "advice": "Montagem igual nos dois mapas: cano longo de 303 mm, empunhadura curta de perfil baixo, munição FMJ, supressor híbrido longo, carregador de 30 tiros e mira 2,5x. A combinação de cano longo com mira 2,5x sustenta o alcance da arma, e o supressor reduz a revelação do tiro.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/sg-553r"
     },
     {
       "weapon": "sor-300sc",
-      "advice": "No mapa grande, a montagem usa cano customizado, empunhadura curta estriada, munição FMJ, supressor padrão na boca, carregador de 36 tiros, peça de ergonomia, acessório superior e mira 1.75x, reforçando a estabilidade com mais acessórios de controle. No mapa pequeno, o cano é o mesmo, mas a empunhadura passa a ser vertical, a boca vira supressor híbrido e some a peça de ergonomia e o acessório sup",
+      "advice": "No mapa grande a arma usa cano customizado de 10,5 polegadas, empunhadura curta estriada, munição FMJ, supressor padrão, carregador de 36 tiros, cobertura de trilho, laser no topo e mira 1,75x. No mapa pequeno a montagem troca a empunhadura por uma vertical e o supressor por um híbrido, mantendo o cano e a munição. A versão de mapa pequeno busca mais controle em distâncias curtas, e a de mapa gran",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/sor-300sc"
     },
     {
       "weapon": "m277",
-      "advice": "As montagens de mapa grande e pequeno são iguais: compensador, cano criogênico, empunhadura curta, munição FMJ, carregador de 25 tiros e mira 1,75x. A combinação busca controle e precisão em distância, com um cano de perfil criogênico e mira de ampliação média.",
+      "advice": "Nos mapas grandes e pequenos a montagem é a mesma: cano específico, empunhadura curta, compensador linear, munição FMJ, carregador de 25 tiros e mira 1,75x. A empunhadura curta e o compensador ajudam no controle do recuo, e a mira de ampliação média reforça o uso da carabina a distâncias maiores.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/m277"
     },
     {
       "weapon": "brod-3",
-      "advice": "As duas montagens são idênticas: cano de carabina de 14,5 polegadas, empunhadura vertical, munição FMJ, supressor híbrido na boca, carregador de 30 tiros e mira 1x. A arma fica com cano longo e controle vertical, com mira de ampliação mínima para combate de curta distância.",
+      "advice": "Nos mapas grandes e pequenos a montagem é a mesma: cano de carabina de 14,5 polegadas, empunhadura vertical, munição FMJ, supressor híbrido na boca, carregador de 30 tiros e mira 1x. O cano longo e a empunhadura vertical dão mais estabilidade, e a mira 1x mantém a arma rápida para combate a curta distância.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/brod-3"
     },
     {
       "weapon": "scw-10",
-      "advice": "No mapa grande, a SCW-10 leva cano estendido, empunhadura angulada fina, munição FMJ, supressor leve, carregador de 20 tiros, acessório superior e mira 1x. No mapa pequeno, o supressor leve dá lugar a um compensador linear, o carregador passa para 25 tiros, a ergonomia melhorada entra no lugar do acessório superior e o cano e a mira continuam os mesmos.",
+      "advice": "O cano estendido, a empunhadura angulada, a munição FMJ e a mira 1x são iguais nos dois tipos de mapa. Nos mapas grandes, a boca é um supressor leve, o carregador tem 20 tiros e há um acessório superior. Nos mapas pequenos, a boca passa a ser um compensador linear, o carregador sobe para 25 tiros e entra uma peça de ergonomia, o que reforça a arma para combate rápido em espaços fechados.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/scw-10"
     },
     {
       "weapon": "kv9",
-      "advice": "As duas montagens são iguais: cano estendido de 6,5 polegadas, empunhadura vertical, munição FMJ, supressor leve, carregador de 23 tiros e mira 1,25x. A arma ganha alcance com cano longo e mira de ampliação média, mantendo a boca silenciada e o controle vertical.",
+      "advice": "Monta cano estendido, empunhadura vertical, munição FMJ, supressor leve na boca, carregador de 23 tiros e mira 1,25x. O cano estendido e a empunhadura vertical ajudam a controlar o recuo, e a mira 1,25x dá um pouco mais de alcance para a submetralhadora em combate a curta distância.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/kv9"
     },
     {
       "weapon": "pw7a2",
-      "advice": "As duas montagens são iguais: cano protótipo de 180 mm, empunhadura vertical de liga, munição FMJ, supressor leve, carregador de 40 tiros e mira 1x. O cano curto e a empunhadura vertical buscam mobilidade e controle para combate próximo, com carregador grande e mira de ampliação mínima.",
+      "advice": "Monta cano de 180 mm, empunhadura vertical, munição FMJ, supressor leve na boca, carregador de 40 tiros e mira 1x, igual nos mapas grandes e pequenos. O cano curto e a empunhadura vertical priorizam a mobilidade e o controle, e o carregador grande reduz recargas durante o combate próximo.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/pw7a2"
     },
     {
       "weapon": "pw5a3",
-      "advice": "No mapa grande, a PW5A3 usa cano customizado de 245 mm, empunhadura vertical clássica, munição FMJ, supressor padrão, carregador de 40 tiros, ergonomia de trava de carregador melhorada e mira de ferro. No mapa pequeno, a empunhadura passa a ser angulada fina, a boca vira compensador de chama, entra um acessório lateral no lugar da ergonomia e o supressor e a ergonomia somem, mantendo cano, carrega",
+      "advice": "Em ambos os tipos de mapa, a arma usa cano de 245 mm, munição FMJ, carregador de 40 tiros e mira de ferro. Nos mapas grandes, ela leva empunhadura vertical, supressor padrão na boca e peça de ergonomia. Nos mapas pequenos, a empunhadura passa a ser angulada, a boca vira um compensador de flash e entra um acessório lateral direito, deixando a arma mais voltada para combate rápido em espaços fechado",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/pw5a3"
     },
     {
       "weapon": "sgx",
-      "advice": "Nos dois mapas a montagem usa cano longo, empunhadura vertical, munição FMJ, boca supressor leve, carregador de 36 tiros e mira 1x. No mapa pequeno, a empunhadura passa a ser curta, a boca vira compensador e a mira sobe para 1.25x. O texto destaca mobilidade 73 e controle 49 como os números da arma.",
+      "advice": "Nos mapas grandes, as montagens usam cano longo, supressor leve na boca, munição FMJ, carregador de 36 tiros, empunhadura vertical e mira 1x. Nos mapas pequenos, a empunhadura passa a ser compacta e a boca vira compensador, com mira 1.25x, para dar mais controle e mobilidade em combate de curta distância.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/sgx"
     },
     {
       "weapon": "sl9",
-      "advice": "A montagem é igual nos mapas grande e pequeno: cano longo de 11 polegadas, empunhadura angulada, munição de ponta sintética, boca supressor leve, acessório lateral de laser, carregador de 30 tiros e mira 1.75x. A combinação reforça o alcance da arma com cano longo e mira ampliada.",
+      "advice": "As montagens são iguais nos dois tipos de mapa: cano longo de 11 polegadas, empunhadura angulada, munição de ponta sintética, supressor leve na boca, carregador de 30 tiros, acessório lateral verde e mira 1.75x. A combinação mantém a arma estável à distância média sem perder o foco em combate próximo.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/sl9"
     },
     {
       "weapon": "umg-40",
-      "advice": "A montagem é igual nos dois mapas: cano longo de 305 mm, empunhadura angulada fina, munição de ponta sintética, boca supressor leve, carregador de 30 tiros e mira 1.75x. A mira ampliada e o cano longo são as escolhas que mais se destacam.",
+      "advice": "As montagens são iguais nos mapas grandes e pequenos: cano de 305 mm, empunhadura angulada fina, munição de ponta sintética, supressor leve na boca, carregador de 30 tiros e mira 1.75x. Isso busca equilibrar precisão e controle de recuo no combate de curta a média distância.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/umg-40"
     },
     {
       "weapon": "usg-90",
-      "advice": "Nos dois mapas a montagem usa cano criogênico, munição FMJ, boca supressor híbrido, carregador de 50 tiros, acessório lateral de laser e mira 1x. O carregador grande é a escolha principal para sustentar o fogo.",
+      "advice": "As montagens são iguais nos dois tipos de mapa: cano de tipo especial, munição FMJ, supressor de boca híbrido, carregador de 50 tiros, acessório lateral azul e mira 1x. A arma fica preparada para sustentar fogo contínuo com muita munição.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/usg-90"
     },
     {
       "weapon": "cz3a1",
-      "advice": "A montagem é igual nos dois mapas: cano longo de 16.2 polegadas, empunhadura angulada, munição FMJ, supressor longo, carregador de 35 tiros, acessório lateral de laser e mira 1x. O cano longo e o supressor longo são as escolhas centrais.",
+      "advice": "As montagens são iguais nos mapas grandes e pequenos: cano longo, empunhadura angulada fina, munição FMJ, supressor longo na boca, carregador de 35 tiros, acessório lateral verde e mira 1x. A ideia é reforçar a precisão e o controle da arma, mantendo a mira simples para combate a média distância.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/cz3a1"
     },
     {
       "weapon": "pp-19",
-      "advice": "No mapa grande, a montagem usa cano de 367 mm, empunhadura angulada, munição FMJ, boca supressor CQB, peça de ergonomia de buffer, acessório lateral de laser violeta, carregador rápido de 30 tiros e mira 1x. No mapa pequeno, o carregador rápido vira carregador comum, a ergonomia vira trava de carregador melhorada e o laser passa a ser azul.",
+      "advice": "Nos mapas grandes, as montagens usam cano longo, empunhadura angulada fina, munição FMJ, supressor de boca de curta distância, ergonomia de amortecedor de coronha, carregador rápido de 30 tiros, acessório lateral violeta e mira 1x, com foco em longo alcance. Nos mapas pequenos, o carregador volta ao padrão de 30 tiros, a ergonomia passa a ser de trava de carregador e o acessório lateral passa a se",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/pp-19"
     },
     {
       "weapon": "m123k",
-      "advice": "A montagem usa cano de 612 mm, empunhadura angulada completa, munição FMJ, boca supressora híbrida, caixa de cinto de 100 tiros e mira 1.75x, com uma diferença pequena na mira de 95/100 no mapa grande. O cano longo e a munição FMJ reforçam o alcance e a penetração, e a caixa de cinto grande dá sustentação para longas trocas de tiro.",
+      "advice": "Nos dois mapas, a montagem usa cano de 612 mm, empunhadura angulada completa, munição FMJ, supressor híbrido, carregador de cinto de 100 munições e mira 1,75x. O cano longo e a mira de longo alcance direcionam a arma para distância, enquanto o carregador grande aumenta a capacidade de fogo sustentado.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/m123k"
     },
     {
       "weapon": "m250",
-      "advice": "As montagens usam cano de 556 mm, empunhadura angulada completa, munição FMJ, boca supressora híbrida, caixa de cinto de 50 tiros e mira 1.75x, iguais nos dois mapas. O cano intermediário equilibra alcance e manuseio, e a caixa de cinto de 50 tiros mantém a arma com boa capacidade sem sacrificar a mobilidade.",
+      "advice": "Nos dois mapas, a montagem usa cano de 556 mm, empunhadura angulada completa, munição FMJ, supressor híbrido, carregador de cinto de 50 munições e mira 1,75x. Ela direciona a metralhadora para alcance longo, com cano longo e mira de longa distância.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/m250"
     },
     {
       "weapon": "svdm",
-      "advice": "As montagens de mapa grande e pequeno são iguais: cano de 620 mm, empunhadura curta de perfil baixo, munição de ponta oca, compensador linear, ergonomia com trava de carregador melhorada, carregador de 10 tiros e mira 3x. A montagem prioriza o manejo e a estabilidade do tiro, com munição de ponta oca para dano maior por tiro.",
+      "advice": "Nos dois mapas, a montagem usa cano de 620 mm de tipo clássico, empunhadura curta de perfil baixo, munição de ponta oca, compensador linear, trava de carregador melhorada, carregador de 10 tiros e mira 3x. O conjunto dá um DMR de alcance focado em precisão, com cano longo e carregador pequeno.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/svdm"
     },
     {
       "weapon": "svk-86",
-      "advice": "As montagens de mapa grande e pequeno são iguais: cano estendido, empunhadura angulada, munição FMJ, boca supressora híbrida, acessório de mira inclinado, carregador de 10 tiros e mira 5x. A montagem reforça o alcance e a precisão com mira de maior ampliação, mantendo o supressor para esconder o tiro.",
+      "advice": "Nos dois mapas, a montagem usa cano estendido, empunhadura angulada, munição FMJ, supressor híbrido na boca, acessório de mira, carregador de 10 tiros e mira 5x. A mira mais potente e o acessório de mira são o destaque, enquanto o carregador pequeno acompanha a arma de tiro preciso.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/svk-86"
     },
     {
       "weapon": "vssm",
-      "advice": "A montagem é a mesma nos dois mapas: cano de 200 mm, empunhadura curta dobrável, munição de núcleo de tungstênio, coronha dobrável, carregador de 20 tiros e mira 1x. Ela é voltada a combate de curta distância, com coronha dobrável e mira 1x para manejo rápido.",
+      "advice": "Nos dois mapas, a montagem usa cano curto de 200 mm, empunhadura dobrável curta, munição com núcleo de tungstênio, coronha dobrável, carregador de 20 tiros e mira 1x. É uma configuração de curta distância, pensada para manobrar e mirar rápido, e a arma aparece como primeira colocada nessa faixa.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/vssm"
     },
     {
       "weapon": "grt-cps",
-      "advice": "No mapa grande: cano de 20 polegadas, empunhadura angulada fina, munição FMJ, boca supressora híbrida, acessório superior, carregador de 20 tiros e mira 3x. No mapa pequeno, a boca é outra variante do supressor híbrido, o acessório superior muda de cor e a mira passa a ser 1x, para ganhar mobilidade em distâncias menores.",
+      "advice": "No mapa grande, a montagem usa cano de fábrica de 20 polegadas, empunhadura angulada slim, munição FMJ, supressor híbrido na boca, acessório superior violeta, carregador de 20 tiros e mira 3x. No mapa pequeno, muda para o supressor híbrido na variante [L], acessório superior verde, carregador de 20 tiros e mira 1x, mais leve para combate próximo.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/grt-cps"
     },
     {
       "weapon": "psr",
-      "advice": "Nos dois mapas, a montagem usa cano de 27\" de tipo longo, empunhadura angulada, munição de precisão, carregador de 7 tiros e mira de 6x, com telêmetro, antirreflexo na mira e luz verde no acessório superior. Também não há diferença entre mapa grande e pequeno, e a configuração foca em alcance e controle do recuo.",
+      "advice": "Nos dois mapas a montagem usa supressor, cano longo de 27 polegadas, empunhadura angulada, munição de precisão, carregador de 7 tiros e mira 6x, com telêmetro e acessório de mira anti-reflexo. Ela mantém a arma voltada para tiros longos e precisos, com a mesma base de peças em qualquer tamanho de mapa.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/psr"
     },
     {
       "weapon": "mini-scout",
-      "advice": "Nos dois mapas, a montagem usa cano estendido de 18\", munição FMJ, supressor padrão no cano, carregador de 15 tiros, mira de 6x, telêmetro e antirreflexo na mira. A configuração combina cano mais comprido com munição de penetração, para reforçar a precisão em distâncias médias e longas.",
+      "advice": "Nos dois mapas a montagem usa cano estendido de 18 polegadas, supressor na boca, munição FMJ, carregador de 15 tiros, mira 6x e telêmetro. A escolha prioriza alcance e cadência de uma arma de sniper mais leve, sem diferença entre mapa grande e pequeno.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/mini-scout"
     },
     {
       "weapon": "l115",
-      "advice": "Nos dois mapas, a montagem leva cano longo personalizado, empunhadura angulada fina, munição de precisão, supressor padrão, carregador de 5 tiros, mira de 6x, telêmetro, antirreflexo na mira e luz verde na lateral direita. O foco está em alcance e precisão, com supressor para reduzir o rastro de som e luz.",
+      "advice": "Nos dois mapas a montagem usa cano customizado de 32 polegadas, empunhadura angulada slim, munição de precisão, supressor padrão, carregador de 5 tiros e mira 6x, com telêmetro e acessório de mira anti-reflexo. Ela reforça precisão e discrição, com cano longo e supressor, e não muda entre os tamanhos de mapa.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/l115"
     },
     {
       "weapon": "interdictor",
-      "advice": "Nos dois mapas, a montagem leva cano longo personalizado, empunhadura angulada fina, munição de precisão, supressor longo, carregador de 5 tiros, mira de 8x, telêmetro e antirreflexo na mira. A escolha é a mesma nos dois mapas e concentra a arma em alcance, com supressor longo e mira de maior ampliação.",
+      "advice": "Nos dois mapas a montagem usa cano customizado de 32 polegadas, empunhadura angulada slim, munição de precisão, supressor longo, carregador de 5 tiros e mira 8x, com telêmetro e acessório de mira anti-reflexo. A boca longa e a mira de maior aumento focam em tiros de longa distância, sem variação por mapa.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/interdictor"
     },
     {
       "weapon": "m1014",
-      "advice": "Nos dois mapas, a montagem usa cano de 18,5\" padrão de fábrica, empunhadura horizontal estreita, munição de chumbo grosso (buckshot), supressor de curta distância, luz verde na lateral direita e mira de 1x. A configuração é voltada ao combate de curta distância, com munição de chumbo grosso e mira de baixa ampliação para mirar rápido.",
+      "advice": "Nos dois mapas a montagem usa cano de 18,5 polegadas, apoio de mão slim, munição buckshot, supressor de curta distância, acessório lateral e mira de ponto 1x. Ela é voltada para combate de curto alcance, com cano e mira compactos, e não muda entre mapa grande e pequeno.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/m1014"
     },
     {
       "weapon": "18-5ks-k",
-      "advice": "Nos mapas grande e pequeno a montagem é a mesma: supressor de curta distância na boca, cano de 430 mm de fábrica, empunhadura fina embaixo, munição de chumbo grosso (buckshot), carregador de 4 tiros, laser verde no acessório lateral e mira de ampliação variável (LPVO).",
+      "advice": "Nos mapas grande e pequeno a montagem é a mesma: cano longo de 430 mm, boca supressora, empunhadura vertical, munição buckshot, carregador de 4 cartuchos, acessório com laser verde no lado direito e mira de ampliação variável (LPVO). O cano longo e a mira de ampliação buscam ganhar alcance e precisão para uma escopeta, e a empunhadura vertical e o supressor ajudam no controle e na discrição em com",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/185ks-k"
     },
     {
       "weapon": "m87a1",
-      "advice": "Nos mapas grande e pequeno a montagem é a mesma: supressor de curta distância na boca, cano de 20 polegadas de fábrica, empunhadura fina embaixo, munição de chumbo grosso, tubo de 7 cartuchos, laser verde no acessório lateral e mira de ferro. O texto indica mobilidade alta (63) e controle baixo (9), o que pesa a favor de uma arma leve e rápida de manobrar em vez de precisa à distância.",
+      "advice": "Nos dois mapas a montagem é igual: cano de 20 polegadas, boca supressora, empunhadura vertical, munição buckshot, carregador de tubo de 7 cartuchos, acessório com laser verde no lado direito e mira de ferro. A combinação reforça a mobilidade e o controle da arma em combate próximo, com o supressor e a empunhadura vertical deixando-a mais estável ao atirar.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/m87a1"
     },
     {
       "weapon": "db-12",
-      "advice": "Nos mapas grande e pequeno a montagem é a mesma: supressor de curta distância na boca, cano de 18,9 polegadas de fábrica, empunhadura angulada embaixo, munição de chumbo grosso, magazine de tubo duplo com 7 cartuchos, laser verde no acessório superior e mira 1x.",
+      "advice": "Nos mapas grande e pequeno a montagem é a mesma: cano de 18,9 polegadas, boca supressora, empunhadura angulada, munição buckshot, carregador de tubo duplo de 7 cartuchos e mira de ampliação 1x no acessório superior. A empunhadura angulada e a mira 1x corrigem a leitura da arma em combate rápido, e o supressor ajuda a manter a discrição no combate de curta distância.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/db-12"
     },
     {
       "weapon": "m45a1",
-      "advice": "Nos mapas grande e pequeno a montagem é a mesma: cano de 5 polegadas de fábrica, laser verde embaixo do cano, munição FMJ, engate de carregador aprimorado, carregador de 11 tiros e mira de ferro. A combinação foca em recarga mais firme e carregador maior, sem boca ou mira ótica.",
+      "advice": "Nos dois mapas a montagem é igual: cano de 5 polegadas, acessório inferior com laser verde, munição FMJ, ergonomia com trava de carregador aprimorada, carregador de 11 cartuchos e mira de ferro. A munição FMJ e a trava de carregador aprimorada reforçam a recarga e a consistência de dano, enquanto o laser ajuda na mira em distâncias curtas.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/m45a1"
     },
     {
       "weapon": "es-57",
-      "advice": "Nos mapas grande e pequeno a montagem é a mesma: cano de 122 mm de fábrica, laser verde embaixo, munição FMJ, supressor padrão na boca, engate de carregador aprimorado, carregador de 20 tiros e mira de ferro. A montagem aumenta a capacidade do carregador e controla o som e o clarão com o supressor, mantendo a arma com mira aberta.",
+      "advice": "Nos mapas grande e pequeno a montagem é a mesma: cano de 122 mm, acessório inferior com laser verde, munição FMJ, boca supressora padrão, ergonomia com trava de carregador aprimorada, carregador de 20 cartuchos e mira de ferro. O carregador de maior capacidade e a munição FMJ compensam a falta de potência por tiro, e a trava de carregador melhora a recarga.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/es57"
     },
     {
       "weapon": "m44",
-      "advice": "Nos mapas grande e pequeno a montagem é a mesma: cano longo de 8,37 polegadas, munição de ponta oca, carregador de recarga rápida de 6 tiros e mira de ferro. Não há boca, empunhadura nem acessório extra, então a arma fica simples e focada no dano da munição e na recarga rápida.",
+      "advice": "Nos dois mapas a montagem é igual: cano longo de 8,37 polegadas, munição de ponta oca, carregador de recarga rápida de 6 cartuchos e mira de ferro. O cano longo e a munição de ponta oca buscam mais alcance e dano por disparo, e o carregador de recarga rápida acelera a troca entre os tiros.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/m44"
     },
     {
       "weapon": "p18",
-      "advice": "Nos mapas grandes e pequenos a montagem é a mesma: boca com supressor, cano de fábrica de 3.9\", munição FMJ, carregador de 21 tiros, empunhadura de trava de carregador aprimorada e mira de ferro. Ela reforça a capacidade de munição do carregador e o controle do disparo com boca supressora.",
+      "advice": "Nos mapas grande e pequeno, a montagem é a mesma: cano de fábrica, munição FMJ, supressor na boca, carregador de 21 tiros, peça de ergonomia de trava de carregador e mira de ferro. O texto não traz justificativa para essas escolhas, apenas a lista de peças.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/p18"
     },
     {
       "weapon": "ggh-22",
-      "advice": "Nos mapas grandes e pequenos a montagem é a mesma: cano de fábrica de 114 mm, boca com supressor, munição FMJ, carregador de 20 tiros e mira de ferro. Ela aposta no cano curto de fábrica e no supressor para manter a arma controlável em combate de curta distância.",
+      "advice": "Nos mapas grande e pequeno, a montagem é a mesma: cano de 114 mm de fábrica, munição FMJ, supressor na boca, carregador de 20 tiros, peça de ergonomia de trava de carregador e mira de ferro. A arma aparece como 4ª no ranking de curta distância, mas o texto não explica o motivo das escolhas.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/ggh-22"
     },
     {
       "weapon": "vz-61",
-      "advice": "Nos mapas grandes e pequenos a montagem é a mesma: cano de fábrica de 115 mm, munição FMJ, carregador de 20 tiros e mira de ferro, sem boca listada. Ela foca em um cano de fábrica e no carregador de 20 tiros para dar mais munição sem acessórios extras.",
+      "advice": "Nos mapas grande e pequeno, a montagem é a mesma: cano de 115 mm de fábrica, munição FMJ, carregador de 20 tiros e mira de ferro, sem acessório de boca listado. A arma está em 1º lugar no ranking de curta distância, e o texto não explica por que essas peças foram escolhidas.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/vz-61"
     },
     {
       "weapon": "b36a4",
-      "advice": "Mapas grande e pequeno recebem a mesma montagem: cano de 510 mm, empunhadura vertical clássica, munição FMJ, supressor híbrido na boca, coronha de reposição (buffer), carregador de 30 tiros e mira 1x. É a montagem de cano médio-longo com empunhadura vertical que o texto lista como a de maior ranking da arma.",
+      "advice": "A montagem é idêntica nos mapas grande e pequeno: cano de 510 mm, empunhadura vertical clássica, munição FMJ, supressor híbrido na boca, ergonomia com coronha de reposição (buffer), carregador de 30 tiros e mira 1x. É a arma líder do meta (primeiro lugar), e essas peças reforçam o alcance e a estabilidade da arma.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/b36a4"
     },
     {
       "weapon": "l85a3",
-      "advice": "No mapa grande, a montagem usa cano longo de 646 mm, empunhadura angulada fina, munição de ponta sintética, supressor leve na boca, carregador de 30 tiros e mira 1,75x. No mapa pequeno, a arma troca para cano criogênico, empunhadura curta, munição FMJ, freio de boca de porta única, carregador de 36 tiros e a mesma mira 1,75x.",
+      "advice": "No mapa grande, a montagem usa cano de 646 mm com perfil de cano pesado, empunhadura angulada fina, munição de ponta sintética, supressor leve na boca, carregador de 30 tiros e mira 1,75x, focando em alcance e precisão. No mapa pequeno, o cano vira criogênico, a empunhadura passa a ser curta, entram munição FMJ, compensador de cano simples, carregador de 36 tiros e mira 1,75x, dando mais cadência ",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/l85a3"
     },
     {
       "weapon": "drs-iar",
-      "advice": "No mapa grande, a montagem usa cano longo de 20 polegadas, empunhadura curta estriada, munição FMJ, supressor padrão, carregador de 36 tiros, acessório de ergonomia do tipo trilho e mira 1.75x. No mapa pequeno, a empunhadura passa a ser vertical estriada, a boca vira supressor híbrido, não há ergonomia extra e a mira cai para 1x. Assim, o mapa grande reforça estabilidade e alcance, e o pequeno fav",
+      "advice": "Em mapas grandes, a montagem usa cano de 20\", empunhadura curta, supressor padrão, munição FMJ, carregador de 36 munições, cobertura de trilho na ergonomia e mira 1,75x, o que a prepara para longo alcance. Em mapas pequenos, troca a empunhadura por uma vertical, passa a usar supressor híbrido e reduz a mira para 1,00x, deixando a arma mais ágil em espaços fechados.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/drs-iar"
     },
     {
       "weapon": "kts100-mk8",
-      "advice": "A montagem usa cano de 508 mm, empunhadura angulada completa, munição de estojo de polímero, boca supressora híbrida, tambor de 60 tiros e mira 1.75x. A empunhadura angulada melhora o controle do recuo e o tambor grande aumenta a quantidade de disparos sem recarregar, o que sustenta a arma em trocas longas.",
+      "advice": "Nos dois mapas, a montagem usa cano de 508 mm, empunhadura angulada completa, munição de cartucho polímero, supressor híbrido, carregador de tambor de 60 munições e mira 1,75x. Ela mira em alcance longo e aproveita a precisão alta da arma, com carregador grande para sustentar o fogo.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/kts100-mk8"
     },
     {
       "weapon": "rpkm",
-      "advice": "As montagens usam cano de 600 mm, empunhadura angulada completa, munição de ponta sintética, boca supressora longa, carregador de 40 tiros e mira 1.75x, iguais nos dois mapas. O cano longo e a munição de ponta sintética reforçam a precisão à distância, enquanto a empunhadura angulada ajuda a manter a mira estável durante as rajadas.",
+      "advice": "Nos dois mapas, a montagem usa cano de 600 mm, empunhadura angulada completa, munição de ponta sintética, supressor longo, carregador de 40 munições e mira 1,75x. Ela foca em alcance longo, com cano longo e munição que favorece a precisão à distância.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/rpkm"
     },
     {
       "weapon": "l110",
-      "advice": "As montagens dos dois mapas são iguais: cano com canelura e comprimento médio-longo, empunhadura angulada completa, munição FMJ, supressor híbrido na boca e carregador de cinto de alta capacidade. A mira é de 1,75x. Essa combinação reforça o controle de recuo e a precisão a média e longa distância, que são os pontos fortes da arma.",
+      "advice": "Nos dois mapas, a montagem usa supressor híbrido, cano longo, empunhadura angulada, munição FMJ, carregador de cinto de 100 cartuchos e mira 1.75x. O cano longo e o supressor reforçam a precisão e o controle da arma a distância, e o carregador de cinto segura a rajada longa que a LMG exige.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/l110"
     },
     {
       "weapon": "m60",
-      "advice": "A montagem é a mesma em mapa grande e pequeno: cano longo, empunhadura angulada, munição FMJ, supressor híbrido, carregador de 50 cartuchos e mira 1,75x. A peça longa e o supressor priorizam o alcance e a estabilidade da arma em trocas a distância.",
+      "advice": "A montagem é igual em mapa grande e pequeno: supressor híbrido, cano longo de 22 polegadas, empunhadura angulada, munição FMJ, carregador de 50 cartuchos e mira 1.75x. Ela prioriza alcance e precisão, com o cano longo e a mira de ampliação média para manter a arma útil em combate a distância.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/m60"
     },
     {
       "weapon": "m240l",
-      "advice": "Nos dois mapas a montagem é igual: cano médio-curto, empunhadura baixa e compacta, munição FMJ, compensador na boca, carregador de cinto de 75 cartuchos e mira 1,75x. A empunhadura compacta e o compensador buscam controlar o recuo e manter a arma estável durante rajadas.",
+      "advice": "A montagem é igual nos dois mapas: cano longo, empunhadura curta de perfil baixo, munição FMJ, compensador, carregador de cinto de 75 cartuchos e mira 1.75x. O compensador e a empunhadura curta controlam o recuo, e o cano longo com mira média mantém a arma eficiente à distância.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/m240l"
     },
     {
       "weapon": "m121-a2",
-      "advice": "As montagens dos dois mapas são iguais: cano longo de 660 mm, empunhadura angulada estreita, munição FMJ, supressor leve, carregador de cinto de 50 cartuchos, acessório de luz no lado direito e mira 1x. A combinação prioriza alcance e controle, deixando a arma mais estável em disparos de média e longa distância.",
+      "advice": "A montagem é igual nos dois mapas: cano longo de 660 mm, empunhadura angulada fina, supressor leve, munição FMJ, carregador de cinto de 50 cartuchos, acessório lateral com laser e mira 1x. O cano longo e o supressor leve dão alcance e controle, enquanto a mira 1x e o laser deixam a arma mais rápida para mirar de perto.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/m121-a2"
     },
     {
       "weapon": "rpk-74m",
-      "advice": "No mapa grande, a montagem usa cano de fábrica de 590 mm, empunhadura angulada, munição FMJ, supressor leve, amortecedor de ergonomia, carregador de 45 cartuchos, acessório de luz no topo e mira 1,75x, o que reforça a estabilidade e o alcance. No mapa pequeno, o cano é estendido e o supressor é híbrido, com mira 1x e acessório de luz verde, sem o amortecedor, para ganhar mobilidade e resposta rápi",
+      "advice": "No mapa grande, a montagem usa cano padrão, empunhadura angulada, munição FMJ, supressor leve, peça de ergonomia, carregador de 45 cartuchos, laser superior e mira 1.75x, o que dá equilíbrio entre controle e mira. No mapa pequeno, ela troca para cano estendido, supressor híbrido, sem peça de ergonomia, laser verde e mira 1x, reforçando o alcance e a agilidade para os combates mais curtos.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/rpk-74m"
     },
     {
       "weapon": "lmr27",
-      "advice": "As montagens dos dois mapas são iguais: cano estendido de 24 polegadas, empunhadura baixa e compacta, munição FMJ, compensador de flash na boca, acessório de mira reflex inclinado, carregador de 10 cartuchos e mira 5x. A mira de longo alcance e o cano longo reforçam a precisão à distância, compensando a baixa capacidade do carregador.",
+      "advice": "A montagem é igual nos dois mapas: cano estendido de 24 polegadas, empunhadura curta de perfil baixo, munição FMJ, compensador de flash, mira reflex inclinada como acessório de mira, carregador de 10 cartuchos e mira 5x. A combinação de cano longo, mira de longo alcance e empunhadura baixa reforça a precisão a distância, que é o ponto forte de um DMR.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/lmr27"
     },
     {
       "weapon": "m39-emr",
-      "advice": "As montagens de mapa grande e pequeno são iguais: cano estendido, empunhadura vertical, boca supressora híbrida, munição FMJ, carregador de 20 tiros e mira 3x. A combinação aposta em controle e precisão para uma arma de alcance médio, que nas estatísticas tem controle baixo (14) e precisão 55.",
+      "advice": "Nos mapas grande e pequeno, a montagem usa cano estendido, empunhadura vertical, munição FMJ, supressor híbrido na boca, carregador de 20 tiros e mira 3x. É uma configuração de alcance, que reforça a precisão (55 nas estatísticas), enquanto o controle fica baixo (14).",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/m39-emr"
     },
     {
       "weapon": "m2010-esr",
-      "advice": "As montagens de mapa grande e pequeno são iguais: cano de carbono de 26 polegadas, munição de nível competição, supressor padrão, telêmetro no acessório lateral esquerdo, revestimento antirreflexo na mira, carregador de 8 tiros e mira 8x. A montagem foca em precisão máxima e alcance, já que a arma tem precisão 100 e é a primeira colocada no ranking de sniper.",
+      "advice": "Nos dois mapas, a montagem usa cano de 26 polegadas em fibra de carbono, munição de competição, supressor padrão na boca, acessório lateral esquerdo de telêmetro, acessório de mira antirreflexo, carregador de 8 tiros e mira 8x. É um fuzil de precisão para longa distância, com precisão de 100 e cabeça com multiplicador x1.7 nas estatísticas.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/m2010-esr"
     },
     {
       "weapon": "sv-98",
-      "advice": "Nos dois mapas, a montagem leva cano longo, empunhadura angulada, munição de precisão (match grade) e carregador de 10 tiros, com mira de 6x, acessório de telêmetro na lateral esquerda, acessório antirreflexo na mira e luz verde na lateral direita. A combinação prioriza estabilidade e precisão à distância, sem diferença entre mapa grande e pequeno.",
+      "advice": "Nos dois mapas a montagem usa supressor na boca, cano longo de 730 mm, empunhadura angulada, munição de precisão, carregador de 10 tiros e mira 6x, com acessório de telêmetro na lateral esquerda. A combinação reforça a precisão e o controle de uma arma de ferrolho que já é de longo alcance.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/sv-98"
     },
     {
       "weapon": "m357-trait",
-      "advice": "Nos mapas grandes e pequenos a montagem é a mesma: cano básico, acessório de luz verde embaixo do cano, munição de ponta oca, carregador de 8 tiros do tipo speedloader e mira 1x. Ela troca a empunhadura de longo alcance por um laser embaixo do cano e munição de ponta oca, em vez de mira de ferro e munição padrão.",
+      "advice": "Nos mapas grande e pequeno, a montagem é a mesma: cano básico, acessório de cano inferior, munição de ponta oca, carregador tipo speedloader de 8 tiros e mira de 1x. A montagem traz munição de ponta oca e mira de 1x, sem indicar outro motivo além da lista de peças.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/m357-trait"
     },
     {
       "weapon": "grt-bc",
-      "advice": "Nos mapas grande e pequeno, a montagem usa cano de fábrica, empunhadura curta estriada, munição FMJ, compensador linear, carregador de 36 tiros, acessório lateral e mira 1.25x. A combinação prioriza estabilidade e controle no tiro com uma mira de ampliação baixa, enquanto a arma aparece com nota B no ranking.",
+      "advice": "Montagem idêntica nos dois mapas: cano de 10 polegadas, empunhadura curta estriada, munição FMJ, compensador linear, carregador de 36 tiros, laser no lado direito e mira 1,25x. A ideia é uma arma equilibrada com controle e ponta de mira de alcance curto a médio, com precisão menor que as carabinas de topo.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/grt-bc"
     },
     {
       "weapon": "rspr",
-      "advice": "As montagens usam cano curto, empunhadura angulada estreita, munição FMJ, boca supressora longa, carregador de 28 tiros e mira 1x, iguais nos mapas grande e pequeno. A combinação prioriza manuseio e controle em combate de curta distância, que é o uso indicado pelo ranking da arma.",
+      "advice": "Nos dois mapas, a montagem usa cano longo, supressor longo, empunhadura angulada, munição FMJ, carregador de 28 munições e mira 1,00x. Ela reforça a arma em combate de curta distância (o ranking a classifica como Close Range) e dá mais controle de recuo e precisão.",
       "source": "https://wzstats.gg/battlefield-6/best-loadouts/rspr"
     },
     {
       "weapon": "mk-24",
-      "advice": "Para médio e longo alcance, a comunidade monta supressor leve, cano longo, empunhadura vertical, carregador de 25 ou 30 tiros em vez do de 20 padrão, munição de ponta oca e mira de ampliação baixa. Essa combinação corrige o recuo vertical nas rajadas e a pouca munição do carregador padrão, mantendo a arma útil além da distância de sala.",
-      "source": "https://www.scenegamers.com/en/artikel/mk-24-das-beste-loadout-fur-battlefield-6-im-multiplayer.html"
+      "advice": "A comunidade monta supressor leve, cano de cerca de 18 polegadas, empunhadura vertical, carregador de 30 tiros e munição de ponta oca, com mira de aumento médio para alcance. O carregador de 30 tiros compensa a pouca capacidade do carregador padrão, e o cano longo e a empunhadura vertical ajudam na distância e no controle do recuo. Um guia recente ainda usa o carregador de 20 tiros com mira de 1,2",
+      "source": "https://battlefinity.gg/weapon/BF6/mk-24"
     },
     {
       "weapon": "z84m",
-      "advice": "Para curta distância, a comunidade prefere supressor longo, cano leve de cerca de 605 mm, empunhadura angulada, laser no trilho superior, carregador de 100 tiros e munição blindada (FMJ). Essa montagem aproveita o tempo de abate de curta distância, que é o ponto forte da Z84M, e melhora o manejo para entrar em prédios e corredores.",
+      "advice": "Para curta distância, o build mais citado combina supressor longo, cano de cerca de 605 mm, laser de ponto violeta, empunhadura inclinada e carregador de 100 tiros. A ideia é deixar a arma mais controlável, já que o peso do manuseio é o ponto fraco dela, enquanto o carregador de 100 tiros dá volume de fogo. Para média distância, a versão mais comentada troca o supressor e o cano por opções mais le",
       "source": "https://www.scenegamers.com/en/artikel/z84m-das-beste-loadout-fur-battlefield-6-im-multiplayer.html"
     },
     {
       "weapon": "elr-40",
-      "advice": "Para longo alcance, a comunidade monta supressor compacto ou longo, cano completo de 29 polegadas, empunhadura angulada, carregador de tiro único, munição blindada e mira LPVO, com anti-reflexo na óptica. O carregador de tiro único sobe o dano base de 100 para 120, o que garante o abate de um tiro no peito a cerca de 30 a 60 metros, e a montagem fica completa só no nível 40. Não encontrei post rec",
-      "source": "https://timesaver.gg/blog/battlefield-6-elr-40-sweet-spot-single-shot-unlock-loadout"
+      "advice": "A comunidade monta a ELR-40 para alcance planejado: supressor longo, cano leve de 29 polegadas, empunhadura inclinada, carregador de tiro único, munição padrão, acessório anti-reflexo na mira e uma mira de 6x ou mais. O carregador de tiro único sobe o dano para 120, mas troca a cadência por apenas um tiro por carregamento, por isso o build é visto como especialista e não como solução para todas as",
+      "source": "https://www.gamsgo.com/blog/best-battlefield-6-guns"
     },
     {
       "weapon": "nsw4",
-      "advice": "Para curta e média distância, a comunidade monta supressor longo, cano de 10,5 polegadas, empunhadura vertical ou angulada, carregador de 30 tiros e munição FMJ de alta velocidade no lugar da subsônica padrão. A munição de alta velocidade corrige a perda de força da NSW4 além de 10 metros, enquanto a versão de ponta oca vale só para o combate mais próximo no nível 40.",
-      "source": "https://timesaver.gg/blog/battlefield-6-nsw4-loadout-unlock-vs-sor-300sc"
+      "advice": "A comunidade monta a NSW4 com supressor longo ou leve, cano de 10,5 polegadas, empunhadura inclinada ou vertical serrilhada, carregador de 30 tiros e munição supersônica (FMJ) no lugar da subsônica padrão. A munição supersônica dá mais velocidade de projétil em troca de furtividade, e o carregador de 30 tiros evita a penalidade de saque que alguns carregadores estendidos ganharam na atualização 2.",
+      "source": "https://unplayed.gg/blog/bf6-nsw4-carbine"
     }
   ],
   "sources": [
     {
       "name": "wzstats.gg — montagens da AK4D",
       "url": "https://wzstats.gg/battlefield-6/best-loadouts/ak4d",
-      "date": "2026-11-23"
+      "date": "2026-11-25"
     },
     {
       "name": "wzstats.gg — montagens da TR-7",
       "url": "https://wzstats.gg/battlefield-6/best-loadouts/tr-7",
-      "date": "2026-11-23"
+      "date": "2026-11-25"
     },
     {
       "name": "wzstats.gg — montagens da SOR-556 Mk2",
       "url": "https://wzstats.gg/battlefield-6/best-loadouts/sor-556-mk2",
-      "date": "2026-11-23"
+      "date": "2026-11-25"
     },
     {
       "name": "wzstats.gg — montagens da B36A4",
       "url": "https://wzstats.gg/battlefield-6/best-loadouts/b36a4",
-      "date": "2026-11-23"
+      "date": "2026-11-25"
     },
     {
       "name": "wzstats.gg — montagens da L85A3",
       "url": "https://wzstats.gg/battlefield-6/best-loadouts/l85a3",
-      "date": "2026-11-23"
+      "date": "2026-11-25"
     },
     {
       "name": "wzstats.gg — montagens da M433",
       "url": "https://wzstats.gg/battlefield-6/best-loadouts/m433",
-      "date": "2026-11-23"
+      "date": "2026-11-25"
     },
     {
       "name": "wzstats.gg — montagens da KORD 6P67",
       "url": "https://wzstats.gg/battlefield-6/best-loadouts/kord-6p67",
-      "date": "2026-11-23"
+      "date": "2026-11-25"
     },
     {
       "name": "wzstats.gg — montagens da NVO-228E",
       "url": "https://wzstats.gg/battlefield-6/best-loadouts/nvo-228e",
-      "date": "2026-11-23"
+      "date": "2026-11-25"
     },
     {
       "name": "wzstats.gg — montagens da EF88",
       "url": "https://wzstats.gg/battlefield-6/best-loadouts/ef88",
-      "date": "2026-11-23"
+      "date": "2026-11-25"
     },
     {
       "name": "wzstats.gg — montagens da VCR-2",
       "url": "https://wzstats.gg/battlefield-6/best-loadouts/vcr-2",
-      "date": "2026-11-23"
+      "date": "2026-11-25"
     },
     {
       "name": "wzstats.gg — montagens da M16A4",
       "url": "https://wzstats.gg/battlefield-6/best-loadouts/m16a4",
-      "date": "2026-11-23"
+      "date": "2026-11-25"
     },
     {
       "name": "wzstats.gg — montagens da M4A1",
       "url": "https://wzstats.gg/battlefield-6/best-loadouts/m4a1",
-      "date": "2026-11-23"
+      "date": "2026-11-25"
     }
   ],
   "withoutEvidence": []
